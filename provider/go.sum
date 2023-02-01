@@ -1742,10 +1742,10 @@ github.com/zclconf/go-cty-debug v0.0.0-20191215020915-b22d67c1ba0b/go.mod h1:ZRK
 github.com/zclconf/go-cty-yaml v1.0.1 h1:up11wlgAaDvlAGENcFDnZgkn0qUJurso7k6EpURKNF8=
 github.com/zclconf/go-cty-yaml v1.0.1/go.mod h1:IP3Ylp0wQpYm50IHK8OZWKMu6sPJIUgKa8XhiVHura0=
 github.com/zenazn/goji v0.9.0/go.mod h1:7S9M489iMyHBNxwZnk9/EHS098H4/F6TATF2mIxtB1Q=
-github.com/zscaler/terraform-provider-zia/v2 v2.3.6 h1:8VBOM9AIoUQ499ZpkqMVnojRrwxEVOqkKsNhsTW4hd0=
-github.com/zscaler/terraform-provider-zia/v2 v2.3.6/go.mod h1:CmFWxuaxH65G04XsOUjlhdx+F7xWbXe7zy44/gubqtg=
-github.com/zscaler/zscaler-sdk-go v0.6.1 h1:7mP2AyxrpT/wl3lC1NMNlqXG7lbDkeurAHMKRDmMyWg=
-github.com/zscaler/zscaler-sdk-go v0.6.1/go.mod h1:ta9P9guhFY1ivEhesMUjdJ3+40AHsJOR4dEUDXLQ6z8=
+github.com/zscaler/terraform-provider-zia/v2 v2.4.0 h1:/k8fv/cfYsN8JwsVy/A0EyENOlcc1hRyqaDkjJ9roDg=
+github.com/zscaler/terraform-provider-zia/v2 v2.4.0/go.mod h1:D/XfU/OhyZR85hx+WM77AF6nUBEv1JNaPe9Nl+nbNik=
+github.com/zscaler/zscaler-sdk-go v0.7.1 h1:ANyh2wR1SaPjSE4JuJPtbJygLuvqBYpe+eje5BWL8+A=
+github.com/zscaler/zscaler-sdk-go v0.7.1/go.mod h1:ta9P9guhFY1ivEhesMUjdJ3+40AHsJOR4dEUDXLQ6z8=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 go.etcd.io/bbolt v1.3.3/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 go.etcd.io/bbolt v1.3.5/go.mod h1:G5EMThwa9y8QZGBClrRx5EY+Yw9kAhnjy3bSjsnlVTQ=
