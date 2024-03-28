@@ -15,6 +15,6 @@ jobs:
       issues: write
     steps:
       - name: Call upgrade provider action
-        uses: pulumi/pulumi-upgrade-provider-action@v0.0.11
+        uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
         env:
           GH_TOKEN: ${{ github.token }}
