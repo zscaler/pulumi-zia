@@ -1,0 +1,1946 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "zia_activation_status": {
+                "current": "zia:index/activationStatus:ActivationStatus"
+            },
+            "zia_admin_users": {
+                "current": "zia:index/adminUsers:AdminUsers",
+                "fields": {
+                    "admin_scope_entities": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "role": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_auth_settings_urls": {
+                "current": "zia:index/authSettingsURLs:AuthSettingsURLs",
+                "fields": {
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_dictionaries": {
+                "current": "zia:index/dLPDictionaries:DLPDictionaries",
+                "fields": {
+                    "bin_numbers": {
+                        "maxItemsOne": false
+                    },
+                    "exact_data_match_details": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "secondary_fields": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "idm_profile_match_accuracy": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "adp_idm_profile": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "patterns": {
+                        "maxItemsOne": false
+                    },
+                    "phrases": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_engines": {
+                "current": "zia:index/dLPEngines:DLPEngines"
+            },
+            "zia_dlp_notification_templates": {
+                "current": "zia:index/dLPNotificationTemplates:DLPNotificationTemplates"
+            },
+            "zia_dlp_web_rules": {
+                "current": "zia:index/dLPWebRules:DLPWebRules",
+                "fields": {
+                    "auditor": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "cloud_applications": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dlp_engines": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "excluded_departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "excluded_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "excluded_users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "file_types": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "icap_server": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "notification_template": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "protocols": {
+                        "maxItemsOne": false
+                    },
+                    "sub_rules": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "url_categories": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "user_risk_score_levels": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_destination_groups": {
+                "current": "zia:index/firewallFilteringDestinationGroups:FirewallFilteringDestinationGroups",
+                "fields": {
+                    "addresses": {
+                        "maxItemsOne": false
+                    },
+                    "countries": {
+                        "maxItemsOne": false
+                    },
+                    "ip_categories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_ip_source_groups": {
+                "current": "zia:index/firewallFilteringSourceGroups:FirewallFilteringSourceGroups",
+                "fields": {
+                    "ip_addresses": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_application_groups": {
+                "current": "zia:index/firewallFilteringApplicationGroups:FirewallFilteringApplicationGroups",
+                "fields": {
+                    "network_applications": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_service": {
+                "current": "zia:index/firewallFilteringNetworkServices:FirewallFilteringNetworkServices",
+                "fields": {
+                    "dest_tcp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "dest_udp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "src_tcp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "src_udp_ports": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_service_groups": {
+                "current": "zia:index/firewallFilteringServiceGroups:FirewallFilteringServiceGroups",
+                "fields": {
+                    "services": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_firewall_filtering_rule": {
+                "current": "zia:index/firewallFilteringRule:FirewallFilteringRule",
+                "fields": {
+                    "app_service_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "app_services": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "device_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "device_trust_levels": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_application_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_applications": {
+                        "maxItemsOne": false
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_services": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_forwarding_control_rule": {
+                "current": "zia:index/forwardingControlRule:ForwardingControlRule",
+                "fields": {
+                    "app_service_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dest_ipv6_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ec_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_application_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_services": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "proxy_gateway": {
+                        "maxItemsOne": true
+                    },
+                    "res_categories": {
+                        "maxItemsOne": false
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "src_ipv6_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_application_segment_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zpa_application_segments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zpa_gateway": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "zia_forwarding_control_zpa_gateway": {
+                "current": "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway",
+                "fields": {
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_server_group": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "zia_location_management": {
+                "current": "zia:index/locationManagement:LocationManagement",
+                "fields": {
+                    "ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "vpn_credentials": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_rule_labels": {
+                "current": "zia:index/ruleLabels:RuleLabels"
+            },
+            "zia_sandbox_behavioral_analysis": {
+                "current": "zia:index/sandboxBehavioralAnalysis:SandboxBehavioralAnalysis",
+                "fields": {
+                    "file_hashes_to_be_blocked": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_sandbox_file_submission": {
+                "current": "zia:index/sandboxFileSubmission:SandboxFileSubmission"
+            },
+            "zia_security_settings": {
+                "current": "zia:index/securitySettings:SecuritySettings",
+                "fields": {
+                    "blacklist_urls": {
+                        "maxItemsOne": false
+                    },
+                    "whitelist_urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_gre_tunnel": {
+                "current": "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel",
+                "fields": {
+                    "primary_dest_vip": {
+                        "maxItemsOne": false
+                    },
+                    "secondary_dest_vip": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_static_ip": {
+                "current": "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP"
+            },
+            "zia_traffic_forwarding_vpn_credentials": {
+                "current": "zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials"
+            },
+            "zia_url_categories": {
+                "current": "zia:index/uRLCategories:URLCategories",
+                "fields": {
+                    "db_categorized_urls": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ranges": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ranges_retaining_parent_category": {
+                        "maxItemsOne": false
+                    },
+                    "keywords": {
+                        "maxItemsOne": false
+                    },
+                    "keywords_retaining_parent_category": {
+                        "maxItemsOne": false
+                    },
+                    "scopes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scope_entities": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "id": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "scope_group_member_entities": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "id": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "url_keyword_counts": {
+                        "maxItemsOne": true
+                    },
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_url_filtering_rules": {
+                "current": "zia:index/uRLFilteringRules:URLFilteringRules",
+                "fields": {
+                    "cbi_profile": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "device_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "device_trust_levels": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "override_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "override_users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "protocols": {
+                        "maxItemsOne": false
+                    },
+                    "request_methods": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "url_categories": {
+                        "maxItemsOne": false
+                    },
+                    "user_agent_types": {
+                        "maxItemsOne": false
+                    },
+                    "user_risk_score_levels": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_user_management": {
+                "current": "zia:index/userManagement:UserManagement",
+                "fields": {
+                    "auth_methods": {
+                        "maxItemsOne": false
+                    },
+                    "department": {
+                        "maxItemsOne": true
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "datasources": {
+            "zia_activation_status": {
+                "current": "zia:index/getActivationStatus:getActivationStatus"
+            },
+            "zia_admin_roles": {
+                "current": "zia:index/getAdminRoles:getAdminRoles",
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_admin_users": {
+                "current": "zia:index/getAdminUsers:getAdminUsers",
+                "fields": {
+                    "admin_scope": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scope_entities": {
+                                    "maxItemsOne": false
+                                },
+                                "scope_group_member_entities": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "exec_mobile_app_tokens": {
+                        "maxItemsOne": false
+                    },
+                    "role": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_auth_settings_urls": {
+                "current": "zia:index/getAuthSettingsURLs:getAuthSettingsURLs",
+                "fields": {
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_cloud_browser_isolation_profile": {
+                "current": "zia:index/getCbiProfile:getCbiProfile"
+            },
+            "zia_department_management": {
+                "current": "zia:index/getDepartmentManagement:getDepartmentManagement"
+            },
+            "zia_device_groups": {
+                "current": "zia:index/getDeviceGroups:getDeviceGroups"
+            },
+            "zia_devices": {
+                "current": "zia:index/getDevices:getDevices"
+            },
+            "zia_dlp_dictionaries": {
+                "current": "zia:index/getDLPDictionaries:getDLPDictionaries",
+                "fields": {
+                    "bin_numbers": {
+                        "maxItemsOne": false
+                    },
+                    "exact_data_match_details": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "secondary_fields": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "idm_profile_match_accuracy": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "adp_idm_profile": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "patterns": {
+                        "maxItemsOne": false
+                    },
+                    "phrases": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_edm_schema": {
+                "current": "zia:index/getDLPEDMSchema:getDLPEDMSchema",
+                "fields": {
+                    "created_by": {
+                        "maxItemsOne": false
+                    },
+                    "edm_client": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "schedule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "schedule_day_of_month": {
+                                    "maxItemsOne": false
+                                },
+                                "schedule_day_of_week": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "token_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_engines": {
+                "current": "zia:index/getDLPEngines:getDLPEngines"
+            },
+            "zia_dlp_icap_servers": {
+                "current": "zia:index/getIcapServers:getIcapServers"
+            },
+            "zia_dlp_idm_profile_lite": {
+                "current": "zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite",
+                "fields": {
+                    "client_vm": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_idm_profiles": {
+                "current": "zia:index/getDLPIDMProfiles:getDLPIDMProfiles",
+                "fields": {
+                    "idm_client": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "schedule_day_of_month": {
+                        "maxItemsOne": false
+                    },
+                    "schedule_day_of_week": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_dlp_incident_receiver_servers": {
+                "current": "zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers"
+            },
+            "zia_dlp_notification_templates": {
+                "current": "zia:index/getDLPNotificationTemplates:getDLPNotificationTemplates"
+            },
+            "zia_dlp_web_rules": {
+                "current": "zia:index/getDLPWebRules:getDLPWebRules",
+                "fields": {
+                    "auditor": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_applications": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "dlp_engines": {
+                        "maxItemsOne": false
+                    },
+                    "excluded_departments": {
+                        "maxItemsOne": false
+                    },
+                    "excluded_groups": {
+                        "maxItemsOne": false
+                    },
+                    "excluded_users": {
+                        "maxItemsOne": false
+                    },
+                    "file_types": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "icap_server": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "location_groups": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "notification_template": {
+                        "maxItemsOne": false
+                    },
+                    "protocols": {
+                        "maxItemsOne": false
+                    },
+                    "sub_rules": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": false
+                    },
+                    "url_categories": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expression_json": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "expression_containers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tag_container": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "tags": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "last_modified_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_firewall_filtering_application_services": {
+                "current": "zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices"
+            },
+            "zia_firewall_filtering_application_services_group": {
+                "current": "zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups"
+            },
+            "zia_firewall_filtering_destination_groups": {
+                "current": "zia:index/getFirewallFilteringDestinationGroups:getFirewallFilteringDestinationGroups",
+                "fields": {
+                    "addresses": {
+                        "maxItemsOne": false
+                    },
+                    "countries": {
+                        "maxItemsOne": false
+                    },
+                    "ip_categories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_ip_source_groups": {
+                "current": "zia:index/getFirewallFilteringSourceIPGroups:getFirewallFilteringSourceIPGroups",
+                "fields": {
+                    "ip_addresses": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_application": {
+                "current": "zia:index/getFirewallFilteringApplication:getFirewallFilteringApplication"
+            },
+            "zia_firewall_filtering_network_application_groups": {
+                "current": "zia:index/getFirewallFilteringApplicationGroups:getFirewallFilteringApplicationGroups",
+                "fields": {
+                    "network_applications": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_service": {
+                "current": "zia:index/getFirewallFilteringNetworkServices:getFirewallFilteringNetworkServices",
+                "fields": {
+                    "dest_tcp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "dest_udp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "src_tcp_ports": {
+                        "maxItemsOne": false
+                    },
+                    "src_udp_ports": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_network_service_groups": {
+                "current": "zia:index/getFirewallFilteringNetworkServiceGroups:getFirewallFilteringNetworkServiceGroups",
+                "fields": {
+                    "services": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_rule": {
+                "current": "zia:index/getFirewallFilteringRule:getFirewallFilteringRule",
+                "fields": {
+                    "app_service_groups": {
+                        "maxItemsOne": false
+                    },
+                    "app_services": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "device_groups": {
+                        "maxItemsOne": false
+                    },
+                    "device_trust_levels": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "location_groups": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "nw_application_groups": {
+                        "maxItemsOne": false
+                    },
+                    "nw_applications": {
+                        "maxItemsOne": false
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": false
+                    },
+                    "nw_services": {
+                        "maxItemsOne": false
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expression_json": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "expression_containers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tag_container": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "tags": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "last_modified_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_firewall_filtering_time_window": {
+                "current": "zia:index/getTimeWindow:getTimeWindow",
+                "fields": {
+                    "day_of_week": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_forwarding_control_rule": {
+                "current": "zia:index/getForwardingControlRule:getForwardingControlRule",
+                "fields": {
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ipv6_groups": {
+                        "maxItemsOne": false
+                    },
+                    "device_groups": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
+                    "ec_groups": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "location_groups": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "nw_application_groups": {
+                        "maxItemsOne": false
+                    },
+                    "nw_applications": {
+                        "maxItemsOne": false
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": false
+                    },
+                    "nw_services": {
+                        "maxItemsOne": false
+                    },
+                    "proxy_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "res_categories": {
+                        "maxItemsOne": false
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "src_ipv6_groups": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_application_segment_groups": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_application_segments": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_gateway": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_forwarding_control_zpa_gateway": {
+                "current": "zia:index/getForwardingControlZPAGateway:getForwardingControlZPAGateway",
+                "fields": {
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_app_segments": {
+                        "maxItemsOne": false
+                    },
+                    "zpa_server_group": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_gre_internal_ip_range_list": {
+                "current": "zia:index/getTrafficForwardingGREInternalIPRange:getTrafficForwardingGREInternalIPRange",
+                "fields": {
+                    "list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_group_management": {
+                "current": "zia:index/getGroupManagement:getGroupManagement"
+            },
+            "zia_location_groups": {
+                "current": "zia:index/getLocationGroups:getLocationGroups",
+                "fields": {
+                    "dynamic_location_group_criteria": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "city": {
+                                    "maxItemsOne": false
+                                },
+                                "countries": {
+                                    "maxItemsOne": false
+                                },
+                                "managed_by": {
+                                    "maxItemsOne": false
+                                },
+                                "name": {
+                                    "maxItemsOne": false
+                                },
+                                "profiles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "last_mod_user": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_location_lite": {
+                "current": "zia:index/getLocationLite:getLocationLite"
+            },
+            "zia_location_management": {
+                "current": "zia:index/getLocationManagement:getLocationManagement",
+                "fields": {
+                    "ip_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "vpn_credentials": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "location": {
+                                    "maxItemsOne": false
+                                },
+                                "managed_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_rule_labels": {
+                "current": "zia:index/getRuleLabels:getRuleLabels",
+                "fields": {
+                    "created_by": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_sandbox_behavioral_analysis": {
+                "current": "zia:index/getSandboxBehavioralAnalysis:getSandboxBehavioralAnalysis",
+                "fields": {
+                    "file_hashes_to_be_blocked": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_sandbox_report": {
+                "current": "zia:index/getSandboxReport:getSandboxReport",
+                "fields": {
+                    "classification": {
+                        "maxItemsOne": false
+                    },
+                    "exploit": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "file_properties": {
+                        "maxItemsOne": false
+                    },
+                    "networking": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "origin": {
+                        "maxItemsOne": false
+                    },
+                    "persistence": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "security_bypass": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "spyware": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "stealth": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "summary": {
+                        "maxItemsOne": false
+                    },
+                    "system_summary": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature_sources": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_security_settings": {
+                "current": "zia:index/getSecuritySettings:getSecuritySettings",
+                "fields": {
+                    "blacklist_urls": {
+                        "maxItemsOne": false
+                    },
+                    "whitelist_urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_gre_tunnel": {
+                "current": "zia:index/getTrafficForwardingGRETunnel:getTrafficForwardingGRETunnel",
+                "fields": {
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "managed_by": {
+                        "maxItemsOne": false
+                    },
+                    "primary_dest_vip": {
+                        "maxItemsOne": false
+                    },
+                    "secondary_dest_vip": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_gre_tunnel_info": {
+                "current": "zia:index/getTrafficForwardingGRETunnelInfo:getTrafficForwardingGRETunnelInfo"
+            },
+            "zia_traffic_forwarding_gre_vip_recommended_list": {
+                "current": "zia:index/getTrafficForwardingVIPRecommendedList:getTrafficForwardingVIPRecommendedList",
+                "fields": {
+                    "list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_public_node_vips": {
+                "current": "zia:index/getTrafficForwardingNodeVIPs:getTrafficForwardingNodeVIPs",
+                "fields": {
+                    "gre_ips": {
+                        "maxItemsOne": false
+                    },
+                    "pac_ips": {
+                        "maxItemsOne": false
+                    },
+                    "vpn_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_static_ip": {
+                "current": "zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP",
+                "fields": {
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "managed_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_traffic_forwarding_vpn_credentials": {
+                "current": "zia:index/getTrafficForwardingVPNCredentials:getTrafficForwardingVPNCredentials",
+                "fields": {
+                    "location": {
+                        "maxItemsOne": false
+                    },
+                    "managed_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_url_categories": {
+                "current": "zia:index/getURLCategories:getURLCategories",
+                "fields": {
+                    "db_categorized_urls": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ranges": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ranges_retaining_parent_category": {
+                        "maxItemsOne": false
+                    },
+                    "keywords": {
+                        "maxItemsOne": false
+                    },
+                    "keywords_retaining_parent_category": {
+                        "maxItemsOne": false
+                    },
+                    "scopes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scope_entities": {
+                                    "maxItemsOne": false
+                                },
+                                "scope_group_member_entities": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "url_keyword_counts": {
+                        "maxItemsOne": false
+                    },
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_url_filtering_rules": {
+                "current": "zia:index/getURLFilteringRules:getURLFilteringRules",
+                "fields": {
+                    "cbi_profile": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "device_groups": {
+                        "maxItemsOne": false
+                    },
+                    "device_trust_levels": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "location_groups": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "override_groups": {
+                        "maxItemsOne": false
+                    },
+                    "override_users": {
+                        "maxItemsOne": false
+                    },
+                    "protocols": {
+                        "maxItemsOne": false
+                    },
+                    "request_methods": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": false
+                    },
+                    "url_categories": {
+                        "maxItemsOne": false
+                    },
+                    "user_agent_types": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    },
+                    "workload_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expression_json": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "expression_containers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tag_container": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "tags": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "last_modified_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_user_management": {
+                "current": "zia:index/getUserManagement:getUserManagement",
+                "fields": {
+                    "auth_methods": {
+                        "maxItemsOne": false
+                    },
+                    "department": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_workload_groups": {
+                "current": "zia:index/getWorkloadGroups:getWorkloadGroups",
+                "fields": {
+                    "expression_json": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expression_containers": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tag_container": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tags": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        }
+    },
+    "auto-settings": {}
+}

@@ -1,0 +1,6 @@
+name: zia_firewall_filtering_destination_groups
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal Python Pulumi program

@@ -1,0 +1,6 @@
+name: zia_traffic_forwarding_vpn_credentials
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal Python Pulumi program

@@ -1,0 +1,3 @@
+name: zia_traffic_forwarding_static_ip
+runtime: nodejs
+description: A minimal TypeScript Pulumi program

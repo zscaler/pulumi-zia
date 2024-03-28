@@ -1,0 +1,6 @@
+name: zia_firewall_filtering_ip_source_groups
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal Python Pulumi program
