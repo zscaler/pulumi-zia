@@ -135,7 +135,7 @@ namespace zscaler.PulumiPackage.Zia
         public readonly int Id;
         public readonly ImmutableArray<Outputs.GetDLPDictionariesIdmProfileMatchAccuracyResult> IdmProfileMatchAccuracies;
         /// <summary>
-        /// (Boolean) Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        /// (Boolean) Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         public readonly bool IgnoreExactMatchIdmDict;
         /// <summary>

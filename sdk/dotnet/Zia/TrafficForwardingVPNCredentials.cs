@@ -72,9 +72,9 @@ namespace zscaler.PulumiPackage.Zia
     ///         PreSharedKey = "*********************",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             exampleTrafficForwardingStaticIP,
+    ///             exampleTrafficForwardingStaticIP, 
     ///         },
     ///     });
     /// 

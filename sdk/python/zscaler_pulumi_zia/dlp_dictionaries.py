@@ -40,7 +40,7 @@ class DLPDictionariesArgs:
         :param pulumi.Input[str] dictionary_type: The DLP dictionary type. The following values are supported:
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesExactDataMatchDetailArgs']]] exact_data_match_details: Exact Data Match (EDM) related information for custom DLP dictionaries.
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyArgs']]] idm_profile_match_accuracies: List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
-        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         :param pulumi.Input[bool] include_bin_numbers: A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         :param pulumi.Input[str] name: The DLP dictionary's name
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesPatternArgs']]] patterns: List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries. Required when `dictionary_type` is `PATTERNS_AND_PHRASES`
@@ -176,7 +176,7 @@ class DLPDictionariesArgs:
     @pulumi.getter(name="ignoreExactMatchIdmDict")
     def ignore_exact_match_idm_dict(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         """
         return pulumi.get(self, "ignore_exact_match_idm_dict")
 
@@ -273,7 +273,7 @@ class _DLPDictionariesState:
         :param pulumi.Input[str] dictionary_type: The DLP dictionary type. The following values are supported:
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesExactDataMatchDetailArgs']]] exact_data_match_details: Exact Data Match (EDM) related information for custom DLP dictionaries.
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyArgs']]] idm_profile_match_accuracies: List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
-        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         :param pulumi.Input[bool] include_bin_numbers: A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         :param pulumi.Input[str] name: The DLP dictionary's name
         :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesPatternArgs']]] patterns: List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries. Required when `dictionary_type` is `PATTERNS_AND_PHRASES`
@@ -420,7 +420,7 @@ class _DLPDictionariesState:
     @pulumi.getter(name="ignoreExactMatchIdmDict")
     def ignore_exact_match_idm_dict(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         """
         return pulumi.get(self, "ignore_exact_match_idm_dict")
 
@@ -564,7 +564,7 @@ class DLPDictionaries(pulumi.CustomResource):
         :param pulumi.Input[str] dictionary_type: The DLP dictionary type. The following values are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesExactDataMatchDetailArgs']]]] exact_data_match_details: Exact Data Match (EDM) related information for custom DLP dictionaries.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesIdmProfileMatchAccuracyArgs']]]] idm_profile_match_accuracies: List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
-        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         :param pulumi.Input[bool] include_bin_numbers: A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         :param pulumi.Input[str] name: The DLP dictionary's name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesPatternArgs']]]] patterns: List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries. Required when `dictionary_type` is `PATTERNS_AND_PHRASES`
@@ -715,7 +715,7 @@ class DLPDictionaries(pulumi.CustomResource):
         :param pulumi.Input[str] dictionary_type: The DLP dictionary type. The following values are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesExactDataMatchDetailArgs']]]] exact_data_match_details: Exact Data Match (EDM) related information for custom DLP dictionaries.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesIdmProfileMatchAccuracyArgs']]]] idm_profile_match_accuracies: List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
-        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        :param pulumi.Input[bool] ignore_exact_match_idm_dict: Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         :param pulumi.Input[bool] include_bin_numbers: A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         :param pulumi.Input[str] name: The DLP dictionary's name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPDictionariesPatternArgs']]]] patterns: List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries. Required when `dictionary_type` is `PATTERNS_AND_PHRASES`
@@ -816,7 +816,7 @@ class DLPDictionaries(pulumi.CustomResource):
     @pulumi.getter(name="ignoreExactMatchIdmDict")
     def ignore_exact_match_idm_dict(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         """
         return pulumi.get(self, "ignore_exact_match_idm_dict")
 

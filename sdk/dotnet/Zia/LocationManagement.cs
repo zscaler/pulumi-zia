@@ -72,10 +72,10 @@ namespace zscaler.PulumiPackage.Zia
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             usaSjc37TrafficForwardingVPNCredentials,
-    ///             usaSjc37TrafficForwardingStaticIP,
+    ///             usaSjc37TrafficForwardingVPNCredentials, 
+    ///             usaSjc37TrafficForwardingStaticIP, 
     ///         },
     ///     });
     /// 

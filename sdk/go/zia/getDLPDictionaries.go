@@ -74,7 +74,7 @@ type LookupDLPDictionariesResult struct {
 	ExactDataMatchDetails     []GetDLPDictionariesExactDataMatchDetail    `pulumi:"exactDataMatchDetails"`
 	Id                        int                                         `pulumi:"id"`
 	IdmProfileMatchAccuracies []GetDLPDictionariesIdmProfileMatchAccuracy `pulumi:"idmProfileMatchAccuracies"`
-	// (Boolean) Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// (Boolean) Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict bool `pulumi:"ignoreExactMatchIdmDict"`
 	// (Boolean) A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers bool   `pulumi:"includeBinNumbers"`
@@ -180,7 +180,7 @@ func (o LookupDLPDictionariesResultOutput) IdmProfileMatchAccuracies() GetDLPDic
 	}).(GetDLPDictionariesIdmProfileMatchAccuracyArrayOutput)
 }
 
-// (Boolean) Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+// (Boolean) Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 func (o LookupDLPDictionariesResultOutput) IgnoreExactMatchIdmDict() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDLPDictionariesResult) bool { return v.IgnoreExactMatchIdmDict }).(pulumi.BoolOutput)
 }
