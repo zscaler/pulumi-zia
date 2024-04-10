@@ -114,7 +114,7 @@ export class DLPDictionaries extends pulumi.CustomResource {
      */
     public readonly idmProfileMatchAccuracies!: pulumi.Output<outputs.DLPDictionariesIdmProfileMatchAccuracy[]>;
     /**
-     * Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     public readonly ignoreExactMatchIdmDict!: pulumi.Output<boolean | undefined>;
     /**
@@ -227,7 +227,7 @@ export interface DLPDictionariesState {
      */
     idmProfileMatchAccuracies?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesIdmProfileMatchAccuracy>[]>;
     /**
-     * Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     ignoreExactMatchIdmDict?: pulumi.Input<boolean>;
     /**
@@ -289,7 +289,7 @@ export interface DLPDictionariesArgs {
      */
     idmProfileMatchAccuracies?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesIdmProfileMatchAccuracy>[]>;
     /**
-     * Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     ignoreExactMatchIdmDict?: pulumi.Input<boolean>;
     /**

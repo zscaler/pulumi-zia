@@ -94,7 +94,7 @@ type DLPDictionaries struct {
 	ExactDataMatchDetails DLPDictionariesExactDataMatchDetailArrayOutput `pulumi:"exactDataMatchDetails"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayOutput `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrOutput `pulumi:"ignoreExactMatchIdmDict"`
 	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolOutput `pulumi:"includeBinNumbers"`
@@ -155,7 +155,7 @@ type dlpdictionariesState struct {
 	ExactDataMatchDetails []DLPDictionariesExactDataMatchDetail `pulumi:"exactDataMatchDetails"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies []DLPDictionariesIdmProfileMatchAccuracy `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict *bool `pulumi:"ignoreExactMatchIdmDict"`
 	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers *bool `pulumi:"includeBinNumbers"`
@@ -187,7 +187,7 @@ type DLPDictionariesState struct {
 	ExactDataMatchDetails DLPDictionariesExactDataMatchDetailArrayInput
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayInput
-	// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrInput
 	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolPtrInput
@@ -222,7 +222,7 @@ type dlpdictionariesArgs struct {
 	ExactDataMatchDetails []DLPDictionariesExactDataMatchDetail `pulumi:"exactDataMatchDetails"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies []DLPDictionariesIdmProfileMatchAccuracy `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict *bool `pulumi:"ignoreExactMatchIdmDict"`
 	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers *bool `pulumi:"includeBinNumbers"`
@@ -254,7 +254,7 @@ type DLPDictionariesArgs struct {
 	ExactDataMatchDetails DLPDictionariesExactDataMatchDetailArrayInput
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayInput
-	// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrInput
 	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolPtrInput
@@ -403,7 +403,7 @@ func (o DLPDictionariesOutput) IdmProfileMatchAccuracies() DLPDictionariesIdmPro
 	}).(DLPDictionariesIdmProfileMatchAccuracyArrayOutput)
 }
 
-// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 func (o DLPDictionariesOutput) IgnoreExactMatchIdmDict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.BoolPtrOutput { return v.IgnoreExactMatchIdmDict }).(pulumi.BoolPtrOutput)
 }

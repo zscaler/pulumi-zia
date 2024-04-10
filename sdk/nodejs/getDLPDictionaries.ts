@@ -77,7 +77,7 @@ export interface GetDLPDictionariesResult {
     readonly id: number;
     readonly idmProfileMatchAccuracies: outputs.GetDLPDictionariesIdmProfileMatchAccuracy[];
     /**
-     * (Boolean) Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+     * (Boolean) Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     readonly ignoreExactMatchIdmDict: boolean;
     /**

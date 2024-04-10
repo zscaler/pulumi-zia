@@ -47,9 +47,9 @@ namespace zscaler.PulumiPackage.Zia
     ///         IpUnnumbered = false,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             exampleTrafficForwardingStaticIP,
+    ///             exampleTrafficForwardingStaticIP, 
     ///         },
     ///     });
     /// 
@@ -113,9 +113,9 @@ namespace zscaler.PulumiPackage.Zia
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             thisTrafficForwardingStaticIP,
+    ///             thisTrafficForwardingStaticIP, 
     ///         },
     ///     });
     /// 
@@ -159,9 +159,9 @@ namespace zscaler.PulumiPackage.Zia
     ///         IpUnnumbered = true,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             example,
+    ///             example, 
     ///         },
     ///     });
     /// 

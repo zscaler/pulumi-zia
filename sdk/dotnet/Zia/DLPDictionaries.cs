@@ -126,7 +126,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.DLPDictionariesIdmProfileMatchAccuracy>> IdmProfileMatchAccuracies { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Output("ignoreExactMatchIdmDict")]
         public Output<bool?> IgnoreExactMatchIdmDict { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Input("ignoreExactMatchIdmDict")]
         public Input<bool>? IgnoreExactMatchIdmDict { get; set; }
@@ -400,7 +400,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100%!m(MISSING)atch to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Input("ignoreExactMatchIdmDict")]
         public Input<bool>? IgnoreExactMatchIdmDict { get; set; }
