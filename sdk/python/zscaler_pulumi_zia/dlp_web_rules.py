@@ -17,32 +17,34 @@ __all__ = ['DLPWebRulesArgs', 'DLPWebRules']
 class DLPWebRulesArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 auditor: Optional[pulumi.Input['DLPWebRulesAuditorArgs']] = None,
+                 auditors: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]] = None,
                  cloud_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  departments: Optional[pulumi.Input['DLPWebRulesDepartmentsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dlp_download_scan_enabled: Optional[pulumi.Input[bool]] = None,
                  dlp_engines: Optional[pulumi.Input['DLPWebRulesDlpEnginesArgs']] = None,
                  excluded_departments: Optional[pulumi.Input['DLPWebRulesExcludedDepartmentsArgs']] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']] = None,
                  excluded_groups: Optional[pulumi.Input['DLPWebRulesExcludedGroupsArgs']] = None,
                  excluded_users: Optional[pulumi.Input['DLPWebRulesExcludedUsersArgs']] = None,
                  external_auditor_email: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input['DLPWebRulesGroupsArgs']] = None,
-                 icap_server: Optional[pulumi.Input['DLPWebRulesIcapServerArgs']] = None,
+                 icap_servers: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]] = None,
+                 included_domain_profiles: Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']] = None,
                  labels: Optional[pulumi.Input['DLPWebRulesLabelsArgs']] = None,
                  location_groups: Optional[pulumi.Input['DLPWebRulesLocationGroupsArgs']] = None,
                  locations: Optional[pulumi.Input['DLPWebRulesLocationsArgs']] = None,
                  match_only: Optional[pulumi.Input[bool]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_template: Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']] = None,
-                 ocr_enabled: Optional[pulumi.Input[bool]] = None,
+                 notification_templates: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  parent_rule: Optional[pulumi.Input[int]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
+                 source_ip_groups: Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  sub_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_windows: Optional[pulumi.Input['DLPWebRulesTimeWindowsArgs']] = None,
@@ -55,56 +57,49 @@ class DLPWebRulesArgs:
                  zscaler_incident_receiver: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DLPWebRules resource.
-        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria. The supported values are:
-        :param pulumi.Input['DLPWebRulesAuditorArgs'] auditor: The auditor to which the DLP policy rule must be applied.
+        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]] auditors: The auditor to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_applications: The list of cloud applications to which the DLP policy rule must be applied.
-        :param pulumi.Input['DLPWebRulesDepartmentsArgs'] departments: The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        :param pulumi.Input['DLPWebRulesDepartmentsArgs'] departments: The Name-ID pairs of departments to which the DLP policy rule must be applied.
         :param pulumi.Input[str] description: The description of the DLP policy rule.
         :param pulumi.Input[bool] dlp_download_scan_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input['DLPWebRulesDlpEnginesArgs'] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied.
-        :param pulumi.Input['DLPWebRulesExcludedDepartmentsArgs'] excluded_departments: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
-        :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
-        :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        :param pulumi.Input['DLPWebRulesExcludedDepartmentsArgs'] excluded_departments: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs'] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-               
-               * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-               
-               * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-               
-               * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
-        :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input['DLPWebRulesIcapServerArgs'] icap_server: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input['DLPWebRulesLabelsArgs'] labels: The Name-ID pairs of rule labels associated to the DLP policy rule.
-        :param pulumi.Input['DLPWebRulesLocationGroupsArgs'] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input['DLPWebRulesLocationsArgs'] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types for which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
+        :param pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs'] included_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesLabelsArgs'] labels: list of Labels that are applicable to the rule.
+        :param pulumi.Input['DLPWebRulesLocationGroupsArgs'] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesLocationsArgs'] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied.
         :param pulumi.Input[bool] match_only: The match only criteria for DLP engines.
         :param pulumi.Input[int] min_size: The minimum file size (in KB) used for evaluation of the DLP policy rule.
-        :param pulumi.Input[str] name: The name of the workload group
-        :param pulumi.Input['DLPWebRulesNotificationTemplateArgs'] notification_template: The template used for DLP notification emails.
-        :param pulumi.Input[bool] ocr_enabled: Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
+        :param pulumi.Input[str] name: The DLP policy rule name.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]] notification_templates: The template used for DLP notification emails.
         :param pulumi.Input[int] order: The rule order of execution for the DLP policy rule with respect to other rules.
-        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added.
-               > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol criteria specified for the DLP policy rule.
         :param pulumi.Input[int] rank: Admin rank of the admin who creates this rule
-        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
-        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.. The supported values are:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule.
-               > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
-        :param pulumi.Input['DLPWebRulesTimeWindowsArgs'] time_windows: The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation
+        :param pulumi.Input['DLPWebRulesSourceIpGroupsArgs'] source_ip_groups: list of source ip groups
+        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule
+        :param pulumi.Input['DLPWebRulesTimeWindowsArgs'] time_windows: list of time interval during which rule must be enforced.
         :param pulumi.Input['DLPWebRulesUrlCategoriesArgs'] url_categories: The list of URL categories to which the DLP policy rule must be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_risk_score_levels: Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        :param pulumi.Input['DLPWebRulesUsersArgs'] users: The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[bool] without_content_inspection: must be set to false if `file_types` is not defined.
+        :param pulumi.Input['DLPWebRulesUsersArgs'] users: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[bool] without_content_inspection: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesWorkloadGroupArgs']]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
         :param pulumi.Input[bool] zcc_notifications_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[bool] zscaler_incident_receiver: Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if auditor is not None:
-            pulumi.set(__self__, "auditor", auditor)
+        if auditors is not None:
+            pulumi.set(__self__, "auditors", auditors)
         if cloud_applications is not None:
             pulumi.set(__self__, "cloud_applications", cloud_applications)
         if departments is not None:
@@ -117,6 +112,8 @@ class DLPWebRulesArgs:
             pulumi.set(__self__, "dlp_engines", dlp_engines)
         if excluded_departments is not None:
             pulumi.set(__self__, "excluded_departments", excluded_departments)
+        if excluded_domain_profiles is not None:
+            pulumi.set(__self__, "excluded_domain_profiles", excluded_domain_profiles)
         if excluded_groups is not None:
             pulumi.set(__self__, "excluded_groups", excluded_groups)
         if excluded_users is not None:
@@ -127,8 +124,10 @@ class DLPWebRulesArgs:
             pulumi.set(__self__, "file_types", file_types)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
-        if icap_server is not None:
-            pulumi.set(__self__, "icap_server", icap_server)
+        if icap_servers is not None:
+            pulumi.set(__self__, "icap_servers", icap_servers)
+        if included_domain_profiles is not None:
+            pulumi.set(__self__, "included_domain_profiles", included_domain_profiles)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if location_groups is not None:
@@ -141,10 +140,8 @@ class DLPWebRulesArgs:
             pulumi.set(__self__, "min_size", min_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if notification_template is not None:
-            pulumi.set(__self__, "notification_template", notification_template)
-        if ocr_enabled is not None:
-            pulumi.set(__self__, "ocr_enabled", ocr_enabled)
+        if notification_templates is not None:
+            pulumi.set(__self__, "notification_templates", notification_templates)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if parent_rule is not None:
@@ -155,6 +152,8 @@ class DLPWebRulesArgs:
             pulumi.set(__self__, "rank", rank)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if sub_rules is not None:
@@ -180,7 +179,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        The action taken when traffic matches the DLP policy rule criteria.
         """
         return pulumi.get(self, "action")
 
@@ -190,15 +189,15 @@ class DLPWebRulesArgs:
 
     @property
     @pulumi.getter
-    def auditor(self) -> Optional[pulumi.Input['DLPWebRulesAuditorArgs']]:
+    def auditors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]]:
         """
         The auditor to which the DLP policy rule must be applied.
         """
-        return pulumi.get(self, "auditor")
+        return pulumi.get(self, "auditors")
 
-    @auditor.setter
-    def auditor(self, value: Optional[pulumi.Input['DLPWebRulesAuditorArgs']]):
-        pulumi.set(self, "auditor", value)
+    @auditors.setter
+    def auditors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]]):
+        pulumi.set(self, "auditors", value)
 
     @property
     @pulumi.getter(name="cloudApplications")
@@ -216,7 +215,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['DLPWebRulesDepartmentsArgs']]:
         """
-        The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        The Name-ID pairs of departments to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "departments")
 
@@ -264,7 +263,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="excludedDepartments")
     def excluded_departments(self) -> Optional[pulumi.Input['DLPWebRulesExcludedDepartmentsArgs']]:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_departments")
 
@@ -273,10 +272,22 @@ class DLPWebRulesArgs:
         pulumi.set(self, "excluded_departments", value)
 
     @property
+    @pulumi.getter(name="excludedDomainProfiles")
+    def excluded_domain_profiles(self) -> Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']]:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "excluded_domain_profiles")
+
+    @excluded_domain_profiles.setter
+    def excluded_domain_profiles(self, value: Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']]):
+        pulumi.set(self, "excluded_domain_profiles", value)
+
+    @property
     @pulumi.getter(name="excludedGroups")
     def excluded_groups(self) -> Optional[pulumi.Input['DLPWebRulesExcludedGroupsArgs']]:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_groups")
 
@@ -288,7 +299,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="excludedUsers")
     def excluded_users(self) -> Optional[pulumi.Input['DLPWebRulesExcludedUsersArgs']]:
         """
-        The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_users")
 
@@ -312,13 +323,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-
-        * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-
-        * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-
-        * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        The list of file types for which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "file_types")
 
@@ -330,7 +335,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['DLPWebRulesGroupsArgs']]:
         """
-        The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        The Name-ID pairs of groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "groups")
 
@@ -339,22 +344,34 @@ class DLPWebRulesArgs:
         pulumi.set(self, "groups", value)
 
     @property
-    @pulumi.getter(name="icapServer")
-    def icap_server(self) -> Optional[pulumi.Input['DLPWebRulesIcapServerArgs']]:
+    @pulumi.getter(name="icapServers")
+    def icap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]]:
         """
         The DLP server, using ICAP, to which the transaction content is forwarded.
         """
-        return pulumi.get(self, "icap_server")
+        return pulumi.get(self, "icap_servers")
 
-    @icap_server.setter
-    def icap_server(self, value: Optional[pulumi.Input['DLPWebRulesIcapServerArgs']]):
-        pulumi.set(self, "icap_server", value)
+    @icap_servers.setter
+    def icap_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]]):
+        pulumi.set(self, "icap_servers", value)
+
+    @property
+    @pulumi.getter(name="includedDomainProfiles")
+    def included_domain_profiles(self) -> Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']]:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "included_domain_profiles")
+
+    @included_domain_profiles.setter
+    def included_domain_profiles(self, value: Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']]):
+        pulumi.set(self, "included_domain_profiles", value)
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['DLPWebRulesLabelsArgs']]:
         """
-        The Name-ID pairs of rule labels associated to the DLP policy rule.
+        list of Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -366,7 +383,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['DLPWebRulesLocationGroupsArgs']]:
         """
-        The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "location_groups")
 
@@ -378,7 +395,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['DLPWebRulesLocationsArgs']]:
         """
-        The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        The Name-ID pairs of locations to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "locations")
 
@@ -414,7 +431,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the workload group
+        The DLP policy rule name.
         """
         return pulumi.get(self, "name")
 
@@ -423,28 +440,16 @@ class DLPWebRulesArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="notificationTemplate")
-    def notification_template(self) -> Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]:
+    @pulumi.getter(name="notificationTemplates")
+    def notification_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]]:
         """
         The template used for DLP notification emails.
         """
-        return pulumi.get(self, "notification_template")
+        return pulumi.get(self, "notification_templates")
 
-    @notification_template.setter
-    def notification_template(self, value: Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]):
-        pulumi.set(self, "notification_template", value)
-
-    @property
-    @pulumi.getter(name="ocrEnabled")
-    def ocr_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        """
-        return pulumi.get(self, "ocr_enabled")
-
-    @ocr_enabled.setter
-    def ocr_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ocr_enabled", value)
+    @notification_templates.setter
+    def notification_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]]):
+        pulumi.set(self, "notification_templates", value)
 
     @property
     @pulumi.getter
@@ -462,8 +467,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="parentRule")
     def parent_rule(self) -> Optional[pulumi.Input[int]]:
         """
-        The unique identifier of the parent rule under which an exception rule is added.
-        > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The unique identifier of the parent rule under which an exception rule is added
         """
         return pulumi.get(self, "parent_rule")
 
@@ -499,7 +503,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        Indicates the severity selected for the DLP rule violation
         """
         return pulumi.get(self, "severity")
 
@@ -508,10 +512,22 @@ class DLPWebRulesArgs:
         pulumi.set(self, "severity", value)
 
     @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']]:
+        """
+        list of source ip groups
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @source_ip_groups.setter
+    def source_ip_groups(self, value: Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']]):
+        pulumi.set(self, "source_ip_groups", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the DLP policy rule.. The supported values are:
+        Enables or disables the DLP policy rule.
         """
         return pulumi.get(self, "state")
 
@@ -523,8 +539,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="subRules")
     def sub_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of exception rules added to a parent rule.
-        > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The list of exception rules added to a parent rule
         """
         return pulumi.get(self, "sub_rules")
 
@@ -536,7 +551,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['DLPWebRulesTimeWindowsArgs']]:
         """
-        The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        list of time interval during which rule must be enforced.
         """
         return pulumi.get(self, "time_windows")
 
@@ -559,9 +574,6 @@ class DLPWebRulesArgs:
     @property
     @pulumi.getter(name="userRiskScoreLevels")
     def user_risk_score_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        """
         return pulumi.get(self, "user_risk_score_levels")
 
     @user_risk_score_levels.setter
@@ -572,7 +584,7 @@ class DLPWebRulesArgs:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['DLPWebRulesUsersArgs']]:
         """
-        The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "users")
 
@@ -584,7 +596,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> Optional[pulumi.Input[bool]]:
         """
-        must be set to false if `file_types` is not defined.
+        Indicates a DLP policy rule without content inspection, when the value is set to true.
         """
         return pulumi.get(self, "without_content_inspection")
 
@@ -633,33 +645,35 @@ class DLPWebRulesArgs:
 class _DLPWebRulesState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 auditor: Optional[pulumi.Input['DLPWebRulesAuditorArgs']] = None,
+                 auditors: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]] = None,
                  cloud_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  departments: Optional[pulumi.Input['DLPWebRulesDepartmentsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dlp_download_scan_enabled: Optional[pulumi.Input[bool]] = None,
                  dlp_engines: Optional[pulumi.Input['DLPWebRulesDlpEnginesArgs']] = None,
                  excluded_departments: Optional[pulumi.Input['DLPWebRulesExcludedDepartmentsArgs']] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']] = None,
                  excluded_groups: Optional[pulumi.Input['DLPWebRulesExcludedGroupsArgs']] = None,
                  excluded_users: Optional[pulumi.Input['DLPWebRulesExcludedUsersArgs']] = None,
                  external_auditor_email: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input['DLPWebRulesGroupsArgs']] = None,
-                 icap_server: Optional[pulumi.Input['DLPWebRulesIcapServerArgs']] = None,
+                 icap_servers: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]] = None,
+                 included_domain_profiles: Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']] = None,
                  labels: Optional[pulumi.Input['DLPWebRulesLabelsArgs']] = None,
                  location_groups: Optional[pulumi.Input['DLPWebRulesLocationGroupsArgs']] = None,
                  locations: Optional[pulumi.Input['DLPWebRulesLocationsArgs']] = None,
                  match_only: Optional[pulumi.Input[bool]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_template: Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']] = None,
-                 ocr_enabled: Optional[pulumi.Input[bool]] = None,
+                 notification_templates: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  parent_rule: Optional[pulumi.Input[int]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
                  rule_id: Optional[pulumi.Input[int]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
+                 source_ip_groups: Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  sub_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_windows: Optional[pulumi.Input['DLPWebRulesTimeWindowsArgs']] = None,
@@ -672,56 +686,49 @@ class _DLPWebRulesState:
                  zscaler_incident_receiver: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering DLPWebRules resources.
-        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria. The supported values are:
-        :param pulumi.Input['DLPWebRulesAuditorArgs'] auditor: The auditor to which the DLP policy rule must be applied.
+        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]] auditors: The auditor to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_applications: The list of cloud applications to which the DLP policy rule must be applied.
-        :param pulumi.Input['DLPWebRulesDepartmentsArgs'] departments: The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        :param pulumi.Input['DLPWebRulesDepartmentsArgs'] departments: The Name-ID pairs of departments to which the DLP policy rule must be applied.
         :param pulumi.Input[str] description: The description of the DLP policy rule.
         :param pulumi.Input[bool] dlp_download_scan_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input['DLPWebRulesDlpEnginesArgs'] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied.
-        :param pulumi.Input['DLPWebRulesExcludedDepartmentsArgs'] excluded_departments: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
-        :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
-        :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        :param pulumi.Input['DLPWebRulesExcludedDepartmentsArgs'] excluded_departments: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs'] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-               
-               * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-               
-               * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-               
-               * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
-        :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input['DLPWebRulesIcapServerArgs'] icap_server: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input['DLPWebRulesLabelsArgs'] labels: The Name-ID pairs of rule labels associated to the DLP policy rule.
-        :param pulumi.Input['DLPWebRulesLocationGroupsArgs'] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input['DLPWebRulesLocationsArgs'] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types for which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
+        :param pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs'] included_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesLabelsArgs'] labels: list of Labels that are applicable to the rule.
+        :param pulumi.Input['DLPWebRulesLocationGroupsArgs'] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        :param pulumi.Input['DLPWebRulesLocationsArgs'] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied.
         :param pulumi.Input[bool] match_only: The match only criteria for DLP engines.
         :param pulumi.Input[int] min_size: The minimum file size (in KB) used for evaluation of the DLP policy rule.
-        :param pulumi.Input[str] name: The name of the workload group
-        :param pulumi.Input['DLPWebRulesNotificationTemplateArgs'] notification_template: The template used for DLP notification emails.
-        :param pulumi.Input[bool] ocr_enabled: Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
+        :param pulumi.Input[str] name: The DLP policy rule name.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]] notification_templates: The template used for DLP notification emails.
         :param pulumi.Input[int] order: The rule order of execution for the DLP policy rule with respect to other rules.
-        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added.
-               > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol criteria specified for the DLP policy rule.
         :param pulumi.Input[int] rank: Admin rank of the admin who creates this rule
-        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
-        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.. The supported values are:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule.
-               > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
-        :param pulumi.Input['DLPWebRulesTimeWindowsArgs'] time_windows: The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation
+        :param pulumi.Input['DLPWebRulesSourceIpGroupsArgs'] source_ip_groups: list of source ip groups
+        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule
+        :param pulumi.Input['DLPWebRulesTimeWindowsArgs'] time_windows: list of time interval during which rule must be enforced.
         :param pulumi.Input['DLPWebRulesUrlCategoriesArgs'] url_categories: The list of URL categories to which the DLP policy rule must be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_risk_score_levels: Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        :param pulumi.Input['DLPWebRulesUsersArgs'] users: The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[bool] without_content_inspection: must be set to false if `file_types` is not defined.
+        :param pulumi.Input['DLPWebRulesUsersArgs'] users: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[bool] without_content_inspection: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesWorkloadGroupArgs']]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
         :param pulumi.Input[bool] zcc_notifications_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[bool] zscaler_incident_receiver: Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if auditor is not None:
-            pulumi.set(__self__, "auditor", auditor)
+        if auditors is not None:
+            pulumi.set(__self__, "auditors", auditors)
         if cloud_applications is not None:
             pulumi.set(__self__, "cloud_applications", cloud_applications)
         if departments is not None:
@@ -734,6 +741,8 @@ class _DLPWebRulesState:
             pulumi.set(__self__, "dlp_engines", dlp_engines)
         if excluded_departments is not None:
             pulumi.set(__self__, "excluded_departments", excluded_departments)
+        if excluded_domain_profiles is not None:
+            pulumi.set(__self__, "excluded_domain_profiles", excluded_domain_profiles)
         if excluded_groups is not None:
             pulumi.set(__self__, "excluded_groups", excluded_groups)
         if excluded_users is not None:
@@ -744,8 +753,10 @@ class _DLPWebRulesState:
             pulumi.set(__self__, "file_types", file_types)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
-        if icap_server is not None:
-            pulumi.set(__self__, "icap_server", icap_server)
+        if icap_servers is not None:
+            pulumi.set(__self__, "icap_servers", icap_servers)
+        if included_domain_profiles is not None:
+            pulumi.set(__self__, "included_domain_profiles", included_domain_profiles)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if location_groups is not None:
@@ -758,10 +769,8 @@ class _DLPWebRulesState:
             pulumi.set(__self__, "min_size", min_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if notification_template is not None:
-            pulumi.set(__self__, "notification_template", notification_template)
-        if ocr_enabled is not None:
-            pulumi.set(__self__, "ocr_enabled", ocr_enabled)
+        if notification_templates is not None:
+            pulumi.set(__self__, "notification_templates", notification_templates)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if parent_rule is not None:
@@ -774,6 +783,8 @@ class _DLPWebRulesState:
             pulumi.set(__self__, "rule_id", rule_id)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if sub_rules is not None:
@@ -799,7 +810,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        The action taken when traffic matches the DLP policy rule criteria.
         """
         return pulumi.get(self, "action")
 
@@ -809,15 +820,15 @@ class _DLPWebRulesState:
 
     @property
     @pulumi.getter
-    def auditor(self) -> Optional[pulumi.Input['DLPWebRulesAuditorArgs']]:
+    def auditors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]]:
         """
         The auditor to which the DLP policy rule must be applied.
         """
-        return pulumi.get(self, "auditor")
+        return pulumi.get(self, "auditors")
 
-    @auditor.setter
-    def auditor(self, value: Optional[pulumi.Input['DLPWebRulesAuditorArgs']]):
-        pulumi.set(self, "auditor", value)
+    @auditors.setter
+    def auditors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesAuditorArgs']]]]):
+        pulumi.set(self, "auditors", value)
 
     @property
     @pulumi.getter(name="cloudApplications")
@@ -835,7 +846,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['DLPWebRulesDepartmentsArgs']]:
         """
-        The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        The Name-ID pairs of departments to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "departments")
 
@@ -883,7 +894,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="excludedDepartments")
     def excluded_departments(self) -> Optional[pulumi.Input['DLPWebRulesExcludedDepartmentsArgs']]:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_departments")
 
@@ -892,10 +903,22 @@ class _DLPWebRulesState:
         pulumi.set(self, "excluded_departments", value)
 
     @property
+    @pulumi.getter(name="excludedDomainProfiles")
+    def excluded_domain_profiles(self) -> Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']]:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "excluded_domain_profiles")
+
+    @excluded_domain_profiles.setter
+    def excluded_domain_profiles(self, value: Optional[pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs']]):
+        pulumi.set(self, "excluded_domain_profiles", value)
+
+    @property
     @pulumi.getter(name="excludedGroups")
     def excluded_groups(self) -> Optional[pulumi.Input['DLPWebRulesExcludedGroupsArgs']]:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_groups")
 
@@ -907,7 +930,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="excludedUsers")
     def excluded_users(self) -> Optional[pulumi.Input['DLPWebRulesExcludedUsersArgs']]:
         """
-        The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_users")
 
@@ -931,13 +954,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-
-        * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-
-        * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-
-        * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        The list of file types for which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "file_types")
 
@@ -949,7 +966,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['DLPWebRulesGroupsArgs']]:
         """
-        The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        The Name-ID pairs of groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "groups")
 
@@ -958,22 +975,34 @@ class _DLPWebRulesState:
         pulumi.set(self, "groups", value)
 
     @property
-    @pulumi.getter(name="icapServer")
-    def icap_server(self) -> Optional[pulumi.Input['DLPWebRulesIcapServerArgs']]:
+    @pulumi.getter(name="icapServers")
+    def icap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]]:
         """
         The DLP server, using ICAP, to which the transaction content is forwarded.
         """
-        return pulumi.get(self, "icap_server")
+        return pulumi.get(self, "icap_servers")
 
-    @icap_server.setter
-    def icap_server(self, value: Optional[pulumi.Input['DLPWebRulesIcapServerArgs']]):
-        pulumi.set(self, "icap_server", value)
+    @icap_servers.setter
+    def icap_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]]]):
+        pulumi.set(self, "icap_servers", value)
+
+    @property
+    @pulumi.getter(name="includedDomainProfiles")
+    def included_domain_profiles(self) -> Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']]:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "included_domain_profiles")
+
+    @included_domain_profiles.setter
+    def included_domain_profiles(self, value: Optional[pulumi.Input['DLPWebRulesIncludedDomainProfilesArgs']]):
+        pulumi.set(self, "included_domain_profiles", value)
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['DLPWebRulesLabelsArgs']]:
         """
-        The Name-ID pairs of rule labels associated to the DLP policy rule.
+        list of Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -985,7 +1014,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['DLPWebRulesLocationGroupsArgs']]:
         """
-        The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "location_groups")
 
@@ -997,7 +1026,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['DLPWebRulesLocationsArgs']]:
         """
-        The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        The Name-ID pairs of locations to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "locations")
 
@@ -1033,7 +1062,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the workload group
+        The DLP policy rule name.
         """
         return pulumi.get(self, "name")
 
@@ -1042,28 +1071,16 @@ class _DLPWebRulesState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="notificationTemplate")
-    def notification_template(self) -> Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]:
+    @pulumi.getter(name="notificationTemplates")
+    def notification_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]]:
         """
         The template used for DLP notification emails.
         """
-        return pulumi.get(self, "notification_template")
+        return pulumi.get(self, "notification_templates")
 
-    @notification_template.setter
-    def notification_template(self, value: Optional[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]):
-        pulumi.set(self, "notification_template", value)
-
-    @property
-    @pulumi.getter(name="ocrEnabled")
-    def ocr_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        """
-        return pulumi.get(self, "ocr_enabled")
-
-    @ocr_enabled.setter
-    def ocr_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ocr_enabled", value)
+    @notification_templates.setter
+    def notification_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DLPWebRulesNotificationTemplateArgs']]]]):
+        pulumi.set(self, "notification_templates", value)
 
     @property
     @pulumi.getter
@@ -1081,8 +1098,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="parentRule")
     def parent_rule(self) -> Optional[pulumi.Input[int]]:
         """
-        The unique identifier of the parent rule under which an exception rule is added.
-        > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The unique identifier of the parent rule under which an exception rule is added
         """
         return pulumi.get(self, "parent_rule")
 
@@ -1127,7 +1143,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        Indicates the severity selected for the DLP rule violation
         """
         return pulumi.get(self, "severity")
 
@@ -1136,10 +1152,22 @@ class _DLPWebRulesState:
         pulumi.set(self, "severity", value)
 
     @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']]:
+        """
+        list of source ip groups
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @source_ip_groups.setter
+    def source_ip_groups(self, value: Optional[pulumi.Input['DLPWebRulesSourceIpGroupsArgs']]):
+        pulumi.set(self, "source_ip_groups", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the DLP policy rule.. The supported values are:
+        Enables or disables the DLP policy rule.
         """
         return pulumi.get(self, "state")
 
@@ -1151,8 +1179,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="subRules")
     def sub_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of exception rules added to a parent rule.
-        > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The list of exception rules added to a parent rule
         """
         return pulumi.get(self, "sub_rules")
 
@@ -1164,7 +1191,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['DLPWebRulesTimeWindowsArgs']]:
         """
-        The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        list of time interval during which rule must be enforced.
         """
         return pulumi.get(self, "time_windows")
 
@@ -1187,9 +1214,6 @@ class _DLPWebRulesState:
     @property
     @pulumi.getter(name="userRiskScoreLevels")
     def user_risk_score_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        """
         return pulumi.get(self, "user_risk_score_levels")
 
     @user_risk_score_levels.setter
@@ -1200,7 +1224,7 @@ class _DLPWebRulesState:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['DLPWebRulesUsersArgs']]:
         """
-        The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "users")
 
@@ -1212,7 +1236,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> Optional[pulumi.Input[bool]]:
         """
-        must be set to false if `file_types` is not defined.
+        Indicates a DLP policy rule without content inspection, when the value is set to true.
         """
         return pulumi.get(self, "without_content_inspection")
 
@@ -1263,32 +1287,34 @@ class DLPWebRules(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 auditor: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]] = None,
+                 auditors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]]]] = None,
                  cloud_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dlp_download_scan_enabled: Optional[pulumi.Input[bool]] = None,
                  dlp_engines: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDlpEnginesArgs']]] = None,
                  excluded_departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']]] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDomainProfilesArgs']]] = None,
                  excluded_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']]] = None,
                  excluded_users: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']]] = None,
                  external_auditor_email: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']]] = None,
-                 icap_server: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]] = None,
+                 icap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]]]] = None,
+                 included_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIncludedDomainProfilesArgs']]] = None,
                  labels: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']]] = None,
                  location_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']]] = None,
                  locations: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']]] = None,
                  match_only: Optional[pulumi.Input[bool]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_template: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]] = None,
-                 ocr_enabled: Optional[pulumi.Input[bool]] = None,
+                 notification_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  parent_rule: Optional[pulumi.Input[int]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
+                 source_ip_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesSourceIpGroupsArgs']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  sub_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_windows: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']]] = None,
@@ -1307,47 +1333,8 @@ class DLPWebRules(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### OCR ENABLED
+        ### "ALL_OUTBOUND" File Type"
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import zscaler_pulumi_zia as zia
-
-        test = zia.DLPWebRules("test",
-            action="ALLOW",
-            cloud_applications=[
-                "ZENDESK",
-                "LUCKY_ORANGE",
-                "MICROSOFT_POWERAPPS",
-                "MICROSOFTLIVEMEETING",
-            ],
-            description="Test",
-            file_types=[
-                "BITMAP",
-                "JPEG",
-                "PNG",
-                "TIFF",
-            ],
-            match_only=False,
-            min_size=20,
-            ocr_enabled=True,
-            order=1,
-            protocols=[
-                "FTP_RULE",
-                "HTTPS_RULE",
-                "HTTP_RULE",
-            ],
-            rank=7,
-            state="ENABLED",
-            without_content_inspection=False,
-            zscaler_incident_receiver=True)
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### "ALL_OUTBOUND" File Type
-
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -1366,7 +1353,7 @@ class DLPWebRules(pulumi.CustomResource):
                 "HTTP_RULE",
             ],
             file_types=["ALL_OUTBOUND"],
-            zscaler_incident_receiver=True,
+            zscaler_incident_receiver=False,
             without_content_inspection=False,
             user_risk_score_levels=[
                 "LOW",
@@ -1379,7 +1366,115 @@ class DLPWebRules(pulumi.CustomResource):
                 ids=[this_dlp_engines.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
+
+        ```python
+        import pulumi
+        import pulumi_zia as zia
+        import zscaler_pulumi_zia as zia
+
+        this_url_categories = zia.get_url_categories(configured_name="Example")
+        this_icap_servers = zia.get_icap_servers(name="ZS_ICAP_01")
+        this_dlp_web_rules = zia.DLPWebRules("thisDLPWebRules",
+            description="Terraform_Test",
+            action="BLOCK",
+            order=1,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            rank=7,
+            state="ENABLED",
+            zscaler_incident_receiver=True,
+            without_content_inspection=False,
+            url_categories=zia.DLPWebRulesUrlCategoriesArgs(
+                ids=[this_url_categories.val],
+            ),
+            icap_servers=[zia.DLPWebRulesIcapServerArgs(
+                id=this_icap_servers.id,
+            )])
+        ```
+
+        ### "Specify Incident Receiver Setting"
+
+        ```python
+        import pulumi
+        import pulumi_zia as zia
+        import zscaler_pulumi_zia as zia
+
+        this_url_categories = zia.get_url_categories(configured_name="Example")
+        this_dlp_incident_receiver_servers = zia.get_dlp_incident_receiver_servers(name="ZS_INC_RECEIVER_01")
+        this_dlp_web_rules = zia.DLPWebRules("thisDLPWebRules",
+            description="Terraform_Test",
+            action="BLOCK",
+            order=1,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            rank=7,
+            state="ENABLED",
+            zscaler_incident_receiver=True,
+            without_content_inspection=False,
+            url_categories=zia.DLPWebRulesUrlCategoriesArgs(
+                ids=[this_url_categories.val],
+            ),
+            icap_servers=[zia.DLPWebRulesIcapServerArgs(
+                id=this_dlp_incident_receiver_servers.id,
+            )])
+        ```
+
+        ### "Creating Parent Rules And SubRules"
+
+        ⚠️ **WARNING:** Destroying a parent rule will also destroy all subrules
+
+         **NOTE** Exception rules can be configured only when the inline DLP rule evaluation type is set
+         to evaluate all DLP rules in the DLP Advanced Settings.
+         To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
+
+        ```python
+        import pulumi
+        import zscaler_pulumi_zia as zia
+
+        parent_rule = zia.DLPWebRules("parentRule",
+            description="ParentRule1",
+            action="ALLOW",
+            state="ENABLED",
+            order=1,
+            rank=0,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            cloud_applications=[
+                "GOOGLE_WEBMAIL",
+                "WINDOWS_LIVE_HOTMAIL",
+            ],
+            without_content_inspection=False,
+            match_only=False,
+            min_size=20,
+            zscaler_incident_receiver=True)
+        subrule1 = zia.DLPWebRules("subrule1",
+            description="SubRule1",
+            action="ALLOW",
+            state="ENABLED",
+            order=1,
+            rank=0,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            cloud_applications=[
+                "GOOGLE_WEBMAIL",
+                "WINDOWS_LIVE_HOTMAIL",
+            ],
+            without_content_inspection=False,
+            match_only=False,
+            parent_rule=parent_rule.id)
+        ```
 
         ## Import
 
@@ -1403,48 +1498,41 @@ class DLPWebRules(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria. The supported values are:
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']] auditor: The auditor to which the DLP policy rule must be applied.
+        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]]] auditors: The auditor to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_applications: The list of cloud applications to which the DLP policy rule must be applied.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']] departments: The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']] departments: The Name-ID pairs of departments to which the DLP policy rule must be applied.
         :param pulumi.Input[str] description: The description of the DLP policy rule.
         :param pulumi.Input[bool] dlp_download_scan_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[pulumi.InputType['DLPWebRulesDlpEnginesArgs']] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']] excluded_departments: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']] excluded_groups: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']] excluded_users: The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']] excluded_departments: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDomainProfilesArgs']] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-               
-               * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-               
-               * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-               
-               * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']] icap_server: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']] labels: The Name-ID pairs of rule labels associated to the DLP policy rule.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types for which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesIncludedDomainProfilesArgs']] included_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']] labels: list of Labels that are applicable to the rule.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied.
         :param pulumi.Input[bool] match_only: The match only criteria for DLP engines.
         :param pulumi.Input[int] min_size: The minimum file size (in KB) used for evaluation of the DLP policy rule.
-        :param pulumi.Input[str] name: The name of the workload group
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']] notification_template: The template used for DLP notification emails.
-        :param pulumi.Input[bool] ocr_enabled: Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
+        :param pulumi.Input[str] name: The DLP policy rule name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]]] notification_templates: The template used for DLP notification emails.
         :param pulumi.Input[int] order: The rule order of execution for the DLP policy rule with respect to other rules.
-        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added.
-               > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol criteria specified for the DLP policy rule.
         :param pulumi.Input[int] rank: Admin rank of the admin who creates this rule
-        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
-        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.. The supported values are:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule.
-               > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']] time_windows: The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesSourceIpGroupsArgs']] source_ip_groups: list of source ip groups
+        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']] time_windows: list of time interval during which rule must be enforced.
         :param pulumi.Input[pulumi.InputType['DLPWebRulesUrlCategoriesArgs']] url_categories: The list of URL categories to which the DLP policy rule must be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_risk_score_levels: Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesUsersArgs']] users: The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[bool] without_content_inspection: must be set to false if `file_types` is not defined.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesUsersArgs']] users: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[bool] without_content_inspection: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesWorkloadGroupArgs']]]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
         :param pulumi.Input[bool] zcc_notifications_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[bool] zscaler_incident_receiver: Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
@@ -1462,47 +1550,8 @@ class DLPWebRules(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### OCR ENABLED
+        ### "ALL_OUTBOUND" File Type"
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import zscaler_pulumi_zia as zia
-
-        test = zia.DLPWebRules("test",
-            action="ALLOW",
-            cloud_applications=[
-                "ZENDESK",
-                "LUCKY_ORANGE",
-                "MICROSOFT_POWERAPPS",
-                "MICROSOFTLIVEMEETING",
-            ],
-            description="Test",
-            file_types=[
-                "BITMAP",
-                "JPEG",
-                "PNG",
-                "TIFF",
-            ],
-            match_only=False,
-            min_size=20,
-            ocr_enabled=True,
-            order=1,
-            protocols=[
-                "FTP_RULE",
-                "HTTPS_RULE",
-                "HTTP_RULE",
-            ],
-            rank=7,
-            state="ENABLED",
-            without_content_inspection=False,
-            zscaler_incident_receiver=True)
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### "ALL_OUTBOUND" File Type
-
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -1521,7 +1570,7 @@ class DLPWebRules(pulumi.CustomResource):
                 "HTTP_RULE",
             ],
             file_types=["ALL_OUTBOUND"],
-            zscaler_incident_receiver=True,
+            zscaler_incident_receiver=False,
             without_content_inspection=False,
             user_risk_score_levels=[
                 "LOW",
@@ -1534,7 +1583,115 @@ class DLPWebRules(pulumi.CustomResource):
                 ids=[this_dlp_engines.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
+
+        ```python
+        import pulumi
+        import pulumi_zia as zia
+        import zscaler_pulumi_zia as zia
+
+        this_url_categories = zia.get_url_categories(configured_name="Example")
+        this_icap_servers = zia.get_icap_servers(name="ZS_ICAP_01")
+        this_dlp_web_rules = zia.DLPWebRules("thisDLPWebRules",
+            description="Terraform_Test",
+            action="BLOCK",
+            order=1,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            rank=7,
+            state="ENABLED",
+            zscaler_incident_receiver=True,
+            without_content_inspection=False,
+            url_categories=zia.DLPWebRulesUrlCategoriesArgs(
+                ids=[this_url_categories.val],
+            ),
+            icap_servers=[zia.DLPWebRulesIcapServerArgs(
+                id=this_icap_servers.id,
+            )])
+        ```
+
+        ### "Specify Incident Receiver Setting"
+
+        ```python
+        import pulumi
+        import pulumi_zia as zia
+        import zscaler_pulumi_zia as zia
+
+        this_url_categories = zia.get_url_categories(configured_name="Example")
+        this_dlp_incident_receiver_servers = zia.get_dlp_incident_receiver_servers(name="ZS_INC_RECEIVER_01")
+        this_dlp_web_rules = zia.DLPWebRules("thisDLPWebRules",
+            description="Terraform_Test",
+            action="BLOCK",
+            order=1,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            rank=7,
+            state="ENABLED",
+            zscaler_incident_receiver=True,
+            without_content_inspection=False,
+            url_categories=zia.DLPWebRulesUrlCategoriesArgs(
+                ids=[this_url_categories.val],
+            ),
+            icap_servers=[zia.DLPWebRulesIcapServerArgs(
+                id=this_dlp_incident_receiver_servers.id,
+            )])
+        ```
+
+        ### "Creating Parent Rules And SubRules"
+
+        ⚠️ **WARNING:** Destroying a parent rule will also destroy all subrules
+
+         **NOTE** Exception rules can be configured only when the inline DLP rule evaluation type is set
+         to evaluate all DLP rules in the DLP Advanced Settings.
+         To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
+
+        ```python
+        import pulumi
+        import zscaler_pulumi_zia as zia
+
+        parent_rule = zia.DLPWebRules("parentRule",
+            description="ParentRule1",
+            action="ALLOW",
+            state="ENABLED",
+            order=1,
+            rank=0,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            cloud_applications=[
+                "GOOGLE_WEBMAIL",
+                "WINDOWS_LIVE_HOTMAIL",
+            ],
+            without_content_inspection=False,
+            match_only=False,
+            min_size=20,
+            zscaler_incident_receiver=True)
+        subrule1 = zia.DLPWebRules("subrule1",
+            description="SubRule1",
+            action="ALLOW",
+            state="ENABLED",
+            order=1,
+            rank=0,
+            protocols=[
+                "FTP_RULE",
+                "HTTPS_RULE",
+                "HTTP_RULE",
+            ],
+            cloud_applications=[
+                "GOOGLE_WEBMAIL",
+                "WINDOWS_LIVE_HOTMAIL",
+            ],
+            without_content_inspection=False,
+            match_only=False,
+            parent_rule=parent_rule.id)
+        ```
 
         ## Import
 
@@ -1572,32 +1729,34 @@ class DLPWebRules(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 auditor: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]] = None,
+                 auditors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]]]] = None,
                  cloud_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dlp_download_scan_enabled: Optional[pulumi.Input[bool]] = None,
                  dlp_engines: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDlpEnginesArgs']]] = None,
                  excluded_departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']]] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDomainProfilesArgs']]] = None,
                  excluded_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']]] = None,
                  excluded_users: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']]] = None,
                  external_auditor_email: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']]] = None,
-                 icap_server: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]] = None,
+                 icap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]]]] = None,
+                 included_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIncludedDomainProfilesArgs']]] = None,
                  labels: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']]] = None,
                  location_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']]] = None,
                  locations: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']]] = None,
                  match_only: Optional[pulumi.Input[bool]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification_template: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]] = None,
-                 ocr_enabled: Optional[pulumi.Input[bool]] = None,
+                 notification_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]]]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  parent_rule: Optional[pulumi.Input[int]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rank: Optional[pulumi.Input[int]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
+                 source_ip_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesSourceIpGroupsArgs']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  sub_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_windows: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']]] = None,
@@ -1618,32 +1777,34 @@ class DLPWebRules(pulumi.CustomResource):
             __props__ = DLPWebRulesArgs.__new__(DLPWebRulesArgs)
 
             __props__.__dict__["action"] = action
-            __props__.__dict__["auditor"] = auditor
+            __props__.__dict__["auditors"] = auditors
             __props__.__dict__["cloud_applications"] = cloud_applications
             __props__.__dict__["departments"] = departments
             __props__.__dict__["description"] = description
             __props__.__dict__["dlp_download_scan_enabled"] = dlp_download_scan_enabled
             __props__.__dict__["dlp_engines"] = dlp_engines
             __props__.__dict__["excluded_departments"] = excluded_departments
+            __props__.__dict__["excluded_domain_profiles"] = excluded_domain_profiles
             __props__.__dict__["excluded_groups"] = excluded_groups
             __props__.__dict__["excluded_users"] = excluded_users
             __props__.__dict__["external_auditor_email"] = external_auditor_email
             __props__.__dict__["file_types"] = file_types
             __props__.__dict__["groups"] = groups
-            __props__.__dict__["icap_server"] = icap_server
+            __props__.__dict__["icap_servers"] = icap_servers
+            __props__.__dict__["included_domain_profiles"] = included_domain_profiles
             __props__.__dict__["labels"] = labels
             __props__.__dict__["location_groups"] = location_groups
             __props__.__dict__["locations"] = locations
             __props__.__dict__["match_only"] = match_only
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["name"] = name
-            __props__.__dict__["notification_template"] = notification_template
-            __props__.__dict__["ocr_enabled"] = ocr_enabled
+            __props__.__dict__["notification_templates"] = notification_templates
             __props__.__dict__["order"] = order
             __props__.__dict__["parent_rule"] = parent_rule
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["rank"] = rank
             __props__.__dict__["severity"] = severity
+            __props__.__dict__["source_ip_groups"] = source_ip_groups
             __props__.__dict__["state"] = state
             __props__.__dict__["sub_rules"] = sub_rules
             __props__.__dict__["time_windows"] = time_windows
@@ -1666,33 +1827,35 @@ class DLPWebRules(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[str]] = None,
-            auditor: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]] = None,
+            auditors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]]]] = None,
             cloud_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dlp_download_scan_enabled: Optional[pulumi.Input[bool]] = None,
             dlp_engines: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesDlpEnginesArgs']]] = None,
             excluded_departments: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']]] = None,
+            excluded_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDomainProfilesArgs']]] = None,
             excluded_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']]] = None,
             excluded_users: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']]] = None,
             external_auditor_email: Optional[pulumi.Input[str]] = None,
             file_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']]] = None,
-            icap_server: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]] = None,
+            icap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]]]] = None,
+            included_domain_profiles: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesIncludedDomainProfilesArgs']]] = None,
             labels: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']]] = None,
             location_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']]] = None,
             locations: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']]] = None,
             match_only: Optional[pulumi.Input[bool]] = None,
             min_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notification_template: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]] = None,
-            ocr_enabled: Optional[pulumi.Input[bool]] = None,
+            notification_templates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]]]] = None,
             order: Optional[pulumi.Input[int]] = None,
             parent_rule: Optional[pulumi.Input[int]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             rank: Optional[pulumi.Input[int]] = None,
             rule_id: Optional[pulumi.Input[int]] = None,
             severity: Optional[pulumi.Input[str]] = None,
+            source_ip_groups: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesSourceIpGroupsArgs']]] = None,
             state: Optional[pulumi.Input[str]] = None,
             sub_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             time_windows: Optional[pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']]] = None,
@@ -1710,48 +1873,41 @@ class DLPWebRules(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria. The supported values are:
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']] auditor: The auditor to which the DLP policy rule must be applied.
+        :param pulumi.Input[str] action: The action taken when traffic matches the DLP policy rule criteria.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesAuditorArgs']]]] auditors: The auditor to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_applications: The list of cloud applications to which the DLP policy rule must be applied.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']] departments: The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesDepartmentsArgs']] departments: The Name-ID pairs of departments to which the DLP policy rule must be applied.
         :param pulumi.Input[str] description: The description of the DLP policy rule.
         :param pulumi.Input[bool] dlp_download_scan_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[pulumi.InputType['DLPWebRulesDlpEnginesArgs']] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']] excluded_departments: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']] excluded_groups: The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']] excluded_users: The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDepartmentsArgs']] excluded_departments: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedDomainProfilesArgs']] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedGroupsArgs']] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesExcludedUsersArgs']] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-               
-               * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-               
-               * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-               
-               * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']] icap_server: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']] labels: The Name-ID pairs of rule labels associated to the DLP policy rule.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_types: The list of file types for which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesGroupsArgs']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesIcapServerArgs']]]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesIncludedDomainProfilesArgs']] included_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLabelsArgs']] labels: list of Labels that are applicable to the rule.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationGroupsArgs']] location_groups: The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesLocationsArgs']] locations: The Name-ID pairs of locations to which the DLP policy rule must be applied.
         :param pulumi.Input[bool] match_only: The match only criteria for DLP engines.
         :param pulumi.Input[int] min_size: The minimum file size (in KB) used for evaluation of the DLP policy rule.
-        :param pulumi.Input[str] name: The name of the workload group
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']] notification_template: The template used for DLP notification emails.
-        :param pulumi.Input[bool] ocr_enabled: Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
+        :param pulumi.Input[str] name: The DLP policy rule name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesNotificationTemplateArgs']]]] notification_templates: The template used for DLP notification emails.
         :param pulumi.Input[int] order: The rule order of execution for the DLP policy rule with respect to other rules.
-        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added.
-               > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        :param pulumi.Input[int] parent_rule: The unique identifier of the parent rule under which an exception rule is added
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol criteria specified for the DLP policy rule.
         :param pulumi.Input[int] rank: Admin rank of the admin who creates this rule
-        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
-        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.. The supported values are:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule.
-               > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']] time_windows: The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[str] severity: Indicates the severity selected for the DLP rule violation
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesSourceIpGroupsArgs']] source_ip_groups: list of source ip groups
+        :param pulumi.Input[str] state: Enables or disables the DLP policy rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sub_rules: The list of exception rules added to a parent rule
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesTimeWindowsArgs']] time_windows: list of time interval during which rule must be enforced.
         :param pulumi.Input[pulumi.InputType['DLPWebRulesUrlCategoriesArgs']] url_categories: The list of URL categories to which the DLP policy rule must be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_risk_score_levels: Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        :param pulumi.Input[pulumi.InputType['DLPWebRulesUsersArgs']] users: The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[bool] without_content_inspection: must be set to false if `file_types` is not defined.
+        :param pulumi.Input[pulumi.InputType['DLPWebRulesUsersArgs']] users: The Name-ID pairs of users to which the DLP policy rule must be applied.
+        :param pulumi.Input[bool] without_content_inspection: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DLPWebRulesWorkloadGroupArgs']]]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
         :param pulumi.Input[bool] zcc_notifications_enabled: Indicates a DLP policy rule without content inspection, when the value is set to true.
         :param pulumi.Input[bool] zscaler_incident_receiver: Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
@@ -1761,33 +1917,35 @@ class DLPWebRules(pulumi.CustomResource):
         __props__ = _DLPWebRulesState.__new__(_DLPWebRulesState)
 
         __props__.__dict__["action"] = action
-        __props__.__dict__["auditor"] = auditor
+        __props__.__dict__["auditors"] = auditors
         __props__.__dict__["cloud_applications"] = cloud_applications
         __props__.__dict__["departments"] = departments
         __props__.__dict__["description"] = description
         __props__.__dict__["dlp_download_scan_enabled"] = dlp_download_scan_enabled
         __props__.__dict__["dlp_engines"] = dlp_engines
         __props__.__dict__["excluded_departments"] = excluded_departments
+        __props__.__dict__["excluded_domain_profiles"] = excluded_domain_profiles
         __props__.__dict__["excluded_groups"] = excluded_groups
         __props__.__dict__["excluded_users"] = excluded_users
         __props__.__dict__["external_auditor_email"] = external_auditor_email
         __props__.__dict__["file_types"] = file_types
         __props__.__dict__["groups"] = groups
-        __props__.__dict__["icap_server"] = icap_server
+        __props__.__dict__["icap_servers"] = icap_servers
+        __props__.__dict__["included_domain_profiles"] = included_domain_profiles
         __props__.__dict__["labels"] = labels
         __props__.__dict__["location_groups"] = location_groups
         __props__.__dict__["locations"] = locations
         __props__.__dict__["match_only"] = match_only
         __props__.__dict__["min_size"] = min_size
         __props__.__dict__["name"] = name
-        __props__.__dict__["notification_template"] = notification_template
-        __props__.__dict__["ocr_enabled"] = ocr_enabled
+        __props__.__dict__["notification_templates"] = notification_templates
         __props__.__dict__["order"] = order
         __props__.__dict__["parent_rule"] = parent_rule
         __props__.__dict__["protocols"] = protocols
         __props__.__dict__["rank"] = rank
         __props__.__dict__["rule_id"] = rule_id
         __props__.__dict__["severity"] = severity
+        __props__.__dict__["source_ip_groups"] = source_ip_groups
         __props__.__dict__["state"] = state
         __props__.__dict__["sub_rules"] = sub_rules
         __props__.__dict__["time_windows"] = time_windows
@@ -1804,17 +1962,17 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
         """
-        The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        The action taken when traffic matches the DLP policy rule criteria.
         """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
-    def auditor(self) -> pulumi.Output['outputs.DLPWebRulesAuditor']:
+    def auditors(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesAuditor']]:
         """
         The auditor to which the DLP policy rule must be applied.
         """
-        return pulumi.get(self, "auditor")
+        return pulumi.get(self, "auditors")
 
     @property
     @pulumi.getter(name="cloudApplications")
@@ -1828,7 +1986,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def departments(self) -> pulumi.Output['outputs.DLPWebRulesDepartments']:
         """
-        The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        The Name-ID pairs of departments to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "departments")
 
@@ -1860,15 +2018,23 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="excludedDepartments")
     def excluded_departments(self) -> pulumi.Output['outputs.DLPWebRulesExcludedDepartments']:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_departments")
+
+    @property
+    @pulumi.getter(name="excludedDomainProfiles")
+    def excluded_domain_profiles(self) -> pulumi.Output['outputs.DLPWebRulesExcludedDomainProfiles']:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "excluded_domain_profiles")
 
     @property
     @pulumi.getter(name="excludedGroups")
     def excluded_groups(self) -> pulumi.Output['outputs.DLPWebRulesExcludedGroups']:
         """
-        The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_groups")
 
@@ -1876,7 +2042,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="excludedUsers")
     def excluded_users(self) -> pulumi.Output['outputs.DLPWebRulesExcludedUsers']:
         """
-        The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "excluded_users")
 
@@ -1892,13 +2058,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-
-        * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-
-        * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-
-        * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        The list of file types for which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "file_types")
 
@@ -1906,23 +2066,31 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output['outputs.DLPWebRulesGroups']:
         """
-        The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        The Name-ID pairs of groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "groups")
 
     @property
-    @pulumi.getter(name="icapServer")
-    def icap_server(self) -> pulumi.Output['outputs.DLPWebRulesIcapServer']:
+    @pulumi.getter(name="icapServers")
+    def icap_servers(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesIcapServer']]:
         """
         The DLP server, using ICAP, to which the transaction content is forwarded.
         """
-        return pulumi.get(self, "icap_server")
+        return pulumi.get(self, "icap_servers")
+
+    @property
+    @pulumi.getter(name="includedDomainProfiles")
+    def included_domain_profiles(self) -> pulumi.Output['outputs.DLPWebRulesIncludedDomainProfiles']:
+        """
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
+        """
+        return pulumi.get(self, "included_domain_profiles")
 
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Output['outputs.DLPWebRulesLabels']:
         """
-        The Name-ID pairs of rule labels associated to the DLP policy rule.
+        list of Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -1930,7 +2098,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output['outputs.DLPWebRulesLocationGroups']:
         """
-        The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "location_groups")
 
@@ -1938,7 +2106,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output['outputs.DLPWebRulesLocations']:
         """
-        The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        The Name-ID pairs of locations to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "locations")
 
@@ -1962,25 +2130,17 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the workload group
+        The DLP policy rule name.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="notificationTemplate")
-    def notification_template(self) -> pulumi.Output['outputs.DLPWebRulesNotificationTemplate']:
+    @pulumi.getter(name="notificationTemplates")
+    def notification_templates(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesNotificationTemplate']]:
         """
         The template used for DLP notification emails.
         """
-        return pulumi.get(self, "notification_template")
-
-    @property
-    @pulumi.getter(name="ocrEnabled")
-    def ocr_enabled(self) -> pulumi.Output[bool]:
-        """
-        Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        """
-        return pulumi.get(self, "ocr_enabled")
+        return pulumi.get(self, "notification_templates")
 
     @property
     @pulumi.getter
@@ -1994,8 +2154,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="parentRule")
     def parent_rule(self) -> pulumi.Output[int]:
         """
-        The unique identifier of the parent rule under which an exception rule is added.
-        > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The unique identifier of the parent rule under which an exception rule is added
         """
         return pulumi.get(self, "parent_rule")
 
@@ -2024,15 +2183,23 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter
     def severity(self) -> pulumi.Output[str]:
         """
-        Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        Indicates the severity selected for the DLP rule violation
         """
         return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> pulumi.Output['outputs.DLPWebRulesSourceIpGroups']:
+        """
+        list of source ip groups
+        """
+        return pulumi.get(self, "source_ip_groups")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
-        Enables or disables the DLP policy rule.. The supported values are:
+        Enables or disables the DLP policy rule.
         """
         return pulumi.get(self, "state")
 
@@ -2040,8 +2207,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="subRules")
     def sub_rules(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of exception rules added to a parent rule.
-        > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        The list of exception rules added to a parent rule
         """
         return pulumi.get(self, "sub_rules")
 
@@ -2049,7 +2215,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output['outputs.DLPWebRulesTimeWindows']:
         """
-        The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        list of time interval during which rule must be enforced.
         """
         return pulumi.get(self, "time_windows")
 
@@ -2064,16 +2230,13 @@ class DLPWebRules(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userRiskScoreLevels")
     def user_risk_score_levels(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        """
         return pulumi.get(self, "user_risk_score_levels")
 
     @property
     @pulumi.getter
     def users(self) -> pulumi.Output['outputs.DLPWebRulesUsers']:
         """
-        The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        The Name-ID pairs of users to which the DLP policy rule must be applied.
         """
         return pulumi.get(self, "users")
 
@@ -2081,7 +2244,7 @@ class DLPWebRules(pulumi.CustomResource):
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> pulumi.Output[bool]:
         """
-        must be set to false if `file_types` is not defined.
+        Indicates a DLP policy rule without content inspection, when the value is set to true.
         """
         return pulumi.get(self, "without_content_inspection")
 
@@ -2103,7 +2266,7 @@ class DLPWebRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zscalerIncidentReceiver")
-    def zscaler_incident_receiver(self) -> pulumi.Output[bool]:
+    def zscaler_incident_receiver(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
         """

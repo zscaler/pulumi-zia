@@ -433,14 +433,12 @@ def get_location_management(basic_auth_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_management(name="San Jose")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the location to be exported.
@@ -502,14 +500,12 @@ def get_location_management_output(basic_auth_enabled: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_management(name="San Jose")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the location to be exported.

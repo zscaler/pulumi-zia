@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDLPIncidentReceiverServers(ctx *pulumi.Context, args *GetDLPIncidentReceiverServersArgs, opts ...pulumi.InvokeOption) (*GetDLPIncidentReceiverServersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDLPIncidentReceiverServersResult
@@ -52,7 +50,6 @@ func GetDLPIncidentReceiverServers(ctx *pulumi.Context, args *GetDLPIncidentRece
 
 // A collection of arguments for invoking getDLPIncidentReceiverServers.
 type GetDLPIncidentReceiverServersArgs struct {
-	// The DLP Incident Receiver Server name as configured by the admin.
 	Name *string `pulumi:"name"`
 }
 
@@ -80,7 +77,6 @@ func GetDLPIncidentReceiverServersOutput(ctx *pulumi.Context, args GetDLPInciden
 
 // A collection of arguments for invoking getDLPIncidentReceiverServers.
 type GetDLPIncidentReceiverServersOutputArgs struct {
-	// The DLP Incident Receiver Server name as configured by the admin.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

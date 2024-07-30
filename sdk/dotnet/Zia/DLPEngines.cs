@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -83,7 +81,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> EngineId { get; private set; } = null!;
 
         /// <summary>
-        /// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        /// The DLP engine name as configured by the admin.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -154,7 +152,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? EngineExpression { get; set; }
 
         /// <summary>
-        /// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        /// The DLP engine name as configured by the admin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,7 +187,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? EngineId { get; set; }
 
         /// <summary>
-        /// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        /// The DLP engine name as configured by the admin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

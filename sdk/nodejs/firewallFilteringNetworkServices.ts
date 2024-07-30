@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -45,7 +44,6 @@ import * as utilities from "./utilities";
  *     type: "CUSTOM",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -95,38 +93,26 @@ export class FirewallFilteringNetworkServices extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringNetworkServices.__pulumiType;
     }
 
-    /**
-     * Description of the service
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest tcp ports
      */
     public readonly destTcpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestTcpPort[] | undefined>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest udp ports
      */
     public readonly destUdpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestUdpPort[] | undefined>;
-    /**
-     * (Optional
-     */
     public readonly isNameL10nTag!: pulumi.Output<boolean | undefined>;
-    /**
-     * Name of the service
-     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly networkServiceId!: pulumi.Output<number>;
     /**
-     * The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+     * src tcp ports
      */
     public readonly srcTcpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcTcpPort[] | undefined>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * src udp ports
      */
     public readonly srcUdpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcUdpPort[] | undefined>;
-    /**
-     * The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-     */
     public readonly tag!: pulumi.Output<string>;
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -175,38 +161,26 @@ export class FirewallFilteringNetworkServices extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FirewallFilteringNetworkServices resources.
  */
 export interface FirewallFilteringNetworkServicesState {
-    /**
-     * Description of the service
-     */
     description?: pulumi.Input<string>;
     /**
-     * The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest tcp ports
      */
     destTcpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesDestTcpPort>[]>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest udp ports
      */
     destUdpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesDestUdpPort>[]>;
-    /**
-     * (Optional
-     */
     isNameL10nTag?: pulumi.Input<boolean>;
-    /**
-     * Name of the service
-     */
     name?: pulumi.Input<string>;
     networkServiceId?: pulumi.Input<number>;
     /**
-     * The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+     * src tcp ports
      */
     srcTcpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesSrcTcpPort>[]>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * src udp ports
      */
     srcUdpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesSrcUdpPort>[]>;
-    /**
-     * The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-     */
     tag?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }
@@ -215,37 +189,25 @@ export interface FirewallFilteringNetworkServicesState {
  * The set of arguments for constructing a FirewallFilteringNetworkServices resource.
  */
 export interface FirewallFilteringNetworkServicesArgs {
-    /**
-     * Description of the service
-     */
     description?: pulumi.Input<string>;
     /**
-     * The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest tcp ports
      */
     destTcpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesDestTcpPort>[]>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * dest udp ports
      */
     destUdpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesDestUdpPort>[]>;
-    /**
-     * (Optional
-     */
     isNameL10nTag?: pulumi.Input<boolean>;
-    /**
-     * Name of the service
-     */
     name?: pulumi.Input<string>;
     /**
-     * The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+     * src tcp ports
      */
     srcTcpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesSrcTcpPort>[]>;
     /**
-     * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+     * src udp ports
      */
     srcUdpPorts?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringNetworkServicesSrcUdpPort>[]>;
-    /**
-     * The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-     */
     tag?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }

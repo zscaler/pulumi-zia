@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as fs from "fs";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     plainTextMessage: fs.readFileSync("./dlp.txt", "utf8"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -74,23 +72,23 @@ export class DLPNotificationTemplates extends pulumi.CustomResource {
     }
 
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * f set to true, the content that is violation is attached to the DLP notification email
      */
     public readonly attachContent!: pulumi.Output<boolean | undefined>;
     /**
-     * The template for the HTML message body that must be displayed in the DLP notification email.
+     * The template for the HTML message body that must be displayed in the DLP notification email
      */
     public readonly htmlMessage!: pulumi.Output<string>;
     /**
-     * The DLP policy rule name.
+     * The DLP notification template name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
      */
     public readonly plainTextMessage!: pulumi.Output<string>;
     /**
-     * The Subject line that is displayed within the DLP notification email.
+     * The Subject line that is displayed within the DLP notification email
      */
     public readonly subject!: pulumi.Output<string>;
     /**
@@ -98,7 +96,7 @@ export class DLPNotificationTemplates extends pulumi.CustomResource {
      */
     public /*out*/ readonly templateId!: pulumi.Output<number>;
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * If set to true, TLS will be enabled
      */
     public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -151,23 +149,23 @@ export class DLPNotificationTemplates extends pulumi.CustomResource {
  */
 export interface DLPNotificationTemplatesState {
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * f set to true, the content that is violation is attached to the DLP notification email
      */
     attachContent?: pulumi.Input<boolean>;
     /**
-     * The template for the HTML message body that must be displayed in the DLP notification email.
+     * The template for the HTML message body that must be displayed in the DLP notification email
      */
     htmlMessage?: pulumi.Input<string>;
     /**
-     * The DLP policy rule name.
+     * The DLP notification template name
      */
     name?: pulumi.Input<string>;
     /**
-     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
      */
     plainTextMessage?: pulumi.Input<string>;
     /**
-     * The Subject line that is displayed within the DLP notification email.
+     * The Subject line that is displayed within the DLP notification email
      */
     subject?: pulumi.Input<string>;
     /**
@@ -175,7 +173,7 @@ export interface DLPNotificationTemplatesState {
      */
     templateId?: pulumi.Input<number>;
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * If set to true, TLS will be enabled
      */
     tlsEnabled?: pulumi.Input<boolean>;
 }
@@ -185,27 +183,27 @@ export interface DLPNotificationTemplatesState {
  */
 export interface DLPNotificationTemplatesArgs {
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * f set to true, the content that is violation is attached to the DLP notification email
      */
     attachContent?: pulumi.Input<boolean>;
     /**
-     * The template for the HTML message body that must be displayed in the DLP notification email.
+     * The template for the HTML message body that must be displayed in the DLP notification email
      */
     htmlMessage: pulumi.Input<string>;
     /**
-     * The DLP policy rule name.
+     * The DLP notification template name
      */
     name?: pulumi.Input<string>;
     /**
-     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+     * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
      */
     plainTextMessage: pulumi.Input<string>;
     /**
-     * The Subject line that is displayed within the DLP notification email.
+     * The Subject line that is displayed within the DLP notification email
      */
     subject: pulumi.Input<string>;
     /**
-     * If set to true, the content that is violation is attached to the DLP notification email.
+     * If set to true, TLS will be enabled
      */
     tlsEnabled?: pulumi.Input<boolean>;
 }

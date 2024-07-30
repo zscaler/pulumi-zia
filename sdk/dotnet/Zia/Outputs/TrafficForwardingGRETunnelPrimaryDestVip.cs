@@ -19,13 +19,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string? Datacenter;
         /// <summary>
-        /// Unique identifer of the GRE virtual IP address (VIP)
+        /// GRE cluster virtual IP ID
         /// </summary>
         public readonly int? Id;
-        /// <summary>
-        /// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-        /// </summary>
-        public readonly bool? PrivateServiceEdge;
         /// <summary>
         /// GRE cluster virtual IP address (VIP)
         /// </summary>
@@ -37,13 +33,10 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
             int? id,
 
-            bool? privateServiceEdge,
-
             string? virtualIp)
         {
             Datacenter = datacenter;
             Id = id;
-            PrivateServiceEdge = privateServiceEdge;
             VirtualIp = virtualIp;
         }
     }

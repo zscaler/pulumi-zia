@@ -19,7 +19,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ### Obtain Full Sandbox Report
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,11 +35,9 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Obtain Summarized Sandbox Report
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +54,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSandboxReportResult> InvokeAsync(GetSandboxReportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSandboxReportResult>("zia:index/getSandboxReport:getSandboxReport", args ?? new GetSandboxReportArgs(), options.WithDefaults());
@@ -69,7 +65,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ### Obtain Full Sandbox Report
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,11 +81,9 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Obtain Summarized Sandbox Report
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -107,7 +100,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSandboxReportResult> Invoke(GetSandboxReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSandboxReportResult>("zia:index/getSandboxReport:getSandboxReport", args ?? new GetSandboxReportInvokeArgs(), options.WithDefaults());

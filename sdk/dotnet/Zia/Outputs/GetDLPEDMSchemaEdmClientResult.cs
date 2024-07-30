@@ -20,7 +20,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The token (i.e., criteria) name.
+        /// The configured name of the entity
         /// </summary>
         public readonly string Name;
 

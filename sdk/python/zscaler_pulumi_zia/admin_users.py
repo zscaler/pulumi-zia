@@ -36,21 +36,11 @@ class AdminUsersArgs:
         """
         The set of arguments for constructing a AdminUsers resource.
         :param pulumi.Input[str] email: Admin or auditor's email address.
-        :param pulumi.Input[str] login_name: The email address of the admin user to be exported.
-        :param pulumi.Input[str] username: The username of the admin user to be exported.
-        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
-        :param pulumi.Input[str] admin_scope_type: The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        :param pulumi.Input[str] username: Admin or auditor's username.
+        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: list of destination ip groups
         :param pulumi.Input[str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[bool] disabled: Indicates whether or not the admin account is disabled.
-        :param pulumi.Input[bool] is_auditor: Indicates whether the user is an auditor. This attribute is subject to change.
-        :param pulumi.Input[bool] is_exec_mobile_app_enabled: Indicates whether or not Executive Insights App access is enabled for the admin.
-        :param pulumi.Input[bool] is_non_editable: Indicates whether or not the admin can be edited or deleted.
-        :param pulumi.Input[bool] is_password_expired: Indicates whether or not an admin's password has expired.
-        :param pulumi.Input[bool] is_password_login_allowed: The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        :param pulumi.Input[bool] is_product_update_comm_enabled: Communication setting for Product Update.
-        :param pulumi.Input[bool] is_security_report_comm_enabled: Communication for Security Report is enabled.
-        :param pulumi.Input[bool] is_service_update_comm_enabled: Communication setting for Service Update.
-        :param pulumi.Input[str] password: The username of the admin user to be exported.
+        :param pulumi.Input[str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+               information is not provided in a GET response.
         :param pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]] roles: Role of the admin. This is not required for an auditor.
         """
         pulumi.set(__self__, "email", email)
@@ -100,9 +90,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="loginName")
     def login_name(self) -> pulumi.Input[str]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "login_name")
 
     @login_name.setter
@@ -113,7 +100,7 @@ class AdminUsersArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The username of the admin user to be exported.
+        Admin or auditor's username.
         """
         return pulumi.get(self, "username")
 
@@ -125,7 +112,7 @@ class AdminUsersArgs:
     @pulumi.getter(name="adminScopeEntities")
     def admin_scope_entities(self) -> Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]:
         """
-        Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        list of destination ip groups
         """
         return pulumi.get(self, "admin_scope_entities")
 
@@ -136,9 +123,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="adminScopeType")
     def admin_scope_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "admin_scope_type")
 
     @admin_scope_type.setter
@@ -160,9 +144,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not the admin account is disabled.
-        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -172,9 +153,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the user is an auditor. This attribute is subject to change.
-        """
         return pulumi.get(self, "is_auditor")
 
     @is_auditor.setter
@@ -184,9 +162,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isExecMobileAppEnabled")
     def is_exec_mobile_app_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not Executive Insights App access is enabled for the admin.
-        """
         return pulumi.get(self, "is_exec_mobile_app_enabled")
 
     @is_exec_mobile_app_enabled.setter
@@ -196,9 +171,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not the admin can be edited or deleted.
-        """
         return pulumi.get(self, "is_non_editable")
 
     @is_non_editable.setter
@@ -208,9 +180,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isPasswordExpired")
     def is_password_expired(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not an admin's password has expired.
-        """
         return pulumi.get(self, "is_password_expired")
 
     @is_password_expired.setter
@@ -220,9 +189,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isPasswordLoginAllowed")
     def is_password_login_allowed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        """
         return pulumi.get(self, "is_password_login_allowed")
 
     @is_password_login_allowed.setter
@@ -232,9 +198,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isProductUpdateCommEnabled")
     def is_product_update_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication setting for Product Update.
-        """
         return pulumi.get(self, "is_product_update_comm_enabled")
 
     @is_product_update_comm_enabled.setter
@@ -244,9 +207,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isSecurityReportCommEnabled")
     def is_security_report_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication for Security Report is enabled.
-        """
         return pulumi.get(self, "is_security_report_comm_enabled")
 
     @is_security_report_comm_enabled.setter
@@ -256,9 +216,6 @@ class AdminUsersArgs:
     @property
     @pulumi.getter(name="isServiceUpdateCommEnabled")
     def is_service_update_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication setting for Service Update.
-        """
         return pulumi.get(self, "is_service_update_comm_enabled")
 
     @is_service_update_comm_enabled.setter
@@ -269,7 +226,8 @@ class AdminUsersArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The username of the admin user to be exported.
+        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        information is not provided in a GET response.
         """
         return pulumi.get(self, "password")
 
@@ -313,23 +271,13 @@ class _AdminUsersState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AdminUsers resources.
-        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
-        :param pulumi.Input[str] admin_scope_type: The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: list of destination ip groups
         :param pulumi.Input[str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[bool] disabled: Indicates whether or not the admin account is disabled.
         :param pulumi.Input[str] email: Admin or auditor's email address.
-        :param pulumi.Input[bool] is_auditor: Indicates whether the user is an auditor. This attribute is subject to change.
-        :param pulumi.Input[bool] is_exec_mobile_app_enabled: Indicates whether or not Executive Insights App access is enabled for the admin.
-        :param pulumi.Input[bool] is_non_editable: Indicates whether or not the admin can be edited or deleted.
-        :param pulumi.Input[bool] is_password_expired: Indicates whether or not an admin's password has expired.
-        :param pulumi.Input[bool] is_password_login_allowed: The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        :param pulumi.Input[bool] is_product_update_comm_enabled: Communication setting for Product Update.
-        :param pulumi.Input[bool] is_security_report_comm_enabled: Communication for Security Report is enabled.
-        :param pulumi.Input[bool] is_service_update_comm_enabled: Communication setting for Service Update.
-        :param pulumi.Input[str] login_name: The email address of the admin user to be exported.
-        :param pulumi.Input[str] password: The username of the admin user to be exported.
+        :param pulumi.Input[str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+               information is not provided in a GET response.
         :param pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[str] username: The username of the admin user to be exported.
+        :param pulumi.Input[str] username: Admin or auditor's username.
         """
         if admin_id is not None:
             pulumi.set(__self__, "admin_id", admin_id)
@@ -381,7 +329,7 @@ class _AdminUsersState:
     @pulumi.getter(name="adminScopeEntities")
     def admin_scope_entities(self) -> Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]:
         """
-        Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        list of destination ip groups
         """
         return pulumi.get(self, "admin_scope_entities")
 
@@ -392,9 +340,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="adminScopeType")
     def admin_scope_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "admin_scope_type")
 
     @admin_scope_type.setter
@@ -416,9 +361,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not the admin account is disabled.
-        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -440,9 +382,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the user is an auditor. This attribute is subject to change.
-        """
         return pulumi.get(self, "is_auditor")
 
     @is_auditor.setter
@@ -452,9 +391,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isExecMobileAppEnabled")
     def is_exec_mobile_app_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not Executive Insights App access is enabled for the admin.
-        """
         return pulumi.get(self, "is_exec_mobile_app_enabled")
 
     @is_exec_mobile_app_enabled.setter
@@ -464,9 +400,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not the admin can be edited or deleted.
-        """
         return pulumi.get(self, "is_non_editable")
 
     @is_non_editable.setter
@@ -476,9 +409,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isPasswordExpired")
     def is_password_expired(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether or not an admin's password has expired.
-        """
         return pulumi.get(self, "is_password_expired")
 
     @is_password_expired.setter
@@ -488,9 +418,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isPasswordLoginAllowed")
     def is_password_login_allowed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        """
         return pulumi.get(self, "is_password_login_allowed")
 
     @is_password_login_allowed.setter
@@ -500,9 +427,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isProductUpdateCommEnabled")
     def is_product_update_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication setting for Product Update.
-        """
         return pulumi.get(self, "is_product_update_comm_enabled")
 
     @is_product_update_comm_enabled.setter
@@ -512,9 +436,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isSecurityReportCommEnabled")
     def is_security_report_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication for Security Report is enabled.
-        """
         return pulumi.get(self, "is_security_report_comm_enabled")
 
     @is_security_report_comm_enabled.setter
@@ -524,9 +445,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="isServiceUpdateCommEnabled")
     def is_service_update_comm_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Communication setting for Service Update.
-        """
         return pulumi.get(self, "is_service_update_comm_enabled")
 
     @is_service_update_comm_enabled.setter
@@ -536,9 +454,6 @@ class _AdminUsersState:
     @property
     @pulumi.getter(name="loginName")
     def login_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "login_name")
 
     @login_name.setter
@@ -549,7 +464,8 @@ class _AdminUsersState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The username of the admin user to be exported.
+        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        information is not provided in a GET response.
         """
         return pulumi.get(self, "password")
 
@@ -573,7 +489,7 @@ class _AdminUsersState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username of the admin user to be exported.
+        Admin or auditor's username.
         """
         return pulumi.get(self, "username")
 
@@ -612,7 +528,6 @@ class AdminUsers(pulumi.CustomResource):
 
         ### Organization Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -635,11 +550,9 @@ class AdminUsers(pulumi.CustomResource):
             )],
             admin_scope_type="ORGANIZATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Department Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -669,11 +582,9 @@ class AdminUsers(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Location Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -700,11 +611,9 @@ class AdminUsers(pulumi.CustomResource):
                 ids=[au_sydney_branch01.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Location Group Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -731,7 +640,6 @@ class AdminUsers(pulumi.CustomResource):
                 ids=[corporate_user_traffic_group.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -757,23 +665,13 @@ class AdminUsers(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdminUsersAdminScopeEntitiesArgs']] admin_scope_entities: Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
-        :param pulumi.Input[str] admin_scope_type: The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        :param pulumi.Input[pulumi.InputType['AdminUsersAdminScopeEntitiesArgs']] admin_scope_entities: list of destination ip groups
         :param pulumi.Input[str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[bool] disabled: Indicates whether or not the admin account is disabled.
         :param pulumi.Input[str] email: Admin or auditor's email address.
-        :param pulumi.Input[bool] is_auditor: Indicates whether the user is an auditor. This attribute is subject to change.
-        :param pulumi.Input[bool] is_exec_mobile_app_enabled: Indicates whether or not Executive Insights App access is enabled for the admin.
-        :param pulumi.Input[bool] is_non_editable: Indicates whether or not the admin can be edited or deleted.
-        :param pulumi.Input[bool] is_password_expired: Indicates whether or not an admin's password has expired.
-        :param pulumi.Input[bool] is_password_login_allowed: The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        :param pulumi.Input[bool] is_product_update_comm_enabled: Communication setting for Product Update.
-        :param pulumi.Input[bool] is_security_report_comm_enabled: Communication for Security Report is enabled.
-        :param pulumi.Input[bool] is_service_update_comm_enabled: Communication setting for Service Update.
-        :param pulumi.Input[str] login_name: The email address of the admin user to be exported.
-        :param pulumi.Input[str] password: The username of the admin user to be exported.
+        :param pulumi.Input[str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+               information is not provided in a GET response.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdminUsersRoleArgs']]]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[str] username: The username of the admin user to be exported.
+        :param pulumi.Input[str] username: Admin or auditor's username.
         """
         ...
     @overload
@@ -788,7 +686,6 @@ class AdminUsers(pulumi.CustomResource):
 
         ### Organization Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -811,11 +708,9 @@ class AdminUsers(pulumi.CustomResource):
             )],
             admin_scope_type="ORGANIZATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Department Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -845,11 +740,9 @@ class AdminUsers(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Location Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -876,11 +769,9 @@ class AdminUsers(pulumi.CustomResource):
                 ids=[au_sydney_branch01.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Location Group Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -907,7 +798,6 @@ class AdminUsers(pulumi.CustomResource):
                 ids=[corporate_user_traffic_group.id],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1033,23 +923,13 @@ class AdminUsers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AdminUsersAdminScopeEntitiesArgs']] admin_scope_entities: Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
-        :param pulumi.Input[str] admin_scope_type: The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        :param pulumi.Input[pulumi.InputType['AdminUsersAdminScopeEntitiesArgs']] admin_scope_entities: list of destination ip groups
         :param pulumi.Input[str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[bool] disabled: Indicates whether or not the admin account is disabled.
         :param pulumi.Input[str] email: Admin or auditor's email address.
-        :param pulumi.Input[bool] is_auditor: Indicates whether the user is an auditor. This attribute is subject to change.
-        :param pulumi.Input[bool] is_exec_mobile_app_enabled: Indicates whether or not Executive Insights App access is enabled for the admin.
-        :param pulumi.Input[bool] is_non_editable: Indicates whether or not the admin can be edited or deleted.
-        :param pulumi.Input[bool] is_password_expired: Indicates whether or not an admin's password has expired.
-        :param pulumi.Input[bool] is_password_login_allowed: The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        :param pulumi.Input[bool] is_product_update_comm_enabled: Communication setting for Product Update.
-        :param pulumi.Input[bool] is_security_report_comm_enabled: Communication for Security Report is enabled.
-        :param pulumi.Input[bool] is_service_update_comm_enabled: Communication setting for Service Update.
-        :param pulumi.Input[str] login_name: The email address of the admin user to be exported.
-        :param pulumi.Input[str] password: The username of the admin user to be exported.
+        :param pulumi.Input[str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+               information is not provided in a GET response.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdminUsersRoleArgs']]]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[str] username: The username of the admin user to be exported.
+        :param pulumi.Input[str] username: Admin or auditor's username.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1084,16 +964,13 @@ class AdminUsers(pulumi.CustomResource):
     @pulumi.getter(name="adminScopeEntities")
     def admin_scope_entities(self) -> pulumi.Output['outputs.AdminUsersAdminScopeEntities']:
         """
-        Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        list of destination ip groups
         """
         return pulumi.get(self, "admin_scope_entities")
 
     @property
     @pulumi.getter(name="adminScopeType")
     def admin_scope_type(self) -> pulumi.Output[str]:
-        """
-        The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "admin_scope_type")
 
     @property
@@ -1107,9 +984,6 @@ class AdminUsers(pulumi.CustomResource):
     @property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether or not the admin account is disabled.
-        """
         return pulumi.get(self, "disabled")
 
     @property
@@ -1123,80 +997,54 @@ class AdminUsers(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the user is an auditor. This attribute is subject to change.
-        """
         return pulumi.get(self, "is_auditor")
 
     @property
     @pulumi.getter(name="isExecMobileAppEnabled")
     def is_exec_mobile_app_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether or not Executive Insights App access is enabled for the admin.
-        """
         return pulumi.get(self, "is_exec_mobile_app_enabled")
 
     @property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether or not the admin can be edited or deleted.
-        """
         return pulumi.get(self, "is_non_editable")
 
     @property
     @pulumi.getter(name="isPasswordExpired")
     def is_password_expired(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether or not an admin's password has expired.
-        """
         return pulumi.get(self, "is_password_expired")
 
     @property
     @pulumi.getter(name="isPasswordLoginAllowed")
     def is_password_login_allowed(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        """
         return pulumi.get(self, "is_password_login_allowed")
 
     @property
     @pulumi.getter(name="isProductUpdateCommEnabled")
     def is_product_update_comm_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Communication setting for Product Update.
-        """
         return pulumi.get(self, "is_product_update_comm_enabled")
 
     @property
     @pulumi.getter(name="isSecurityReportCommEnabled")
     def is_security_report_comm_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Communication for Security Report is enabled.
-        """
         return pulumi.get(self, "is_security_report_comm_enabled")
 
     @property
     @pulumi.getter(name="isServiceUpdateCommEnabled")
     def is_service_update_comm_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Communication setting for Service Update.
-        """
         return pulumi.get(self, "is_service_update_comm_enabled")
 
     @property
     @pulumi.getter(name="loginName")
     def login_name(self) -> pulumi.Output[str]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "login_name")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        The username of the admin user to be exported.
+        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        information is not provided in a GET response.
         """
         return pulumi.get(self, "password")
 
@@ -1212,7 +1060,7 @@ class AdminUsers(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
         """
-        The username of the admin user to be exported.
+        Admin or auditor's username.
         """
         return pulumi.get(self, "username")
 

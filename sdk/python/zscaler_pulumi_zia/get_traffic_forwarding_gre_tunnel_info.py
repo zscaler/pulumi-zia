@@ -142,14 +142,12 @@ def get_traffic_forwarding_gre_tunnel_info(gre_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_gre_tunnel_info(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool gre_enabled: Displays only ip addresses with GRE tunnel enabled
@@ -184,14 +182,12 @@ def get_traffic_forwarding_gre_tunnel_info_output(gre_enabled: Optional[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_gre_tunnel_info(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool gre_enabled: Displays only ip addresses with GRE tunnel enabled

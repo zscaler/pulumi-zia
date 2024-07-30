@@ -19,10 +19,6 @@ class FirewallFilteringApplicationGroupsArgs:
                  network_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FirewallFilteringApplicationGroups resource.
-        :param pulumi.Input[str] description: Description of the network application group
-        :param pulumi.Input[str] name: Network application group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_applications: Any number of applications to be added to the group
-               * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -34,9 +30,6 @@ class FirewallFilteringApplicationGroupsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the network application group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -46,9 +39,6 @@ class FirewallFilteringApplicationGroupsArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Network application group name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,10 +48,6 @@ class FirewallFilteringApplicationGroupsArgs:
     @property
     @pulumi.getter(name="networkApplications")
     def network_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Any number of applications to be added to the group
-        * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        """
         return pulumi.get(self, "network_applications")
 
     @network_applications.setter
@@ -78,10 +64,6 @@ class _FirewallFilteringApplicationGroupsState:
                  network_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FirewallFilteringApplicationGroups resources.
-        :param pulumi.Input[str] description: Description of the network application group
-        :param pulumi.Input[str] name: Network application group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_applications: Any number of applications to be added to the group
-               * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -104,9 +86,6 @@ class _FirewallFilteringApplicationGroupsState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the network application group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -116,9 +95,6 @@ class _FirewallFilteringApplicationGroupsState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Network application group name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,10 +104,6 @@ class _FirewallFilteringApplicationGroupsState:
     @property
     @pulumi.getter(name="networkApplications")
     def network_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Any number of applications to be added to the group
-        * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        """
         return pulumi.get(self, "network_applications")
 
     @network_applications.setter
@@ -153,7 +125,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -167,7 +138,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
                 "SRVLOC",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -191,10 +161,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the network application group
-        :param pulumi.Input[str] name: Network application group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_applications: Any number of applications to be added to the group
-               * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
         """
         ...
     @overload
@@ -207,7 +173,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -221,7 +186,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
                 "SRVLOC",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,10 +259,6 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the network application group
-        :param pulumi.Input[str] name: Network application group name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_applications: Any number of applications to be added to the group
-               * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,25 +278,15 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the network application group
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Network application group name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkApplications")
     def network_applications(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Any number of applications to be added to the group
-        * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        """
         return pulumi.get(self, "network_applications")
 

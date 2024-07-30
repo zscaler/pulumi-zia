@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetIcapServers(ctx *pulumi.Context, args *GetIcapServersArgs, opts ...pulumi.InvokeOption) (*GetIcapServersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIcapServersResult
@@ -52,7 +50,6 @@ func GetIcapServers(ctx *pulumi.Context, args *GetIcapServersArgs, opts ...pulum
 
 // A collection of arguments for invoking getIcapServers.
 type GetIcapServersArgs struct {
-	// The DLP server name.
 	Name *string `pulumi:"name"`
 }
 
@@ -79,7 +76,6 @@ func GetIcapServersOutput(ctx *pulumi.Context, args GetIcapServersOutputArgs, op
 
 // A collection of arguments for invoking getIcapServers.
 type GetIcapServersOutputArgs struct {
-	// The DLP server name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

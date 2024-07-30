@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "ZPA_GW01",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getForwardingControlZPAGateway(args?: GetForwardingControlZPAGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingControlZPAGatewayResult> {
     args = args || {};
@@ -86,7 +84,6 @@ export interface GetForwardingControlZPAGatewayResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -95,7 +92,6 @@ export interface GetForwardingControlZPAGatewayResult {
  *     name: "ZPA_GW01",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getForwardingControlZPAGatewayOutput(args?: GetForwardingControlZPAGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingControlZPAGatewayResult> {
     return pulumi.output(args).apply((a: any) => getForwardingControlZPAGateway(a, opts))

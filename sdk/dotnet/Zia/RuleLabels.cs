@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -57,9 +55,6 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/ruleLabels:RuleLabels")]
     public partial class RuleLabels : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The rule label description.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -119,9 +114,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class RuleLabelsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The rule label description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -139,9 +131,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class RuleLabelsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The rule label description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

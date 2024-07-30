@@ -231,7 +231,7 @@ class GetURLCategoriesResult:
     @pulumi.getter
     def val(self) -> int:
         """
-        (Number)
+        (Number) The unique ID for the URL category.
         """
         return pulumi.get(self, "val")
 
@@ -273,14 +273,19 @@ def get_url_categories(configured_name: Optional[str] = None,
     """
     Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
-    example = zia.get_url_categories(id="CUSTOM_08")
+    this = zia.get_url_categories(configured_name="Example")
     ```
-    <!--End PulumiCodeChooser -->
+
+    ```python
+    import pulumi
+    import pulumi_zia as zia
+
+    this = zia.get_url_categories(id="CUSTOM_08")
+    ```
 
 
     :param str configured_name: (String) Name of the URL category. This is only required for custom URL categories.
@@ -331,14 +336,19 @@ def get_url_categories_output(configured_name: Optional[pulumi.Input[Optional[st
     """
     Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
-    example = zia.get_url_categories(id="CUSTOM_08")
+    this = zia.get_url_categories(configured_name="Example")
     ```
-    <!--End PulumiCodeChooser -->
+
+    ```python
+    import pulumi
+    import pulumi_zia as zia
+
+    this = zia.get_url_categories(id="CUSTOM_08")
+    ```
 
 
     :param str configured_name: (String) Name of the URL category. This is only required for custom URL categories.

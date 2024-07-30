@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -34,7 +33,6 @@ import * as utilities from "./utilities";
  *     ".kerberos.okta.com",
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -78,9 +76,6 @@ export class AuthSettingsURLs extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthSettingsURLs.__pulumiType;
     }
 
-    /**
-     * The email address of the admin user to be exported.
-     */
     public readonly urls!: pulumi.Output<string[]>;
 
     /**
@@ -110,9 +105,6 @@ export class AuthSettingsURLs extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthSettingsURLs resources.
  */
 export interface AuthSettingsURLsState {
-    /**
-     * The email address of the admin user to be exported.
-     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -120,8 +112,5 @@ export interface AuthSettingsURLsState {
  * The set of arguments for constructing a AuthSettingsURLs resource.
  */
 export interface AuthSettingsURLsArgs {
-    /**
-     * The email address of the admin user to be exported.
-     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -135,23 +135,19 @@ def get_device_groups(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     ios = zia.get_device_groups(name="IOS")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     android = zia.get_device_groups(name="Android")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the device group to be exported.
@@ -180,23 +176,19 @@ def get_device_groups_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     ios = zia.get_device_groups(name="IOS")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     android = zia.get_device_groups(name="Android")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the device group to be exported.

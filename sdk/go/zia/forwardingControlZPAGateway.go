@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,7 +71,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -99,7 +97,7 @@ type ForwardingControlZPAGateway struct {
 	// (string) - Additional details about the ZPA gateway
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	GatewayId   pulumi.IntOutput       `pulumi:"gatewayId"`
-	// The configured name of the entity
+	// The name of the forwarding control ZPA Gateway to be exported.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -148,7 +146,7 @@ type forwardingControlZPAGatewayState struct {
 	// (string) - Additional details about the ZPA gateway
 	Description *string `pulumi:"description"`
 	GatewayId   *int    `pulumi:"gatewayId"`
-	// The configured name of the entity
+	// The name of the forwarding control ZPA Gateway to be exported.
 	Name *string `pulumi:"name"`
 	// (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
 	Type *string `pulumi:"type"`
@@ -162,7 +160,7 @@ type ForwardingControlZPAGatewayState struct {
 	// (string) - Additional details about the ZPA gateway
 	Description pulumi.StringPtrInput
 	GatewayId   pulumi.IntPtrInput
-	// The configured name of the entity
+	// The name of the forwarding control ZPA Gateway to be exported.
 	Name pulumi.StringPtrInput
 	// (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
 	Type pulumi.StringPtrInput
@@ -179,7 +177,7 @@ func (ForwardingControlZPAGatewayState) ElementType() reflect.Type {
 type forwardingControlZPAGatewayArgs struct {
 	// (string) - Additional details about the ZPA gateway
 	Description *string `pulumi:"description"`
-	// The configured name of the entity
+	// The name of the forwarding control ZPA Gateway to be exported.
 	Name *string `pulumi:"name"`
 	// (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
 	Type *string `pulumi:"type"`
@@ -193,7 +191,7 @@ type forwardingControlZPAGatewayArgs struct {
 type ForwardingControlZPAGatewayArgs struct {
 	// (string) - Additional details about the ZPA gateway
 	Description pulumi.StringPtrInput
-	// The configured name of the entity
+	// The name of the forwarding control ZPA Gateway to be exported.
 	Name pulumi.StringPtrInput
 	// (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
 	Type pulumi.StringPtrInput
@@ -299,7 +297,7 @@ func (o ForwardingControlZPAGatewayOutput) GatewayId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ForwardingControlZPAGateway) pulumi.IntOutput { return v.GatewayId }).(pulumi.IntOutput)
 }
 
-// The configured name of the entity
+// The name of the forwarding control ZPA Gateway to be exported.
 func (o ForwardingControlZPAGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlZPAGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

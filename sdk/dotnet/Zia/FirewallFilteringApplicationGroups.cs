@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -66,22 +64,12 @@ namespace zscaler.PulumiPackage.Zia
         [Output("appId")]
         public Output<int> AppId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the network application group
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Network application group name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Any number of applications to be added to the group
-        /// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        /// </summary>
         [Output("networkApplications")]
         public Output<ImmutableArray<string>> NetworkApplications { get; private set; } = null!;
 
@@ -132,25 +120,14 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringApplicationGroupsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the network application group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Network application group name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("networkApplications")]
         private InputList<string>? _networkApplications;
-
-        /// <summary>
-        /// Any number of applications to be added to the group
-        /// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        /// </summary>
         public InputList<string> NetworkApplications
         {
             get => _networkApplications ?? (_networkApplications = new InputList<string>());
@@ -168,25 +145,14 @@ namespace zscaler.PulumiPackage.Zia
         [Input("appId")]
         public Input<int>? AppId { get; set; }
 
-        /// <summary>
-        /// Description of the network application group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Network application group name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("networkApplications")]
         private InputList<string>? _networkApplications;
-
-        /// <summary>
-        /// Any number of applications to be added to the group
-        /// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-        /// </summary>
         public InputList<string> NetworkApplications
         {
             get => _networkApplications ?? (_networkApplications = new InputList<string>());

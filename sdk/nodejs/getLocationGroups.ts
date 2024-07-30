@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,9 +17,7 @@ import * as utilities from "./utilities";
  *     name: "Corporate User Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -29,9 +26,7 @@ import * as utilities from "./utilities";
  *     name: "Guest Wifi Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -40,9 +35,7 @@ import * as utilities from "./utilities";
  *     name: "IoT Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -51,9 +44,7 @@ import * as utilities from "./utilities";
  *     name: "Server Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -62,7 +53,6 @@ import * as utilities from "./utilities";
  *     name: "Server Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationGroups(args?: GetLocationGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationGroupsResult> {
     args = args || {};
@@ -136,7 +126,6 @@ export interface GetLocationGroupsResult {
 /**
  * Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -145,9 +134,7 @@ export interface GetLocationGroupsResult {
  *     name: "Corporate User Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -156,9 +143,7 @@ export interface GetLocationGroupsResult {
  *     name: "Guest Wifi Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -167,9 +152,7 @@ export interface GetLocationGroupsResult {
  *     name: "IoT Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -178,9 +161,7 @@ export interface GetLocationGroupsResult {
  *     name: "Server Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -189,7 +170,6 @@ export interface GetLocationGroupsResult {
  *     name: "Server Traffic Group",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationGroupsOutput(args?: GetLocationGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationGroupsResult> {
     return pulumi.output(args).apply((a: any) => getLocationGroups(a, opts))

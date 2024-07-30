@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPNotificationTemplatesResult> InvokeAsync(GetDLPNotificationTemplatesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPNotificationTemplatesResult>("zia:index/getDLPNotificationTemplates:getDLPNotificationTemplates", args ?? new GetDLPNotificationTemplatesArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPNotificationTemplatesResult> Invoke(GetDLPNotificationTemplatesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPNotificationTemplatesResult>("zia:index/getDLPNotificationTemplates:getDLPNotificationTemplates", args ?? new GetDLPNotificationTemplatesInvokeArgs(), options.WithDefaults());
@@ -68,15 +64,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPNotificationTemplatesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for a DLP notification template.
-        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
-        /// <summary>
-        /// The DLP policy rule name.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -88,15 +78,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPNotificationTemplatesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for a DLP notification template.
-        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
-        /// <summary>
-        /// The DLP policy rule name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

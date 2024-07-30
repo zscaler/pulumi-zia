@@ -22,9 +22,6 @@ export function getDLPIDMProfiles(args?: GetDLPIDMProfilesArgs, opts?: pulumi.In
  * A collection of arguments for invoking getDLPIDMProfiles.
  */
 export interface GetDLPIDMProfilesArgs {
-    /**
-     * The IDM template name, which is unique per Index Tool.
-     */
     profileName?: string;
 }
 
@@ -69,8 +66,5 @@ export function getDLPIDMProfilesOutput(args?: GetDLPIDMProfilesOutputArgs, opts
  * A collection of arguments for invoking getDLPIDMProfiles.
  */
 export interface GetDLPIDMProfilesOutputArgs {
-    /**
-     * The IDM template name, which is unique per Index Tool.
-     */
     profileName?: pulumi.Input<string>;
 }

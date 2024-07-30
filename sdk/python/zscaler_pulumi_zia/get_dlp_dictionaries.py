@@ -249,14 +249,12 @@ def get_dlp_dictionaries(id: Optional[int] = None,
     """
     Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_dictionaries(name="SALESFORCE_REPORT_LEAKAGE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: Unique identifier for the DLP dictionary
@@ -298,14 +296,12 @@ def get_dlp_dictionaries_output(id: Optional[pulumi.Input[Optional[int]]] = None
     """
     Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_dictionaries(name="SALESFORCE_REPORT_LEAKAGE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: Unique identifier for the DLP dictionary

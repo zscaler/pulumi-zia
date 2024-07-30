@@ -7,14 +7,12 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const activation = zia.getActivationStatus({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActivationStatus(opts?: pulumi.InvokeOptions): Promise<GetActivationStatusResult> {
 
@@ -36,14 +34,12 @@ export interface GetActivationStatusResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const activation = zia.getActivationStatus({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getActivationStatusOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActivationStatusResult> {
     return pulumi.output(getActivationStatus(opts))

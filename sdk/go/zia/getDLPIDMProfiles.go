@@ -24,7 +24,6 @@ func GetDLPIDMProfiles(ctx *pulumi.Context, args *GetDLPIDMProfilesArgs, opts ..
 
 // A collection of arguments for invoking getDLPIDMProfiles.
 type GetDLPIDMProfilesArgs struct {
-	// The IDM template name, which is unique per Index Tool.
 	ProfileName *string `pulumi:"profileName"`
 }
 
@@ -70,7 +69,6 @@ func GetDLPIDMProfilesOutput(ctx *pulumi.Context, args GetDLPIDMProfilesOutputAr
 
 // A collection of arguments for invoking getDLPIDMProfiles.
 type GetDLPIDMProfilesOutputArgs struct {
-	// The IDM template name, which is unique per Index Tool.
 	ProfileName pulumi.StringPtrInput `pulumi:"profileName"`
 }
 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getURLFilteringRules(args?: GetURLFilteringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetURLFilteringRulesResult> {
     args = args || {};
@@ -137,6 +135,7 @@ export interface GetURLFilteringRulesResult {
      * (String) Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
      */
     readonly sizeQuota: number;
+    readonly sourceIpGroups: outputs.GetURLFilteringRulesSourceIpGroup[];
     /**
      * (String) Rule State
      */
@@ -178,7 +177,6 @@ export interface GetURLFilteringRulesResult {
 /**
  * Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -187,7 +185,6 @@ export interface GetURLFilteringRulesResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getURLFilteringRulesOutput(args?: GetURLFilteringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetURLFilteringRulesResult> {
     return pulumi.output(args).apply((a: any) => getURLFilteringRules(a, opts))

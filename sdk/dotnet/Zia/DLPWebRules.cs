@@ -17,58 +17,8 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// ### OCR ENABLED
+    /// ### "ALL_OUTBOUND" File Type"
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Zia = zscaler.PulumiPackage.Zia;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Zia.DLPWebRules("test", new()
-    ///     {
-    ///         Action = "ALLOW",
-    ///         CloudApplications = new[]
-    ///         {
-    ///             "ZENDESK",
-    ///             "LUCKY_ORANGE",
-    ///             "MICROSOFT_POWERAPPS",
-    ///             "MICROSOFTLIVEMEETING",
-    ///         },
-    ///         Description = "Test",
-    ///         FileTypes = new[]
-    ///         {
-    ///             "BITMAP",
-    ///             "JPEG",
-    ///             "PNG",
-    ///             "TIFF",
-    ///         },
-    ///         MatchOnly = false,
-    ///         MinSize = 20,
-    ///         OcrEnabled = true,
-    ///         Order = 1,
-    ///         Protocols = new[]
-    ///         {
-    ///             "FTP_RULE",
-    ///             "HTTPS_RULE",
-    ///             "HTTP_RULE",
-    ///         },
-    ///         Rank = 7,
-    ///         State = "ENABLED",
-    ///         WithoutContentInspection = false,
-    ///         ZscalerIncidentReceiver = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
-    /// ### "ALL_OUTBOUND" File Type
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,7 +50,7 @@ namespace zscaler.PulumiPackage.Zia
     ///         {
     ///             "ALL_OUTBOUND",
     ///         },
-    ///         ZscalerIncidentReceiver = true,
+    ///         ZscalerIncidentReceiver = false,
     ///         WithoutContentInspection = false,
     ///         UserRiskScoreLevels = new[]
     ///         {
@@ -121,7 +71,180 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Zia = Pulumi.Zia;
+    /// using Zia = zscaler.PulumiPackage.Zia;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var thisURLCategories = Zia.GetURLCategories.Invoke(new()
+    ///     {
+    ///         ConfiguredName = "Example",
+    ///     });
+    /// 
+    ///     var thisIcapServers = Zia.GetIcapServers.Invoke(new()
+    ///     {
+    ///         Name = "ZS_ICAP_01",
+    ///     });
+    /// 
+    ///     var thisDLPWebRules = new Zia.DLPWebRules("thisDLPWebRules", new()
+    ///     {
+    ///         Description = "Terraform_Test",
+    ///         Action = "BLOCK",
+    ///         Order = 1,
+    ///         Protocols = new[]
+    ///         {
+    ///             "FTP_RULE",
+    ///             "HTTPS_RULE",
+    ///             "HTTP_RULE",
+    ///         },
+    ///         Rank = 7,
+    ///         State = "ENABLED",
+    ///         ZscalerIncidentReceiver = true,
+    ///         WithoutContentInspection = false,
+    ///         UrlCategories = new Zia.Inputs.DLPWebRulesUrlCategoriesArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 thisURLCategories.Apply(getURLCategoriesResult =&gt; getURLCategoriesResult.Val),
+    ///             },
+    ///         },
+    ///         IcapServers = new[]
+    ///         {
+    ///             new Zia.Inputs.DLPWebRulesIcapServerArgs
+    ///             {
+    ///                 Id = thisIcapServers.Apply(getIcapServersResult =&gt; getIcapServersResult.Id),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### "Specify Incident Receiver Setting"
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Zia = Pulumi.Zia;
+    /// using Zia = zscaler.PulumiPackage.Zia;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var thisURLCategories = Zia.GetURLCategories.Invoke(new()
+    ///     {
+    ///         ConfiguredName = "Example",
+    ///     });
+    /// 
+    ///     var thisDLPIncidentReceiverServers = Zia.GetDLPIncidentReceiverServers.Invoke(new()
+    ///     {
+    ///         Name = "ZS_INC_RECEIVER_01",
+    ///     });
+    /// 
+    ///     var thisDLPWebRules = new Zia.DLPWebRules("thisDLPWebRules", new()
+    ///     {
+    ///         Description = "Terraform_Test",
+    ///         Action = "BLOCK",
+    ///         Order = 1,
+    ///         Protocols = new[]
+    ///         {
+    ///             "FTP_RULE",
+    ///             "HTTPS_RULE",
+    ///             "HTTP_RULE",
+    ///         },
+    ///         Rank = 7,
+    ///         State = "ENABLED",
+    ///         ZscalerIncidentReceiver = true,
+    ///         WithoutContentInspection = false,
+    ///         UrlCategories = new Zia.Inputs.DLPWebRulesUrlCategoriesArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 thisURLCategories.Apply(getURLCategoriesResult =&gt; getURLCategoriesResult.Val),
+    ///             },
+    ///         },
+    ///         IcapServers = new[]
+    ///         {
+    ///             new Zia.Inputs.DLPWebRulesIcapServerArgs
+    ///             {
+    ///                 Id = thisDLPIncidentReceiverServers.Apply(getDLPIncidentReceiverServersResult =&gt; getDLPIncidentReceiverServersResult.Id),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### "Creating Parent Rules And SubRules"
+    /// 
+    /// ⚠️ **WARNING:** Destroying a parent rule will also destroy all subrules
+    /// 
+    ///  **NOTE** Exception rules can be configured only when the inline DLP rule evaluation type is set
+    ///  to evaluate all DLP rules in the DLP Advanced Settings.
+    ///  To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Zia = zscaler.PulumiPackage.Zia;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var parentRule = new Zia.DLPWebRules("parentRule", new()
+    ///     {
+    ///         Description = "ParentRule1",
+    ///         Action = "ALLOW",
+    ///         State = "ENABLED",
+    ///         Order = 1,
+    ///         Rank = 0,
+    ///         Protocols = new[]
+    ///         {
+    ///             "FTP_RULE",
+    ///             "HTTPS_RULE",
+    ///             "HTTP_RULE",
+    ///         },
+    ///         CloudApplications = new[]
+    ///         {
+    ///             "GOOGLE_WEBMAIL",
+    ///             "WINDOWS_LIVE_HOTMAIL",
+    ///         },
+    ///         WithoutContentInspection = false,
+    ///         MatchOnly = false,
+    ///         MinSize = 20,
+    ///         ZscalerIncidentReceiver = true,
+    ///     });
+    /// 
+    ///     var subrule1 = new Zia.DLPWebRules("subrule1", new()
+    ///     {
+    ///         Description = "SubRule1",
+    ///         Action = "ALLOW",
+    ///         State = "ENABLED",
+    ///         Order = 1,
+    ///         Rank = 0,
+    ///         Protocols = new[]
+    ///         {
+    ///             "FTP_RULE",
+    ///             "HTTPS_RULE",
+    ///             "HTTP_RULE",
+    ///         },
+    ///         CloudApplications = new[]
+    ///         {
+    ///             "GOOGLE_WEBMAIL",
+    ///             "WINDOWS_LIVE_HOTMAIL",
+    ///         },
+    ///         WithoutContentInspection = false,
+    ///         MatchOnly = false,
+    ///         ParentRule = parentRule.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -147,7 +270,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class DLPWebRules : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        /// The action taken when traffic matches the DLP policy rule criteria.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -155,8 +278,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// The auditor to which the DLP policy rule must be applied.
         /// </summary>
-        [Output("auditor")]
-        public Output<Outputs.DLPWebRulesAuditor> Auditor { get; private set; } = null!;
+        [Output("auditors")]
+        public Output<ImmutableArray<Outputs.DLPWebRulesAuditor>> Auditors { get; private set; } = null!;
 
         /// <summary>
         /// The list of cloud applications to which the DLP policy rule must be applied.
@@ -165,7 +288,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
 
         /// <summary>
-        /// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
         /// </summary>
         [Output("departments")]
         public Output<Outputs.DLPWebRulesDepartments> Departments { get; private set; } = null!;
@@ -189,19 +312,25 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.DLPWebRulesDlpEngines> DlpEngines { get; private set; } = null!;
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Output("excludedDepartments")]
         public Output<Outputs.DLPWebRulesExcludedDepartments> ExcludedDepartments { get; private set; } = null!;
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Output("excludedDomainProfiles")]
+        public Output<Outputs.DLPWebRulesExcludedDomainProfiles> ExcludedDomainProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Output("excludedGroups")]
         public Output<Outputs.DLPWebRulesExcludedGroups> ExcludedGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Output("excludedUsers")]
         public Output<Outputs.DLPWebRulesExcludedUsers> ExcludedUsers { get; private set; } = null!;
@@ -213,19 +342,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> ExternalAuditorEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-        /// 
-        /// * &gt; Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        /// The list of file types for which the DLP policy rule must be applied.
         /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.DLPWebRulesGroups> Groups { get; private set; } = null!;
@@ -233,23 +356,29 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// The DLP server, using ICAP, to which the transaction content is forwarded.
         /// </summary>
-        [Output("icapServer")]
-        public Output<Outputs.DLPWebRulesIcapServer> IcapServer { get; private set; } = null!;
+        [Output("icapServers")]
+        public Output<ImmutableArray<Outputs.DLPWebRulesIcapServer>> IcapServers { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of rule labels associated to the DLP policy rule.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Output("includedDomainProfiles")]
+        public Output<Outputs.DLPWebRulesIncludedDomainProfiles> IncludedDomainProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Output("labels")]
         public Output<Outputs.DLPWebRulesLabels> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.DLPWebRulesLocationGroups> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.DLPWebRulesLocations> Locations { get; private set; } = null!;
@@ -267,7 +396,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the workload group
+        /// The DLP policy rule name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -275,14 +404,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// The template used for DLP notification emails.
         /// </summary>
-        [Output("notificationTemplate")]
-        public Output<Outputs.DLPWebRulesNotificationTemplate> NotificationTemplate { get; private set; } = null!;
-
-        /// <summary>
-        /// Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        /// </summary>
-        [Output("ocrEnabled")]
-        public Output<bool> OcrEnabled { get; private set; } = null!;
+        [Output("notificationTemplates")]
+        public Output<ImmutableArray<Outputs.DLPWebRulesNotificationTemplate>> NotificationTemplates { get; private set; } = null!;
 
         /// <summary>
         /// The rule order of execution for the DLP policy rule with respect to other rules.
@@ -291,8 +414,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the parent rule under which an exception rule is added.
-        /// &gt; Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The unique identifier of the parent rule under which an exception rule is added
         /// </summary>
         [Output("parentRule")]
         public Output<int> ParentRule { get; private set; } = null!;
@@ -313,26 +435,31 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        /// Indicates the severity selected for the DLP rule violation
         /// </summary>
         [Output("severity")]
         public Output<string> Severity { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables the DLP policy rule.. The supported values are:
+        /// list of source ip groups
+        /// </summary>
+        [Output("sourceIpGroups")]
+        public Output<Outputs.DLPWebRulesSourceIpGroups> SourceIpGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables or disables the DLP policy rule.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The list of exception rules added to a parent rule.
-        /// &gt; Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The list of exception rules added to a parent rule
         /// </summary>
         [Output("subRules")]
         public Output<ImmutableArray<string>> SubRules { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// list of time interval during which rule must be enforced.
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.DLPWebRulesTimeWindows> TimeWindows { get; private set; } = null!;
@@ -343,20 +470,17 @@ namespace zscaler.PulumiPackage.Zia
         [Output("urlCategories")]
         public Output<Outputs.DLPWebRulesUrlCategories> UrlCategories { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         [Output("userRiskScoreLevels")]
         public Output<ImmutableArray<string>> UserRiskScoreLevels { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Output("users")]
         public Output<Outputs.DLPWebRulesUsers> Users { get; private set; } = null!;
 
         /// <summary>
-        /// must be set to false if `file_types` is not defined.
+        /// Indicates a DLP policy rule without content inspection, when the value is set to true.
         /// </summary>
         [Output("withoutContentInspection")]
         public Output<bool> WithoutContentInspection { get; private set; } = null!;
@@ -377,7 +501,7 @@ namespace zscaler.PulumiPackage.Zia
         /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
         /// </summary>
         [Output("zscalerIncidentReceiver")]
-        public Output<bool> ZscalerIncidentReceiver { get; private set; } = null!;
+        public Output<bool?> ZscalerIncidentReceiver { get; private set; } = null!;
 
 
         /// <summary>
@@ -427,16 +551,22 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class DLPWebRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        /// The action taken when traffic matches the DLP policy rule criteria.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        [Input("auditors")]
+        private InputList<Inputs.DLPWebRulesAuditorArgs>? _auditors;
+
         /// <summary>
         /// The auditor to which the DLP policy rule must be applied.
         /// </summary>
-        [Input("auditor")]
-        public Input<Inputs.DLPWebRulesAuditorArgs>? Auditor { get; set; }
+        public InputList<Inputs.DLPWebRulesAuditorArgs> Auditors
+        {
+            get => _auditors ?? (_auditors = new InputList<Inputs.DLPWebRulesAuditorArgs>());
+            set => _auditors = value;
+        }
 
         [Input("cloudApplications")]
         private InputList<string>? _cloudApplications;
@@ -451,7 +581,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
         /// </summary>
         [Input("departments")]
         public Input<Inputs.DLPWebRulesDepartmentsArgs>? Departments { get; set; }
@@ -475,19 +605,25 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.DLPWebRulesDlpEnginesArgs>? DlpEngines { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedDepartments")]
         public Input<Inputs.DLPWebRulesExcludedDepartmentsArgs>? ExcludedDepartments { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Input("excludedDomainProfiles")]
+        public Input<Inputs.DLPWebRulesExcludedDomainProfilesArgs>? ExcludedDomainProfiles { get; set; }
+
+        /// <summary>
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedGroups")]
         public Input<Inputs.DLPWebRulesExcludedGroupsArgs>? ExcludedGroups { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedUsers")]
         public Input<Inputs.DLPWebRulesExcludedUsersArgs>? ExcludedUsers { get; set; }
@@ -502,13 +638,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-        /// 
-        /// * &gt; Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        /// The list of file types for which the DLP policy rule must be applied.
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -517,31 +647,43 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.DLPWebRulesGroupsArgs>? Groups { get; set; }
 
+        [Input("icapServers")]
+        private InputList<Inputs.DLPWebRulesIcapServerArgs>? _icapServers;
+
         /// <summary>
         /// The DLP server, using ICAP, to which the transaction content is forwarded.
         /// </summary>
-        [Input("icapServer")]
-        public Input<Inputs.DLPWebRulesIcapServerArgs>? IcapServer { get; set; }
+        public InputList<Inputs.DLPWebRulesIcapServerArgs> IcapServers
+        {
+            get => _icapServers ?? (_icapServers = new InputList<Inputs.DLPWebRulesIcapServerArgs>());
+            set => _icapServers = value;
+        }
 
         /// <summary>
-        /// The Name-ID pairs of rule labels associated to the DLP policy rule.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Input("includedDomainProfiles")]
+        public Input<Inputs.DLPWebRulesIncludedDomainProfilesArgs>? IncludedDomainProfiles { get; set; }
+
+        /// <summary>
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.DLPWebRulesLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.DLPWebRulesLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.DLPWebRulesLocationsArgs>? Locations { get; set; }
@@ -559,22 +701,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// The name of the workload group
+        /// The DLP policy rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("notificationTemplates")]
+        private InputList<Inputs.DLPWebRulesNotificationTemplateArgs>? _notificationTemplates;
+
         /// <summary>
         /// The template used for DLP notification emails.
         /// </summary>
-        [Input("notificationTemplate")]
-        public Input<Inputs.DLPWebRulesNotificationTemplateArgs>? NotificationTemplate { get; set; }
-
-        /// <summary>
-        /// Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        /// </summary>
-        [Input("ocrEnabled")]
-        public Input<bool>? OcrEnabled { get; set; }
+        public InputList<Inputs.DLPWebRulesNotificationTemplateArgs> NotificationTemplates
+        {
+            get => _notificationTemplates ?? (_notificationTemplates = new InputList<Inputs.DLPWebRulesNotificationTemplateArgs>());
+            set => _notificationTemplates = value;
+        }
 
         /// <summary>
         /// The rule order of execution for the DLP policy rule with respect to other rules.
@@ -583,8 +725,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// The unique identifier of the parent rule under which an exception rule is added.
-        /// &gt; Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The unique identifier of the parent rule under which an exception rule is added
         /// </summary>
         [Input("parentRule")]
         public Input<int>? ParentRule { get; set; }
@@ -608,13 +749,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Rank { get; set; }
 
         /// <summary>
-        /// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        /// Indicates the severity selected for the DLP rule violation
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
 
         /// <summary>
-        /// Enables or disables the DLP policy rule.. The supported values are:
+        /// list of source ip groups
+        /// </summary>
+        [Input("sourceIpGroups")]
+        public Input<Inputs.DLPWebRulesSourceIpGroupsArgs>? SourceIpGroups { get; set; }
+
+        /// <summary>
+        /// Enables or disables the DLP policy rule.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -623,8 +770,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _subRules;
 
         /// <summary>
-        /// The list of exception rules added to a parent rule.
-        /// &gt; Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The list of exception rules added to a parent rule
         /// </summary>
         public InputList<string> SubRules
         {
@@ -633,7 +779,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// list of time interval during which rule must be enforced.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.DLPWebRulesTimeWindowsArgs>? TimeWindows { get; set; }
@@ -646,10 +792,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userRiskScoreLevels")]
         private InputList<string>? _userRiskScoreLevels;
-
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         public InputList<string> UserRiskScoreLevels
         {
             get => _userRiskScoreLevels ?? (_userRiskScoreLevels = new InputList<string>());
@@ -657,13 +799,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("users")]
         public Input<Inputs.DLPWebRulesUsersArgs>? Users { get; set; }
 
         /// <summary>
-        /// must be set to false if `file_types` is not defined.
+        /// Indicates a DLP policy rule without content inspection, when the value is set to true.
         /// </summary>
         [Input("withoutContentInspection")]
         public Input<bool>? WithoutContentInspection { get; set; }
@@ -701,16 +843,22 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class DLPWebRulesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+        /// The action taken when traffic matches the DLP policy rule criteria.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        [Input("auditors")]
+        private InputList<Inputs.DLPWebRulesAuditorGetArgs>? _auditors;
+
         /// <summary>
         /// The auditor to which the DLP policy rule must be applied.
         /// </summary>
-        [Input("auditor")]
-        public Input<Inputs.DLPWebRulesAuditorGetArgs>? Auditor { get; set; }
+        public InputList<Inputs.DLPWebRulesAuditorGetArgs> Auditors
+        {
+            get => _auditors ?? (_auditors = new InputList<Inputs.DLPWebRulesAuditorGetArgs>());
+            set => _auditors = value;
+        }
 
         [Input("cloudApplications")]
         private InputList<string>? _cloudApplications;
@@ -725,7 +873,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
         /// </summary>
         [Input("departments")]
         public Input<Inputs.DLPWebRulesDepartmentsGetArgs>? Departments { get; set; }
@@ -749,19 +897,25 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.DLPWebRulesDlpEnginesGetArgs>? DlpEngines { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedDepartments")]
         public Input<Inputs.DLPWebRulesExcludedDepartmentsGetArgs>? ExcludedDepartments { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Input("excludedDomainProfiles")]
+        public Input<Inputs.DLPWebRulesExcludedDomainProfilesGetArgs>? ExcludedDomainProfiles { get; set; }
+
+        /// <summary>
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedGroups")]
         public Input<Inputs.DLPWebRulesExcludedGroupsGetArgs>? ExcludedGroups { get; set; }
 
         /// <summary>
-        /// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("excludedUsers")]
         public Input<Inputs.DLPWebRulesExcludedUsersGetArgs>? ExcludedUsers { get; set; }
@@ -776,13 +930,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-        /// 
-        /// * &gt; Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocr_enabled` is set to `true` for DLP rules with content inspection.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `without_content_inspection` is set to `false`.
-        /// 
-        /// * &gt; Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+        /// The list of file types for which the DLP policy rule must be applied.
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -791,31 +939,43 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.DLPWebRulesGroupsGetArgs>? Groups { get; set; }
 
+        [Input("icapServers")]
+        private InputList<Inputs.DLPWebRulesIcapServerGetArgs>? _icapServers;
+
         /// <summary>
         /// The DLP server, using ICAP, to which the transaction content is forwarded.
         /// </summary>
-        [Input("icapServer")]
-        public Input<Inputs.DLPWebRulesIcapServerGetArgs>? IcapServer { get; set; }
+        public InputList<Inputs.DLPWebRulesIcapServerGetArgs> IcapServers
+        {
+            get => _icapServers ?? (_icapServers = new InputList<Inputs.DLPWebRulesIcapServerGetArgs>());
+            set => _icapServers = value;
+        }
 
         /// <summary>
-        /// The Name-ID pairs of rule labels associated to the DLP policy rule.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// </summary>
+        [Input("includedDomainProfiles")]
+        public Input<Inputs.DLPWebRulesIncludedDomainProfilesGetArgs>? IncludedDomainProfiles { get; set; }
+
+        /// <summary>
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.DLPWebRulesLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.DLPWebRulesLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.DLPWebRulesLocationsGetArgs>? Locations { get; set; }
@@ -833,22 +993,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// The name of the workload group
+        /// The DLP policy rule name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("notificationTemplates")]
+        private InputList<Inputs.DLPWebRulesNotificationTemplateGetArgs>? _notificationTemplates;
+
         /// <summary>
         /// The template used for DLP notification emails.
         /// </summary>
-        [Input("notificationTemplate")]
-        public Input<Inputs.DLPWebRulesNotificationTemplateGetArgs>? NotificationTemplate { get; set; }
-
-        /// <summary>
-        /// Enables or disables image file scanning. When OCR is enabled only the following ``file_types`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-        /// </summary>
-        [Input("ocrEnabled")]
-        public Input<bool>? OcrEnabled { get; set; }
+        public InputList<Inputs.DLPWebRulesNotificationTemplateGetArgs> NotificationTemplates
+        {
+            get => _notificationTemplates ?? (_notificationTemplates = new InputList<Inputs.DLPWebRulesNotificationTemplateGetArgs>());
+            set => _notificationTemplates = value;
+        }
 
         /// <summary>
         /// The rule order of execution for the DLP policy rule with respect to other rules.
@@ -857,8 +1017,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// The unique identifier of the parent rule under which an exception rule is added.
-        /// &gt; Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The unique identifier of the parent rule under which an exception rule is added
         /// </summary>
         [Input("parentRule")]
         public Input<int>? ParentRule { get; set; }
@@ -885,13 +1044,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? RuleId { get; set; }
 
         /// <summary>
-        /// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+        /// Indicates the severity selected for the DLP rule violation
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
 
         /// <summary>
-        /// Enables or disables the DLP policy rule.. The supported values are:
+        /// list of source ip groups
+        /// </summary>
+        [Input("sourceIpGroups")]
+        public Input<Inputs.DLPWebRulesSourceIpGroupsGetArgs>? SourceIpGroups { get; set; }
+
+        /// <summary>
+        /// Enables or disables the DLP policy rule.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -900,8 +1065,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _subRules;
 
         /// <summary>
-        /// The list of exception rules added to a parent rule.
-        /// &gt; Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+        /// The list of exception rules added to a parent rule
         /// </summary>
         public InputList<string> SubRules
         {
@@ -910,7 +1074,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// list of time interval during which rule must be enforced.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.DLPWebRulesTimeWindowsGetArgs>? TimeWindows { get; set; }
@@ -923,10 +1087,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userRiskScoreLevels")]
         private InputList<string>? _userRiskScoreLevels;
-
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         public InputList<string> UserRiskScoreLevels
         {
             get => _userRiskScoreLevels ?? (_userRiskScoreLevels = new InputList<string>());
@@ -934,13 +1094,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
         /// </summary>
         [Input("users")]
         public Input<Inputs.DLPWebRulesUsersGetArgs>? Users { get; set; }
 
         /// <summary>
-        /// must be set to false if `file_types` is not defined.
+        /// Indicates a DLP policy rule without content inspection, when the value is set to true.
         /// </summary>
         [Input("withoutContentInspection")]
         public Input<bool>? WithoutContentInspection { get; set; }

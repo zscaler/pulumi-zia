@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupFirewallFilteringRule(ctx *pulumi.Context, args *LookupFirewallFilteringRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallFilteringRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallFilteringRuleResult

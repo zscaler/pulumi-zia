@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -28,7 +27,6 @@ import * as utilities from "./utilities";
  *     routableIp: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -79,9 +77,10 @@ export class TrafficForwardingStaticIP extends pulumi.CustomResource {
     /**
      * Additional information about this static IP address
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+     * and longitude coordinates must be provided.
      */
     public readonly geoOverride!: pulumi.Output<boolean>;
     /**
@@ -89,15 +88,18 @@ export class TrafficForwardingStaticIP extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+     * -90 and 90 degrees.
      */
     public readonly latitude!: pulumi.Output<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+     * -180 and 180 degrees.
      */
     public readonly longitude!: pulumi.Output<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+     * Service Edge associated to the organization.
      */
     public readonly routableIp!: pulumi.Output<boolean>;
     /**
@@ -152,7 +154,8 @@ export interface TrafficForwardingStaticIPState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+     * and longitude coordinates must be provided.
      */
     geoOverride?: pulumi.Input<boolean>;
     /**
@@ -160,15 +163,18 @@ export interface TrafficForwardingStaticIPState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+     * -90 and 90 degrees.
      */
     latitude?: pulumi.Input<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+     * -180 and 180 degrees.
      */
     longitude?: pulumi.Input<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+     * Service Edge associated to the organization.
      */
     routableIp?: pulumi.Input<boolean>;
     /**
@@ -186,7 +192,8 @@ export interface TrafficForwardingStaticIPArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+     * and longitude coordinates must be provided.
      */
     geoOverride?: pulumi.Input<boolean>;
     /**
@@ -194,15 +201,18 @@ export interface TrafficForwardingStaticIPArgs {
      */
     ipAddress: pulumi.Input<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+     * -90 and 90 degrees.
      */
     latitude?: pulumi.Input<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+     * -180 and 180 degrees.
      */
     longitude?: pulumi.Input<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+     * Service Edge associated to the organization.
      */
     routableIp?: pulumi.Input<boolean>;
 }

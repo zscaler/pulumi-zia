@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "ZS_Incident_Receiver",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPIncidentReceiverServers(args?: GetDLPIncidentReceiverServersArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPIncidentReceiverServersResult> {
     args = args || {};
@@ -33,9 +31,6 @@ export function getDLPIncidentReceiverServers(args?: GetDLPIncidentReceiverServe
  * A collection of arguments for invoking getDLPIncidentReceiverServers.
  */
 export interface GetDLPIncidentReceiverServersArgs {
-    /**
-     * The DLP Incident Receiver Server name as configured by the admin.
-     */
     name?: string;
 }
 
@@ -54,7 +49,6 @@ export interface GetDLPIncidentReceiverServersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -63,7 +57,6 @@ export interface GetDLPIncidentReceiverServersResult {
  *     name: "ZS_Incident_Receiver",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPIncidentReceiverServersOutput(args?: GetDLPIncidentReceiverServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDLPIncidentReceiverServersResult> {
     return pulumi.output(args).apply((a: any) => getDLPIncidentReceiverServers(a, opts))
@@ -73,8 +66,5 @@ export function getDLPIncidentReceiverServersOutput(args?: GetDLPIncidentReceive
  * A collection of arguments for invoking getDLPIncidentReceiverServers.
  */
 export interface GetDLPIncidentReceiverServersOutputArgs {
-    /**
-     * The DLP Incident Receiver Server name as configured by the admin.
-     */
     name?: pulumi.Input<string>;
 }

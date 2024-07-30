@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPDictionariesResult> InvokeAsync(GetDLPDictionariesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPDictionariesResult>("zia:index/getDLPDictionaries:getDLPDictionaries", args ?? new GetDLPDictionariesArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPDictionariesResult> Invoke(GetDLPDictionariesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPDictionariesResult>("zia:index/getDLPDictionaries:getDLPDictionaries", args ?? new GetDLPDictionariesInvokeArgs(), options.WithDefaults());

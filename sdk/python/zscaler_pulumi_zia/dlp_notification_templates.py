@@ -22,12 +22,12 @@ class DLPNotificationTemplatesArgs:
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DLPNotificationTemplates resource.
-        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email.
-        :param pulumi.Input[bool] attach_content: If set to true, the content that is violation is attached to the DLP notification email.
-        :param pulumi.Input[str] name: The DLP policy rule name.
-        :param pulumi.Input[bool] tls_enabled: If set to true, the content that is violation is attached to the DLP notification email.
+        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email
+        :param pulumi.Input[bool] attach_content: f set to true, the content that is violation is attached to the DLP notification email
+        :param pulumi.Input[str] name: The DLP notification template name
+        :param pulumi.Input[bool] tls_enabled: If set to true, TLS will be enabled
         """
         pulumi.set(__self__, "html_message", html_message)
         pulumi.set(__self__, "plain_text_message", plain_text_message)
@@ -43,7 +43,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter(name="htmlMessage")
     def html_message(self) -> pulumi.Input[str]:
         """
-        The template for the HTML message body that must be displayed in the DLP notification email.
+        The template for the HTML message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "html_message")
 
@@ -55,7 +55,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> pulumi.Input[str]:
         """
-        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "plain_text_message")
 
@@ -67,7 +67,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
         """
-        The Subject line that is displayed within the DLP notification email.
+        The Subject line that is displayed within the DLP notification email
         """
         return pulumi.get(self, "subject")
 
@@ -79,7 +79,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter(name="attachContent")
     def attach_content(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        f set to true, the content that is violation is attached to the DLP notification email
         """
         return pulumi.get(self, "attach_content")
 
@@ -91,7 +91,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DLP policy rule name.
+        The DLP notification template name
         """
         return pulumi.get(self, "name")
 
@@ -103,7 +103,7 @@ class DLPNotificationTemplatesArgs:
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        If set to true, TLS will be enabled
         """
         return pulumi.get(self, "tls_enabled")
 
@@ -124,13 +124,13 @@ class _DLPNotificationTemplatesState:
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering DLPNotificationTemplates resources.
-        :param pulumi.Input[bool] attach_content: If set to true, the content that is violation is attached to the DLP notification email.
-        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] name: The DLP policy rule name.
-        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email.
+        :param pulumi.Input[bool] attach_content: f set to true, the content that is violation is attached to the DLP notification email
+        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] name: The DLP notification template name
+        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email
         :param pulumi.Input[int] template_id: The unique identifier for a DLP notification template
-        :param pulumi.Input[bool] tls_enabled: If set to true, the content that is violation is attached to the DLP notification email.
+        :param pulumi.Input[bool] tls_enabled: If set to true, TLS will be enabled
         """
         if attach_content is not None:
             pulumi.set(__self__, "attach_content", attach_content)
@@ -151,7 +151,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter(name="attachContent")
     def attach_content(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        f set to true, the content that is violation is attached to the DLP notification email
         """
         return pulumi.get(self, "attach_content")
 
@@ -163,7 +163,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter(name="htmlMessage")
     def html_message(self) -> Optional[pulumi.Input[str]]:
         """
-        The template for the HTML message body that must be displayed in the DLP notification email.
+        The template for the HTML message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "html_message")
 
@@ -175,7 +175,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DLP policy rule name.
+        The DLP notification template name
         """
         return pulumi.get(self, "name")
 
@@ -187,7 +187,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input[str]]:
         """
-        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "plain_text_message")
 
@@ -199,7 +199,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter
     def subject(self) -> Optional[pulumi.Input[str]]:
         """
-        The Subject line that is displayed within the DLP notification email.
+        The Subject line that is displayed within the DLP notification email
         """
         return pulumi.get(self, "subject")
 
@@ -223,7 +223,7 @@ class _DLPNotificationTemplatesState:
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        If set to true, TLS will be enabled
         """
         return pulumi.get(self, "tls_enabled")
 
@@ -249,7 +249,6 @@ class DLPNotificationTemplates(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -261,7 +260,6 @@ class DLPNotificationTemplates(pulumi.CustomResource):
             html_message=(lambda path: open(path).read())("./index.html"),
             plain_text_message=(lambda path: open(path).read())("./dlp.txt"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,12 +283,12 @@ class DLPNotificationTemplates(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] attach_content: If set to true, the content that is violation is attached to the DLP notification email.
-        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] name: The DLP policy rule name.
-        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email.
-        :param pulumi.Input[bool] tls_enabled: If set to true, the content that is violation is attached to the DLP notification email.
+        :param pulumi.Input[bool] attach_content: f set to true, the content that is violation is attached to the DLP notification email
+        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] name: The DLP notification template name
+        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email
+        :param pulumi.Input[bool] tls_enabled: If set to true, TLS will be enabled
         """
         ...
     @overload
@@ -303,7 +301,6 @@ class DLPNotificationTemplates(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -315,7 +312,6 @@ class DLPNotificationTemplates(pulumi.CustomResource):
             html_message=(lambda path: open(path).read())("./index.html"),
             plain_text_message=(lambda path: open(path).read())("./dlp.txt"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -404,13 +400,13 @@ class DLPNotificationTemplates(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] attach_content: If set to true, the content that is violation is attached to the DLP notification email.
-        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] name: The DLP policy rule name.
-        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
-        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email.
+        :param pulumi.Input[bool] attach_content: f set to true, the content that is violation is attached to the DLP notification email
+        :param pulumi.Input[str] html_message: The template for the HTML message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] name: The DLP notification template name
+        :param pulumi.Input[str] plain_text_message: The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
+        :param pulumi.Input[str] subject: The Subject line that is displayed within the DLP notification email
         :param pulumi.Input[int] template_id: The unique identifier for a DLP notification template
-        :param pulumi.Input[bool] tls_enabled: If set to true, the content that is violation is attached to the DLP notification email.
+        :param pulumi.Input[bool] tls_enabled: If set to true, TLS will be enabled
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,7 +425,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter(name="attachContent")
     def attach_content(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        f set to true, the content that is violation is attached to the DLP notification email
         """
         return pulumi.get(self, "attach_content")
 
@@ -437,7 +433,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter(name="htmlMessage")
     def html_message(self) -> pulumi.Output[str]:
         """
-        The template for the HTML message body that must be displayed in the DLP notification email.
+        The template for the HTML message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "html_message")
 
@@ -445,7 +441,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The DLP policy rule name.
+        The DLP notification template name
         """
         return pulumi.get(self, "name")
 
@@ -453,7 +449,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> pulumi.Output[str]:
         """
-        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         """
         return pulumi.get(self, "plain_text_message")
 
@@ -461,7 +457,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter
     def subject(self) -> pulumi.Output[str]:
         """
-        The Subject line that is displayed within the DLP notification email.
+        The Subject line that is displayed within the DLP notification email
         """
         return pulumi.get(self, "subject")
 
@@ -477,7 +473,7 @@ class DLPNotificationTemplates(pulumi.CustomResource):
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, the content that is violation is attached to the DLP notification email.
+        If set to true, TLS will be enabled
         """
         return pulumi.get(self, "tls_enabled")
 

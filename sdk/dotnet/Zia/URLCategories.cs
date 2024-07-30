@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +73,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -110,73 +108,39 @@ namespace zscaler.PulumiPackage.Zia
         [Output("configuredName")]
         public Output<string?> ConfiguredName { get; private set; } = null!;
 
-        /// <summary>
-        /// Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        /// </summary>
         [Output("customCategory")]
         public Output<bool?> CustomCategory { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category.
-        /// </summary>
         [Output("customIpRangesCount")]
         public Output<int> CustomIpRangesCount { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of custom URLs associated to the URL category.
-        /// </summary>
         [Output("customUrlsCount")]
         public Output<int> CustomUrlsCount { get; private set; } = null!;
 
-        /// <summary>
-        /// URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        /// </summary>
         [Output("dbCategorizedUrls")]
         public Output<ImmutableArray<string>> DbCategorizedUrls { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the category.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Value is set to false for custom URL category when due to scope user does not have edit permission
-        /// </summary>
         [Output("editable")]
         public Output<bool> Editable { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        /// </summary>
         [Output("ipRanges")]
         public Output<ImmutableArray<string>> IpRanges { get; private set; } = null!;
 
-        /// <summary>
-        /// The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// </summary>
         [Output("ipRangesRetainingParentCategories")]
         public Output<ImmutableArray<string>> IpRangesRetainingParentCategories { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Output("ipRangesRetainingParentCategoryCount")]
         public Output<int> IpRangesRetainingParentCategoryCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         [Output("keywords")]
         public Output<ImmutableArray<string>> Keywords { get; private set; } = null!;
 
         [Output("keywordsRetainingParentCategories")]
         public Output<ImmutableArray<string>> KeywordsRetainingParentCategories { get; private set; } = null!;
 
-        /// <summary>
-        /// Scope of the custom categories.
-        /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.URLCategoriesScope>> Scopes { get; private set; } = null!;
 
@@ -186,27 +150,15 @@ namespace zscaler.PulumiPackage.Zia
         [Output("superCategory")]
         public Output<string?> SuperCategory { get; private set; } = null!;
 
-        /// <summary>
-        /// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// URL and keyword counts for the category.
-        /// </summary>
         [Output("urlKeywordCounts")]
         public Output<Outputs.URLCategoriesUrlKeywordCounts> UrlKeywordCounts { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Output("urlsRetainingParentCategoryCount")]
         public Output<int> UrlsRetainingParentCategoryCount { get; private set; } = null!;
 
@@ -263,55 +215,31 @@ namespace zscaler.PulumiPackage.Zia
         [Input("configuredName")]
         public Input<string>? ConfiguredName { get; set; }
 
-        /// <summary>
-        /// Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        /// </summary>
         [Input("customCategory")]
         public Input<bool>? CustomCategory { get; set; }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category.
-        /// </summary>
         [Input("customIpRangesCount")]
         public Input<int>? CustomIpRangesCount { get; set; }
 
-        /// <summary>
-        /// The number of custom URLs associated to the URL category.
-        /// </summary>
         [Input("customUrlsCount")]
         public Input<int>? CustomUrlsCount { get; set; }
 
         [Input("dbCategorizedUrls")]
         private InputList<string>? _dbCategorizedUrls;
-
-        /// <summary>
-        /// URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        /// </summary>
         public InputList<string> DbCategorizedUrls
         {
             get => _dbCategorizedUrls ?? (_dbCategorizedUrls = new InputList<string>());
             set => _dbCategorizedUrls = value;
         }
 
-        /// <summary>
-        /// Description of the category.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Value is set to false for custom URL category when due to scope user does not have edit permission
-        /// </summary>
         [Input("editable")]
         public Input<bool>? Editable { get; set; }
 
         [Input("ipRanges")]
         private InputList<string>? _ipRanges;
-
-        /// <summary>
-        /// Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        /// </summary>
         public InputList<string> IpRanges
         {
             get => _ipRanges ?? (_ipRanges = new InputList<string>());
@@ -320,28 +248,17 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("ipRangesRetainingParentCategories")]
         private InputList<string>? _ipRangesRetainingParentCategories;
-
-        /// <summary>
-        /// The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// </summary>
         public InputList<string> IpRangesRetainingParentCategories
         {
             get => _ipRangesRetainingParentCategories ?? (_ipRangesRetainingParentCategories = new InputList<string>());
             set => _ipRangesRetainingParentCategories = value;
         }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Input("ipRangesRetainingParentCategoryCount")]
         public Input<int>? IpRangesRetainingParentCategoryCount { get; set; }
 
         [Input("keywords")]
         private InputList<string>? _keywords;
-
-        /// <summary>
-        /// Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
@@ -358,10 +275,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("scopes")]
         private InputList<Inputs.URLCategoriesScopeArgs>? _scopes;
-
-        /// <summary>
-        /// Scope of the custom categories.
-        /// </summary>
         public InputList<Inputs.URLCategoriesScopeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.URLCategoriesScopeArgs>());
@@ -374,33 +287,20 @@ namespace zscaler.PulumiPackage.Zia
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
 
-        /// <summary>
-        /// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// URL and keyword counts for the category.
-        /// </summary>
         [Input("urlKeywordCounts")]
         public Input<Inputs.URLCategoriesUrlKeywordCountsArgs>? UrlKeywordCounts { get; set; }
 
         [Input("urls")]
         private InputList<string>? _urls;
-
-        /// <summary>
-        /// Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());
             set => _urls = value;
         }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Input("urlsRetainingParentCategoryCount")]
         public Input<int>? UrlsRetainingParentCategoryCount { get; set; }
 
@@ -421,55 +321,31 @@ namespace zscaler.PulumiPackage.Zia
         [Input("configuredName")]
         public Input<string>? ConfiguredName { get; set; }
 
-        /// <summary>
-        /// Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        /// </summary>
         [Input("customCategory")]
         public Input<bool>? CustomCategory { get; set; }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category.
-        /// </summary>
         [Input("customIpRangesCount")]
         public Input<int>? CustomIpRangesCount { get; set; }
 
-        /// <summary>
-        /// The number of custom URLs associated to the URL category.
-        /// </summary>
         [Input("customUrlsCount")]
         public Input<int>? CustomUrlsCount { get; set; }
 
         [Input("dbCategorizedUrls")]
         private InputList<string>? _dbCategorizedUrls;
-
-        /// <summary>
-        /// URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        /// </summary>
         public InputList<string> DbCategorizedUrls
         {
             get => _dbCategorizedUrls ?? (_dbCategorizedUrls = new InputList<string>());
             set => _dbCategorizedUrls = value;
         }
 
-        /// <summary>
-        /// Description of the category.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Value is set to false for custom URL category when due to scope user does not have edit permission
-        /// </summary>
         [Input("editable")]
         public Input<bool>? Editable { get; set; }
 
         [Input("ipRanges")]
         private InputList<string>? _ipRanges;
-
-        /// <summary>
-        /// Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        /// </summary>
         public InputList<string> IpRanges
         {
             get => _ipRanges ?? (_ipRanges = new InputList<string>());
@@ -478,28 +354,17 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("ipRangesRetainingParentCategories")]
         private InputList<string>? _ipRangesRetainingParentCategories;
-
-        /// <summary>
-        /// The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        /// </summary>
         public InputList<string> IpRangesRetainingParentCategories
         {
             get => _ipRangesRetainingParentCategories ?? (_ipRangesRetainingParentCategories = new InputList<string>());
             set => _ipRangesRetainingParentCategories = value;
         }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Input("ipRangesRetainingParentCategoryCount")]
         public Input<int>? IpRangesRetainingParentCategoryCount { get; set; }
 
         [Input("keywords")]
         private InputList<string>? _keywords;
-
-        /// <summary>
-        /// Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
@@ -516,10 +381,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("scopes")]
         private InputList<Inputs.URLCategoriesScopeGetArgs>? _scopes;
-
-        /// <summary>
-        /// Scope of the custom categories.
-        /// </summary>
         public InputList<Inputs.URLCategoriesScopeGetArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.URLCategoriesScopeGetArgs>());
@@ -532,33 +393,20 @@ namespace zscaler.PulumiPackage.Zia
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
 
-        /// <summary>
-        /// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// URL and keyword counts for the category.
-        /// </summary>
         [Input("urlKeywordCounts")]
         public Input<Inputs.URLCategoriesUrlKeywordCountsGetArgs>? UrlKeywordCounts { get; set; }
 
         [Input("urls")]
         private InputList<string>? _urls;
-
-        /// <summary>
-        /// Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());
             set => _urls = value;
         }
 
-        /// <summary>
-        /// The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        /// </summary>
         [Input("urlsRetainingParentCategoryCount")]
         public Input<int>? UrlsRetainingParentCategoryCount { get; set; }
 

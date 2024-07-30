@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPWebRulesResult> InvokeAsync(GetDLPWebRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPWebRulesResult>("zia:index/getDLPWebRules:getDLPWebRules", args ?? new GetDLPWebRulesArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPWebRulesResult> Invoke(GetDLPWebRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPWebRulesResult>("zia:index/getDLPWebRules:getDLPWebRules", args ?? new GetDLPWebRulesInvokeArgs(), options.WithDefaults());
@@ -68,15 +64,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPWebRulesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
-        /// <summary>
-        /// The name of the workload group
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -88,15 +78,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPWebRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
-        /// <summary>
-        /// The name of the workload group
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -112,7 +96,6 @@ namespace zscaler.PulumiPackage.Zia
     {
         public readonly string AccessControl;
         public readonly string Action;
-        public readonly ImmutableArray<Outputs.GetDLPWebRulesAuditorResult> Auditors;
         public readonly ImmutableArray<string> CloudApplications;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesDepartmentResult> Departments;
         public readonly string Description;
@@ -124,7 +107,6 @@ namespace zscaler.PulumiPackage.Zia
         public readonly string ExternalAuditorEmail;
         public readonly ImmutableArray<string> FileTypes;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesGroupResult> Groups;
-        public readonly ImmutableArray<Outputs.GetDLPWebRulesIcapServerResult> IcapServers;
         public readonly int? Id;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesLabelResult> Labels;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesLastModifiedByResult> LastModifiedBies;
@@ -134,13 +116,12 @@ namespace zscaler.PulumiPackage.Zia
         public readonly bool MatchOnly;
         public readonly int MinSize;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.GetDLPWebRulesNotificationTemplateResult> NotificationTemplates;
-        public readonly bool OcrEnabled;
         public readonly int Order;
         public readonly int ParentRule;
         public readonly ImmutableArray<string> Protocols;
         public readonly int Rank;
         public readonly string Severity;
+        public readonly ImmutableArray<Outputs.GetDLPWebRulesSourceIpGroupResult> SourceIpGroups;
         public readonly string State;
         public readonly ImmutableArray<string> SubRules;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesTimeWindowResult> TimeWindows;
@@ -156,8 +137,6 @@ namespace zscaler.PulumiPackage.Zia
             string accessControl,
 
             string action,
-
-            ImmutableArray<Outputs.GetDLPWebRulesAuditorResult> auditors,
 
             ImmutableArray<string> cloudApplications,
 
@@ -181,8 +160,6 @@ namespace zscaler.PulumiPackage.Zia
 
             ImmutableArray<Outputs.GetDLPWebRulesGroupResult> groups,
 
-            ImmutableArray<Outputs.GetDLPWebRulesIcapServerResult> icapServers,
-
             int? id,
 
             ImmutableArray<Outputs.GetDLPWebRulesLabelResult> labels,
@@ -201,10 +178,6 @@ namespace zscaler.PulumiPackage.Zia
 
             string? name,
 
-            ImmutableArray<Outputs.GetDLPWebRulesNotificationTemplateResult> notificationTemplates,
-
-            bool ocrEnabled,
-
             int order,
 
             int parentRule,
@@ -214,6 +187,8 @@ namespace zscaler.PulumiPackage.Zia
             int rank,
 
             string severity,
+
+            ImmutableArray<Outputs.GetDLPWebRulesSourceIpGroupResult> sourceIpGroups,
 
             string state,
 
@@ -235,7 +210,6 @@ namespace zscaler.PulumiPackage.Zia
         {
             AccessControl = accessControl;
             Action = action;
-            Auditors = auditors;
             CloudApplications = cloudApplications;
             Departments = departments;
             Description = description;
@@ -247,7 +221,6 @@ namespace zscaler.PulumiPackage.Zia
             ExternalAuditorEmail = externalAuditorEmail;
             FileTypes = fileTypes;
             Groups = groups;
-            IcapServers = icapServers;
             Id = id;
             Labels = labels;
             LastModifiedBies = lastModifiedBies;
@@ -257,13 +230,12 @@ namespace zscaler.PulumiPackage.Zia
             MatchOnly = matchOnly;
             MinSize = minSize;
             Name = name;
-            NotificationTemplates = notificationTemplates;
-            OcrEnabled = ocrEnabled;
             Order = order;
             ParentRule = parentRule;
             Protocols = protocols;
             Rank = rank;
             Severity = severity;
+            SourceIpGroups = sourceIpGroups;
             State = state;
             SubRules = subRules;
             TimeWindows = timeWindows;

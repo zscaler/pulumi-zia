@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -75,7 +73,7 @@ type DLPEngines struct {
 	// The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
 	EngineExpression pulumi.StringPtrOutput `pulumi:"engineExpression"`
 	EngineId         pulumi.IntOutput       `pulumi:"engineId"`
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+	// The DLP engine name as configured by the admin.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -116,7 +114,7 @@ type dlpenginesState struct {
 	// The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
 	EngineExpression *string `pulumi:"engineExpression"`
 	EngineId         *int    `pulumi:"engineId"`
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+	// The DLP engine name as configured by the admin.
 	Name *string `pulumi:"name"`
 }
 
@@ -128,7 +126,7 @@ type DLPEnginesState struct {
 	// The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
 	EngineExpression pulumi.StringPtrInput
 	EngineId         pulumi.IntPtrInput
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+	// The DLP engine name as configured by the admin.
 	Name pulumi.StringPtrInput
 }
 
@@ -143,7 +141,7 @@ type dlpenginesArgs struct {
 	Description *string `pulumi:"description"`
 	// The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
 	EngineExpression *string `pulumi:"engineExpression"`
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+	// The DLP engine name as configured by the admin.
 	Name *string `pulumi:"name"`
 }
 
@@ -155,7 +153,7 @@ type DLPEnginesArgs struct {
 	Description pulumi.StringPtrInput
 	// The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
 	EngineExpression pulumi.StringPtrInput
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+	// The DLP engine name as configured by the admin.
 	Name pulumi.StringPtrInput
 }
 
@@ -265,7 +263,7 @@ func (o DLPEnginesOutput) EngineId() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPEngines) pulumi.IntOutput { return v.EngineId }).(pulumi.IntOutput)
 }
 
-// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+// The DLP engine name as configured by the admin.
 func (o DLPEnginesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPEngines) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

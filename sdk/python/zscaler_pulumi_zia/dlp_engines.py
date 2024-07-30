@@ -23,7 +23,7 @@ class DLPEnginesArgs:
         :param pulumi.Input[bool] custom_dlp_engine: Indicates whether this is a custom DLP engine. If this value is set to true, the engine is custom.
         :param pulumi.Input[str] description: The DLP engine's description.
         :param pulumi.Input[str] engine_expression: The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
-        :param pulumi.Input[str] name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        :param pulumi.Input[str] name: The DLP engine name as configured by the admin.
         """
         if custom_dlp_engine is not None:
             pulumi.set(__self__, "custom_dlp_engine", custom_dlp_engine)
@@ -74,7 +74,7 @@ class DLPEnginesArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        The DLP engine name as configured by the admin.
         """
         return pulumi.get(self, "name")
 
@@ -96,7 +96,7 @@ class _DLPEnginesState:
         :param pulumi.Input[bool] custom_dlp_engine: Indicates whether this is a custom DLP engine. If this value is set to true, the engine is custom.
         :param pulumi.Input[str] description: The DLP engine's description.
         :param pulumi.Input[str] engine_expression: The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
-        :param pulumi.Input[str] name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        :param pulumi.Input[str] name: The DLP engine name as configured by the admin.
         """
         if custom_dlp_engine is not None:
             pulumi.set(__self__, "custom_dlp_engine", custom_dlp_engine)
@@ -158,7 +158,7 @@ class _DLPEnginesState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        The DLP engine name as configured by the admin.
         """
         return pulumi.get(self, "name")
 
@@ -184,7 +184,6 @@ class DLPEngines(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -195,7 +194,6 @@ class DLPEngines(pulumi.CustomResource):
             description="Example",
             engine_expression="((D63.S > 1))")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,7 @@ class DLPEngines(pulumi.CustomResource):
         :param pulumi.Input[bool] custom_dlp_engine: Indicates whether this is a custom DLP engine. If this value is set to true, the engine is custom.
         :param pulumi.Input[str] description: The DLP engine's description.
         :param pulumi.Input[str] engine_expression: The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
-        :param pulumi.Input[str] name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        :param pulumi.Input[str] name: The DLP engine name as configured by the admin.
         """
         ...
     @overload
@@ -237,7 +235,6 @@ class DLPEngines(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -248,7 +245,6 @@ class DLPEngines(pulumi.CustomResource):
             description="Example",
             engine_expression="((D63.S > 1))")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,7 +324,7 @@ class DLPEngines(pulumi.CustomResource):
         :param pulumi.Input[bool] custom_dlp_engine: Indicates whether this is a custom DLP engine. If this value is set to true, the engine is custom.
         :param pulumi.Input[str] description: The DLP engine's description.
         :param pulumi.Input[str] engine_expression: The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
-        :param pulumi.Input[str] name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        :param pulumi.Input[str] name: The DLP engine name as configured by the admin.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -374,7 +370,7 @@ class DLPEngines(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+        The DLP engine name as configured by the admin.
         """
         return pulumi.get(self, "name")
 

@@ -75,17 +75,12 @@ def get_icap_servers(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_icap_servers(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str name: The DLP server name.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -107,16 +102,11 @@ def get_icap_servers_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_icap_servers(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str name: The DLP server name.
     """
     ...

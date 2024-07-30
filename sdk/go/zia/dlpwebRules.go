@@ -17,63 +17,8 @@ import (
 //
 // ## Example Usage
 //
-// ### OCR ENABLED
+// ### "ALL_OUTBOUND" File Type"
 //
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/zscaler/pulumi-zia/sdk/go/zia"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := zia.NewDLPWebRules(ctx, "test", &zia.DLPWebRulesArgs{
-//				Action: pulumi.String("ALLOW"),
-//				CloudApplications: pulumi.StringArray{
-//					pulumi.String("ZENDESK"),
-//					pulumi.String("LUCKY_ORANGE"),
-//					pulumi.String("MICROSOFT_POWERAPPS"),
-//					pulumi.String("MICROSOFTLIVEMEETING"),
-//				},
-//				Description: pulumi.String("Test"),
-//				FileTypes: pulumi.StringArray{
-//					pulumi.String("BITMAP"),
-//					pulumi.String("JPEG"),
-//					pulumi.String("PNG"),
-//					pulumi.String("TIFF"),
-//				},
-//				MatchOnly:  pulumi.Bool(false),
-//				MinSize:    pulumi.Int(20),
-//				OcrEnabled: pulumi.Bool(true),
-//				Order:      pulumi.Int(1),
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("FTP_RULE"),
-//					pulumi.String("HTTPS_RULE"),
-//					pulumi.String("HTTP_RULE"),
-//				},
-//				Rank:                     pulumi.Int(7),
-//				State:                    pulumi.String("ENABLED"),
-//				WithoutContentInspection: pulumi.Bool(false),
-//				ZscalerIncidentReceiver:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ### "ALL_OUTBOUND" File Type
-//
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +51,7 @@ import (
 //				FileTypes: pulumi.StringArray{
 //					pulumi.String("ALL_OUTBOUND"),
 //				},
-//				ZscalerIncidentReceiver:  pulumi.Bool(true),
+//				ZscalerIncidentReceiver:  pulumi.Bool(false),
 //				WithoutContentInspection: pulumi.Bool(false),
 //				UserRiskScoreLevels: pulumi.StringArray{
 //					pulumi.String("LOW"),
@@ -129,7 +74,193 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/zscaler/pulumi-zia/sdk/go/zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisURLCategories, err := zia.LookupURLCategories(ctx, &zia.LookupURLCategoriesArgs{
+//				ConfiguredName: pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisIcapServers, err := zia.GetIcapServers(ctx, &zia.GetIcapServersArgs{
+//				Name: pulumi.StringRef("ZS_ICAP_01"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = zia.NewDLPWebRules(ctx, "thisDLPWebRules", &zia.DLPWebRulesArgs{
+//				Description: pulumi.String("Terraform_Test"),
+//				Action:      pulumi.String("BLOCK"),
+//				Order:       pulumi.Int(1),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("FTP_RULE"),
+//					pulumi.String("HTTPS_RULE"),
+//					pulumi.String("HTTP_RULE"),
+//				},
+//				Rank:                     pulumi.Int(7),
+//				State:                    pulumi.String("ENABLED"),
+//				ZscalerIncidentReceiver:  pulumi.Bool(true),
+//				WithoutContentInspection: pulumi.Bool(false),
+//				UrlCategories: &zia.DLPWebRulesUrlCategoriesArgs{
+//					Ids: pulumi.IntArray{
+//						pulumi.Int(thisURLCategories.Val),
+//					},
+//				},
+//				IcapServers: zia.DLPWebRulesIcapServerArray{
+//					&zia.DLPWebRulesIcapServerArgs{
+//						Id: pulumi.Int(thisIcapServers.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### "Specify Incident Receiver Setting"
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/zscaler/pulumi-zia/sdk/go/zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisURLCategories, err := zia.LookupURLCategories(ctx, &zia.LookupURLCategoriesArgs{
+//				ConfiguredName: pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			thisDLPIncidentReceiverServers, err := zia.GetDLPIncidentReceiverServers(ctx, &zia.GetDLPIncidentReceiverServersArgs{
+//				Name: pulumi.StringRef("ZS_INC_RECEIVER_01"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = zia.NewDLPWebRules(ctx, "thisDLPWebRules", &zia.DLPWebRulesArgs{
+//				Description: pulumi.String("Terraform_Test"),
+//				Action:      pulumi.String("BLOCK"),
+//				Order:       pulumi.Int(1),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("FTP_RULE"),
+//					pulumi.String("HTTPS_RULE"),
+//					pulumi.String("HTTP_RULE"),
+//				},
+//				Rank:                     pulumi.Int(7),
+//				State:                    pulumi.String("ENABLED"),
+//				ZscalerIncidentReceiver:  pulumi.Bool(true),
+//				WithoutContentInspection: pulumi.Bool(false),
+//				UrlCategories: &zia.DLPWebRulesUrlCategoriesArgs{
+//					Ids: pulumi.IntArray{
+//						pulumi.Int(thisURLCategories.Val),
+//					},
+//				},
+//				IcapServers: zia.DLPWebRulesIcapServerArray{
+//					&zia.DLPWebRulesIcapServerArgs{
+//						Id: pulumi.Int(thisDLPIncidentReceiverServers.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### "Creating Parent Rules And SubRules"
+//
+// ⚠️ **WARNING:** Destroying a parent rule will also destroy all subrules
+//
+//	**NOTE** Exception rules can be configured only when the inline DLP rule evaluation type is set
+//	to evaluate all DLP rules in the DLP Advanced Settings.
+//	To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/zscaler/pulumi-zia/sdk/go/zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			parentRule, err := zia.NewDLPWebRules(ctx, "parentRule", &zia.DLPWebRulesArgs{
+//				Description: pulumi.String("ParentRule1"),
+//				Action:      pulumi.String("ALLOW"),
+//				State:       pulumi.String("ENABLED"),
+//				Order:       pulumi.Int(1),
+//				Rank:        pulumi.Int(0),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("FTP_RULE"),
+//					pulumi.String("HTTPS_RULE"),
+//					pulumi.String("HTTP_RULE"),
+//				},
+//				CloudApplications: pulumi.StringArray{
+//					pulumi.String("GOOGLE_WEBMAIL"),
+//					pulumi.String("WINDOWS_LIVE_HOTMAIL"),
+//				},
+//				WithoutContentInspection: pulumi.Bool(false),
+//				MatchOnly:                pulumi.Bool(false),
+//				MinSize:                  pulumi.Int(20),
+//				ZscalerIncidentReceiver:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = zia.NewDLPWebRules(ctx, "subrule1", &zia.DLPWebRulesArgs{
+//				Description: pulumi.String("SubRule1"),
+//				Action:      pulumi.String("ALLOW"),
+//				State:       pulumi.String("ENABLED"),
+//				Order:       pulumi.Int(1),
+//				Rank:        pulumi.Int(0),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("FTP_RULE"),
+//					pulumi.String("HTTPS_RULE"),
+//					pulumi.String("HTTP_RULE"),
+//				},
+//				CloudApplications: pulumi.StringArray{
+//					pulumi.String("GOOGLE_WEBMAIL"),
+//					pulumi.String("WINDOWS_LIVE_HOTMAIL"),
+//				},
+//				WithoutContentInspection: pulumi.Bool(false),
+//				MatchOnly:                pulumi.Bool(false),
+//				ParentRule:               parentRule.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -153,13 +284,13 @@ import (
 type DLPWebRules struct {
 	pulumi.CustomResourceState
 
-	// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// The auditor to which the DLP policy rule must be applied.
-	Auditor DLPWebRulesAuditorOutput `pulumi:"auditor"`
+	Auditors DLPWebRulesAuditorArrayOutput `pulumi:"auditors"`
 	// The list of cloud applications to which the DLP policy rule must be applied.
 	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
-	// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 	Departments DLPWebRulesDepartmentsOutput `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -167,75 +298,70 @@ type DLPWebRules struct {
 	DlpDownloadScanEnabled pulumi.BoolOutput `pulumi:"dlpDownloadScanEnabled"`
 	// The list of DLP engines to which the DLP policy rule must be applied.
 	DlpEngines DLPWebRulesDlpEnginesOutput `pulumi:"dlpEngines"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsOutput `pulumi:"excludedDepartments"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesOutput `pulumi:"excludedDomainProfiles"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedGroups DLPWebRulesExcludedGroupsOutput `pulumi:"excludedGroups"`
-	// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersOutput `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent.
 	ExternalAuditorEmail pulumi.StringOutput `pulumi:"externalAuditorEmail"`
-	// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-	//
-	// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-	//
-	// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-	//
-	// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 	Groups DLPWebRulesGroupsOutput `pulumi:"groups"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
-	IcapServer DLPWebRulesIcapServerOutput `pulumi:"icapServer"`
-	// The Name-ID pairs of rule labels associated to the DLP policy rule.
+	IcapServers DLPWebRulesIcapServerArrayOutput `pulumi:"icapServers"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesOutput `pulumi:"includedDomainProfiles"`
+	// list of Labels that are applicable to the rule.
 	Labels DLPWebRulesLabelsOutput `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 	LocationGroups DLPWebRulesLocationGroupsOutput `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 	Locations DLPWebRulesLocationsOutput `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolOutput `pulumi:"matchOnly"`
 	// The minimum file size (in KB) used for evaluation of the DLP policy rule.
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
-	// The name of the workload group
+	// The DLP policy rule name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The template used for DLP notification emails.
-	NotificationTemplate DLPWebRulesNotificationTemplateOutput `pulumi:"notificationTemplate"`
-	// Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-	OcrEnabled pulumi.BoolOutput `pulumi:"ocrEnabled"`
+	NotificationTemplates DLPWebRulesNotificationTemplateArrayOutput `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntOutput `pulumi:"order"`
-	// The unique identifier of the parent rule under which an exception rule is added.
-	// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The unique identifier of the parent rule under which an exception rule is added
 	ParentRule pulumi.IntOutput `pulumi:"parentRule"`
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
 	Rank   pulumi.IntPtrOutput `pulumi:"rank"`
 	RuleId pulumi.IntOutput    `pulumi:"ruleId"`
-	// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringOutput `pulumi:"severity"`
-	// Enables or disables the DLP policy rule.. The supported values are:
+	// list of source ip groups
+	SourceIpGroups DLPWebRulesSourceIpGroupsOutput `pulumi:"sourceIpGroups"`
+	// Enables or disables the DLP policy rule.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The list of exception rules added to a parent rule.
-	// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayOutput `pulumi:"subRules"`
-	// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// list of time interval during which rule must be enforced.
 	TimeWindows DLPWebRulesTimeWindowsOutput `pulumi:"timeWindows"`
 	// The list of URL categories to which the DLP policy rule must be applied.
-	UrlCategories DLPWebRulesUrlCategoriesOutput `pulumi:"urlCategories"`
-	// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-	UserRiskScoreLevels pulumi.StringArrayOutput `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+	UrlCategories       DLPWebRulesUrlCategoriesOutput `pulumi:"urlCategories"`
+	UserRiskScoreLevels pulumi.StringArrayOutput       `pulumi:"userRiskScoreLevels"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	Users DLPWebRulesUsersOutput `pulumi:"users"`
-	// must be set to false if `fileTypes` is not defined.
+	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolOutput `pulumi:"withoutContentInspection"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayOutput `pulumi:"workloadGroups"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled pulumi.BoolOutput `pulumi:"zccNotificationsEnabled"`
 	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
-	ZscalerIncidentReceiver pulumi.BoolOutput `pulumi:"zscalerIncidentReceiver"`
+	ZscalerIncidentReceiver pulumi.BoolPtrOutput `pulumi:"zscalerIncidentReceiver"`
 }
 
 // NewDLPWebRules registers a new resource with the given unique name, arguments, and options.
@@ -268,13 +394,13 @@ func GetDLPWebRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DLPWebRules resources.
 type dlpwebRulesState struct {
-	// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+	// The action taken when traffic matches the DLP policy rule criteria.
 	Action *string `pulumi:"action"`
 	// The auditor to which the DLP policy rule must be applied.
-	Auditor *DLPWebRulesAuditor `pulumi:"auditor"`
+	Auditors []DLPWebRulesAuditor `pulumi:"auditors"`
 	// The list of cloud applications to which the DLP policy rule must be applied.
 	CloudApplications []string `pulumi:"cloudApplications"`
-	// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 	Departments *DLPWebRulesDepartments `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description *string `pulumi:"description"`
@@ -282,68 +408,63 @@ type dlpwebRulesState struct {
 	DlpDownloadScanEnabled *bool `pulumi:"dlpDownloadScanEnabled"`
 	// The list of DLP engines to which the DLP policy rule must be applied.
 	DlpEngines *DLPWebRulesDlpEngines `pulumi:"dlpEngines"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedDepartments *DLPWebRulesExcludedDepartments `pulumi:"excludedDepartments"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	ExcludedDomainProfiles *DLPWebRulesExcludedDomainProfiles `pulumi:"excludedDomainProfiles"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
-	// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent.
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
-	// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-	//
-	// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-	//
-	// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-	//
-	// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes []string `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 	Groups *DLPWebRulesGroups `pulumi:"groups"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
-	IcapServer *DLPWebRulesIcapServer `pulumi:"icapServer"`
-	// The Name-ID pairs of rule labels associated to the DLP policy rule.
+	IcapServers []DLPWebRulesIcapServer `pulumi:"icapServers"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	IncludedDomainProfiles *DLPWebRulesIncludedDomainProfiles `pulumi:"includedDomainProfiles"`
+	// list of Labels that are applicable to the rule.
 	Labels *DLPWebRulesLabels `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 	LocationGroups *DLPWebRulesLocationGroups `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 	Locations *DLPWebRulesLocations `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly *bool `pulumi:"matchOnly"`
 	// The minimum file size (in KB) used for evaluation of the DLP policy rule.
 	MinSize *int `pulumi:"minSize"`
-	// The name of the workload group
+	// The DLP policy rule name.
 	Name *string `pulumi:"name"`
 	// The template used for DLP notification emails.
-	NotificationTemplate *DLPWebRulesNotificationTemplate `pulumi:"notificationTemplate"`
-	// Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-	OcrEnabled *bool `pulumi:"ocrEnabled"`
+	NotificationTemplates []DLPWebRulesNotificationTemplate `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order *int `pulumi:"order"`
-	// The unique identifier of the parent rule under which an exception rule is added.
-	// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The unique identifier of the parent rule under which an exception rule is added
 	ParentRule *int `pulumi:"parentRule"`
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols []string `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
 	Rank   *int `pulumi:"rank"`
 	RuleId *int `pulumi:"ruleId"`
-	// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+	// Indicates the severity selected for the DLP rule violation
 	Severity *string `pulumi:"severity"`
-	// Enables or disables the DLP policy rule.. The supported values are:
+	// list of source ip groups
+	SourceIpGroups *DLPWebRulesSourceIpGroups `pulumi:"sourceIpGroups"`
+	// Enables or disables the DLP policy rule.
 	State *string `pulumi:"state"`
-	// The list of exception rules added to a parent rule.
-	// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The list of exception rules added to a parent rule
 	SubRules []string `pulumi:"subRules"`
-	// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// list of time interval during which rule must be enforced.
 	TimeWindows *DLPWebRulesTimeWindows `pulumi:"timeWindows"`
 	// The list of URL categories to which the DLP policy rule must be applied.
-	UrlCategories *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
-	// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-	UserRiskScoreLevels []string `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+	UrlCategories       *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
+	UserRiskScoreLevels []string                  `pulumi:"userRiskScoreLevels"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	Users *DLPWebRulesUsers `pulumi:"users"`
-	// must be set to false if `fileTypes` is not defined.
+	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []DLPWebRulesWorkloadGroup `pulumi:"workloadGroups"`
@@ -354,13 +475,13 @@ type dlpwebRulesState struct {
 }
 
 type DLPWebRulesState struct {
-	// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringPtrInput
 	// The auditor to which the DLP policy rule must be applied.
-	Auditor DLPWebRulesAuditorPtrInput
+	Auditors DLPWebRulesAuditorArrayInput
 	// The list of cloud applications to which the DLP policy rule must be applied.
 	CloudApplications pulumi.StringArrayInput
-	// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 	Departments DLPWebRulesDepartmentsPtrInput
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrInput
@@ -368,68 +489,63 @@ type DLPWebRulesState struct {
 	DlpDownloadScanEnabled pulumi.BoolPtrInput
 	// The list of DLP engines to which the DLP policy rule must be applied.
 	DlpEngines DLPWebRulesDlpEnginesPtrInput
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsPtrInput
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesPtrInput
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
-	// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
 	// The email address of an external auditor to whom DLP email notifications are sent.
 	ExternalAuditorEmail pulumi.StringPtrInput
-	// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-	//
-	// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-	//
-	// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-	//
-	// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayInput
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 	Groups DLPWebRulesGroupsPtrInput
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
-	IcapServer DLPWebRulesIcapServerPtrInput
-	// The Name-ID pairs of rule labels associated to the DLP policy rule.
+	IcapServers DLPWebRulesIcapServerArrayInput
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesPtrInput
+	// list of Labels that are applicable to the rule.
 	Labels DLPWebRulesLabelsPtrInput
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 	LocationGroups DLPWebRulesLocationGroupsPtrInput
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 	Locations DLPWebRulesLocationsPtrInput
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolPtrInput
 	// The minimum file size (in KB) used for evaluation of the DLP policy rule.
 	MinSize pulumi.IntPtrInput
-	// The name of the workload group
+	// The DLP policy rule name.
 	Name pulumi.StringPtrInput
 	// The template used for DLP notification emails.
-	NotificationTemplate DLPWebRulesNotificationTemplatePtrInput
-	// Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-	OcrEnabled pulumi.BoolPtrInput
+	NotificationTemplates DLPWebRulesNotificationTemplateArrayInput
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntPtrInput
-	// The unique identifier of the parent rule under which an exception rule is added.
-	// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The unique identifier of the parent rule under which an exception rule is added
 	ParentRule pulumi.IntPtrInput
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols pulumi.StringArrayInput
 	// Admin rank of the admin who creates this rule
 	Rank   pulumi.IntPtrInput
 	RuleId pulumi.IntPtrInput
-	// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringPtrInput
-	// Enables or disables the DLP policy rule.. The supported values are:
+	// list of source ip groups
+	SourceIpGroups DLPWebRulesSourceIpGroupsPtrInput
+	// Enables or disables the DLP policy rule.
 	State pulumi.StringPtrInput
-	// The list of exception rules added to a parent rule.
-	// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayInput
-	// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// list of time interval during which rule must be enforced.
 	TimeWindows DLPWebRulesTimeWindowsPtrInput
 	// The list of URL categories to which the DLP policy rule must be applied.
-	UrlCategories DLPWebRulesUrlCategoriesPtrInput
-	// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
+	UrlCategories       DLPWebRulesUrlCategoriesPtrInput
 	UserRiskScoreLevels pulumi.StringArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	Users DLPWebRulesUsersPtrInput
-	// must be set to false if `fileTypes` is not defined.
+	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayInput
@@ -444,13 +560,13 @@ func (DLPWebRulesState) ElementType() reflect.Type {
 }
 
 type dlpwebRulesArgs struct {
-	// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+	// The action taken when traffic matches the DLP policy rule criteria.
 	Action *string `pulumi:"action"`
 	// The auditor to which the DLP policy rule must be applied.
-	Auditor *DLPWebRulesAuditor `pulumi:"auditor"`
+	Auditors []DLPWebRulesAuditor `pulumi:"auditors"`
 	// The list of cloud applications to which the DLP policy rule must be applied.
 	CloudApplications []string `pulumi:"cloudApplications"`
-	// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 	Departments *DLPWebRulesDepartments `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description *string `pulumi:"description"`
@@ -458,67 +574,62 @@ type dlpwebRulesArgs struct {
 	DlpDownloadScanEnabled *bool `pulumi:"dlpDownloadScanEnabled"`
 	// The list of DLP engines to which the DLP policy rule must be applied.
 	DlpEngines *DLPWebRulesDlpEngines `pulumi:"dlpEngines"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedDepartments *DLPWebRulesExcludedDepartments `pulumi:"excludedDepartments"`
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	ExcludedDomainProfiles *DLPWebRulesExcludedDomainProfiles `pulumi:"excludedDomainProfiles"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
-	// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent.
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
-	// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-	//
-	// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-	//
-	// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-	//
-	// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes []string `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 	Groups *DLPWebRulesGroups `pulumi:"groups"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
-	IcapServer *DLPWebRulesIcapServer `pulumi:"icapServer"`
-	// The Name-ID pairs of rule labels associated to the DLP policy rule.
+	IcapServers []DLPWebRulesIcapServer `pulumi:"icapServers"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	IncludedDomainProfiles *DLPWebRulesIncludedDomainProfiles `pulumi:"includedDomainProfiles"`
+	// list of Labels that are applicable to the rule.
 	Labels *DLPWebRulesLabels `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 	LocationGroups *DLPWebRulesLocationGroups `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 	Locations *DLPWebRulesLocations `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly *bool `pulumi:"matchOnly"`
 	// The minimum file size (in KB) used for evaluation of the DLP policy rule.
 	MinSize *int `pulumi:"minSize"`
-	// The name of the workload group
+	// The DLP policy rule name.
 	Name *string `pulumi:"name"`
 	// The template used for DLP notification emails.
-	NotificationTemplate *DLPWebRulesNotificationTemplate `pulumi:"notificationTemplate"`
-	// Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-	OcrEnabled *bool `pulumi:"ocrEnabled"`
+	NotificationTemplates []DLPWebRulesNotificationTemplate `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order *int `pulumi:"order"`
-	// The unique identifier of the parent rule under which an exception rule is added.
-	// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The unique identifier of the parent rule under which an exception rule is added
 	ParentRule *int `pulumi:"parentRule"`
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols []string `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
 	Rank *int `pulumi:"rank"`
-	// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+	// Indicates the severity selected for the DLP rule violation
 	Severity *string `pulumi:"severity"`
-	// Enables or disables the DLP policy rule.. The supported values are:
+	// list of source ip groups
+	SourceIpGroups *DLPWebRulesSourceIpGroups `pulumi:"sourceIpGroups"`
+	// Enables or disables the DLP policy rule.
 	State *string `pulumi:"state"`
-	// The list of exception rules added to a parent rule.
-	// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The list of exception rules added to a parent rule
 	SubRules []string `pulumi:"subRules"`
-	// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// list of time interval during which rule must be enforced.
 	TimeWindows *DLPWebRulesTimeWindows `pulumi:"timeWindows"`
 	// The list of URL categories to which the DLP policy rule must be applied.
-	UrlCategories *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
-	// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-	UserRiskScoreLevels []string `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+	UrlCategories       *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
+	UserRiskScoreLevels []string                  `pulumi:"userRiskScoreLevels"`
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	Users *DLPWebRulesUsers `pulumi:"users"`
-	// must be set to false if `fileTypes` is not defined.
+	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []DLPWebRulesWorkloadGroup `pulumi:"workloadGroups"`
@@ -530,13 +641,13 @@ type dlpwebRulesArgs struct {
 
 // The set of arguments for constructing a DLPWebRules resource.
 type DLPWebRulesArgs struct {
-	// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringPtrInput
 	// The auditor to which the DLP policy rule must be applied.
-	Auditor DLPWebRulesAuditorPtrInput
+	Auditors DLPWebRulesAuditorArrayInput
 	// The list of cloud applications to which the DLP policy rule must be applied.
 	CloudApplications pulumi.StringArrayInput
-	// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 	Departments DLPWebRulesDepartmentsPtrInput
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrInput
@@ -544,67 +655,62 @@ type DLPWebRulesArgs struct {
 	DlpDownloadScanEnabled pulumi.BoolPtrInput
 	// The list of DLP engines to which the DLP policy rule must be applied.
 	DlpEngines DLPWebRulesDlpEnginesPtrInput
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsPtrInput
-	// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesPtrInput
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
-	// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
 	// The email address of an external auditor to whom DLP email notifications are sent.
 	ExternalAuditorEmail pulumi.StringPtrInput
-	// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-	//
-	// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-	//
-	// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-	//
-	// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayInput
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 	Groups DLPWebRulesGroupsPtrInput
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
-	IcapServer DLPWebRulesIcapServerPtrInput
-	// The Name-ID pairs of rule labels associated to the DLP policy rule.
+	IcapServers DLPWebRulesIcapServerArrayInput
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesPtrInput
+	// list of Labels that are applicable to the rule.
 	Labels DLPWebRulesLabelsPtrInput
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 	LocationGroups DLPWebRulesLocationGroupsPtrInput
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 	Locations DLPWebRulesLocationsPtrInput
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolPtrInput
 	// The minimum file size (in KB) used for evaluation of the DLP policy rule.
 	MinSize pulumi.IntPtrInput
-	// The name of the workload group
+	// The DLP policy rule name.
 	Name pulumi.StringPtrInput
 	// The template used for DLP notification emails.
-	NotificationTemplate DLPWebRulesNotificationTemplatePtrInput
-	// Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-	OcrEnabled pulumi.BoolPtrInput
+	NotificationTemplates DLPWebRulesNotificationTemplateArrayInput
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntPtrInput
-	// The unique identifier of the parent rule under which an exception rule is added.
-	// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The unique identifier of the parent rule under which an exception rule is added
 	ParentRule pulumi.IntPtrInput
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols pulumi.StringArrayInput
 	// Admin rank of the admin who creates this rule
 	Rank pulumi.IntPtrInput
-	// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringPtrInput
-	// Enables or disables the DLP policy rule.. The supported values are:
+	// list of source ip groups
+	SourceIpGroups DLPWebRulesSourceIpGroupsPtrInput
+	// Enables or disables the DLP policy rule.
 	State pulumi.StringPtrInput
-	// The list of exception rules added to a parent rule.
-	// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayInput
-	// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// list of time interval during which rule must be enforced.
 	TimeWindows DLPWebRulesTimeWindowsPtrInput
 	// The list of URL categories to which the DLP policy rule must be applied.
-	UrlCategories DLPWebRulesUrlCategoriesPtrInput
-	// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
+	UrlCategories       DLPWebRulesUrlCategoriesPtrInput
 	UserRiskScoreLevels pulumi.StringArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	Users DLPWebRulesUsersPtrInput
-	// must be set to false if `fileTypes` is not defined.
+	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayInput
@@ -701,14 +807,14 @@ func (o DLPWebRulesOutput) ToDLPWebRulesOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+// The action taken when traffic matches the DLP policy rule criteria.
 func (o DLPWebRulesOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
 // The auditor to which the DLP policy rule must be applied.
-func (o DLPWebRulesOutput) Auditor() DLPWebRulesAuditorOutput {
-	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesAuditorOutput { return v.Auditor }).(DLPWebRulesAuditorOutput)
+func (o DLPWebRulesOutput) Auditors() DLPWebRulesAuditorArrayOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesAuditorArrayOutput { return v.Auditors }).(DLPWebRulesAuditorArrayOutput)
 }
 
 // The list of cloud applications to which the DLP policy rule must be applied.
@@ -716,7 +822,7 @@ func (o DLPWebRulesOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
 
-// The name-ID pairs of the departments that are excluded from the DLP policy rule.
+// The Name-ID pairs of departments to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) Departments() DLPWebRulesDepartmentsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesDepartmentsOutput { return v.Departments }).(DLPWebRulesDepartmentsOutput)
 }
@@ -736,17 +842,22 @@ func (o DLPWebRulesOutput) DlpEngines() DLPWebRulesDlpEnginesOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesDlpEnginesOutput { return v.DlpEngines }).(DLPWebRulesDlpEnginesOutput)
 }
 
-// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) ExcludedDepartments() DLPWebRulesExcludedDepartmentsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedDepartmentsOutput { return v.ExcludedDepartments }).(DLPWebRulesExcludedDepartmentsOutput)
 }
 
-// The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
+func (o DLPWebRulesOutput) ExcludedDomainProfiles() DLPWebRulesExcludedDomainProfilesOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedDomainProfilesOutput { return v.ExcludedDomainProfiles }).(DLPWebRulesExcludedDomainProfilesOutput)
+}
+
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) ExcludedGroups() DLPWebRulesExcludedGroupsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedGroupsOutput { return v.ExcludedGroups }).(DLPWebRulesExcludedGroupsOutput)
 }
 
-// The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) ExcludedUsers() DLPWebRulesExcludedUsersOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedUsersOutput { return v.ExcludedUsers }).(DLPWebRulesExcludedUsersOutput)
 }
@@ -756,38 +867,37 @@ func (o DLPWebRulesOutput) ExternalAuditorEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.ExternalAuditorEmail }).(pulumi.StringOutput)
 }
 
-// The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-//
-// * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-//
-// * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-//
-// * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+// The list of file types for which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+// The Name-ID pairs of groups to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) Groups() DLPWebRulesGroupsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesGroupsOutput { return v.Groups }).(DLPWebRulesGroupsOutput)
 }
 
 // The DLP server, using ICAP, to which the transaction content is forwarded.
-func (o DLPWebRulesOutput) IcapServer() DLPWebRulesIcapServerOutput {
-	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesIcapServerOutput { return v.IcapServer }).(DLPWebRulesIcapServerOutput)
+func (o DLPWebRulesOutput) IcapServers() DLPWebRulesIcapServerArrayOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesIcapServerArrayOutput { return v.IcapServers }).(DLPWebRulesIcapServerArrayOutput)
 }
 
-// The Name-ID pairs of rule labels associated to the DLP policy rule.
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
+func (o DLPWebRulesOutput) IncludedDomainProfiles() DLPWebRulesIncludedDomainProfilesOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesIncludedDomainProfilesOutput { return v.IncludedDomainProfiles }).(DLPWebRulesIncludedDomainProfilesOutput)
+}
+
+// list of Labels that are applicable to the rule.
 func (o DLPWebRulesOutput) Labels() DLPWebRulesLabelsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLabelsOutput { return v.Labels }).(DLPWebRulesLabelsOutput)
 }
 
-// The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) LocationGroups() DLPWebRulesLocationGroupsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLocationGroupsOutput { return v.LocationGroups }).(DLPWebRulesLocationGroupsOutput)
 }
 
-// The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+// The Name-ID pairs of locations to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) Locations() DLPWebRulesLocationsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLocationsOutput { return v.Locations }).(DLPWebRulesLocationsOutput)
 }
@@ -802,19 +912,14 @@ func (o DLPWebRulesOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.IntOutput { return v.MinSize }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// The DLP policy rule name.
 func (o DLPWebRulesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The template used for DLP notification emails.
-func (o DLPWebRulesOutput) NotificationTemplate() DLPWebRulesNotificationTemplateOutput {
-	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesNotificationTemplateOutput { return v.NotificationTemplate }).(DLPWebRulesNotificationTemplateOutput)
-}
-
-// Enables or disables image file scanning. When OCR is enabled only the following “fileTypes“ are supported: “WINDOWS_META_FORMAT“, “BITMAP“, “JPEG“, “PNG“, “TIFF“
-func (o DLPWebRulesOutput) OcrEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolOutput { return v.OcrEnabled }).(pulumi.BoolOutput)
+func (o DLPWebRulesOutput) NotificationTemplates() DLPWebRulesNotificationTemplateArrayOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesNotificationTemplateArrayOutput { return v.NotificationTemplates }).(DLPWebRulesNotificationTemplateArrayOutput)
 }
 
 // The rule order of execution for the DLP policy rule with respect to other rules.
@@ -822,8 +927,7 @@ func (o DLPWebRulesOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
-// The unique identifier of the parent rule under which an exception rule is added.
-// > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+// The unique identifier of the parent rule under which an exception rule is added
 func (o DLPWebRulesOutput) ParentRule() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.IntOutput { return v.ParentRule }).(pulumi.IntOutput)
 }
@@ -842,23 +946,27 @@ func (o DLPWebRulesOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+// Indicates the severity selected for the DLP rule violation
 func (o DLPWebRulesOutput) Severity() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
 }
 
-// Enables or disables the DLP policy rule.. The supported values are:
+// list of source ip groups
+func (o DLPWebRulesOutput) SourceIpGroups() DLPWebRulesSourceIpGroupsOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesSourceIpGroupsOutput { return v.SourceIpGroups }).(DLPWebRulesSourceIpGroupsOutput)
+}
+
+// Enables or disables the DLP policy rule.
 func (o DLPWebRulesOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The list of exception rules added to a parent rule.
-// > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+// The list of exception rules added to a parent rule
 func (o DLPWebRulesOutput) SubRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.SubRules }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+// list of time interval during which rule must be enforced.
 func (o DLPWebRulesOutput) TimeWindows() DLPWebRulesTimeWindowsOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesTimeWindowsOutput { return v.TimeWindows }).(DLPWebRulesTimeWindowsOutput)
 }
@@ -868,17 +976,16 @@ func (o DLPWebRulesOutput) UrlCategories() DLPWebRulesUrlCategoriesOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesUrlCategoriesOutput { return v.UrlCategories }).(DLPWebRulesUrlCategoriesOutput)
 }
 
-// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
 func (o DLPWebRulesOutput) UserRiskScoreLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.UserRiskScoreLevels }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+// The Name-ID pairs of users to which the DLP policy rule must be applied.
 func (o DLPWebRulesOutput) Users() DLPWebRulesUsersOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesUsersOutput { return v.Users }).(DLPWebRulesUsersOutput)
 }
 
-// must be set to false if `fileTypes` is not defined.
+// Indicates a DLP policy rule without content inspection, when the value is set to true.
 func (o DLPWebRulesOutput) WithoutContentInspection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolOutput { return v.WithoutContentInspection }).(pulumi.BoolOutput)
 }
@@ -894,8 +1001,8 @@ func (o DLPWebRulesOutput) ZccNotificationsEnabled() pulumi.BoolOutput {
 }
 
 // Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
-func (o DLPWebRulesOutput) ZscalerIncidentReceiver() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolOutput { return v.ZscalerIncidentReceiver }).(pulumi.BoolOutput)
+func (o DLPWebRulesOutput) ZscalerIncidentReceiver() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolPtrOutput { return v.ZscalerIncidentReceiver }).(pulumi.BoolPtrOutput)
 }
 
 type DLPWebRulesArrayOutput struct{ *pulumi.OutputState }

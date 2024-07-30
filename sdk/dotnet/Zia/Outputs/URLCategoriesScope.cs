@@ -19,12 +19,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly Outputs.URLCategoriesScopeScopeEntities? ScopeEntities;
         /// <summary>
-        /// Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+        /// list of scope group member IDs
         /// </summary>
         public readonly Outputs.URLCategoriesScopeScopeGroupMemberEntities? ScopeGroupMemberEntities;
-        /// <summary>
-        /// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

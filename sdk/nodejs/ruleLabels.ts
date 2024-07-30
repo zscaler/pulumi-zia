@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -17,7 +16,6 @@ import * as utilities from "./utilities";
  * // ZIA Rule Labels Resource
  * const example = new zia.RuleLabels("example", {description: "Example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -67,9 +65,6 @@ export class RuleLabels extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleLabels.__pulumiType;
     }
 
-    /**
-     * The rule label description.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the devices to be created.
@@ -108,9 +103,6 @@ export class RuleLabels extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleLabels resources.
  */
 export interface RuleLabelsState {
-    /**
-     * The rule label description.
-     */
     description?: pulumi.Input<string>;
     /**
      * The name of the devices to be created.
@@ -123,9 +115,6 @@ export interface RuleLabelsState {
  * The set of arguments for constructing a RuleLabels resource.
  */
 export interface RuleLabelsArgs {
-    /**
-     * The rule label description.
-     */
     description?: pulumi.Input<string>;
     /**
      * The name of the devices to be created.

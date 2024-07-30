@@ -19,9 +19,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string ExternalId;
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// Name of the application segment.
         /// </summary>
         public readonly string Name;
 

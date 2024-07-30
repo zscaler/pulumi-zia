@@ -15,13 +15,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class GetDLPWebRulesWorkloadGroupLastModifiedByResult
     {
         public readonly ImmutableDictionary<string, string> Extensions;
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         public readonly int Id;
-        /// <summary>
-        /// The name of the workload group
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ### Obtain Full Sandbox Report
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -23,11 +22,9 @@ import * as utilities from "./utilities";
  *     md5Hash: "F69CA01D65E6C8F9E3540029E5F6AB92",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Obtain Summarized Sandbox Report
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -37,7 +34,6 @@ import * as utilities from "./utilities";
  *     md5Hash: "F69CA01D65E6C8F9E3540029E5F6AB92",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSandboxReport(args: GetSandboxReportArgs, opts?: pulumi.InvokeOptions): Promise<GetSandboxReportResult> {
 
@@ -112,7 +108,6 @@ export interface GetSandboxReportResult {
  *
  * ### Obtain Full Sandbox Report
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -122,11 +117,9 @@ export interface GetSandboxReportResult {
  *     md5Hash: "F69CA01D65E6C8F9E3540029E5F6AB92",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Obtain Summarized Sandbox Report
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -136,7 +129,6 @@ export interface GetSandboxReportResult {
  *     md5Hash: "F69CA01D65E6C8F9E3540029E5F6AB92",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSandboxReportOutput(args: GetSandboxReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxReportResult> {
     return pulumi.output(args).apply((a: any) => getSandboxReport(a, opts))

@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -25,9 +24,7 @@ import * as utilities from "./utilities";
  *     fqdn: "sjc-1-37@acme.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -36,7 +33,6 @@ import * as utilities from "./utilities";
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingVPNCredentials(args?: GetTrafficForwardingVPNCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingVPNCredentialsResult> {
     args = args || {};
@@ -116,7 +112,6 @@ export interface GetTrafficForwardingVPNCredentialsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -125,9 +120,7 @@ export interface GetTrafficForwardingVPNCredentialsResult {
  *     fqdn: "sjc-1-37@acme.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -136,7 +129,6 @@ export interface GetTrafficForwardingVPNCredentialsResult {
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingVPNCredentialsOutput(args?: GetTrafficForwardingVPNCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficForwardingVPNCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getTrafficForwardingVPNCredentials(a, opts))

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -91,12 +89,10 @@ import (
 type FirewallFilteringServiceGroups struct {
 	pulumi.CustomResourceState
 
-	// Description of the network services group
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	GroupId     pulumi.IntOutput       `pulumi:"groupId"`
-	// Name of the network service group
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Any number of network services ID to be added to the group
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	// list of services IDs
 	Services FirewallFilteringServiceGroupsServiceArrayOutput `pulumi:"services"`
 }
 
@@ -130,22 +126,18 @@ func GetFirewallFilteringServiceGroups(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallFilteringServiceGroups resources.
 type firewallFilteringServiceGroupsState struct {
-	// Description of the network services group
 	Description *string `pulumi:"description"`
 	GroupId     *int    `pulumi:"groupId"`
-	// Name of the network service group
-	Name *string `pulumi:"name"`
-	// Any number of network services ID to be added to the group
+	Name        *string `pulumi:"name"`
+	// list of services IDs
 	Services []FirewallFilteringServiceGroupsService `pulumi:"services"`
 }
 
 type FirewallFilteringServiceGroupsState struct {
-	// Description of the network services group
 	Description pulumi.StringPtrInput
 	GroupId     pulumi.IntPtrInput
-	// Name of the network service group
-	Name pulumi.StringPtrInput
-	// Any number of network services ID to be added to the group
+	Name        pulumi.StringPtrInput
+	// list of services IDs
 	Services FirewallFilteringServiceGroupsServiceArrayInput
 }
 
@@ -154,21 +146,17 @@ func (FirewallFilteringServiceGroupsState) ElementType() reflect.Type {
 }
 
 type firewallFilteringServiceGroupsArgs struct {
-	// Description of the network services group
 	Description *string `pulumi:"description"`
-	// Name of the network service group
-	Name *string `pulumi:"name"`
-	// Any number of network services ID to be added to the group
+	Name        *string `pulumi:"name"`
+	// list of services IDs
 	Services []FirewallFilteringServiceGroupsService `pulumi:"services"`
 }
 
 // The set of arguments for constructing a FirewallFilteringServiceGroups resource.
 type FirewallFilteringServiceGroupsArgs struct {
-	// Description of the network services group
 	Description pulumi.StringPtrInput
-	// Name of the network service group
-	Name pulumi.StringPtrInput
-	// Any number of network services ID to be added to the group
+	Name        pulumi.StringPtrInput
+	// list of services IDs
 	Services FirewallFilteringServiceGroupsServiceArrayInput
 }
 
@@ -259,7 +247,6 @@ func (o FirewallFilteringServiceGroupsOutput) ToFirewallFilteringServiceGroupsOu
 	return o
 }
 
-// Description of the network services group
 func (o FirewallFilteringServiceGroupsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringServiceGroups) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -268,12 +255,11 @@ func (o FirewallFilteringServiceGroupsOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringServiceGroups) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
 }
 
-// Name of the network service group
 func (o FirewallFilteringServiceGroupsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringServiceGroups) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Any number of network services ID to be added to the group
+// list of services IDs
 func (o FirewallFilteringServiceGroupsOutput) Services() FirewallFilteringServiceGroupsServiceArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringServiceGroups) FirewallFilteringServiceGroupsServiceArrayOutput {
 		return v.Services

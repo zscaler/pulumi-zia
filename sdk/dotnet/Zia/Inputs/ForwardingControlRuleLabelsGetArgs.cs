@@ -16,8 +16,8 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         /// <summary>
         /// (int) Identifier that uniquely identifies an entity
         /// </summary>
-        [Input("id", required: true)]
-        public Input<int> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<int>? Id { get; set; }
 
         public ForwardingControlRuleLabelsGetArgs()
         {

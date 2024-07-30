@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Corporate Custom SSH TCP_10022",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringNetworkServiceGroups(args?: GetFirewallFilteringNetworkServiceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringNetworkServiceGroupsResult> {
     args = args || {};
@@ -72,7 +70,6 @@ export interface GetFirewallFilteringNetworkServiceGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -81,7 +78,6 @@ export interface GetFirewallFilteringNetworkServiceGroupsResult {
  *     name: "Corporate Custom SSH TCP_10022",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringNetworkServiceGroupsOutput(args?: GetFirewallFilteringNetworkServiceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringNetworkServiceGroupsResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringNetworkServiceGroups(a, opts))

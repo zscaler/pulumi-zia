@@ -84,17 +84,12 @@ def get_dlp_incident_receiver_servers(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_incident_receiver_servers(name="ZS_Incident_Receiver")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str name: The DLP Incident Receiver Server name as configured by the admin.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -117,16 +112,11 @@ def get_dlp_incident_receiver_servers_output(name: Optional[pulumi.Input[Optiona
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_incident_receiver_servers(name="ZS_Incident_Receiver")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str name: The DLP Incident Receiver Server name as configured by the admin.
     """
     ...

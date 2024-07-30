@@ -196,17 +196,12 @@ def get_dlpedm_schema(project_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlpedm_schema(project_name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str project_name: The EDM schema (i.e., EDM template) name.
     """
     __args__ = dict()
     __args__['projectName'] = project_name
@@ -241,16 +236,11 @@ def get_dlpedm_schema_output(project_name: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlpedm_schema(project_name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param str project_name: The EDM schema (i.e., EDM template) name.
     """
     ...

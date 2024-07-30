@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class FirewallFilteringNetworkServicesDestUdpPort
     {
-        /// <summary>
-        /// &gt; **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        /// </summary>
         public readonly int? End;
         public readonly int? Start;
 

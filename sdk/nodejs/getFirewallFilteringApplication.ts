@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -19,9 +18,7 @@ import * as utilities from "./utilities";
  *     locale: "en-US",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -30,7 +27,6 @@ import * as utilities from "./utilities";
  *     id: "DICT",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringApplication(args?: GetFirewallFilteringApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringApplicationResult> {
     args = args || {};
@@ -77,7 +73,6 @@ export interface GetFirewallFilteringApplicationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -87,9 +82,7 @@ export interface GetFirewallFilteringApplicationResult {
  *     locale: "en-US",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -98,7 +91,6 @@ export interface GetFirewallFilteringApplicationResult {
  *     id: "DICT",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringApplicationOutput(args?: GetFirewallFilteringApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringApplicationResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringApplication(a, opts))

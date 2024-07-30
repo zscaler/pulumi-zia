@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,9 +17,7 @@ import * as utilities from "./utilities";
  *     name: "Work hours",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -29,9 +26,7 @@ import * as utilities from "./utilities";
  *     name: "Weekends",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -40,7 +35,6 @@ import * as utilities from "./utilities";
  *     name: "Off hours",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTimeWindow(args?: GetTimeWindowArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeWindowResult> {
     args = args || {};
@@ -67,6 +61,16 @@ export interface GetTimeWindowArgs {
 export interface GetTimeWindowResult {
     /**
      * (String). The supported values are:
+     * * `ANY` - (String)
+     * * `NONE` - (String)
+     * * `EVERYDAY` - (String)
+     * * `SUN` - (String)
+     * * `MON` - (String)
+     * * `TUE` - (String)
+     * * `WED` - (String)
+     * * `THU` - (String)
+     * * `FRI` - (String)
+     * * `SAT` - (String)
      */
     readonly dayOfWeeks: string[];
     /**
@@ -85,7 +89,6 @@ export interface GetTimeWindowResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -94,9 +97,7 @@ export interface GetTimeWindowResult {
  *     name: "Work hours",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -105,9 +106,7 @@ export interface GetTimeWindowResult {
  *     name: "Weekends",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -116,7 +115,6 @@ export interface GetTimeWindowResult {
  *     name: "Off hours",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTimeWindowOutput(args?: GetTimeWindowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeWindowResult> {
     return pulumi.output(args).apply((a: any) => getTimeWindow(a, opts))

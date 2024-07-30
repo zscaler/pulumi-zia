@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -24,14 +23,29 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Zia.GetURLCategories.Invoke(new()
+        ///     var @this = Zia.GetURLCategories.Invoke(new()
+        ///     {
+        ///         ConfiguredName = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Zia = Pulumi.Zia;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Zia.GetURLCategories.Invoke(new()
         ///     {
         ///         Id = "CUSTOM_08",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetURLCategoriesResult> InvokeAsync(GetURLCategoriesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetURLCategoriesResult>("zia:index/getURLCategories:getURLCategories", args ?? new GetURLCategoriesArgs(), options.WithDefaults());
@@ -39,7 +53,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,14 +61,29 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Zia.GetURLCategories.Invoke(new()
+        ///     var @this = Zia.GetURLCategories.Invoke(new()
+        ///     {
+        ///         ConfiguredName = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Zia = Pulumi.Zia;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Zia.GetURLCategories.Invoke(new()
         ///     {
         ///         Id = "CUSTOM_08",
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetURLCategoriesResult> Invoke(GetURLCategoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetURLCategoriesResult>("zia:index/getURLCategories:getURLCategories", args ?? new GetURLCategoriesInvokeArgs(), options.WithDefaults());
@@ -210,7 +238,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int UrlsRetainingParentCategoryCount;
         /// <summary>
-        /// (Number)
+        /// (Number) The unique ID for the URL category.
         /// </summary>
         public readonly int Val;
 

@@ -59,14 +59,12 @@ def get_sandbox_behavioral_analysis(opts: Optional[pulumi.InvokeOptions] = None)
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     list_all = zia.get_sandbox_behavioral_analysis()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -84,13 +82,11 @@ def get_sandbox_behavioral_analysis_output(opts: Optional[pulumi.InvokeOptions] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     list_all = zia.get_sandbox_behavioral_analysis()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

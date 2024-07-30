@@ -119,14 +119,12 @@ def get_rule_labels(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_rule_labels(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The unique identifer for the device group.
@@ -157,14 +155,12 @@ def get_rule_labels_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_rule_labels(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The unique identifer for the device group.

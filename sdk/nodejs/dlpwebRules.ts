@@ -13,48 +13,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### OCR ENABLED
+ * ### "ALL_OUTBOUND" File Type"
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as zia from "@bdzscaler/pulumi-zia";
- *
- * const test = new zia.DLPWebRules("test", {
- *     action: "ALLOW",
- *     cloudApplications: [
- *         "ZENDESK",
- *         "LUCKY_ORANGE",
- *         "MICROSOFT_POWERAPPS",
- *         "MICROSOFTLIVEMEETING",
- *     ],
- *     description: "Test",
- *     fileTypes: [
- *         "BITMAP",
- *         "JPEG",
- *         "PNG",
- *         "TIFF",
- *     ],
- *     matchOnly: false,
- *     minSize: 20,
- *     ocrEnabled: true,
- *     order: 1,
- *     protocols: [
- *         "FTP_RULE",
- *         "HTTPS_RULE",
- *         "HTTP_RULE",
- *     ],
- *     rank: 7,
- *     state: "ENABLED",
- *     withoutContentInspection: false,
- *     zscalerIncidentReceiver: true,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ### "ALL_OUTBOUND" File Type
- *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -75,7 +35,7 @@ import * as utilities from "./utilities";
  *         "HTTP_RULE",
  *     ],
  *     fileTypes: ["ALL_OUTBOUND"],
- *     zscalerIncidentReceiver: true,
+ *     zscalerIncidentReceiver: false,
  *     withoutContentInspection: false,
  *     userRiskScoreLevels: [
  *         "LOW",
@@ -89,7 +49,127 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ * import * as zia from "@pulumi/zia";
+ *
+ * const thisURLCategories = zia.getURLCategories({
+ *     configuredName: "Example",
+ * });
+ * const thisIcapServers = zia.getIcapServers({
+ *     name: "ZS_ICAP_01",
+ * });
+ * const thisDLPWebRules = new zia.DLPWebRules("thisDLPWebRules", {
+ *     description: "Terraform_Test",
+ *     action: "BLOCK",
+ *     order: 1,
+ *     protocols: [
+ *         "FTP_RULE",
+ *         "HTTPS_RULE",
+ *         "HTTP_RULE",
+ *     ],
+ *     rank: 7,
+ *     state: "ENABLED",
+ *     zscalerIncidentReceiver: true,
+ *     withoutContentInspection: false,
+ *     urlCategories: {
+ *         ids: [thisURLCategories.then(thisURLCategories => thisURLCategories.val)],
+ *     },
+ *     icapServers: [{
+ *         id: thisIcapServers.then(thisIcapServers => thisIcapServers.id),
+ *     }],
+ * });
+ * ```
+ *
+ * ### "Specify Incident Receiver Setting"
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ * import * as zia from "@pulumi/zia";
+ *
+ * const thisURLCategories = zia.getURLCategories({
+ *     configuredName: "Example",
+ * });
+ * const thisDLPIncidentReceiverServers = zia.getDLPIncidentReceiverServers({
+ *     name: "ZS_INC_RECEIVER_01",
+ * });
+ * const thisDLPWebRules = new zia.DLPWebRules("thisDLPWebRules", {
+ *     description: "Terraform_Test",
+ *     action: "BLOCK",
+ *     order: 1,
+ *     protocols: [
+ *         "FTP_RULE",
+ *         "HTTPS_RULE",
+ *         "HTTP_RULE",
+ *     ],
+ *     rank: 7,
+ *     state: "ENABLED",
+ *     zscalerIncidentReceiver: true,
+ *     withoutContentInspection: false,
+ *     urlCategories: {
+ *         ids: [thisURLCategories.then(thisURLCategories => thisURLCategories.val)],
+ *     },
+ *     icapServers: [{
+ *         id: thisDLPIncidentReceiverServers.then(thisDLPIncidentReceiverServers => thisDLPIncidentReceiverServers.id),
+ *     }],
+ * });
+ * ```
+ *
+ * ### "Creating Parent Rules And SubRules"
+ *
+ * ⚠️ **WARNING:** Destroying a parent rule will also destroy all subrules
+ *
+ *  **NOTE** Exception rules can be configured only when the inline DLP rule evaluation type is set
+ *  to evaluate all DLP rules in the DLP Advanced Settings.
+ *  To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const parentRule = new zia.DLPWebRules("parentRule", {
+ *     description: "ParentRule1",
+ *     action: "ALLOW",
+ *     state: "ENABLED",
+ *     order: 1,
+ *     rank: 0,
+ *     protocols: [
+ *         "FTP_RULE",
+ *         "HTTPS_RULE",
+ *         "HTTP_RULE",
+ *     ],
+ *     cloudApplications: [
+ *         "GOOGLE_WEBMAIL",
+ *         "WINDOWS_LIVE_HOTMAIL",
+ *     ],
+ *     withoutContentInspection: false,
+ *     matchOnly: false,
+ *     minSize: 20,
+ *     zscalerIncidentReceiver: true,
+ * });
+ * const subrule1 = new zia.DLPWebRules("subrule1", {
+ *     description: "SubRule1",
+ *     action: "ALLOW",
+ *     state: "ENABLED",
+ *     order: 1,
+ *     rank: 0,
+ *     protocols: [
+ *         "FTP_RULE",
+ *         "HTTPS_RULE",
+ *         "HTTP_RULE",
+ *     ],
+ *     cloudApplications: [
+ *         "GOOGLE_WEBMAIL",
+ *         "WINDOWS_LIVE_HOTMAIL",
+ *     ],
+ *     withoutContentInspection: false,
+ *     matchOnly: false,
+ *     parentRule: parentRule.id,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -140,19 +220,19 @@ export class DLPWebRules extends pulumi.CustomResource {
     }
 
     /**
-     * The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+     * The action taken when traffic matches the DLP policy rule criteria.
      */
     public readonly action!: pulumi.Output<string>;
     /**
      * The auditor to which the DLP policy rule must be applied.
      */
-    public readonly auditor!: pulumi.Output<outputs.DLPWebRulesAuditor>;
+    public readonly auditors!: pulumi.Output<outputs.DLPWebRulesAuditor[]>;
     /**
      * The list of cloud applications to which the DLP policy rule must be applied.
      */
     public readonly cloudApplications!: pulumi.Output<string[]>;
     /**
-     * The name-ID pairs of the departments that are excluded from the DLP policy rule.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
      */
     public readonly departments!: pulumi.Output<outputs.DLPWebRulesDepartments>;
     /**
@@ -168,15 +248,19 @@ export class DLPWebRules extends pulumi.CustomResource {
      */
     public readonly dlpEngines!: pulumi.Output<outputs.DLPWebRulesDlpEngines>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     public readonly excludedDepartments!: pulumi.Output<outputs.DLPWebRulesExcludedDepartments>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    public readonly excludedDomainProfiles!: pulumi.Output<outputs.DLPWebRulesExcludedDomainProfiles>;
+    /**
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     public readonly excludedGroups!: pulumi.Output<outputs.DLPWebRulesExcludedGroups>;
     /**
-     * The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     public readonly excludedUsers!: pulumi.Output<outputs.DLPWebRulesExcludedUsers>;
     /**
@@ -184,33 +268,31 @@ export class DLPWebRules extends pulumi.CustomResource {
      */
     public readonly externalAuditorEmail!: pulumi.Output<string>;
     /**
-     * The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-     *
-     * * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-     *
-     * * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-     *
-     * * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+     * The list of file types for which the DLP policy rule must be applied.
      */
     public readonly fileTypes!: pulumi.Output<string[]>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
      */
     public readonly groups!: pulumi.Output<outputs.DLPWebRulesGroups>;
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
-    public readonly icapServer!: pulumi.Output<outputs.DLPWebRulesIcapServer>;
+    public readonly icapServers!: pulumi.Output<outputs.DLPWebRulesIcapServer[]>;
     /**
-     * The Name-ID pairs of rule labels associated to the DLP policy rule.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    public readonly includedDomainProfiles!: pulumi.Output<outputs.DLPWebRulesIncludedDomainProfiles>;
+    /**
+     * list of Labels that are applicable to the rule.
      */
     public readonly labels!: pulumi.Output<outputs.DLPWebRulesLabels>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
      */
     public readonly locationGroups!: pulumi.Output<outputs.DLPWebRulesLocationGroups>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
      */
     public readonly locations!: pulumi.Output<outputs.DLPWebRulesLocations>;
     /**
@@ -222,24 +304,19 @@ export class DLPWebRules extends pulumi.CustomResource {
      */
     public readonly minSize!: pulumi.Output<number>;
     /**
-     * The name of the workload group
+     * The DLP policy rule name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * The template used for DLP notification emails.
      */
-    public readonly notificationTemplate!: pulumi.Output<outputs.DLPWebRulesNotificationTemplate>;
-    /**
-     * Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-     */
-    public readonly ocrEnabled!: pulumi.Output<boolean>;
+    public readonly notificationTemplates!: pulumi.Output<outputs.DLPWebRulesNotificationTemplate[]>;
     /**
      * The rule order of execution for the DLP policy rule with respect to other rules.
      */
     public readonly order!: pulumi.Output<number>;
     /**
-     * The unique identifier of the parent rule under which an exception rule is added.
-     * > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The unique identifier of the parent rule under which an exception rule is added
      */
     public readonly parentRule!: pulumi.Output<number>;
     /**
@@ -252,36 +329,36 @@ export class DLPWebRules extends pulumi.CustomResource {
     public readonly rank!: pulumi.Output<number | undefined>;
     public /*out*/ readonly ruleId!: pulumi.Output<number>;
     /**
-     * Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+     * Indicates the severity selected for the DLP rule violation
      */
     public readonly severity!: pulumi.Output<string>;
     /**
-     * Enables or disables the DLP policy rule.. The supported values are:
+     * list of source ip groups
+     */
+    public readonly sourceIpGroups!: pulumi.Output<outputs.DLPWebRulesSourceIpGroups>;
+    /**
+     * Enables or disables the DLP policy rule.
      */
     public readonly state!: pulumi.Output<string>;
     /**
-     * The list of exception rules added to a parent rule.
-     * > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The list of exception rules added to a parent rule
      */
     public readonly subRules!: pulumi.Output<string[]>;
     /**
-     * The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+     * list of time interval during which rule must be enforced.
      */
     public readonly timeWindows!: pulumi.Output<outputs.DLPWebRulesTimeWindows>;
     /**
      * The list of URL categories to which the DLP policy rule must be applied.
      */
     public readonly urlCategories!: pulumi.Output<outputs.DLPWebRulesUrlCategories>;
-    /**
-     * Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-     */
     public readonly userRiskScoreLevels!: pulumi.Output<string[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     public readonly users!: pulumi.Output<outputs.DLPWebRulesUsers>;
     /**
-     * must be set to false if `fileTypes` is not defined.
+     * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
     public readonly withoutContentInspection!: pulumi.Output<boolean>;
     /**
@@ -295,7 +372,7 @@ export class DLPWebRules extends pulumi.CustomResource {
     /**
      * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
      */
-    public readonly zscalerIncidentReceiver!: pulumi.Output<boolean>;
+    public readonly zscalerIncidentReceiver!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DLPWebRules resource with the given unique name, arguments, and options.
@@ -311,33 +388,35 @@ export class DLPWebRules extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DLPWebRulesState | undefined;
             resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["auditor"] = state ? state.auditor : undefined;
+            resourceInputs["auditors"] = state ? state.auditors : undefined;
             resourceInputs["cloudApplications"] = state ? state.cloudApplications : undefined;
             resourceInputs["departments"] = state ? state.departments : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dlpDownloadScanEnabled"] = state ? state.dlpDownloadScanEnabled : undefined;
             resourceInputs["dlpEngines"] = state ? state.dlpEngines : undefined;
             resourceInputs["excludedDepartments"] = state ? state.excludedDepartments : undefined;
+            resourceInputs["excludedDomainProfiles"] = state ? state.excludedDomainProfiles : undefined;
             resourceInputs["excludedGroups"] = state ? state.excludedGroups : undefined;
             resourceInputs["excludedUsers"] = state ? state.excludedUsers : undefined;
             resourceInputs["externalAuditorEmail"] = state ? state.externalAuditorEmail : undefined;
             resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
             resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["icapServer"] = state ? state.icapServer : undefined;
+            resourceInputs["icapServers"] = state ? state.icapServers : undefined;
+            resourceInputs["includedDomainProfiles"] = state ? state.includedDomainProfiles : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
             resourceInputs["locations"] = state ? state.locations : undefined;
             resourceInputs["matchOnly"] = state ? state.matchOnly : undefined;
             resourceInputs["minSize"] = state ? state.minSize : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationTemplate"] = state ? state.notificationTemplate : undefined;
-            resourceInputs["ocrEnabled"] = state ? state.ocrEnabled : undefined;
+            resourceInputs["notificationTemplates"] = state ? state.notificationTemplates : undefined;
             resourceInputs["order"] = state ? state.order : undefined;
             resourceInputs["parentRule"] = state ? state.parentRule : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
             resourceInputs["rank"] = state ? state.rank : undefined;
             resourceInputs["ruleId"] = state ? state.ruleId : undefined;
             resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["sourceIpGroups"] = state ? state.sourceIpGroups : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["subRules"] = state ? state.subRules : undefined;
             resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
@@ -351,32 +430,34 @@ export class DLPWebRules extends pulumi.CustomResource {
         } else {
             const args = argsOrState as DLPWebRulesArgs | undefined;
             resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["auditor"] = args ? args.auditor : undefined;
+            resourceInputs["auditors"] = args ? args.auditors : undefined;
             resourceInputs["cloudApplications"] = args ? args.cloudApplications : undefined;
             resourceInputs["departments"] = args ? args.departments : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dlpDownloadScanEnabled"] = args ? args.dlpDownloadScanEnabled : undefined;
             resourceInputs["dlpEngines"] = args ? args.dlpEngines : undefined;
             resourceInputs["excludedDepartments"] = args ? args.excludedDepartments : undefined;
+            resourceInputs["excludedDomainProfiles"] = args ? args.excludedDomainProfiles : undefined;
             resourceInputs["excludedGroups"] = args ? args.excludedGroups : undefined;
             resourceInputs["excludedUsers"] = args ? args.excludedUsers : undefined;
             resourceInputs["externalAuditorEmail"] = args ? args.externalAuditorEmail : undefined;
             resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["icapServer"] = args ? args.icapServer : undefined;
+            resourceInputs["icapServers"] = args ? args.icapServers : undefined;
+            resourceInputs["includedDomainProfiles"] = args ? args.includedDomainProfiles : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["matchOnly"] = args ? args.matchOnly : undefined;
             resourceInputs["minSize"] = args ? args.minSize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTemplate"] = args ? args.notificationTemplate : undefined;
-            resourceInputs["ocrEnabled"] = args ? args.ocrEnabled : undefined;
+            resourceInputs["notificationTemplates"] = args ? args.notificationTemplates : undefined;
             resourceInputs["order"] = args ? args.order : undefined;
             resourceInputs["parentRule"] = args ? args.parentRule : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["rank"] = args ? args.rank : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["sourceIpGroups"] = args ? args.sourceIpGroups : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["subRules"] = args ? args.subRules : undefined;
             resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
@@ -399,19 +480,19 @@ export class DLPWebRules extends pulumi.CustomResource {
  */
 export interface DLPWebRulesState {
     /**
-     * The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+     * The action taken when traffic matches the DLP policy rule criteria.
      */
     action?: pulumi.Input<string>;
     /**
      * The auditor to which the DLP policy rule must be applied.
      */
-    auditor?: pulumi.Input<inputs.DLPWebRulesAuditor>;
+    auditors?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesAuditor>[]>;
     /**
      * The list of cloud applications to which the DLP policy rule must be applied.
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name-ID pairs of the departments that are excluded from the DLP policy rule.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
      */
     departments?: pulumi.Input<inputs.DLPWebRulesDepartments>;
     /**
@@ -427,15 +508,19 @@ export interface DLPWebRulesState {
      */
     dlpEngines?: pulumi.Input<inputs.DLPWebRulesDlpEngines>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedDepartments?: pulumi.Input<inputs.DLPWebRulesExcludedDepartments>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    excludedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesExcludedDomainProfiles>;
+    /**
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedGroups?: pulumi.Input<inputs.DLPWebRulesExcludedGroups>;
     /**
-     * The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
@@ -443,33 +528,31 @@ export interface DLPWebRulesState {
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**
-     * The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-     *
-     * * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-     *
-     * * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-     *
-     * * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+     * The list of file types for which the DLP policy rule must be applied.
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
      */
     groups?: pulumi.Input<inputs.DLPWebRulesGroups>;
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
-    icapServer?: pulumi.Input<inputs.DLPWebRulesIcapServer>;
+    icapServers?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesIcapServer>[]>;
     /**
-     * The Name-ID pairs of rule labels associated to the DLP policy rule.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    includedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesIncludedDomainProfiles>;
+    /**
+     * list of Labels that are applicable to the rule.
      */
     labels?: pulumi.Input<inputs.DLPWebRulesLabels>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
      */
     locationGroups?: pulumi.Input<inputs.DLPWebRulesLocationGroups>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
      */
     locations?: pulumi.Input<inputs.DLPWebRulesLocations>;
     /**
@@ -481,24 +564,19 @@ export interface DLPWebRulesState {
      */
     minSize?: pulumi.Input<number>;
     /**
-     * The name of the workload group
+     * The DLP policy rule name.
      */
     name?: pulumi.Input<string>;
     /**
      * The template used for DLP notification emails.
      */
-    notificationTemplate?: pulumi.Input<inputs.DLPWebRulesNotificationTemplate>;
-    /**
-     * Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-     */
-    ocrEnabled?: pulumi.Input<boolean>;
+    notificationTemplates?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesNotificationTemplate>[]>;
     /**
      * The rule order of execution for the DLP policy rule with respect to other rules.
      */
     order?: pulumi.Input<number>;
     /**
-     * The unique identifier of the parent rule under which an exception rule is added.
-     * > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The unique identifier of the parent rule under which an exception rule is added
      */
     parentRule?: pulumi.Input<number>;
     /**
@@ -511,36 +589,36 @@ export interface DLPWebRulesState {
     rank?: pulumi.Input<number>;
     ruleId?: pulumi.Input<number>;
     /**
-     * Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+     * Indicates the severity selected for the DLP rule violation
      */
     severity?: pulumi.Input<string>;
     /**
-     * Enables or disables the DLP policy rule.. The supported values are:
+     * list of source ip groups
+     */
+    sourceIpGroups?: pulumi.Input<inputs.DLPWebRulesSourceIpGroups>;
+    /**
+     * Enables or disables the DLP policy rule.
      */
     state?: pulumi.Input<string>;
     /**
-     * The list of exception rules added to a parent rule.
-     * > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The list of exception rules added to a parent rule
      */
     subRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+     * list of time interval during which rule must be enforced.
      */
     timeWindows?: pulumi.Input<inputs.DLPWebRulesTimeWindows>;
     /**
      * The list of URL categories to which the DLP policy rule must be applied.
      */
     urlCategories?: pulumi.Input<inputs.DLPWebRulesUrlCategories>;
-    /**
-     * Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-     */
     userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     users?: pulumi.Input<inputs.DLPWebRulesUsers>;
     /**
-     * must be set to false if `fileTypes` is not defined.
+     * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
     withoutContentInspection?: pulumi.Input<boolean>;
     /**
@@ -562,19 +640,19 @@ export interface DLPWebRulesState {
  */
 export interface DLPWebRulesArgs {
     /**
-     * The action taken when traffic matches the DLP policy rule criteria. The supported values are:
+     * The action taken when traffic matches the DLP policy rule criteria.
      */
     action?: pulumi.Input<string>;
     /**
      * The auditor to which the DLP policy rule must be applied.
      */
-    auditor?: pulumi.Input<inputs.DLPWebRulesAuditor>;
+    auditors?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesAuditor>[]>;
     /**
      * The list of cloud applications to which the DLP policy rule must be applied.
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name-ID pairs of the departments that are excluded from the DLP policy rule.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
      */
     departments?: pulumi.Input<inputs.DLPWebRulesDepartments>;
     /**
@@ -590,15 +668,19 @@ export interface DLPWebRulesArgs {
      */
     dlpEngines?: pulumi.Input<inputs.DLPWebRulesDlpEngines>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` departments.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedDepartments?: pulumi.Input<inputs.DLPWebRulesExcludedDepartments>;
     /**
-     * The name-ID pairs of the groups that are excluded from the DLP policy rule. Maximum of up to `256` groups.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    excludedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesExcludedDomainProfiles>;
+    /**
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedGroups?: pulumi.Input<inputs.DLPWebRulesExcludedGroups>;
     /**
-     * The name-ID pairs of the users that are excluded from the DLP policy rule. Maximum of up to `256` users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
@@ -606,33 +688,31 @@ export interface DLPWebRulesArgs {
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**
-     * The list of file types to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
-     *
-     * * > Note: `BITMAP`, `JPEG`, `PNG`, and `TIFF` file types are exclusively supported when optical character recognition `ocrEnabled` is set to `true` for DLP rules with content inspection.
-     *
-     * * > Note: `ALL_OUTBOUND` file type is applicable only when the predefined DLP engine called `EXTERNAL` is used and when the attribute `withoutContentInspection` is set to `false`.
-     *
-     * * > Note: `ALL_OUTBOUND` file type cannot be used alongside any any other file type.
+     * The list of file types for which the DLP policy rule must be applied.
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied. Maximum of up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
      */
     groups?: pulumi.Input<inputs.DLPWebRulesGroups>;
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
-    icapServer?: pulumi.Input<inputs.DLPWebRulesIcapServer>;
+    icapServers?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesIcapServer>[]>;
     /**
-     * The Name-ID pairs of rule labels associated to the DLP policy rule.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     */
+    includedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesIncludedDomainProfiles>;
+    /**
+     * list of Labels that are applicable to the rule.
      */
     labels?: pulumi.Input<inputs.DLPWebRulesLabels>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied. Maximum of up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
      */
     locationGroups?: pulumi.Input<inputs.DLPWebRulesLocationGroups>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied. Maximum of up to `8` locations. When not used it implies `Any` to apply the rule to all locations.
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
      */
     locations?: pulumi.Input<inputs.DLPWebRulesLocations>;
     /**
@@ -644,24 +724,19 @@ export interface DLPWebRulesArgs {
      */
     minSize?: pulumi.Input<number>;
     /**
-     * The name of the workload group
+     * The DLP policy rule name.
      */
     name?: pulumi.Input<string>;
     /**
      * The template used for DLP notification emails.
      */
-    notificationTemplate?: pulumi.Input<inputs.DLPWebRulesNotificationTemplate>;
-    /**
-     * Enables or disables image file scanning. When OCR is enabled only the following ``fileTypes`` are supported: ``WINDOWS_META_FORMAT``, ``BITMAP``, ``JPEG``, ``PNG``, ``TIFF``
-     */
-    ocrEnabled?: pulumi.Input<boolean>;
+    notificationTemplates?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesNotificationTemplate>[]>;
     /**
      * The rule order of execution for the DLP policy rule with respect to other rules.
      */
     order?: pulumi.Input<number>;
     /**
-     * The unique identifier of the parent rule under which an exception rule is added.
-     * > Note: Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The unique identifier of the parent rule under which an exception rule is added
      */
     parentRule?: pulumi.Input<number>;
     /**
@@ -673,36 +748,36 @@ export interface DLPWebRulesArgs {
      */
     rank?: pulumi.Input<number>;
     /**
-     * Indicates the severity selected for the DLP rule violation: Returned values are:  `RULE_SEVERITY_HIGH`, `RULE_SEVERITY_MEDIUM`, `RULE_SEVERITY_LOW`, `RULE_SEVERITY_INFO`
+     * Indicates the severity selected for the DLP rule violation
      */
     severity?: pulumi.Input<string>;
     /**
-     * Enables or disables the DLP policy rule.. The supported values are:
+     * list of source ip groups
+     */
+    sourceIpGroups?: pulumi.Input<inputs.DLPWebRulesSourceIpGroups>;
+    /**
+     * Enables or disables the DLP policy rule.
      */
     state?: pulumi.Input<string>;
     /**
-     * The list of exception rules added to a parent rule.
-     * > Note: All attributes within the WebDlpRule model are applicable to the sub-rules. Values for each rule are specified by using the WebDlpRule object Exception rules can be configured only when the inline DLP rule evaluation type is set to evaluate all DLP rules in the DLP Advanced Settings.
+     * The list of exception rules added to a parent rule
      */
     subRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of time windows to which the DLP policy rule must be applied. Maximum of up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+     * list of time interval during which rule must be enforced.
      */
     timeWindows?: pulumi.Input<inputs.DLPWebRulesTimeWindows>;
     /**
      * The list of URL categories to which the DLP policy rule must be applied.
      */
     urlCategories?: pulumi.Input<inputs.DLPWebRulesUrlCategories>;
-    /**
-     * Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-     */
     userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied. Maximum of up to `4` users. When not used it implies `Any` to apply the rule to all users.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
     users?: pulumi.Input<inputs.DLPWebRulesUsers>;
     /**
-     * must be set to false if `fileTypes` is not defined.
+     * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
     withoutContentInspection?: pulumi.Input<boolean>;
     /**

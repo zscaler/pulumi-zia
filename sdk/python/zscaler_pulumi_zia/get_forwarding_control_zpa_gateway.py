@@ -143,14 +143,12 @@ def get_forwarding_control_zpa_gateway(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_forwarding_control_zpa_gateway(name="ZPA_GW01")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the forwarding control ZPA Gateway resource.
@@ -183,14 +181,12 @@ def get_forwarding_control_zpa_gateway_output(id: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_forwarding_control_zpa_gateway(name="ZPA_GW01")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the forwarding control ZPA Gateway resource.

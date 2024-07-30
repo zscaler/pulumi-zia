@@ -23,11 +23,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly int HashFileColumnOrder;
         /// <summary>
-        /// The token (i.e., criteria) name.
+        /// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1.
+        /// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1. This attribue required by PUT and POST requests.
         /// </summary>
         public readonly int OriginalColumn;
         /// <summary>
@@ -35,7 +35,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly bool PrimaryKey;
         /// <summary>
-        /// The token type.
+        /// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
         /// </summary>
         public readonly string Type;
 

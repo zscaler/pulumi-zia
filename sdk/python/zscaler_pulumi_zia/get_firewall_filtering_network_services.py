@@ -152,14 +152,12 @@ def get_firewall_filtering_network_services(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_network_services(name="ICMP_ANY")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the application layer service to be exported.
@@ -193,14 +191,12 @@ def get_firewall_filtering_network_services_output(id: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_network_services(name="ICMP_ANY")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the application layer service to be exported.

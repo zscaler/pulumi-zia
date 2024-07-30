@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -75,7 +73,6 @@ import (
 type AuthSettingsURLs struct {
 	pulumi.CustomResourceState
 
-	// The email address of the admin user to be exported.
 	Urls pulumi.StringArrayOutput `pulumi:"urls"`
 }
 
@@ -109,12 +106,10 @@ func GetAuthSettingsURLs(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthSettingsURLs resources.
 type authSettingsURLsState struct {
-	// The email address of the admin user to be exported.
 	Urls []string `pulumi:"urls"`
 }
 
 type AuthSettingsURLsState struct {
-	// The email address of the admin user to be exported.
 	Urls pulumi.StringArrayInput
 }
 
@@ -123,13 +118,11 @@ func (AuthSettingsURLsState) ElementType() reflect.Type {
 }
 
 type authSettingsURLsArgs struct {
-	// The email address of the admin user to be exported.
 	Urls []string `pulumi:"urls"`
 }
 
 // The set of arguments for constructing a AuthSettingsURLs resource.
 type AuthSettingsURLsArgs struct {
-	// The email address of the admin user to be exported.
 	Urls pulumi.StringArrayInput
 }
 
@@ -220,7 +213,6 @@ func (o AuthSettingsURLsOutput) ToAuthSettingsURLsOutputWithContext(ctx context.
 	return o
 }
 
-// The email address of the admin user to be exported.
 func (o AuthSettingsURLsOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthSettingsURLs) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }

@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const listAll = zia.getSandboxBehavioralAnalysis({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSandboxBehavioralAnalysis(opts?: pulumi.InvokeOptions): Promise<GetSandboxBehavioralAnalysisResult> {
 
@@ -40,14 +38,12 @@ export interface GetSandboxBehavioralAnalysisResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const listAll = zia.getSandboxBehavioralAnalysis({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSandboxBehavioralAnalysisOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxBehavioralAnalysisResult> {
     return pulumi.output(getSandboxBehavioralAnalysis(opts))

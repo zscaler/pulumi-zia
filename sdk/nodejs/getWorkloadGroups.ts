@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkloadGroups(args?: GetWorkloadGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupsResult> {
     args = args || {};
@@ -76,7 +74,6 @@ export interface GetWorkloadGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -85,7 +82,6 @@ export interface GetWorkloadGroupsResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkloadGroupsOutput(args?: GetWorkloadGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupsResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadGroups(a, opts))

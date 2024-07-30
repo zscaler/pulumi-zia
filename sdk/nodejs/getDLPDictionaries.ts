@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "SALESFORCE_REPORT_LEAKAGE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPDictionaries(args?: GetDLPDictionariesArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPDictionariesResult> {
     args = args || {};
@@ -102,7 +100,6 @@ export interface GetDLPDictionariesResult {
 /**
  * Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -111,7 +108,6 @@ export interface GetDLPDictionariesResult {
  *     name: "SALESFORCE_REPORT_LEAKAGE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPDictionariesOutput(args?: GetDLPDictionariesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDLPDictionariesResult> {
     return pulumi.output(args).apply((a: any) => getDLPDictionaries(a, opts))

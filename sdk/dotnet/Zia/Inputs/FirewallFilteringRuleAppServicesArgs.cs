@@ -13,12 +13,8 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class FirewallFilteringRuleAppServicesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("ids", required: true)]
+        [Input("ids")]
         private InputList<int>? _ids;
-
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         public InputList<int> Ids
         {
             get => _ids ?? (_ids = new InputList<int>());

@@ -72,7 +72,7 @@ export class ForwardingControlRule extends pulumi.CustomResource {
      */
     public readonly destAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+     * ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
      */
     public readonly destCountries!: pulumi.Output<string[]>;
     /**
@@ -92,7 +92,7 @@ export class ForwardingControlRule extends pulumi.CustomResource {
      */
     public readonly ecGroups!: pulumi.Output<outputs.ForwardingControlRuleEcGroups>;
     /**
-     * The type of traffic forwarding method selected from the available options.
+     * The type of traffic forwarding method selected from the available options
      */
     public readonly forwardMethod!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class ForwardingControlRule extends pulumi.CustomResource {
      */
     public readonly locations!: pulumi.Output<outputs.ForwardingControlRuleLocations>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -128,7 +128,7 @@ export class ForwardingControlRule extends pulumi.CustomResource {
      */
     public readonly nwServices!: pulumi.Output<outputs.ForwardingControlRuleNwServices>;
     /**
-     * Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+     * (int) - The order of execution for the forwarding rule order.
      */
     public readonly order!: pulumi.Output<number>;
     /**
@@ -164,7 +164,7 @@ export class ForwardingControlRule extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * The rule type selected from the available options. Supported Values: ``FORWARDING``
+     * The rule type selected from the available options
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface ForwardingControlRuleState {
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+     * ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -322,7 +322,7 @@ export interface ForwardingControlRuleState {
      */
     ecGroups?: pulumi.Input<inputs.ForwardingControlRuleEcGroups>;
     /**
-     * The type of traffic forwarding method selected from the available options.
+     * The type of traffic forwarding method selected from the available options
      */
     forwardMethod?: pulumi.Input<string>;
     /**
@@ -342,7 +342,7 @@ export interface ForwardingControlRuleState {
      */
     locations?: pulumi.Input<inputs.ForwardingControlRuleLocations>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name?: pulumi.Input<string>;
     /**
@@ -358,7 +358,7 @@ export interface ForwardingControlRuleState {
      */
     nwServices?: pulumi.Input<inputs.ForwardingControlRuleNwServices>;
     /**
-     * Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+     * (int) - The order of execution for the forwarding rule order.
      */
     order?: pulumi.Input<number>;
     /**
@@ -394,7 +394,7 @@ export interface ForwardingControlRuleState {
      */
     state?: pulumi.Input<string>;
     /**
-     * The rule type selected from the available options. Supported Values: ``FORWARDING``
+     * The rule type selected from the available options
      */
     type?: pulumi.Input<string>;
     /**
@@ -440,7 +440,7 @@ export interface ForwardingControlRuleArgs {
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+     * ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -460,7 +460,7 @@ export interface ForwardingControlRuleArgs {
      */
     ecGroups?: pulumi.Input<inputs.ForwardingControlRuleEcGroups>;
     /**
-     * The type of traffic forwarding method selected from the available options.
+     * The type of traffic forwarding method selected from the available options
      */
     forwardMethod: pulumi.Input<string>;
     /**
@@ -480,7 +480,7 @@ export interface ForwardingControlRuleArgs {
      */
     locations?: pulumi.Input<inputs.ForwardingControlRuleLocations>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name?: pulumi.Input<string>;
     /**
@@ -496,7 +496,7 @@ export interface ForwardingControlRuleArgs {
      */
     nwServices?: pulumi.Input<inputs.ForwardingControlRuleNwServices>;
     /**
-     * Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+     * (int) - The order of execution for the forwarding rule order.
      */
     order: pulumi.Input<number>;
     /**
@@ -528,7 +528,7 @@ export interface ForwardingControlRuleArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * The rule type selected from the available options. Supported Values: ``FORWARDING``
+     * The rule type selected from the available options
      */
     type?: pulumi.Input<string>;
     /**

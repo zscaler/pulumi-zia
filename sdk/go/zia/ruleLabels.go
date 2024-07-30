@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -64,7 +62,6 @@ import (
 type RuleLabels struct {
 	pulumi.CustomResourceState
 
-	// The rule label description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the devices to be created.
 	Name        pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +98,6 @@ func GetRuleLabels(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleLabels resources.
 type ruleLabelsState struct {
-	// The rule label description.
 	Description *string `pulumi:"description"`
 	// The name of the devices to be created.
 	Name        *string `pulumi:"name"`
@@ -109,7 +105,6 @@ type ruleLabelsState struct {
 }
 
 type RuleLabelsState struct {
-	// The rule label description.
 	Description pulumi.StringPtrInput
 	// The name of the devices to be created.
 	Name        pulumi.StringPtrInput
@@ -121,7 +116,6 @@ func (RuleLabelsState) ElementType() reflect.Type {
 }
 
 type ruleLabelsArgs struct {
-	// The rule label description.
 	Description *string `pulumi:"description"`
 	// The name of the devices to be created.
 	Name *string `pulumi:"name"`
@@ -129,7 +123,6 @@ type ruleLabelsArgs struct {
 
 // The set of arguments for constructing a RuleLabels resource.
 type RuleLabelsArgs struct {
-	// The rule label description.
 	Description pulumi.StringPtrInput
 	// The name of the devices to be created.
 	Name pulumi.StringPtrInput
@@ -222,7 +215,6 @@ func (o RuleLabelsOutput) ToRuleLabelsOutputWithContext(ctx context.Context) Rul
 	return o
 }
 
-// The rule label description.
 func (o RuleLabelsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleLabels) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

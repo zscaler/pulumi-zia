@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,14 +19,12 @@ import * as utilities from "./utilities";
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingStaticIP(args?: GetTrafficForwardingStaticIPArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingStaticIPResult> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP", {
-        "comment": args.comment,
         "id": args.id,
         "ipAddress": args.ipAddress,
     }, opts);
@@ -37,10 +34,6 @@ export function getTrafficForwardingStaticIP(args?: GetTrafficForwardingStaticIP
  * A collection of arguments for invoking getTrafficForwardingStaticIP.
  */
 export interface GetTrafficForwardingStaticIPArgs {
-    /**
-     * (String) Additional information about this static IP address
-     */
-    comment?: string;
     /**
      * The unique identifier for the static IP address
      */
@@ -55,10 +48,11 @@ export interface GetTrafficForwardingStaticIPArgs {
  * A collection of values returned by getTrafficForwardingStaticIP.
  */
 export interface GetTrafficForwardingStaticIPResult {
+    readonly cities: outputs.GetTrafficForwardingStaticIPCity[];
     /**
      * (String) Additional information about this static IP address
      */
-    readonly comment?: string;
+    readonly comment: string;
     /**
      * (Boolean) If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
      */
@@ -101,7 +95,6 @@ export interface GetTrafficForwardingStaticIPResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -110,7 +103,6 @@ export interface GetTrafficForwardingStaticIPResult {
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingStaticIPOutput(args?: GetTrafficForwardingStaticIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficForwardingStaticIPResult> {
     return pulumi.output(args).apply((a: any) => getTrafficForwardingStaticIP(a, opts))
@@ -120,10 +112,6 @@ export function getTrafficForwardingStaticIPOutput(args?: GetTrafficForwardingSt
  * A collection of arguments for invoking getTrafficForwardingStaticIP.
  */
 export interface GetTrafficForwardingStaticIPOutputArgs {
-    /**
-     * (String) Additional information about this static IP address
-     */
-    comment?: pulumi.Input<string>;
     /**
      * The unique identifier for the static IP address
      */

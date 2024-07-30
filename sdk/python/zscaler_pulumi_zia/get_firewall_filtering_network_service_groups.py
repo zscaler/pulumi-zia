@@ -89,14 +89,12 @@ def get_firewall_filtering_network_service_groups(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_network_service_groups(name="Corporate Custom SSH TCP_10022")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the ip source group to be exported.
@@ -124,14 +122,12 @@ def get_firewall_filtering_network_service_groups_output(id: Optional[pulumi.Inp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_network_service_groups(name="Corporate Custom SSH TCP_10022")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the ip source group to be exported.

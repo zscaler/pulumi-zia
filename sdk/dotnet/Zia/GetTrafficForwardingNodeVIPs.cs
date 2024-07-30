@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace zscaler.PulumiPackage.Zia
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficForwardingNodeVIPsResult> InvokeAsync(GetTrafficForwardingNodeVIPsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingNodeVIPsResult>("zia:index/getTrafficForwardingNodeVIPs:getTrafficForwardingNodeVIPs", args ?? new GetTrafficForwardingNodeVIPsArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,7 +64,6 @@ namespace zscaler.PulumiPackage.Zia
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficForwardingNodeVIPsResult> Invoke(GetTrafficForwardingNodeVIPsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingNodeVIPsResult>("zia:index/getTrafficForwardingNodeVIPs:getTrafficForwardingNodeVIPs", args ?? new GetTrafficForwardingNodeVIPsInvokeArgs(), options.WithDefaults());

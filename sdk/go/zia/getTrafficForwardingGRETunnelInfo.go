@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTrafficForwardingGRETunnelInfo(ctx *pulumi.Context, args *GetTrafficForwardingGRETunnelInfoArgs, opts ...pulumi.InvokeOption) (*GetTrafficForwardingGRETunnelInfoResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficForwardingGRETunnelInfoResult

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "FWD_RULE01",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getForwardingControlRule(args?: GetForwardingControlRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingControlRuleResult> {
     args = args || {};
@@ -193,7 +191,6 @@ export interface GetForwardingControlRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -202,7 +199,6 @@ export interface GetForwardingControlRuleResult {
  *     name: "FWD_RULE01",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getForwardingControlRuleOutput(args?: GetForwardingControlRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingControlRuleResult> {
     return pulumi.output(args).apply((a: any) => getForwardingControlRule(a, opts))

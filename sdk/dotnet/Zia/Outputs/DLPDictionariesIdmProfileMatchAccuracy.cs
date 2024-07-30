@@ -15,14 +15,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class DLPDictionariesIdmProfileMatchAccuracy
     {
         /// <summary>
-        /// The IDM template reference.
+        /// The action applied to a DLP dictionary using patterns
         /// </summary>
         public readonly ImmutableArray<Outputs.DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile> AdpIdmProfiles;
         /// <summary>
         /// The IDM template match accuracy.
-        /// - `"LOW"`
-        /// - `"MEDIUM"`
-        /// - `"HEAVY"`
         /// </summary>
         public readonly string? MatchAccuracy;
 

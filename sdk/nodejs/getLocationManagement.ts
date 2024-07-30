@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "San Jose",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationManagement(args?: GetLocationManagementArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationManagementResult> {
     args = args || {};
@@ -178,7 +176,6 @@ export interface GetLocationManagementResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -187,7 +184,6 @@ export interface GetLocationManagementResult {
  *     name: "San Jose",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationManagementOutput(args?: GetLocationManagementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationManagementResult> {
     return pulumi.output(args).apply((a: any) => getLocationManagement(a, opts))

@@ -22,7 +22,10 @@ class GetTrafficForwardingStaticIPResult:
     """
     A collection of values returned by getTrafficForwardingStaticIP.
     """
-    def __init__(__self__, comment=None, geo_override=None, id=None, ip_address=None, last_modification_time=None, last_modified_bies=None, latitude=None, longitude=None, managed_bies=None, routable_ip=None):
+    def __init__(__self__, cities=None, comment=None, geo_override=None, id=None, ip_address=None, last_modification_time=None, last_modified_bies=None, latitude=None, longitude=None, managed_bies=None, routable_ip=None):
+        if cities and not isinstance(cities, list):
+            raise TypeError("Expected argument 'cities' to be a list")
+        pulumi.set(__self__, "cities", cities)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -41,11 +44,11 @@ class GetTrafficForwardingStaticIPResult:
         if last_modified_bies and not isinstance(last_modified_bies, list):
             raise TypeError("Expected argument 'last_modified_bies' to be a list")
         pulumi.set(__self__, "last_modified_bies", last_modified_bies)
-        if latitude and not isinstance(latitude, int):
-            raise TypeError("Expected argument 'latitude' to be a int")
+        if latitude and not isinstance(latitude, float):
+            raise TypeError("Expected argument 'latitude' to be a float")
         pulumi.set(__self__, "latitude", latitude)
-        if longitude and not isinstance(longitude, int):
-            raise TypeError("Expected argument 'longitude' to be a int")
+        if longitude and not isinstance(longitude, float):
+            raise TypeError("Expected argument 'longitude' to be a float")
         pulumi.set(__self__, "longitude", longitude)
         if managed_bies and not isinstance(managed_bies, list):
             raise TypeError("Expected argument 'managed_bies' to be a list")
@@ -56,7 +59,12 @@ class GetTrafficForwardingStaticIPResult:
 
     @property
     @pulumi.getter
-    def comment(self) -> Optional[str]:
+    def cities(self) -> Sequence['outputs.GetTrafficForwardingStaticIPCityResult']:
+        return pulumi.get(self, "cities")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
         """
         (String) Additional information about this static IP address
         """
@@ -104,7 +112,7 @@ class GetTrafficForwardingStaticIPResult:
 
     @property
     @pulumi.getter
-    def latitude(self) -> int:
+    def latitude(self) -> float:
         """
         (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and `90` degrees.
         """
@@ -112,7 +120,7 @@ class GetTrafficForwardingStaticIPResult:
 
     @property
     @pulumi.getter
-    def longitude(self) -> int:
+    def longitude(self) -> float:
         """
         (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and `180` degrees.
         """
@@ -141,6 +149,7 @@ class AwaitableGetTrafficForwardingStaticIPResult(GetTrafficForwardingStaticIPRe
         if False:
             yield self
         return GetTrafficForwardingStaticIPResult(
+            cities=self.cities,
             comment=self.comment,
             geo_override=self.geo_override,
             id=self.id,
@@ -153,8 +162,7 @@ class AwaitableGetTrafficForwardingStaticIPResult(GetTrafficForwardingStaticIPRe
             routable_ip=self.routable_ip)
 
 
-def get_traffic_forwarding_static_ip(comment: Optional[str] = None,
-                                     id: Optional[int] = None,
+def get_traffic_forwarding_static_ip(id: Optional[int] = None,
                                      ip_address: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingStaticIPResult:
     """
@@ -162,28 +170,25 @@ def get_traffic_forwarding_static_ip(comment: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_static_ip(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str comment: (String) Additional information about this static IP address
     :param int id: The unique identifier for the static IP address
     :param str ip_address: The static IP address
     """
     __args__ = dict()
-    __args__['comment'] = comment
     __args__['id'] = id
     __args__['ipAddress'] = ip_address
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP', __args__, opts=opts, typ=GetTrafficForwardingStaticIPResult).value
 
     return AwaitableGetTrafficForwardingStaticIPResult(
+        cities=pulumi.get(__ret__, 'cities'),
         comment=pulumi.get(__ret__, 'comment'),
         geo_override=pulumi.get(__ret__, 'geo_override'),
         id=pulumi.get(__ret__, 'id'),
@@ -197,8 +202,7 @@ def get_traffic_forwarding_static_ip(comment: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_traffic_forwarding_static_ip)
-def get_traffic_forwarding_static_ip_output(comment: Optional[pulumi.Input[Optional[str]]] = None,
-                                            id: Optional[pulumi.Input[Optional[int]]] = None,
+def get_traffic_forwarding_static_ip_output(id: Optional[pulumi.Input[Optional[int]]] = None,
                                             ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficForwardingStaticIPResult]:
     """
@@ -206,17 +210,14 @@ def get_traffic_forwarding_static_ip_output(comment: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_static_ip(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str comment: (String) Additional information about this static IP address
     :param int id: The unique identifier for the static IP address
     :param str ip_address: The static IP address
     """

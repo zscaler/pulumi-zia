@@ -13,7 +13,6 @@ import (
 
 // Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDLPDictionaries(ctx *pulumi.Context, args *LookupDLPDictionariesArgs, opts ...pulumi.InvokeOption) (*LookupDLPDictionariesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDLPDictionariesResult

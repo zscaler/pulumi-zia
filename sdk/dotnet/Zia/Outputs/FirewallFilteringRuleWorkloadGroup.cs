@@ -15,13 +15,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class FirewallFilteringRuleWorkloadGroup
     {
         /// <summary>
-        /// A unique identifier assigned to the workload group
+        /// The unique identifier for the resource.
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// The name of the resource.
         /// </summary>
         public readonly string Name;
 

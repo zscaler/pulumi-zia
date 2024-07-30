@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class URLFilteringRulesCbiProfileGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

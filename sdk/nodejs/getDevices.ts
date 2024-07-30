@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "administrator",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDevices(args?: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
     args = args || {};
@@ -27,6 +25,7 @@ export function getDevices(args?: GetDevicesArgs, opts?: pulumi.InvokeOptions): 
     return pulumi.runtime.invoke("zia:index/getDevices:getDevices", {
         "deviceGroupType": args.deviceGroupType,
         "deviceModel": args.deviceModel,
+        "hostname": args.hostname,
         "name": args.name,
         "osType": args.osType,
         "osVersion": args.osVersion,
@@ -46,6 +45,7 @@ export interface GetDevicesArgs {
      * (String) The device model.
      */
     deviceModel?: string;
+    hostname?: string;
     /**
      * The name of the devices to be exported.
      */
@@ -80,6 +80,7 @@ export interface GetDevicesResult {
      * (String) The device model.
      */
     readonly deviceModel: string;
+    readonly hostname: string;
     /**
      * (String) The unique identifer for the device group.
      */
@@ -110,7 +111,6 @@ export interface GetDevicesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -119,7 +119,6 @@ export interface GetDevicesResult {
  *     name: "administrator",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDevicesOutput(args?: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
     return pulumi.output(args).apply((a: any) => getDevices(a, opts))
@@ -137,6 +136,7 @@ export interface GetDevicesOutputArgs {
      * (String) The device model.
      */
     deviceModel?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * The name of the devices to be exported.
      */

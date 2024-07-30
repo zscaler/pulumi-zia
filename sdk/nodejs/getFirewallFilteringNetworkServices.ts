@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "ICMP_ANY",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringNetworkServices(args?: GetFirewallFilteringNetworkServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringNetworkServicesResult> {
     args = args || {};
@@ -87,7 +85,6 @@ export interface GetFirewallFilteringNetworkServicesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -96,7 +93,6 @@ export interface GetFirewallFilteringNetworkServicesResult {
  *     name: "ICMP_ANY",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringNetworkServicesOutput(args?: GetFirewallFilteringNetworkServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringNetworkServicesResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringNetworkServices(a, opts))

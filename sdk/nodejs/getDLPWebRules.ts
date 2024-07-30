@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPWebRules(args?: GetDLPWebRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPWebRulesResult> {
     args = args || {};
@@ -36,13 +34,7 @@ export function getDLPWebRules(args?: GetDLPWebRulesArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getDLPWebRules.
  */
 export interface GetDLPWebRulesArgs {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id?: number;
-    /**
-     * The name of the workload group
-     */
     name?: string;
 }
 
@@ -52,7 +44,6 @@ export interface GetDLPWebRulesArgs {
 export interface GetDLPWebRulesResult {
     readonly accessControl: string;
     readonly action: string;
-    readonly auditors: outputs.GetDLPWebRulesAuditor[];
     readonly cloudApplications: string[];
     readonly departments: outputs.GetDLPWebRulesDepartment[];
     readonly description: string;
@@ -64,7 +55,6 @@ export interface GetDLPWebRulesResult {
     readonly externalAuditorEmail: string;
     readonly fileTypes: string[];
     readonly groups: outputs.GetDLPWebRulesGroup[];
-    readonly icapServers: outputs.GetDLPWebRulesIcapServer[];
     readonly id?: number;
     readonly labels: outputs.GetDLPWebRulesLabel[];
     readonly lastModifiedBies: outputs.GetDLPWebRulesLastModifiedBy[];
@@ -74,13 +64,12 @@ export interface GetDLPWebRulesResult {
     readonly matchOnly: boolean;
     readonly minSize: number;
     readonly name?: string;
-    readonly notificationTemplates: outputs.GetDLPWebRulesNotificationTemplate[];
-    readonly ocrEnabled: boolean;
     readonly order: number;
     readonly parentRule: number;
     readonly protocols: string[];
     readonly rank: number;
     readonly severity: string;
+    readonly sourceIpGroups: outputs.GetDLPWebRulesSourceIpGroup[];
     readonly state: string;
     readonly subRules: string[];
     readonly timeWindows: outputs.GetDLPWebRulesTimeWindow[];
@@ -96,7 +85,6 @@ export interface GetDLPWebRulesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -105,7 +93,6 @@ export interface GetDLPWebRulesResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPWebRulesOutput(args?: GetDLPWebRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDLPWebRulesResult> {
     return pulumi.output(args).apply((a: any) => getDLPWebRules(a, opts))
@@ -115,12 +102,6 @@ export function getDLPWebRulesOutput(args?: GetDLPWebRulesOutputArgs, opts?: pul
  * A collection of arguments for invoking getDLPWebRules.
  */
 export interface GetDLPWebRulesOutputArgs {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id?: pulumi.Input<number>;
-    /**
-     * The name of the workload group
-     */
     name?: pulumi.Input<string>;
 }

@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -69,9 +67,6 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/authSettingsURLs:AuthSettingsURLs")]
     public partial class AuthSettingsURLs : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
@@ -124,10 +119,6 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("urls")]
         private InputList<string>? _urls;
-
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());
@@ -144,10 +135,6 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("urls")]
         private InputList<string>? _urls;
-
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());

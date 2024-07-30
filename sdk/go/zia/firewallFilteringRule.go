@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +86,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -111,25 +109,24 @@ import (
 type FirewallFilteringRule struct {
 	pulumi.CustomResourceState
 
-	// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+	// The action the Firewall Filtering policy rule takes when packets match the rule
 	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// Application service groups on which this rule is applied
+	// list of application service groups
 	AppServiceGroups FirewallFilteringRuleAppServiceGroupsOutput `pulumi:"appServiceGroups"`
-	// Application services on which this rule is applied
+	// list of application services
 	AppServices FirewallFilteringRuleAppServicesOutput `pulumi:"appServices"`
 	// If set to true, the default rule is applied
 	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
-	// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+	// list of departments for which rule must be applied
 	Departments FirewallFilteringRuleDepartmentsOutput `pulumi:"departments"`
-	// Enter additional notes or information. The description cannot exceed 10,240 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// Additional information about the rule
+	Description   pulumi.StringPtrOutput   `pulumi:"description"`
 	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
-	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
-	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
+	DestCountries    pulumi.StringArrayOutput `pulumi:"destCountries"`
 	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
-	// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsOutput `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsOutput `pulumi:"deviceGroups"`
@@ -140,48 +137,42 @@ type FirewallFilteringRule struct {
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices           FirewallFilteringRuleDevicesOutput `pulumi:"devices"`
 	EnableFullLogging pulumi.BoolPtrOutput               `pulumi:"enableFullLogging"`
-	// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsOutput `pulumi:"groups"`
-	// Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule.
 	Labels FirewallFilteringRuleLabelsOutput `pulumi:"labels"`
-	// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// list of locations groups
 	LocationGroups FirewallFilteringRuleLocationGroupsOutput `pulumi:"locationGroups"`
-	// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+	// list of locations for which rule must be applied
 	Locations FirewallFilteringRuleLocationsOutput `pulumi:"locations"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsOutput `pulumi:"nwApplicationGroups"`
-	// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-	//
-	// `source ip addresses` supports the following attributes:
+	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+	// specific network service application.
 	NwApplications pulumi.StringArrayOutput `pulumi:"nwApplications"`
-	// Any number of predefined or custom network service groups to which the rule applies.
+	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsOutput `pulumi:"nwServiceGroups"`
-	// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-	//
-	// `network applications` supports the following attributes:
+	// list of nw services
 	NwServices FirewallFilteringRuleNwServicesOutput `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
-	Order pulumi.IntPtrOutput `pulumi:"order"`
+	// Rule order number of the Firewall Filtering policy rule
+	Order pulumi.IntOutput `pulumi:"order"`
 	// If set to true, a predefined rule is applied
 	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
-	// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-	//
-	// `Who, Where and When` supports the following attributes:
+	// Admin rank of the Firewall Filtering policy rule
 	Rank   pulumi.IntPtrOutput `pulumi:"rank"`
 	RuleId pulumi.IntOutput    `pulumi:"ruleId"`
-	// Any number of source IP address groups that you want to control with this rule.
+	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsOutput `pulumi:"srcIpGroups"`
-	// You can enter individual IP addresses, subnets, or address ranges.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+	// source IP address.
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
-	// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// The time interval in which the Firewall Filtering policy rule applies
 	TimeWindows FirewallFilteringRuleTimeWindowsOutput `pulumi:"timeWindows"`
-	// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+	// list of users for which rule must be applied
 	Users FirewallFilteringRuleUsersOutput `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayOutput `pulumi:"workloadGroups"`
@@ -220,25 +211,24 @@ func GetFirewallFilteringRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallFilteringRule resources.
 type firewallFilteringRuleState struct {
-	// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+	// The action the Firewall Filtering policy rule takes when packets match the rule
 	Action *string `pulumi:"action"`
-	// Application service groups on which this rule is applied
+	// list of application service groups
 	AppServiceGroups *FirewallFilteringRuleAppServiceGroups `pulumi:"appServiceGroups"`
-	// Application services on which this rule is applied
+	// list of application services
 	AppServices *FirewallFilteringRuleAppServices `pulumi:"appServices"`
 	// If set to true, the default rule is applied
 	DefaultRule *bool `pulumi:"defaultRule"`
-	// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+	// list of departments for which rule must be applied
 	Departments *FirewallFilteringRuleDepartments `pulumi:"departments"`
-	// Enter additional notes or information. The description cannot exceed 10,240 characters.
-	Description *string `pulumi:"description"`
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// Additional information about the rule
+	Description   *string  `pulumi:"description"`
 	DestAddresses []string `pulumi:"destAddresses"`
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
-	DestCountries []string `pulumi:"destCountries"`
-	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
+	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
-	// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+	// list of destination ip groups
 	DestIpGroups *FirewallFilteringRuleDestIpGroups `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FirewallFilteringRuleDeviceGroups `pulumi:"deviceGroups"`
@@ -249,48 +239,42 @@ type firewallFilteringRuleState struct {
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices           *FirewallFilteringRuleDevices `pulumi:"devices"`
 	EnableFullLogging *bool                         `pulumi:"enableFullLogging"`
-	// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// list of groups for which rule must be applied
 	Groups *FirewallFilteringRuleGroups `pulumi:"groups"`
-	// Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule.
 	Labels *FirewallFilteringRuleLabels `pulumi:"labels"`
-	// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// list of locations groups
 	LocationGroups *FirewallFilteringRuleLocationGroups `pulumi:"locationGroups"`
-	// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+	// list of locations for which rule must be applied
 	Locations *FirewallFilteringRuleLocations `pulumi:"locations"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
-	// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+	// list of nw application groups
 	NwApplicationGroups *FirewallFilteringRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
-	// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-	//
-	// `source ip addresses` supports the following attributes:
+	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+	// specific network service application.
 	NwApplications []string `pulumi:"nwApplications"`
-	// Any number of predefined or custom network service groups to which the rule applies.
+	// list of nw service groups
 	NwServiceGroups *FirewallFilteringRuleNwServiceGroups `pulumi:"nwServiceGroups"`
-	// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-	//
-	// `network applications` supports the following attributes:
+	// list of nw services
 	NwServices *FirewallFilteringRuleNwServices `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// Rule order number of the Firewall Filtering policy rule
 	Order *int `pulumi:"order"`
 	// If set to true, a predefined rule is applied
 	Predefined *bool `pulumi:"predefined"`
-	// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-	//
-	// `Who, Where and When` supports the following attributes:
+	// Admin rank of the Firewall Filtering policy rule
 	Rank   *int `pulumi:"rank"`
 	RuleId *int `pulumi:"ruleId"`
-	// Any number of source IP address groups that you want to control with this rule.
+	// list of source ip groups
 	SrcIpGroups *FirewallFilteringRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// You can enter individual IP addresses, subnets, or address ranges.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+	// source IP address.
 	SrcIps []string `pulumi:"srcIps"`
-	// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
-	// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// The time interval in which the Firewall Filtering policy rule applies
 	TimeWindows *FirewallFilteringRuleTimeWindows `pulumi:"timeWindows"`
-	// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+	// list of users for which rule must be applied
 	Users *FirewallFilteringRuleUsers `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []FirewallFilteringRuleWorkloadGroup `pulumi:"workloadGroups"`
@@ -300,25 +284,24 @@ type firewallFilteringRuleState struct {
 }
 
 type FirewallFilteringRuleState struct {
-	// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+	// The action the Firewall Filtering policy rule takes when packets match the rule
 	Action pulumi.StringPtrInput
-	// Application service groups on which this rule is applied
+	// list of application service groups
 	AppServiceGroups FirewallFilteringRuleAppServiceGroupsPtrInput
-	// Application services on which this rule is applied
+	// list of application services
 	AppServices FirewallFilteringRuleAppServicesPtrInput
 	// If set to true, the default rule is applied
 	DefaultRule pulumi.BoolPtrInput
-	// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+	// list of departments for which rule must be applied
 	Departments FirewallFilteringRuleDepartmentsPtrInput
-	// Enter additional notes or information. The description cannot exceed 10,240 characters.
-	Description pulumi.StringPtrInput
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// Additional information about the rule
+	Description   pulumi.StringPtrInput
 	DestAddresses pulumi.StringArrayInput
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
-	DestCountries pulumi.StringArrayInput
-	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
+	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
-	// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsPtrInput
@@ -329,48 +312,42 @@ type FirewallFilteringRuleState struct {
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices           FirewallFilteringRuleDevicesPtrInput
 	EnableFullLogging pulumi.BoolPtrInput
-	// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsPtrInput
-	// Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule.
 	Labels FirewallFilteringRuleLabelsPtrInput
-	// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// list of locations groups
 	LocationGroups FirewallFilteringRuleLocationGroupsPtrInput
-	// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+	// list of locations for which rule must be applied
 	Locations FirewallFilteringRuleLocationsPtrInput
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput
-	// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsPtrInput
-	// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-	//
-	// `source ip addresses` supports the following attributes:
+	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+	// specific network service application.
 	NwApplications pulumi.StringArrayInput
-	// Any number of predefined or custom network service groups to which the rule applies.
+	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsPtrInput
-	// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-	//
-	// `network applications` supports the following attributes:
+	// list of nw services
 	NwServices FirewallFilteringRuleNwServicesPtrInput
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// Rule order number of the Firewall Filtering policy rule
 	Order pulumi.IntPtrInput
 	// If set to true, a predefined rule is applied
 	Predefined pulumi.BoolPtrInput
-	// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-	//
-	// `Who, Where and When` supports the following attributes:
+	// Admin rank of the Firewall Filtering policy rule
 	Rank   pulumi.IntPtrInput
 	RuleId pulumi.IntPtrInput
-	// Any number of source IP address groups that you want to control with this rule.
+	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsPtrInput
-	// You can enter individual IP addresses, subnets, or address ranges.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+	// source IP address.
 	SrcIps pulumi.StringArrayInput
-	// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
-	// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// The time interval in which the Firewall Filtering policy rule applies
 	TimeWindows FirewallFilteringRuleTimeWindowsPtrInput
-	// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+	// list of users for which rule must be applied
 	Users FirewallFilteringRuleUsersPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayInput
@@ -384,25 +361,24 @@ func (FirewallFilteringRuleState) ElementType() reflect.Type {
 }
 
 type firewallFilteringRuleArgs struct {
-	// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+	// The action the Firewall Filtering policy rule takes when packets match the rule
 	Action *string `pulumi:"action"`
-	// Application service groups on which this rule is applied
+	// list of application service groups
 	AppServiceGroups *FirewallFilteringRuleAppServiceGroups `pulumi:"appServiceGroups"`
-	// Application services on which this rule is applied
+	// list of application services
 	AppServices *FirewallFilteringRuleAppServices `pulumi:"appServices"`
 	// If set to true, the default rule is applied
 	DefaultRule *bool `pulumi:"defaultRule"`
-	// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+	// list of departments for which rule must be applied
 	Departments *FirewallFilteringRuleDepartments `pulumi:"departments"`
-	// Enter additional notes or information. The description cannot exceed 10,240 characters.
-	Description *string `pulumi:"description"`
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// Additional information about the rule
+	Description   *string  `pulumi:"description"`
 	DestAddresses []string `pulumi:"destAddresses"`
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
-	DestCountries []string `pulumi:"destCountries"`
-	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
+	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
-	// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+	// list of destination ip groups
 	DestIpGroups *FirewallFilteringRuleDestIpGroups `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FirewallFilteringRuleDeviceGroups `pulumi:"deviceGroups"`
@@ -413,47 +389,41 @@ type firewallFilteringRuleArgs struct {
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices           *FirewallFilteringRuleDevices `pulumi:"devices"`
 	EnableFullLogging *bool                         `pulumi:"enableFullLogging"`
-	// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// list of groups for which rule must be applied
 	Groups *FirewallFilteringRuleGroups `pulumi:"groups"`
-	// Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule.
 	Labels *FirewallFilteringRuleLabels `pulumi:"labels"`
-	// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// list of locations groups
 	LocationGroups *FirewallFilteringRuleLocationGroups `pulumi:"locationGroups"`
-	// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+	// list of locations for which rule must be applied
 	Locations *FirewallFilteringRuleLocations `pulumi:"locations"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
-	// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+	// list of nw application groups
 	NwApplicationGroups *FirewallFilteringRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
-	// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-	//
-	// `source ip addresses` supports the following attributes:
+	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+	// specific network service application.
 	NwApplications []string `pulumi:"nwApplications"`
-	// Any number of predefined or custom network service groups to which the rule applies.
+	// list of nw service groups
 	NwServiceGroups *FirewallFilteringRuleNwServiceGroups `pulumi:"nwServiceGroups"`
-	// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-	//
-	// `network applications` supports the following attributes:
+	// list of nw services
 	NwServices *FirewallFilteringRuleNwServices `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// Rule order number of the Firewall Filtering policy rule
 	Order *int `pulumi:"order"`
 	// If set to true, a predefined rule is applied
 	Predefined *bool `pulumi:"predefined"`
-	// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-	//
-	// `Who, Where and When` supports the following attributes:
+	// Admin rank of the Firewall Filtering policy rule
 	Rank *int `pulumi:"rank"`
-	// Any number of source IP address groups that you want to control with this rule.
+	// list of source ip groups
 	SrcIpGroups *FirewallFilteringRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// You can enter individual IP addresses, subnets, or address ranges.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+	// source IP address.
 	SrcIps []string `pulumi:"srcIps"`
-	// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
-	// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// The time interval in which the Firewall Filtering policy rule applies
 	TimeWindows *FirewallFilteringRuleTimeWindows `pulumi:"timeWindows"`
-	// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+	// list of users for which rule must be applied
 	Users *FirewallFilteringRuleUsers `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []FirewallFilteringRuleWorkloadGroup `pulumi:"workloadGroups"`
@@ -464,25 +434,24 @@ type firewallFilteringRuleArgs struct {
 
 // The set of arguments for constructing a FirewallFilteringRule resource.
 type FirewallFilteringRuleArgs struct {
-	// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+	// The action the Firewall Filtering policy rule takes when packets match the rule
 	Action pulumi.StringPtrInput
-	// Application service groups on which this rule is applied
+	// list of application service groups
 	AppServiceGroups FirewallFilteringRuleAppServiceGroupsPtrInput
-	// Application services on which this rule is applied
+	// list of application services
 	AppServices FirewallFilteringRuleAppServicesPtrInput
 	// If set to true, the default rule is applied
 	DefaultRule pulumi.BoolPtrInput
-	// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+	// list of departments for which rule must be applied
 	Departments FirewallFilteringRuleDepartmentsPtrInput
-	// Enter additional notes or information. The description cannot exceed 10,240 characters.
-	Description pulumi.StringPtrInput
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// Additional information about the rule
+	Description   pulumi.StringPtrInput
 	DestAddresses pulumi.StringArrayInput
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
-	DestCountries pulumi.StringArrayInput
-	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
+	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
-	// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsPtrInput
@@ -493,47 +462,41 @@ type FirewallFilteringRuleArgs struct {
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices           FirewallFilteringRuleDevicesPtrInput
 	EnableFullLogging pulumi.BoolPtrInput
-	// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsPtrInput
-	// Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule.
 	Labels FirewallFilteringRuleLabelsPtrInput
-	// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+	// list of locations groups
 	LocationGroups FirewallFilteringRuleLocationGroupsPtrInput
-	// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+	// list of locations for which rule must be applied
 	Locations FirewallFilteringRuleLocationsPtrInput
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput
-	// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsPtrInput
-	// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-	//
-	// `source ip addresses` supports the following attributes:
+	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+	// specific network service application.
 	NwApplications pulumi.StringArrayInput
-	// Any number of predefined or custom network service groups to which the rule applies.
+	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsPtrInput
-	// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-	//
-	// `network applications` supports the following attributes:
+	// list of nw services
 	NwServices FirewallFilteringRuleNwServicesPtrInput
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// Rule order number of the Firewall Filtering policy rule
 	Order pulumi.IntPtrInput
 	// If set to true, a predefined rule is applied
 	Predefined pulumi.BoolPtrInput
-	// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-	//
-	// `Who, Where and When` supports the following attributes:
+	// Admin rank of the Firewall Filtering policy rule
 	Rank pulumi.IntPtrInput
-	// Any number of source IP address groups that you want to control with this rule.
+	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsPtrInput
-	// You can enter individual IP addresses, subnets, or address ranges.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+	// source IP address.
 	SrcIps pulumi.StringArrayInput
-	// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
-	// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+	// The time interval in which the Firewall Filtering policy rule applies
 	TimeWindows FirewallFilteringRuleTimeWindowsPtrInput
-	// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+	// list of users for which rule must be applied
 	Users FirewallFilteringRuleUsersPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayInput
@@ -629,17 +592,17 @@ func (o FirewallFilteringRuleOutput) ToFirewallFilteringRuleOutputWithContext(ct
 	return o
 }
 
-// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+// The action the Firewall Filtering policy rule takes when packets match the rule
 func (o FirewallFilteringRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Application service groups on which this rule is applied
+// list of application service groups
 func (o FirewallFilteringRuleOutput) AppServiceGroups() FirewallFilteringRuleAppServiceGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleAppServiceGroupsOutput { return v.AppServiceGroups }).(FirewallFilteringRuleAppServiceGroupsOutput)
 }
 
-// Application services on which this rule is applied
+// list of application services
 func (o FirewallFilteringRuleOutput) AppServices() FirewallFilteringRuleAppServicesOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleAppServicesOutput { return v.AppServices }).(FirewallFilteringRuleAppServicesOutput)
 }
@@ -649,32 +612,31 @@ func (o FirewallFilteringRuleOutput) DefaultRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.DefaultRule }).(pulumi.BoolPtrOutput)
 }
 
-// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+// list of departments for which rule must be applied
 func (o FirewallFilteringRuleOutput) Departments() FirewallFilteringRuleDepartmentsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleDepartmentsOutput { return v.Departments }).(FirewallFilteringRuleDepartmentsOutput)
 }
 
-// Enter additional notes or information. The description cannot exceed 10,240 characters.
+// Additional information about the rule
 func (o FirewallFilteringRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 func (o FirewallFilteringRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+// countries.
 func (o FirewallFilteringRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
-// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 func (o FirewallFilteringRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
-// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+// list of destination ip groups
 func (o FirewallFilteringRuleOutput) DestIpGroups() FirewallFilteringRuleDestIpGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleDestIpGroupsOutput { return v.DestIpGroups }).(FirewallFilteringRuleDestIpGroupsOutput)
 }
@@ -700,62 +662,57 @@ func (o FirewallFilteringRuleOutput) EnableFullLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.EnableFullLogging }).(pulumi.BoolPtrOutput)
 }
 
-// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+// list of groups for which rule must be applied
 func (o FirewallFilteringRuleOutput) Groups() FirewallFilteringRuleGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleGroupsOutput { return v.Groups }).(FirewallFilteringRuleGroupsOutput)
 }
 
-// Labels that are applicable to the rule.
+// list of Labels that are applicable to the rule.
 func (o FirewallFilteringRuleOutput) Labels() FirewallFilteringRuleLabelsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleLabelsOutput { return v.Labels }).(FirewallFilteringRuleLabelsOutput)
 }
 
-// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+// list of locations groups
 func (o FirewallFilteringRuleOutput) LocationGroups() FirewallFilteringRuleLocationGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleLocationGroupsOutput { return v.LocationGroups }).(FirewallFilteringRuleLocationGroupsOutput)
 }
 
-// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+// list of locations for which rule must be applied
 func (o FirewallFilteringRuleOutput) Locations() FirewallFilteringRuleLocationsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleLocationsOutput { return v.Locations }).(FirewallFilteringRuleLocationsOutput)
 }
 
-// The name of the workload group
-//
-// * `Other Exported Arguments`
+// Name of the Firewall Filtering policy rule
 func (o FirewallFilteringRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+// list of nw application groups
 func (o FirewallFilteringRuleOutput) NwApplicationGroups() FirewallFilteringRuleNwApplicationGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleNwApplicationGroupsOutput {
 		return v.NwApplicationGroups
 	}).(FirewallFilteringRuleNwApplicationGroupsOutput)
 }
 
-// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-//
-// `source ip addresses` supports the following attributes:
+// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+// specific network service application.
 func (o FirewallFilteringRuleOutput) NwApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.NwApplications }).(pulumi.StringArrayOutput)
 }
 
-// Any number of predefined or custom network service groups to which the rule applies.
+// list of nw service groups
 func (o FirewallFilteringRuleOutput) NwServiceGroups() FirewallFilteringRuleNwServiceGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleNwServiceGroupsOutput { return v.NwServiceGroups }).(FirewallFilteringRuleNwServiceGroupsOutput)
 }
 
-// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-//
-// `network applications` supports the following attributes:
+// list of nw services
 func (o FirewallFilteringRuleOutput) NwServices() FirewallFilteringRuleNwServicesOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleNwServicesOutput { return v.NwServices }).(FirewallFilteringRuleNwServicesOutput)
 }
 
-// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
-func (o FirewallFilteringRuleOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntPtrOutput { return v.Order }).(pulumi.IntPtrOutput)
+// Rule order number of the Firewall Filtering policy rule
+func (o FirewallFilteringRuleOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
 // If set to true, a predefined rule is applied
@@ -763,9 +720,7 @@ func (o FirewallFilteringRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
-// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-//
-// `Who, Where and When` supports the following attributes:
+// Admin rank of the Firewall Filtering policy rule
 func (o FirewallFilteringRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
@@ -774,27 +729,28 @@ func (o FirewallFilteringRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Any number of source IP address groups that you want to control with this rule.
+// list of source ip groups
 func (o FirewallFilteringRuleOutput) SrcIpGroups() FirewallFilteringRuleSrcIpGroupsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleSrcIpGroupsOutput { return v.SrcIpGroups }).(FirewallFilteringRuleSrcIpGroupsOutput)
 }
 
-// You can enter individual IP addresses, subnets, or address ranges.
+// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+// source IP address.
 func (o FirewallFilteringRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
-// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+// Determines whether the Firewall Filtering policy rule is enabled or disabled
 func (o FirewallFilteringRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+// The time interval in which the Firewall Filtering policy rule applies
 func (o FirewallFilteringRuleOutput) TimeWindows() FirewallFilteringRuleTimeWindowsOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleTimeWindowsOutput { return v.TimeWindows }).(FirewallFilteringRuleTimeWindowsOutput)
 }
 
-// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+// list of users for which rule must be applied
 func (o FirewallFilteringRuleOutput) Users() FirewallFilteringRuleUsersOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleUsersOutput { return v.Users }).(FirewallFilteringRuleUsersOutput)
 }

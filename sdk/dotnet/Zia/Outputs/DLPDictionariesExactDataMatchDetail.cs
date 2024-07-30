@@ -15,7 +15,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class DLPDictionariesExactDataMatchDetail
     {
         /// <summary>
-        /// The unique identifier for the EDM mapping.
+        /// The unique identifier for the EDM mapping
         /// </summary>
         public readonly int? DictionaryEdmMappingId;
         /// <summary>
@@ -28,23 +28,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         public readonly int? SchemaId;
         /// <summary>
         /// The EDM secondary field to match on.
-        /// - `"MATCHON_NONE"`
-        /// - `"MATCHON_ANY_1"`
-        /// - `"MATCHON_ANY_2"`
-        /// - `"MATCHON_ANY_3"`
-        /// - `"MATCHON_ANY_4"`
-        /// - `"MATCHON_ANY_5"`
-        /// - `"MATCHON_ANY_6"`
-        /// - `"MATCHON_ANY_7"`
-        /// - `"MATCHON_ANY_8"`
-        /// - `"MATCHON_ANY_9"`
-        /// - `"MATCHON_ANY_10"`
-        /// - `"MATCHON_ANY_11"`
-        /// - `"MATCHON_ANY_12"`
-        /// - `"MATCHON_ANY_13"`
-        /// - `"MATCHON_ANY_14"`
-        /// - `"MATCHON_ANY_15"`
-        /// - `"MATCHON_ALL"`
         /// </summary>
         public readonly string? SecondaryFieldMatchOn;
         /// <summary>

@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class AdminUsersRoleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier that uniquely identifies an entity
-        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

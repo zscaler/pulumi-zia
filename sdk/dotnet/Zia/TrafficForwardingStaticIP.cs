@@ -19,7 +19,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -68,10 +66,11 @@ namespace zscaler.PulumiPackage.Zia
         /// Additional information about this static IP address
         /// </summary>
         [Output("comment")]
-        public Output<string?> Comment { get; private set; } = null!;
+        public Output<string> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        /// and longitude coordinates must be provided.
         /// </summary>
         [Output("geoOverride")]
         public Output<bool> GeoOverride { get; private set; } = null!;
@@ -83,19 +82,22 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        /// -90 and 90 degrees.
         /// </summary>
         [Output("latitude")]
         public Output<double> Latitude { get; private set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        /// -180 and 180 degrees.
         /// </summary>
         [Output("longitude")]
         public Output<double> Longitude { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        /// Service Edge associated to the organization.
         /// </summary>
         [Output("routableIp")]
         public Output<bool> RoutableIp { get; private set; } = null!;
@@ -160,7 +162,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        /// and longitude coordinates must be provided.
         /// </summary>
         [Input("geoOverride")]
         public Input<bool>? GeoOverride { get; set; }
@@ -172,19 +175,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        /// -90 and 90 degrees.
         /// </summary>
         [Input("latitude")]
         public Input<double>? Latitude { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        /// -180 and 180 degrees.
         /// </summary>
         [Input("longitude")]
         public Input<double>? Longitude { get; set; }
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        /// Service Edge associated to the organization.
         /// </summary>
         [Input("routableIp")]
         public Input<bool>? RoutableIp { get; set; }
@@ -204,7 +210,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        /// and longitude coordinates must be provided.
         /// </summary>
         [Input("geoOverride")]
         public Input<bool>? GeoOverride { get; set; }
@@ -216,19 +223,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        /// -90 and 90 degrees.
         /// </summary>
         [Input("latitude")]
         public Input<double>? Latitude { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        /// -180 and 180 degrees.
         /// </summary>
         [Input("longitude")]
         public Input<double>? Longitude { get; set; }
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        /// Service Edge associated to the organization.
         /// </summary>
         [Input("routableIp")]
         public Input<bool>? RoutableIp { get; set; }

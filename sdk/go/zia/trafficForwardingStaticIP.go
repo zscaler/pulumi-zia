@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -73,16 +71,20 @@ type TrafficForwardingStaticIP struct {
 	pulumi.CustomResourceState
 
 	// Additional information about this static IP address
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+	Comment pulumi.StringOutput `pulumi:"comment"`
+	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+	// and longitude coordinates must be provided.
 	GeoOverride pulumi.BoolOutput `pulumi:"geoOverride"`
 	// The static IP address
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+	// -90 and 90 degrees.
 	Latitude pulumi.Float64Output `pulumi:"latitude"`
-	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+	// -180 and 180 degrees.
 	Longitude pulumi.Float64Output `pulumi:"longitude"`
-	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+	// Service Edge associated to the organization.
 	RoutableIp pulumi.BoolOutput `pulumi:"routableIp"`
 	// The ID of the Static IP.
 	StaticIpId pulumi.IntOutput `pulumi:"staticIpId"`
@@ -123,15 +125,19 @@ func GetTrafficForwardingStaticIP(ctx *pulumi.Context,
 type trafficForwardingStaticIPState struct {
 	// Additional information about this static IP address
 	Comment *string `pulumi:"comment"`
-	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+	// and longitude coordinates must be provided.
 	GeoOverride *bool `pulumi:"geoOverride"`
 	// The static IP address
 	IpAddress *string `pulumi:"ipAddress"`
-	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+	// -90 and 90 degrees.
 	Latitude *float64 `pulumi:"latitude"`
-	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+	// -180 and 180 degrees.
 	Longitude *float64 `pulumi:"longitude"`
-	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+	// Service Edge associated to the organization.
 	RoutableIp *bool `pulumi:"routableIp"`
 	// The ID of the Static IP.
 	StaticIpId *int `pulumi:"staticIpId"`
@@ -140,15 +146,19 @@ type trafficForwardingStaticIPState struct {
 type TrafficForwardingStaticIPState struct {
 	// Additional information about this static IP address
 	Comment pulumi.StringPtrInput
-	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+	// and longitude coordinates must be provided.
 	GeoOverride pulumi.BoolPtrInput
 	// The static IP address
 	IpAddress pulumi.StringPtrInput
-	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+	// -90 and 90 degrees.
 	Latitude pulumi.Float64PtrInput
-	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+	// -180 and 180 degrees.
 	Longitude pulumi.Float64PtrInput
-	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+	// Service Edge associated to the organization.
 	RoutableIp pulumi.BoolPtrInput
 	// The ID of the Static IP.
 	StaticIpId pulumi.IntPtrInput
@@ -161,15 +171,19 @@ func (TrafficForwardingStaticIPState) ElementType() reflect.Type {
 type trafficForwardingStaticIPArgs struct {
 	// Additional information about this static IP address
 	Comment *string `pulumi:"comment"`
-	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+	// and longitude coordinates must be provided.
 	GeoOverride *bool `pulumi:"geoOverride"`
 	// The static IP address
 	IpAddress string `pulumi:"ipAddress"`
-	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+	// -90 and 90 degrees.
 	Latitude *float64 `pulumi:"latitude"`
-	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+	// -180 and 180 degrees.
 	Longitude *float64 `pulumi:"longitude"`
-	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+	// Service Edge associated to the organization.
 	RoutableIp *bool `pulumi:"routableIp"`
 }
 
@@ -177,15 +191,19 @@ type trafficForwardingStaticIPArgs struct {
 type TrafficForwardingStaticIPArgs struct {
 	// Additional information about this static IP address
 	Comment pulumi.StringPtrInput
-	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+	// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+	// and longitude coordinates must be provided.
 	GeoOverride pulumi.BoolPtrInput
 	// The static IP address
 	IpAddress pulumi.StringInput
-	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+	// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+	// -90 and 90 degrees.
 	Latitude pulumi.Float64PtrInput
-	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+	// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+	// -180 and 180 degrees.
 	Longitude pulumi.Float64PtrInput
-	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+	// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+	// Service Edge associated to the organization.
 	RoutableIp pulumi.BoolPtrInput
 }
 
@@ -277,11 +295,12 @@ func (o TrafficForwardingStaticIPOutput) ToTrafficForwardingStaticIPOutputWithCo
 }
 
 // Additional information about this static IP address
-func (o TrafficForwardingStaticIPOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+func (o TrafficForwardingStaticIPOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.StringOutput { return v.Comment }).(pulumi.StringOutput)
 }
 
-// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+// and longitude coordinates must be provided.
 func (o TrafficForwardingStaticIPOutput) GeoOverride() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.BoolOutput { return v.GeoOverride }).(pulumi.BoolOutput)
 }
@@ -291,17 +310,20 @@ func (o TrafficForwardingStaticIPOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+// -90 and 90 degrees.
 func (o TrafficForwardingStaticIPOutput) Latitude() pulumi.Float64Output {
 	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.Float64Output { return v.Latitude }).(pulumi.Float64Output)
 }
 
-// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+// -180 and 180 degrees.
 func (o TrafficForwardingStaticIPOutput) Longitude() pulumi.Float64Output {
 	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.Float64Output { return v.Longitude }).(pulumi.Float64Output)
 }
 
-// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+// Service Edge associated to the organization.
 func (o TrafficForwardingStaticIPOutput) RoutableIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIP) pulumi.BoolOutput { return v.RoutableIp }).(pulumi.BoolOutput)
 }

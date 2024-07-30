@@ -17,9 +17,8 @@ class SandboxBehavioralAnalysisArgs:
                  file_hashes_to_be_blockeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SandboxBehavioralAnalysis resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-               
-               **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+               blocked
         """
         if file_hashes_to_be_blockeds is not None:
             pulumi.set(__self__, "file_hashes_to_be_blockeds", file_hashes_to_be_blockeds)
@@ -28,9 +27,8 @@ class SandboxBehavioralAnalysisArgs:
     @pulumi.getter(name="fileHashesToBeBlockeds")
     def file_hashes_to_be_blockeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-
-        **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        blocked
         """
         return pulumi.get(self, "file_hashes_to_be_blockeds")
 
@@ -45,9 +43,8 @@ class _SandboxBehavioralAnalysisState:
                  file_hashes_to_be_blockeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SandboxBehavioralAnalysis resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-               
-               **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+               blocked
         """
         if file_hashes_to_be_blockeds is not None:
             pulumi.set(__self__, "file_hashes_to_be_blockeds", file_hashes_to_be_blockeds)
@@ -56,9 +53,8 @@ class _SandboxBehavioralAnalysisState:
     @pulumi.getter(name="fileHashesToBeBlockeds")
     def file_hashes_to_be_blockeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-
-        **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        blocked
         """
         return pulumi.get(self, "file_hashes_to_be_blockeds")
 
@@ -83,7 +79,6 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
 
         ### Add MD5 Hashes To Sandbox
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -94,11 +89,9 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
             "c0202cf6aeab8437c638533d14563d35",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Remove All MD5 Hashes To Sandbox
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -106,7 +99,6 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
         # Remove All MD5 Hashes to Sandbox
         this = zia.SandboxBehavioralAnalysis("this", file_hashes_to_be_blockeds=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -124,9 +116,8 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-               
-               **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+               blocked
         """
         ...
     @overload
@@ -143,7 +134,6 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
 
         ### Add MD5 Hashes To Sandbox
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -154,11 +144,9 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
             "c0202cf6aeab8437c638533d14563d35",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Remove All MD5 Hashes To Sandbox
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -166,7 +154,6 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
         # Remove All MD5 Hashes to Sandbox
         this = zia.SandboxBehavioralAnalysis("this", file_hashes_to_be_blockeds=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -226,9 +213,8 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-               
-               **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] file_hashes_to_be_blockeds: A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+               blocked
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,9 +227,8 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
     @pulumi.getter(name="fileHashesToBeBlockeds")
     def file_hashes_to_be_blockeds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-
-        **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        blocked
         """
         return pulumi.get(self, "file_hashes_to_be_blockeds")
 

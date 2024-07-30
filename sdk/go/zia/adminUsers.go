@@ -18,7 +18,6 @@ import (
 //
 // ### Organization Scope
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,11 +62,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Department Scope
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,11 +121,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Location Scope
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -184,11 +179,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Location Group Scope
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -244,7 +237,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -271,39 +263,29 @@ type AdminUsers struct {
 	pulumi.CustomResourceState
 
 	AdminId pulumi.IntOutput `pulumi:"adminId"`
-	// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+	// list of destination ip groups
 	AdminScopeEntities AdminUsersAdminScopeEntitiesOutput `pulumi:"adminScopeEntities"`
-	// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	AdminScopeType pulumi.StringOutput `pulumi:"adminScopeType"`
+	AdminScopeType     pulumi.StringOutput                `pulumi:"adminScopeType"`
 	// Additional information about the admin or auditor.
 	Comments pulumi.StringPtrOutput `pulumi:"comments"`
-	// Indicates whether or not the admin account is disabled.
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	Disabled pulumi.BoolPtrOutput   `pulumi:"disabled"`
 	// Admin or auditor's email address.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// Indicates whether the user is an auditor. This attribute is subject to change.
-	IsAuditor pulumi.BoolPtrOutput `pulumi:"isAuditor"`
-	// Indicates whether or not Executive Insights App access is enabled for the admin.
-	IsExecMobileAppEnabled pulumi.BoolPtrOutput `pulumi:"isExecMobileAppEnabled"`
-	// Indicates whether or not the admin can be edited or deleted.
-	IsNonEditable pulumi.BoolPtrOutput `pulumi:"isNonEditable"`
-	// Indicates whether or not an admin's password has expired.
-	IsPasswordExpired pulumi.BoolPtrOutput `pulumi:"isPasswordExpired"`
-	// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-	IsPasswordLoginAllowed pulumi.BoolPtrOutput `pulumi:"isPasswordLoginAllowed"`
-	// Communication setting for Product Update.
-	IsProductUpdateCommEnabled pulumi.BoolPtrOutput `pulumi:"isProductUpdateCommEnabled"`
-	// Communication for Security Report is enabled.
+	Email                       pulumi.StringOutput  `pulumi:"email"`
+	IsAuditor                   pulumi.BoolPtrOutput `pulumi:"isAuditor"`
+	IsExecMobileAppEnabled      pulumi.BoolPtrOutput `pulumi:"isExecMobileAppEnabled"`
+	IsNonEditable               pulumi.BoolPtrOutput `pulumi:"isNonEditable"`
+	IsPasswordExpired           pulumi.BoolPtrOutput `pulumi:"isPasswordExpired"`
+	IsPasswordLoginAllowed      pulumi.BoolPtrOutput `pulumi:"isPasswordLoginAllowed"`
+	IsProductUpdateCommEnabled  pulumi.BoolPtrOutput `pulumi:"isProductUpdateCommEnabled"`
 	IsSecurityReportCommEnabled pulumi.BoolPtrOutput `pulumi:"isSecurityReportCommEnabled"`
-	// Communication setting for Service Update.
-	IsServiceUpdateCommEnabled pulumi.BoolPtrOutput `pulumi:"isServiceUpdateCommEnabled"`
-	// The email address of the admin user to be exported.
-	LoginName pulumi.StringOutput `pulumi:"loginName"`
-	// The username of the admin user to be exported.
+	IsServiceUpdateCommEnabled  pulumi.BoolPtrOutput `pulumi:"isServiceUpdateCommEnabled"`
+	LoginName                   pulumi.StringOutput  `pulumi:"loginName"`
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+	// information is not provided in a GET response.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayOutput `pulumi:"roles"`
-	// The username of the admin user to be exported.
+	// Admin or auditor's username.
 	Username pulumi.StringOutput `pulumi:"username"`
 }
 
@@ -354,77 +336,57 @@ func GetAdminUsers(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AdminUsers resources.
 type adminUsersState struct {
 	AdminId *int `pulumi:"adminId"`
-	// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+	// list of destination ip groups
 	AdminScopeEntities *AdminUsersAdminScopeEntities `pulumi:"adminScopeEntities"`
-	// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	AdminScopeType *string `pulumi:"adminScopeType"`
+	AdminScopeType     *string                       `pulumi:"adminScopeType"`
 	// Additional information about the admin or auditor.
 	Comments *string `pulumi:"comments"`
-	// Indicates whether or not the admin account is disabled.
-	Disabled *bool `pulumi:"disabled"`
+	Disabled *bool   `pulumi:"disabled"`
 	// Admin or auditor's email address.
-	Email *string `pulumi:"email"`
-	// Indicates whether the user is an auditor. This attribute is subject to change.
-	IsAuditor *bool `pulumi:"isAuditor"`
-	// Indicates whether or not Executive Insights App access is enabled for the admin.
-	IsExecMobileAppEnabled *bool `pulumi:"isExecMobileAppEnabled"`
-	// Indicates whether or not the admin can be edited or deleted.
-	IsNonEditable *bool `pulumi:"isNonEditable"`
-	// Indicates whether or not an admin's password has expired.
-	IsPasswordExpired *bool `pulumi:"isPasswordExpired"`
-	// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-	IsPasswordLoginAllowed *bool `pulumi:"isPasswordLoginAllowed"`
-	// Communication setting for Product Update.
-	IsProductUpdateCommEnabled *bool `pulumi:"isProductUpdateCommEnabled"`
-	// Communication for Security Report is enabled.
-	IsSecurityReportCommEnabled *bool `pulumi:"isSecurityReportCommEnabled"`
-	// Communication setting for Service Update.
-	IsServiceUpdateCommEnabled *bool `pulumi:"isServiceUpdateCommEnabled"`
-	// The email address of the admin user to be exported.
-	LoginName *string `pulumi:"loginName"`
-	// The username of the admin user to be exported.
+	Email                       *string `pulumi:"email"`
+	IsAuditor                   *bool   `pulumi:"isAuditor"`
+	IsExecMobileAppEnabled      *bool   `pulumi:"isExecMobileAppEnabled"`
+	IsNonEditable               *bool   `pulumi:"isNonEditable"`
+	IsPasswordExpired           *bool   `pulumi:"isPasswordExpired"`
+	IsPasswordLoginAllowed      *bool   `pulumi:"isPasswordLoginAllowed"`
+	IsProductUpdateCommEnabled  *bool   `pulumi:"isProductUpdateCommEnabled"`
+	IsSecurityReportCommEnabled *bool   `pulumi:"isSecurityReportCommEnabled"`
+	IsServiceUpdateCommEnabled  *bool   `pulumi:"isServiceUpdateCommEnabled"`
+	LoginName                   *string `pulumi:"loginName"`
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+	// information is not provided in a GET response.
 	Password *string `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles []AdminUsersRole `pulumi:"roles"`
-	// The username of the admin user to be exported.
+	// Admin or auditor's username.
 	Username *string `pulumi:"username"`
 }
 
 type AdminUsersState struct {
 	AdminId pulumi.IntPtrInput
-	// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+	// list of destination ip groups
 	AdminScopeEntities AdminUsersAdminScopeEntitiesPtrInput
-	// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	AdminScopeType pulumi.StringPtrInput
+	AdminScopeType     pulumi.StringPtrInput
 	// Additional information about the admin or auditor.
 	Comments pulumi.StringPtrInput
-	// Indicates whether or not the admin account is disabled.
 	Disabled pulumi.BoolPtrInput
 	// Admin or auditor's email address.
-	Email pulumi.StringPtrInput
-	// Indicates whether the user is an auditor. This attribute is subject to change.
-	IsAuditor pulumi.BoolPtrInput
-	// Indicates whether or not Executive Insights App access is enabled for the admin.
-	IsExecMobileAppEnabled pulumi.BoolPtrInput
-	// Indicates whether or not the admin can be edited or deleted.
-	IsNonEditable pulumi.BoolPtrInput
-	// Indicates whether or not an admin's password has expired.
-	IsPasswordExpired pulumi.BoolPtrInput
-	// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-	IsPasswordLoginAllowed pulumi.BoolPtrInput
-	// Communication setting for Product Update.
-	IsProductUpdateCommEnabled pulumi.BoolPtrInput
-	// Communication for Security Report is enabled.
+	Email                       pulumi.StringPtrInput
+	IsAuditor                   pulumi.BoolPtrInput
+	IsExecMobileAppEnabled      pulumi.BoolPtrInput
+	IsNonEditable               pulumi.BoolPtrInput
+	IsPasswordExpired           pulumi.BoolPtrInput
+	IsPasswordLoginAllowed      pulumi.BoolPtrInput
+	IsProductUpdateCommEnabled  pulumi.BoolPtrInput
 	IsSecurityReportCommEnabled pulumi.BoolPtrInput
-	// Communication setting for Service Update.
-	IsServiceUpdateCommEnabled pulumi.BoolPtrInput
-	// The email address of the admin user to be exported.
-	LoginName pulumi.StringPtrInput
-	// The username of the admin user to be exported.
+	IsServiceUpdateCommEnabled  pulumi.BoolPtrInput
+	LoginName                   pulumi.StringPtrInput
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+	// information is not provided in a GET response.
 	Password pulumi.StringPtrInput
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayInput
-	// The username of the admin user to be exported.
+	// Admin or auditor's username.
 	Username pulumi.StringPtrInput
 }
 
@@ -433,77 +395,57 @@ func (AdminUsersState) ElementType() reflect.Type {
 }
 
 type adminUsersArgs struct {
-	// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+	// list of destination ip groups
 	AdminScopeEntities *AdminUsersAdminScopeEntities `pulumi:"adminScopeEntities"`
-	// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	AdminScopeType *string `pulumi:"adminScopeType"`
+	AdminScopeType     *string                       `pulumi:"adminScopeType"`
 	// Additional information about the admin or auditor.
 	Comments *string `pulumi:"comments"`
-	// Indicates whether or not the admin account is disabled.
-	Disabled *bool `pulumi:"disabled"`
+	Disabled *bool   `pulumi:"disabled"`
 	// Admin or auditor's email address.
-	Email string `pulumi:"email"`
-	// Indicates whether the user is an auditor. This attribute is subject to change.
-	IsAuditor *bool `pulumi:"isAuditor"`
-	// Indicates whether or not Executive Insights App access is enabled for the admin.
-	IsExecMobileAppEnabled *bool `pulumi:"isExecMobileAppEnabled"`
-	// Indicates whether or not the admin can be edited or deleted.
-	IsNonEditable *bool `pulumi:"isNonEditable"`
-	// Indicates whether or not an admin's password has expired.
-	IsPasswordExpired *bool `pulumi:"isPasswordExpired"`
-	// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-	IsPasswordLoginAllowed *bool `pulumi:"isPasswordLoginAllowed"`
-	// Communication setting for Product Update.
-	IsProductUpdateCommEnabled *bool `pulumi:"isProductUpdateCommEnabled"`
-	// Communication for Security Report is enabled.
-	IsSecurityReportCommEnabled *bool `pulumi:"isSecurityReportCommEnabled"`
-	// Communication setting for Service Update.
-	IsServiceUpdateCommEnabled *bool `pulumi:"isServiceUpdateCommEnabled"`
-	// The email address of the admin user to be exported.
-	LoginName string `pulumi:"loginName"`
-	// The username of the admin user to be exported.
+	Email                       string `pulumi:"email"`
+	IsAuditor                   *bool  `pulumi:"isAuditor"`
+	IsExecMobileAppEnabled      *bool  `pulumi:"isExecMobileAppEnabled"`
+	IsNonEditable               *bool  `pulumi:"isNonEditable"`
+	IsPasswordExpired           *bool  `pulumi:"isPasswordExpired"`
+	IsPasswordLoginAllowed      *bool  `pulumi:"isPasswordLoginAllowed"`
+	IsProductUpdateCommEnabled  *bool  `pulumi:"isProductUpdateCommEnabled"`
+	IsSecurityReportCommEnabled *bool  `pulumi:"isSecurityReportCommEnabled"`
+	IsServiceUpdateCommEnabled  *bool  `pulumi:"isServiceUpdateCommEnabled"`
+	LoginName                   string `pulumi:"loginName"`
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+	// information is not provided in a GET response.
 	Password *string `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles []AdminUsersRole `pulumi:"roles"`
-	// The username of the admin user to be exported.
+	// Admin or auditor's username.
 	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a AdminUsers resource.
 type AdminUsersArgs struct {
-	// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+	// list of destination ip groups
 	AdminScopeEntities AdminUsersAdminScopeEntitiesPtrInput
-	// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	AdminScopeType pulumi.StringPtrInput
+	AdminScopeType     pulumi.StringPtrInput
 	// Additional information about the admin or auditor.
 	Comments pulumi.StringPtrInput
-	// Indicates whether or not the admin account is disabled.
 	Disabled pulumi.BoolPtrInput
 	// Admin or auditor's email address.
-	Email pulumi.StringInput
-	// Indicates whether the user is an auditor. This attribute is subject to change.
-	IsAuditor pulumi.BoolPtrInput
-	// Indicates whether or not Executive Insights App access is enabled for the admin.
-	IsExecMobileAppEnabled pulumi.BoolPtrInput
-	// Indicates whether or not the admin can be edited or deleted.
-	IsNonEditable pulumi.BoolPtrInput
-	// Indicates whether or not an admin's password has expired.
-	IsPasswordExpired pulumi.BoolPtrInput
-	// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-	IsPasswordLoginAllowed pulumi.BoolPtrInput
-	// Communication setting for Product Update.
-	IsProductUpdateCommEnabled pulumi.BoolPtrInput
-	// Communication for Security Report is enabled.
+	Email                       pulumi.StringInput
+	IsAuditor                   pulumi.BoolPtrInput
+	IsExecMobileAppEnabled      pulumi.BoolPtrInput
+	IsNonEditable               pulumi.BoolPtrInput
+	IsPasswordExpired           pulumi.BoolPtrInput
+	IsPasswordLoginAllowed      pulumi.BoolPtrInput
+	IsProductUpdateCommEnabled  pulumi.BoolPtrInput
 	IsSecurityReportCommEnabled pulumi.BoolPtrInput
-	// Communication setting for Service Update.
-	IsServiceUpdateCommEnabled pulumi.BoolPtrInput
-	// The email address of the admin user to be exported.
-	LoginName pulumi.StringInput
-	// The username of the admin user to be exported.
+	IsServiceUpdateCommEnabled  pulumi.BoolPtrInput
+	LoginName                   pulumi.StringInput
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+	// information is not provided in a GET response.
 	Password pulumi.StringPtrInput
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayInput
-	// The username of the admin user to be exported.
+	// Admin or auditor's username.
 	Username pulumi.StringInput
 }
 
@@ -598,12 +540,11 @@ func (o AdminUsersOutput) AdminId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.IntOutput { return v.AdminId }).(pulumi.IntOutput)
 }
 
-// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+// list of destination ip groups
 func (o AdminUsersOutput) AdminScopeEntities() AdminUsersAdminScopeEntitiesOutput {
 	return o.ApplyT(func(v *AdminUsers) AdminUsersAdminScopeEntitiesOutput { return v.AdminScopeEntities }).(AdminUsersAdminScopeEntitiesOutput)
 }
 
-// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
 func (o AdminUsersOutput) AdminScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.AdminScopeType }).(pulumi.StringOutput)
 }
@@ -613,7 +554,6 @@ func (o AdminUsersOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not the admin account is disabled.
 func (o AdminUsersOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
@@ -623,52 +563,44 @@ func (o AdminUsersOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// Indicates whether the user is an auditor. This attribute is subject to change.
 func (o AdminUsersOutput) IsAuditor() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsAuditor }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether or not Executive Insights App access is enabled for the admin.
 func (o AdminUsersOutput) IsExecMobileAppEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsExecMobileAppEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether or not the admin can be edited or deleted.
 func (o AdminUsersOutput) IsNonEditable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsNonEditable }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether or not an admin's password has expired.
 func (o AdminUsersOutput) IsPasswordExpired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsPasswordExpired }).(pulumi.BoolPtrOutput)
 }
 
-// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
 func (o AdminUsersOutput) IsPasswordLoginAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsPasswordLoginAllowed }).(pulumi.BoolPtrOutput)
 }
 
-// Communication setting for Product Update.
 func (o AdminUsersOutput) IsProductUpdateCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsProductUpdateCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Communication for Security Report is enabled.
 func (o AdminUsersOutput) IsSecurityReportCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsSecurityReportCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Communication setting for Service Update.
 func (o AdminUsersOutput) IsServiceUpdateCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsServiceUpdateCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The email address of the admin user to be exported.
 func (o AdminUsersOutput) LoginName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.LoginName }).(pulumi.StringOutput)
 }
 
-// The username of the admin user to be exported.
+// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+// information is not provided in a GET response.
 func (o AdminUsersOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -678,7 +610,7 @@ func (o AdminUsersOutput) Roles() AdminUsersRoleArrayOutput {
 	return o.ApplyT(func(v *AdminUsers) AdminUsersRoleArrayOutput { return v.Roles }).(AdminUsersRoleArrayOutput)
 }
 
-// The username of the admin user to be exported.
+// Admin or auditor's username.
 func (o AdminUsersOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

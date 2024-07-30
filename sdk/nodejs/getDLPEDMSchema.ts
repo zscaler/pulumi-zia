@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     projectName: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPEDMSchema(args?: GetDLPEDMSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPEDMSchemaResult> {
     args = args || {};
@@ -35,9 +33,6 @@ export function getDLPEDMSchema(args?: GetDLPEDMSchemaArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getDLPEDMSchema.
  */
 export interface GetDLPEDMSchemaArgs {
-    /**
-     * The EDM schema (i.e., EDM template) name.
-     */
     projectName?: string;
 }
 
@@ -71,7 +66,6 @@ export interface GetDLPEDMSchemaResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -80,7 +74,6 @@ export interface GetDLPEDMSchemaResult {
  *     projectName: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPEDMSchemaOutput(args?: GetDLPEDMSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDLPEDMSchemaResult> {
     return pulumi.output(args).apply((a: any) => getDLPEDMSchema(a, opts))
@@ -90,8 +83,5 @@ export function getDLPEDMSchemaOutput(args?: GetDLPEDMSchemaOutputArgs, opts?: p
  * A collection of arguments for invoking getDLPEDMSchema.
  */
 export interface GetDLPEDMSchemaOutputArgs {
-    /**
-     * The EDM schema (i.e., EDM template) name.
-     */
     projectName?: pulumi.Input<string>;
 }

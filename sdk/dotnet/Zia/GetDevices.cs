@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDevicesResult> InvokeAsync(GetDevicesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicesResult>("zia:index/getDevices:getDevices", args ?? new GetDevicesArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDevicesResult> Invoke(GetDevicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicesResult>("zia:index/getDevices:getDevices", args ?? new GetDevicesInvokeArgs(), options.WithDefaults());
@@ -79,6 +75,9 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("deviceModel")]
         public string? DeviceModel { get; set; }
+
+        [Input("hostname")]
+        public string? Hostname { get; set; }
 
         /// <summary>
         /// The name of the devices to be exported.
@@ -123,6 +122,9 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("deviceModel")]
         public Input<string>? DeviceModel { get; set; }
+
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
 
         /// <summary>
         /// The name of the devices to be exported.
@@ -170,6 +172,7 @@ namespace zscaler.PulumiPackage.Zia
         /// (String) The device model.
         /// </summary>
         public readonly string DeviceModel;
+        public readonly string Hostname;
         /// <summary>
         /// (String) The unique identifer for the device group.
         /// </summary>
@@ -203,6 +206,8 @@ namespace zscaler.PulumiPackage.Zia
 
             string deviceModel,
 
+            string hostname,
+
             int id,
 
             string name,
@@ -218,6 +223,7 @@ namespace zscaler.PulumiPackage.Zia
             Description = description;
             DeviceGroupType = deviceGroupType;
             DeviceModel = deviceModel;
+            Hostname = hostname;
             Id = id;
             Name = name;
             OsType = osType;

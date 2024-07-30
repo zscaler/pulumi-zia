@@ -22,16 +22,13 @@ class GetDLPWebRulesResult:
     """
     A collection of values returned by getDLPWebRules.
     """
-    def __init__(__self__, access_control=None, action=None, auditors=None, cloud_applications=None, departments=None, description=None, dlp_download_scan_enabled=None, dlp_engines=None, excluded_departments=None, excluded_groups=None, excluded_users=None, external_auditor_email=None, file_types=None, groups=None, icap_servers=None, id=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, match_only=None, min_size=None, name=None, notification_templates=None, ocr_enabled=None, order=None, parent_rule=None, protocols=None, rank=None, severity=None, state=None, sub_rules=None, time_windows=None, url_categories=None, users=None, without_content_inspection=None, workload_groups=None, zcc_notifications_enabled=None, zscaler_incident_receiver=None):
+    def __init__(__self__, access_control=None, action=None, cloud_applications=None, departments=None, description=None, dlp_download_scan_enabled=None, dlp_engines=None, excluded_departments=None, excluded_groups=None, excluded_users=None, external_auditor_email=None, file_types=None, groups=None, id=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, match_only=None, min_size=None, name=None, order=None, parent_rule=None, protocols=None, rank=None, severity=None, source_ip_groups=None, state=None, sub_rules=None, time_windows=None, url_categories=None, users=None, without_content_inspection=None, workload_groups=None, zcc_notifications_enabled=None, zscaler_incident_receiver=None):
         if access_control and not isinstance(access_control, str):
             raise TypeError("Expected argument 'access_control' to be a str")
         pulumi.set(__self__, "access_control", access_control)
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
-        if auditors and not isinstance(auditors, list):
-            raise TypeError("Expected argument 'auditors' to be a list")
-        pulumi.set(__self__, "auditors", auditors)
         if cloud_applications and not isinstance(cloud_applications, list):
             raise TypeError("Expected argument 'cloud_applications' to be a list")
         pulumi.set(__self__, "cloud_applications", cloud_applications)
@@ -65,9 +62,6 @@ class GetDLPWebRulesResult:
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
-        if icap_servers and not isinstance(icap_servers, list):
-            raise TypeError("Expected argument 'icap_servers' to be a list")
-        pulumi.set(__self__, "icap_servers", icap_servers)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -95,12 +89,6 @@ class GetDLPWebRulesResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if notification_templates and not isinstance(notification_templates, list):
-            raise TypeError("Expected argument 'notification_templates' to be a list")
-        pulumi.set(__self__, "notification_templates", notification_templates)
-        if ocr_enabled and not isinstance(ocr_enabled, bool):
-            raise TypeError("Expected argument 'ocr_enabled' to be a bool")
-        pulumi.set(__self__, "ocr_enabled", ocr_enabled)
         if order and not isinstance(order, int):
             raise TypeError("Expected argument 'order' to be a int")
         pulumi.set(__self__, "order", order)
@@ -116,6 +104,9 @@ class GetDLPWebRulesResult:
         if severity and not isinstance(severity, str):
             raise TypeError("Expected argument 'severity' to be a str")
         pulumi.set(__self__, "severity", severity)
+        if source_ip_groups and not isinstance(source_ip_groups, list):
+            raise TypeError("Expected argument 'source_ip_groups' to be a list")
+        pulumi.set(__self__, "source_ip_groups", source_ip_groups)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -153,11 +144,6 @@ class GetDLPWebRulesResult:
     @pulumi.getter
     def action(self) -> str:
         return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def auditors(self) -> Sequence['outputs.GetDLPWebRulesAuditorResult']:
-        return pulumi.get(self, "auditors")
 
     @property
     @pulumi.getter(name="cloudApplications")
@@ -215,11 +201,6 @@ class GetDLPWebRulesResult:
         return pulumi.get(self, "groups")
 
     @property
-    @pulumi.getter(name="icapServers")
-    def icap_servers(self) -> Sequence['outputs.GetDLPWebRulesIcapServerResult']:
-        return pulumi.get(self, "icap_servers")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[int]:
         return pulumi.get(self, "id")
@@ -265,16 +246,6 @@ class GetDLPWebRulesResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="notificationTemplates")
-    def notification_templates(self) -> Sequence['outputs.GetDLPWebRulesNotificationTemplateResult']:
-        return pulumi.get(self, "notification_templates")
-
-    @property
-    @pulumi.getter(name="ocrEnabled")
-    def ocr_enabled(self) -> bool:
-        return pulumi.get(self, "ocr_enabled")
-
-    @property
     @pulumi.getter
     def order(self) -> int:
         return pulumi.get(self, "order")
@@ -298,6 +269,11 @@ class GetDLPWebRulesResult:
     @pulumi.getter
     def severity(self) -> str:
         return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Sequence['outputs.GetDLPWebRulesSourceIpGroupResult']:
+        return pulumi.get(self, "source_ip_groups")
 
     @property
     @pulumi.getter
@@ -353,7 +329,6 @@ class AwaitableGetDLPWebRulesResult(GetDLPWebRulesResult):
         return GetDLPWebRulesResult(
             access_control=self.access_control,
             action=self.action,
-            auditors=self.auditors,
             cloud_applications=self.cloud_applications,
             departments=self.departments,
             description=self.description,
@@ -365,7 +340,6 @@ class AwaitableGetDLPWebRulesResult(GetDLPWebRulesResult):
             external_auditor_email=self.external_auditor_email,
             file_types=self.file_types,
             groups=self.groups,
-            icap_servers=self.icap_servers,
             id=self.id,
             labels=self.labels,
             last_modified_bies=self.last_modified_bies,
@@ -375,13 +349,12 @@ class AwaitableGetDLPWebRulesResult(GetDLPWebRulesResult):
             match_only=self.match_only,
             min_size=self.min_size,
             name=self.name,
-            notification_templates=self.notification_templates,
-            ocr_enabled=self.ocr_enabled,
             order=self.order,
             parent_rule=self.parent_rule,
             protocols=self.protocols,
             rank=self.rank,
             severity=self.severity,
+            source_ip_groups=self.source_ip_groups,
             state=self.state,
             sub_rules=self.sub_rules,
             time_windows=self.time_windows,
@@ -401,18 +374,12 @@ def get_dlp_web_rules(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_web_rules(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: A unique identifier assigned to the workload group
-    :param str name: The name of the workload group
     """
     __args__ = dict()
     __args__['id'] = id
@@ -423,7 +390,6 @@ def get_dlp_web_rules(id: Optional[int] = None,
     return AwaitableGetDLPWebRulesResult(
         access_control=pulumi.get(__ret__, 'access_control'),
         action=pulumi.get(__ret__, 'action'),
-        auditors=pulumi.get(__ret__, 'auditors'),
         cloud_applications=pulumi.get(__ret__, 'cloud_applications'),
         departments=pulumi.get(__ret__, 'departments'),
         description=pulumi.get(__ret__, 'description'),
@@ -435,7 +401,6 @@ def get_dlp_web_rules(id: Optional[int] = None,
         external_auditor_email=pulumi.get(__ret__, 'external_auditor_email'),
         file_types=pulumi.get(__ret__, 'file_types'),
         groups=pulumi.get(__ret__, 'groups'),
-        icap_servers=pulumi.get(__ret__, 'icap_servers'),
         id=pulumi.get(__ret__, 'id'),
         labels=pulumi.get(__ret__, 'labels'),
         last_modified_bies=pulumi.get(__ret__, 'last_modified_bies'),
@@ -445,13 +410,12 @@ def get_dlp_web_rules(id: Optional[int] = None,
         match_only=pulumi.get(__ret__, 'match_only'),
         min_size=pulumi.get(__ret__, 'min_size'),
         name=pulumi.get(__ret__, 'name'),
-        notification_templates=pulumi.get(__ret__, 'notification_templates'),
-        ocr_enabled=pulumi.get(__ret__, 'ocr_enabled'),
         order=pulumi.get(__ret__, 'order'),
         parent_rule=pulumi.get(__ret__, 'parent_rule'),
         protocols=pulumi.get(__ret__, 'protocols'),
         rank=pulumi.get(__ret__, 'rank'),
         severity=pulumi.get(__ret__, 'severity'),
+        source_ip_groups=pulumi.get(__ret__, 'source_ip_groups'),
         state=pulumi.get(__ret__, 'state'),
         sub_rules=pulumi.get(__ret__, 'sub_rules'),
         time_windows=pulumi.get(__ret__, 'time_windows'),
@@ -472,17 +436,11 @@ def get_dlp_web_rules_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_web_rules(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: A unique identifier assigned to the workload group
-    :param str name: The name of the workload group
     """
     ...

@@ -95,28 +95,19 @@ def get_dlp_engines(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_engines(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_engines(id=1234567890)
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: The unique identifier for the DLP engine.
-    :param str name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-    :param str predefined_engine_name: The name of the predefined DLP engine.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -144,27 +135,18 @@ def get_dlp_engines_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_engines(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_dlp_engines(id=1234567890)
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: The unique identifier for the DLP engine.
-    :param str name: The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-    :param str predefined_engine_name: The name of the predefined DLP engine.
     """
     ...

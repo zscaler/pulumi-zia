@@ -121,14 +121,12 @@ def get_workload_groups(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     ios = zia.get_workload_groups(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the workload group to be exported.
@@ -156,14 +154,12 @@ def get_workload_groups_output(name: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     ios = zia.get_workload_groups(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the workload group to be exported.

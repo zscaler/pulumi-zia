@@ -12,14 +12,14 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 {
 
     [OutputType]
-    public sealed class GetDLPWebRulesWorkloadGroupExpressionJsonResult
+    public sealed class DLPWebRulesExcludedDomainProfiles
     {
-        public readonly ImmutableArray<Outputs.GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerResult> ExpressionContainers;
+        public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]
-        private GetDLPWebRulesWorkloadGroupExpressionJsonResult(ImmutableArray<Outputs.GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerResult> expressionContainers)
+        private DLPWebRulesExcludedDomainProfiles(ImmutableArray<int> ids)
         {
-            ExpressionContainers = expressionContainers;
+            Ids = ids;
         }
     }
 }

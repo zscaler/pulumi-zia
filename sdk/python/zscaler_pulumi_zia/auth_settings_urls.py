@@ -17,7 +17,6 @@ class AuthSettingsURLsArgs:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AuthSettingsURLs resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: The email address of the admin user to be exported.
         """
         if urls is not None:
             pulumi.set(__self__, "urls", urls)
@@ -25,9 +24,6 @@ class AuthSettingsURLsArgs:
     @property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -41,7 +37,6 @@ class _AuthSettingsURLsState:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AuthSettingsURLs resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: The email address of the admin user to be exported.
         """
         if urls is not None:
             pulumi.set(__self__, "urls", urls)
@@ -49,9 +44,6 @@ class _AuthSettingsURLsState:
     @property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -71,7 +63,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -96,7 +87,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
             ".kerberos.okta.com",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -114,7 +104,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: The email address of the admin user to be exported.
         """
         ...
     @overload
@@ -127,7 +116,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -152,7 +140,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
             ".kerberos.okta.com",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -212,7 +199,6 @@ class AuthSettingsURLs(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: The email address of the admin user to be exported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -224,8 +210,5 @@ class AuthSettingsURLs(pulumi.CustomResource):
     @property
     @pulumi.getter
     def urls(self) -> pulumi.Output[Sequence[str]]:
-        """
-        The email address of the admin user to be exported.
-        """
         return pulumi.get(self, "urls")
 

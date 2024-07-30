@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,9 +19,7 @@ import * as utilities from "./utilities";
  *     loginName: "john.doe@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -31,7 +28,6 @@ import * as utilities from "./utilities";
  *     username: "John Doe",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAdminUsers(args?: GetAdminUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminUsersResult> {
     args = args || {};
@@ -135,7 +131,6 @@ export interface GetAdminUsersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -144,9 +139,7 @@ export interface GetAdminUsersResult {
  *     loginName: "john.doe@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -155,7 +148,6 @@ export interface GetAdminUsersResult {
  *     username: "John Doe",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAdminUsersOutput(args?: GetAdminUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminUsersResult> {
     return pulumi.output(args).apply((a: any) => getAdminUsers(a, opts))

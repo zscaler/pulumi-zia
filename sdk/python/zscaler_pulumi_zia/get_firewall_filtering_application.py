@@ -94,7 +94,6 @@ def get_firewall_filtering_application(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -102,16 +101,13 @@ def get_firewall_filtering_application(id: Optional[str] = None,
     apns = zia.get_firewall_filtering_application(id="APNS",
         locale="en-US")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     dict = zia.get_firewall_filtering_application(id="DICT")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The name of the ip source group to be exported.
@@ -139,7 +135,6 @@ def get_firewall_filtering_application_output(id: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -147,16 +142,13 @@ def get_firewall_filtering_application_output(id: Optional[pulumi.Input[Optional
     apns = zia.get_firewall_filtering_application(id="APNS",
         locale="en-US")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     dict = zia.get_firewall_filtering_application(id="DICT")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The name of the ip source group to be exported.

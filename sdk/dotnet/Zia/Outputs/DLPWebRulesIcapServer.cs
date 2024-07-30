@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class DLPWebRulesIcapServer
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         public readonly int Id;
 
         [OutputConstructor]

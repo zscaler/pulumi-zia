@@ -160,50 +160,40 @@ def get_location_groups(dynamic_location_group_criterias: Optional[Sequence[pulu
     """
     Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Corporate User Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Guest Wifi Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="IoT Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Server Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Server Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocationGroupsDynamicLocationGroupCriteriaArgs']] dynamic_location_group_criterias: (Block Set) Dynamic location group information.
@@ -235,50 +225,40 @@ def get_location_groups_output(dynamic_location_group_criterias: Optional[pulumi
     """
     Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Corporate User Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Guest Wifi Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="IoT Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Server Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_location_groups(name="Server Traffic Group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLocationGroupsDynamicLocationGroupCriteriaArgs']] dynamic_location_group_criterias: (Block Set) Dynamic location group information.

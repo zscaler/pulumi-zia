@@ -50,13 +50,13 @@ class ForwardingControlRuleArgs:
                  zpa_gateway: Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']] = None):
         """
         The set of arguments for constructing a ForwardingControlRule resource.
-        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options.
-        :param pulumi.Input[int] order: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options
+        :param pulumi.Input[int] order: (int) - The order of execution for the forwarding rule order.
         :param pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs'] app_service_groups: (list) - Application service groups on which this rule is applied
         :param pulumi.Input['ForwardingControlRuleDepartmentsArgs'] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         :param pulumi.Input[str] description: (string) - Additional information about the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         :param pulumi.Input['ForwardingControlRuleDestIpGroupsArgs'] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs'] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
@@ -65,7 +65,7 @@ class ForwardingControlRuleArgs:
         :param pulumi.Input['ForwardingControlRuleLabelsArgs'] labels: (list) Labels that are applicable to the rule.
         :param pulumi.Input['ForwardingControlRuleLocationGroupsArgs'] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         :param pulumi.Input['ForwardingControlRuleLocationsArgs'] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         :param pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs'] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
         :param pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs'] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
         :param pulumi.Input['ForwardingControlRuleNwServicesArgs'] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
@@ -76,7 +76,7 @@ class ForwardingControlRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
         :param pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[str] type: The rule type selected from the available options. Supported Values: ``FORWARDING``
+        :param pulumi.Input[str] type: The rule type selected from the available options
         :param pulumi.Input['ForwardingControlRuleUsersArgs'] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
         :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs'] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
@@ -150,7 +150,7 @@ class ForwardingControlRuleArgs:
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Input[str]:
         """
-        The type of traffic forwarding method selected from the available options.
+        The type of traffic forwarding method selected from the available options
         """
         return pulumi.get(self, "forward_method")
 
@@ -162,7 +162,7 @@ class ForwardingControlRuleArgs:
     @pulumi.getter
     def order(self) -> pulumi.Input[int]:
         """
-        Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        (int) - The order of execution for the forwarding rule order.
         """
         return pulumi.get(self, "order")
 
@@ -222,7 +222,7 @@ class ForwardingControlRuleArgs:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         """
         return pulumi.get(self, "dest_countries")
 
@@ -330,7 +330,7 @@ class ForwardingControlRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -462,7 +462,7 @@ class ForwardingControlRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type selected from the available options. Supported Values: ``FORWARDING``
+        The rule type selected from the available options
         """
         return pulumi.get(self, "type")
 
@@ -573,21 +573,21 @@ class _ForwardingControlRuleState:
         :param pulumi.Input['ForwardingControlRuleDepartmentsArgs'] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         :param pulumi.Input[str] description: (string) - Additional information about the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         :param pulumi.Input['ForwardingControlRuleDestIpGroupsArgs'] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs'] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input['ForwardingControlRuleEcGroupsArgs'] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options.
+        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options
         :param pulumi.Input['ForwardingControlRuleGroupsArgs'] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input['ForwardingControlRuleLabelsArgs'] labels: (list) Labels that are applicable to the rule.
         :param pulumi.Input['ForwardingControlRuleLocationGroupsArgs'] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         :param pulumi.Input['ForwardingControlRuleLocationsArgs'] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         :param pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs'] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
         :param pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs'] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
         :param pulumi.Input['ForwardingControlRuleNwServicesArgs'] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[int] order: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[int] order: (int) - The order of execution for the forwarding rule order.
         :param pulumi.Input['ForwardingControlRuleProxyGatewayArgs'] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
         :param pulumi.Input[int] rank: Admin rank assigned to the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
@@ -596,7 +596,7 @@ class _ForwardingControlRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
         :param pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[str] type: The rule type selected from the available options. Supported Values: ``FORWARDING``
+        :param pulumi.Input[str] type: The rule type selected from the available options
         :param pulumi.Input['ForwardingControlRuleUsersArgs'] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
         :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs'] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
@@ -722,7 +722,7 @@ class _ForwardingControlRuleState:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         """
         return pulumi.get(self, "dest_countries")
 
@@ -782,7 +782,7 @@ class _ForwardingControlRuleState:
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of traffic forwarding method selected from the available options.
+        The type of traffic forwarding method selected from the available options
         """
         return pulumi.get(self, "forward_method")
 
@@ -842,7 +842,7 @@ class _ForwardingControlRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -890,7 +890,7 @@ class _ForwardingControlRuleState:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        (int) - The order of execution for the forwarding rule order.
         """
         return pulumi.get(self, "order")
 
@@ -998,7 +998,7 @@ class _ForwardingControlRuleState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type selected from the available options. Supported Values: ``FORWARDING``
+        The rule type selected from the available options
         """
         return pulumi.get(self, "type")
 
@@ -1132,21 +1132,21 @@ class ForwardingControlRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDepartmentsArgs']] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         :param pulumi.Input[str] description: (string) - Additional information about the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDestIpGroupsArgs']] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDestIpv6GroupsArgs']] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleEcGroupsArgs']] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options.
+        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleGroupsArgs']] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLabelsArgs']] labels: (list) Labels that are applicable to the rule.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLocationGroupsArgs']] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLocationsArgs']] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwApplicationGroupsArgs']] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwServiceGroupsArgs']] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwServicesArgs']] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[int] order: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[int] order: (int) - The order of execution for the forwarding rule order.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleProxyGatewayArgs']] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
         :param pulumi.Input[int] rank: Admin rank assigned to the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
@@ -1154,7 +1154,7 @@ class ForwardingControlRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleSrcIpv6GroupsArgs']] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[str] type: The rule type selected from the available options. Supported Values: ``FORWARDING``
+        :param pulumi.Input[str] type: The rule type selected from the available options
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleUsersArgs']] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingControlRuleZpaAppSegmentArgs']]]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
@@ -1335,21 +1335,21 @@ class ForwardingControlRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDepartmentsArgs']] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         :param pulumi.Input[str] description: (string) - Additional information about the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDestIpGroupsArgs']] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleDestIpv6GroupsArgs']] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleEcGroupsArgs']] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options.
+        :param pulumi.Input[str] forward_method: The type of traffic forwarding method selected from the available options
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleGroupsArgs']] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLabelsArgs']] labels: (list) Labels that are applicable to the rule.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLocationGroupsArgs']] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleLocationsArgs']] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwApplicationGroupsArgs']] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwServiceGroupsArgs']] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleNwServicesArgs']] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[int] order: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[int] order: (int) - The order of execution for the forwarding rule order.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleProxyGatewayArgs']] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
         :param pulumi.Input[int] rank: Admin rank assigned to the forwarding rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
@@ -1358,7 +1358,7 @@ class ForwardingControlRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleSrcIpv6GroupsArgs']] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         :param pulumi.Input[str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[str] type: The rule type selected from the available options. Supported Values: ``FORWARDING``
+        :param pulumi.Input[str] type: The rule type selected from the available options
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleUsersArgs']] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingControlRuleZpaAppSegmentArgs']]]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
         :param pulumi.Input[pulumi.InputType['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
@@ -1440,7 +1440,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Sequence[str]]:
         """
-        ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         """
         return pulumi.get(self, "dest_countries")
 
@@ -1480,7 +1480,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Output[str]:
         """
-        The type of traffic forwarding method selected from the available options.
+        The type of traffic forwarding method selected from the available options
         """
         return pulumi.get(self, "forward_method")
 
@@ -1520,7 +1520,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -1552,7 +1552,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @pulumi.getter
     def order(self) -> pulumi.Output[int]:
         """
-        Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        (int) - The order of execution for the forwarding rule order.
         """
         return pulumi.get(self, "order")
 
@@ -1624,7 +1624,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The rule type selected from the available options. Supported Values: ``FORWARDING``
+        The rule type selected from the available options
         """
         return pulumi.get(self, "type")
 

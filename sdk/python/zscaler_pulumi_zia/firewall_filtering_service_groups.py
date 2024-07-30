@@ -21,9 +21,7 @@ class FirewallFilteringServiceGroupsArgs:
                  services: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallFilteringServiceGroups resource.
-        :param pulumi.Input[str] description: Description of the network services group
-        :param pulumi.Input[str] name: Name of the network service group
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]] services: Any number of network services ID to be added to the group
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]] services: list of services IDs
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -35,9 +33,6 @@ class FirewallFilteringServiceGroupsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the network services group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,9 +42,6 @@ class FirewallFilteringServiceGroupsArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the network service group
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,7 +52,7 @@ class FirewallFilteringServiceGroupsArgs:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]]]:
         """
-        Any number of network services ID to be added to the group
+        list of services IDs
         """
         return pulumi.get(self, "services")
 
@@ -78,9 +70,7 @@ class _FirewallFilteringServiceGroupsState:
                  services: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]]] = None):
         """
         Input properties used for looking up and filtering FirewallFilteringServiceGroups resources.
-        :param pulumi.Input[str] description: Description of the network services group
-        :param pulumi.Input[str] name: Name of the network service group
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]] services: Any number of network services ID to be added to the group
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]] services: list of services IDs
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -94,9 +84,6 @@ class _FirewallFilteringServiceGroupsState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the network services group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -115,9 +102,6 @@ class _FirewallFilteringServiceGroupsState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the network service group
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,7 +112,7 @@ class _FirewallFilteringServiceGroupsState:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringServiceGroupsServiceArgs']]]]:
         """
-        Any number of network services ID to be added to the group
+        list of services IDs
         """
         return pulumi.get(self, "services")
 
@@ -151,7 +135,6 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -171,7 +154,6 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -195,9 +177,7 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the network services group
-        :param pulumi.Input[str] name: Name of the network service group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringServiceGroupsServiceArgs']]]] services: Any number of network services ID to be added to the group
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringServiceGroupsServiceArgs']]]] services: list of services IDs
         """
         ...
     @overload
@@ -210,7 +190,6 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -230,7 +209,6 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,9 +282,7 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the network services group
-        :param pulumi.Input[str] name: Name of the network service group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringServiceGroupsServiceArgs']]]] services: Any number of network services ID to be added to the group
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringServiceGroupsServiceArgs']]]] services: list of services IDs
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,9 +297,6 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the network services group
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -334,16 +307,13 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the network service group
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def services(self) -> pulumi.Output[Sequence['outputs.FirewallFilteringServiceGroupsService']]:
         """
-        Any number of network services ID to be added to the group
+        list of services IDs
         """
         return pulumi.get(self, "services")
 

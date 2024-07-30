@@ -13,7 +13,6 @@ namespace zscaler.PulumiPackage.Zia
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -99,7 +97,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> GatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The configured name of the entity
+        /// The name of the forwarding control ZPA Gateway to be exported.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -176,7 +174,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The configured name of the entity
+        /// The name of the forwarding control ZPA Gateway to be exported.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -223,7 +221,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? GatewayId { get; set; }
 
         /// <summary>
-        /// The configured name of the entity
+        /// The name of the forwarding control ZPA Gateway to be exported.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

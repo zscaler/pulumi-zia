@@ -15,7 +15,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class DLPDictionariesPattern
     {
         /// <summary>
-        /// The action applied to a DLP dictionary using patterns. The following values are supported:
+        /// The action applied to a DLP dictionary using patterns
         /// </summary>
         public readonly string? Action;
         /// <summary>

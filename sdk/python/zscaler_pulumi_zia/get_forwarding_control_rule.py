@@ -462,14 +462,12 @@ def get_forwarding_control_rule(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_forwarding_control_rule(name="FWD_RULE01")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: A unique identifier assigned to the forwarding rule.
@@ -532,14 +530,12 @@ def get_forwarding_control_rule_output(id: Optional[pulumi.Input[Optional[int]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_forwarding_control_rule(name="FWD_RULE01")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: A unique identifier assigned to the forwarding rule.

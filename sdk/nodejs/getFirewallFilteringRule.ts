@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Office 365 One Click Rule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringRule(args?: GetFirewallFilteringRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringRuleResult> {
     args = args || {};
@@ -189,7 +187,6 @@ export interface GetFirewallFilteringRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -198,7 +195,6 @@ export interface GetFirewallFilteringRuleResult {
  *     name: "Office 365 One Click Rule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringRuleOutput(args?: GetFirewallFilteringRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringRule(a, opts))

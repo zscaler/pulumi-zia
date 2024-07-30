@@ -13,7 +13,6 @@ import (
 
 // Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupURLFilteringRules(ctx *pulumi.Context, args *LookupURLFilteringRulesArgs, opts ...pulumi.InvokeOption) (*LookupURLFilteringRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupURLFilteringRulesResult
@@ -104,7 +102,8 @@ type LookupURLFilteringRulesResult struct {
 	// (String) Request method for which the rule must be applied. If not set, rule will be applied to all methods
 	RequestMethods []string `pulumi:"requestMethods"`
 	// (String) Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
-	SizeQuota int `pulumi:"sizeQuota"`
+	SizeQuota      int                                 `pulumi:"sizeQuota"`
+	SourceIpGroups []GetURLFilteringRulesSourceIpGroup `pulumi:"sourceIpGroups"`
 	// (String) Rule State
 	State string `pulumi:"state"`
 	// (String) Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
@@ -289,6 +288,10 @@ func (o LookupURLFilteringRulesResultOutput) RequestMethods() pulumi.StringArray
 // (String) Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
 func (o LookupURLFilteringRulesResultOutput) SizeQuota() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupURLFilteringRulesResult) int { return v.SizeQuota }).(pulumi.IntOutput)
+}
+
+func (o LookupURLFilteringRulesResultOutput) SourceIpGroups() GetURLFilteringRulesSourceIpGroupArrayOutput {
+	return o.ApplyT(func(v LookupURLFilteringRulesResult) []GetURLFilteringRulesSourceIpGroup { return v.SourceIpGroups }).(GetURLFilteringRulesSourceIpGroupArrayOutput)
 }
 
 // (String) Rule State

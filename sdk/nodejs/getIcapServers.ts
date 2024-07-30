@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIcapServers(args?: GetIcapServersArgs, opts?: pulumi.InvokeOptions): Promise<GetIcapServersResult> {
     args = args || {};
@@ -33,9 +31,6 @@ export function getIcapServers(args?: GetIcapServersArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getIcapServers.
  */
 export interface GetIcapServersArgs {
-    /**
-     * The DLP server name.
-     */
     name?: string;
 }
 
@@ -53,7 +48,6 @@ export interface GetIcapServersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -62,7 +56,6 @@ export interface GetIcapServersResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIcapServersOutput(args?: GetIcapServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIcapServersResult> {
     return pulumi.output(args).apply((a: any) => getIcapServers(a, opts))
@@ -72,8 +65,5 @@ export function getIcapServersOutput(args?: GetIcapServersOutputArgs, opts?: pul
  * A collection of arguments for invoking getIcapServers.
  */
 export interface GetIcapServersOutputArgs {
-    /**
-     * The DLP server name.
-     */
     name?: pulumi.Input<string>;
 }

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,9 +38,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +62,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDLPEngines(ctx *pulumi.Context, args *LookupDLPEnginesArgs, opts ...pulumi.InvokeOption) (*LookupDLPEnginesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDLPEnginesResult
@@ -78,11 +74,8 @@ func LookupDLPEngines(ctx *pulumi.Context, args *LookupDLPEnginesArgs, opts ...p
 
 // A collection of arguments for invoking getDLPEngines.
 type LookupDLPEnginesArgs struct {
-	// The unique identifier for the DLP engine.
-	Id *int `pulumi:"id"`
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-	Name *string `pulumi:"name"`
-	// The name of the predefined DLP engine.
+	Id                   *int    `pulumi:"id"`
+	Name                 *string `pulumi:"name"`
 	PredefinedEngineName *string `pulumi:"predefinedEngineName"`
 }
 
@@ -111,11 +104,8 @@ func LookupDLPEnginesOutput(ctx *pulumi.Context, args LookupDLPEnginesOutputArgs
 
 // A collection of arguments for invoking getDLPEngines.
 type LookupDLPEnginesOutputArgs struct {
-	// The unique identifier for the DLP engine.
-	Id pulumi.IntPtrInput `pulumi:"id"`
-	// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name of the predefined DLP engine.
+	Id                   pulumi.IntPtrInput    `pulumi:"id"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
 	PredefinedEngineName pulumi.StringPtrInput `pulumi:"predefinedEngineName"`
 }
 

@@ -19,7 +19,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// Name of the Firewall Filtering policy rule
+        /// (string) The configured name of the entity
         /// </summary>
         public readonly string Name;
 
