@@ -19,7 +19,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### Add MD5 Hashes To Sandbox
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,9 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Remove All MD5 Hashes To Sandbox
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +58,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -81,9 +77,8 @@ namespace zscaler.PulumiPackage.Zia
     public partial class SandboxBehavioralAnalysis : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-        /// 
-        /// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        /// blocked
         /// </summary>
         [Output("fileHashesToBeBlockeds")]
         public Output<ImmutableArray<string>> FileHashesToBeBlockeds { get; private set; } = null!;
@@ -139,9 +134,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileHashesToBeBlockeds;
 
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-        /// 
-        /// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        /// blocked
         /// </summary>
         public InputList<string> FileHashesToBeBlockeds
         {
@@ -161,9 +155,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileHashesToBeBlockeds;
 
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-        /// 
-        /// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+        /// blocked
         /// </summary>
         public InputList<string> FileHashesToBeBlockeds
         {

@@ -22,7 +22,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,9 +37,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficForwardingVPNCredentialsResult> InvokeAsync(GetTrafficForwardingVPNCredentialsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingVPNCredentialsResult>("zia:index/getTrafficForwardingVPNCredentials:getTrafficForwardingVPNCredentials", args ?? new GetTrafficForwardingVPNCredentialsArgs(), options.WithDefaults());
@@ -71,7 +67,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,9 +82,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,7 +98,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficForwardingVPNCredentialsResult> Invoke(GetTrafficForwardingVPNCredentialsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingVPNCredentialsResult>("zia:index/getTrafficForwardingVPNCredentials:getTrafficForwardingVPNCredentials", args ?? new GetTrafficForwardingVPNCredentialsInvokeArgs(), options.WithDefaults());

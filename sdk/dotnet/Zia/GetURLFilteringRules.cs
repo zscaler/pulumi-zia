@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetURLFilteringRulesResult> InvokeAsync(GetURLFilteringRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetURLFilteringRulesResult>("zia:index/getURLFilteringRules:getURLFilteringRules", args ?? new GetURLFilteringRulesArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetURLFilteringRulesResult> Invoke(GetURLFilteringRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetURLFilteringRulesResult>("zia:index/getURLFilteringRules:getURLFilteringRules", args ?? new GetURLFilteringRulesInvokeArgs(), options.WithDefaults());
@@ -195,6 +191,7 @@ namespace zscaler.PulumiPackage.Zia
         /// (String) Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
         /// </summary>
         public readonly int SizeQuota;
+        public readonly ImmutableArray<Outputs.GetURLFilteringRulesSourceIpGroupResult> SourceIpGroups;
         /// <summary>
         /// (String) Rule State
         /// </summary>
@@ -287,6 +284,8 @@ namespace zscaler.PulumiPackage.Zia
 
             int sizeQuota,
 
+            ImmutableArray<Outputs.GetURLFilteringRulesSourceIpGroupResult> sourceIpGroups,
+
             string state,
 
             int timeQuota,
@@ -333,6 +332,7 @@ namespace zscaler.PulumiPackage.Zia
             Rank = rank;
             RequestMethods = requestMethods;
             SizeQuota = sizeQuota;
+            SourceIpGroups = sourceIpGroups;
             State = state;
             TimeQuota = timeQuota;
             TimeWindows = timeWindows;

@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class UserManagementGroups
     {
+        /// <summary>
+        /// Unique identfier for the group
+        /// </summary>
         public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]

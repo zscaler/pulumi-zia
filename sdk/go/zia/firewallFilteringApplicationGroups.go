@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -69,13 +67,9 @@ import (
 type FirewallFilteringApplicationGroups struct {
 	pulumi.CustomResourceState
 
-	AppId pulumi.IntOutput `pulumi:"appId"`
-	// Description of the network application group
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Network application group name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Any number of applications to be added to the group
-	// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
+	AppId               pulumi.IntOutput         `pulumi:"appId"`
+	Description         pulumi.StringPtrOutput   `pulumi:"description"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
 	NetworkApplications pulumi.StringArrayOutput `pulumi:"networkApplications"`
 }
 
@@ -109,24 +103,16 @@ func GetFirewallFilteringApplicationGroups(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallFilteringApplicationGroups resources.
 type firewallFilteringApplicationGroupsState struct {
-	AppId *int `pulumi:"appId"`
-	// Description of the network application group
-	Description *string `pulumi:"description"`
-	// Network application group name
-	Name *string `pulumi:"name"`
-	// Any number of applications to be added to the group
-	// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
+	AppId               *int     `pulumi:"appId"`
+	Description         *string  `pulumi:"description"`
+	Name                *string  `pulumi:"name"`
 	NetworkApplications []string `pulumi:"networkApplications"`
 }
 
 type FirewallFilteringApplicationGroupsState struct {
-	AppId pulumi.IntPtrInput
-	// Description of the network application group
-	Description pulumi.StringPtrInput
-	// Network application group name
-	Name pulumi.StringPtrInput
-	// Any number of applications to be added to the group
-	// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
+	AppId               pulumi.IntPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
 	NetworkApplications pulumi.StringArrayInput
 }
 
@@ -135,23 +121,15 @@ func (FirewallFilteringApplicationGroupsState) ElementType() reflect.Type {
 }
 
 type firewallFilteringApplicationGroupsArgs struct {
-	// Description of the network application group
-	Description *string `pulumi:"description"`
-	// Network application group name
-	Name *string `pulumi:"name"`
-	// Any number of applications to be added to the group
-	// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
+	Description         *string  `pulumi:"description"`
+	Name                *string  `pulumi:"name"`
 	NetworkApplications []string `pulumi:"networkApplications"`
 }
 
 // The set of arguments for constructing a FirewallFilteringApplicationGroups resource.
 type FirewallFilteringApplicationGroupsArgs struct {
-	// Description of the network application group
-	Description pulumi.StringPtrInput
-	// Network application group name
-	Name pulumi.StringPtrInput
-	// Any number of applications to be added to the group
-	// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
 	NetworkApplications pulumi.StringArrayInput
 }
 
@@ -246,18 +224,14 @@ func (o FirewallFilteringApplicationGroupsOutput) AppId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringApplicationGroups) pulumi.IntOutput { return v.AppId }).(pulumi.IntOutput)
 }
 
-// Description of the network application group
 func (o FirewallFilteringApplicationGroupsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringApplicationGroups) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Network application group name
 func (o FirewallFilteringApplicationGroupsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringApplicationGroups) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Any number of applications to be added to the group
-// * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
 func (o FirewallFilteringApplicationGroupsOutput) NetworkApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringApplicationGroups) pulumi.StringArrayOutput { return v.NetworkApplications }).(pulumi.StringArrayOutput)
 }

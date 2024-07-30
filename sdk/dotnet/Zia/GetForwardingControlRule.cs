@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetForwardingControlRuleResult> InvokeAsync(GetForwardingControlRuleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetForwardingControlRuleResult>("zia:index/getForwardingControlRule:getForwardingControlRule", args ?? new GetForwardingControlRuleArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetForwardingControlRuleResult> Invoke(GetForwardingControlRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetForwardingControlRuleResult>("zia:index/getForwardingControlRule:getForwardingControlRule", args ?? new GetForwardingControlRuleInvokeArgs(), options.WithDefaults());

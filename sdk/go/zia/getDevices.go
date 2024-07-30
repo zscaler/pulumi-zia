@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDevices(ctx *pulumi.Context, args *GetDevicesArgs, opts ...pulumi.InvokeOption) (*GetDevicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDevicesResult
@@ -56,6 +54,7 @@ type GetDevicesArgs struct {
 	DeviceGroupType *string `pulumi:"deviceGroupType"`
 	// (String) The device model.
 	DeviceModel *string `pulumi:"deviceModel"`
+	Hostname    *string `pulumi:"hostname"`
 	// The name of the devices to be exported.
 	Name *string `pulumi:"name"`
 	// (String) The operating system (OS). ``ANY``, ``OTHER_OS``, ``IOS``, ``ANDROID_OS``, ``WINDOWS_OS``, ``MAC_OS``, ``LINUX``
@@ -74,6 +73,7 @@ type GetDevicesResult struct {
 	DeviceGroupType string `pulumi:"deviceGroupType"`
 	// (String) The device model.
 	DeviceModel string `pulumi:"deviceModel"`
+	Hostname    string `pulumi:"hostname"`
 	// (String) The unique identifer for the device group.
 	Id int `pulumi:"id"`
 	// (String) The device name.
@@ -107,6 +107,7 @@ type GetDevicesOutputArgs struct {
 	DeviceGroupType pulumi.StringPtrInput `pulumi:"deviceGroupType"`
 	// (String) The device model.
 	DeviceModel pulumi.StringPtrInput `pulumi:"deviceModel"`
+	Hostname    pulumi.StringPtrInput `pulumi:"hostname"`
 	// The name of the devices to be exported.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// (String) The operating system (OS). ``ANY``, ``OTHER_OS``, ``IOS``, ``ANDROID_OS``, ``WINDOWS_OS``, ``MAC_OS``, ``LINUX``
@@ -149,6 +150,10 @@ func (o GetDevicesResultOutput) DeviceGroupType() pulumi.StringOutput {
 // (String) The device model.
 func (o GetDevicesResultOutput) DeviceModel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDevicesResult) string { return v.DeviceModel }).(pulumi.StringOutput)
+}
+
+func (o GetDevicesResultOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDevicesResult) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
 // (String) The unique identifer for the device group.

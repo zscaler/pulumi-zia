@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringSourceIPGroups(args?: GetFirewallFilteringSourceIPGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringSourceIPGroupsResult> {
     args = args || {};
@@ -67,7 +65,6 @@ export interface GetFirewallFilteringSourceIPGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -76,7 +73,6 @@ export interface GetFirewallFilteringSourceIPGroupsResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringSourceIPGroupsOutput(args?: GetFirewallFilteringSourceIPGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringSourceIPGroupsResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringSourceIPGroups(a, opts))

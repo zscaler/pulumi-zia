@@ -19,12 +19,6 @@ class FirewallFilteringSourceGroupsArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallFilteringSourceGroups resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-               * An IP address (198.51.100.100)
-               * A range of IP addresses 192.0.2.1-192.0.2.10
-               * An IP address with a netmask 203.0.113.0/24
-        :param pulumi.Input[str] description: Description of the source IP group
-        :param pulumi.Input[str] name: Source IP group name
         """
         pulumi.set(__self__, "ip_addresses", ip_addresses)
         if description is not None:
@@ -35,12 +29,6 @@ class FirewallFilteringSourceGroupsArgs:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        * An IP address (198.51.100.100)
-        * A range of IP addresses 192.0.2.1-192.0.2.10
-        * An IP address with a netmask 203.0.113.0/24
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -50,9 +38,6 @@ class FirewallFilteringSourceGroupsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the source IP group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -62,9 +47,6 @@ class FirewallFilteringSourceGroupsArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source IP group name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -81,12 +63,6 @@ class _FirewallFilteringSourceGroupsState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FirewallFilteringSourceGroups resources.
-        :param pulumi.Input[str] description: Description of the source IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-               * An IP address (198.51.100.100)
-               * A range of IP addresses 192.0.2.1-192.0.2.10
-               * An IP address with a netmask 203.0.113.0/24
-        :param pulumi.Input[str] name: Source IP group name
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -100,9 +76,6 @@ class _FirewallFilteringSourceGroupsState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the source IP group
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -121,12 +94,6 @@ class _FirewallFilteringSourceGroupsState:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        * An IP address (198.51.100.100)
-        * A range of IP addresses 192.0.2.1-192.0.2.10
-        * An IP address with a netmask 203.0.113.0/24
-        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
@@ -136,9 +103,6 @@ class _FirewallFilteringSourceGroupsState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source IP group name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -160,7 +124,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -174,9 +137,7 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
                 "192.168.100.3",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -186,9 +147,7 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
             description="Example",
             ip_addresses=["192.0.2.1-192.0.2.10"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -198,7 +157,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
             description="Example",
             ip_addresses=["203.0.113.0/24"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,12 +180,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the source IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-               * An IP address (198.51.100.100)
-               * A range of IP addresses 192.0.2.1-192.0.2.10
-               * An IP address with a netmask 203.0.113.0/24
-        :param pulumi.Input[str] name: Source IP group name
         """
         ...
     @overload
@@ -240,7 +192,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -254,9 +205,7 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
                 "192.168.100.3",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -266,9 +215,7 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
             description="Example",
             ip_addresses=["192.0.2.1-192.0.2.10"])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -278,7 +225,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
             description="Example",
             ip_addresses=["203.0.113.0/24"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,12 +300,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the source IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-               * An IP address (198.51.100.100)
-               * A range of IP addresses 192.0.2.1-192.0.2.10
-               * An IP address with a netmask 203.0.113.0/24
-        :param pulumi.Input[str] name: Source IP group name
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -374,9 +314,6 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the source IP group
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -387,19 +324,10 @@ class FirewallFilteringSourceGroups(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        * An IP address (198.51.100.100)
-        * A range of IP addresses 192.0.2.1-192.0.2.10
-        * An IP address with a netmask 203.0.113.0/24
-        """
         return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Source IP group name
-        """
         return pulumi.get(self, "name")
 

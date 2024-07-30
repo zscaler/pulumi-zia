@@ -21,11 +21,7 @@ class TrafficForwardingVPNCredentialsArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TrafficForwardingVPNCredentials resource.
-        :param pulumi.Input[str] comments: Additional information about this VPN credential.
         :param pulumi.Input[str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[str] ip_address: IP Address for the VON credentials. The parameter becomes required if `type = IP`
-               
-               !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
         :param pulumi.Input[str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
         :param pulumi.Input[str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
@@ -43,9 +39,6 @@ class TrafficForwardingVPNCredentialsArgs:
     @property
     @pulumi.getter
     def comments(self) -> Optional[pulumi.Input[str]]:
-        """
-        Additional information about this VPN credential.
-        """
         return pulumi.get(self, "comments")
 
     @comments.setter
@@ -67,11 +60,6 @@ class TrafficForwardingVPNCredentialsArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        IP Address for the VON credentials. The parameter becomes required if `type = IP`
-
-        !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -114,11 +102,7 @@ class _TrafficForwardingVPNCredentialsState:
                  vpn_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering TrafficForwardingVPNCredentials resources.
-        :param pulumi.Input[str] comments: Additional information about this VPN credential.
         :param pulumi.Input[str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[str] ip_address: IP Address for the VON credentials. The parameter becomes required if `type = IP`
-               
-               !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
         :param pulumi.Input[str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
         :param pulumi.Input[str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
@@ -138,9 +122,6 @@ class _TrafficForwardingVPNCredentialsState:
     @property
     @pulumi.getter
     def comments(self) -> Optional[pulumi.Input[str]]:
-        """
-        Additional information about this VPN credential.
-        """
         return pulumi.get(self, "comments")
 
     @comments.setter
@@ -162,11 +143,6 @@ class _TrafficForwardingVPNCredentialsState:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        IP Address for the VON credentials. The parameter becomes required if `type = IP`
-
-        !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -228,7 +204,6 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -241,9 +216,7 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
             pre_shared_key="*********************",
             type="UFQDN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -262,9 +235,8 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
             ip_address=example_traffic_forwarding_static_ip.ip_address,
             comments="Example",
             pre_shared_key="*********************",
-            opts=pulumi.ResourceOptions(depends_on=[example_traffic_forwarding_static_ip]))
+            opts = pulumi.ResourceOptions(depends_on=[example_traffic_forwarding_static_ip]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
 
@@ -302,11 +274,7 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] comments: Additional information about this VPN credential.
         :param pulumi.Input[str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[str] ip_address: IP Address for the VON credentials. The parameter becomes required if `type = IP`
-               
-               !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
         :param pulumi.Input[str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
         :param pulumi.Input[str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
@@ -326,7 +294,6 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -339,9 +306,7 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
             pre_shared_key="*********************",
             type="UFQDN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -360,9 +325,8 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
             ip_address=example_traffic_forwarding_static_ip.ip_address,
             comments="Example",
             pre_shared_key="*********************",
-            opts=pulumi.ResourceOptions(depends_on=[example_traffic_forwarding_static_ip]))
+            opts = pulumi.ResourceOptions(depends_on=[example_traffic_forwarding_static_ip]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
 
@@ -458,11 +422,7 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] comments: Additional information about this VPN credential.
         :param pulumi.Input[str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[str] ip_address: IP Address for the VON credentials. The parameter becomes required if `type = IP`
-               
-               !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
         :param pulumi.Input[str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
         :param pulumi.Input[str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
@@ -481,9 +441,6 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
     @property
     @pulumi.getter
     def comments(self) -> pulumi.Output[Optional[str]]:
-        """
-        Additional information about this VPN credential.
-        """
         return pulumi.get(self, "comments")
 
     @property
@@ -497,11 +454,6 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[Optional[str]]:
-        """
-        IP Address for the VON credentials. The parameter becomes required if `type = IP`
-
-        !> **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        """
         return pulumi.get(self, "ip_address")
 
     @property

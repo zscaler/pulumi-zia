@@ -22,7 +22,7 @@ class GetURLFilteringRulesResult:
     """
     A collection of values returned by getURLFilteringRules.
     """
-    def __init__(__self__, action=None, block_override=None, cbi_profiles=None, ciparule=None, departments=None, description=None, device_groups=None, device_trust_levels=None, devices=None, end_user_notification_url=None, enforce_time_validity=None, groups=None, id=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, name=None, order=None, override_groups=None, override_users=None, protocols=None, rank=None, request_methods=None, size_quota=None, state=None, time_quota=None, time_windows=None, url_categories=None, user_agent_types=None, users=None, validity_end_time=None, validity_start_time=None, validity_time_zone_id=None, workload_groups=None):
+    def __init__(__self__, action=None, block_override=None, cbi_profiles=None, ciparule=None, departments=None, description=None, device_groups=None, device_trust_levels=None, devices=None, end_user_notification_url=None, enforce_time_validity=None, groups=None, id=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, name=None, order=None, override_groups=None, override_users=None, protocols=None, rank=None, request_methods=None, size_quota=None, source_ip_groups=None, state=None, time_quota=None, time_windows=None, url_categories=None, user_agent_types=None, users=None, validity_end_time=None, validity_start_time=None, validity_time_zone_id=None, workload_groups=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -101,6 +101,9 @@ class GetURLFilteringRulesResult:
         if size_quota and not isinstance(size_quota, int):
             raise TypeError("Expected argument 'size_quota' to be a int")
         pulumi.set(__self__, "size_quota", size_quota)
+        if source_ip_groups and not isinstance(source_ip_groups, list):
+            raise TypeError("Expected argument 'source_ip_groups' to be a list")
+        pulumi.set(__self__, "source_ip_groups", source_ip_groups)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -326,6 +329,11 @@ class GetURLFilteringRulesResult:
         return pulumi.get(self, "size_quota")
 
     @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Sequence['outputs.GetURLFilteringRulesSourceIpGroupResult']:
+        return pulumi.get(self, "source_ip_groups")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -435,6 +443,7 @@ class AwaitableGetURLFilteringRulesResult(GetURLFilteringRulesResult):
             rank=self.rank,
             request_methods=self.request_methods,
             size_quota=self.size_quota,
+            source_ip_groups=self.source_ip_groups,
             state=self.state,
             time_quota=self.time_quota,
             time_windows=self.time_windows,
@@ -453,14 +462,12 @@ def get_url_filtering_rules(id: Optional[int] = None,
     """
     Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_url_filtering_rules(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: URL Filtering Rule ID
@@ -499,6 +506,7 @@ def get_url_filtering_rules(id: Optional[int] = None,
         rank=pulumi.get(__ret__, 'rank'),
         request_methods=pulumi.get(__ret__, 'request_methods'),
         size_quota=pulumi.get(__ret__, 'size_quota'),
+        source_ip_groups=pulumi.get(__ret__, 'source_ip_groups'),
         state=pulumi.get(__ret__, 'state'),
         time_quota=pulumi.get(__ret__, 'time_quota'),
         time_windows=pulumi.get(__ret__, 'time_windows'),
@@ -518,14 +526,12 @@ def get_url_filtering_rules_output(id: Optional[pulumi.Input[Optional[int]]] = N
     """
     Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_url_filtering_rules(name="Example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: URL Filtering Rule ID

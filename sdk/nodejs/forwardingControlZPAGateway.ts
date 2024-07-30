@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -43,7 +42,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -99,7 +97,7 @@ export class ForwardingControlZPAGateway extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly gatewayId!: pulumi.Output<number>;
     /**
-     * The configured name of the entity
+     * The name of the forwarding control ZPA Gateway to be exported.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -164,7 +162,7 @@ export interface ForwardingControlZPAGatewayState {
     description?: pulumi.Input<string>;
     gatewayId?: pulumi.Input<number>;
     /**
-     * The configured name of the entity
+     * The name of the forwarding control ZPA Gateway to be exported.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +188,7 @@ export interface ForwardingControlZPAGatewayArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The configured name of the entity
+     * The name of the forwarding control ZPA Gateway to be exported.
      */
     name?: pulumi.Input<string>;
     /**

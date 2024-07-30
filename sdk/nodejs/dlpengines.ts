@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     engineExpression: "((D63.S > 1))",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -87,7 +85,7 @@ export class DLPEngines extends pulumi.CustomResource {
     public readonly engineExpression!: pulumi.Output<string | undefined>;
     public /*out*/ readonly engineId!: pulumi.Output<number>;
     /**
-     * The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+     * The DLP engine name as configured by the admin.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -140,7 +138,7 @@ export interface DLPEnginesState {
     engineExpression?: pulumi.Input<string>;
     engineId?: pulumi.Input<number>;
     /**
-     * The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+     * The DLP engine name as configured by the admin.
      */
     name?: pulumi.Input<string>;
 }
@@ -162,7 +160,7 @@ export interface DLPEnginesArgs {
      */
     engineExpression?: pulumi.Input<string>;
     /**
-     * The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
+     * The DLP engine name as configured by the admin.
      */
     name?: pulumi.Input<string>;
 }

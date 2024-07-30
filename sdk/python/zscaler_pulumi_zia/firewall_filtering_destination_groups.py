@@ -22,13 +22,13 @@ class FirewallFilteringDestinationGroupsArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallFilteringDestinationGroups resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses, domains or FQDNs within the group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination IP address counties. You can identify destinations based on the location of a server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses within the group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+               countries.
         :param pulumi.Input[str] description: Additional information about the destination IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-               * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: List of URL categories for which rule must be applied
         :param pulumi.Input[str] name: Destination IP group name
-        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -47,7 +47,7 @@ class FirewallFilteringDestinationGroupsArgs:
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP addresses, domains or FQDNs within the group
+        Destination IP addresses within the group
         """
         return pulumi.get(self, "addresses")
 
@@ -59,7 +59,8 @@ class FirewallFilteringDestinationGroupsArgs:
     @pulumi.getter
     def countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP address counties. You can identify destinations based on the location of a server.
+        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        countries.
         """
         return pulumi.get(self, "countries")
 
@@ -83,8 +84,7 @@ class FirewallFilteringDestinationGroupsArgs:
     @pulumi.getter(name="ipCategories")
     def ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        List of URL categories for which rule must be applied
         """
         return pulumi.get(self, "ip_categories")
 
@@ -108,7 +108,7 @@ class FirewallFilteringDestinationGroupsArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         return pulumi.get(self, "type")
 
@@ -129,14 +129,14 @@ class _FirewallFilteringDestinationGroupsState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FirewallFilteringDestinationGroups resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses, domains or FQDNs within the group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination IP address counties. You can identify destinations based on the location of a server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses within the group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+               countries.
         :param pulumi.Input[str] description: Additional information about the destination IP group
         :param pulumi.Input[int] group_id: Unique identifer for the destination IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-               * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: List of URL categories for which rule must be applied
         :param pulumi.Input[str] name: Destination IP group name
-        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -157,7 +157,7 @@ class _FirewallFilteringDestinationGroupsState:
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP addresses, domains or FQDNs within the group
+        Destination IP addresses within the group
         """
         return pulumi.get(self, "addresses")
 
@@ -169,7 +169,8 @@ class _FirewallFilteringDestinationGroupsState:
     @pulumi.getter
     def countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP address counties. You can identify destinations based on the location of a server.
+        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        countries.
         """
         return pulumi.get(self, "countries")
 
@@ -205,8 +206,7 @@ class _FirewallFilteringDestinationGroupsState:
     @pulumi.getter(name="ipCategories")
     def ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        List of URL categories for which rule must be applied
         """
         return pulumi.get(self, "ip_categories")
 
@@ -230,7 +230,7 @@ class _FirewallFilteringDestinationGroupsState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         return pulumi.get(self, "type")
 
@@ -256,7 +256,6 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -271,9 +270,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination FQDN",
             type="DSTN_FQDN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -289,9 +286,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination IP",
             type="DSTN_IP")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -305,9 +300,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination Domain",
             type="DSTN_DOMAIN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -322,7 +315,6 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             ],
             type="DSTN_OTHER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,13 +338,13 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses, domains or FQDNs within the group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination IP address counties. You can identify destinations based on the location of a server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses within the group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+               countries.
         :param pulumi.Input[str] description: Additional information about the destination IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-               * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: List of URL categories for which rule must be applied
         :param pulumi.Input[str] name: Destination IP group name
-        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         ...
     @overload
@@ -365,7 +357,6 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -380,9 +371,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination FQDN",
             type="DSTN_FQDN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -398,9 +387,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination IP",
             type="DSTN_IP")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -414,9 +401,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             description="Example Destination Domain",
             type="DSTN_DOMAIN")
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -431,7 +416,6 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
             ],
             type="DSTN_OTHER")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -514,14 +498,14 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses, domains or FQDNs within the group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination IP address counties. You can identify destinations based on the location of a server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Destination IP addresses within the group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+               countries.
         :param pulumi.Input[str] description: Additional information about the destination IP group
         :param pulumi.Input[int] group_id: Unique identifer for the destination IP group
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-               * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_categories: List of URL categories for which rule must be applied
         :param pulumi.Input[str] name: Destination IP group name
-        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        :param pulumi.Input[str] type: Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -540,7 +524,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        Destination IP addresses, domains or FQDNs within the group
+        Destination IP addresses within the group
         """
         return pulumi.get(self, "addresses")
 
@@ -548,7 +532,8 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
     @pulumi.getter
     def countries(self) -> pulumi.Output[Sequence[str]]:
         """
-        Destination IP address counties. You can identify destinations based on the location of a server.
+        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        countries.
         """
         return pulumi.get(self, "countries")
 
@@ -572,8 +557,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
     @pulumi.getter(name="ipCategories")
     def ip_categories(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        * !> **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        List of URL categories for which rule must be applied
         """
         return pulumi.get(self, "ip_categories")
 
@@ -589,7 +573,7 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         """
         return pulumi.get(self, "type")
 

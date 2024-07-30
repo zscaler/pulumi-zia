@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTrafficForwardingStaticIP(ctx *pulumi.Context, args *LookupTrafficForwardingStaticIPArgs, opts ...pulumi.InvokeOption) (*LookupTrafficForwardingStaticIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficForwardingStaticIPResult
@@ -52,8 +50,6 @@ func LookupTrafficForwardingStaticIP(ctx *pulumi.Context, args *LookupTrafficFor
 
 // A collection of arguments for invoking getTrafficForwardingStaticIP.
 type LookupTrafficForwardingStaticIPArgs struct {
-	// (String) Additional information about this static IP address
-	Comment *string `pulumi:"comment"`
 	// The unique identifier for the static IP address
 	Id *int `pulumi:"id"`
 	// The static IP address
@@ -62,8 +58,9 @@ type LookupTrafficForwardingStaticIPArgs struct {
 
 // A collection of values returned by getTrafficForwardingStaticIP.
 type LookupTrafficForwardingStaticIPResult struct {
+	Cities []GetTrafficForwardingStaticIPCity `pulumi:"cities"`
 	// (String) Additional information about this static IP address
-	Comment *string `pulumi:"comment"`
+	Comment string `pulumi:"comment"`
 	// (Boolean) If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
 	GeoOverride bool `pulumi:"geoOverride"`
 	// (String) Identifier that uniquely identifies an entity
@@ -75,9 +72,9 @@ type LookupTrafficForwardingStaticIPResult struct {
 	// (Set of Object)
 	LastModifiedBies []GetTrafficForwardingStaticIPLastModifiedBy `pulumi:"lastModifiedBies"`
 	// (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and `90` degrees.
-	Latitude int `pulumi:"latitude"`
+	Latitude float64 `pulumi:"latitude"`
 	// (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and `180` degrees.
-	Longitude int `pulumi:"longitude"`
+	Longitude float64 `pulumi:"longitude"`
 	// (Set of Object)
 	ManagedBies []GetTrafficForwardingStaticIPManagedBy `pulumi:"managedBies"`
 	// (Boolean) Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
@@ -99,8 +96,6 @@ func LookupTrafficForwardingStaticIPOutput(ctx *pulumi.Context, args LookupTraff
 
 // A collection of arguments for invoking getTrafficForwardingStaticIP.
 type LookupTrafficForwardingStaticIPOutputArgs struct {
-	// (String) Additional information about this static IP address
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// The unique identifier for the static IP address
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The static IP address
@@ -126,9 +121,13 @@ func (o LookupTrafficForwardingStaticIPResultOutput) ToLookupTrafficForwardingSt
 	return o
 }
 
+func (o LookupTrafficForwardingStaticIPResultOutput) Cities() GetTrafficForwardingStaticIPCityArrayOutput {
+	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) []GetTrafficForwardingStaticIPCity { return v.Cities }).(GetTrafficForwardingStaticIPCityArrayOutput)
+}
+
 // (String) Additional information about this static IP address
-func (o LookupTrafficForwardingStaticIPResultOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) *string { return v.Comment }).(pulumi.StringPtrOutput)
+func (o LookupTrafficForwardingStaticIPResultOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) string { return v.Comment }).(pulumi.StringOutput)
 }
 
 // (Boolean) If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
@@ -159,13 +158,13 @@ func (o LookupTrafficForwardingStaticIPResultOutput) LastModifiedBies() GetTraff
 }
 
 // (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and `90` degrees.
-func (o LookupTrafficForwardingStaticIPResultOutput) Latitude() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) int { return v.Latitude }).(pulumi.IntOutput)
+func (o LookupTrafficForwardingStaticIPResultOutput) Latitude() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) float64 { return v.Latitude }).(pulumi.Float64Output)
 }
 
 // (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and `180` degrees.
-func (o LookupTrafficForwardingStaticIPResultOutput) Longitude() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) int { return v.Longitude }).(pulumi.IntOutput)
+func (o LookupTrafficForwardingStaticIPResultOutput) Longitude() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupTrafficForwardingStaticIPResult) float64 { return v.Longitude }).(pulumi.Float64Output)
 }
 
 // (Set of Object)

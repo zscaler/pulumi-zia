@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTrafficForwardingNodeVIPs(ctx *pulumi.Context, args *GetTrafficForwardingNodeVIPsArgs, opts ...pulumi.InvokeOption) (*GetTrafficForwardingNodeVIPsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficForwardingNodeVIPsResult

@@ -13,7 +13,30 @@ import (
 
 // Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 //
-// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/zscaler/pulumi-zia/sdk/go/zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.LookupURLCategories(ctx, &zia.LookupURLCategoriesArgs{
+//				ConfiguredName: pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ```go
 // package main
 //
@@ -37,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupURLCategories(ctx *pulumi.Context, args *LookupURLCategoriesArgs, opts ...pulumi.InvokeOption) (*LookupURLCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupURLCategoriesResult
@@ -99,7 +121,7 @@ type LookupURLCategoriesResult struct {
 	Urls []string `pulumi:"urls"`
 	// (Number) The number of custom URLs associated to the URL category, that also need to be retained under the original parent category.
 	UrlsRetainingParentCategoryCount int `pulumi:"urlsRetainingParentCategoryCount"`
-	// (Number)
+	// (Number) The unique ID for the URL category.
 	Val int `pulumi:"val"`
 }
 
@@ -241,7 +263,7 @@ func (o LookupURLCategoriesResultOutput) UrlsRetainingParentCategoryCount() pulu
 	return o.ApplyT(func(v LookupURLCategoriesResult) int { return v.UrlsRetainingParentCategoryCount }).(pulumi.IntOutput)
 }
 
-// (Number)
+// (Number) The unique ID for the URL category.
 func (o LookupURLCategoriesResultOutput) Val() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupURLCategoriesResult) int { return v.Val }).(pulumi.IntOutput)
 }

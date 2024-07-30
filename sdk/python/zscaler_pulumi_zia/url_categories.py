@@ -37,23 +37,7 @@ class URLCategoriesArgs:
         """
         The set of arguments for constructing a URLCategories resource.
         :param pulumi.Input[str] configured_name: Name of the URL category. This is only required for custom URL categories.
-        :param pulumi.Input[bool] custom_category: Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        :param pulumi.Input[int] custom_ip_ranges_count: The number of custom IP address ranges associated to the URL category.
-        :param pulumi.Input[int] custom_urls_count: The number of custom URLs associated to the URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_categorized_urls: URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        :param pulumi.Input[str] description: Description of the category.
-        :param pulumi.Input[bool] editable: Value is set to false for custom URL category when due to scope user does not have edit permission
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges: Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-               ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges_retaining_parent_categories: The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        :param pulumi.Input[int] ip_ranges_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[Sequence[pulumi.Input['URLCategoriesScopeArgs']]] scopes: Scope of the custom categories.
         :param pulumi.Input[str] super_category: Super Category of the URL category. This field is required when creating custom URL categories.
-        :param pulumi.Input[str] type: The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        :param pulumi.Input['URLCategoriesUrlKeywordCountsArgs'] url_keyword_counts: URL and keyword counts for the category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[int] urls_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
         """
         if configured_name is not None:
             pulumi.set(__self__, "configured_name", configured_name)
@@ -107,9 +91,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="customCategory")
     def custom_category(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        """
         return pulumi.get(self, "custom_category")
 
     @custom_category.setter
@@ -119,9 +100,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="customIpRangesCount")
     def custom_ip_ranges_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category.
-        """
         return pulumi.get(self, "custom_ip_ranges_count")
 
     @custom_ip_ranges_count.setter
@@ -131,9 +109,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="customUrlsCount")
     def custom_urls_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom URLs associated to the URL category.
-        """
         return pulumi.get(self, "custom_urls_count")
 
     @custom_urls_count.setter
@@ -143,9 +118,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        """
         return pulumi.get(self, "db_categorized_urls")
 
     @db_categorized_urls.setter
@@ -155,9 +127,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the category.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -167,9 +136,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def editable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Value is set to false for custom URL category when due to scope user does not have edit permission
-        """
         return pulumi.get(self, "editable")
 
     @editable.setter
@@ -179,10 +145,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        """
         return pulumi.get(self, "ip_ranges")
 
     @ip_ranges.setter
@@ -192,9 +154,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategories")
     def ip_ranges_retaining_parent_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_categories")
 
     @ip_ranges_retaining_parent_categories.setter
@@ -204,9 +163,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategoryCount")
     def ip_ranges_retaining_parent_category_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category_count")
 
     @ip_ranges_retaining_parent_category_count.setter
@@ -216,9 +172,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -237,9 +190,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['URLCategoriesScopeArgs']]]]:
-        """
-        Scope of the custom categories.
-        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -261,9 +211,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -273,9 +220,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="urlKeywordCounts")
     def url_keyword_counts(self) -> Optional[pulumi.Input['URLCategoriesUrlKeywordCountsArgs']]:
-        """
-        URL and keyword counts for the category.
-        """
         return pulumi.get(self, "url_keyword_counts")
 
     @url_keyword_counts.setter
@@ -285,9 +229,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -297,9 +238,6 @@ class URLCategoriesArgs:
     @property
     @pulumi.getter(name="urlsRetainingParentCategoryCount")
     def urls_retaining_parent_category_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "urls_retaining_parent_category_count")
 
     @urls_retaining_parent_category_count.setter
@@ -332,23 +270,7 @@ class _URLCategoriesState:
         """
         Input properties used for looking up and filtering URLCategories resources.
         :param pulumi.Input[str] configured_name: Name of the URL category. This is only required for custom URL categories.
-        :param pulumi.Input[bool] custom_category: Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        :param pulumi.Input[int] custom_ip_ranges_count: The number of custom IP address ranges associated to the URL category.
-        :param pulumi.Input[int] custom_urls_count: The number of custom URLs associated to the URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_categorized_urls: URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        :param pulumi.Input[str] description: Description of the category.
-        :param pulumi.Input[bool] editable: Value is set to false for custom URL category when due to scope user does not have edit permission
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges: Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-               ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges_retaining_parent_categories: The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        :param pulumi.Input[int] ip_ranges_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[Sequence[pulumi.Input['URLCategoriesScopeArgs']]] scopes: Scope of the custom categories.
         :param pulumi.Input[str] super_category: Super Category of the URL category. This field is required when creating custom URL categories.
-        :param pulumi.Input[str] type: The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        :param pulumi.Input['URLCategoriesUrlKeywordCountsArgs'] url_keyword_counts: URL and keyword counts for the category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[int] urls_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
         """
         if category_id is not None:
             pulumi.set(__self__, "category_id", category_id)
@@ -413,9 +335,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="customCategory")
     def custom_category(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        """
         return pulumi.get(self, "custom_category")
 
     @custom_category.setter
@@ -425,9 +344,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="customIpRangesCount")
     def custom_ip_ranges_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category.
-        """
         return pulumi.get(self, "custom_ip_ranges_count")
 
     @custom_ip_ranges_count.setter
@@ -437,9 +353,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="customUrlsCount")
     def custom_urls_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom URLs associated to the URL category.
-        """
         return pulumi.get(self, "custom_urls_count")
 
     @custom_urls_count.setter
@@ -449,9 +362,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        """
         return pulumi.get(self, "db_categorized_urls")
 
     @db_categorized_urls.setter
@@ -461,9 +371,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the category.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -473,9 +380,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def editable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Value is set to false for custom URL category when due to scope user does not have edit permission
-        """
         return pulumi.get(self, "editable")
 
     @editable.setter
@@ -485,10 +389,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        """
         return pulumi.get(self, "ip_ranges")
 
     @ip_ranges.setter
@@ -498,9 +398,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategories")
     def ip_ranges_retaining_parent_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_categories")
 
     @ip_ranges_retaining_parent_categories.setter
@@ -510,9 +407,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategoryCount")
     def ip_ranges_retaining_parent_category_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category_count")
 
     @ip_ranges_retaining_parent_category_count.setter
@@ -522,9 +416,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -543,9 +434,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['URLCategoriesScopeArgs']]]]:
-        """
-        Scope of the custom categories.
-        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -567,9 +455,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -579,9 +464,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="urlKeywordCounts")
     def url_keyword_counts(self) -> Optional[pulumi.Input['URLCategoriesUrlKeywordCountsArgs']]:
-        """
-        URL and keyword counts for the category.
-        """
         return pulumi.get(self, "url_keyword_counts")
 
     @url_keyword_counts.setter
@@ -591,9 +473,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -603,9 +482,6 @@ class _URLCategoriesState:
     @property
     @pulumi.getter(name="urlsRetainingParentCategoryCount")
     def urls_retaining_parent_category_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "urls_retaining_parent_category_count")
 
     @urls_retaining_parent_category_count.setter
@@ -642,7 +518,6 @@ class URLCategories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -677,7 +552,6 @@ class URLCategories(pulumi.CustomResource):
                 ".level3.com",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -704,23 +578,7 @@ class URLCategories(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configured_name: Name of the URL category. This is only required for custom URL categories.
-        :param pulumi.Input[bool] custom_category: Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        :param pulumi.Input[int] custom_ip_ranges_count: The number of custom IP address ranges associated to the URL category.
-        :param pulumi.Input[int] custom_urls_count: The number of custom URLs associated to the URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_categorized_urls: URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        :param pulumi.Input[str] description: Description of the category.
-        :param pulumi.Input[bool] editable: Value is set to false for custom URL category when due to scope user does not have edit permission
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges: Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-               ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges_retaining_parent_categories: The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        :param pulumi.Input[int] ip_ranges_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['URLCategoriesScopeArgs']]]] scopes: Scope of the custom categories.
         :param pulumi.Input[str] super_category: Super Category of the URL category. This field is required when creating custom URL categories.
-        :param pulumi.Input[str] type: The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        :param pulumi.Input[pulumi.InputType['URLCategoriesUrlKeywordCountsArgs']] url_keyword_counts: URL and keyword counts for the category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[int] urls_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
         """
         ...
     @overload
@@ -733,7 +591,6 @@ class URLCategories(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -768,7 +625,6 @@ class URLCategories(pulumi.CustomResource):
                 ".level3.com",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -890,23 +746,7 @@ class URLCategories(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configured_name: Name of the URL category. This is only required for custom URL categories.
-        :param pulumi.Input[bool] custom_category: Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        :param pulumi.Input[int] custom_ip_ranges_count: The number of custom IP address ranges associated to the URL category.
-        :param pulumi.Input[int] custom_urls_count: The number of custom URLs associated to the URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_categorized_urls: URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        :param pulumi.Input[str] description: Description of the category.
-        :param pulumi.Input[bool] editable: Value is set to false for custom URL category when due to scope user does not have edit permission
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges: Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-               ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_ranges_retaining_parent_categories: The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        :param pulumi.Input[int] ip_ranges_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['URLCategoriesScopeArgs']]]] scopes: Scope of the custom categories.
         :param pulumi.Input[str] super_category: Super Category of the URL category. This field is required when creating custom URL categories.
-        :param pulumi.Input[str] type: The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        :param pulumi.Input[pulumi.InputType['URLCategoriesUrlKeywordCountsArgs']] url_keyword_counts: URL and keyword counts for the category.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        :param pulumi.Input[int] urls_retaining_parent_category_count: The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -949,82 +789,51 @@ class URLCategories(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customCategory")
     def custom_category(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-        """
         return pulumi.get(self, "custom_category")
 
     @property
     @pulumi.getter(name="customIpRangesCount")
     def custom_ip_ranges_count(self) -> pulumi.Output[int]:
-        """
-        The number of custom IP address ranges associated to the URL category.
-        """
         return pulumi.get(self, "custom_ip_ranges_count")
 
     @property
     @pulumi.getter(name="customUrlsCount")
     def custom_urls_count(self) -> pulumi.Output[int]:
-        """
-        The number of custom URLs associated to the URL category.
-        """
         return pulumi.get(self, "custom_urls_count")
 
     @property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-        """
         return pulumi.get(self, "db_categorized_urls")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the category.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def editable(self) -> pulumi.Output[bool]:
-        """
-        Value is set to false for custom URL category when due to scope user does not have edit permission
-        """
         return pulumi.get(self, "editable")
 
     @property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-        """
         return pulumi.get(self, "ip_ranges")
 
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategories")
     def ip_ranges_retaining_parent_categories(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_categories")
 
     @property
     @pulumi.getter(name="ipRangesRetainingParentCategoryCount")
     def ip_ranges_retaining_parent_category_count(self) -> pulumi.Output[int]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category_count")
 
     @property
     @pulumi.getter
     def keywords(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "keywords")
 
     @property
@@ -1035,9 +844,6 @@ class URLCategories(pulumi.CustomResource):
     @property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.URLCategoriesScope']]]:
-        """
-        Scope of the custom categories.
-        """
         return pulumi.get(self, "scopes")
 
     @property
@@ -1051,32 +857,20 @@ class URLCategories(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="urlKeywordCounts")
     def url_keyword_counts(self) -> pulumi.Output['outputs.URLCategoriesUrlKeywordCounts']:
-        """
-        URL and keyword counts for the category.
-        """
         return pulumi.get(self, "url_keyword_counts")
 
     @property
     @pulumi.getter
     def urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-        """
         return pulumi.get(self, "urls")
 
     @property
     @pulumi.getter(name="urlsRetainingParentCategoryCount")
     def urls_retaining_parent_category_count(self) -> pulumi.Output[int]:
-        """
-        The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-        """
         return pulumi.get(self, "urls_retaining_parent_category_count")
 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringDestinationGroups(args?: GetFirewallFilteringDestinationGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringDestinationGroupsResult> {
     args = args || {};
@@ -77,7 +75,6 @@ export interface GetFirewallFilteringDestinationGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -86,7 +83,6 @@ export interface GetFirewallFilteringDestinationGroupsResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirewallFilteringDestinationGroupsOutput(args?: GetFirewallFilteringDestinationGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallFilteringDestinationGroupsResult> {
     return pulumi.output(args).apply((a: any) => getFirewallFilteringDestinationGroups(a, opts))

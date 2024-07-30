@@ -19,7 +19,6 @@ import (
 //
 // ### Add MD5 Hashes To Sandbox
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Remove All MD5 Hashes To Sandbox
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -94,9 +90,8 @@ import (
 type SandboxBehavioralAnalysis struct {
 	pulumi.CustomResourceState
 
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-	//
-	// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+	// blocked
 	FileHashesToBeBlockeds pulumi.StringArrayOutput `pulumi:"fileHashesToBeBlockeds"`
 }
 
@@ -130,16 +125,14 @@ func GetSandboxBehavioralAnalysis(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SandboxBehavioralAnalysis resources.
 type sandboxBehavioralAnalysisState struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-	//
-	// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+	// blocked
 	FileHashesToBeBlockeds []string `pulumi:"fileHashesToBeBlockeds"`
 }
 
 type SandboxBehavioralAnalysisState struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-	//
-	// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+	// blocked
 	FileHashesToBeBlockeds pulumi.StringArrayInput
 }
 
@@ -148,17 +141,15 @@ func (SandboxBehavioralAnalysisState) ElementType() reflect.Type {
 }
 
 type sandboxBehavioralAnalysisArgs struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-	//
-	// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+	// blocked
 	FileHashesToBeBlockeds []string `pulumi:"fileHashesToBeBlockeds"`
 }
 
 // The set of arguments for constructing a SandboxBehavioralAnalysis resource.
 type SandboxBehavioralAnalysisArgs struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-	//
-	// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+	// blocked
 	FileHashesToBeBlockeds pulumi.StringArrayInput
 }
 
@@ -249,9 +240,8 @@ func (o SandboxBehavioralAnalysisOutput) ToSandboxBehavioralAnalysisOutputWithCo
 	return o
 }
 
-// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-//
-// **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+// blocked
 func (o SandboxBehavioralAnalysisOutput) FileHashesToBeBlockeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxBehavioralAnalysis) pulumi.StringArrayOutput { return v.FileHashesToBeBlockeds }).(pulumi.StringArrayOutput)
 }

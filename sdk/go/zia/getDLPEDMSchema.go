@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDLPEDMSchema(ctx *pulumi.Context, args *GetDLPEDMSchemaArgs, opts ...pulumi.InvokeOption) (*GetDLPEDMSchemaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDLPEDMSchemaResult
@@ -52,7 +50,6 @@ func GetDLPEDMSchema(ctx *pulumi.Context, args *GetDLPEDMSchemaArgs, opts ...pul
 
 // A collection of arguments for invoking getDLPEDMSchema.
 type GetDLPEDMSchemaArgs struct {
-	// The EDM schema (i.e., EDM template) name.
 	ProjectName *string `pulumi:"projectName"`
 }
 
@@ -93,7 +90,6 @@ func GetDLPEDMSchemaOutput(ctx *pulumi.Context, args GetDLPEDMSchemaOutputArgs, 
 
 // A collection of arguments for invoking getDLPEDMSchema.
 type GetDLPEDMSchemaOutputArgs struct {
-	// The EDM schema (i.e., EDM template) name.
 	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
 }
 

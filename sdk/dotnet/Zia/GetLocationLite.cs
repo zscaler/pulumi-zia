@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,7 +30,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocationLiteResult> InvokeAsync(GetLocationLiteArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationLiteResult>("zia:index/getLocationLite:getLocationLite", args ?? new GetLocationLiteArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocationLiteResult> Invoke(GetLocationLiteInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationLiteResult>("zia:index/getLocationLite:getLocationLite", args ?? new GetLocationLiteInvokeArgs(), options.WithDefaults());

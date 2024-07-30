@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -104,71 +102,25 @@ export class URLCategories extends pulumi.CustomResource {
      * Name of the URL category. This is only required for custom URL categories.
      */
     public readonly configuredName!: pulumi.Output<string | undefined>;
-    /**
-     * Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-     */
     public readonly customCategory!: pulumi.Output<boolean | undefined>;
-    /**
-     * The number of custom IP address ranges associated to the URL category.
-     */
     public readonly customIpRangesCount!: pulumi.Output<number>;
-    /**
-     * The number of custom URLs associated to the URL category.
-     */
     public readonly customUrlsCount!: pulumi.Output<number>;
-    /**
-     * URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-     */
     public readonly dbCategorizedUrls!: pulumi.Output<string[] | undefined>;
-    /**
-     * Description of the category.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Value is set to false for custom URL category when due to scope user does not have edit permission
-     */
     public readonly editable!: pulumi.Output<boolean>;
-    /**
-     * Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     * ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-     */
     public readonly ipRanges!: pulumi.Output<string[] | undefined>;
-    /**
-     * The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     */
     public readonly ipRangesRetainingParentCategories!: pulumi.Output<string[] | undefined>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     public readonly ipRangesRetainingParentCategoryCount!: pulumi.Output<number>;
-    /**
-     * Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-     */
     public readonly keywords!: pulumi.Output<string[] | undefined>;
     public readonly keywordsRetainingParentCategories!: pulumi.Output<string[] | undefined>;
-    /**
-     * Scope of the custom categories.
-     */
     public readonly scopes!: pulumi.Output<outputs.URLCategoriesScope[] | undefined>;
     /**
      * Super Category of the URL category. This field is required when creating custom URL categories.
      */
     public readonly superCategory!: pulumi.Output<string | undefined>;
-    /**
-     * The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-     */
     public readonly type!: pulumi.Output<string | undefined>;
-    /**
-     * URL and keyword counts for the category.
-     */
     public readonly urlKeywordCounts!: pulumi.Output<outputs.URLCategoriesUrlKeywordCounts>;
-    /**
-     * Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-     */
     public readonly urls!: pulumi.Output<string[] | undefined>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     public readonly urlsRetainingParentCategoryCount!: pulumi.Output<number>;
 
     /**
@@ -239,71 +191,25 @@ export interface URLCategoriesState {
      * Name of the URL category. This is only required for custom URL categories.
      */
     configuredName?: pulumi.Input<string>;
-    /**
-     * Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-     */
     customCategory?: pulumi.Input<boolean>;
-    /**
-     * The number of custom IP address ranges associated to the URL category.
-     */
     customIpRangesCount?: pulumi.Input<number>;
-    /**
-     * The number of custom URLs associated to the URL category.
-     */
     customUrlsCount?: pulumi.Input<number>;
-    /**
-     * URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-     */
     dbCategorizedUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Description of the category.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Value is set to false for custom URL category when due to scope user does not have edit permission
-     */
     editable?: pulumi.Input<boolean>;
-    /**
-     * Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     * ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-     */
     ipRanges?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     */
     ipRangesRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     ipRangesRetainingParentCategoryCount?: pulumi.Input<number>;
-    /**
-     * Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
     keywordsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Scope of the custom categories.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.URLCategoriesScope>[]>;
     /**
      * Super Category of the URL category. This field is required when creating custom URL categories.
      */
     superCategory?: pulumi.Input<string>;
-    /**
-     * The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-     */
     type?: pulumi.Input<string>;
-    /**
-     * URL and keyword counts for the category.
-     */
     urlKeywordCounts?: pulumi.Input<inputs.URLCategoriesUrlKeywordCounts>;
-    /**
-     * Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     urlsRetainingParentCategoryCount?: pulumi.Input<number>;
 }
 
@@ -315,70 +221,24 @@ export interface URLCategoriesArgs {
      * Name of the URL category. This is only required for custom URL categories.
      */
     configuredName?: pulumi.Input<string>;
-    /**
-     * Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
-     */
     customCategory?: pulumi.Input<boolean>;
-    /**
-     * The number of custom IP address ranges associated to the URL category.
-     */
     customIpRangesCount?: pulumi.Input<number>;
-    /**
-     * The number of custom URLs associated to the URL category.
-     */
     customUrlsCount?: pulumi.Input<number>;
-    /**
-     * URLs added to a custom URL category are also retained under the original parent URL category (i.e., the predefined category the URL previously belonged to).
-     */
     dbCategorizedUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Description of the category.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Value is set to false for custom URL category when due to scope user does not have edit permission
-     */
     editable?: pulumi.Input<boolean>;
-    /**
-     * Custom IP address ranges associated to a URL category. Up to 2000 custom IP address ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     * ⚠️ **NOTE :**: This field is available only if the option to configure custom IP ranges is enabled for your organization. To enable this option, contact Zscaler Support.
-     */
     ipRanges?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The retaining parent custom IP address ranges associated to a URL category. Up to 2000 custom IP ranges and retaining parent custom IP address ranges can be added, per organization, across all categories.
-     */
     ipRangesRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     ipRangesRetainingParentCategoryCount?: pulumi.Input<number>;
-    /**
-     * Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
     keywordsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Scope of the custom categories.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.URLCategoriesScope>[]>;
     /**
      * Super Category of the URL category. This field is required when creating custom URL categories.
      */
     superCategory?: pulumi.Input<string>;
-    /**
-     * The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-     */
     type?: pulumi.Input<string>;
-    /**
-     * URL and keyword counts for the category.
-     */
     urlKeywordCounts?: pulumi.Input<inputs.URLCategoriesUrlKeywordCounts>;
-    /**
-     * Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
-     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
-     */
     urlsRetainingParentCategoryCount?: pulumi.Input<number>;
 }

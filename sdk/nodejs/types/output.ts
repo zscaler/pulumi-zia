@@ -6,22 +6,16 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AdminUsersAdminScopeEntities {
-    /**
-     * Identifier that uniquely identifies an entity
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface AdminUsersRole {
-    /**
-     * Identifier that uniquely identifies an entity
-     */
     id?: number;
 }
 
 export interface DLPDictionariesExactDataMatchDetail {
     /**
-     * The unique identifier for the EDM mapping.
+     * The unique identifier for the EDM mapping
      */
     dictionaryEdmMappingId: number;
     /**
@@ -34,23 +28,6 @@ export interface DLPDictionariesExactDataMatchDetail {
     schemaId: number;
     /**
      * The EDM secondary field to match on.
-     * - `"MATCHON_NONE"`
-     * - `"MATCHON_ANY_1"`
-     * - `"MATCHON_ANY_2"`
-     * - `"MATCHON_ANY_3"`
-     * - `"MATCHON_ANY_4"`
-     * - `"MATCHON_ANY_5"`
-     * - `"MATCHON_ANY_6"`
-     * - `"MATCHON_ANY_7"`
-     * - `"MATCHON_ANY_8"`
-     * - `"MATCHON_ANY_9"`
-     * - `"MATCHON_ANY_10"`
-     * - `"MATCHON_ANY_11"`
-     * - `"MATCHON_ANY_12"`
-     * - `"MATCHON_ANY_13"`
-     * - `"MATCHON_ANY_14"`
-     * - `"MATCHON_ANY_15"`
-     * - `"MATCHON_ALL"`
      */
     secondaryFieldMatchOn?: string;
     /**
@@ -61,14 +38,11 @@ export interface DLPDictionariesExactDataMatchDetail {
 
 export interface DLPDictionariesIdmProfileMatchAccuracy {
     /**
-     * The IDM template reference.
+     * The action applied to a DLP dictionary using patterns
      */
     adpIdmProfiles: outputs.DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile[];
     /**
      * The IDM template match accuracy.
-     * - `"LOW"`
-     * - `"MEDIUM"`
-     * - `"HEAVY"`
      */
     matchAccuracy: string;
 }
@@ -80,7 +54,7 @@ export interface DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile {
 
 export interface DLPDictionariesPattern {
     /**
-     * The action applied to a DLP dictionary using patterns. The following values are supported:
+     * The action applied to a DLP dictionary using patterns
      */
     action: string;
     /**
@@ -90,285 +64,187 @@ export interface DLPDictionariesPattern {
 }
 
 export interface DLPDictionariesPhrase {
-    /**
-     * The action applied to a DLP dictionary using patterns. The following values are supported:
-     */
-    action?: string;
+    action: string;
     /**
      * DLP dictionary phrase
      */
-    phrase?: string;
+    phrase: string;
 }
 
 export interface DLPWebRulesAuditor {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: number;
 }
 
 export interface DLPWebRulesDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesDlpEngines {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesExcludedDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
+}
+
+export interface DLPWebRulesExcludedDomainProfiles {
+    ids?: number[];
 }
 
 export interface DLPWebRulesExcludedGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesExcludedUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesIcapServer {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: number;
+}
+
+export interface DLPWebRulesIncludedDomainProfiles {
+    ids?: number[];
 }
 
 export interface DLPWebRulesLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: number;
+    id?: number;
 }
 
 export interface DLPWebRulesLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesNotificationTemplate {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: number;
 }
 
+export interface DLPWebRulesSourceIpGroups {
+    ids?: number[];
+}
+
 export interface DLPWebRulesTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesUrlCategories {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface DLPWebRulesWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: number;
     /**
-     * The name of the workload group
+     * The name of the resource.
      */
     name: string;
 }
 
 export interface FirewallFilteringNetworkServicesDestTcpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: number;
     start?: number;
 }
 
 export interface FirewallFilteringNetworkServicesDestUdpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: number;
     start?: number;
 }
 
 export interface FirewallFilteringNetworkServicesSrcTcpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: number;
     start?: number;
 }
 
 export interface FirewallFilteringNetworkServicesSrcUdpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: number;
     start?: number;
 }
 
 export interface FirewallFilteringRuleAppServiceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleAppServices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleDestIpGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleDeviceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleDevices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: number;
+    id?: number;
 }
 
 export interface FirewallFilteringRuleLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleNwApplicationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleNwServiceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleNwServices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleSrcIpGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface FirewallFilteringRuleWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: number;
     /**
-     * The name of the workload group
-     *
-     * * `Other Exported Arguments`
+     * The name of the resource.
      */
     name: string;
 }
@@ -379,9 +255,7 @@ export interface FirewallFilteringRuleZpaAppSegment {
      */
     externalId: string;
     /**
-     * The name of the workload group
-     *
-     * * `Other Exported Arguments`
+     * Name of the application segment.
      */
     name: string;
 }
@@ -394,84 +268,84 @@ export interface ForwardingControlRuleAppServiceGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleDepartments {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleDestIpGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleDestIpv6Groups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleEcGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleLabels {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    id: number;
+    id?: number;
 }
 
 export interface ForwardingControlRuleLocationGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleLocations {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleNwApplicationGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleNwServiceGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleNwServices {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleProxyGateway {
@@ -480,7 +354,7 @@ export interface ForwardingControlRuleProxyGateway {
      */
     id: number;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: string;
 }
@@ -489,21 +363,21 @@ export interface ForwardingControlRuleSrcIpGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleSrcIpv6Groups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleUsers {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleZpaAppSegment {
@@ -512,7 +386,7 @@ export interface ForwardingControlRuleZpaAppSegment {
      */
     externalId: string;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: string;
 }
@@ -521,14 +395,14 @@ export interface ForwardingControlRuleZpaApplicationSegmentGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleZpaApplicationSegments {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface ForwardingControlRuleZpaGateway {
@@ -537,7 +411,7 @@ export interface ForwardingControlRuleZpaGateway {
      */
     id: number;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: string;
 }
@@ -723,7 +597,7 @@ export interface GetDLPEDMSchemaCreatedBy {
      */
     id: number;
     /**
-     * The token (i.e., criteria) name.
+     * The configured name of the entity
      */
     name: string;
 }
@@ -735,7 +609,7 @@ export interface GetDLPEDMSchemaEdmClient {
      */
     id: number;
     /**
-     * The token (i.e., criteria) name.
+     * The configured name of the entity
      */
     name: string;
 }
@@ -747,30 +621,30 @@ export interface GetDLPEDMSchemaLastModifiedBy {
      */
     id: number;
     /**
-     * The token (i.e., criteria) name.
+     * The configured name of the entity
      */
     name: string;
 }
 
 export interface GetDLPEDMSchemaSchedule {
     /**
-     * The day of the month the EDM schema (i.e., EDM template) is scheduled for.
+     * The day of the month that the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to MONTHLY.
      */
     scheduleDayOfMonths: string[];
     /**
-     * The day of the week the EDM schema (i.e., EDM template) is scheduled for.
+     * The day of the week the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to WEEKLY.
      */
     scheduleDayOfWeeks: string[];
     /**
-     * If set to true, the schedule for the EDM schema (i.e., EDM template) is temporarily in a disabled state.
+     * If set to true, the schedule for the IDM template is temporarily in a disabled state. This attribute is required by PUT requests in order to disable or enable a schedule.
      */
     scheduleDisabled: boolean;
     /**
-     * The time of the day (in minutes) that the EDM schema (i.e., EDM template) is scheduled for.
+     * The time of the day (in minutes) that the IDM template is scheduled for. For example: at 3am= 180 mins. This attribute is required by PUT and POST requests.
      */
     scheduleTime: number;
     /**
-     * The schedule type for the EDM schema (i.e., EDM template), Monthly, Weekly, Daily, or None.
+     * The schedule type for the IDM template's schedule (i.e., Monthly, Weekly, Daily, or None). This attribute is required by PUT and POST requests.
      */
     scheduleType: string;
 }
@@ -785,11 +659,11 @@ export interface GetDLPEDMSchemaTokenList {
      */
     hashFileColumnOrder: number;
     /**
-     * The token (i.e., criteria) name.
+     * The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
      */
     name: string;
     /**
-     * The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1.
+     * The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1. This attribue required by PUT and POST requests.
      */
     originalColumn: number;
     /**
@@ -797,7 +671,7 @@ export interface GetDLPEDMSchemaTokenList {
      */
     primaryKey: boolean;
     /**
-     * The token type.
+     * The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
      */
     type: string;
 }
@@ -856,26 +730,14 @@ export interface GetDLPIDMProfilesLastModifiedBy {
     name: string;
 }
 
-export interface GetDLPWebRulesAuditor {
-    extensions: {[key: string]: string};
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: number;
-    /**
-     * The name of the workload group
-     */
-    name: string;
-}
-
 export interface GetDLPWebRulesDepartment {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -883,11 +745,11 @@ export interface GetDLPWebRulesDepartment {
 export interface GetDLPWebRulesDlpEngine {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -895,7 +757,7 @@ export interface GetDLPWebRulesDlpEngine {
 export interface GetDLPWebRulesExcludedDepartment {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
 }
@@ -903,7 +765,7 @@ export interface GetDLPWebRulesExcludedDepartment {
 export interface GetDLPWebRulesExcludedGroup {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
 }
@@ -911,7 +773,7 @@ export interface GetDLPWebRulesExcludedGroup {
 export interface GetDLPWebRulesExcludedUser {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
 }
@@ -919,23 +781,11 @@ export interface GetDLPWebRulesExcludedUser {
 export interface GetDLPWebRulesGroup {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
-     */
-    name: string;
-}
-
-export interface GetDLPWebRulesIcapServer {
-    extensions: {[key: string]: string};
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: number;
-    /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -943,11 +793,11 @@ export interface GetDLPWebRulesIcapServer {
 export interface GetDLPWebRulesLabel {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -955,11 +805,11 @@ export interface GetDLPWebRulesLabel {
 export interface GetDLPWebRulesLastModifiedBy {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -967,11 +817,11 @@ export interface GetDLPWebRulesLastModifiedBy {
 export interface GetDLPWebRulesLocation {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -979,23 +829,23 @@ export interface GetDLPWebRulesLocation {
 export interface GetDLPWebRulesLocationGroup {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
 
-export interface GetDLPWebRulesNotificationTemplate {
+export interface GetDLPWebRulesSourceIpGroup {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -1003,11 +853,11 @@ export interface GetDLPWebRulesNotificationTemplate {
 export interface GetDLPWebRulesTimeWindow {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -1015,11 +865,11 @@ export interface GetDLPWebRulesTimeWindow {
 export interface GetDLPWebRulesUrlCategory {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
@@ -1027,25 +877,20 @@ export interface GetDLPWebRulesUrlCategory {
 export interface GetDLPWebRulesUser {
     extensions: {[key: string]: string};
     /**
-     * A unique identifier assigned to the workload group
+     * Identifier that uniquely identifies an entity
      */
     id: number;
     /**
-     * The name of the workload group
+     * Identifier that uniquely identifies an entity
      */
     name: string;
 }
 
 export interface GetDLPWebRulesWorkloadGroup {
     /**
-     * The description of the DLP policy rule.
-     */
-    description: string;
-    /**
      * The description of the workload group
      */
-    expression: string;
-    expressionJsons: outputs.GetDLPWebRulesWorkloadGroupExpressionJson[];
+    description: string;
     /**
      * A unique identifier assigned to the workload group
      */
@@ -1064,35 +909,9 @@ export interface GetDLPWebRulesWorkloadGroup {
     name: string;
 }
 
-export interface GetDLPWebRulesWorkloadGroupExpressionJson {
-    expressionContainers: outputs.GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer[];
-}
-
-export interface GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer {
-    operator: string;
-    tagContainers: outputs.GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer[];
-    tagType: string;
-}
-
-export interface GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
-    operator: string;
-    tags: outputs.GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag[];
-}
-
-export interface GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
-    key: string;
-    value: string;
-}
-
 export interface GetDLPWebRulesWorkloadGroupLastModifiedBy {
     extensions: {[key: string]: string};
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: number;
-    /**
-     * The name of the workload group
-     */
     name: string;
 }
 
@@ -2099,6 +1918,17 @@ export interface GetTrafficForwardingGRETunnelSecondaryDestVip {
     virtualIp: string;
 }
 
+export interface GetTrafficForwardingStaticIPCity {
+    /**
+     * The unique identifier for the static IP address
+     */
+    id: number;
+    /**
+     * (String) The configured name of the entity
+     */
+    name: string;
+}
+
 export interface GetTrafficForwardingStaticIPLastModifiedBy {
     /**
      * (Map of String)
@@ -2407,6 +2237,21 @@ export interface GetURLFilteringRulesOverrideUser {
     name: string;
 }
 
+export interface GetURLFilteringRulesSourceIpGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * URL Filtering Rule ID
+     */
+    id: number;
+    /**
+     * Name of the URL Filtering policy rule
+     */
+    name: string;
+}
+
 export interface GetURLFilteringRulesTimeWindow {
     /**
      * (Map of String)
@@ -2599,12 +2444,17 @@ export interface GetWorkloadGroupsLastModifiedBy {
     name: string;
 }
 
+export interface LocationManagementDynamicLocationGroups {
+    ids?: number[];
+}
+
+export interface LocationManagementStaticLocationGroups {
+    ids?: number[];
+}
+
 export interface LocationManagementVpnCredential {
     comments: string;
     fqdn: string;
-    /**
-     * Identifier that uniquely identifies an entity
-     */
     id: number;
     ipAddress: string;
     preSharedKey?: string;
@@ -2617,13 +2467,9 @@ export interface TrafficForwardingGRETunnelPrimaryDestVip {
      */
     datacenter: string;
     /**
-     * Unique identifer of the GRE virtual IP address (VIP)
+     * GRE cluster virtual IP ID
      */
     id: number;
-    /**
-     * Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-     */
-    privateServiceEdge: boolean;
     /**
      * GRE cluster virtual IP address (VIP)
      */
@@ -2636,13 +2482,9 @@ export interface TrafficForwardingGRETunnelSecondaryDestVip {
      */
     datacenter: string;
     /**
-     * Unique identifer of the GRE virtual IP address (VIP)
+     * GRE cluster virtual IP ID
      */
     id: number;
-    /**
-     * Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-     */
-    privateServiceEdge: boolean;
     /**
      * GRE cluster virtual IP address (VIP)
      */
@@ -2655,12 +2497,9 @@ export interface URLCategoriesScope {
      */
     scopeEntities: outputs.URLCategoriesScopeScopeEntities;
     /**
-     * Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+     * list of scope group member IDs
      */
     scopeGroupMemberEntities: outputs.URLCategoriesScopeScopeGroupMemberEntities;
-    /**
-     * The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-     */
     type?: string;
 }
 
@@ -2692,9 +2531,6 @@ export interface URLCategoriesUrlKeywordCounts {
 }
 
 export interface URLFilteringRulesCbiProfile {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id?: string;
     /**
      * Name of the Firewall Filtering policy rule
@@ -2707,85 +2543,56 @@ export interface URLFilteringRulesCbiProfile {
 }
 
 export interface URLFilteringRulesDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesDeviceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesDevices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesOverrideGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesOverrideUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
+}
+
+export interface URLFilteringRulesSourceIpGroups {
+    ids?: number[];
 }
 
 export interface URLFilteringRulesTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: number[];
+    ids?: number[];
 }
 
 export interface URLFilteringRulesWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: number;
     /**
@@ -2812,6 +2619,9 @@ export interface UserManagementDepartment {
 }
 
 export interface UserManagementGroups {
-    ids: number[];
+    /**
+     * Unique identfier for the group
+     */
+    ids?: number[];
 }
 

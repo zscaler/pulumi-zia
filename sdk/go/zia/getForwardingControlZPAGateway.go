@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupForwardingControlZPAGateway(ctx *pulumi.Context, args *LookupForwardingControlZPAGatewayArgs, opts ...pulumi.InvokeOption) (*LookupForwardingControlZPAGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupForwardingControlZPAGatewayResult

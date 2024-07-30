@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -36,7 +35,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -62,31 +60,31 @@ namespace zscaler.PulumiPackage.Zia
     public partial class DLPNotificationTemplates : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// f set to true, the content that is violation is attached to the DLP notification email
         /// </summary>
         [Output("attachContent")]
         public Output<bool?> AttachContent { get; private set; } = null!;
 
         /// <summary>
-        /// The template for the HTML message body that must be displayed in the DLP notification email.
+        /// The template for the HTML message body that must be displayed in the DLP notification email
         /// </summary>
         [Output("htmlMessage")]
         public Output<string> HtmlMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The DLP policy rule name.
+        /// The DLP notification template name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         /// </summary>
         [Output("plainTextMessage")]
         public Output<string> PlainTextMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The Subject line that is displayed within the DLP notification email.
+        /// The Subject line that is displayed within the DLP notification email
         /// </summary>
         [Output("subject")]
         public Output<string> Subject { get; private set; } = null!;
@@ -98,7 +96,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> TemplateId { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// If set to true, TLS will be enabled
         /// </summary>
         [Output("tlsEnabled")]
         public Output<bool?> TlsEnabled { get; private set; } = null!;
@@ -151,37 +149,37 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class DLPNotificationTemplatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// f set to true, the content that is violation is attached to the DLP notification email
         /// </summary>
         [Input("attachContent")]
         public Input<bool>? AttachContent { get; set; }
 
         /// <summary>
-        /// The template for the HTML message body that must be displayed in the DLP notification email.
+        /// The template for the HTML message body that must be displayed in the DLP notification email
         /// </summary>
         [Input("htmlMessage", required: true)]
         public Input<string> HtmlMessage { get; set; } = null!;
 
         /// <summary>
-        /// The DLP policy rule name.
+        /// The DLP notification template name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         /// </summary>
         [Input("plainTextMessage", required: true)]
         public Input<string> PlainTextMessage { get; set; } = null!;
 
         /// <summary>
-        /// The Subject line that is displayed within the DLP notification email.
+        /// The Subject line that is displayed within the DLP notification email
         /// </summary>
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
 
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// If set to true, TLS will be enabled
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }
@@ -195,31 +193,31 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class DLPNotificationTemplatesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// f set to true, the content that is violation is attached to the DLP notification email
         /// </summary>
         [Input("attachContent")]
         public Input<bool>? AttachContent { get; set; }
 
         /// <summary>
-        /// The template for the HTML message body that must be displayed in the DLP notification email.
+        /// The template for the HTML message body that must be displayed in the DLP notification email
         /// </summary>
         [Input("htmlMessage")]
         public Input<string>? HtmlMessage { get; set; }
 
         /// <summary>
-        /// The DLP policy rule name.
+        /// The DLP notification template name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+        /// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
         /// </summary>
         [Input("plainTextMessage")]
         public Input<string>? PlainTextMessage { get; set; }
 
         /// <summary>
-        /// The Subject line that is displayed within the DLP notification email.
+        /// The Subject line that is displayed within the DLP notification email
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
@@ -231,7 +229,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? TemplateId { get; set; }
 
         /// <summary>
-        /// If set to true, the content that is violation is attached to the DLP notification email.
+        /// If set to true, TLS will be enabled
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }

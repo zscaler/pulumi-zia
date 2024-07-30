@@ -249,23 +249,19 @@ def get_admin_users(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     john_doe = zia.get_admin_users(login_name="john.doe@example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     john_doe = zia.get_admin_users(username="John Doe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the admin user to be exported.
@@ -310,23 +306,19 @@ def get_admin_users_output(id: Optional[pulumi.Input[Optional[int]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     john_doe = zia.get_admin_users(login_name="john.doe@example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     john_doe = zia.get_admin_users(username="John Doe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the admin user to be exported.

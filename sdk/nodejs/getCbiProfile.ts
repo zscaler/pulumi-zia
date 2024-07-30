@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "ZS_CBI_Profile1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCbiProfile(args?: GetCbiProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCbiProfileResult> {
     args = args || {};
@@ -67,7 +65,6 @@ export interface GetCbiProfileResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -76,7 +73,6 @@ export interface GetCbiProfileResult {
  *     name: "ZS_CBI_Profile1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCbiProfileOutput(args?: GetCbiProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCbiProfileResult> {
     return pulumi.output(args).apply((a: any) => getCbiProfile(a, opts))

@@ -20,14 +20,11 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         public Input<Inputs.URLCategoriesScopeScopeEntitiesGetArgs>? ScopeEntities { get; set; }
 
         /// <summary>
-        /// Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+        /// list of scope group member IDs
         /// </summary>
         [Input("scopeGroupMemberEntities")]
         public Input<Inputs.URLCategoriesScopeScopeGroupMemberEntitiesGetArgs>? ScopeGroupMemberEntities { get; set; }
 
-        /// <summary>
-        /// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

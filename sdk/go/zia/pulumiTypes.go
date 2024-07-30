@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AdminUsersAdminScopeEntities struct {
-	// Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -30,7 +29,6 @@ type AdminUsersAdminScopeEntitiesInput interface {
 }
 
 type AdminUsersAdminScopeEntitiesArgs struct {
-	// Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -111,7 +109,6 @@ func (o AdminUsersAdminScopeEntitiesOutput) ToAdminUsersAdminScopeEntitiesPtrOut
 	}).(AdminUsersAdminScopeEntitiesPtrOutput)
 }
 
-// Identifier that uniquely identifies an entity
 func (o AdminUsersAdminScopeEntitiesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AdminUsersAdminScopeEntities) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -140,7 +137,6 @@ func (o AdminUsersAdminScopeEntitiesPtrOutput) Elem() AdminUsersAdminScopeEntiti
 	}).(AdminUsersAdminScopeEntitiesOutput)
 }
 
-// Identifier that uniquely identifies an entity
 func (o AdminUsersAdminScopeEntitiesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AdminUsersAdminScopeEntities) []int {
 		if v == nil {
@@ -151,7 +147,6 @@ func (o AdminUsersAdminScopeEntitiesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type AdminUsersRole struct {
-	// Identifier that uniquely identifies an entity
 	Id *int `pulumi:"id"`
 }
 
@@ -167,7 +162,6 @@ type AdminUsersRoleInput interface {
 }
 
 type AdminUsersRoleArgs struct {
-	// Identifier that uniquely identifies an entity
 	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
@@ -222,7 +216,6 @@ func (o AdminUsersRoleOutput) ToAdminUsersRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Identifier that uniquely identifies an entity
 func (o AdminUsersRoleOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AdminUsersRole) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
@@ -248,30 +241,13 @@ func (o AdminUsersRoleArrayOutput) Index(i pulumi.IntInput) AdminUsersRoleOutput
 }
 
 type DLPDictionariesExactDataMatchDetail struct {
-	// The unique identifier for the EDM mapping.
+	// The unique identifier for the EDM mapping
 	DictionaryEdmMappingId *int `pulumi:"dictionaryEdmMappingId"`
 	// The EDM template's primary field.
 	PrimaryField *int `pulumi:"primaryField"`
 	// The unique identifier for the EDM template (or schema).
 	SchemaId *int `pulumi:"schemaId"`
 	// The EDM secondary field to match on.
-	// - `"MATCHON_NONE"`
-	// - `"MATCHON_ANY_1"`
-	// - `"MATCHON_ANY_2"`
-	// - `"MATCHON_ANY_3"`
-	// - `"MATCHON_ANY_4"`
-	// - `"MATCHON_ANY_5"`
-	// - `"MATCHON_ANY_6"`
-	// - `"MATCHON_ANY_7"`
-	// - `"MATCHON_ANY_8"`
-	// - `"MATCHON_ANY_9"`
-	// - `"MATCHON_ANY_10"`
-	// - `"MATCHON_ANY_11"`
-	// - `"MATCHON_ANY_12"`
-	// - `"MATCHON_ANY_13"`
-	// - `"MATCHON_ANY_14"`
-	// - `"MATCHON_ANY_15"`
-	// - `"MATCHON_ALL"`
 	SecondaryFieldMatchOn *string `pulumi:"secondaryFieldMatchOn"`
 	// The EDM template's secondary fields.
 	SecondaryFields []int `pulumi:"secondaryFields"`
@@ -289,30 +265,13 @@ type DLPDictionariesExactDataMatchDetailInput interface {
 }
 
 type DLPDictionariesExactDataMatchDetailArgs struct {
-	// The unique identifier for the EDM mapping.
+	// The unique identifier for the EDM mapping
 	DictionaryEdmMappingId pulumi.IntPtrInput `pulumi:"dictionaryEdmMappingId"`
 	// The EDM template's primary field.
 	PrimaryField pulumi.IntPtrInput `pulumi:"primaryField"`
 	// The unique identifier for the EDM template (or schema).
 	SchemaId pulumi.IntPtrInput `pulumi:"schemaId"`
 	// The EDM secondary field to match on.
-	// - `"MATCHON_NONE"`
-	// - `"MATCHON_ANY_1"`
-	// - `"MATCHON_ANY_2"`
-	// - `"MATCHON_ANY_3"`
-	// - `"MATCHON_ANY_4"`
-	// - `"MATCHON_ANY_5"`
-	// - `"MATCHON_ANY_6"`
-	// - `"MATCHON_ANY_7"`
-	// - `"MATCHON_ANY_8"`
-	// - `"MATCHON_ANY_9"`
-	// - `"MATCHON_ANY_10"`
-	// - `"MATCHON_ANY_11"`
-	// - `"MATCHON_ANY_12"`
-	// - `"MATCHON_ANY_13"`
-	// - `"MATCHON_ANY_14"`
-	// - `"MATCHON_ANY_15"`
-	// - `"MATCHON_ALL"`
 	SecondaryFieldMatchOn pulumi.StringPtrInput `pulumi:"secondaryFieldMatchOn"`
 	// The EDM template's secondary fields.
 	SecondaryFields pulumi.IntArrayInput `pulumi:"secondaryFields"`
@@ -369,7 +328,7 @@ func (o DLPDictionariesExactDataMatchDetailOutput) ToDLPDictionariesExactDataMat
 	return o
 }
 
-// The unique identifier for the EDM mapping.
+// The unique identifier for the EDM mapping
 func (o DLPDictionariesExactDataMatchDetailOutput) DictionaryEdmMappingId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DLPDictionariesExactDataMatchDetail) *int { return v.DictionaryEdmMappingId }).(pulumi.IntPtrOutput)
 }
@@ -385,23 +344,6 @@ func (o DLPDictionariesExactDataMatchDetailOutput) SchemaId() pulumi.IntPtrOutpu
 }
 
 // The EDM secondary field to match on.
-// - `"MATCHON_NONE"`
-// - `"MATCHON_ANY_1"`
-// - `"MATCHON_ANY_2"`
-// - `"MATCHON_ANY_3"`
-// - `"MATCHON_ANY_4"`
-// - `"MATCHON_ANY_5"`
-// - `"MATCHON_ANY_6"`
-// - `"MATCHON_ANY_7"`
-// - `"MATCHON_ANY_8"`
-// - `"MATCHON_ANY_9"`
-// - `"MATCHON_ANY_10"`
-// - `"MATCHON_ANY_11"`
-// - `"MATCHON_ANY_12"`
-// - `"MATCHON_ANY_13"`
-// - `"MATCHON_ANY_14"`
-// - `"MATCHON_ANY_15"`
-// - `"MATCHON_ALL"`
 func (o DLPDictionariesExactDataMatchDetailOutput) SecondaryFieldMatchOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DLPDictionariesExactDataMatchDetail) *string { return v.SecondaryFieldMatchOn }).(pulumi.StringPtrOutput)
 }
@@ -432,12 +374,9 @@ func (o DLPDictionariesExactDataMatchDetailArrayOutput) Index(i pulumi.IntInput)
 }
 
 type DLPDictionariesIdmProfileMatchAccuracy struct {
-	// The IDM template reference.
+	// The action applied to a DLP dictionary using patterns
 	AdpIdmProfiles []DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile `pulumi:"adpIdmProfiles"`
 	// The IDM template match accuracy.
-	// - `"LOW"`
-	// - `"MEDIUM"`
-	// - `"HEAVY"`
 	MatchAccuracy *string `pulumi:"matchAccuracy"`
 }
 
@@ -453,12 +392,9 @@ type DLPDictionariesIdmProfileMatchAccuracyInput interface {
 }
 
 type DLPDictionariesIdmProfileMatchAccuracyArgs struct {
-	// The IDM template reference.
+	// The action applied to a DLP dictionary using patterns
 	AdpIdmProfiles DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArrayInput `pulumi:"adpIdmProfiles"`
 	// The IDM template match accuracy.
-	// - `"LOW"`
-	// - `"MEDIUM"`
-	// - `"HEAVY"`
 	MatchAccuracy pulumi.StringPtrInput `pulumi:"matchAccuracy"`
 }
 
@@ -513,7 +449,7 @@ func (o DLPDictionariesIdmProfileMatchAccuracyOutput) ToDLPDictionariesIdmProfil
 	return o
 }
 
-// The IDM template reference.
+// The action applied to a DLP dictionary using patterns
 func (o DLPDictionariesIdmProfileMatchAccuracyOutput) AdpIdmProfiles() DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArrayOutput {
 	return o.ApplyT(func(v DLPDictionariesIdmProfileMatchAccuracy) []DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile {
 		return v.AdpIdmProfiles
@@ -521,9 +457,6 @@ func (o DLPDictionariesIdmProfileMatchAccuracyOutput) AdpIdmProfiles() DLPDictio
 }
 
 // The IDM template match accuracy.
-// - `"LOW"`
-// - `"MEDIUM"`
-// - `"HEAVY"`
 func (o DLPDictionariesIdmProfileMatchAccuracyOutput) MatchAccuracy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DLPDictionariesIdmProfileMatchAccuracy) *string { return v.MatchAccuracy }).(pulumi.StringPtrOutput)
 }
@@ -649,7 +582,7 @@ func (o DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArrayOutput) Index(i 
 }
 
 type DLPDictionariesPattern struct {
-	// The action applied to a DLP dictionary using patterns. The following values are supported:
+	// The action applied to a DLP dictionary using patterns
 	Action *string `pulumi:"action"`
 	// DLP dictionary pattern
 	Pattern *string `pulumi:"pattern"`
@@ -667,7 +600,7 @@ type DLPDictionariesPatternInput interface {
 }
 
 type DLPDictionariesPatternArgs struct {
-	// The action applied to a DLP dictionary using patterns. The following values are supported:
+	// The action applied to a DLP dictionary using patterns
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// DLP dictionary pattern
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
@@ -724,7 +657,7 @@ func (o DLPDictionariesPatternOutput) ToDLPDictionariesPatternOutputWithContext(
 	return o
 }
 
-// The action applied to a DLP dictionary using patterns. The following values are supported:
+// The action applied to a DLP dictionary using patterns
 func (o DLPDictionariesPatternOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DLPDictionariesPattern) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -755,7 +688,6 @@ func (o DLPDictionariesPatternArrayOutput) Index(i pulumi.IntInput) DLPDictionar
 }
 
 type DLPDictionariesPhrase struct {
-	// The action applied to a DLP dictionary using patterns. The following values are supported:
 	Action *string `pulumi:"action"`
 	// DLP dictionary phrase
 	Phrase *string `pulumi:"phrase"`
@@ -773,7 +705,6 @@ type DLPDictionariesPhraseInput interface {
 }
 
 type DLPDictionariesPhraseArgs struct {
-	// The action applied to a DLP dictionary using patterns. The following values are supported:
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// DLP dictionary phrase
 	Phrase pulumi.StringPtrInput `pulumi:"phrase"`
@@ -830,7 +761,6 @@ func (o DLPDictionariesPhraseOutput) ToDLPDictionariesPhraseOutputWithContext(ct
 	return o
 }
 
-// The action applied to a DLP dictionary using patterns. The following values are supported:
 func (o DLPDictionariesPhraseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DLPDictionariesPhrase) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -861,7 +791,6 @@ func (o DLPDictionariesPhraseArrayOutput) Index(i pulumi.IntInput) DLPDictionari
 }
 
 type DLPWebRulesAuditor struct {
-	// A unique identifier assigned to the workload group
 	Id int `pulumi:"id"`
 }
 
@@ -877,7 +806,6 @@ type DLPWebRulesAuditorInput interface {
 }
 
 type DLPWebRulesAuditorArgs struct {
-	// A unique identifier assigned to the workload group
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -893,45 +821,29 @@ func (i DLPWebRulesAuditorArgs) ToDLPWebRulesAuditorOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesAuditorOutput)
 }
 
-func (i DLPWebRulesAuditorArgs) ToDLPWebRulesAuditorPtrOutput() DLPWebRulesAuditorPtrOutput {
-	return i.ToDLPWebRulesAuditorPtrOutputWithContext(context.Background())
-}
-
-func (i DLPWebRulesAuditorArgs) ToDLPWebRulesAuditorPtrOutputWithContext(ctx context.Context) DLPWebRulesAuditorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesAuditorOutput).ToDLPWebRulesAuditorPtrOutputWithContext(ctx)
-}
-
-// DLPWebRulesAuditorPtrInput is an input type that accepts DLPWebRulesAuditorArgs, DLPWebRulesAuditorPtr and DLPWebRulesAuditorPtrOutput values.
-// You can construct a concrete instance of `DLPWebRulesAuditorPtrInput` via:
+// DLPWebRulesAuditorArrayInput is an input type that accepts DLPWebRulesAuditorArray and DLPWebRulesAuditorArrayOutput values.
+// You can construct a concrete instance of `DLPWebRulesAuditorArrayInput` via:
 //
-//	        DLPWebRulesAuditorArgs{...}
-//
-//	or:
-//
-//	        nil
-type DLPWebRulesAuditorPtrInput interface {
+//	DLPWebRulesAuditorArray{ DLPWebRulesAuditorArgs{...} }
+type DLPWebRulesAuditorArrayInput interface {
 	pulumi.Input
 
-	ToDLPWebRulesAuditorPtrOutput() DLPWebRulesAuditorPtrOutput
-	ToDLPWebRulesAuditorPtrOutputWithContext(context.Context) DLPWebRulesAuditorPtrOutput
+	ToDLPWebRulesAuditorArrayOutput() DLPWebRulesAuditorArrayOutput
+	ToDLPWebRulesAuditorArrayOutputWithContext(context.Context) DLPWebRulesAuditorArrayOutput
 }
 
-type dlpwebRulesAuditorPtrType DLPWebRulesAuditorArgs
+type DLPWebRulesAuditorArray []DLPWebRulesAuditorInput
 
-func DLPWebRulesAuditorPtr(v *DLPWebRulesAuditorArgs) DLPWebRulesAuditorPtrInput {
-	return (*dlpwebRulesAuditorPtrType)(v)
+func (DLPWebRulesAuditorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesAuditor)(nil)).Elem()
 }
 
-func (*dlpwebRulesAuditorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesAuditor)(nil)).Elem()
+func (i DLPWebRulesAuditorArray) ToDLPWebRulesAuditorArrayOutput() DLPWebRulesAuditorArrayOutput {
+	return i.ToDLPWebRulesAuditorArrayOutputWithContext(context.Background())
 }
 
-func (i *dlpwebRulesAuditorPtrType) ToDLPWebRulesAuditorPtrOutput() DLPWebRulesAuditorPtrOutput {
-	return i.ToDLPWebRulesAuditorPtrOutputWithContext(context.Background())
-}
-
-func (i *dlpwebRulesAuditorPtrType) ToDLPWebRulesAuditorPtrOutputWithContext(ctx context.Context) DLPWebRulesAuditorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesAuditorPtrOutput)
+func (i DLPWebRulesAuditorArray) ToDLPWebRulesAuditorArrayOutputWithContext(ctx context.Context) DLPWebRulesAuditorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesAuditorArrayOutput)
 }
 
 type DLPWebRulesAuditorOutput struct{ *pulumi.OutputState }
@@ -948,57 +860,31 @@ func (o DLPWebRulesAuditorOutput) ToDLPWebRulesAuditorOutputWithContext(ctx cont
 	return o
 }
 
-func (o DLPWebRulesAuditorOutput) ToDLPWebRulesAuditorPtrOutput() DLPWebRulesAuditorPtrOutput {
-	return o.ToDLPWebRulesAuditorPtrOutputWithContext(context.Background())
-}
-
-func (o DLPWebRulesAuditorOutput) ToDLPWebRulesAuditorPtrOutputWithContext(ctx context.Context) DLPWebRulesAuditorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesAuditor) *DLPWebRulesAuditor {
-		return &v
-	}).(DLPWebRulesAuditorPtrOutput)
-}
-
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesAuditorOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v DLPWebRulesAuditor) int { return v.Id }).(pulumi.IntOutput)
 }
 
-type DLPWebRulesAuditorPtrOutput struct{ *pulumi.OutputState }
+type DLPWebRulesAuditorArrayOutput struct{ *pulumi.OutputState }
 
-func (DLPWebRulesAuditorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesAuditor)(nil)).Elem()
+func (DLPWebRulesAuditorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesAuditor)(nil)).Elem()
 }
 
-func (o DLPWebRulesAuditorPtrOutput) ToDLPWebRulesAuditorPtrOutput() DLPWebRulesAuditorPtrOutput {
+func (o DLPWebRulesAuditorArrayOutput) ToDLPWebRulesAuditorArrayOutput() DLPWebRulesAuditorArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesAuditorPtrOutput) ToDLPWebRulesAuditorPtrOutputWithContext(ctx context.Context) DLPWebRulesAuditorPtrOutput {
+func (o DLPWebRulesAuditorArrayOutput) ToDLPWebRulesAuditorArrayOutputWithContext(ctx context.Context) DLPWebRulesAuditorArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesAuditorPtrOutput) Elem() DLPWebRulesAuditorOutput {
-	return o.ApplyT(func(v *DLPWebRulesAuditor) DLPWebRulesAuditor {
-		if v != nil {
-			return *v
-		}
-		var ret DLPWebRulesAuditor
-		return ret
+func (o DLPWebRulesAuditorArrayOutput) Index(i pulumi.IntInput) DLPWebRulesAuditorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DLPWebRulesAuditor {
+		return vs[0].([]DLPWebRulesAuditor)[vs[1].(int)]
 	}).(DLPWebRulesAuditorOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o DLPWebRulesAuditorPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DLPWebRulesAuditor) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.IntPtrOutput)
-}
-
 type DLPWebRulesDepartments struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1014,7 +900,6 @@ type DLPWebRulesDepartmentsInput interface {
 }
 
 type DLPWebRulesDepartmentsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1095,7 +980,6 @@ func (o DLPWebRulesDepartmentsOutput) ToDLPWebRulesDepartmentsPtrOutputWithConte
 	}).(DLPWebRulesDepartmentsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1124,7 +1008,6 @@ func (o DLPWebRulesDepartmentsPtrOutput) Elem() DLPWebRulesDepartmentsOutput {
 	}).(DLPWebRulesDepartmentsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesDepartments) []int {
 		if v == nil {
@@ -1135,7 +1018,6 @@ func (o DLPWebRulesDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesDlpEngines struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1151,7 +1033,6 @@ type DLPWebRulesDlpEnginesInput interface {
 }
 
 type DLPWebRulesDlpEnginesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1232,7 +1113,6 @@ func (o DLPWebRulesDlpEnginesOutput) ToDLPWebRulesDlpEnginesPtrOutputWithContext
 	}).(DLPWebRulesDlpEnginesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesDlpEnginesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesDlpEngines) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1261,7 +1141,6 @@ func (o DLPWebRulesDlpEnginesPtrOutput) Elem() DLPWebRulesDlpEnginesOutput {
 	}).(DLPWebRulesDlpEnginesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesDlpEnginesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesDlpEngines) []int {
 		if v == nil {
@@ -1272,7 +1151,6 @@ func (o DLPWebRulesDlpEnginesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesExcludedDepartments struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1288,7 +1166,6 @@ type DLPWebRulesExcludedDepartmentsInput interface {
 }
 
 type DLPWebRulesExcludedDepartmentsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1369,7 +1246,6 @@ func (o DLPWebRulesExcludedDepartmentsOutput) ToDLPWebRulesExcludedDepartmentsPt
 	}).(DLPWebRulesExcludedDepartmentsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesExcludedDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1398,7 +1274,6 @@ func (o DLPWebRulesExcludedDepartmentsPtrOutput) Elem() DLPWebRulesExcludedDepar
 	}).(DLPWebRulesExcludedDepartmentsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesExcludedDepartments) []int {
 		if v == nil {
@@ -1408,8 +1283,140 @@ func (o DLPWebRulesExcludedDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+type DLPWebRulesExcludedDomainProfiles struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// DLPWebRulesExcludedDomainProfilesInput is an input type that accepts DLPWebRulesExcludedDomainProfilesArgs and DLPWebRulesExcludedDomainProfilesOutput values.
+// You can construct a concrete instance of `DLPWebRulesExcludedDomainProfilesInput` via:
+//
+//	DLPWebRulesExcludedDomainProfilesArgs{...}
+type DLPWebRulesExcludedDomainProfilesInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesExcludedDomainProfilesOutput() DLPWebRulesExcludedDomainProfilesOutput
+	ToDLPWebRulesExcludedDomainProfilesOutputWithContext(context.Context) DLPWebRulesExcludedDomainProfilesOutput
+}
+
+type DLPWebRulesExcludedDomainProfilesArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (DLPWebRulesExcludedDomainProfilesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesExcludedDomainProfiles)(nil)).Elem()
+}
+
+func (i DLPWebRulesExcludedDomainProfilesArgs) ToDLPWebRulesExcludedDomainProfilesOutput() DLPWebRulesExcludedDomainProfilesOutput {
+	return i.ToDLPWebRulesExcludedDomainProfilesOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesExcludedDomainProfilesArgs) ToDLPWebRulesExcludedDomainProfilesOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesExcludedDomainProfilesOutput)
+}
+
+func (i DLPWebRulesExcludedDomainProfilesArgs) ToDLPWebRulesExcludedDomainProfilesPtrOutput() DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return i.ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesExcludedDomainProfilesArgs) ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesExcludedDomainProfilesOutput).ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(ctx)
+}
+
+// DLPWebRulesExcludedDomainProfilesPtrInput is an input type that accepts DLPWebRulesExcludedDomainProfilesArgs, DLPWebRulesExcludedDomainProfilesPtr and DLPWebRulesExcludedDomainProfilesPtrOutput values.
+// You can construct a concrete instance of `DLPWebRulesExcludedDomainProfilesPtrInput` via:
+//
+//	        DLPWebRulesExcludedDomainProfilesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DLPWebRulesExcludedDomainProfilesPtrInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesExcludedDomainProfilesPtrOutput() DLPWebRulesExcludedDomainProfilesPtrOutput
+	ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(context.Context) DLPWebRulesExcludedDomainProfilesPtrOutput
+}
+
+type dlpwebRulesExcludedDomainProfilesPtrType DLPWebRulesExcludedDomainProfilesArgs
+
+func DLPWebRulesExcludedDomainProfilesPtr(v *DLPWebRulesExcludedDomainProfilesArgs) DLPWebRulesExcludedDomainProfilesPtrInput {
+	return (*dlpwebRulesExcludedDomainProfilesPtrType)(v)
+}
+
+func (*dlpwebRulesExcludedDomainProfilesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesExcludedDomainProfiles)(nil)).Elem()
+}
+
+func (i *dlpwebRulesExcludedDomainProfilesPtrType) ToDLPWebRulesExcludedDomainProfilesPtrOutput() DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return i.ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i *dlpwebRulesExcludedDomainProfilesPtrType) ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesExcludedDomainProfilesPtrOutput)
+}
+
+type DLPWebRulesExcludedDomainProfilesOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesExcludedDomainProfilesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesExcludedDomainProfiles)(nil)).Elem()
+}
+
+func (o DLPWebRulesExcludedDomainProfilesOutput) ToDLPWebRulesExcludedDomainProfilesOutput() DLPWebRulesExcludedDomainProfilesOutput {
+	return o
+}
+
+func (o DLPWebRulesExcludedDomainProfilesOutput) ToDLPWebRulesExcludedDomainProfilesOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesOutput {
+	return o
+}
+
+func (o DLPWebRulesExcludedDomainProfilesOutput) ToDLPWebRulesExcludedDomainProfilesPtrOutput() DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return o.ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (o DLPWebRulesExcludedDomainProfilesOutput) ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesExcludedDomainProfiles) *DLPWebRulesExcludedDomainProfiles {
+		return &v
+	}).(DLPWebRulesExcludedDomainProfilesPtrOutput)
+}
+
+func (o DLPWebRulesExcludedDomainProfilesOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DLPWebRulesExcludedDomainProfiles) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type DLPWebRulesExcludedDomainProfilesPtrOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesExcludedDomainProfilesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesExcludedDomainProfiles)(nil)).Elem()
+}
+
+func (o DLPWebRulesExcludedDomainProfilesPtrOutput) ToDLPWebRulesExcludedDomainProfilesPtrOutput() DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesExcludedDomainProfilesPtrOutput) ToDLPWebRulesExcludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesExcludedDomainProfilesPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesExcludedDomainProfilesPtrOutput) Elem() DLPWebRulesExcludedDomainProfilesOutput {
+	return o.ApplyT(func(v *DLPWebRulesExcludedDomainProfiles) DLPWebRulesExcludedDomainProfiles {
+		if v != nil {
+			return *v
+		}
+		var ret DLPWebRulesExcludedDomainProfiles
+		return ret
+	}).(DLPWebRulesExcludedDomainProfilesOutput)
+}
+
+func (o DLPWebRulesExcludedDomainProfilesPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DLPWebRulesExcludedDomainProfiles) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
 type DLPWebRulesExcludedGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1425,7 +1432,6 @@ type DLPWebRulesExcludedGroupsInput interface {
 }
 
 type DLPWebRulesExcludedGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1506,7 +1512,6 @@ func (o DLPWebRulesExcludedGroupsOutput) ToDLPWebRulesExcludedGroupsPtrOutputWit
 	}).(DLPWebRulesExcludedGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesExcludedGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1535,7 +1540,6 @@ func (o DLPWebRulesExcludedGroupsPtrOutput) Elem() DLPWebRulesExcludedGroupsOutp
 	}).(DLPWebRulesExcludedGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesExcludedGroups) []int {
 		if v == nil {
@@ -1546,7 +1550,6 @@ func (o DLPWebRulesExcludedGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesExcludedUsers struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1562,7 +1565,6 @@ type DLPWebRulesExcludedUsersInput interface {
 }
 
 type DLPWebRulesExcludedUsersArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1643,7 +1645,6 @@ func (o DLPWebRulesExcludedUsersOutput) ToDLPWebRulesExcludedUsersPtrOutputWithC
 	}).(DLPWebRulesExcludedUsersPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesExcludedUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1672,7 +1673,6 @@ func (o DLPWebRulesExcludedUsersPtrOutput) Elem() DLPWebRulesExcludedUsersOutput
 	}).(DLPWebRulesExcludedUsersOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesExcludedUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesExcludedUsers) []int {
 		if v == nil {
@@ -1683,7 +1683,6 @@ func (o DLPWebRulesExcludedUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -1699,7 +1698,6 @@ type DLPWebRulesGroupsInput interface {
 }
 
 type DLPWebRulesGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -1780,7 +1778,6 @@ func (o DLPWebRulesGroupsOutput) ToDLPWebRulesGroupsPtrOutputWithContext(ctx con
 	}).(DLPWebRulesGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -1809,7 +1806,6 @@ func (o DLPWebRulesGroupsPtrOutput) Elem() DLPWebRulesGroupsOutput {
 	}).(DLPWebRulesGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesGroups) []int {
 		if v == nil {
@@ -1820,7 +1816,6 @@ func (o DLPWebRulesGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesIcapServer struct {
-	// A unique identifier assigned to the workload group
 	Id int `pulumi:"id"`
 }
 
@@ -1836,7 +1831,6 @@ type DLPWebRulesIcapServerInput interface {
 }
 
 type DLPWebRulesIcapServerArgs struct {
-	// A unique identifier assigned to the workload group
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -1852,45 +1846,29 @@ func (i DLPWebRulesIcapServerArgs) ToDLPWebRulesIcapServerOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIcapServerOutput)
 }
 
-func (i DLPWebRulesIcapServerArgs) ToDLPWebRulesIcapServerPtrOutput() DLPWebRulesIcapServerPtrOutput {
-	return i.ToDLPWebRulesIcapServerPtrOutputWithContext(context.Background())
-}
-
-func (i DLPWebRulesIcapServerArgs) ToDLPWebRulesIcapServerPtrOutputWithContext(ctx context.Context) DLPWebRulesIcapServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIcapServerOutput).ToDLPWebRulesIcapServerPtrOutputWithContext(ctx)
-}
-
-// DLPWebRulesIcapServerPtrInput is an input type that accepts DLPWebRulesIcapServerArgs, DLPWebRulesIcapServerPtr and DLPWebRulesIcapServerPtrOutput values.
-// You can construct a concrete instance of `DLPWebRulesIcapServerPtrInput` via:
+// DLPWebRulesIcapServerArrayInput is an input type that accepts DLPWebRulesIcapServerArray and DLPWebRulesIcapServerArrayOutput values.
+// You can construct a concrete instance of `DLPWebRulesIcapServerArrayInput` via:
 //
-//	        DLPWebRulesIcapServerArgs{...}
-//
-//	or:
-//
-//	        nil
-type DLPWebRulesIcapServerPtrInput interface {
+//	DLPWebRulesIcapServerArray{ DLPWebRulesIcapServerArgs{...} }
+type DLPWebRulesIcapServerArrayInput interface {
 	pulumi.Input
 
-	ToDLPWebRulesIcapServerPtrOutput() DLPWebRulesIcapServerPtrOutput
-	ToDLPWebRulesIcapServerPtrOutputWithContext(context.Context) DLPWebRulesIcapServerPtrOutput
+	ToDLPWebRulesIcapServerArrayOutput() DLPWebRulesIcapServerArrayOutput
+	ToDLPWebRulesIcapServerArrayOutputWithContext(context.Context) DLPWebRulesIcapServerArrayOutput
 }
 
-type dlpwebRulesIcapServerPtrType DLPWebRulesIcapServerArgs
+type DLPWebRulesIcapServerArray []DLPWebRulesIcapServerInput
 
-func DLPWebRulesIcapServerPtr(v *DLPWebRulesIcapServerArgs) DLPWebRulesIcapServerPtrInput {
-	return (*dlpwebRulesIcapServerPtrType)(v)
+func (DLPWebRulesIcapServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesIcapServer)(nil)).Elem()
 }
 
-func (*dlpwebRulesIcapServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesIcapServer)(nil)).Elem()
+func (i DLPWebRulesIcapServerArray) ToDLPWebRulesIcapServerArrayOutput() DLPWebRulesIcapServerArrayOutput {
+	return i.ToDLPWebRulesIcapServerArrayOutputWithContext(context.Background())
 }
 
-func (i *dlpwebRulesIcapServerPtrType) ToDLPWebRulesIcapServerPtrOutput() DLPWebRulesIcapServerPtrOutput {
-	return i.ToDLPWebRulesIcapServerPtrOutputWithContext(context.Background())
-}
-
-func (i *dlpwebRulesIcapServerPtrType) ToDLPWebRulesIcapServerPtrOutputWithContext(ctx context.Context) DLPWebRulesIcapServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIcapServerPtrOutput)
+func (i DLPWebRulesIcapServerArray) ToDLPWebRulesIcapServerArrayOutputWithContext(ctx context.Context) DLPWebRulesIcapServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIcapServerArrayOutput)
 }
 
 type DLPWebRulesIcapServerOutput struct{ *pulumi.OutputState }
@@ -1907,58 +1885,165 @@ func (o DLPWebRulesIcapServerOutput) ToDLPWebRulesIcapServerOutputWithContext(ct
 	return o
 }
 
-func (o DLPWebRulesIcapServerOutput) ToDLPWebRulesIcapServerPtrOutput() DLPWebRulesIcapServerPtrOutput {
-	return o.ToDLPWebRulesIcapServerPtrOutputWithContext(context.Background())
-}
-
-func (o DLPWebRulesIcapServerOutput) ToDLPWebRulesIcapServerPtrOutputWithContext(ctx context.Context) DLPWebRulesIcapServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesIcapServer) *DLPWebRulesIcapServer {
-		return &v
-	}).(DLPWebRulesIcapServerPtrOutput)
-}
-
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesIcapServerOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v DLPWebRulesIcapServer) int { return v.Id }).(pulumi.IntOutput)
 }
 
-type DLPWebRulesIcapServerPtrOutput struct{ *pulumi.OutputState }
+type DLPWebRulesIcapServerArrayOutput struct{ *pulumi.OutputState }
 
-func (DLPWebRulesIcapServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesIcapServer)(nil)).Elem()
+func (DLPWebRulesIcapServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesIcapServer)(nil)).Elem()
 }
 
-func (o DLPWebRulesIcapServerPtrOutput) ToDLPWebRulesIcapServerPtrOutput() DLPWebRulesIcapServerPtrOutput {
+func (o DLPWebRulesIcapServerArrayOutput) ToDLPWebRulesIcapServerArrayOutput() DLPWebRulesIcapServerArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesIcapServerPtrOutput) ToDLPWebRulesIcapServerPtrOutputWithContext(ctx context.Context) DLPWebRulesIcapServerPtrOutput {
+func (o DLPWebRulesIcapServerArrayOutput) ToDLPWebRulesIcapServerArrayOutputWithContext(ctx context.Context) DLPWebRulesIcapServerArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesIcapServerPtrOutput) Elem() DLPWebRulesIcapServerOutput {
-	return o.ApplyT(func(v *DLPWebRulesIcapServer) DLPWebRulesIcapServer {
-		if v != nil {
-			return *v
-		}
-		var ret DLPWebRulesIcapServer
-		return ret
+func (o DLPWebRulesIcapServerArrayOutput) Index(i pulumi.IntInput) DLPWebRulesIcapServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DLPWebRulesIcapServer {
+		return vs[0].([]DLPWebRulesIcapServer)[vs[1].(int)]
 	}).(DLPWebRulesIcapServerOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o DLPWebRulesIcapServerPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DLPWebRulesIcapServer) *int {
+type DLPWebRulesIncludedDomainProfiles struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// DLPWebRulesIncludedDomainProfilesInput is an input type that accepts DLPWebRulesIncludedDomainProfilesArgs and DLPWebRulesIncludedDomainProfilesOutput values.
+// You can construct a concrete instance of `DLPWebRulesIncludedDomainProfilesInput` via:
+//
+//	DLPWebRulesIncludedDomainProfilesArgs{...}
+type DLPWebRulesIncludedDomainProfilesInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesIncludedDomainProfilesOutput() DLPWebRulesIncludedDomainProfilesOutput
+	ToDLPWebRulesIncludedDomainProfilesOutputWithContext(context.Context) DLPWebRulesIncludedDomainProfilesOutput
+}
+
+type DLPWebRulesIncludedDomainProfilesArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (DLPWebRulesIncludedDomainProfilesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesIncludedDomainProfiles)(nil)).Elem()
+}
+
+func (i DLPWebRulesIncludedDomainProfilesArgs) ToDLPWebRulesIncludedDomainProfilesOutput() DLPWebRulesIncludedDomainProfilesOutput {
+	return i.ToDLPWebRulesIncludedDomainProfilesOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesIncludedDomainProfilesArgs) ToDLPWebRulesIncludedDomainProfilesOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIncludedDomainProfilesOutput)
+}
+
+func (i DLPWebRulesIncludedDomainProfilesArgs) ToDLPWebRulesIncludedDomainProfilesPtrOutput() DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return i.ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesIncludedDomainProfilesArgs) ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIncludedDomainProfilesOutput).ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(ctx)
+}
+
+// DLPWebRulesIncludedDomainProfilesPtrInput is an input type that accepts DLPWebRulesIncludedDomainProfilesArgs, DLPWebRulesIncludedDomainProfilesPtr and DLPWebRulesIncludedDomainProfilesPtrOutput values.
+// You can construct a concrete instance of `DLPWebRulesIncludedDomainProfilesPtrInput` via:
+//
+//	        DLPWebRulesIncludedDomainProfilesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DLPWebRulesIncludedDomainProfilesPtrInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesIncludedDomainProfilesPtrOutput() DLPWebRulesIncludedDomainProfilesPtrOutput
+	ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(context.Context) DLPWebRulesIncludedDomainProfilesPtrOutput
+}
+
+type dlpwebRulesIncludedDomainProfilesPtrType DLPWebRulesIncludedDomainProfilesArgs
+
+func DLPWebRulesIncludedDomainProfilesPtr(v *DLPWebRulesIncludedDomainProfilesArgs) DLPWebRulesIncludedDomainProfilesPtrInput {
+	return (*dlpwebRulesIncludedDomainProfilesPtrType)(v)
+}
+
+func (*dlpwebRulesIncludedDomainProfilesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesIncludedDomainProfiles)(nil)).Elem()
+}
+
+func (i *dlpwebRulesIncludedDomainProfilesPtrType) ToDLPWebRulesIncludedDomainProfilesPtrOutput() DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return i.ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i *dlpwebRulesIncludedDomainProfilesPtrType) ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesIncludedDomainProfilesPtrOutput)
+}
+
+type DLPWebRulesIncludedDomainProfilesOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesIncludedDomainProfilesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesIncludedDomainProfiles)(nil)).Elem()
+}
+
+func (o DLPWebRulesIncludedDomainProfilesOutput) ToDLPWebRulesIncludedDomainProfilesOutput() DLPWebRulesIncludedDomainProfilesOutput {
+	return o
+}
+
+func (o DLPWebRulesIncludedDomainProfilesOutput) ToDLPWebRulesIncludedDomainProfilesOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesOutput {
+	return o
+}
+
+func (o DLPWebRulesIncludedDomainProfilesOutput) ToDLPWebRulesIncludedDomainProfilesPtrOutput() DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return o.ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(context.Background())
+}
+
+func (o DLPWebRulesIncludedDomainProfilesOutput) ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesIncludedDomainProfiles) *DLPWebRulesIncludedDomainProfiles {
+		return &v
+	}).(DLPWebRulesIncludedDomainProfilesPtrOutput)
+}
+
+func (o DLPWebRulesIncludedDomainProfilesOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DLPWebRulesIncludedDomainProfiles) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type DLPWebRulesIncludedDomainProfilesPtrOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesIncludedDomainProfilesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesIncludedDomainProfiles)(nil)).Elem()
+}
+
+func (o DLPWebRulesIncludedDomainProfilesPtrOutput) ToDLPWebRulesIncludedDomainProfilesPtrOutput() DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesIncludedDomainProfilesPtrOutput) ToDLPWebRulesIncludedDomainProfilesPtrOutputWithContext(ctx context.Context) DLPWebRulesIncludedDomainProfilesPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesIncludedDomainProfilesPtrOutput) Elem() DLPWebRulesIncludedDomainProfilesOutput {
+	return o.ApplyT(func(v *DLPWebRulesIncludedDomainProfiles) DLPWebRulesIncludedDomainProfiles {
+		if v != nil {
+			return *v
+		}
+		var ret DLPWebRulesIncludedDomainProfiles
+		return ret
+	}).(DLPWebRulesIncludedDomainProfilesOutput)
+}
+
+func (o DLPWebRulesIncludedDomainProfilesPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DLPWebRulesIncludedDomainProfiles) []int {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
-	}).(pulumi.IntPtrOutput)
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
 }
 
 type DLPWebRulesLabels struct {
-	// A unique identifier assigned to the workload group
-	Id int `pulumi:"id"`
+	Id *int `pulumi:"id"`
 }
 
 // DLPWebRulesLabelsInput is an input type that accepts DLPWebRulesLabelsArgs and DLPWebRulesLabelsOutput values.
@@ -1973,8 +2058,7 @@ type DLPWebRulesLabelsInput interface {
 }
 
 type DLPWebRulesLabelsArgs struct {
-	// A unique identifier assigned to the workload group
-	Id pulumi.IntInput `pulumi:"id"`
+	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
 func (DLPWebRulesLabelsArgs) ElementType() reflect.Type {
@@ -2054,9 +2138,8 @@ func (o DLPWebRulesLabelsOutput) ToDLPWebRulesLabelsPtrOutputWithContext(ctx con
 	}).(DLPWebRulesLabelsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o DLPWebRulesLabelsOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v DLPWebRulesLabels) int { return v.Id }).(pulumi.IntOutput)
+func (o DLPWebRulesLabelsOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DLPWebRulesLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 type DLPWebRulesLabelsPtrOutput struct{ *pulumi.OutputState }
@@ -2083,18 +2166,16 @@ func (o DLPWebRulesLabelsPtrOutput) Elem() DLPWebRulesLabelsOutput {
 	}).(DLPWebRulesLabelsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DLPWebRulesLabels) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.Id
 	}).(pulumi.IntPtrOutput)
 }
 
 type DLPWebRulesLocationGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -2110,7 +2191,6 @@ type DLPWebRulesLocationGroupsInput interface {
 }
 
 type DLPWebRulesLocationGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -2191,7 +2271,6 @@ func (o DLPWebRulesLocationGroupsOutput) ToDLPWebRulesLocationGroupsPtrOutputWit
 	}).(DLPWebRulesLocationGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -2220,7 +2299,6 @@ func (o DLPWebRulesLocationGroupsPtrOutput) Elem() DLPWebRulesLocationGroupsOutp
 	}).(DLPWebRulesLocationGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesLocationGroups) []int {
 		if v == nil {
@@ -2231,7 +2309,6 @@ func (o DLPWebRulesLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesLocations struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -2247,7 +2324,6 @@ type DLPWebRulesLocationsInput interface {
 }
 
 type DLPWebRulesLocationsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -2328,7 +2404,6 @@ func (o DLPWebRulesLocationsOutput) ToDLPWebRulesLocationsPtrOutputWithContext(c
 	}).(DLPWebRulesLocationsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesLocationsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -2357,7 +2432,6 @@ func (o DLPWebRulesLocationsPtrOutput) Elem() DLPWebRulesLocationsOutput {
 	}).(DLPWebRulesLocationsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesLocations) []int {
 		if v == nil {
@@ -2368,7 +2442,6 @@ func (o DLPWebRulesLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesNotificationTemplate struct {
-	// A unique identifier assigned to the workload group
 	Id int `pulumi:"id"`
 }
 
@@ -2384,7 +2457,6 @@ type DLPWebRulesNotificationTemplateInput interface {
 }
 
 type DLPWebRulesNotificationTemplateArgs struct {
-	// A unique identifier assigned to the workload group
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -2400,45 +2472,29 @@ func (i DLPWebRulesNotificationTemplateArgs) ToDLPWebRulesNotificationTemplateOu
 	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesNotificationTemplateOutput)
 }
 
-func (i DLPWebRulesNotificationTemplateArgs) ToDLPWebRulesNotificationTemplatePtrOutput() DLPWebRulesNotificationTemplatePtrOutput {
-	return i.ToDLPWebRulesNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i DLPWebRulesNotificationTemplateArgs) ToDLPWebRulesNotificationTemplatePtrOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesNotificationTemplateOutput).ToDLPWebRulesNotificationTemplatePtrOutputWithContext(ctx)
-}
-
-// DLPWebRulesNotificationTemplatePtrInput is an input type that accepts DLPWebRulesNotificationTemplateArgs, DLPWebRulesNotificationTemplatePtr and DLPWebRulesNotificationTemplatePtrOutput values.
-// You can construct a concrete instance of `DLPWebRulesNotificationTemplatePtrInput` via:
+// DLPWebRulesNotificationTemplateArrayInput is an input type that accepts DLPWebRulesNotificationTemplateArray and DLPWebRulesNotificationTemplateArrayOutput values.
+// You can construct a concrete instance of `DLPWebRulesNotificationTemplateArrayInput` via:
 //
-//	        DLPWebRulesNotificationTemplateArgs{...}
-//
-//	or:
-//
-//	        nil
-type DLPWebRulesNotificationTemplatePtrInput interface {
+//	DLPWebRulesNotificationTemplateArray{ DLPWebRulesNotificationTemplateArgs{...} }
+type DLPWebRulesNotificationTemplateArrayInput interface {
 	pulumi.Input
 
-	ToDLPWebRulesNotificationTemplatePtrOutput() DLPWebRulesNotificationTemplatePtrOutput
-	ToDLPWebRulesNotificationTemplatePtrOutputWithContext(context.Context) DLPWebRulesNotificationTemplatePtrOutput
+	ToDLPWebRulesNotificationTemplateArrayOutput() DLPWebRulesNotificationTemplateArrayOutput
+	ToDLPWebRulesNotificationTemplateArrayOutputWithContext(context.Context) DLPWebRulesNotificationTemplateArrayOutput
 }
 
-type dlpwebRulesNotificationTemplatePtrType DLPWebRulesNotificationTemplateArgs
+type DLPWebRulesNotificationTemplateArray []DLPWebRulesNotificationTemplateInput
 
-func DLPWebRulesNotificationTemplatePtr(v *DLPWebRulesNotificationTemplateArgs) DLPWebRulesNotificationTemplatePtrInput {
-	return (*dlpwebRulesNotificationTemplatePtrType)(v)
+func (DLPWebRulesNotificationTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesNotificationTemplate)(nil)).Elem()
 }
 
-func (*dlpwebRulesNotificationTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesNotificationTemplate)(nil)).Elem()
+func (i DLPWebRulesNotificationTemplateArray) ToDLPWebRulesNotificationTemplateArrayOutput() DLPWebRulesNotificationTemplateArrayOutput {
+	return i.ToDLPWebRulesNotificationTemplateArrayOutputWithContext(context.Background())
 }
 
-func (i *dlpwebRulesNotificationTemplatePtrType) ToDLPWebRulesNotificationTemplatePtrOutput() DLPWebRulesNotificationTemplatePtrOutput {
-	return i.ToDLPWebRulesNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *dlpwebRulesNotificationTemplatePtrType) ToDLPWebRulesNotificationTemplatePtrOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesNotificationTemplatePtrOutput)
+func (i DLPWebRulesNotificationTemplateArray) ToDLPWebRulesNotificationTemplateArrayOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesNotificationTemplateArrayOutput)
 }
 
 type DLPWebRulesNotificationTemplateOutput struct{ *pulumi.OutputState }
@@ -2455,57 +2511,164 @@ func (o DLPWebRulesNotificationTemplateOutput) ToDLPWebRulesNotificationTemplate
 	return o
 }
 
-func (o DLPWebRulesNotificationTemplateOutput) ToDLPWebRulesNotificationTemplatePtrOutput() DLPWebRulesNotificationTemplatePtrOutput {
-	return o.ToDLPWebRulesNotificationTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o DLPWebRulesNotificationTemplateOutput) ToDLPWebRulesNotificationTemplatePtrOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesNotificationTemplate) *DLPWebRulesNotificationTemplate {
-		return &v
-	}).(DLPWebRulesNotificationTemplatePtrOutput)
-}
-
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesNotificationTemplateOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v DLPWebRulesNotificationTemplate) int { return v.Id }).(pulumi.IntOutput)
 }
 
-type DLPWebRulesNotificationTemplatePtrOutput struct{ *pulumi.OutputState }
+type DLPWebRulesNotificationTemplateArrayOutput struct{ *pulumi.OutputState }
 
-func (DLPWebRulesNotificationTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DLPWebRulesNotificationTemplate)(nil)).Elem()
+func (DLPWebRulesNotificationTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DLPWebRulesNotificationTemplate)(nil)).Elem()
 }
 
-func (o DLPWebRulesNotificationTemplatePtrOutput) ToDLPWebRulesNotificationTemplatePtrOutput() DLPWebRulesNotificationTemplatePtrOutput {
+func (o DLPWebRulesNotificationTemplateArrayOutput) ToDLPWebRulesNotificationTemplateArrayOutput() DLPWebRulesNotificationTemplateArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesNotificationTemplatePtrOutput) ToDLPWebRulesNotificationTemplatePtrOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplatePtrOutput {
+func (o DLPWebRulesNotificationTemplateArrayOutput) ToDLPWebRulesNotificationTemplateArrayOutputWithContext(ctx context.Context) DLPWebRulesNotificationTemplateArrayOutput {
 	return o
 }
 
-func (o DLPWebRulesNotificationTemplatePtrOutput) Elem() DLPWebRulesNotificationTemplateOutput {
-	return o.ApplyT(func(v *DLPWebRulesNotificationTemplate) DLPWebRulesNotificationTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret DLPWebRulesNotificationTemplate
-		return ret
+func (o DLPWebRulesNotificationTemplateArrayOutput) Index(i pulumi.IntInput) DLPWebRulesNotificationTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DLPWebRulesNotificationTemplate {
+		return vs[0].([]DLPWebRulesNotificationTemplate)[vs[1].(int)]
 	}).(DLPWebRulesNotificationTemplateOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o DLPWebRulesNotificationTemplatePtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DLPWebRulesNotificationTemplate) *int {
+type DLPWebRulesSourceIpGroups struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// DLPWebRulesSourceIpGroupsInput is an input type that accepts DLPWebRulesSourceIpGroupsArgs and DLPWebRulesSourceIpGroupsOutput values.
+// You can construct a concrete instance of `DLPWebRulesSourceIpGroupsInput` via:
+//
+//	DLPWebRulesSourceIpGroupsArgs{...}
+type DLPWebRulesSourceIpGroupsInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesSourceIpGroupsOutput() DLPWebRulesSourceIpGroupsOutput
+	ToDLPWebRulesSourceIpGroupsOutputWithContext(context.Context) DLPWebRulesSourceIpGroupsOutput
+}
+
+type DLPWebRulesSourceIpGroupsArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (DLPWebRulesSourceIpGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (i DLPWebRulesSourceIpGroupsArgs) ToDLPWebRulesSourceIpGroupsOutput() DLPWebRulesSourceIpGroupsOutput {
+	return i.ToDLPWebRulesSourceIpGroupsOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesSourceIpGroupsArgs) ToDLPWebRulesSourceIpGroupsOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesSourceIpGroupsOutput)
+}
+
+func (i DLPWebRulesSourceIpGroupsArgs) ToDLPWebRulesSourceIpGroupsPtrOutput() DLPWebRulesSourceIpGroupsPtrOutput {
+	return i.ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i DLPWebRulesSourceIpGroupsArgs) ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesSourceIpGroupsOutput).ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(ctx)
+}
+
+// DLPWebRulesSourceIpGroupsPtrInput is an input type that accepts DLPWebRulesSourceIpGroupsArgs, DLPWebRulesSourceIpGroupsPtr and DLPWebRulesSourceIpGroupsPtrOutput values.
+// You can construct a concrete instance of `DLPWebRulesSourceIpGroupsPtrInput` via:
+//
+//	        DLPWebRulesSourceIpGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DLPWebRulesSourceIpGroupsPtrInput interface {
+	pulumi.Input
+
+	ToDLPWebRulesSourceIpGroupsPtrOutput() DLPWebRulesSourceIpGroupsPtrOutput
+	ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(context.Context) DLPWebRulesSourceIpGroupsPtrOutput
+}
+
+type dlpwebRulesSourceIpGroupsPtrType DLPWebRulesSourceIpGroupsArgs
+
+func DLPWebRulesSourceIpGroupsPtr(v *DLPWebRulesSourceIpGroupsArgs) DLPWebRulesSourceIpGroupsPtrInput {
+	return (*dlpwebRulesSourceIpGroupsPtrType)(v)
+}
+
+func (*dlpwebRulesSourceIpGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (i *dlpwebRulesSourceIpGroupsPtrType) ToDLPWebRulesSourceIpGroupsPtrOutput() DLPWebRulesSourceIpGroupsPtrOutput {
+	return i.ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *dlpwebRulesSourceIpGroupsPtrType) ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DLPWebRulesSourceIpGroupsPtrOutput)
+}
+
+type DLPWebRulesSourceIpGroupsOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesSourceIpGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DLPWebRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (o DLPWebRulesSourceIpGroupsOutput) ToDLPWebRulesSourceIpGroupsOutput() DLPWebRulesSourceIpGroupsOutput {
+	return o
+}
+
+func (o DLPWebRulesSourceIpGroupsOutput) ToDLPWebRulesSourceIpGroupsOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsOutput {
+	return o
+}
+
+func (o DLPWebRulesSourceIpGroupsOutput) ToDLPWebRulesSourceIpGroupsPtrOutput() DLPWebRulesSourceIpGroupsPtrOutput {
+	return o.ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o DLPWebRulesSourceIpGroupsOutput) ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DLPWebRulesSourceIpGroups) *DLPWebRulesSourceIpGroups {
+		return &v
+	}).(DLPWebRulesSourceIpGroupsPtrOutput)
+}
+
+func (o DLPWebRulesSourceIpGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DLPWebRulesSourceIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type DLPWebRulesSourceIpGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (DLPWebRulesSourceIpGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DLPWebRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (o DLPWebRulesSourceIpGroupsPtrOutput) ToDLPWebRulesSourceIpGroupsPtrOutput() DLPWebRulesSourceIpGroupsPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesSourceIpGroupsPtrOutput) ToDLPWebRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) DLPWebRulesSourceIpGroupsPtrOutput {
+	return o
+}
+
+func (o DLPWebRulesSourceIpGroupsPtrOutput) Elem() DLPWebRulesSourceIpGroupsOutput {
+	return o.ApplyT(func(v *DLPWebRulesSourceIpGroups) DLPWebRulesSourceIpGroups {
+		if v != nil {
+			return *v
+		}
+		var ret DLPWebRulesSourceIpGroups
+		return ret
+	}).(DLPWebRulesSourceIpGroupsOutput)
+}
+
+func (o DLPWebRulesSourceIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DLPWebRulesSourceIpGroups) []int {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
-	}).(pulumi.IntPtrOutput)
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
 }
 
 type DLPWebRulesTimeWindows struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -2521,7 +2684,6 @@ type DLPWebRulesTimeWindowsInput interface {
 }
 
 type DLPWebRulesTimeWindowsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -2602,7 +2764,6 @@ func (o DLPWebRulesTimeWindowsOutput) ToDLPWebRulesTimeWindowsPtrOutputWithConte
 	}).(DLPWebRulesTimeWindowsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -2631,7 +2792,6 @@ func (o DLPWebRulesTimeWindowsPtrOutput) Elem() DLPWebRulesTimeWindowsOutput {
 	}).(DLPWebRulesTimeWindowsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesTimeWindows) []int {
 		if v == nil {
@@ -2642,7 +2802,6 @@ func (o DLPWebRulesTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesUrlCategories struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -2658,7 +2817,6 @@ type DLPWebRulesUrlCategoriesInput interface {
 }
 
 type DLPWebRulesUrlCategoriesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -2739,7 +2897,6 @@ func (o DLPWebRulesUrlCategoriesOutput) ToDLPWebRulesUrlCategoriesPtrOutputWithC
 	}).(DLPWebRulesUrlCategoriesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesUrlCategoriesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesUrlCategories) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -2768,7 +2925,6 @@ func (o DLPWebRulesUrlCategoriesPtrOutput) Elem() DLPWebRulesUrlCategoriesOutput
 	}).(DLPWebRulesUrlCategoriesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesUrlCategoriesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesUrlCategories) []int {
 		if v == nil {
@@ -2779,7 +2935,6 @@ func (o DLPWebRulesUrlCategoriesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesUsers struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -2795,7 +2950,6 @@ type DLPWebRulesUsersInput interface {
 }
 
 type DLPWebRulesUsersArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -2876,7 +3030,6 @@ func (o DLPWebRulesUsersOutput) ToDLPWebRulesUsersPtrOutputWithContext(ctx conte
 	}).(DLPWebRulesUsersPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DLPWebRulesUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -2905,7 +3058,6 @@ func (o DLPWebRulesUsersPtrOutput) Elem() DLPWebRulesUsersOutput {
 	}).(DLPWebRulesUsersOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o DLPWebRulesUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPWebRulesUsers) []int {
 		if v == nil {
@@ -2916,9 +3068,9 @@ func (o DLPWebRulesUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type DLPWebRulesWorkloadGroup struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// The name of the resource.
 	Name string `pulumi:"name"`
 }
 
@@ -2934,9 +3086,9 @@ type DLPWebRulesWorkloadGroupInput interface {
 }
 
 type DLPWebRulesWorkloadGroupArgs struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// The name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2991,12 +3143,12 @@ func (o DLPWebRulesWorkloadGroupOutput) ToDLPWebRulesWorkloadGroupOutputWithCont
 	return o
 }
 
-// A unique identifier assigned to the workload group
+// The unique identifier for the resource.
 func (o DLPWebRulesWorkloadGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v DLPWebRulesWorkloadGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// The name of the resource.
 func (o DLPWebRulesWorkloadGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DLPWebRulesWorkloadGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3022,7 +3174,6 @@ func (o DLPWebRulesWorkloadGroupArrayOutput) Index(i pulumi.IntInput) DLPWebRule
 }
 
 type FirewallFilteringNetworkServicesDestTcpPort struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   *int `pulumi:"end"`
 	Start *int `pulumi:"start"`
 }
@@ -3039,7 +3190,6 @@ type FirewallFilteringNetworkServicesDestTcpPortInput interface {
 }
 
 type FirewallFilteringNetworkServicesDestTcpPortArgs struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   pulumi.IntPtrInput `pulumi:"end"`
 	Start pulumi.IntPtrInput `pulumi:"start"`
 }
@@ -3095,7 +3245,6 @@ func (o FirewallFilteringNetworkServicesDestTcpPortOutput) ToFirewallFilteringNe
 	return o
 }
 
-// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 func (o FirewallFilteringNetworkServicesDestTcpPortOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallFilteringNetworkServicesDestTcpPort) *int { return v.End }).(pulumi.IntPtrOutput)
 }
@@ -3125,7 +3274,6 @@ func (o FirewallFilteringNetworkServicesDestTcpPortArrayOutput) Index(i pulumi.I
 }
 
 type FirewallFilteringNetworkServicesDestUdpPort struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   *int `pulumi:"end"`
 	Start *int `pulumi:"start"`
 }
@@ -3142,7 +3290,6 @@ type FirewallFilteringNetworkServicesDestUdpPortInput interface {
 }
 
 type FirewallFilteringNetworkServicesDestUdpPortArgs struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   pulumi.IntPtrInput `pulumi:"end"`
 	Start pulumi.IntPtrInput `pulumi:"start"`
 }
@@ -3198,7 +3345,6 @@ func (o FirewallFilteringNetworkServicesDestUdpPortOutput) ToFirewallFilteringNe
 	return o
 }
 
-// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 func (o FirewallFilteringNetworkServicesDestUdpPortOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallFilteringNetworkServicesDestUdpPort) *int { return v.End }).(pulumi.IntPtrOutput)
 }
@@ -3228,7 +3374,6 @@ func (o FirewallFilteringNetworkServicesDestUdpPortArrayOutput) Index(i pulumi.I
 }
 
 type FirewallFilteringNetworkServicesSrcTcpPort struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   *int `pulumi:"end"`
 	Start *int `pulumi:"start"`
 }
@@ -3245,7 +3390,6 @@ type FirewallFilteringNetworkServicesSrcTcpPortInput interface {
 }
 
 type FirewallFilteringNetworkServicesSrcTcpPortArgs struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   pulumi.IntPtrInput `pulumi:"end"`
 	Start pulumi.IntPtrInput `pulumi:"start"`
 }
@@ -3301,7 +3445,6 @@ func (o FirewallFilteringNetworkServicesSrcTcpPortOutput) ToFirewallFilteringNet
 	return o
 }
 
-// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 func (o FirewallFilteringNetworkServicesSrcTcpPortOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallFilteringNetworkServicesSrcTcpPort) *int { return v.End }).(pulumi.IntPtrOutput)
 }
@@ -3331,7 +3474,6 @@ func (o FirewallFilteringNetworkServicesSrcTcpPortArrayOutput) Index(i pulumi.In
 }
 
 type FirewallFilteringNetworkServicesSrcUdpPort struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   *int `pulumi:"end"`
 	Start *int `pulumi:"start"`
 }
@@ -3348,7 +3490,6 @@ type FirewallFilteringNetworkServicesSrcUdpPortInput interface {
 }
 
 type FirewallFilteringNetworkServicesSrcUdpPortArgs struct {
-	// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 	End   pulumi.IntPtrInput `pulumi:"end"`
 	Start pulumi.IntPtrInput `pulumi:"start"`
 }
@@ -3404,7 +3545,6 @@ func (o FirewallFilteringNetworkServicesSrcUdpPortOutput) ToFirewallFilteringNet
 	return o
 }
 
-// > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
 func (o FirewallFilteringNetworkServicesSrcUdpPortOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallFilteringNetworkServicesSrcUdpPort) *int { return v.End }).(pulumi.IntPtrOutput)
 }
@@ -3434,7 +3574,6 @@ func (o FirewallFilteringNetworkServicesSrcUdpPortArrayOutput) Index(i pulumi.In
 }
 
 type FirewallFilteringRuleAppServiceGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -3450,7 +3589,6 @@ type FirewallFilteringRuleAppServiceGroupsInput interface {
 }
 
 type FirewallFilteringRuleAppServiceGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -3531,7 +3669,6 @@ func (o FirewallFilteringRuleAppServiceGroupsOutput) ToFirewallFilteringRuleAppS
 	}).(FirewallFilteringRuleAppServiceGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleAppServiceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleAppServiceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -3560,7 +3697,6 @@ func (o FirewallFilteringRuleAppServiceGroupsPtrOutput) Elem() FirewallFiltering
 	}).(FirewallFilteringRuleAppServiceGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleAppServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleAppServiceGroups) []int {
 		if v == nil {
@@ -3571,7 +3707,6 @@ func (o FirewallFilteringRuleAppServiceGroupsPtrOutput) Ids() pulumi.IntArrayOut
 }
 
 type FirewallFilteringRuleAppServices struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -3587,7 +3722,6 @@ type FirewallFilteringRuleAppServicesInput interface {
 }
 
 type FirewallFilteringRuleAppServicesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -3668,7 +3802,6 @@ func (o FirewallFilteringRuleAppServicesOutput) ToFirewallFilteringRuleAppServic
 	}).(FirewallFilteringRuleAppServicesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleAppServicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleAppServices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -3697,7 +3830,6 @@ func (o FirewallFilteringRuleAppServicesPtrOutput) Elem() FirewallFilteringRuleA
 	}).(FirewallFilteringRuleAppServicesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleAppServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleAppServices) []int {
 		if v == nil {
@@ -3708,7 +3840,6 @@ func (o FirewallFilteringRuleAppServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleDepartments struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -3724,7 +3855,6 @@ type FirewallFilteringRuleDepartmentsInput interface {
 }
 
 type FirewallFilteringRuleDepartmentsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -3805,7 +3935,6 @@ func (o FirewallFilteringRuleDepartmentsOutput) ToFirewallFilteringRuleDepartmen
 	}).(FirewallFilteringRuleDepartmentsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -3834,7 +3963,6 @@ func (o FirewallFilteringRuleDepartmentsPtrOutput) Elem() FirewallFilteringRuleD
 	}).(FirewallFilteringRuleDepartmentsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleDepartments) []int {
 		if v == nil {
@@ -3845,7 +3973,6 @@ func (o FirewallFilteringRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleDestIpGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -3861,7 +3988,6 @@ type FirewallFilteringRuleDestIpGroupsInput interface {
 }
 
 type FirewallFilteringRuleDestIpGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -3942,7 +4068,6 @@ func (o FirewallFilteringRuleDestIpGroupsOutput) ToFirewallFilteringRuleDestIpGr
 	}).(FirewallFilteringRuleDestIpGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDestIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleDestIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -3971,7 +4096,6 @@ func (o FirewallFilteringRuleDestIpGroupsPtrOutput) Elem() FirewallFilteringRule
 	}).(FirewallFilteringRuleDestIpGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleDestIpGroups) []int {
 		if v == nil {
@@ -3982,7 +4106,6 @@ func (o FirewallFilteringRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput 
 }
 
 type FirewallFilteringRuleDeviceGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -3998,7 +4121,6 @@ type FirewallFilteringRuleDeviceGroupsInput interface {
 }
 
 type FirewallFilteringRuleDeviceGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4079,7 +4201,6 @@ func (o FirewallFilteringRuleDeviceGroupsOutput) ToFirewallFilteringRuleDeviceGr
 	}).(FirewallFilteringRuleDeviceGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDeviceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleDeviceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4108,7 +4229,6 @@ func (o FirewallFilteringRuleDeviceGroupsPtrOutput) Elem() FirewallFilteringRule
 	}).(FirewallFilteringRuleDeviceGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleDeviceGroups) []int {
 		if v == nil {
@@ -4119,7 +4239,6 @@ func (o FirewallFilteringRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput 
 }
 
 type FirewallFilteringRuleDevices struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4135,7 +4254,6 @@ type FirewallFilteringRuleDevicesInput interface {
 }
 
 type FirewallFilteringRuleDevicesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4216,7 +4334,6 @@ func (o FirewallFilteringRuleDevicesOutput) ToFirewallFilteringRuleDevicesPtrOut
 	}).(FirewallFilteringRuleDevicesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDevicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleDevices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4245,7 +4362,6 @@ func (o FirewallFilteringRuleDevicesPtrOutput) Elem() FirewallFilteringRuleDevic
 	}).(FirewallFilteringRuleDevicesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleDevices) []int {
 		if v == nil {
@@ -4256,7 +4372,6 @@ func (o FirewallFilteringRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4272,7 +4387,6 @@ type FirewallFilteringRuleGroupsInput interface {
 }
 
 type FirewallFilteringRuleGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4353,7 +4467,6 @@ func (o FirewallFilteringRuleGroupsOutput) ToFirewallFilteringRuleGroupsPtrOutpu
 	}).(FirewallFilteringRuleGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4382,7 +4495,6 @@ func (o FirewallFilteringRuleGroupsPtrOutput) Elem() FirewallFilteringRuleGroups
 	}).(FirewallFilteringRuleGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleGroups) []int {
 		if v == nil {
@@ -4393,8 +4505,7 @@ func (o FirewallFilteringRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleLabels struct {
-	// A unique identifier assigned to the workload group
-	Id int `pulumi:"id"`
+	Id *int `pulumi:"id"`
 }
 
 // FirewallFilteringRuleLabelsInput is an input type that accepts FirewallFilteringRuleLabelsArgs and FirewallFilteringRuleLabelsOutput values.
@@ -4409,8 +4520,7 @@ type FirewallFilteringRuleLabelsInput interface {
 }
 
 type FirewallFilteringRuleLabelsArgs struct {
-	// A unique identifier assigned to the workload group
-	Id pulumi.IntInput `pulumi:"id"`
+	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
 func (FirewallFilteringRuleLabelsArgs) ElementType() reflect.Type {
@@ -4490,9 +4600,8 @@ func (o FirewallFilteringRuleLabelsOutput) ToFirewallFilteringRuleLabelsPtrOutpu
 	}).(FirewallFilteringRuleLabelsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o FirewallFilteringRuleLabelsOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v FirewallFilteringRuleLabels) int { return v.Id }).(pulumi.IntOutput)
+func (o FirewallFilteringRuleLabelsOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallFilteringRuleLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 type FirewallFilteringRuleLabelsPtrOutput struct{ *pulumi.OutputState }
@@ -4519,18 +4628,16 @@ func (o FirewallFilteringRuleLabelsPtrOutput) Elem() FirewallFilteringRuleLabels
 	}).(FirewallFilteringRuleLabelsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleLabels) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.Id
 	}).(pulumi.IntPtrOutput)
 }
 
 type FirewallFilteringRuleLocationGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4546,7 +4653,6 @@ type FirewallFilteringRuleLocationGroupsInput interface {
 }
 
 type FirewallFilteringRuleLocationGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4627,7 +4733,6 @@ func (o FirewallFilteringRuleLocationGroupsOutput) ToFirewallFilteringRuleLocati
 	}).(FirewallFilteringRuleLocationGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4656,7 +4761,6 @@ func (o FirewallFilteringRuleLocationGroupsPtrOutput) Elem() FirewallFilteringRu
 	}).(FirewallFilteringRuleLocationGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleLocationGroups) []int {
 		if v == nil {
@@ -4667,7 +4771,6 @@ func (o FirewallFilteringRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutpu
 }
 
 type FirewallFilteringRuleLocations struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4683,7 +4786,6 @@ type FirewallFilteringRuleLocationsInput interface {
 }
 
 type FirewallFilteringRuleLocationsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4764,7 +4866,6 @@ func (o FirewallFilteringRuleLocationsOutput) ToFirewallFilteringRuleLocationsPt
 	}).(FirewallFilteringRuleLocationsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleLocationsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4793,7 +4894,6 @@ func (o FirewallFilteringRuleLocationsPtrOutput) Elem() FirewallFilteringRuleLoc
 	}).(FirewallFilteringRuleLocationsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleLocations) []int {
 		if v == nil {
@@ -4804,7 +4904,6 @@ func (o FirewallFilteringRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleNwApplicationGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4820,7 +4919,6 @@ type FirewallFilteringRuleNwApplicationGroupsInput interface {
 }
 
 type FirewallFilteringRuleNwApplicationGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -4901,7 +4999,6 @@ func (o FirewallFilteringRuleNwApplicationGroupsOutput) ToFirewallFilteringRuleN
 	}).(FirewallFilteringRuleNwApplicationGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwApplicationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleNwApplicationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -4930,7 +5027,6 @@ func (o FirewallFilteringRuleNwApplicationGroupsPtrOutput) Elem() FirewallFilter
 	}).(FirewallFilteringRuleNwApplicationGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwApplicationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleNwApplicationGroups) []int {
 		if v == nil {
@@ -4941,7 +5037,6 @@ func (o FirewallFilteringRuleNwApplicationGroupsPtrOutput) Ids() pulumi.IntArray
 }
 
 type FirewallFilteringRuleNwServiceGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -4957,7 +5052,6 @@ type FirewallFilteringRuleNwServiceGroupsInput interface {
 }
 
 type FirewallFilteringRuleNwServiceGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -5038,7 +5132,6 @@ func (o FirewallFilteringRuleNwServiceGroupsOutput) ToFirewallFilteringRuleNwSer
 	}).(FirewallFilteringRuleNwServiceGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwServiceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleNwServiceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -5067,7 +5160,6 @@ func (o FirewallFilteringRuleNwServiceGroupsPtrOutput) Elem() FirewallFilteringR
 	}).(FirewallFilteringRuleNwServiceGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleNwServiceGroups) []int {
 		if v == nil {
@@ -5078,7 +5170,6 @@ func (o FirewallFilteringRuleNwServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutp
 }
 
 type FirewallFilteringRuleNwServices struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -5094,7 +5185,6 @@ type FirewallFilteringRuleNwServicesInput interface {
 }
 
 type FirewallFilteringRuleNwServicesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -5175,7 +5265,6 @@ func (o FirewallFilteringRuleNwServicesOutput) ToFirewallFilteringRuleNwServices
 	}).(FirewallFilteringRuleNwServicesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwServicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleNwServices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -5204,7 +5293,6 @@ func (o FirewallFilteringRuleNwServicesPtrOutput) Elem() FirewallFilteringRuleNw
 	}).(FirewallFilteringRuleNwServicesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleNwServices) []int {
 		if v == nil {
@@ -5215,7 +5303,6 @@ func (o FirewallFilteringRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleSrcIpGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -5231,7 +5318,6 @@ type FirewallFilteringRuleSrcIpGroupsInput interface {
 }
 
 type FirewallFilteringRuleSrcIpGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -5312,7 +5398,6 @@ func (o FirewallFilteringRuleSrcIpGroupsOutput) ToFirewallFilteringRuleSrcIpGrou
 	}).(FirewallFilteringRuleSrcIpGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleSrcIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleSrcIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -5341,7 +5426,6 @@ func (o FirewallFilteringRuleSrcIpGroupsPtrOutput) Elem() FirewallFilteringRuleS
 	}).(FirewallFilteringRuleSrcIpGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleSrcIpGroups) []int {
 		if v == nil {
@@ -5352,7 +5436,6 @@ func (o FirewallFilteringRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleTimeWindows struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -5368,7 +5451,6 @@ type FirewallFilteringRuleTimeWindowsInput interface {
 }
 
 type FirewallFilteringRuleTimeWindowsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -5449,7 +5531,6 @@ func (o FirewallFilteringRuleTimeWindowsOutput) ToFirewallFilteringRuleTimeWindo
 	}).(FirewallFilteringRuleTimeWindowsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -5478,7 +5559,6 @@ func (o FirewallFilteringRuleTimeWindowsPtrOutput) Elem() FirewallFilteringRuleT
 	}).(FirewallFilteringRuleTimeWindowsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleTimeWindows) []int {
 		if v == nil {
@@ -5489,7 +5569,6 @@ func (o FirewallFilteringRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleUsers struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -5505,7 +5584,6 @@ type FirewallFilteringRuleUsersInput interface {
 }
 
 type FirewallFilteringRuleUsersArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -5586,7 +5664,6 @@ func (o FirewallFilteringRuleUsersOutput) ToFirewallFilteringRuleUsersPtrOutputW
 	}).(FirewallFilteringRuleUsersPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -5615,7 +5692,6 @@ func (o FirewallFilteringRuleUsersPtrOutput) Elem() FirewallFilteringRuleUsersOu
 	}).(FirewallFilteringRuleUsersOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o FirewallFilteringRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRuleUsers) []int {
 		if v == nil {
@@ -5626,11 +5702,9 @@ func (o FirewallFilteringRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallFilteringRuleWorkloadGroup struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id int `pulumi:"id"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// The name of the resource.
 	Name string `pulumi:"name"`
 }
 
@@ -5646,11 +5720,9 @@ type FirewallFilteringRuleWorkloadGroupInput interface {
 }
 
 type FirewallFilteringRuleWorkloadGroupArgs struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// The name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5705,14 +5777,12 @@ func (o FirewallFilteringRuleWorkloadGroupOutput) ToFirewallFilteringRuleWorkloa
 	return o
 }
 
-// A unique identifier assigned to the workload group
+// The unique identifier for the resource.
 func (o FirewallFilteringRuleWorkloadGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleWorkloadGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
-//
-// * `Other Exported Arguments`
+// The name of the resource.
 func (o FirewallFilteringRuleWorkloadGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleWorkloadGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5740,9 +5810,7 @@ func (o FirewallFilteringRuleWorkloadGroupArrayOutput) Index(i pulumi.IntInput) 
 type FirewallFilteringRuleZpaAppSegment struct {
 	// External ID of the application segment.
 	ExternalId string `pulumi:"externalId"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the application segment.
 	Name string `pulumi:"name"`
 }
 
@@ -5760,9 +5828,7 @@ type FirewallFilteringRuleZpaAppSegmentInput interface {
 type FirewallFilteringRuleZpaAppSegmentArgs struct {
 	// External ID of the application segment.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// The name of the workload group
-	//
-	// * `Other Exported Arguments`
+	// Name of the application segment.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5822,9 +5888,7 @@ func (o FirewallFilteringRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutp
 	return o.ApplyT(func(v FirewallFilteringRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// The name of the workload group
-//
-// * `Other Exported Arguments`
+// Name of the application segment.
 func (o FirewallFilteringRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallFilteringRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6767,7 +6831,7 @@ func (o ForwardingControlRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 
 type ForwardingControlRuleLabels struct {
 	// (int) Identifier that uniquely identifies an entity
-	Id int `pulumi:"id"`
+	Id *int `pulumi:"id"`
 }
 
 // ForwardingControlRuleLabelsInput is an input type that accepts ForwardingControlRuleLabelsArgs and ForwardingControlRuleLabelsOutput values.
@@ -6783,7 +6847,7 @@ type ForwardingControlRuleLabelsInput interface {
 
 type ForwardingControlRuleLabelsArgs struct {
 	// (int) Identifier that uniquely identifies an entity
-	Id pulumi.IntInput `pulumi:"id"`
+	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
 func (ForwardingControlRuleLabelsArgs) ElementType() reflect.Type {
@@ -6864,8 +6928,8 @@ func (o ForwardingControlRuleLabelsOutput) ToForwardingControlRuleLabelsPtrOutpu
 }
 
 // (int) Identifier that uniquely identifies an entity
-func (o ForwardingControlRuleLabelsOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v ForwardingControlRuleLabels) int { return v.Id }).(pulumi.IntOutput)
+func (o ForwardingControlRuleLabelsOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ForwardingControlRuleLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 type ForwardingControlRuleLabelsPtrOutput struct{ *pulumi.OutputState }
@@ -6898,7 +6962,7 @@ func (o ForwardingControlRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.Id
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -7590,7 +7654,7 @@ func (o ForwardingControlRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 type ForwardingControlRuleProxyGateway struct {
 	// (int) Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -7608,7 +7672,7 @@ type ForwardingControlRuleProxyGatewayInput interface {
 type ForwardingControlRuleProxyGatewayArgs struct {
 	// (int) Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7694,7 +7758,7 @@ func (o ForwardingControlRuleProxyGatewayOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v ForwardingControlRuleProxyGateway) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleProxyGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingControlRuleProxyGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7733,7 +7797,7 @@ func (o ForwardingControlRuleProxyGatewayPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleProxyGatewayPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRuleProxyGateway) *string {
 		if v == nil {
@@ -8157,7 +8221,7 @@ func (o ForwardingControlRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 type ForwardingControlRuleZpaAppSegment struct {
 	// (int) Identifier that uniquely identifies an entity
 	ExternalId string `pulumi:"externalId"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -8175,7 +8239,7 @@ type ForwardingControlRuleZpaAppSegmentInput interface {
 type ForwardingControlRuleZpaAppSegmentArgs struct {
 	// (int) Identifier that uniquely identifies an entity
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -8235,7 +8299,7 @@ func (o ForwardingControlRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutp
 	return o.ApplyT(func(v ForwardingControlRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingControlRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8537,7 +8601,7 @@ func (o ForwardingControlRuleZpaApplicationSegmentsPtrOutput) Ids() pulumi.IntAr
 type ForwardingControlRuleZpaGateway struct {
 	// (int) Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -8555,7 +8619,7 @@ type ForwardingControlRuleZpaGatewayInput interface {
 type ForwardingControlRuleZpaGatewayArgs struct {
 	// (int) Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -8641,7 +8705,7 @@ func (o ForwardingControlRuleZpaGatewayOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v ForwardingControlRuleZpaGateway) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleZpaGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardingControlRuleZpaGateway) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8680,7 +8744,7 @@ func (o ForwardingControlRuleZpaGatewayPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleZpaGatewayPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRuleZpaGateway) *string {
 		if v == nil {
@@ -8952,10 +9016,275 @@ func (o ForwardingControlZPAGatewayZpaServerGroupPtrOutput) Name() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type LocationManagementDynamicLocationGroups struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// LocationManagementDynamicLocationGroupsInput is an input type that accepts LocationManagementDynamicLocationGroupsArgs and LocationManagementDynamicLocationGroupsOutput values.
+// You can construct a concrete instance of `LocationManagementDynamicLocationGroupsInput` via:
+//
+//	LocationManagementDynamicLocationGroupsArgs{...}
+type LocationManagementDynamicLocationGroupsInput interface {
+	pulumi.Input
+
+	ToLocationManagementDynamicLocationGroupsOutput() LocationManagementDynamicLocationGroupsOutput
+	ToLocationManagementDynamicLocationGroupsOutputWithContext(context.Context) LocationManagementDynamicLocationGroupsOutput
+}
+
+type LocationManagementDynamicLocationGroupsArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (LocationManagementDynamicLocationGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationManagementDynamicLocationGroups)(nil)).Elem()
+}
+
+func (i LocationManagementDynamicLocationGroupsArgs) ToLocationManagementDynamicLocationGroupsOutput() LocationManagementDynamicLocationGroupsOutput {
+	return i.ToLocationManagementDynamicLocationGroupsOutputWithContext(context.Background())
+}
+
+func (i LocationManagementDynamicLocationGroupsArgs) ToLocationManagementDynamicLocationGroupsOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementDynamicLocationGroupsOutput)
+}
+
+func (i LocationManagementDynamicLocationGroupsArgs) ToLocationManagementDynamicLocationGroupsPtrOutput() LocationManagementDynamicLocationGroupsPtrOutput {
+	return i.ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationManagementDynamicLocationGroupsArgs) ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementDynamicLocationGroupsOutput).ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(ctx)
+}
+
+// LocationManagementDynamicLocationGroupsPtrInput is an input type that accepts LocationManagementDynamicLocationGroupsArgs, LocationManagementDynamicLocationGroupsPtr and LocationManagementDynamicLocationGroupsPtrOutput values.
+// You can construct a concrete instance of `LocationManagementDynamicLocationGroupsPtrInput` via:
+//
+//	        LocationManagementDynamicLocationGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationManagementDynamicLocationGroupsPtrInput interface {
+	pulumi.Input
+
+	ToLocationManagementDynamicLocationGroupsPtrOutput() LocationManagementDynamicLocationGroupsPtrOutput
+	ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(context.Context) LocationManagementDynamicLocationGroupsPtrOutput
+}
+
+type locationManagementDynamicLocationGroupsPtrType LocationManagementDynamicLocationGroupsArgs
+
+func LocationManagementDynamicLocationGroupsPtr(v *LocationManagementDynamicLocationGroupsArgs) LocationManagementDynamicLocationGroupsPtrInput {
+	return (*locationManagementDynamicLocationGroupsPtrType)(v)
+}
+
+func (*locationManagementDynamicLocationGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationManagementDynamicLocationGroups)(nil)).Elem()
+}
+
+func (i *locationManagementDynamicLocationGroupsPtrType) ToLocationManagementDynamicLocationGroupsPtrOutput() LocationManagementDynamicLocationGroupsPtrOutput {
+	return i.ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationManagementDynamicLocationGroupsPtrType) ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementDynamicLocationGroupsPtrOutput)
+}
+
+type LocationManagementDynamicLocationGroupsOutput struct{ *pulumi.OutputState }
+
+func (LocationManagementDynamicLocationGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationManagementDynamicLocationGroups)(nil)).Elem()
+}
+
+func (o LocationManagementDynamicLocationGroupsOutput) ToLocationManagementDynamicLocationGroupsOutput() LocationManagementDynamicLocationGroupsOutput {
+	return o
+}
+
+func (o LocationManagementDynamicLocationGroupsOutput) ToLocationManagementDynamicLocationGroupsOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsOutput {
+	return o
+}
+
+func (o LocationManagementDynamicLocationGroupsOutput) ToLocationManagementDynamicLocationGroupsPtrOutput() LocationManagementDynamicLocationGroupsPtrOutput {
+	return o.ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationManagementDynamicLocationGroupsOutput) ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationManagementDynamicLocationGroups) *LocationManagementDynamicLocationGroups {
+		return &v
+	}).(LocationManagementDynamicLocationGroupsPtrOutput)
+}
+
+func (o LocationManagementDynamicLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v LocationManagementDynamicLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type LocationManagementDynamicLocationGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationManagementDynamicLocationGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationManagementDynamicLocationGroups)(nil)).Elem()
+}
+
+func (o LocationManagementDynamicLocationGroupsPtrOutput) ToLocationManagementDynamicLocationGroupsPtrOutput() LocationManagementDynamicLocationGroupsPtrOutput {
+	return o
+}
+
+func (o LocationManagementDynamicLocationGroupsPtrOutput) ToLocationManagementDynamicLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementDynamicLocationGroupsPtrOutput {
+	return o
+}
+
+func (o LocationManagementDynamicLocationGroupsPtrOutput) Elem() LocationManagementDynamicLocationGroupsOutput {
+	return o.ApplyT(func(v *LocationManagementDynamicLocationGroups) LocationManagementDynamicLocationGroups {
+		if v != nil {
+			return *v
+		}
+		var ret LocationManagementDynamicLocationGroups
+		return ret
+	}).(LocationManagementDynamicLocationGroupsOutput)
+}
+
+func (o LocationManagementDynamicLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *LocationManagementDynamicLocationGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type LocationManagementStaticLocationGroups struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// LocationManagementStaticLocationGroupsInput is an input type that accepts LocationManagementStaticLocationGroupsArgs and LocationManagementStaticLocationGroupsOutput values.
+// You can construct a concrete instance of `LocationManagementStaticLocationGroupsInput` via:
+//
+//	LocationManagementStaticLocationGroupsArgs{...}
+type LocationManagementStaticLocationGroupsInput interface {
+	pulumi.Input
+
+	ToLocationManagementStaticLocationGroupsOutput() LocationManagementStaticLocationGroupsOutput
+	ToLocationManagementStaticLocationGroupsOutputWithContext(context.Context) LocationManagementStaticLocationGroupsOutput
+}
+
+type LocationManagementStaticLocationGroupsArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (LocationManagementStaticLocationGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationManagementStaticLocationGroups)(nil)).Elem()
+}
+
+func (i LocationManagementStaticLocationGroupsArgs) ToLocationManagementStaticLocationGroupsOutput() LocationManagementStaticLocationGroupsOutput {
+	return i.ToLocationManagementStaticLocationGroupsOutputWithContext(context.Background())
+}
+
+func (i LocationManagementStaticLocationGroupsArgs) ToLocationManagementStaticLocationGroupsOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementStaticLocationGroupsOutput)
+}
+
+func (i LocationManagementStaticLocationGroupsArgs) ToLocationManagementStaticLocationGroupsPtrOutput() LocationManagementStaticLocationGroupsPtrOutput {
+	return i.ToLocationManagementStaticLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationManagementStaticLocationGroupsArgs) ToLocationManagementStaticLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementStaticLocationGroupsOutput).ToLocationManagementStaticLocationGroupsPtrOutputWithContext(ctx)
+}
+
+// LocationManagementStaticLocationGroupsPtrInput is an input type that accepts LocationManagementStaticLocationGroupsArgs, LocationManagementStaticLocationGroupsPtr and LocationManagementStaticLocationGroupsPtrOutput values.
+// You can construct a concrete instance of `LocationManagementStaticLocationGroupsPtrInput` via:
+//
+//	        LocationManagementStaticLocationGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationManagementStaticLocationGroupsPtrInput interface {
+	pulumi.Input
+
+	ToLocationManagementStaticLocationGroupsPtrOutput() LocationManagementStaticLocationGroupsPtrOutput
+	ToLocationManagementStaticLocationGroupsPtrOutputWithContext(context.Context) LocationManagementStaticLocationGroupsPtrOutput
+}
+
+type locationManagementStaticLocationGroupsPtrType LocationManagementStaticLocationGroupsArgs
+
+func LocationManagementStaticLocationGroupsPtr(v *LocationManagementStaticLocationGroupsArgs) LocationManagementStaticLocationGroupsPtrInput {
+	return (*locationManagementStaticLocationGroupsPtrType)(v)
+}
+
+func (*locationManagementStaticLocationGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationManagementStaticLocationGroups)(nil)).Elem()
+}
+
+func (i *locationManagementStaticLocationGroupsPtrType) ToLocationManagementStaticLocationGroupsPtrOutput() LocationManagementStaticLocationGroupsPtrOutput {
+	return i.ToLocationManagementStaticLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationManagementStaticLocationGroupsPtrType) ToLocationManagementStaticLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationManagementStaticLocationGroupsPtrOutput)
+}
+
+type LocationManagementStaticLocationGroupsOutput struct{ *pulumi.OutputState }
+
+func (LocationManagementStaticLocationGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationManagementStaticLocationGroups)(nil)).Elem()
+}
+
+func (o LocationManagementStaticLocationGroupsOutput) ToLocationManagementStaticLocationGroupsOutput() LocationManagementStaticLocationGroupsOutput {
+	return o
+}
+
+func (o LocationManagementStaticLocationGroupsOutput) ToLocationManagementStaticLocationGroupsOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsOutput {
+	return o
+}
+
+func (o LocationManagementStaticLocationGroupsOutput) ToLocationManagementStaticLocationGroupsPtrOutput() LocationManagementStaticLocationGroupsPtrOutput {
+	return o.ToLocationManagementStaticLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationManagementStaticLocationGroupsOutput) ToLocationManagementStaticLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationManagementStaticLocationGroups) *LocationManagementStaticLocationGroups {
+		return &v
+	}).(LocationManagementStaticLocationGroupsPtrOutput)
+}
+
+func (o LocationManagementStaticLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v LocationManagementStaticLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type LocationManagementStaticLocationGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationManagementStaticLocationGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationManagementStaticLocationGroups)(nil)).Elem()
+}
+
+func (o LocationManagementStaticLocationGroupsPtrOutput) ToLocationManagementStaticLocationGroupsPtrOutput() LocationManagementStaticLocationGroupsPtrOutput {
+	return o
+}
+
+func (o LocationManagementStaticLocationGroupsPtrOutput) ToLocationManagementStaticLocationGroupsPtrOutputWithContext(ctx context.Context) LocationManagementStaticLocationGroupsPtrOutput {
+	return o
+}
+
+func (o LocationManagementStaticLocationGroupsPtrOutput) Elem() LocationManagementStaticLocationGroupsOutput {
+	return o.ApplyT(func(v *LocationManagementStaticLocationGroups) LocationManagementStaticLocationGroups {
+		if v != nil {
+			return *v
+		}
+		var ret LocationManagementStaticLocationGroups
+		return ret
+	}).(LocationManagementStaticLocationGroupsOutput)
+}
+
+func (o LocationManagementStaticLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *LocationManagementStaticLocationGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
 type LocationManagementVpnCredential struct {
-	Comments *string `pulumi:"comments"`
-	Fqdn     *string `pulumi:"fqdn"`
-	// Identifier that uniquely identifies an entity
+	Comments     *string `pulumi:"comments"`
+	Fqdn         *string `pulumi:"fqdn"`
 	Id           *int    `pulumi:"id"`
 	IpAddress    *string `pulumi:"ipAddress"`
 	PreSharedKey *string `pulumi:"preSharedKey"`
@@ -8974,9 +9303,8 @@ type LocationManagementVpnCredentialInput interface {
 }
 
 type LocationManagementVpnCredentialArgs struct {
-	Comments pulumi.StringPtrInput `pulumi:"comments"`
-	Fqdn     pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Identifier that uniquely identifies an entity
+	Comments     pulumi.StringPtrInput `pulumi:"comments"`
+	Fqdn         pulumi.StringPtrInput `pulumi:"fqdn"`
 	Id           pulumi.IntPtrInput    `pulumi:"id"`
 	IpAddress    pulumi.StringPtrInput `pulumi:"ipAddress"`
 	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
@@ -9042,7 +9370,6 @@ func (o LocationManagementVpnCredentialOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationManagementVpnCredential) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Identifier that uniquely identifies an entity
 func (o LocationManagementVpnCredentialOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LocationManagementVpnCredential) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
@@ -9082,10 +9409,8 @@ func (o LocationManagementVpnCredentialArrayOutput) Index(i pulumi.IntInput) Loc
 type TrafficForwardingGRETunnelPrimaryDestVip struct {
 	// Data center information
 	Datacenter *string `pulumi:"datacenter"`
-	// Unique identifer of the GRE virtual IP address (VIP)
+	// GRE cluster virtual IP ID
 	Id *int `pulumi:"id"`
-	// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-	PrivateServiceEdge *bool `pulumi:"privateServiceEdge"`
 	// GRE cluster virtual IP address (VIP)
 	VirtualIp *string `pulumi:"virtualIp"`
 }
@@ -9104,10 +9429,8 @@ type TrafficForwardingGRETunnelPrimaryDestVipInput interface {
 type TrafficForwardingGRETunnelPrimaryDestVipArgs struct {
 	// Data center information
 	Datacenter pulumi.StringPtrInput `pulumi:"datacenter"`
-	// Unique identifer of the GRE virtual IP address (VIP)
+	// GRE cluster virtual IP ID
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-	PrivateServiceEdge pulumi.BoolPtrInput `pulumi:"privateServiceEdge"`
 	// GRE cluster virtual IP address (VIP)
 	VirtualIp pulumi.StringPtrInput `pulumi:"virtualIp"`
 }
@@ -9168,14 +9491,9 @@ func (o TrafficForwardingGRETunnelPrimaryDestVipOutput) Datacenter() pulumi.Stri
 	return o.ApplyT(func(v TrafficForwardingGRETunnelPrimaryDestVip) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifer of the GRE virtual IP address (VIP)
+// GRE cluster virtual IP ID
 func (o TrafficForwardingGRETunnelPrimaryDestVipOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TrafficForwardingGRETunnelPrimaryDestVip) *int { return v.Id }).(pulumi.IntPtrOutput)
-}
-
-// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-func (o TrafficForwardingGRETunnelPrimaryDestVipOutput) PrivateServiceEdge() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TrafficForwardingGRETunnelPrimaryDestVip) *bool { return v.PrivateServiceEdge }).(pulumi.BoolPtrOutput)
 }
 
 // GRE cluster virtual IP address (VIP)
@@ -9206,10 +9524,8 @@ func (o TrafficForwardingGRETunnelPrimaryDestVipArrayOutput) Index(i pulumi.IntI
 type TrafficForwardingGRETunnelSecondaryDestVip struct {
 	// Data center information
 	Datacenter *string `pulumi:"datacenter"`
-	// Unique identifer of the GRE virtual IP address (VIP)
+	// GRE cluster virtual IP ID
 	Id *int `pulumi:"id"`
-	// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-	PrivateServiceEdge *bool `pulumi:"privateServiceEdge"`
 	// GRE cluster virtual IP address (VIP)
 	VirtualIp *string `pulumi:"virtualIp"`
 }
@@ -9228,10 +9544,8 @@ type TrafficForwardingGRETunnelSecondaryDestVipInput interface {
 type TrafficForwardingGRETunnelSecondaryDestVipArgs struct {
 	// Data center information
 	Datacenter pulumi.StringPtrInput `pulumi:"datacenter"`
-	// Unique identifer of the GRE virtual IP address (VIP)
+	// GRE cluster virtual IP ID
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-	PrivateServiceEdge pulumi.BoolPtrInput `pulumi:"privateServiceEdge"`
 	// GRE cluster virtual IP address (VIP)
 	VirtualIp pulumi.StringPtrInput `pulumi:"virtualIp"`
 }
@@ -9292,14 +9606,9 @@ func (o TrafficForwardingGRETunnelSecondaryDestVipOutput) Datacenter() pulumi.St
 	return o.ApplyT(func(v TrafficForwardingGRETunnelSecondaryDestVip) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifer of the GRE virtual IP address (VIP)
+// GRE cluster virtual IP ID
 func (o TrafficForwardingGRETunnelSecondaryDestVipOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TrafficForwardingGRETunnelSecondaryDestVip) *int { return v.Id }).(pulumi.IntPtrOutput)
-}
-
-// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-func (o TrafficForwardingGRETunnelSecondaryDestVipOutput) PrivateServiceEdge() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TrafficForwardingGRETunnelSecondaryDestVip) *bool { return v.PrivateServiceEdge }).(pulumi.BoolPtrOutput)
 }
 
 // GRE cluster virtual IP address (VIP)
@@ -9330,10 +9639,9 @@ func (o TrafficForwardingGRETunnelSecondaryDestVipArrayOutput) Index(i pulumi.In
 type URLCategoriesScope struct {
 	// list of scope IDs
 	ScopeEntities *URLCategoriesScopeScopeEntities `pulumi:"scopeEntities"`
-	// Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+	// list of scope group member IDs
 	ScopeGroupMemberEntities *URLCategoriesScopeScopeGroupMemberEntities `pulumi:"scopeGroupMemberEntities"`
-	// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	Type *string `pulumi:"type"`
+	Type                     *string                                     `pulumi:"type"`
 }
 
 // URLCategoriesScopeInput is an input type that accepts URLCategoriesScopeArgs and URLCategoriesScopeOutput values.
@@ -9350,10 +9658,9 @@ type URLCategoriesScopeInput interface {
 type URLCategoriesScopeArgs struct {
 	// list of scope IDs
 	ScopeEntities URLCategoriesScopeScopeEntitiesPtrInput `pulumi:"scopeEntities"`
-	// Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+	// list of scope group member IDs
 	ScopeGroupMemberEntities URLCategoriesScopeScopeGroupMemberEntitiesPtrInput `pulumi:"scopeGroupMemberEntities"`
-	// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type                     pulumi.StringPtrInput                              `pulumi:"type"`
 }
 
 func (URLCategoriesScopeArgs) ElementType() reflect.Type {
@@ -9412,14 +9719,13 @@ func (o URLCategoriesScopeOutput) ScopeEntities() URLCategoriesScopeScopeEntitie
 	return o.ApplyT(func(v URLCategoriesScope) *URLCategoriesScopeScopeEntities { return v.ScopeEntities }).(URLCategoriesScopeScopeEntitiesPtrOutput)
 }
 
-// Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+// list of scope group member IDs
 func (o URLCategoriesScopeOutput) ScopeGroupMemberEntities() URLCategoriesScopeScopeGroupMemberEntitiesPtrOutput {
 	return o.ApplyT(func(v URLCategoriesScope) *URLCategoriesScopeScopeGroupMemberEntities {
 		return v.ScopeGroupMemberEntities
 	}).(URLCategoriesScopeScopeGroupMemberEntitiesPtrOutput)
 }
 
-// The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
 func (o URLCategoriesScopeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v URLCategoriesScope) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9905,7 +10211,6 @@ func (o URLCategoriesUrlKeywordCountsPtrOutput) TotalUrlCount() pulumi.IntPtrOut
 }
 
 type URLFilteringRulesCbiProfile struct {
-	// A unique identifier assigned to the workload group
 	Id *string `pulumi:"id"`
 	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
@@ -9925,7 +10230,6 @@ type URLFilteringRulesCbiProfileInput interface {
 }
 
 type URLFilteringRulesCbiProfileArgs struct {
-	// A unique identifier assigned to the workload group
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -9984,7 +10288,6 @@ func (o URLFilteringRulesCbiProfileOutput) ToURLFilteringRulesCbiProfileOutputWi
 	return o
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesCbiProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v URLFilteringRulesCbiProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10020,7 +10323,6 @@ func (o URLFilteringRulesCbiProfileArrayOutput) Index(i pulumi.IntInput) URLFilt
 }
 
 type URLFilteringRulesDepartments struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10036,7 +10338,6 @@ type URLFilteringRulesDepartmentsInput interface {
 }
 
 type URLFilteringRulesDepartmentsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10117,7 +10418,6 @@ func (o URLFilteringRulesDepartmentsOutput) ToURLFilteringRulesDepartmentsPtrOut
 	}).(URLFilteringRulesDepartmentsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10146,7 +10446,6 @@ func (o URLFilteringRulesDepartmentsPtrOutput) Elem() URLFilteringRulesDepartmen
 	}).(URLFilteringRulesDepartmentsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesDepartments) []int {
 		if v == nil {
@@ -10157,7 +10456,6 @@ func (o URLFilteringRulesDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesDeviceGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10173,7 +10471,6 @@ type URLFilteringRulesDeviceGroupsInput interface {
 }
 
 type URLFilteringRulesDeviceGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10254,7 +10551,6 @@ func (o URLFilteringRulesDeviceGroupsOutput) ToURLFilteringRulesDeviceGroupsPtrO
 	}).(URLFilteringRulesDeviceGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDeviceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesDeviceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10283,7 +10579,6 @@ func (o URLFilteringRulesDeviceGroupsPtrOutput) Elem() URLFilteringRulesDeviceGr
 	}).(URLFilteringRulesDeviceGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesDeviceGroups) []int {
 		if v == nil {
@@ -10294,7 +10589,6 @@ func (o URLFilteringRulesDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesDevices struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10310,7 +10604,6 @@ type URLFilteringRulesDevicesInput interface {
 }
 
 type URLFilteringRulesDevicesArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10391,7 +10684,6 @@ func (o URLFilteringRulesDevicesOutput) ToURLFilteringRulesDevicesPtrOutputWithC
 	}).(URLFilteringRulesDevicesPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDevicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesDevices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10420,7 +10712,6 @@ func (o URLFilteringRulesDevicesPtrOutput) Elem() URLFilteringRulesDevicesOutput
 	}).(URLFilteringRulesDevicesOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesDevices) []int {
 		if v == nil {
@@ -10431,7 +10722,6 @@ func (o URLFilteringRulesDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10447,7 +10737,6 @@ type URLFilteringRulesGroupsInput interface {
 }
 
 type URLFilteringRulesGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10528,7 +10817,6 @@ func (o URLFilteringRulesGroupsOutput) ToURLFilteringRulesGroupsPtrOutputWithCon
 	}).(URLFilteringRulesGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10557,7 +10845,6 @@ func (o URLFilteringRulesGroupsPtrOutput) Elem() URLFilteringRulesGroupsOutput {
 	}).(URLFilteringRulesGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesGroups) []int {
 		if v == nil {
@@ -10568,7 +10855,6 @@ func (o URLFilteringRulesGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesLabels struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10584,7 +10870,6 @@ type URLFilteringRulesLabelsInput interface {
 }
 
 type URLFilteringRulesLabelsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10665,7 +10950,6 @@ func (o URLFilteringRulesLabelsOutput) ToURLFilteringRulesLabelsPtrOutputWithCon
 	}).(URLFilteringRulesLabelsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLabelsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesLabels) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10694,7 +10978,6 @@ func (o URLFilteringRulesLabelsPtrOutput) Elem() URLFilteringRulesLabelsOutput {
 	}).(URLFilteringRulesLabelsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLabelsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesLabels) []int {
 		if v == nil {
@@ -10705,7 +10988,6 @@ func (o URLFilteringRulesLabelsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesLocationGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10721,7 +11003,6 @@ type URLFilteringRulesLocationGroupsInput interface {
 }
 
 type URLFilteringRulesLocationGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10802,7 +11083,6 @@ func (o URLFilteringRulesLocationGroupsOutput) ToURLFilteringRulesLocationGroups
 	}).(URLFilteringRulesLocationGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10831,7 +11111,6 @@ func (o URLFilteringRulesLocationGroupsPtrOutput) Elem() URLFilteringRulesLocati
 	}).(URLFilteringRulesLocationGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesLocationGroups) []int {
 		if v == nil {
@@ -10842,7 +11121,6 @@ func (o URLFilteringRulesLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesLocations struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10858,7 +11136,6 @@ type URLFilteringRulesLocationsInput interface {
 }
 
 type URLFilteringRulesLocationsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -10939,7 +11216,6 @@ func (o URLFilteringRulesLocationsOutput) ToURLFilteringRulesLocationsPtrOutputW
 	}).(URLFilteringRulesLocationsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLocationsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -10968,7 +11244,6 @@ func (o URLFilteringRulesLocationsPtrOutput) Elem() URLFilteringRulesLocationsOu
 	}).(URLFilteringRulesLocationsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesLocations) []int {
 		if v == nil {
@@ -10979,7 +11254,6 @@ func (o URLFilteringRulesLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesOverrideGroups struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -10995,7 +11269,6 @@ type URLFilteringRulesOverrideGroupsInput interface {
 }
 
 type URLFilteringRulesOverrideGroupsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11076,7 +11349,6 @@ func (o URLFilteringRulesOverrideGroupsOutput) ToURLFilteringRulesOverrideGroups
 	}).(URLFilteringRulesOverrideGroupsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesOverrideGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesOverrideGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11105,7 +11377,6 @@ func (o URLFilteringRulesOverrideGroupsPtrOutput) Elem() URLFilteringRulesOverri
 	}).(URLFilteringRulesOverrideGroupsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesOverrideGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesOverrideGroups) []int {
 		if v == nil {
@@ -11116,7 +11387,6 @@ func (o URLFilteringRulesOverrideGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesOverrideUsers struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11132,7 +11402,6 @@ type URLFilteringRulesOverrideUsersInput interface {
 }
 
 type URLFilteringRulesOverrideUsersArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11213,7 +11482,6 @@ func (o URLFilteringRulesOverrideUsersOutput) ToURLFilteringRulesOverrideUsersPt
 	}).(URLFilteringRulesOverrideUsersPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesOverrideUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesOverrideUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11242,7 +11510,6 @@ func (o URLFilteringRulesOverrideUsersPtrOutput) Elem() URLFilteringRulesOverrid
 	}).(URLFilteringRulesOverrideUsersOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesOverrideUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesOverrideUsers) []int {
 		if v == nil {
@@ -11252,8 +11519,140 @@ func (o URLFilteringRulesOverrideUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+type URLFilteringRulesSourceIpGroups struct {
+	Ids []int `pulumi:"ids"`
+}
+
+// URLFilteringRulesSourceIpGroupsInput is an input type that accepts URLFilteringRulesSourceIpGroupsArgs and URLFilteringRulesSourceIpGroupsOutput values.
+// You can construct a concrete instance of `URLFilteringRulesSourceIpGroupsInput` via:
+//
+//	URLFilteringRulesSourceIpGroupsArgs{...}
+type URLFilteringRulesSourceIpGroupsInput interface {
+	pulumi.Input
+
+	ToURLFilteringRulesSourceIpGroupsOutput() URLFilteringRulesSourceIpGroupsOutput
+	ToURLFilteringRulesSourceIpGroupsOutputWithContext(context.Context) URLFilteringRulesSourceIpGroupsOutput
+}
+
+type URLFilteringRulesSourceIpGroupsArgs struct {
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (URLFilteringRulesSourceIpGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*URLFilteringRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (i URLFilteringRulesSourceIpGroupsArgs) ToURLFilteringRulesSourceIpGroupsOutput() URLFilteringRulesSourceIpGroupsOutput {
+	return i.ToURLFilteringRulesSourceIpGroupsOutputWithContext(context.Background())
+}
+
+func (i URLFilteringRulesSourceIpGroupsArgs) ToURLFilteringRulesSourceIpGroupsOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(URLFilteringRulesSourceIpGroupsOutput)
+}
+
+func (i URLFilteringRulesSourceIpGroupsArgs) ToURLFilteringRulesSourceIpGroupsPtrOutput() URLFilteringRulesSourceIpGroupsPtrOutput {
+	return i.ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i URLFilteringRulesSourceIpGroupsArgs) ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(URLFilteringRulesSourceIpGroupsOutput).ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(ctx)
+}
+
+// URLFilteringRulesSourceIpGroupsPtrInput is an input type that accepts URLFilteringRulesSourceIpGroupsArgs, URLFilteringRulesSourceIpGroupsPtr and URLFilteringRulesSourceIpGroupsPtrOutput values.
+// You can construct a concrete instance of `URLFilteringRulesSourceIpGroupsPtrInput` via:
+//
+//	        URLFilteringRulesSourceIpGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type URLFilteringRulesSourceIpGroupsPtrInput interface {
+	pulumi.Input
+
+	ToURLFilteringRulesSourceIpGroupsPtrOutput() URLFilteringRulesSourceIpGroupsPtrOutput
+	ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(context.Context) URLFilteringRulesSourceIpGroupsPtrOutput
+}
+
+type urlfilteringRulesSourceIpGroupsPtrType URLFilteringRulesSourceIpGroupsArgs
+
+func URLFilteringRulesSourceIpGroupsPtr(v *URLFilteringRulesSourceIpGroupsArgs) URLFilteringRulesSourceIpGroupsPtrInput {
+	return (*urlfilteringRulesSourceIpGroupsPtrType)(v)
+}
+
+func (*urlfilteringRulesSourceIpGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**URLFilteringRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (i *urlfilteringRulesSourceIpGroupsPtrType) ToURLFilteringRulesSourceIpGroupsPtrOutput() URLFilteringRulesSourceIpGroupsPtrOutput {
+	return i.ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *urlfilteringRulesSourceIpGroupsPtrType) ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(URLFilteringRulesSourceIpGroupsPtrOutput)
+}
+
+type URLFilteringRulesSourceIpGroupsOutput struct{ *pulumi.OutputState }
+
+func (URLFilteringRulesSourceIpGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*URLFilteringRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (o URLFilteringRulesSourceIpGroupsOutput) ToURLFilteringRulesSourceIpGroupsOutput() URLFilteringRulesSourceIpGroupsOutput {
+	return o
+}
+
+func (o URLFilteringRulesSourceIpGroupsOutput) ToURLFilteringRulesSourceIpGroupsOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsOutput {
+	return o
+}
+
+func (o URLFilteringRulesSourceIpGroupsOutput) ToURLFilteringRulesSourceIpGroupsPtrOutput() URLFilteringRulesSourceIpGroupsPtrOutput {
+	return o.ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o URLFilteringRulesSourceIpGroupsOutput) ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v URLFilteringRulesSourceIpGroups) *URLFilteringRulesSourceIpGroups {
+		return &v
+	}).(URLFilteringRulesSourceIpGroupsPtrOutput)
+}
+
+func (o URLFilteringRulesSourceIpGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v URLFilteringRulesSourceIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type URLFilteringRulesSourceIpGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (URLFilteringRulesSourceIpGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**URLFilteringRulesSourceIpGroups)(nil)).Elem()
+}
+
+func (o URLFilteringRulesSourceIpGroupsPtrOutput) ToURLFilteringRulesSourceIpGroupsPtrOutput() URLFilteringRulesSourceIpGroupsPtrOutput {
+	return o
+}
+
+func (o URLFilteringRulesSourceIpGroupsPtrOutput) ToURLFilteringRulesSourceIpGroupsPtrOutputWithContext(ctx context.Context) URLFilteringRulesSourceIpGroupsPtrOutput {
+	return o
+}
+
+func (o URLFilteringRulesSourceIpGroupsPtrOutput) Elem() URLFilteringRulesSourceIpGroupsOutput {
+	return o.ApplyT(func(v *URLFilteringRulesSourceIpGroups) URLFilteringRulesSourceIpGroups {
+		if v != nil {
+			return *v
+		}
+		var ret URLFilteringRulesSourceIpGroups
+		return ret
+	}).(URLFilteringRulesSourceIpGroupsOutput)
+}
+
+func (o URLFilteringRulesSourceIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *URLFilteringRulesSourceIpGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
 type URLFilteringRulesTimeWindows struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11269,7 +11668,6 @@ type URLFilteringRulesTimeWindowsInput interface {
 }
 
 type URLFilteringRulesTimeWindowsArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11350,7 +11748,6 @@ func (o URLFilteringRulesTimeWindowsOutput) ToURLFilteringRulesTimeWindowsPtrOut
 	}).(URLFilteringRulesTimeWindowsPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11379,7 +11776,6 @@ func (o URLFilteringRulesTimeWindowsPtrOutput) Elem() URLFilteringRulesTimeWindo
 	}).(URLFilteringRulesTimeWindowsOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesTimeWindows) []int {
 		if v == nil {
@@ -11390,7 +11786,6 @@ func (o URLFilteringRulesTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesUsers struct {
-	// A unique identifier assigned to the workload group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11406,7 +11801,6 @@ type URLFilteringRulesUsersInput interface {
 }
 
 type URLFilteringRulesUsersArgs struct {
-	// A unique identifier assigned to the workload group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11487,7 +11881,6 @@ func (o URLFilteringRulesUsersOutput) ToURLFilteringRulesUsersPtrOutputWithConte
 	}).(URLFilteringRulesUsersPtrOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v URLFilteringRulesUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11516,7 +11909,6 @@ func (o URLFilteringRulesUsersPtrOutput) Elem() URLFilteringRulesUsersOutput {
 	}).(URLFilteringRulesUsersOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o URLFilteringRulesUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRulesUsers) []int {
 		if v == nil {
@@ -11527,7 +11919,7 @@ func (o URLFilteringRulesUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type URLFilteringRulesWorkloadGroup struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id int `pulumi:"id"`
 	// Name of the Firewall Filtering policy rule
 	Name string `pulumi:"name"`
@@ -11545,7 +11937,7 @@ type URLFilteringRulesWorkloadGroupInput interface {
 }
 
 type URLFilteringRulesWorkloadGroupArgs struct {
-	// A unique identifier assigned to the workload group
+	// The unique identifier for the resource.
 	Id pulumi.IntInput `pulumi:"id"`
 	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11602,7 +11994,7 @@ func (o URLFilteringRulesWorkloadGroupOutput) ToURLFilteringRulesWorkloadGroupOu
 	return o
 }
 
-// A unique identifier assigned to the workload group
+// The unique identifier for the resource.
 func (o URLFilteringRulesWorkloadGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v URLFilteringRulesWorkloadGroup) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -11838,6 +12230,7 @@ func (o UserManagementDepartmentPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type UserManagementGroups struct {
+	// Unique identfier for the group
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11853,6 +12246,7 @@ type UserManagementGroupsInput interface {
 }
 
 type UserManagementGroupsArgs struct {
+	// Unique identfier for the group
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11933,6 +12327,7 @@ func (o UserManagementGroupsOutput) ToUserManagementGroupsPtrOutputWithContext(c
 	}).(UserManagementGroupsPtrOutput)
 }
 
+// Unique identfier for the group
 func (o UserManagementGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v UserManagementGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11961,6 +12356,7 @@ func (o UserManagementGroupsPtrOutput) Elem() UserManagementGroupsOutput {
 	}).(UserManagementGroupsOutput)
 }
 
+// Unique identfier for the group
 func (o UserManagementGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *UserManagementGroups) []int {
 		if v == nil {
@@ -13155,7 +13551,7 @@ type GetDLPEDMSchemaCreatedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -13174,7 +13570,7 @@ type GetDLPEDMSchemaCreatedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13238,7 +13634,7 @@ func (o GetDLPEDMSchemaCreatedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaCreatedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The token (i.e., criteria) name.
+// The configured name of the entity
 func (o GetDLPEDMSchemaCreatedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaCreatedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13267,7 +13663,7 @@ type GetDLPEDMSchemaEdmClient struct {
 	Extensions map[string]string `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -13286,7 +13682,7 @@ type GetDLPEDMSchemaEdmClientArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13350,7 +13746,7 @@ func (o GetDLPEDMSchemaEdmClientOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaEdmClient) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The token (i.e., criteria) name.
+// The configured name of the entity
 func (o GetDLPEDMSchemaEdmClientOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaEdmClient) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13379,7 +13775,7 @@ type GetDLPEDMSchemaLastModifiedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name string `pulumi:"name"`
 }
 
@@ -13398,7 +13794,7 @@ type GetDLPEDMSchemaLastModifiedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
 	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The token (i.e., criteria) name.
+	// The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -13462,7 +13858,7 @@ func (o GetDLPEDMSchemaLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The token (i.e., criteria) name.
+// The configured name of the entity
 func (o GetDLPEDMSchemaLastModifiedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13488,15 +13884,15 @@ func (o GetDLPEDMSchemaLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetDL
 }
 
 type GetDLPEDMSchemaSchedule struct {
-	// The day of the month the EDM schema (i.e., EDM template) is scheduled for.
+	// The day of the month that the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to MONTHLY.
 	ScheduleDayOfMonths []string `pulumi:"scheduleDayOfMonths"`
-	// The day of the week the EDM schema (i.e., EDM template) is scheduled for.
+	// The day of the week the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to WEEKLY.
 	ScheduleDayOfWeeks []string `pulumi:"scheduleDayOfWeeks"`
-	// If set to true, the schedule for the EDM schema (i.e., EDM template) is temporarily in a disabled state.
+	// If set to true, the schedule for the IDM template is temporarily in a disabled state. This attribute is required by PUT requests in order to disable or enable a schedule.
 	ScheduleDisabled bool `pulumi:"scheduleDisabled"`
-	// The time of the day (in minutes) that the EDM schema (i.e., EDM template) is scheduled for.
+	// The time of the day (in minutes) that the IDM template is scheduled for. For example: at 3am= 180 mins. This attribute is required by PUT and POST requests.
 	ScheduleTime int `pulumi:"scheduleTime"`
-	// The schedule type for the EDM schema (i.e., EDM template), Monthly, Weekly, Daily, or None.
+	// The schedule type for the IDM template's schedule (i.e., Monthly, Weekly, Daily, or None). This attribute is required by PUT and POST requests.
 	ScheduleType string `pulumi:"scheduleType"`
 }
 
@@ -13512,15 +13908,15 @@ type GetDLPEDMSchemaScheduleInput interface {
 }
 
 type GetDLPEDMSchemaScheduleArgs struct {
-	// The day of the month the EDM schema (i.e., EDM template) is scheduled for.
+	// The day of the month that the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to MONTHLY.
 	ScheduleDayOfMonths pulumi.StringArrayInput `pulumi:"scheduleDayOfMonths"`
-	// The day of the week the EDM schema (i.e., EDM template) is scheduled for.
+	// The day of the week the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to WEEKLY.
 	ScheduleDayOfWeeks pulumi.StringArrayInput `pulumi:"scheduleDayOfWeeks"`
-	// If set to true, the schedule for the EDM schema (i.e., EDM template) is temporarily in a disabled state.
+	// If set to true, the schedule for the IDM template is temporarily in a disabled state. This attribute is required by PUT requests in order to disable or enable a schedule.
 	ScheduleDisabled pulumi.BoolInput `pulumi:"scheduleDisabled"`
-	// The time of the day (in minutes) that the EDM schema (i.e., EDM template) is scheduled for.
+	// The time of the day (in minutes) that the IDM template is scheduled for. For example: at 3am= 180 mins. This attribute is required by PUT and POST requests.
 	ScheduleTime pulumi.IntInput `pulumi:"scheduleTime"`
-	// The schedule type for the EDM schema (i.e., EDM template), Monthly, Weekly, Daily, or None.
+	// The schedule type for the IDM template's schedule (i.e., Monthly, Weekly, Daily, or None). This attribute is required by PUT and POST requests.
 	ScheduleType pulumi.StringInput `pulumi:"scheduleType"`
 }
 
@@ -13575,27 +13971,27 @@ func (o GetDLPEDMSchemaScheduleOutput) ToGetDLPEDMSchemaScheduleOutputWithContex
 	return o
 }
 
-// The day of the month the EDM schema (i.e., EDM template) is scheduled for.
+// The day of the month that the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to MONTHLY.
 func (o GetDLPEDMSchemaScheduleOutput) ScheduleDayOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaSchedule) []string { return v.ScheduleDayOfMonths }).(pulumi.StringArrayOutput)
 }
 
-// The day of the week the EDM schema (i.e., EDM template) is scheduled for.
+// The day of the week the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to WEEKLY.
 func (o GetDLPEDMSchemaScheduleOutput) ScheduleDayOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaSchedule) []string { return v.ScheduleDayOfWeeks }).(pulumi.StringArrayOutput)
 }
 
-// If set to true, the schedule for the EDM schema (i.e., EDM template) is temporarily in a disabled state.
+// If set to true, the schedule for the IDM template is temporarily in a disabled state. This attribute is required by PUT requests in order to disable or enable a schedule.
 func (o GetDLPEDMSchemaScheduleOutput) ScheduleDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaSchedule) bool { return v.ScheduleDisabled }).(pulumi.BoolOutput)
 }
 
-// The time of the day (in minutes) that the EDM schema (i.e., EDM template) is scheduled for.
+// The time of the day (in minutes) that the IDM template is scheduled for. For example: at 3am= 180 mins. This attribute is required by PUT and POST requests.
 func (o GetDLPEDMSchemaScheduleOutput) ScheduleTime() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaSchedule) int { return v.ScheduleTime }).(pulumi.IntOutput)
 }
 
-// The schedule type for the EDM schema (i.e., EDM template), Monthly, Weekly, Daily, or None.
+// The schedule type for the IDM template's schedule (i.e., Monthly, Weekly, Daily, or None). This attribute is required by PUT and POST requests.
 func (o GetDLPEDMSchemaScheduleOutput) ScheduleType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaSchedule) string { return v.ScheduleType }).(pulumi.StringOutput)
 }
@@ -13625,13 +14021,13 @@ type GetDLPEDMSchemaTokenList struct {
 	ColLengthBitmap int `pulumi:"colLengthBitmap"`
 	// The column position for the token in the hashed file, starting from 1.
 	HashFileColumnOrder int `pulumi:"hashFileColumnOrder"`
-	// The token (i.e., criteria) name.
+	// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 	Name string `pulumi:"name"`
-	// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1.
+	// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1. This attribue required by PUT and POST requests.
 	OriginalColumn int `pulumi:"originalColumn"`
 	// Indicates whether the token is a primary key.
 	PrimaryKey bool `pulumi:"primaryKey"`
-	// The token type.
+	// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 	Type string `pulumi:"type"`
 }
 
@@ -13651,13 +14047,13 @@ type GetDLPEDMSchemaTokenListArgs struct {
 	ColLengthBitmap pulumi.IntInput `pulumi:"colLengthBitmap"`
 	// The column position for the token in the hashed file, starting from 1.
 	HashFileColumnOrder pulumi.IntInput `pulumi:"hashFileColumnOrder"`
-	// The token (i.e., criteria) name.
+	// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1.
+	// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1. This attribue required by PUT and POST requests.
 	OriginalColumn pulumi.IntInput `pulumi:"originalColumn"`
 	// Indicates whether the token is a primary key.
 	PrimaryKey pulumi.BoolInput `pulumi:"primaryKey"`
-	// The token type.
+	// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13722,12 +14118,12 @@ func (o GetDLPEDMSchemaTokenListOutput) HashFileColumnOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaTokenList) int { return v.HashFileColumnOrder }).(pulumi.IntOutput)
 }
 
-// The token (i.e., criteria) name.
+// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 func (o GetDLPEDMSchemaTokenListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaTokenList) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1.
+// The column position for the token in the original CSV file uploaded to the Index Tool, starting from 1. This attribue required by PUT and POST requests.
 func (o GetDLPEDMSchemaTokenListOutput) OriginalColumn() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaTokenList) int { return v.OriginalColumn }).(pulumi.IntOutput)
 }
@@ -13737,7 +14133,7 @@ func (o GetDLPEDMSchemaTokenListOutput) PrimaryKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaTokenList) bool { return v.PrimaryKey }).(pulumi.BoolOutput)
 }
 
-// The token type.
+// The token (i.e., criteria) name. This attribute is required by PUT and POST requests.
 func (o GetDLPEDMSchemaTokenListOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPEDMSchemaTokenList) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14216,123 +14612,11 @@ func (o GetDLPIDMProfilesLastModifiedByArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetDLPIDMProfilesLastModifiedByOutput)
 }
 
-type GetDLPWebRulesAuditor struct {
-	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id int `pulumi:"id"`
-	// The name of the workload group
-	Name string `pulumi:"name"`
-}
-
-// GetDLPWebRulesAuditorInput is an input type that accepts GetDLPWebRulesAuditorArgs and GetDLPWebRulesAuditorOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesAuditorInput` via:
-//
-//	GetDLPWebRulesAuditorArgs{...}
-type GetDLPWebRulesAuditorInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesAuditorOutput() GetDLPWebRulesAuditorOutput
-	ToGetDLPWebRulesAuditorOutputWithContext(context.Context) GetDLPWebRulesAuditorOutput
-}
-
-type GetDLPWebRulesAuditorArgs struct {
-	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetDLPWebRulesAuditorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesAuditor)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesAuditorArgs) ToGetDLPWebRulesAuditorOutput() GetDLPWebRulesAuditorOutput {
-	return i.ToGetDLPWebRulesAuditorOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesAuditorArgs) ToGetDLPWebRulesAuditorOutputWithContext(ctx context.Context) GetDLPWebRulesAuditorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesAuditorOutput)
-}
-
-// GetDLPWebRulesAuditorArrayInput is an input type that accepts GetDLPWebRulesAuditorArray and GetDLPWebRulesAuditorArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesAuditorArrayInput` via:
-//
-//	GetDLPWebRulesAuditorArray{ GetDLPWebRulesAuditorArgs{...} }
-type GetDLPWebRulesAuditorArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesAuditorArrayOutput() GetDLPWebRulesAuditorArrayOutput
-	ToGetDLPWebRulesAuditorArrayOutputWithContext(context.Context) GetDLPWebRulesAuditorArrayOutput
-}
-
-type GetDLPWebRulesAuditorArray []GetDLPWebRulesAuditorInput
-
-func (GetDLPWebRulesAuditorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesAuditor)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesAuditorArray) ToGetDLPWebRulesAuditorArrayOutput() GetDLPWebRulesAuditorArrayOutput {
-	return i.ToGetDLPWebRulesAuditorArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesAuditorArray) ToGetDLPWebRulesAuditorArrayOutputWithContext(ctx context.Context) GetDLPWebRulesAuditorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesAuditorArrayOutput)
-}
-
-type GetDLPWebRulesAuditorOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesAuditorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesAuditor)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesAuditorOutput) ToGetDLPWebRulesAuditorOutput() GetDLPWebRulesAuditorOutput {
-	return o
-}
-
-func (o GetDLPWebRulesAuditorOutput) ToGetDLPWebRulesAuditorOutputWithContext(ctx context.Context) GetDLPWebRulesAuditorOutput {
-	return o
-}
-
-func (o GetDLPWebRulesAuditorOutput) Extensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetDLPWebRulesAuditor) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
-}
-
-// A unique identifier assigned to the workload group
-func (o GetDLPWebRulesAuditorOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDLPWebRulesAuditor) int { return v.Id }).(pulumi.IntOutput)
-}
-
-// The name of the workload group
-func (o GetDLPWebRulesAuditorOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesAuditor) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDLPWebRulesAuditorArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesAuditorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesAuditor)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesAuditorArrayOutput) ToGetDLPWebRulesAuditorArrayOutput() GetDLPWebRulesAuditorArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesAuditorArrayOutput) ToGetDLPWebRulesAuditorArrayOutputWithContext(ctx context.Context) GetDLPWebRulesAuditorArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesAuditorArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesAuditorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesAuditor {
-		return vs[0].([]GetDLPWebRulesAuditor)[vs[1].(int)]
-	}).(GetDLPWebRulesAuditorOutput)
-}
-
 type GetDLPWebRulesDepartment struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -14349,9 +14633,9 @@ type GetDLPWebRulesDepartmentInput interface {
 
 type GetDLPWebRulesDepartmentArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14410,12 +14694,12 @@ func (o GetDLPWebRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesDepartmentOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesDepartmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14442,9 +14726,9 @@ func (o GetDLPWebRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetDLPWebR
 
 type GetDLPWebRulesDlpEngine struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -14461,9 +14745,9 @@ type GetDLPWebRulesDlpEngineInput interface {
 
 type GetDLPWebRulesDlpEngineArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14522,12 +14806,12 @@ func (o GetDLPWebRulesDlpEngineOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDlpEngine) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesDlpEngineOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDlpEngine) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesDlpEngineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesDlpEngine) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14554,7 +14838,7 @@ func (o GetDLPWebRulesDlpEngineArrayOutput) Index(i pulumi.IntInput) GetDLPWebRu
 
 type GetDLPWebRulesExcludedDepartment struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
 }
 
@@ -14571,7 +14855,7 @@ type GetDLPWebRulesExcludedDepartmentInput interface {
 
 type GetDLPWebRulesExcludedDepartmentArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -14630,7 +14914,7 @@ func (o GetDLPWebRulesExcludedDepartmentOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetDLPWebRulesExcludedDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesExcludedDepartmentOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesExcludedDepartment) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -14657,7 +14941,7 @@ func (o GetDLPWebRulesExcludedDepartmentArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetDLPWebRulesExcludedGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
 }
 
@@ -14674,7 +14958,7 @@ type GetDLPWebRulesExcludedGroupInput interface {
 
 type GetDLPWebRulesExcludedGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -14733,7 +15017,7 @@ func (o GetDLPWebRulesExcludedGroupOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesExcludedGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesExcludedGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesExcludedGroup) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -14760,7 +15044,7 @@ func (o GetDLPWebRulesExcludedGroupArrayOutput) Index(i pulumi.IntInput) GetDLPW
 
 type GetDLPWebRulesExcludedUser struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
 }
 
@@ -14777,7 +15061,7 @@ type GetDLPWebRulesExcludedUserInput interface {
 
 type GetDLPWebRulesExcludedUserArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
 }
 
@@ -14836,7 +15120,7 @@ func (o GetDLPWebRulesExcludedUserOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesExcludedUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesExcludedUserOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesExcludedUser) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -14863,9 +15147,9 @@ func (o GetDLPWebRulesExcludedUserArrayOutput) Index(i pulumi.IntInput) GetDLPWe
 
 type GetDLPWebRulesGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -14882,9 +15166,9 @@ type GetDLPWebRulesGroupInput interface {
 
 type GetDLPWebRulesGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14943,12 +15227,12 @@ func (o GetDLPWebRulesGroupOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14973,123 +15257,11 @@ func (o GetDLPWebRulesGroupArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesG
 	}).(GetDLPWebRulesGroupOutput)
 }
 
-type GetDLPWebRulesIcapServer struct {
-	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id int `pulumi:"id"`
-	// The name of the workload group
-	Name string `pulumi:"name"`
-}
-
-// GetDLPWebRulesIcapServerInput is an input type that accepts GetDLPWebRulesIcapServerArgs and GetDLPWebRulesIcapServerOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesIcapServerInput` via:
-//
-//	GetDLPWebRulesIcapServerArgs{...}
-type GetDLPWebRulesIcapServerInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesIcapServerOutput() GetDLPWebRulesIcapServerOutput
-	ToGetDLPWebRulesIcapServerOutputWithContext(context.Context) GetDLPWebRulesIcapServerOutput
-}
-
-type GetDLPWebRulesIcapServerArgs struct {
-	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetDLPWebRulesIcapServerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesIcapServer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesIcapServerArgs) ToGetDLPWebRulesIcapServerOutput() GetDLPWebRulesIcapServerOutput {
-	return i.ToGetDLPWebRulesIcapServerOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesIcapServerArgs) ToGetDLPWebRulesIcapServerOutputWithContext(ctx context.Context) GetDLPWebRulesIcapServerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesIcapServerOutput)
-}
-
-// GetDLPWebRulesIcapServerArrayInput is an input type that accepts GetDLPWebRulesIcapServerArray and GetDLPWebRulesIcapServerArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesIcapServerArrayInput` via:
-//
-//	GetDLPWebRulesIcapServerArray{ GetDLPWebRulesIcapServerArgs{...} }
-type GetDLPWebRulesIcapServerArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesIcapServerArrayOutput() GetDLPWebRulesIcapServerArrayOutput
-	ToGetDLPWebRulesIcapServerArrayOutputWithContext(context.Context) GetDLPWebRulesIcapServerArrayOutput
-}
-
-type GetDLPWebRulesIcapServerArray []GetDLPWebRulesIcapServerInput
-
-func (GetDLPWebRulesIcapServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesIcapServer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesIcapServerArray) ToGetDLPWebRulesIcapServerArrayOutput() GetDLPWebRulesIcapServerArrayOutput {
-	return i.ToGetDLPWebRulesIcapServerArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesIcapServerArray) ToGetDLPWebRulesIcapServerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesIcapServerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesIcapServerArrayOutput)
-}
-
-type GetDLPWebRulesIcapServerOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesIcapServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesIcapServer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesIcapServerOutput) ToGetDLPWebRulesIcapServerOutput() GetDLPWebRulesIcapServerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesIcapServerOutput) ToGetDLPWebRulesIcapServerOutputWithContext(ctx context.Context) GetDLPWebRulesIcapServerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesIcapServerOutput) Extensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetDLPWebRulesIcapServer) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
-}
-
-// A unique identifier assigned to the workload group
-func (o GetDLPWebRulesIcapServerOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDLPWebRulesIcapServer) int { return v.Id }).(pulumi.IntOutput)
-}
-
-// The name of the workload group
-func (o GetDLPWebRulesIcapServerOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesIcapServer) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDLPWebRulesIcapServerArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesIcapServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesIcapServer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesIcapServerArrayOutput) ToGetDLPWebRulesIcapServerArrayOutput() GetDLPWebRulesIcapServerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesIcapServerArrayOutput) ToGetDLPWebRulesIcapServerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesIcapServerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesIcapServerArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesIcapServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesIcapServer {
-		return vs[0].([]GetDLPWebRulesIcapServer)[vs[1].(int)]
-	}).(GetDLPWebRulesIcapServerOutput)
-}
-
 type GetDLPWebRulesLabel struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15106,9 +15278,9 @@ type GetDLPWebRulesLabelInput interface {
 
 type GetDLPWebRulesLabelArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15167,12 +15339,12 @@ func (o GetDLPWebRulesLabelOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLabelOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLabel) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15199,9 +15371,9 @@ func (o GetDLPWebRulesLabelArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesL
 
 type GetDLPWebRulesLastModifiedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15218,9 +15390,9 @@ type GetDLPWebRulesLastModifiedByInput interface {
 
 type GetDLPWebRulesLastModifiedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15279,12 +15451,12 @@ func (o GetDLPWebRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetDLPWebRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLastModifiedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15311,9 +15483,9 @@ func (o GetDLPWebRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetDLP
 
 type GetDLPWebRulesLocation struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15330,9 +15502,9 @@ type GetDLPWebRulesLocationInput interface {
 
 type GetDLPWebRulesLocationArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15391,12 +15563,12 @@ func (o GetDLPWebRulesLocationOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLocationOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocation) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15423,9 +15595,9 @@ func (o GetDLPWebRulesLocationArrayOutput) Index(i pulumi.IntInput) GetDLPWebRul
 
 type GetDLPWebRulesLocationGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15442,9 +15614,9 @@ type GetDLPWebRulesLocationGroupInput interface {
 
 type GetDLPWebRulesLocationGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15503,12 +15675,12 @@ func (o GetDLPWebRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLocationGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesLocationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15533,123 +15705,123 @@ func (o GetDLPWebRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetDLPW
 	}).(GetDLPWebRulesLocationGroupOutput)
 }
 
-type GetDLPWebRulesNotificationTemplate struct {
+type GetDLPWebRulesSourceIpGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
-// GetDLPWebRulesNotificationTemplateInput is an input type that accepts GetDLPWebRulesNotificationTemplateArgs and GetDLPWebRulesNotificationTemplateOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesNotificationTemplateInput` via:
+// GetDLPWebRulesSourceIpGroupInput is an input type that accepts GetDLPWebRulesSourceIpGroupArgs and GetDLPWebRulesSourceIpGroupOutput values.
+// You can construct a concrete instance of `GetDLPWebRulesSourceIpGroupInput` via:
 //
-//	GetDLPWebRulesNotificationTemplateArgs{...}
-type GetDLPWebRulesNotificationTemplateInput interface {
+//	GetDLPWebRulesSourceIpGroupArgs{...}
+type GetDLPWebRulesSourceIpGroupInput interface {
 	pulumi.Input
 
-	ToGetDLPWebRulesNotificationTemplateOutput() GetDLPWebRulesNotificationTemplateOutput
-	ToGetDLPWebRulesNotificationTemplateOutputWithContext(context.Context) GetDLPWebRulesNotificationTemplateOutput
+	ToGetDLPWebRulesSourceIpGroupOutput() GetDLPWebRulesSourceIpGroupOutput
+	ToGetDLPWebRulesSourceIpGroupOutputWithContext(context.Context) GetDLPWebRulesSourceIpGroupOutput
 }
 
-type GetDLPWebRulesNotificationTemplateArgs struct {
+type GetDLPWebRulesSourceIpGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (GetDLPWebRulesNotificationTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesNotificationTemplate)(nil)).Elem()
+func (GetDLPWebRulesSourceIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDLPWebRulesSourceIpGroup)(nil)).Elem()
 }
 
-func (i GetDLPWebRulesNotificationTemplateArgs) ToGetDLPWebRulesNotificationTemplateOutput() GetDLPWebRulesNotificationTemplateOutput {
-	return i.ToGetDLPWebRulesNotificationTemplateOutputWithContext(context.Background())
+func (i GetDLPWebRulesSourceIpGroupArgs) ToGetDLPWebRulesSourceIpGroupOutput() GetDLPWebRulesSourceIpGroupOutput {
+	return i.ToGetDLPWebRulesSourceIpGroupOutputWithContext(context.Background())
 }
 
-func (i GetDLPWebRulesNotificationTemplateArgs) ToGetDLPWebRulesNotificationTemplateOutputWithContext(ctx context.Context) GetDLPWebRulesNotificationTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesNotificationTemplateOutput)
+func (i GetDLPWebRulesSourceIpGroupArgs) ToGetDLPWebRulesSourceIpGroupOutputWithContext(ctx context.Context) GetDLPWebRulesSourceIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesSourceIpGroupOutput)
 }
 
-// GetDLPWebRulesNotificationTemplateArrayInput is an input type that accepts GetDLPWebRulesNotificationTemplateArray and GetDLPWebRulesNotificationTemplateArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesNotificationTemplateArrayInput` via:
+// GetDLPWebRulesSourceIpGroupArrayInput is an input type that accepts GetDLPWebRulesSourceIpGroupArray and GetDLPWebRulesSourceIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetDLPWebRulesSourceIpGroupArrayInput` via:
 //
-//	GetDLPWebRulesNotificationTemplateArray{ GetDLPWebRulesNotificationTemplateArgs{...} }
-type GetDLPWebRulesNotificationTemplateArrayInput interface {
+//	GetDLPWebRulesSourceIpGroupArray{ GetDLPWebRulesSourceIpGroupArgs{...} }
+type GetDLPWebRulesSourceIpGroupArrayInput interface {
 	pulumi.Input
 
-	ToGetDLPWebRulesNotificationTemplateArrayOutput() GetDLPWebRulesNotificationTemplateArrayOutput
-	ToGetDLPWebRulesNotificationTemplateArrayOutputWithContext(context.Context) GetDLPWebRulesNotificationTemplateArrayOutput
+	ToGetDLPWebRulesSourceIpGroupArrayOutput() GetDLPWebRulesSourceIpGroupArrayOutput
+	ToGetDLPWebRulesSourceIpGroupArrayOutputWithContext(context.Context) GetDLPWebRulesSourceIpGroupArrayOutput
 }
 
-type GetDLPWebRulesNotificationTemplateArray []GetDLPWebRulesNotificationTemplateInput
+type GetDLPWebRulesSourceIpGroupArray []GetDLPWebRulesSourceIpGroupInput
 
-func (GetDLPWebRulesNotificationTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesNotificationTemplate)(nil)).Elem()
+func (GetDLPWebRulesSourceIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDLPWebRulesSourceIpGroup)(nil)).Elem()
 }
 
-func (i GetDLPWebRulesNotificationTemplateArray) ToGetDLPWebRulesNotificationTemplateArrayOutput() GetDLPWebRulesNotificationTemplateArrayOutput {
-	return i.ToGetDLPWebRulesNotificationTemplateArrayOutputWithContext(context.Background())
+func (i GetDLPWebRulesSourceIpGroupArray) ToGetDLPWebRulesSourceIpGroupArrayOutput() GetDLPWebRulesSourceIpGroupArrayOutput {
+	return i.ToGetDLPWebRulesSourceIpGroupArrayOutputWithContext(context.Background())
 }
 
-func (i GetDLPWebRulesNotificationTemplateArray) ToGetDLPWebRulesNotificationTemplateArrayOutputWithContext(ctx context.Context) GetDLPWebRulesNotificationTemplateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesNotificationTemplateArrayOutput)
+func (i GetDLPWebRulesSourceIpGroupArray) ToGetDLPWebRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetDLPWebRulesSourceIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesSourceIpGroupArrayOutput)
 }
 
-type GetDLPWebRulesNotificationTemplateOutput struct{ *pulumi.OutputState }
+type GetDLPWebRulesSourceIpGroupOutput struct{ *pulumi.OutputState }
 
-func (GetDLPWebRulesNotificationTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesNotificationTemplate)(nil)).Elem()
+func (GetDLPWebRulesSourceIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDLPWebRulesSourceIpGroup)(nil)).Elem()
 }
 
-func (o GetDLPWebRulesNotificationTemplateOutput) ToGetDLPWebRulesNotificationTemplateOutput() GetDLPWebRulesNotificationTemplateOutput {
+func (o GetDLPWebRulesSourceIpGroupOutput) ToGetDLPWebRulesSourceIpGroupOutput() GetDLPWebRulesSourceIpGroupOutput {
 	return o
 }
 
-func (o GetDLPWebRulesNotificationTemplateOutput) ToGetDLPWebRulesNotificationTemplateOutputWithContext(ctx context.Context) GetDLPWebRulesNotificationTemplateOutput {
+func (o GetDLPWebRulesSourceIpGroupOutput) ToGetDLPWebRulesSourceIpGroupOutputWithContext(ctx context.Context) GetDLPWebRulesSourceIpGroupOutput {
 	return o
 }
 
-func (o GetDLPWebRulesNotificationTemplateOutput) Extensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetDLPWebRulesNotificationTemplate) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+func (o GetDLPWebRulesSourceIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDLPWebRulesSourceIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
-func (o GetDLPWebRulesNotificationTemplateOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDLPWebRulesNotificationTemplate) int { return v.Id }).(pulumi.IntOutput)
+// Identifier that uniquely identifies an entity
+func (o GetDLPWebRulesSourceIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDLPWebRulesSourceIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
-func (o GetDLPWebRulesNotificationTemplateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesNotificationTemplate) string { return v.Name }).(pulumi.StringOutput)
+// Identifier that uniquely identifies an entity
+func (o GetDLPWebRulesSourceIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDLPWebRulesSourceIpGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetDLPWebRulesNotificationTemplateArrayOutput struct{ *pulumi.OutputState }
+type GetDLPWebRulesSourceIpGroupArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDLPWebRulesNotificationTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesNotificationTemplate)(nil)).Elem()
+func (GetDLPWebRulesSourceIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDLPWebRulesSourceIpGroup)(nil)).Elem()
 }
 
-func (o GetDLPWebRulesNotificationTemplateArrayOutput) ToGetDLPWebRulesNotificationTemplateArrayOutput() GetDLPWebRulesNotificationTemplateArrayOutput {
+func (o GetDLPWebRulesSourceIpGroupArrayOutput) ToGetDLPWebRulesSourceIpGroupArrayOutput() GetDLPWebRulesSourceIpGroupArrayOutput {
 	return o
 }
 
-func (o GetDLPWebRulesNotificationTemplateArrayOutput) ToGetDLPWebRulesNotificationTemplateArrayOutputWithContext(ctx context.Context) GetDLPWebRulesNotificationTemplateArrayOutput {
+func (o GetDLPWebRulesSourceIpGroupArrayOutput) ToGetDLPWebRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetDLPWebRulesSourceIpGroupArrayOutput {
 	return o
 }
 
-func (o GetDLPWebRulesNotificationTemplateArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesNotificationTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesNotificationTemplate {
-		return vs[0].([]GetDLPWebRulesNotificationTemplate)[vs[1].(int)]
-	}).(GetDLPWebRulesNotificationTemplateOutput)
+func (o GetDLPWebRulesSourceIpGroupArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesSourceIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesSourceIpGroup {
+		return vs[0].([]GetDLPWebRulesSourceIpGroup)[vs[1].(int)]
+	}).(GetDLPWebRulesSourceIpGroupOutput)
 }
 
 type GetDLPWebRulesTimeWindow struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15666,9 +15838,9 @@ type GetDLPWebRulesTimeWindowInput interface {
 
 type GetDLPWebRulesTimeWindowArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15727,12 +15899,12 @@ func (o GetDLPWebRulesTimeWindowOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesTimeWindowOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesTimeWindow) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesTimeWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesTimeWindow) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15759,9 +15931,9 @@ func (o GetDLPWebRulesTimeWindowArrayOutput) Index(i pulumi.IntInput) GetDLPWebR
 
 type GetDLPWebRulesUrlCategory struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15778,9 +15950,9 @@ type GetDLPWebRulesUrlCategoryInput interface {
 
 type GetDLPWebRulesUrlCategoryArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15839,12 +16011,12 @@ func (o GetDLPWebRulesUrlCategoryOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUrlCategory) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesUrlCategoryOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUrlCategory) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesUrlCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUrlCategory) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15871,9 +16043,9 @@ func (o GetDLPWebRulesUrlCategoryArrayOutput) Index(i pulumi.IntInput) GetDLPWeb
 
 type GetDLPWebRulesUser struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name string `pulumi:"name"`
 }
 
@@ -15890,9 +16062,9 @@ type GetDLPWebRulesUserInput interface {
 
 type GetDLPWebRulesUserArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
+	// Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
+	// Identifier that uniquely identifies an entity
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15951,12 +16123,12 @@ func (o GetDLPWebRulesUserOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesUserOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUser) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
+// Identifier that uniquely identifies an entity
 func (o GetDLPWebRulesUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15982,11 +16154,8 @@ func (o GetDLPWebRulesUserArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesUs
 }
 
 type GetDLPWebRulesWorkloadGroup struct {
-	// The description of the DLP policy rule.
-	Description string `pulumi:"description"`
 	// The description of the workload group
-	Expression      string                                      `pulumi:"expression"`
-	ExpressionJsons []GetDLPWebRulesWorkloadGroupExpressionJson `pulumi:"expressionJsons"`
+	Description string `pulumi:"description"`
 	// A unique identifier assigned to the workload group
 	Id int `pulumi:"id"`
 	// The admin that modified the DLP policy rule last.
@@ -16009,11 +16178,8 @@ type GetDLPWebRulesWorkloadGroupInput interface {
 }
 
 type GetDLPWebRulesWorkloadGroupArgs struct {
-	// The description of the DLP policy rule.
-	Description pulumi.StringInput `pulumi:"description"`
 	// The description of the workload group
-	Expression      pulumi.StringInput                                  `pulumi:"expression"`
-	ExpressionJsons GetDLPWebRulesWorkloadGroupExpressionJsonArrayInput `pulumi:"expressionJsons"`
+	Description pulumi.StringInput `pulumi:"description"`
 	// A unique identifier assigned to the workload group
 	Id pulumi.IntInput `pulumi:"id"`
 	// The admin that modified the DLP policy rule last.
@@ -16075,20 +16241,9 @@ func (o GetDLPWebRulesWorkloadGroupOutput) ToGetDLPWebRulesWorkloadGroupOutputWi
 	return o
 }
 
-// The description of the DLP policy rule.
+// The description of the workload group
 func (o GetDLPWebRulesWorkloadGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroup) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// The description of the workload group
-func (o GetDLPWebRulesWorkloadGroupOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroup) string { return v.Expression }).(pulumi.StringOutput)
-}
-
-func (o GetDLPWebRulesWorkloadGroupOutput) ExpressionJsons() GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroup) []GetDLPWebRulesWorkloadGroupExpressionJson {
-		return v.ExpressionJsons
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput)
 }
 
 // A unique identifier assigned to the workload group
@@ -16133,424 +16288,10 @@ func (o GetDLPWebRulesWorkloadGroupArrayOutput) Index(i pulumi.IntInput) GetDLPW
 	}).(GetDLPWebRulesWorkloadGroupOutput)
 }
 
-type GetDLPWebRulesWorkloadGroupExpressionJson struct {
-	ExpressionContainers []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer `pulumi:"expressionContainers"`
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonArgs and GetDLPWebRulesWorkloadGroupExpressionJsonOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonArgs{...}
-type GetDLPWebRulesWorkloadGroupExpressionJsonInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonOutput() GetDLPWebRulesWorkloadGroupExpressionJsonOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonArgs struct {
-	ExpressionContainers GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput `pulumi:"expressionContainers"`
-}
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJson)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonOutput() GetDLPWebRulesWorkloadGroupExpressionJsonOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonOutput)
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonArrayInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonArray and GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonArrayInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonArray{ GetDLPWebRulesWorkloadGroupExpressionJsonArgs{...} }
-type GetDLPWebRulesWorkloadGroupExpressionJsonArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonArray []GetDLPWebRulesWorkloadGroupExpressionJsonInput
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJson)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJson)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonOutput() GetDLPWebRulesWorkloadGroupExpressionJsonOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonOutput) ExpressionContainers() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJson) []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer {
-		return v.ExpressionContainers
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJson)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesWorkloadGroupExpressionJsonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesWorkloadGroupExpressionJson {
-		return vs[0].([]GetDLPWebRulesWorkloadGroupExpressionJson)[vs[1].(int)]
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer struct {
-	Operator      string                                                                     `pulumi:"operator"`
-	TagContainers []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer `pulumi:"tagContainers"`
-	TagType       string                                                                     `pulumi:"tagType"`
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...}
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs struct {
-	Operator      pulumi.StringInput                                                                 `pulumi:"operator"`
-	TagContainers GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput `pulumi:"tagContainers"`
-	TagType       pulumi.StringInput                                                                 `pulumi:"tagType"`
-}
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray{ GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...} }
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerInput
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagContainers() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer) []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
-		return v.TagContainers
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.TagType }).(pulumi.StringOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer {
-		return vs[0].([]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainer)[vs[1].(int)]
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer struct {
-	Operator string                                                                        `pulumi:"operator"`
-	Tags     []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag `pulumi:"tags"`
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...}
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs struct {
-	Operator pulumi.StringInput                                                                    `pulumi:"operator"`
-	Tags     GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput `pulumi:"tags"`
-}
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{ GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...} }
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) string {
-		return v.Operator
-	}).(pulumi.StringOutput)
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Tags() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
-		return v.Tags
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
-		return vs[0].([]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)[vs[1].(int)]
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...}
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
-}
-
-// GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput is an input type that accepts GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray and GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput values.
-// You can construct a concrete instance of `GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput` via:
-//
-//	GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{ GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...} }
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput interface {
-	pulumi.Input
-
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
-	ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray []GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
-	return i.ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Background())
-}
-
-func (i GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
-		return v.Key
-	}).(pulumi.StringOutput)
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
-		return v.Value
-	}).(pulumi.StringOutput)
-}
-
-type GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
-	return o
-}
-
-func (o GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) Index(i pulumi.IntInput) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
-		return vs[0].([]GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)[vs[1].(int)]
-	}).(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
-}
-
 type GetDLPWebRulesWorkloadGroupLastModifiedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id int `pulumi:"id"`
-	// The name of the workload group
-	Name string `pulumi:"name"`
+	Id         int               `pulumi:"id"`
+	Name       string            `pulumi:"name"`
 }
 
 // GetDLPWebRulesWorkloadGroupLastModifiedByInput is an input type that accepts GetDLPWebRulesWorkloadGroupLastModifiedByArgs and GetDLPWebRulesWorkloadGroupLastModifiedByOutput values.
@@ -16566,10 +16307,8 @@ type GetDLPWebRulesWorkloadGroupLastModifiedByInput interface {
 
 type GetDLPWebRulesWorkloadGroupLastModifiedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// A unique identifier assigned to the workload group
-	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the workload group
-	Name pulumi.StringInput `pulumi:"name"`
+	Id         pulumi.IntInput       `pulumi:"id"`
+	Name       pulumi.StringInput    `pulumi:"name"`
 }
 
 func (GetDLPWebRulesWorkloadGroupLastModifiedByArgs) ElementType() reflect.Type {
@@ -16627,12 +16366,10 @@ func (o GetDLPWebRulesWorkloadGroupLastModifiedByOutput) Extensions() pulumi.Str
 	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// A unique identifier assigned to the workload group
 func (o GetDLPWebRulesWorkloadGroupLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the workload group
 func (o GetDLPWebRulesWorkloadGroupLastModifiedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDLPWebRulesWorkloadGroupLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -25752,6 +25489,112 @@ func (o GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput) Index(i pulumi
 	}).(GetTrafficForwardingGRETunnelSecondaryDestVipOutput)
 }
 
+type GetTrafficForwardingStaticIPCity struct {
+	// The unique identifier for the static IP address
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingStaticIPCityInput is an input type that accepts GetTrafficForwardingStaticIPCityArgs and GetTrafficForwardingStaticIPCityOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPCityInput` via:
+//
+//	GetTrafficForwardingStaticIPCityArgs{...}
+type GetTrafficForwardingStaticIPCityInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput
+	ToGetTrafficForwardingStaticIPCityOutputWithContext(context.Context) GetTrafficForwardingStaticIPCityOutput
+}
+
+type GetTrafficForwardingStaticIPCityArgs struct {
+	// The unique identifier for the static IP address
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingStaticIPCityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPCityArgs) ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput {
+	return i.ToGetTrafficForwardingStaticIPCityOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPCityArgs) ToGetTrafficForwardingStaticIPCityOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPCityOutput)
+}
+
+// GetTrafficForwardingStaticIPCityArrayInput is an input type that accepts GetTrafficForwardingStaticIPCityArray and GetTrafficForwardingStaticIPCityArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPCityArrayInput` via:
+//
+//	GetTrafficForwardingStaticIPCityArray{ GetTrafficForwardingStaticIPCityArgs{...} }
+type GetTrafficForwardingStaticIPCityArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput
+	ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(context.Context) GetTrafficForwardingStaticIPCityArrayOutput
+}
+
+type GetTrafficForwardingStaticIPCityArray []GetTrafficForwardingStaticIPCityInput
+
+func (GetTrafficForwardingStaticIPCityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPCityArray) ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput {
+	return i.ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPCityArray) ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPCityArrayOutput)
+}
+
+type GetTrafficForwardingStaticIPCityOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPCityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPCityOutput) ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityOutput) ToGetTrafficForwardingStaticIPCityOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityOutput {
+	return o
+}
+
+// The unique identifier for the static IP address
+func (o GetTrafficForwardingStaticIPCityOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPCity) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingStaticIPCityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPCity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingStaticIPCityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPCityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingStaticIPCityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingStaticIPCity {
+		return vs[0].([]GetTrafficForwardingStaticIPCity)[vs[1].(int)]
+	}).(GetTrafficForwardingStaticIPCityOutput)
+}
+
 type GetTrafficForwardingStaticIPLastModifiedBy struct {
 	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
@@ -28087,6 +27930,121 @@ func (o GetURLFilteringRulesOverrideUserArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetURLFilteringRulesOverrideUserOutput)
 }
 
+type GetURLFilteringRulesSourceIpGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// URL Filtering Rule ID
+	Id int `pulumi:"id"`
+	// Name of the URL Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetURLFilteringRulesSourceIpGroupInput is an input type that accepts GetURLFilteringRulesSourceIpGroupArgs and GetURLFilteringRulesSourceIpGroupOutput values.
+// You can construct a concrete instance of `GetURLFilteringRulesSourceIpGroupInput` via:
+//
+//	GetURLFilteringRulesSourceIpGroupArgs{...}
+type GetURLFilteringRulesSourceIpGroupInput interface {
+	pulumi.Input
+
+	ToGetURLFilteringRulesSourceIpGroupOutput() GetURLFilteringRulesSourceIpGroupOutput
+	ToGetURLFilteringRulesSourceIpGroupOutputWithContext(context.Context) GetURLFilteringRulesSourceIpGroupOutput
+}
+
+type GetURLFilteringRulesSourceIpGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// URL Filtering Rule ID
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the URL Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetURLFilteringRulesSourceIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLFilteringRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (i GetURLFilteringRulesSourceIpGroupArgs) ToGetURLFilteringRulesSourceIpGroupOutput() GetURLFilteringRulesSourceIpGroupOutput {
+	return i.ToGetURLFilteringRulesSourceIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetURLFilteringRulesSourceIpGroupArgs) ToGetURLFilteringRulesSourceIpGroupOutputWithContext(ctx context.Context) GetURLFilteringRulesSourceIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLFilteringRulesSourceIpGroupOutput)
+}
+
+// GetURLFilteringRulesSourceIpGroupArrayInput is an input type that accepts GetURLFilteringRulesSourceIpGroupArray and GetURLFilteringRulesSourceIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetURLFilteringRulesSourceIpGroupArrayInput` via:
+//
+//	GetURLFilteringRulesSourceIpGroupArray{ GetURLFilteringRulesSourceIpGroupArgs{...} }
+type GetURLFilteringRulesSourceIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetURLFilteringRulesSourceIpGroupArrayOutput() GetURLFilteringRulesSourceIpGroupArrayOutput
+	ToGetURLFilteringRulesSourceIpGroupArrayOutputWithContext(context.Context) GetURLFilteringRulesSourceIpGroupArrayOutput
+}
+
+type GetURLFilteringRulesSourceIpGroupArray []GetURLFilteringRulesSourceIpGroupInput
+
+func (GetURLFilteringRulesSourceIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLFilteringRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (i GetURLFilteringRulesSourceIpGroupArray) ToGetURLFilteringRulesSourceIpGroupArrayOutput() GetURLFilteringRulesSourceIpGroupArrayOutput {
+	return i.ToGetURLFilteringRulesSourceIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLFilteringRulesSourceIpGroupArray) ToGetURLFilteringRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetURLFilteringRulesSourceIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLFilteringRulesSourceIpGroupArrayOutput)
+}
+
+type GetURLFilteringRulesSourceIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetURLFilteringRulesSourceIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLFilteringRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (o GetURLFilteringRulesSourceIpGroupOutput) ToGetURLFilteringRulesSourceIpGroupOutput() GetURLFilteringRulesSourceIpGroupOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesSourceIpGroupOutput) ToGetURLFilteringRulesSourceIpGroupOutputWithContext(ctx context.Context) GetURLFilteringRulesSourceIpGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetURLFilteringRulesSourceIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesSourceIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// URL Filtering Rule ID
+func (o GetURLFilteringRulesSourceIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesSourceIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the URL Filtering policy rule
+func (o GetURLFilteringRulesSourceIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesSourceIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetURLFilteringRulesSourceIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLFilteringRulesSourceIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLFilteringRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (o GetURLFilteringRulesSourceIpGroupArrayOutput) ToGetURLFilteringRulesSourceIpGroupArrayOutput() GetURLFilteringRulesSourceIpGroupArrayOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesSourceIpGroupArrayOutput) ToGetURLFilteringRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetURLFilteringRulesSourceIpGroupArrayOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesSourceIpGroupArrayOutput) Index(i pulumi.IntInput) GetURLFilteringRulesSourceIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLFilteringRulesSourceIpGroup {
+		return vs[0].([]GetURLFilteringRulesSourceIpGroup)[vs[1].(int)]
+	}).(GetURLFilteringRulesSourceIpGroupOutput)
+}
+
 type GetURLFilteringRulesTimeWindow struct {
 	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
@@ -29817,13 +29775,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPDictionariesPhraseInput)(nil)).Elem(), DLPDictionariesPhraseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPDictionariesPhraseArrayInput)(nil)).Elem(), DLPDictionariesPhraseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesAuditorInput)(nil)).Elem(), DLPWebRulesAuditorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesAuditorPtrInput)(nil)).Elem(), DLPWebRulesAuditorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesAuditorArrayInput)(nil)).Elem(), DLPWebRulesAuditorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesDepartmentsInput)(nil)).Elem(), DLPWebRulesDepartmentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesDepartmentsPtrInput)(nil)).Elem(), DLPWebRulesDepartmentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesDlpEnginesInput)(nil)).Elem(), DLPWebRulesDlpEnginesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesDlpEnginesPtrInput)(nil)).Elem(), DLPWebRulesDlpEnginesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedDepartmentsInput)(nil)).Elem(), DLPWebRulesExcludedDepartmentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedDepartmentsPtrInput)(nil)).Elem(), DLPWebRulesExcludedDepartmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedDomainProfilesInput)(nil)).Elem(), DLPWebRulesExcludedDomainProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedDomainProfilesPtrInput)(nil)).Elem(), DLPWebRulesExcludedDomainProfilesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedGroupsInput)(nil)).Elem(), DLPWebRulesExcludedGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedGroupsPtrInput)(nil)).Elem(), DLPWebRulesExcludedGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesExcludedUsersInput)(nil)).Elem(), DLPWebRulesExcludedUsersArgs{})
@@ -29831,7 +29791,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesGroupsInput)(nil)).Elem(), DLPWebRulesGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesGroupsPtrInput)(nil)).Elem(), DLPWebRulesGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesIcapServerInput)(nil)).Elem(), DLPWebRulesIcapServerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesIcapServerPtrInput)(nil)).Elem(), DLPWebRulesIcapServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesIcapServerArrayInput)(nil)).Elem(), DLPWebRulesIcapServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesIncludedDomainProfilesInput)(nil)).Elem(), DLPWebRulesIncludedDomainProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesIncludedDomainProfilesPtrInput)(nil)).Elem(), DLPWebRulesIncludedDomainProfilesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesLabelsInput)(nil)).Elem(), DLPWebRulesLabelsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesLabelsPtrInput)(nil)).Elem(), DLPWebRulesLabelsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesLocationGroupsInput)(nil)).Elem(), DLPWebRulesLocationGroupsArgs{})
@@ -29839,7 +29801,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesLocationsInput)(nil)).Elem(), DLPWebRulesLocationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesLocationsPtrInput)(nil)).Elem(), DLPWebRulesLocationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesNotificationTemplateInput)(nil)).Elem(), DLPWebRulesNotificationTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesNotificationTemplatePtrInput)(nil)).Elem(), DLPWebRulesNotificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesNotificationTemplateArrayInput)(nil)).Elem(), DLPWebRulesNotificationTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesSourceIpGroupsInput)(nil)).Elem(), DLPWebRulesSourceIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesSourceIpGroupsPtrInput)(nil)).Elem(), DLPWebRulesSourceIpGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesTimeWindowsInput)(nil)).Elem(), DLPWebRulesTimeWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesTimeWindowsPtrInput)(nil)).Elem(), DLPWebRulesTimeWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DLPWebRulesUrlCategoriesInput)(nil)).Elem(), DLPWebRulesUrlCategoriesArgs{})
@@ -29938,6 +29902,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaAppSegmentArrayInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaAppSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaServerGroupInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaServerGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaServerGroupPtrInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaServerGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementDynamicLocationGroupsInput)(nil)).Elem(), LocationManagementDynamicLocationGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementDynamicLocationGroupsPtrInput)(nil)).Elem(), LocationManagementDynamicLocationGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementStaticLocationGroupsInput)(nil)).Elem(), LocationManagementStaticLocationGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementStaticLocationGroupsPtrInput)(nil)).Elem(), LocationManagementStaticLocationGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementVpnCredentialInput)(nil)).Elem(), LocationManagementVpnCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementVpnCredentialArrayInput)(nil)).Elem(), LocationManagementVpnCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficForwardingGRETunnelPrimaryDestVipInput)(nil)).Elem(), TrafficForwardingGRETunnelPrimaryDestVipArgs{})
@@ -29972,6 +29940,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesOverrideGroupsPtrInput)(nil)).Elem(), URLFilteringRulesOverrideGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesOverrideUsersInput)(nil)).Elem(), URLFilteringRulesOverrideUsersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesOverrideUsersPtrInput)(nil)).Elem(), URLFilteringRulesOverrideUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesSourceIpGroupsInput)(nil)).Elem(), URLFilteringRulesSourceIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesSourceIpGroupsPtrInput)(nil)).Elem(), URLFilteringRulesSourceIpGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesTimeWindowsInput)(nil)).Elem(), URLFilteringRulesTimeWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesTimeWindowsPtrInput)(nil)).Elem(), URLFilteringRulesTimeWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*URLFilteringRulesUsersInput)(nil)).Elem(), URLFilteringRulesUsersArgs{})
@@ -30020,8 +29990,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPIDMProfilesIdmClientArrayInput)(nil)).Elem(), GetDLPIDMProfilesIdmClientArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPIDMProfilesLastModifiedByInput)(nil)).Elem(), GetDLPIDMProfilesLastModifiedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPIDMProfilesLastModifiedByArrayInput)(nil)).Elem(), GetDLPIDMProfilesLastModifiedByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesAuditorInput)(nil)).Elem(), GetDLPWebRulesAuditorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesAuditorArrayInput)(nil)).Elem(), GetDLPWebRulesAuditorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesDepartmentInput)(nil)).Elem(), GetDLPWebRulesDepartmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesDepartmentArrayInput)(nil)).Elem(), GetDLPWebRulesDepartmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesDlpEngineInput)(nil)).Elem(), GetDLPWebRulesDlpEngineArgs{})
@@ -30034,8 +30002,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesExcludedUserArrayInput)(nil)).Elem(), GetDLPWebRulesExcludedUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesGroupInput)(nil)).Elem(), GetDLPWebRulesGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesGroupArrayInput)(nil)).Elem(), GetDLPWebRulesGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesIcapServerInput)(nil)).Elem(), GetDLPWebRulesIcapServerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesIcapServerArrayInput)(nil)).Elem(), GetDLPWebRulesIcapServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLabelInput)(nil)).Elem(), GetDLPWebRulesLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLabelArrayInput)(nil)).Elem(), GetDLPWebRulesLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLastModifiedByInput)(nil)).Elem(), GetDLPWebRulesLastModifiedByArgs{})
@@ -30044,8 +30010,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLocationArrayInput)(nil)).Elem(), GetDLPWebRulesLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLocationGroupInput)(nil)).Elem(), GetDLPWebRulesLocationGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesLocationGroupArrayInput)(nil)).Elem(), GetDLPWebRulesLocationGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesNotificationTemplateInput)(nil)).Elem(), GetDLPWebRulesNotificationTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesNotificationTemplateArrayInput)(nil)).Elem(), GetDLPWebRulesNotificationTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesSourceIpGroupInput)(nil)).Elem(), GetDLPWebRulesSourceIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesSourceIpGroupArrayInput)(nil)).Elem(), GetDLPWebRulesSourceIpGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesTimeWindowInput)(nil)).Elem(), GetDLPWebRulesTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesTimeWindowArrayInput)(nil)).Elem(), GetDLPWebRulesTimeWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesUrlCategoryInput)(nil)).Elem(), GetDLPWebRulesUrlCategoryArgs{})
@@ -30054,14 +30020,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesUserArrayInput)(nil)).Elem(), GetDLPWebRulesUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupLastModifiedByInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupLastModifiedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDLPWebRulesWorkloadGroupLastModifiedByArrayInput)(nil)).Elem(), GetDLPWebRulesWorkloadGroupLastModifiedByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFilteringNetworkServiceGroupsServiceInput)(nil)).Elem(), GetFirewallFilteringNetworkServiceGroupsServiceArgs{})
@@ -30224,6 +30182,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelPrimaryDestVipArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelPrimaryDestVipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVipInput)(nil)).Elem(), GetTrafficForwardingGRETunnelSecondaryDestVipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVipArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelSecondaryDestVipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPCityInput)(nil)).Elem(), GetTrafficForwardingStaticIPCityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPCityArrayInput)(nil)).Elem(), GetTrafficForwardingStaticIPCityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedByInput)(nil)).Elem(), GetTrafficForwardingStaticIPLastModifiedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedByArrayInput)(nil)).Elem(), GetTrafficForwardingStaticIPLastModifiedByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPManagedByInput)(nil)).Elem(), GetTrafficForwardingStaticIPManagedByArgs{})
@@ -30264,6 +30224,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesOverrideGroupArrayInput)(nil)).Elem(), GetURLFilteringRulesOverrideGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesOverrideUserInput)(nil)).Elem(), GetURLFilteringRulesOverrideUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesOverrideUserArrayInput)(nil)).Elem(), GetURLFilteringRulesOverrideUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesSourceIpGroupInput)(nil)).Elem(), GetURLFilteringRulesSourceIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesSourceIpGroupArrayInput)(nil)).Elem(), GetURLFilteringRulesSourceIpGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesTimeWindowInput)(nil)).Elem(), GetURLFilteringRulesTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesTimeWindowArrayInput)(nil)).Elem(), GetURLFilteringRulesTimeWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesUserInput)(nil)).Elem(), GetURLFilteringRulesUserArgs{})
@@ -30309,13 +30271,15 @@ func init() {
 	pulumi.RegisterOutputType(DLPDictionariesPhraseOutput{})
 	pulumi.RegisterOutputType(DLPDictionariesPhraseArrayOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesAuditorOutput{})
-	pulumi.RegisterOutputType(DLPWebRulesAuditorPtrOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesAuditorArrayOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesDepartmentsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesDepartmentsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesDlpEnginesOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesDlpEnginesPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesExcludedDepartmentsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesExcludedDepartmentsPtrOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesExcludedDomainProfilesOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesExcludedDomainProfilesPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesExcludedGroupsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesExcludedGroupsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesExcludedUsersOutput{})
@@ -30323,7 +30287,9 @@ func init() {
 	pulumi.RegisterOutputType(DLPWebRulesGroupsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesGroupsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesIcapServerOutput{})
-	pulumi.RegisterOutputType(DLPWebRulesIcapServerPtrOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesIcapServerArrayOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesIncludedDomainProfilesOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesIncludedDomainProfilesPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesLabelsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesLabelsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesLocationGroupsOutput{})
@@ -30331,7 +30297,9 @@ func init() {
 	pulumi.RegisterOutputType(DLPWebRulesLocationsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesLocationsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesNotificationTemplateOutput{})
-	pulumi.RegisterOutputType(DLPWebRulesNotificationTemplatePtrOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesNotificationTemplateArrayOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesSourceIpGroupsOutput{})
+	pulumi.RegisterOutputType(DLPWebRulesSourceIpGroupsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesTimeWindowsOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesTimeWindowsPtrOutput{})
 	pulumi.RegisterOutputType(DLPWebRulesUrlCategoriesOutput{})
@@ -30430,6 +30398,10 @@ func init() {
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaAppSegmentArrayOutput{})
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaServerGroupOutput{})
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaServerGroupPtrOutput{})
+	pulumi.RegisterOutputType(LocationManagementDynamicLocationGroupsOutput{})
+	pulumi.RegisterOutputType(LocationManagementDynamicLocationGroupsPtrOutput{})
+	pulumi.RegisterOutputType(LocationManagementStaticLocationGroupsOutput{})
+	pulumi.RegisterOutputType(LocationManagementStaticLocationGroupsPtrOutput{})
 	pulumi.RegisterOutputType(LocationManagementVpnCredentialOutput{})
 	pulumi.RegisterOutputType(LocationManagementVpnCredentialArrayOutput{})
 	pulumi.RegisterOutputType(TrafficForwardingGRETunnelPrimaryDestVipOutput{})
@@ -30464,6 +30436,8 @@ func init() {
 	pulumi.RegisterOutputType(URLFilteringRulesOverrideGroupsPtrOutput{})
 	pulumi.RegisterOutputType(URLFilteringRulesOverrideUsersOutput{})
 	pulumi.RegisterOutputType(URLFilteringRulesOverrideUsersPtrOutput{})
+	pulumi.RegisterOutputType(URLFilteringRulesSourceIpGroupsOutput{})
+	pulumi.RegisterOutputType(URLFilteringRulesSourceIpGroupsPtrOutput{})
 	pulumi.RegisterOutputType(URLFilteringRulesTimeWindowsOutput{})
 	pulumi.RegisterOutputType(URLFilteringRulesTimeWindowsPtrOutput{})
 	pulumi.RegisterOutputType(URLFilteringRulesUsersOutput{})
@@ -30512,8 +30486,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDLPIDMProfilesIdmClientArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPIDMProfilesLastModifiedByOutput{})
 	pulumi.RegisterOutputType(GetDLPIDMProfilesLastModifiedByArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesAuditorOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesAuditorArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesDepartmentOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesDepartmentArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesDlpEngineOutput{})
@@ -30526,8 +30498,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDLPWebRulesExcludedUserArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesGroupOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesGroupArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesIcapServerOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesIcapServerArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesLabelOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesLabelArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesLastModifiedByOutput{})
@@ -30536,8 +30506,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDLPWebRulesLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesLocationGroupOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesLocationGroupArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesNotificationTemplateOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesNotificationTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetDLPWebRulesSourceIpGroupOutput{})
+	pulumi.RegisterOutputType(GetDLPWebRulesSourceIpGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesTimeWindowOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesTimeWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesUrlCategoryOutput{})
@@ -30546,14 +30516,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDLPWebRulesUserArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput{})
-	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupLastModifiedByOutput{})
 	pulumi.RegisterOutputType(GetDLPWebRulesWorkloadGroupLastModifiedByArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallFilteringNetworkServiceGroupsServiceOutput{})
@@ -30716,6 +30678,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelSecondaryDestVipOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPCityOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPCityArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPLastModifiedByOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPLastModifiedByArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPManagedByOutput{})
@@ -30756,6 +30720,8 @@ func init() {
 	pulumi.RegisterOutputType(GetURLFilteringRulesOverrideGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesOverrideUserOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesOverrideUserArrayOutput{})
+	pulumi.RegisterOutputType(GetURLFilteringRulesSourceIpGroupOutput{})
+	pulumi.RegisterOutputType(GetURLFilteringRulesSourceIpGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesTimeWindowOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesTimeWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesUserOutput{})

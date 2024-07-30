@@ -14,7 +14,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
     public sealed class DLPDictionariesExactDataMatchDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for the EDM mapping.
+        /// The unique identifier for the EDM mapping
         /// </summary>
         [Input("dictionaryEdmMappingId")]
         public Input<int>? DictionaryEdmMappingId { get; set; }
@@ -33,23 +33,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
         /// <summary>
         /// The EDM secondary field to match on.
-        /// - `"MATCHON_NONE"`
-        /// - `"MATCHON_ANY_1"`
-        /// - `"MATCHON_ANY_2"`
-        /// - `"MATCHON_ANY_3"`
-        /// - `"MATCHON_ANY_4"`
-        /// - `"MATCHON_ANY_5"`
-        /// - `"MATCHON_ANY_6"`
-        /// - `"MATCHON_ANY_7"`
-        /// - `"MATCHON_ANY_8"`
-        /// - `"MATCHON_ANY_9"`
-        /// - `"MATCHON_ANY_10"`
-        /// - `"MATCHON_ANY_11"`
-        /// - `"MATCHON_ANY_12"`
-        /// - `"MATCHON_ANY_13"`
-        /// - `"MATCHON_ANY_14"`
-        /// - `"MATCHON_ANY_15"`
-        /// - `"MATCHON_ALL"`
         /// </summary>
         [Input("secondaryFieldMatchOn")]
         public Input<string>? SecondaryFieldMatchOn { get; set; }

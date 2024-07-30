@@ -12,19 +12,14 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 {
 
     [OutputType]
-    public sealed class GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagResult
+    public sealed class LocationManagementDynamicLocationGroups
     {
-        public readonly string Key;
-        public readonly string Value;
+        public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]
-        private GetDLPWebRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagResult(
-            string key,
-
-            string value)
+        private LocationManagementDynamicLocationGroups(ImmutableArray<int> ids)
         {
-            Key = key;
-            Value = value;
+            Ids = ids;
         }
     }
 }

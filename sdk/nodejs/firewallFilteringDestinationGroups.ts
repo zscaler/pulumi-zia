@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -25,9 +24,7 @@ import * as utilities from "./utilities";
  *     type: "DSTN_FQDN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -44,9 +41,7 @@ import * as utilities from "./utilities";
  *     type: "DSTN_IP",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -61,9 +56,7 @@ import * as utilities from "./utilities";
  *     type: "DSTN_DOMAIN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -79,7 +72,6 @@ import * as utilities from "./utilities";
  *     type: "DSTN_OTHER",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -130,11 +122,12 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
     }
 
     /**
-     * Destination IP addresses, domains or FQDNs within the group
+     * Destination IP addresses within the group
      */
     public readonly addresses!: pulumi.Output<string[]>;
     /**
-     * Destination IP address counties. You can identify destinations based on the location of a server.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+     * countries.
      */
     public readonly countries!: pulumi.Output<string[]>;
     /**
@@ -146,8 +139,7 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
      */
     public /*out*/ readonly groupId!: pulumi.Output<number>;
     /**
-     * Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-     * * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+     * List of URL categories for which rule must be applied
      */
     public readonly ipCategories!: pulumi.Output<string[] | undefined>;
     /**
@@ -155,7 +147,7 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -199,11 +191,12 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
  */
 export interface FirewallFilteringDestinationGroupsState {
     /**
-     * Destination IP addresses, domains or FQDNs within the group
+     * Destination IP addresses within the group
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination IP address counties. You can identify destinations based on the location of a server.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+     * countries.
      */
     countries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -215,8 +208,7 @@ export interface FirewallFilteringDestinationGroupsState {
      */
     groupId?: pulumi.Input<number>;
     /**
-     * Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-     * * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+     * List of URL categories for which rule must be applied
      */
     ipCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -224,7 +216,7 @@ export interface FirewallFilteringDestinationGroupsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
      */
     type?: pulumi.Input<string>;
 }
@@ -234,11 +226,12 @@ export interface FirewallFilteringDestinationGroupsState {
  */
 export interface FirewallFilteringDestinationGroupsArgs {
     /**
-     * Destination IP addresses, domains or FQDNs within the group
+     * Destination IP addresses within the group
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination IP address counties. You can identify destinations based on the location of a server.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+     * countries.
      */
     countries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -246,8 +239,7 @@ export interface FirewallFilteringDestinationGroupsArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-     * * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+     * List of URL categories for which rule must be applied
      */
     ipCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -255,7 +247,7 @@ export interface FirewallFilteringDestinationGroupsArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+     * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
      */
     type?: pulumi.Input<string>;
 }

@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class FirewallFilteringNetworkServicesDestTcpPortArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &gt; **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
 

@@ -26,7 +26,7 @@ class ForwardingControlZPAGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlZPAGatewayZpaAppSegmentArgs']]] zpa_app_segments: The ZPA Server Group that is configured for Source IP Anchoring
         :param pulumi.Input['ForwardingControlZPAGatewayZpaServerGroupArgs'] zpa_server_group: The ZPA Server Group that is configured for Source IP Anchoring
         :param pulumi.Input[str] description: (string) - Additional details about the ZPA gateway
-        :param pulumi.Input[str] name: The configured name of the entity
+        :param pulumi.Input[str] name: The name of the forwarding control ZPA Gateway to be exported.
         :param pulumi.Input[str] type: (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
         """
         pulumi.set(__self__, "zpa_app_segments", zpa_app_segments)
@@ -78,7 +78,7 @@ class ForwardingControlZPAGatewayArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The configured name of the entity
+        The name of the forwarding control ZPA Gateway to be exported.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class _ForwardingControlZPAGatewayState:
         """
         Input properties used for looking up and filtering ForwardingControlZPAGateway resources.
         :param pulumi.Input[str] description: (string) - Additional details about the ZPA gateway
-        :param pulumi.Input[str] name: The configured name of the entity
+        :param pulumi.Input[str] name: The name of the forwarding control ZPA Gateway to be exported.
         :param pulumi.Input[str] type: (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
         :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlZPAGatewayZpaAppSegmentArgs']]] zpa_app_segments: The ZPA Server Group that is configured for Source IP Anchoring
         :param pulumi.Input['ForwardingControlZPAGatewayZpaServerGroupArgs'] zpa_server_group: The ZPA Server Group that is configured for Source IP Anchoring
@@ -154,7 +154,7 @@ class _ForwardingControlZPAGatewayState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The configured name of the entity
+        The name of the forwarding control ZPA Gateway to be exported.
         """
         return pulumi.get(self, "name")
 
@@ -213,7 +213,6 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zpa as zpa
@@ -240,7 +239,6 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,7 +263,7 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: (string) - Additional details about the ZPA gateway
-        :param pulumi.Input[str] name: The configured name of the entity
+        :param pulumi.Input[str] name: The name of the forwarding control ZPA Gateway to be exported.
         :param pulumi.Input[str] type: (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingControlZPAGatewayZpaAppSegmentArgs']]]] zpa_app_segments: The ZPA Server Group that is configured for Source IP Anchoring
         :param pulumi.Input[pulumi.InputType['ForwardingControlZPAGatewayZpaServerGroupArgs']] zpa_server_group: The ZPA Server Group that is configured for Source IP Anchoring
@@ -279,7 +277,6 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zpa as zpa
@@ -306,7 +303,6 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -391,7 +387,7 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: (string) - Additional details about the ZPA gateway
-        :param pulumi.Input[str] name: The configured name of the entity
+        :param pulumi.Input[str] name: The name of the forwarding control ZPA Gateway to be exported.
         :param pulumi.Input[str] type: (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingControlZPAGatewayZpaAppSegmentArgs']]]] zpa_app_segments: The ZPA Server Group that is configured for Source IP Anchoring
         :param pulumi.Input[pulumi.InputType['ForwardingControlZPAGatewayZpaServerGroupArgs']] zpa_server_group: The ZPA Server Group that is configured for Source IP Anchoring
@@ -425,7 +421,7 @@ class ForwardingControlZPAGateway(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The configured name of the entity
+        The name of the forwarding control ZPA Gateway to be exported.
         """
         return pulumi.get(self, "name")
 

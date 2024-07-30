@@ -59,7 +59,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        /// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.ForwardingControlRuleEcGroups> EcGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The type of traffic forwarding method selected from the available options.
+        /// The type of traffic forwarding method selected from the available options
         /// </summary>
         [Output("forwardMethod")]
         public Output<string> ForwardMethod { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.ForwardingControlRuleLocations> Locations { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Firewall Filtering policy rule
+        /// (string) The configured name of the entity
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.ForwardingControlRuleNwServices> NwServices { get; private set; } = null!;
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// (int) - The order of execution for the forwarding rule order.
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type selected from the available options. Supported Values: ``FORWARDING``
+        /// The rule type selected from the available options
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        /// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -352,7 +352,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleEcGroupsArgs>? EcGroups { get; set; }
 
         /// <summary>
-        /// The type of traffic forwarding method selected from the available options.
+        /// The type of traffic forwarding method selected from the available options
         /// </summary>
         [Input("forwardMethod", required: true)]
         public Input<string> ForwardMethod { get; set; } = null!;
@@ -382,7 +382,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleLocationsArgs>? Locations { get; set; }
 
         /// <summary>
-        /// Name of the Firewall Filtering policy rule
+        /// (string) The configured name of the entity
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -406,7 +406,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleNwServicesArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// (int) - The order of execution for the forwarding rule order.
         /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
@@ -466,7 +466,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The rule type selected from the available options. Supported Values: ``FORWARDING``
+        /// The rule type selected from the available options
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -549,7 +549,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+        /// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -588,7 +588,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleEcGroupsGetArgs>? EcGroups { get; set; }
 
         /// <summary>
-        /// The type of traffic forwarding method selected from the available options.
+        /// The type of traffic forwarding method selected from the available options
         /// </summary>
         [Input("forwardMethod")]
         public Input<string>? ForwardMethod { get; set; }
@@ -618,7 +618,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleLocationsGetArgs>? Locations { get; set; }
 
         /// <summary>
-        /// Name of the Firewall Filtering policy rule
+        /// (string) The configured name of the entity
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -642,7 +642,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleNwServicesGetArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// (int) - The order of execution for the forwarding rule order.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -708,7 +708,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The rule type selected from the available options. Supported Values: ``FORWARDING``
+        /// The rule type selected from the available options
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

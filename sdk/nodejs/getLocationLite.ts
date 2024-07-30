@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -16,7 +15,6 @@ import * as utilities from "./utilities";
  *     name: "Road Warrior",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationLite(args?: GetLocationLiteArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationLiteResult> {
     args = args || {};
@@ -129,7 +127,6 @@ export interface GetLocationLiteResult {
 /**
  * Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -138,7 +135,6 @@ export interface GetLocationLiteResult {
  *     name: "Road Warrior",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocationLiteOutput(args?: GetLocationLiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationLiteResult> {
     return pulumi.output(args).apply((a: any) => getLocationLite(a, opts))

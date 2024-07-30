@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIcapServersResult> InvokeAsync(GetIcapServersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIcapServersResult>("zia:index/getIcapServers:getIcapServers", args ?? new GetIcapServersArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIcapServersResult> Invoke(GetIcapServersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIcapServersResult>("zia:index/getIcapServers:getIcapServers", args ?? new GetIcapServersInvokeArgs(), options.WithDefaults());
@@ -68,9 +64,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetIcapServersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The DLP server name.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -82,9 +75,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetIcapServersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The DLP server name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

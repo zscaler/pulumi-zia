@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFirewallFilteringDestinationGroupsResult> InvokeAsync(GetFirewallFilteringDestinationGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallFilteringDestinationGroupsResult>("zia:index/getFirewallFilteringDestinationGroups:getFirewallFilteringDestinationGroups", args ?? new GetFirewallFilteringDestinationGroupsArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFirewallFilteringDestinationGroupsResult> Invoke(GetFirewallFilteringDestinationGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringDestinationGroupsResult>("zia:index/getFirewallFilteringDestinationGroups:getFirewallFilteringDestinationGroups", args ?? new GetFirewallFilteringDestinationGroupsInvokeArgs(), options.WithDefaults());

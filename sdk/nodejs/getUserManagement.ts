@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Adam Ashcroft",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserManagement(args?: GetUserManagementArgs, opts?: pulumi.InvokeOptions): Promise<GetUserManagementResult> {
     args = args || {};
@@ -94,6 +92,12 @@ export interface GetUserManagementResult {
     readonly tempAuthEmail: string;
     /**
      * (String) User type. Provided only if this user is not an end user. The supported types are:
+     * * `SUPERADMIN`
+     * * `ADMIN`
+     * * `AUDITOR`
+     * * `GUEST`
+     * * `REPORT_USER`
+     * * `UNAUTH_TRAFFIC_DEFAULT`
      */
     readonly type: string;
 }
@@ -102,7 +106,6 @@ export interface GetUserManagementResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -111,7 +114,6 @@ export interface GetUserManagementResult {
  *     name: "Adam Ashcroft",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserManagementOutput(args?: GetUserManagementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserManagementResult> {
     return pulumi.output(args).apply((a: any) => getUserManagement(a, opts))

@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserManagementResult> InvokeAsync(GetUserManagementArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserManagementResult>("zia:index/getUserManagement:getUserManagement", args ?? new GetUserManagementArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserManagementResult> Invoke(GetUserManagementInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserManagementResult>("zia:index/getUserManagement:getUserManagement", args ?? new GetUserManagementInvokeArgs(), options.WithDefaults());
@@ -173,6 +169,12 @@ namespace zscaler.PulumiPackage.Zia
         public readonly string TempAuthEmail;
         /// <summary>
         /// (String) User type. Provided only if this user is not an end user. The supported types are:
+        /// * `SUPERADMIN`
+        /// * `ADMIN`
+        /// * `AUDITOR`
+        /// * `GUEST`
+        /// * `REPORT_USER`
+        /// * `UNAUTH_TRAFFIC_DEFAULT`
         /// </summary>
         public readonly string Type;
 

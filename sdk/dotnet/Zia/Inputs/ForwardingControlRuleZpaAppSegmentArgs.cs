@@ -20,7 +20,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         public Input<string> ExternalId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Firewall Filtering policy rule
+        /// (string) The configured name of the entity
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

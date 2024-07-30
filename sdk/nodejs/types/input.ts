@@ -6,22 +6,16 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AdminUsersAdminScopeEntities {
-    /**
-     * Identifier that uniquely identifies an entity
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface AdminUsersRole {
-    /**
-     * Identifier that uniquely identifies an entity
-     */
     id?: pulumi.Input<number>;
 }
 
 export interface DLPDictionariesExactDataMatchDetail {
     /**
-     * The unique identifier for the EDM mapping.
+     * The unique identifier for the EDM mapping
      */
     dictionaryEdmMappingId?: pulumi.Input<number>;
     /**
@@ -34,23 +28,6 @@ export interface DLPDictionariesExactDataMatchDetail {
     schemaId?: pulumi.Input<number>;
     /**
      * The EDM secondary field to match on.
-     * - `"MATCHON_NONE"`
-     * - `"MATCHON_ANY_1"`
-     * - `"MATCHON_ANY_2"`
-     * - `"MATCHON_ANY_3"`
-     * - `"MATCHON_ANY_4"`
-     * - `"MATCHON_ANY_5"`
-     * - `"MATCHON_ANY_6"`
-     * - `"MATCHON_ANY_7"`
-     * - `"MATCHON_ANY_8"`
-     * - `"MATCHON_ANY_9"`
-     * - `"MATCHON_ANY_10"`
-     * - `"MATCHON_ANY_11"`
-     * - `"MATCHON_ANY_12"`
-     * - `"MATCHON_ANY_13"`
-     * - `"MATCHON_ANY_14"`
-     * - `"MATCHON_ANY_15"`
-     * - `"MATCHON_ALL"`
      */
     secondaryFieldMatchOn?: pulumi.Input<string>;
     /**
@@ -61,14 +38,11 @@ export interface DLPDictionariesExactDataMatchDetail {
 
 export interface DLPDictionariesIdmProfileMatchAccuracy {
     /**
-     * The IDM template reference.
+     * The action applied to a DLP dictionary using patterns
      */
     adpIdmProfiles?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile>[]>;
     /**
      * The IDM template match accuracy.
-     * - `"LOW"`
-     * - `"MEDIUM"`
-     * - `"HEAVY"`
      */
     matchAccuracy?: pulumi.Input<string>;
 }
@@ -80,7 +54,7 @@ export interface DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile {
 
 export interface DLPDictionariesPattern {
     /**
-     * The action applied to a DLP dictionary using patterns. The following values are supported:
+     * The action applied to a DLP dictionary using patterns
      */
     action?: pulumi.Input<string>;
     /**
@@ -90,9 +64,6 @@ export interface DLPDictionariesPattern {
 }
 
 export interface DLPDictionariesPhrase {
-    /**
-     * The action applied to a DLP dictionary using patterns. The following values are supported:
-     */
     action?: pulumi.Input<string>;
     /**
      * DLP dictionary phrase
@@ -101,274 +72,179 @@ export interface DLPDictionariesPhrase {
 }
 
 export interface DLPWebRulesAuditor {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: pulumi.Input<number>;
 }
 
 export interface DLPWebRulesDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesDlpEngines {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesExcludedDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface DLPWebRulesExcludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesExcludedGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesExcludedUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesIcapServer {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: pulumi.Input<number>;
+}
+
+export interface DLPWebRulesIncludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface DLPWebRulesLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesNotificationTemplate {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id: pulumi.Input<number>;
 }
 
+export interface DLPWebRulesSourceIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface DLPWebRulesTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesUrlCategories {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface DLPWebRulesWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: pulumi.Input<number>;
     /**
-     * The name of the workload group
+     * The name of the resource.
      */
     name: pulumi.Input<string>;
 }
 
 export interface FirewallFilteringNetworkServicesDestTcpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: pulumi.Input<number>;
     start?: pulumi.Input<number>;
 }
 
 export interface FirewallFilteringNetworkServicesDestUdpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: pulumi.Input<number>;
     start?: pulumi.Input<number>;
 }
 
 export interface FirewallFilteringNetworkServicesSrcTcpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: pulumi.Input<number>;
     start?: pulumi.Input<number>;
 }
 
 export interface FirewallFilteringNetworkServicesSrcUdpPort {
-    /**
-     * > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-     */
     end?: pulumi.Input<number>;
     start?: pulumi.Input<number>;
 }
 
 export interface FirewallFilteringRuleAppServiceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleAppServices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleDestIpGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleDeviceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleDevices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface FirewallFilteringRuleLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleNwApplicationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleNwServiceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleNwServices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleSrcIpGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallFilteringRuleWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: pulumi.Input<number>;
     /**
-     * The name of the workload group
-     *
-     * * `Other Exported Arguments`
+     * The name of the resource.
      */
     name: pulumi.Input<string>;
 }
@@ -379,9 +255,7 @@ export interface FirewallFilteringRuleZpaAppSegment {
      */
     externalId: pulumi.Input<string>;
     /**
-     * The name of the workload group
-     *
-     * * `Other Exported Arguments`
+     * Name of the application segment.
      */
     name: pulumi.Input<string>;
 }
@@ -394,84 +268,84 @@ export interface ForwardingControlRuleAppServiceGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleDepartments {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleDestIpGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleDestIpv6Groups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleEcGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleLabels {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface ForwardingControlRuleLocationGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleLocations {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleNwApplicationGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleNwServiceGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleNwServices {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleProxyGateway {
@@ -480,7 +354,7 @@ export interface ForwardingControlRuleProxyGateway {
      */
     id: pulumi.Input<number>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: pulumi.Input<string>;
 }
@@ -489,21 +363,21 @@ export interface ForwardingControlRuleSrcIpGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleSrcIpv6Groups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleUsers {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleZpaAppSegment {
@@ -512,7 +386,7 @@ export interface ForwardingControlRuleZpaAppSegment {
      */
     externalId: pulumi.Input<string>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: pulumi.Input<string>;
 }
@@ -521,14 +395,14 @@ export interface ForwardingControlRuleZpaApplicationSegmentGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleZpaApplicationSegments {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface ForwardingControlRuleZpaGateway {
@@ -537,7 +411,7 @@ export interface ForwardingControlRuleZpaGateway {
      */
     id: pulumi.Input<number>;
     /**
-     * Name of the Firewall Filtering policy rule
+     * (string) The configured name of the entity
      */
     name: pulumi.Input<string>;
 }
@@ -804,12 +678,17 @@ export interface GetSandboxReportStealthArgs {
     signatureSources?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LocationManagementDynamicLocationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface LocationManagementStaticLocationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface LocationManagementVpnCredential {
     comments?: pulumi.Input<string>;
     fqdn?: pulumi.Input<string>;
-    /**
-     * Identifier that uniquely identifies an entity
-     */
     id?: pulumi.Input<number>;
     ipAddress?: pulumi.Input<string>;
     preSharedKey?: pulumi.Input<string>;
@@ -822,13 +701,9 @@ export interface TrafficForwardingGRETunnelPrimaryDestVip {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Unique identifer of the GRE virtual IP address (VIP)
+     * GRE cluster virtual IP ID
      */
     id?: pulumi.Input<number>;
-    /**
-     * Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-     */
-    privateServiceEdge?: pulumi.Input<boolean>;
     /**
      * GRE cluster virtual IP address (VIP)
      */
@@ -841,13 +716,9 @@ export interface TrafficForwardingGRETunnelSecondaryDestVip {
      */
     datacenter?: pulumi.Input<string>;
     /**
-     * Unique identifer of the GRE virtual IP address (VIP)
+     * GRE cluster virtual IP ID
      */
     id?: pulumi.Input<number>;
-    /**
-     * Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-     */
-    privateServiceEdge?: pulumi.Input<boolean>;
     /**
      * GRE cluster virtual IP address (VIP)
      */
@@ -860,12 +731,9 @@ export interface URLCategoriesScope {
      */
     scopeEntities?: pulumi.Input<inputs.URLCategoriesScopeScopeEntities>;
     /**
-     * Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+     * list of scope group member IDs
      */
     scopeGroupMemberEntities?: pulumi.Input<inputs.URLCategoriesScopeScopeGroupMemberEntities>;
-    /**
-     * The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -897,9 +765,6 @@ export interface URLCategoriesUrlKeywordCounts {
 }
 
 export interface URLFilteringRulesCbiProfile {
-    /**
-     * A unique identifier assigned to the workload group
-     */
     id?: pulumi.Input<string>;
     /**
      * Name of the Firewall Filtering policy rule
@@ -912,85 +777,56 @@ export interface URLFilteringRulesCbiProfile {
 }
 
 export interface URLFilteringRulesDepartments {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesDeviceGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesDevices {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesLabels {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesLocationGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesLocations {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesOverrideGroups {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesOverrideUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface URLFilteringRulesSourceIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesTimeWindows {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesUsers {
-    /**
-     * A unique identifier assigned to the workload group
-     */
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface URLFilteringRulesWorkloadGroup {
     /**
-     * A unique identifier assigned to the workload group
+     * The unique identifier for the resource.
      */
     id: pulumi.Input<number>;
     /**
@@ -1017,5 +853,8 @@ export interface UserManagementDepartment {
 }
 
 export interface UserManagementGroups {
-    ids: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Unique identfier for the group
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
 }

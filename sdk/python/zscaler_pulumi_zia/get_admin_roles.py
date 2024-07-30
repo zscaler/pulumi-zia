@@ -201,14 +201,12 @@ def get_admin_roles(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_admin_roles(name="Super Admin")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Admin role to be exported.
@@ -243,14 +241,12 @@ def get_admin_roles_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_admin_roles(name="Super Admin")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the Admin role to be exported.

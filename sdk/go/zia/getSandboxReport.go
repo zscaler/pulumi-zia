@@ -17,7 +17,6 @@ import (
 //
 // ### Obtain Full Sandbox Report
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Obtain Summarized Sandbox Report
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSandboxReport(ctx *pulumi.Context, args *GetSandboxReportArgs, opts ...pulumi.InvokeOption) (*GetSandboxReportResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSandboxReportResult

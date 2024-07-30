@@ -20,16 +20,10 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
-        /// Unique identifer of the GRE virtual IP address (VIP)
+        /// GRE cluster virtual IP ID
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
-
-        /// <summary>
-        /// Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-        /// </summary>
-        [Input("privateServiceEdge")]
-        public Input<bool>? PrivateServiceEdge { get; set; }
 
         /// <summary>
         /// GRE cluster virtual IP address (VIP)

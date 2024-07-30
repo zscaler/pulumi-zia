@@ -17,7 +17,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         private InputList<Inputs.DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs>? _adpIdmProfiles;
 
         /// <summary>
-        /// The IDM template reference.
+        /// The action applied to a DLP dictionary using patterns
         /// </summary>
         public InputList<Inputs.DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs> AdpIdmProfiles
         {
@@ -27,9 +27,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
         /// <summary>
         /// The IDM template match accuracy.
-        /// - `"LOW"`
-        /// - `"MEDIUM"`
-        /// - `"HEAVY"`
         /// </summary>
         [Input("matchAccuracy")]
         public Input<string>? MatchAccuracy { get; set; }

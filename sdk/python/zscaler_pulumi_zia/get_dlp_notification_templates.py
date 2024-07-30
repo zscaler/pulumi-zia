@@ -103,18 +103,12 @@ def get_dlp_notification_templates(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_notification_templates(name="DLP Auditor Template Test")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: The unique identifier for a DLP notification template.
-    :param str name: The DLP policy rule name.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -141,17 +135,11 @@ def get_dlp_notification_templates_output(id: Optional[pulumi.Input[Optional[int
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_dlp_notification_templates(name="DLP Auditor Template Test")
     ```
-    <!--End PulumiCodeChooser -->
-
-
-    :param int id: The unique identifier for a DLP notification template.
-    :param str name: The DLP policy rule name.
     """
     ...

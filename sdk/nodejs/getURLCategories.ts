@@ -9,16 +9,23 @@ import * as utilities from "./utilities";
 /**
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
- * const example = zia.getURLCategories({
+ * const this = zia.getURLCategories({
+ *     configuredName: "Example",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as zia from "@pulumi/zia";
+ *
+ * const this = zia.getURLCategories({
  *     id: "CUSTOM_08",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getURLCategories(args?: GetURLCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetURLCategoriesResult> {
     args = args || {};
@@ -131,23 +138,30 @@ export interface GetURLCategoriesResult {
      */
     readonly urlsRetainingParentCategoryCount: number;
     /**
-     * (Number)
+     * (Number) The unique ID for the URL category.
      */
     readonly val: number;
 }
 /**
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
- * const example = zia.getURLCategories({
+ * const this = zia.getURLCategories({
+ *     configuredName: "Example",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as zia from "@pulumi/zia";
+ *
+ * const this = zia.getURLCategories({
  *     id: "CUSTOM_08",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getURLCategoriesOutput(args?: GetURLCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetURLCategoriesResult> {
     return pulumi.output(args).apply((a: any) => getURLCategories(a, opts))

@@ -15,7 +15,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class URLFilteringRulesWorkloadGroup
     {
         /// <summary>
-        /// A unique identifier assigned to the workload group
+        /// The unique identifier for the resource.
         /// </summary>
         public readonly int Id;
         /// <summary>

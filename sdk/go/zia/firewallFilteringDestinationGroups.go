@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,9 +45,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,9 +77,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,9 +107,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,7 +140,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -171,20 +163,20 @@ import (
 type FirewallFilteringDestinationGroups struct {
 	pulumi.CustomResourceState
 
-	// Destination IP addresses, domains or FQDNs within the group
+	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
-	// Destination IP address counties. You can identify destinations based on the location of a server.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
 	Countries pulumi.StringArrayOutput `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Unique identifer for the destination IP group
 	GroupId pulumi.IntOutput `pulumi:"groupId"`
-	// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-	// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+	// List of URL categories for which rule must be applied
 	IpCategories pulumi.StringArrayOutput `pulumi:"ipCategories"`
 	// Destination IP group name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -218,38 +210,38 @@ func GetFirewallFilteringDestinationGroups(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallFilteringDestinationGroups resources.
 type firewallFilteringDestinationGroupsState struct {
-	// Destination IP addresses, domains or FQDNs within the group
+	// Destination IP addresses within the group
 	Addresses []string `pulumi:"addresses"`
-	// Destination IP address counties. You can identify destinations based on the location of a server.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
 	Countries []string `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description *string `pulumi:"description"`
 	// Unique identifer for the destination IP group
 	GroupId *int `pulumi:"groupId"`
-	// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-	// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+	// List of URL categories for which rule must be applied
 	IpCategories []string `pulumi:"ipCategories"`
 	// Destination IP group name
 	Name *string `pulumi:"name"`
-	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 	Type *string `pulumi:"type"`
 }
 
 type FirewallFilteringDestinationGroupsState struct {
-	// Destination IP addresses, domains or FQDNs within the group
+	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayInput
-	// Destination IP address counties. You can identify destinations based on the location of a server.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
 	Countries pulumi.StringArrayInput
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrInput
 	// Unique identifer for the destination IP group
 	GroupId pulumi.IntPtrInput
-	// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-	// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+	// List of URL categories for which rule must be applied
 	IpCategories pulumi.StringArrayInput
 	// Destination IP group name
 	Name pulumi.StringPtrInput
-	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 	Type pulumi.StringPtrInput
 }
 
@@ -258,35 +250,35 @@ func (FirewallFilteringDestinationGroupsState) ElementType() reflect.Type {
 }
 
 type firewallFilteringDestinationGroupsArgs struct {
-	// Destination IP addresses, domains or FQDNs within the group
+	// Destination IP addresses within the group
 	Addresses []string `pulumi:"addresses"`
-	// Destination IP address counties. You can identify destinations based on the location of a server.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
 	Countries []string `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description *string `pulumi:"description"`
-	// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-	// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+	// List of URL categories for which rule must be applied
 	IpCategories []string `pulumi:"ipCategories"`
 	// Destination IP group name
 	Name *string `pulumi:"name"`
-	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a FirewallFilteringDestinationGroups resource.
 type FirewallFilteringDestinationGroupsArgs struct {
-	// Destination IP addresses, domains or FQDNs within the group
+	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayInput
-	// Destination IP address counties. You can identify destinations based on the location of a server.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+	// countries.
 	Countries pulumi.StringArrayInput
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrInput
-	// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-	// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+	// List of URL categories for which rule must be applied
 	IpCategories pulumi.StringArrayInput
 	// Destination IP group name
 	Name pulumi.StringPtrInput
-	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+	// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 	Type pulumi.StringPtrInput
 }
 
@@ -377,12 +369,13 @@ func (o FirewallFilteringDestinationGroupsOutput) ToFirewallFilteringDestination
 	return o
 }
 
-// Destination IP addresses, domains or FQDNs within the group
+// Destination IP addresses within the group
 func (o FirewallFilteringDestinationGroupsOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Destination IP address counties. You can identify destinations based on the location of a server.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+// countries.
 func (o FirewallFilteringDestinationGroupsOutput) Countries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringArrayOutput { return v.Countries }).(pulumi.StringArrayOutput)
 }
@@ -397,8 +390,7 @@ func (o FirewallFilteringDestinationGroupsOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
 }
 
-// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-// * !> **WARNING:** The `ipCategories` attribute only accepts custom URL categories.
+// List of URL categories for which rule must be applied
 func (o FirewallFilteringDestinationGroupsOutput) IpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringArrayOutput { return v.IpCategories }).(pulumi.StringArrayOutput)
 }
@@ -408,7 +400,7 @@ func (o FirewallFilteringDestinationGroupsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
 func (o FirewallFilteringDestinationGroupsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

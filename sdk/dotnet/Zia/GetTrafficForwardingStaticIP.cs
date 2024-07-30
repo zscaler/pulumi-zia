@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficForwardingStaticIPResult> InvokeAsync(GetTrafficForwardingStaticIPArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingStaticIPResult>("zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP", args ?? new GetTrafficForwardingStaticIPArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficForwardingStaticIPResult> Invoke(GetTrafficForwardingStaticIPInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingStaticIPResult>("zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP", args ?? new GetTrafficForwardingStaticIPInvokeArgs(), options.WithDefaults());
@@ -68,12 +64,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetTrafficForwardingStaticIPArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (String) Additional information about this static IP address
-        /// </summary>
-        [Input("comment")]
-        public string? Comment { get; set; }
-
         /// <summary>
         /// The unique identifier for the static IP address
         /// </summary>
@@ -94,12 +84,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetTrafficForwardingStaticIPInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// (String) Additional information about this static IP address
-        /// </summary>
-        [Input("comment")]
-        public Input<string>? Comment { get; set; }
-
         /// <summary>
         /// The unique identifier for the static IP address
         /// </summary>
@@ -122,10 +106,11 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetTrafficForwardingStaticIPResult
     {
+        public readonly ImmutableArray<Outputs.GetTrafficForwardingStaticIPCityResult> Cities;
         /// <summary>
         /// (String) Additional information about this static IP address
         /// </summary>
-        public readonly string? Comment;
+        public readonly string Comment;
         /// <summary>
         /// (Boolean) If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
         /// </summary>
@@ -149,11 +134,11 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and `90` degrees.
         /// </summary>
-        public readonly int Latitude;
+        public readonly double Latitude;
         /// <summary>
         /// (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and `180` degrees.
         /// </summary>
-        public readonly int Longitude;
+        public readonly double Longitude;
         /// <summary>
         /// (Set of Object)
         /// </summary>
@@ -165,7 +150,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [OutputConstructor]
         private GetTrafficForwardingStaticIPResult(
-            string? comment,
+            ImmutableArray<Outputs.GetTrafficForwardingStaticIPCityResult> cities,
+
+            string comment,
 
             bool geoOverride,
 
@@ -177,14 +164,15 @@ namespace zscaler.PulumiPackage.Zia
 
             ImmutableArray<Outputs.GetTrafficForwardingStaticIPLastModifiedByResult> lastModifiedBies,
 
-            int latitude,
+            double latitude,
 
-            int longitude,
+            double longitude,
 
             ImmutableArray<Outputs.GetTrafficForwardingStaticIPManagedByResult> managedBies,
 
             bool routableIp)
         {
+            Cities = cities;
             Comment = comment;
             GeoOverride = geoOverride;
             Id = id;

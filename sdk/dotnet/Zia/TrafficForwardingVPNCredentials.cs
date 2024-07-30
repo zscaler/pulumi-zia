@@ -20,7 +20,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,9 +40,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,13 +71,12 @@ namespace zscaler.PulumiPackage.Zia
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleTrafficForwardingStaticIP, 
+    ///             exampleTrafficForwardingStaticIP,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
     /// 
@@ -119,9 +115,6 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials")]
     public partial class TrafficForwardingVPNCredentials : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional information about this VPN credential.
-        /// </summary>
         [Output("comments")]
         public Output<string?> Comments { get; private set; } = null!;
 
@@ -131,11 +124,6 @@ namespace zscaler.PulumiPackage.Zia
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
 
-        /// <summary>
-        /// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-        /// 
-        /// !&gt; **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
@@ -205,9 +193,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TrafficForwardingVPNCredentialsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional information about this VPN credential.
-        /// </summary>
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
@@ -217,11 +202,6 @@ namespace zscaler.PulumiPackage.Zia
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
-        /// <summary>
-        /// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-        /// 
-        /// !&gt; **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
@@ -255,9 +235,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TrafficForwardingVPNCredentialsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional information about this VPN credential.
-        /// </summary>
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
@@ -267,11 +244,6 @@ namespace zscaler.PulumiPackage.Zia
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
-        /// <summary>
-        /// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-        /// 
-        /// !&gt; **WARNING:** The `pre_shared_key` parameter is ommitted from the output for security reasons.
-        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 

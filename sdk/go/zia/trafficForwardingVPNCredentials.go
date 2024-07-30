@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,9 +48,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
 //
@@ -131,13 +127,9 @@ import (
 type TrafficForwardingVPNCredentials struct {
 	pulumi.CustomResourceState
 
-	// Additional information about this VPN credential.
 	Comments pulumi.StringPtrOutput `pulumi:"comments"`
 	// Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
-	// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-	//
-	// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
+	Fqdn      pulumi.StringPtrOutput `pulumi:"fqdn"`
 	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// Pre-shared key. This is a required field for UFQDN and IP auth type.
 	PreSharedKey pulumi.StringPtrOutput `pulumi:"preSharedKey"`
@@ -183,13 +175,9 @@ func GetTrafficForwardingVPNCredentials(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficForwardingVPNCredentials resources.
 type trafficForwardingVPNCredentialsState struct {
-	// Additional information about this VPN credential.
 	Comments *string `pulumi:"comments"`
 	// Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-	Fqdn *string `pulumi:"fqdn"`
-	// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-	//
-	// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
+	Fqdn      *string `pulumi:"fqdn"`
 	IpAddress *string `pulumi:"ipAddress"`
 	// Pre-shared key. This is a required field for UFQDN and IP auth type.
 	PreSharedKey *string `pulumi:"preSharedKey"`
@@ -199,13 +187,9 @@ type trafficForwardingVPNCredentialsState struct {
 }
 
 type TrafficForwardingVPNCredentialsState struct {
-	// Additional information about this VPN credential.
 	Comments pulumi.StringPtrInput
 	// Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-	Fqdn pulumi.StringPtrInput
-	// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-	//
-	// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
+	Fqdn      pulumi.StringPtrInput
 	IpAddress pulumi.StringPtrInput
 	// Pre-shared key. This is a required field for UFQDN and IP auth type.
 	PreSharedKey pulumi.StringPtrInput
@@ -219,13 +203,9 @@ func (TrafficForwardingVPNCredentialsState) ElementType() reflect.Type {
 }
 
 type trafficForwardingVPNCredentialsArgs struct {
-	// Additional information about this VPN credential.
 	Comments *string `pulumi:"comments"`
 	// Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-	Fqdn *string `pulumi:"fqdn"`
-	// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-	//
-	// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
+	Fqdn      *string `pulumi:"fqdn"`
 	IpAddress *string `pulumi:"ipAddress"`
 	// Pre-shared key. This is a required field for UFQDN and IP auth type.
 	PreSharedKey *string `pulumi:"preSharedKey"`
@@ -235,13 +215,9 @@ type trafficForwardingVPNCredentialsArgs struct {
 
 // The set of arguments for constructing a TrafficForwardingVPNCredentials resource.
 type TrafficForwardingVPNCredentialsArgs struct {
-	// Additional information about this VPN credential.
 	Comments pulumi.StringPtrInput
 	// Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-	Fqdn pulumi.StringPtrInput
-	// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-	//
-	// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
+	Fqdn      pulumi.StringPtrInput
 	IpAddress pulumi.StringPtrInput
 	// Pre-shared key. This is a required field for UFQDN and IP auth type.
 	PreSharedKey pulumi.StringPtrInput
@@ -336,7 +312,6 @@ func (o TrafficForwardingVPNCredentialsOutput) ToTrafficForwardingVPNCredentials
 	return o
 }
 
-// Additional information about this VPN credential.
 func (o TrafficForwardingVPNCredentialsOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVPNCredentials) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
 }
@@ -346,9 +321,6 @@ func (o TrafficForwardingVPNCredentialsOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVPNCredentials) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// IP Address for the VON credentials. The parameter becomes required if `type = IP`
-//
-// !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
 func (o TrafficForwardingVPNCredentialsOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVPNCredentials) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }

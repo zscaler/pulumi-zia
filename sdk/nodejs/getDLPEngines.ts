@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,9 +17,7 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -29,7 +26,6 @@ import * as utilities from "./utilities";
  *     id: 1234567890,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPEngines(args?: GetDLPEnginesArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPEnginesResult> {
     args = args || {};
@@ -46,17 +42,8 @@ export function getDLPEngines(args?: GetDLPEnginesArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getDLPEngines.
  */
 export interface GetDLPEnginesArgs {
-    /**
-     * The unique identifier for the DLP engine.
-     */
     id?: number;
-    /**
-     * The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-     */
     name?: string;
-    /**
-     * The name of the predefined DLP engine.
-     */
     predefinedEngineName?: string;
 }
 
@@ -76,7 +63,6 @@ export interface GetDLPEnginesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -85,9 +71,7 @@ export interface GetDLPEnginesResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -96,7 +80,6 @@ export interface GetDLPEnginesResult {
  *     id: 1234567890,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDLPEnginesOutput(args?: GetDLPEnginesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDLPEnginesResult> {
     return pulumi.output(args).apply((a: any) => getDLPEngines(a, opts))
@@ -106,16 +89,7 @@ export function getDLPEnginesOutput(args?: GetDLPEnginesOutputArgs, opts?: pulum
  * A collection of arguments for invoking getDLPEngines.
  */
 export interface GetDLPEnginesOutputArgs {
-    /**
-     * The unique identifier for the DLP engine.
-     */
     id?: pulumi.Input<number>;
-    /**
-     * The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the predefined DLP engine.
-     */
     predefinedEngineName?: pulumi.Input<string>;
 }

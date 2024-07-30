@@ -139,6 +139,12 @@ class GetUserManagementResult:
     def type(self) -> str:
         """
         (String) User type. Provided only if this user is not an end user. The supported types are:
+        * `SUPERADMIN`
+        * `ADMIN`
+        * `AUDITOR`
+        * `GUEST`
+        * `REPORT_USER`
+        * `UNAUTH_TRAFFIC_DEFAULT`
         """
         return pulumi.get(self, "type")
 
@@ -171,14 +177,12 @@ def get_user_management(auth_methods: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     adam_ashcroft = zia.get_user_management(name="Adam Ashcroft")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] auth_methods: (String) Type of authentication method to be enabled. Supported values are: ``BASIC`` and ``DIGEST``
@@ -216,14 +220,12 @@ def get_user_management_output(auth_methods: Optional[pulumi.Input[Optional[Sequ
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     adam_ashcroft = zia.get_user_management(name="Adam Ashcroft")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] auth_methods: (String) Type of authentication method to be enabled. Supported values are: ``BASIC`` and ``DIGEST``

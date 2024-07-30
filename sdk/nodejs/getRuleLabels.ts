@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRuleLabels(args?: GetRuleLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleLabelsResult> {
     args = args || {};
@@ -78,7 +76,6 @@ export interface GetRuleLabelsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -87,7 +84,6 @@ export interface GetRuleLabelsResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRuleLabelsOutput(args?: GetRuleLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleLabelsResult> {
     return pulumi.output(args).apply((a: any) => getRuleLabels(a, opts))

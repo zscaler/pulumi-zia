@@ -14,7 +14,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -28,9 +27,7 @@ import * as utilities from "./utilities";
  *     type: "UFQDN",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -54,7 +51,6 @@ import * as utilities from "./utilities";
  *     dependsOn: [exampleTrafficForwardingStaticIP],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
  *
@@ -118,19 +114,11 @@ export class TrafficForwardingVPNCredentials extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficForwardingVPNCredentials.__pulumiType;
     }
 
-    /**
-     * Additional information about this VPN credential.
-     */
     public readonly comments!: pulumi.Output<string | undefined>;
     /**
      * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
      */
     public readonly fqdn!: pulumi.Output<string | undefined>;
-    /**
-     * IP Address for the VON credentials. The parameter becomes required if `type = IP`
-     *
-     * !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
-     */
     public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * Pre-shared key. This is a required field for UFQDN and IP auth type.
@@ -181,19 +169,11 @@ export class TrafficForwardingVPNCredentials extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficForwardingVPNCredentials resources.
  */
 export interface TrafficForwardingVPNCredentialsState {
-    /**
-     * Additional information about this VPN credential.
-     */
     comments?: pulumi.Input<string>;
     /**
      * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
      */
     fqdn?: pulumi.Input<string>;
-    /**
-     * IP Address for the VON credentials. The parameter becomes required if `type = IP`
-     *
-     * !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
-     */
     ipAddress?: pulumi.Input<string>;
     /**
      * Pre-shared key. This is a required field for UFQDN and IP auth type.
@@ -210,19 +190,11 @@ export interface TrafficForwardingVPNCredentialsState {
  * The set of arguments for constructing a TrafficForwardingVPNCredentials resource.
  */
 export interface TrafficForwardingVPNCredentialsArgs {
-    /**
-     * Additional information about this VPN credential.
-     */
     comments?: pulumi.Input<string>;
     /**
      * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
      */
     fqdn?: pulumi.Input<string>;
-    /**
-     * IP Address for the VON credentials. The parameter becomes required if `type = IP`
-     *
-     * !> **WARNING:** The `preSharedKey` parameter is ommitted from the output for security reasons.
-     */
     ipAddress?: pulumi.Input<string>;
     /**
      * Pre-shared key. This is a required field for UFQDN and IP auth type.

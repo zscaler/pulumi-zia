@@ -273,14 +273,12 @@ def get_location_lite(digest_auth_enabled: Optional[bool] = None,
     """
     Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``URLFilteringRules``, ``FirewallFilteringRule`` and ``DLPWebRules`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_location_lite(name="Road Warrior")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool digest_auth_enabled: (Boolean)
@@ -325,14 +323,12 @@ def get_location_lite_output(digest_auth_enabled: Optional[pulumi.Input[Optional
     """
     Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``URLFilteringRules``, ``FirewallFilteringRule`` and ``DLPWebRules`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_location_lite(name="Road Warrior")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool digest_auth_enabled: (Boolean)

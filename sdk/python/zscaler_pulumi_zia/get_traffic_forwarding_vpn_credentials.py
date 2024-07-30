@@ -141,23 +141,19 @@ def get_traffic_forwarding_vpn_credentials(fqdn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_vpn_credentials(fqdn="sjc-1-37@acme.com")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_vpn_credentials(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str fqdn: (String) Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
@@ -200,23 +196,19 @@ def get_traffic_forwarding_vpn_credentials_output(fqdn: Optional[pulumi.Input[Op
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_vpn_credentials(fqdn="sjc-1-37@acme.com")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_traffic_forwarding_vpn_credentials(ip_address="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str fqdn: (String) Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.

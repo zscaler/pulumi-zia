@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class DLPDictionariesPhraseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action applied to a DLP dictionary using patterns. The following values are supported:
-        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 

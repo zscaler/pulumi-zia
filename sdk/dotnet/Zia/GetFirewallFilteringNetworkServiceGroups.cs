@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFirewallFilteringNetworkServiceGroupsResult> InvokeAsync(GetFirewallFilteringNetworkServiceGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallFilteringNetworkServiceGroupsResult>("zia:index/getFirewallFilteringNetworkServiceGroups:getFirewallFilteringNetworkServiceGroups", args ?? new GetFirewallFilteringNetworkServiceGroupsArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFirewallFilteringNetworkServiceGroupsResult> Invoke(GetFirewallFilteringNetworkServiceGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringNetworkServiceGroupsResult>("zia:index/getFirewallFilteringNetworkServiceGroups:getFirewallFilteringNetworkServiceGroups", args ?? new GetFirewallFilteringNetworkServiceGroupsInvokeArgs(), options.WithDefaults());

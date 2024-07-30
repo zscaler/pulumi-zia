@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  * });
  * export const ziaTrafficForwardingPublicNodeVipsYvr1 = yvr1;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingNodeVIPs(args?: GetTrafficForwardingNodeVIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingNodeVIPsResult> {
     args = args || {};
@@ -65,7 +63,6 @@ export interface GetTrafficForwardingNodeVIPsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -75,7 +72,6 @@ export interface GetTrafficForwardingNodeVIPsResult {
  * });
  * export const ziaTrafficForwardingPublicNodeVipsYvr1 = yvr1;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingNodeVIPsOutput(args?: GetTrafficForwardingNodeVIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficForwardingNodeVIPsResult> {
     return pulumi.output(args).apply((a: any) => getTrafficForwardingNodeVIPs(a, opts))

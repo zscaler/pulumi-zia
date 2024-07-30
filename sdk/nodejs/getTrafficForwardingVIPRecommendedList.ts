@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     sourceIp: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingVIPRecommendedList(args?: GetTrafficForwardingVIPRecommendedListArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingVIPRecommendedListResult> {
     args = args || {};
@@ -67,7 +65,6 @@ export interface GetTrafficForwardingVIPRecommendedListResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -77,7 +74,6 @@ export interface GetTrafficForwardingVIPRecommendedListResult {
  *     sourceIp: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingVIPRecommendedListOutput(args?: GetTrafficForwardingVIPRecommendedListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficForwardingVIPRecommendedListResult> {
     return pulumi.output(args).apply((a: any) => getTrafficForwardingVIPRecommendedList(a, opts))

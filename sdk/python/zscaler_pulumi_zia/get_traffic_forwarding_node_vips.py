@@ -150,7 +150,6 @@ def get_traffic_forwarding_node_vips(datacenter: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -158,7 +157,6 @@ def get_traffic_forwarding_node_vips(datacenter: Optional[str] = None,
     yvr1 = zia.get_traffic_forwarding_node_vips(datacenter="YVR1")
     pulumi.export("ziaTrafficForwardingPublicNodeVipsYvr1", yvr1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str datacenter: Data-center Name
@@ -191,7 +189,6 @@ def get_traffic_forwarding_node_vips_output(datacenter: Optional[pulumi.Input[Op
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -199,7 +196,6 @@ def get_traffic_forwarding_node_vips_output(datacenter: Optional[pulumi.Input[Op
     yvr1 = zia.get_traffic_forwarding_node_vips(datacenter="YVR1")
     pulumi.export("ziaTrafficForwardingPublicNodeVipsYvr1", yvr1)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str datacenter: Data-center Name

@@ -43,6 +43,16 @@ class GetTimeWindowResult:
     def day_of_weeks(self) -> Sequence[str]:
         """
         (String). The supported values are:
+        * `ANY` - (String)
+        * `NONE` - (String)
+        * `EVERYDAY` - (String)
+        * `SUN` - (String)
+        * `MON` - (String)
+        * `TUE` - (String)
+        * `WED` - (String)
+        * `THU` - (String)
+        * `FRI` - (String)
+        * `SAT` - (String)
         """
         return pulumi.get(self, "day_of_weeks")
 
@@ -93,32 +103,26 @@ def get_time_window(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     work_hours = zia.get_time_window(name="Work hours")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     weekends = zia.get_time_window(name="Weekends")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     off_hours = zia.get_time_window(name="Off hours")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the time window to be exported.
@@ -144,32 +148,26 @@ def get_time_window_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     work_hours = zia.get_time_window(name="Work hours")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     weekends = zia.get_time_window(name="Weekends")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     off_hours = zia.get_time_window(name="Off hours")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the time window to be exported.

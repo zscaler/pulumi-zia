@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class DLPWebRulesAuditorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;
 

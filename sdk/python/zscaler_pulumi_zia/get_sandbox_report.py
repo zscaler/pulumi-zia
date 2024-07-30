@@ -188,7 +188,6 @@ def get_sandbox_report(details: Optional[str] = None,
 
     ### Obtain Full Sandbox Report
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -196,11 +195,9 @@ def get_sandbox_report(details: Optional[str] = None,
     this = zia.get_sandbox_report(details="full",
         md5_hash="F69CA01D65E6C8F9E3540029E5F6AB92")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Obtain Summarized Sandbox Report
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -208,7 +205,6 @@ def get_sandbox_report(details: Optional[str] = None,
     this = zia.get_sandbox_report(details="summary",
         md5_hash="F69CA01D65E6C8F9E3540029E5F6AB92")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str details: (Required) Type of report, full or summary.
@@ -260,7 +256,6 @@ def get_sandbox_report_output(details: Optional[pulumi.Input[Optional[str]]] = N
 
     ### Obtain Full Sandbox Report
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -268,11 +263,9 @@ def get_sandbox_report_output(details: Optional[pulumi.Input[Optional[str]]] = N
     this = zia.get_sandbox_report(details="full",
         md5_hash="F69CA01D65E6C8F9E3540029E5F6AB92")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Obtain Summarized Sandbox Report
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -280,7 +273,6 @@ def get_sandbox_report_output(details: Optional[pulumi.Input[Optional[str]]] = N
     this = zia.get_sandbox_report(details="summary",
         md5_hash="F69CA01D65E6C8F9E3540029E5F6AB92")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str details: (Required) Type of report, full or summary.

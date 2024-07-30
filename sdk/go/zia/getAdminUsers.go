@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,9 +38,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +62,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupAdminUsers(ctx *pulumi.Context, args *LookupAdminUsersArgs, opts ...pulumi.InvokeOption) (*LookupAdminUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAdminUsersResult

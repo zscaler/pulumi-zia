@@ -7,113 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
- *
- * > **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The parameter can be overriden if needed by setting the parameters: `primaryDestVip` and `secondaryDestVip`.
- *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as zia from "@bdzscaler/pulumi-zia";
- *
- * // ZIA Traffic Forwarding - Static IP
- * const exampleTrafficForwardingStaticIP = new zia.TrafficForwardingStaticIP("exampleTrafficForwardingStaticIP", {
- *     ipAddress: "1.1.1.1",
- *     routableIp: true,
- *     comment: "Example",
- *     geoOverride: true,
- *     latitude: 37.418171,
- *     longitude: -121.95314,
- * });
- * // Creates a numbered GRE Tunnel
- * const exampleTrafficForwardingGRETunnel = new zia.TrafficForwardingGRETunnel("exampleTrafficForwardingGRETunnel", {
- *     sourceIp: exampleTrafficForwardingStaticIP.ipAddress,
- *     comment: "Example",
- *     withinCountry: true,
- *     countryCode: "US",
- *     ipUnnumbered: false,
- * }, {
- *     dependsOn: [exampleTrafficForwardingStaticIP],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as zia from "@bdzscaler/pulumi-zia";
- * import * as zia from "@pulumi/zia";
- *
- * const thisTrafficForwardingStaticIP = new zia.TrafficForwardingStaticIP("thisTrafficForwardingStaticIP", {
- *     ipAddress: "50.98.112.169",
- *     routableIp: true,
- *     comment: "Created with Terraform",
- *     geoOverride: true,
- *     latitude: 49.0526,
- *     longitude: -122.8291,
- * });
- * const thisTrafficForwardingVIPRecommendedList = thisTrafficForwardingStaticIP.ipAddress.apply(ipAddress => zia.getTrafficForwardingVIPRecommendedListOutput({
- *     sourceIp: ipAddress,
- *     requiredCount: 2,
- * }));
- * const thisTrafficForwardingGREInternalIPRange = zia.getTrafficForwardingGREInternalIPRange({
- *     requiredCount: 10,
- * });
- * const thisTrafficForwardingGRETunnel = new zia.TrafficForwardingGRETunnel("thisTrafficForwardingGRETunnel", {
- *     sourceIp: thisTrafficForwardingStaticIP.ipAddress,
- *     comment: "GRE Tunnel Created with Terraform",
- *     withinCountry: false,
- *     countryCode: "CA",
- *     ipUnnumbered: false,
- *     primaryDestVips: [{
- *         datacenter: thisTrafficForwardingVIPRecommendedList.apply(thisTrafficForwardingVIPRecommendedList => thisTrafficForwardingVIPRecommendedList.lists?.[0]?.datacenter),
- *         virtualIp: thisTrafficForwardingVIPRecommendedList.apply(thisTrafficForwardingVIPRecommendedList => thisTrafficForwardingVIPRecommendedList.lists?.[0]?.virtualIp),
- *     }],
- *     secondaryDestVips: [{
- *         datacenter: thisTrafficForwardingVIPRecommendedList.apply(thisTrafficForwardingVIPRecommendedList => thisTrafficForwardingVIPRecommendedList.lists?.[1]?.datacenter),
- *         virtualIp: thisTrafficForwardingVIPRecommendedList.apply(thisTrafficForwardingVIPRecommendedList => thisTrafficForwardingVIPRecommendedList.lists?.[1]?.virtualIp),
- *     }],
- * }, {
- *     dependsOn: [thisTrafficForwardingStaticIP],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * > **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the primaryDestVip and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the agvaiulable VIP.
- *
- * > **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
- *
- * > **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as zia from "@bdzscaler/pulumi-zia";
- *
- * // ZIA Traffic Forwarding - Static IP
- * const example = new zia.TrafficForwardingStaticIP("example", {
- *     ipAddress: "1.1.1.1",
- *     routableIp: true,
- *     comment: "Example",
- *     geoOverride: true,
- *     latitude: 37.418171,
- *     longitude: -121.95314,
- * });
- * // Creates an unnumbered GRE Tunnel
- * const telusHomeInternet01Gre01 = new zia.TrafficForwardingGRETunnel("telusHomeInternet01Gre01", {
- *     sourceIp: example.ipAddress,
- *     comment: "Example",
- *     withinCountry: true,
- *     countryCode: "CA",
- *     ipUnnumbered: true,
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
@@ -171,23 +64,24 @@ export class TrafficForwardingGRETunnel extends pulumi.CustomResource {
      */
     public readonly countryCode!: pulumi.Output<string>;
     /**
-     * The start of the internal IP address in /29 CIDR range. Automatically set by the provider if `ipUnnumbered` is set to `false`.
+     * The start of the internal IP address in /29 CIDR range
      */
-    public readonly internalIpRange!: pulumi.Output<string>;
+    public readonly internalIpRange!: pulumi.Output<string | undefined>;
     /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
+     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
+     * set to null
      */
     public readonly ipUnnumbered!: pulumi.Output<boolean>;
     /**
-     * **` (Optional) The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     public readonly primaryDestVips!: pulumi.Output<outputs.TrafficForwardingGRETunnelPrimaryDestVip[]>;
     /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     public readonly secondaryDestVips!: pulumi.Output<outputs.TrafficForwardingGRETunnelSecondaryDestVip[]>;
     /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN. This IP address must be provisioned within the Zscaler service using the /staticIP endpoint.
+     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
      */
     public readonly sourceIp!: pulumi.Output<string>;
     /**
@@ -254,23 +148,24 @@ export interface TrafficForwardingGRETunnelState {
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * The start of the internal IP address in /29 CIDR range. Automatically set by the provider if `ipUnnumbered` is set to `false`.
+     * The start of the internal IP address in /29 CIDR range
      */
     internalIpRange?: pulumi.Input<string>;
     /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
+     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
+     * set to null
      */
     ipUnnumbered?: pulumi.Input<boolean>;
     /**
-     * **` (Optional) The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     primaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelPrimaryDestVip>[]>;
     /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     secondaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelSecondaryDestVip>[]>;
     /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN. This IP address must be provisioned within the Zscaler service using the /staticIP endpoint.
+     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
      */
     sourceIp?: pulumi.Input<string>;
     /**
@@ -296,23 +191,24 @@ export interface TrafficForwardingGRETunnelArgs {
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * The start of the internal IP address in /29 CIDR range. Automatically set by the provider if `ipUnnumbered` is set to `false`.
+     * The start of the internal IP address in /29 CIDR range
      */
     internalIpRange?: pulumi.Input<string>;
     /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
+     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
+     * set to null
      */
     ipUnnumbered?: pulumi.Input<boolean>;
     /**
-     * **` (Optional) The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     primaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelPrimaryDestVip>[]>;
     /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
      */
     secondaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelSecondaryDestVip>[]>;
     /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN. This IP address must be provisioned within the Zscaler service using the /staticIP endpoint.
+     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
      */
     sourceIp: pulumi.Input<string>;
     /**

@@ -14,13 +14,10 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class DLPWebRulesLabels
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
 
         [OutputConstructor]
-        private DLPWebRulesLabels(int id)
+        private DLPWebRulesLabels(int? id)
         {
             Id = id;
         }

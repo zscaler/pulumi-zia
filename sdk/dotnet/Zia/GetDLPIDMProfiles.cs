@@ -28,9 +28,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIDMProfilesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The IDM template name, which is unique per Index Tool.
-        /// </summary>
         [Input("profileName")]
         public string? ProfileName { get; set; }
 
@@ -42,9 +39,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIDMProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The IDM template name, which is unique per Index Tool.
-        /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
 

@@ -16,11 +16,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     {
         public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
-        /// A unique identifier assigned to the workload group
+        /// Identifier that uniquely identifies an entity
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the workload group
+        /// Identifier that uniquely identifies an entity
         /// </summary>
         public readonly string Name;
 

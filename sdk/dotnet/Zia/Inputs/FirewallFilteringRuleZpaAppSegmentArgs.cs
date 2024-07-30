@@ -20,9 +20,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         public Input<string> ExternalId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// Name of the application segment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

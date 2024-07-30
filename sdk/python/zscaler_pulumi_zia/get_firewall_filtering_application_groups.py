@@ -85,14 +85,12 @@ def get_firewall_filtering_application_groups(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_application_groups(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the ip source group resource.
@@ -120,14 +118,12 @@ def get_firewall_filtering_application_groups_output(id: Optional[pulumi.Input[O
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_application_groups(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: The ID of the ip source group resource.

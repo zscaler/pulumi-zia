@@ -470,14 +470,12 @@ def get_firewall_filtering_rule(id: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_rule(name="Office 365 One Click Rule")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: Unique identifier for the Firewall Filtering policy rule
@@ -538,14 +536,12 @@ def get_firewall_filtering_rule_output(id: Optional[pulumi.Input[Optional[int]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     example = zia.get_firewall_filtering_rule(name="Office 365 One Click Rule")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int id: Unique identifier for the Firewall Filtering policy rule

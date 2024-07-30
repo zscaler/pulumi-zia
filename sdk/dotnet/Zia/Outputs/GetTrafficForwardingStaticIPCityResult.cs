@@ -12,27 +12,23 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 {
 
     [OutputType]
-    public sealed class GetDLPWebRulesNotificationTemplateResult
+    public sealed class GetTrafficForwardingStaticIPCityResult
     {
-        public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
-        /// A unique identifier assigned to the workload group
+        /// The unique identifier for the static IP address
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the workload group
+        /// (String) The configured name of the entity
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private GetDLPWebRulesNotificationTemplateResult(
-            ImmutableDictionary<string, string> extensions,
-
+        private GetTrafficForwardingStaticIPCityResult(
             int id,
 
             string name)
         {
-            Extensions = extensions;
             Id = id;
             Name = name;
         }

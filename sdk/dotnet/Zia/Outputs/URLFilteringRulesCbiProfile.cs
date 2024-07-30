@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class URLFilteringRulesCbiProfile
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Name of the Firewall Filtering policy rule

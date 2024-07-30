@@ -15,9 +15,8 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// ### BLOCK ACTION
+    /// ### ALLOW ACTION
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,7 @@ namespace zscaler.PulumiPackage.Zia
     /// {
     ///     var @this = new Zia.URLFilteringRules("this", new()
     ///     {
-    ///         Action = "BLOCK",
+    ///         Action = "ALLOW",
     ///         Description = "Example",
     ///         DeviceTrustLevels = new[]
     ///         {
@@ -37,6 +36,7 @@ namespace zscaler.PulumiPackage.Zia
     ///             "MEDIUM_TRUST",
     ///             "HIGH_TRUST",
     ///         },
+    ///         EnforceTimeValidity = true,
     ///         Order = 1,
     ///         Protocols = new[]
     ///         {
@@ -54,22 +54,179 @@ namespace zscaler.PulumiPackage.Zia
     ///             "PUT",
     ///             "TRACE",
     ///         },
+    ///         SizeQuota = 10,
     ///         State = "ENABLED",
+    ///         TimeQuota = 15,
     ///         UrlCategories = new[]
     ///         {
     ///             "ANY",
     ///         },
+    ///         UserAgentTypes = new[]
+    ///         {
+    ///             "OPERA",
+    ///             "FIREFOX",
+    ///             "MSIE",
+    ///             "MSEDGE",
+    ///             "CHROME",
+    ///             "SAFARI",
+    ///             "MSCHREDGE",
+    ///         },
+    ///         ValidityEndTime = "Tue, 17 Jun 2025 23:00:00 UTC",
+    ///         ValidityStartTime = "Mon, 17 Jun 2024 23:30:00 UTC",
+    ///         ValidityTimeZoneId = "US/Pacific",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### BLOCK ACTION
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Zia = zscaler.PulumiPackage.Zia;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = new Zia.URLFilteringRules("this", new()
+    ///     {
+    ///         Action = "BLOCK",
+    ///         BlockOverride = true,
+    ///         Description = "Example",
+    ///         DeviceTrustLevels = new[]
+    ///         {
+    ///             "UNKNOWN_DEVICETRUSTLEVEL",
+    ///             "LOW_TRUST",
+    ///             "MEDIUM_TRUST",
+    ///             "HIGH_TRUST",
+    ///         },
+    ///         EnforceTimeValidity = true,
+    ///         Order = 1,
+    ///         OverrideGroups = new Zia.Inputs.URLFilteringRulesOverrideGroupsArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 76662385,
+    ///             },
+    ///         },
+    ///         OverrideUsers = new Zia.Inputs.URLFilteringRulesOverrideUsersArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 45513075,
+    ///             },
+    ///         },
+    ///         Protocols = new[]
+    ///         {
+    ///             "ANY_RULE",
+    ///         },
+    ///         RequestMethods = new[]
+    ///         {
+    ///             "CONNECT",
+    ///             "DELETE",
+    ///             "GET",
+    ///             "HEAD",
+    ///             "OPTIONS",
+    ///             "OTHER",
+    ///             "POST",
+    ///             "PUT",
+    ///             "TRACE",
+    ///         },
+    ///         SizeQuota = 10,
+    ///         State = "ENABLED",
+    ///         TimeQuota = 15,
+    ///         UrlCategories = new[]
+    ///         {
+    ///             "ANY",
+    ///         },
+    ///         UserAgentTypes = new[]
+    ///         {
+    ///             "OPERA",
+    ///             "FIREFOX",
+    ///             "MSIE",
+    ///             "MSEDGE",
+    ///             "CHROME",
+    ///             "SAFARI",
+    ///             "MSCHREDGE",
+    ///         },
+    ///         ValidityEndTime = "Tue, 17 Jun 2025 23:00:00 UTC",
+    ///         ValidityStartTime = "Mon, 17 Jun 2024 23:30:00 UTC",
+    ///         ValidityTimeZoneId = "US/Pacific",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### CAUTION ACTION
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Zia = zscaler.PulumiPackage.Zia;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = new Zia.URLFilteringRules("this", new()
+    ///     {
+    ///         Action = "CAUTION",
+    ///         Description = "Example",
+    ///         DeviceTrustLevels = new[]
+    ///         {
+    ///             "UNKNOWN_DEVICETRUSTLEVEL",
+    ///             "LOW_TRUST",
+    ///             "MEDIUM_TRUST",
+    ///             "HIGH_TRUST",
+    ///         },
+    ///         EndUserNotificationUrl = "https://caution.acme.com",
+    ///         EnforceTimeValidity = true,
+    ///         Order = 1,
+    ///         Protocols = new[]
+    ///         {
+    ///             "ANY_RULE",
+    ///         },
+    ///         RequestMethods = new[]
+    ///         {
+    ///             "CONNECT",
+    ///             "DELETE",
+    ///             "GET",
+    ///             "HEAD",
+    ///             "OPTIONS",
+    ///             "OTHER",
+    ///             "POST",
+    ///             "PUT",
+    ///             "TRACE",
+    ///         },
+    ///         SizeQuota = 10,
+    ///         State = "ENABLED",
+    ///         TimeQuota = 15,
+    ///         UrlCategories = new[]
+    ///         {
+    ///             "ANY",
+    ///         },
+    ///         UserAgentTypes = new[]
+    ///         {
+    ///             "OPERA",
+    ///             "FIREFOX",
+    ///             "MSIE",
+    ///             "MSEDGE",
+    ///             "CHROME",
+    ///             "SAFARI",
+    ///             "MSCHREDGE",
+    ///         },
+    ///         ValidityEndTime = "Tue, 17 Jun 2025 23:00:00 UTC",
+    ///         ValidityStartTime = "Mon, 17 Jun 2024 23:30:00 UTC",
+    ///         ValidityTimeZoneId = "US/Pacific",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ### ISOLATE ACTION
     /// 
     /// ⚠️ **WARNING 1:**: Creating a URL Filtering rule with the action of `ISOLATE` requires the Cloud Browser Isolation subscription. To learn more, contact Zscaler Support or your local account team.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,6 +247,12 @@ namespace zscaler.PulumiPackage.Zia
     ///         State = "ENABLED",
     ///         Action = "ISOLATE",
     ///         Order = 1,
+    ///         EnforceTimeValidity = true,
+    ///         ValidityStartTime = "Mon, 17 Jun 2024 23:30:00 UTC",
+    ///         ValidityEndTime = "Tue, 17 Jun 2025 23:00:00 UTC",
+    ///         ValidityTimeZoneId = "US/Pacific",
+    ///         TimeQuota = 15,
+    ///         SizeQuota = 10,
     ///         UrlCategories = new[]
     ///         {
     ///             "ANY",
@@ -141,7 +304,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -167,20 +329,14 @@ namespace zscaler.PulumiPackage.Zia
     public partial class URLFilteringRules : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Action taken when traffic matches rule criteria. Supported values: `ANY`, `NONE`, `BLOCK`, `CAUTION`, `ALLOW`, `ICAP_RESPONSE`
+        /// Action taken when traffic matches rule criteria
         /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
-        /// <summary>
-        /// When set to true, a `BLOCK` action triggered by the rule could be overridden. If true and both overrideGroup and overrideUsers are not set, the `BLOCK` triggered by this rule could be overridden for any users. If block_override is not set, `BLOCK` action cannot be overridden.
-        /// </summary>
         [Output("blockOverride")]
         public Output<bool?> BlockOverride { get; private set; } = null!;
 
-        /// <summary>
-        /// The cloud browser isolation profile to which the ISOLATE action is applied in the URL Filtering Policy rules. This block is required when the attribute `action` is set to `ISOLATE`
-        /// </summary>
         [Output("cbiProfiles")]
         public Output<ImmutableArray<Outputs.URLFilteringRulesCbiProfile>> CbiProfiles { get; private set; } = null!;
 
@@ -191,13 +347,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> Ciparule { get; private set; } = null!;
 
         /// <summary>
-        /// The departments to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of departments for which rule must be applied
         /// </summary>
         [Output("departments")]
         public Output<Outputs.URLFilteringRulesDepartments> Departments { get; private set; } = null!;
 
         /// <summary>
-        /// Additional information about the rule
+        /// Additional information about the URL Filtering rule
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -209,7 +365,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesDeviceGroups> DeviceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation. Supported values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
+        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
+        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
@@ -221,7 +379,8 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesDevices> Devices { get; private set; } = null!;
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
+        /// 'overrideGroups' is specified.
         /// </summary>
         [Output("endUserNotificationUrl")]
         public Output<string?> EndUserNotificationUrl { get; private set; } = null!;
@@ -233,7 +392,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnforceTimeValidity { get; private set; } = null!;
 
         /// <summary>
-        /// The groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of groups for which rule must be applied
         /// </summary>
         [Output("groups")]
         public Output<Outputs.URLFilteringRulesGroups> Groups { get; private set; } = null!;
@@ -245,13 +404,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesLabels> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The location groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of the location groups to which the rule must be applied.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.URLFilteringRulesLocationGroups> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The locations to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of locations for which rule must be applied
         /// </summary>
         [Output("locations")]
         public Output<Outputs.URLFilteringRulesLocations> Locations { get; private set; } = null!;
@@ -269,13 +428,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any group.
+        /// Name-ID pairs of groups for which this rule can be overridden.
         /// </summary>
         [Output("overrideGroups")]
         public Output<Outputs.URLFilteringRulesOverrideGroups> OverrideGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any user.
+        /// Name-ID pairs of users for which this rule can be overridden.
         /// </summary>
         [Output("overrideUsers")]
         public Output<Outputs.URLFilteringRulesOverrideUsers> OverrideUsers { get; private set; } = null!;
@@ -287,7 +446,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// Admin rank of the admin who creates this rule
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
@@ -305,25 +464,30 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Output("sizeQuota")]
         public Output<int?> SizeQuota { get; private set; } = null!;
 
         /// <summary>
-        /// Rule State
+        /// list of source ip groups
         /// </summary>
+        [Output("sourceIpGroups")]
+        public Output<Outputs.URLFilteringRulesSourceIpGroups> SourceIpGroups { get; private set; } = null!;
+
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Output("timeQuota")]
         public Output<int?> TimeQuota { get; private set; } = null!;
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of time interval during which rule must be enforced.
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.URLFilteringRulesTimeWindows> TimeWindows { get; private set; } = null!;
@@ -340,32 +504,30 @@ namespace zscaler.PulumiPackage.Zia
         [Output("userAgentTypes")]
         public Output<ImmutableArray<string>> UserAgentTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         [Output("userRiskScoreLevels")]
         public Output<ImmutableArray<string>> UserRiskScoreLevels { get; private set; } = null!;
 
         /// <summary>
-        /// The users to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of users for which rule must be applied
         /// </summary>
         [Output("users")]
         public Output<Outputs.URLFilteringRulesUsers> Users { get; private set; } = null!;
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule will cease to be valid on this end date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
         /// </summary>
         [Output("validityEndTime")]
-        public Output<int?> ValidityEndTime { get; private set; } = null!;
+        public Output<string?> ValidityEndTime { get; private set; } = null!;
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule will be valid starting on this date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
         /// </summary>
         [Output("validityStartTime")]
-        public Output<int?> ValidityStartTime { get; private set; } = null!;
+        public Output<string?> ValidityStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule date and time will be valid based on this time zone ID.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
+        /// IANA Format TimeZone.
         /// </summary>
         [Output("validityTimeZoneId")]
         public Output<string?> ValidityTimeZoneId { get; private set; } = null!;
@@ -424,23 +586,16 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class URLFilteringRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action taken when traffic matches rule criteria. Supported values: `ANY`, `NONE`, `BLOCK`, `CAUTION`, `ALLOW`, `ICAP_RESPONSE`
+        /// Action taken when traffic matches rule criteria
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        /// <summary>
-        /// When set to true, a `BLOCK` action triggered by the rule could be overridden. If true and both overrideGroup and overrideUsers are not set, the `BLOCK` triggered by this rule could be overridden for any users. If block_override is not set, `BLOCK` action cannot be overridden.
-        /// </summary>
         [Input("blockOverride")]
         public Input<bool>? BlockOverride { get; set; }
 
         [Input("cbiProfiles")]
         private InputList<Inputs.URLFilteringRulesCbiProfileArgs>? _cbiProfiles;
-
-        /// <summary>
-        /// The cloud browser isolation profile to which the ISOLATE action is applied in the URL Filtering Policy rules. This block is required when the attribute `action` is set to `ISOLATE`
-        /// </summary>
         public InputList<Inputs.URLFilteringRulesCbiProfileArgs> CbiProfiles
         {
             get => _cbiProfiles ?? (_cbiProfiles = new InputList<Inputs.URLFilteringRulesCbiProfileArgs>());
@@ -454,13 +609,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Ciparule { get; set; }
 
         /// <summary>
-        /// The departments to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of departments for which rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.URLFilteringRulesDepartmentsArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Additional information about the rule
+        /// Additional information about the URL Filtering rule
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -475,7 +630,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation. Supported values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
+        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
+        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -490,7 +647,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesDevicesArgs>? Devices { get; set; }
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
+        /// 'overrideGroups' is specified.
         /// </summary>
         [Input("endUserNotificationUrl")]
         public Input<string>? EndUserNotificationUrl { get; set; }
@@ -502,7 +660,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnforceTimeValidity { get; set; }
 
         /// <summary>
-        /// The groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of groups for which rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.URLFilteringRulesGroupsArgs>? Groups { get; set; }
@@ -514,13 +672,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The location groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of the location groups to which the rule must be applied.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.URLFilteringRulesLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The locations to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of locations for which rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.URLFilteringRulesLocationsArgs>? Locations { get; set; }
@@ -538,13 +696,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any group.
+        /// Name-ID pairs of groups for which this rule can be overridden.
         /// </summary>
         [Input("overrideGroups")]
         public Input<Inputs.URLFilteringRulesOverrideGroupsArgs>? OverrideGroups { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any user.
+        /// Name-ID pairs of users for which this rule can be overridden.
         /// </summary>
         [Input("overrideUsers")]
         public Input<Inputs.URLFilteringRulesOverrideUsersArgs>? OverrideUsers { get; set; }
@@ -562,7 +720,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Admin rank of the admin who creates this rule
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -580,25 +738,30 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
 
         /// <summary>
-        /// Rule State
+        /// list of source ip groups
         /// </summary>
+        [Input("sourceIpGroups")]
+        public Input<Inputs.URLFilteringRulesSourceIpGroupsArgs>? SourceIpGroups { get; set; }
+
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of time interval during which rule must be enforced.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.URLFilteringRulesTimeWindowsArgs>? TimeWindows { get; set; }
@@ -629,10 +792,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userRiskScoreLevels")]
         private InputList<string>? _userRiskScoreLevels;
-
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         public InputList<string> UserRiskScoreLevels
         {
             get => _userRiskScoreLevels ?? (_userRiskScoreLevels = new InputList<string>());
@@ -640,25 +799,26 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The users to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of users for which rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.URLFilteringRulesUsersArgs>? Users { get; set; }
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule will cease to be valid on this end date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
         /// </summary>
         [Input("validityEndTime")]
-        public Input<int>? ValidityEndTime { get; set; }
+        public Input<string>? ValidityEndTime { get; set; }
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule will be valid starting on this date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
         /// </summary>
         [Input("validityStartTime")]
-        public Input<int>? ValidityStartTime { get; set; }
+        public Input<string>? ValidityStartTime { get; set; }
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule date and time will be valid based on this time zone ID.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
+        /// IANA Format TimeZone.
         /// </summary>
         [Input("validityTimeZoneId")]
         public Input<string>? ValidityTimeZoneId { get; set; }
@@ -684,23 +844,16 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class URLFilteringRulesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action taken when traffic matches rule criteria. Supported values: `ANY`, `NONE`, `BLOCK`, `CAUTION`, `ALLOW`, `ICAP_RESPONSE`
+        /// Action taken when traffic matches rule criteria
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        /// <summary>
-        /// When set to true, a `BLOCK` action triggered by the rule could be overridden. If true and both overrideGroup and overrideUsers are not set, the `BLOCK` triggered by this rule could be overridden for any users. If block_override is not set, `BLOCK` action cannot be overridden.
-        /// </summary>
         [Input("blockOverride")]
         public Input<bool>? BlockOverride { get; set; }
 
         [Input("cbiProfiles")]
         private InputList<Inputs.URLFilteringRulesCbiProfileGetArgs>? _cbiProfiles;
-
-        /// <summary>
-        /// The cloud browser isolation profile to which the ISOLATE action is applied in the URL Filtering Policy rules. This block is required when the attribute `action` is set to `ISOLATE`
-        /// </summary>
         public InputList<Inputs.URLFilteringRulesCbiProfileGetArgs> CbiProfiles
         {
             get => _cbiProfiles ?? (_cbiProfiles = new InputList<Inputs.URLFilteringRulesCbiProfileGetArgs>());
@@ -714,13 +867,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Ciparule { get; set; }
 
         /// <summary>
-        /// The departments to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of departments for which rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.URLFilteringRulesDepartmentsGetArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Additional information about the rule
+        /// Additional information about the URL Filtering rule
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -735,7 +888,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation. Supported values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
+        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
+        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -750,7 +905,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesDevicesGetArgs>? Devices { get; set; }
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
+        /// 'overrideGroups' is specified.
         /// </summary>
         [Input("endUserNotificationUrl")]
         public Input<string>? EndUserNotificationUrl { get; set; }
@@ -762,7 +918,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnforceTimeValidity { get; set; }
 
         /// <summary>
-        /// The groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of groups for which rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.URLFilteringRulesGroupsGetArgs>? Groups { get; set; }
@@ -774,13 +930,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The location groups to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of the location groups to which the rule must be applied.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.URLFilteringRulesLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The locations to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of locations for which rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.URLFilteringRulesLocationsGetArgs>? Locations { get; set; }
@@ -798,13 +954,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any group.
+        /// Name-ID pairs of groups for which this rule can be overridden.
         /// </summary>
         [Input("overrideGroups")]
         public Input<Inputs.URLFilteringRulesOverrideGroupsGetArgs>? OverrideGroups { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any user.
+        /// Name-ID pairs of users for which this rule can be overridden.
         /// </summary>
         [Input("overrideUsers")]
         public Input<Inputs.URLFilteringRulesOverrideUsersGetArgs>? OverrideUsers { get; set; }
@@ -822,7 +978,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Admin rank of the admin who creates this rule
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -846,25 +1002,30 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? RuleId { get; set; }
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
 
         /// <summary>
-        /// Rule State
+        /// list of source ip groups
         /// </summary>
+        [Input("sourceIpGroups")]
+        public Input<Inputs.URLFilteringRulesSourceIpGroupsGetArgs>? SourceIpGroups { get; set; }
+
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to `BLOCK`, this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
+        /// action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of time interval during which rule must be enforced.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.URLFilteringRulesTimeWindowsGetArgs>? TimeWindows { get; set; }
@@ -895,10 +1056,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userRiskScoreLevels")]
         private InputList<string>? _userRiskScoreLevels;
-
-        /// <summary>
-        /// Indicates the user risk score level selectedd for the DLP rule violation: Returned values are: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`
-        /// </summary>
         public InputList<string> UserRiskScoreLevels
         {
             get => _userRiskScoreLevels ?? (_userRiskScoreLevels = new InputList<string>());
@@ -906,25 +1063,26 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The users to which the Firewall Filtering policy rule applies
+        /// Name-ID pairs of users for which rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.URLFilteringRulesUsersGetArgs>? Users { get; set; }
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule will cease to be valid on this end date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
         /// </summary>
         [Input("validityEndTime")]
-        public Input<int>? ValidityEndTime { get; set; }
+        public Input<string>? ValidityEndTime { get; set; }
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule will be valid starting on this date and time.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
         /// </summary>
         [Input("validityStartTime")]
-        public Input<int>? ValidityStartTime { get; set; }
+        public Input<string>? ValidityStartTime { get; set; }
 
         /// <summary>
-        /// If `enforceTimeValidity` is set to true, the URL Filtering rule date and time will be valid based on this time zone ID.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
+        /// IANA Format TimeZone.
         /// </summary>
         [Input("validityTimeZoneId")]
         public Input<string>? ValidityTimeZoneId { get; set; }

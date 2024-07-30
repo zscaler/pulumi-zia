@@ -24,10 +24,14 @@ class TrafficForwardingStaticIPArgs:
         The set of arguments for constructing a TrafficForwardingStaticIP resource.
         :param pulumi.Input[str] ip_address: The static IP address
         :param pulumi.Input[str] comment: Additional information about this static IP address
-        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
-        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
-        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+               and longitude coordinates must be provided.
+        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+               -90 and 90 degrees.
+        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+               -180 and 180 degrees.
+        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+               Service Edge associated to the organization.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         if comment is not None:
@@ -69,7 +73,8 @@ class TrafficForwardingStaticIPArgs:
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> Optional[pulumi.Input[bool]]:
         """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        and longitude coordinates must be provided.
         """
         return pulumi.get(self, "geo_override")
 
@@ -81,7 +86,8 @@ class TrafficForwardingStaticIPArgs:
     @pulumi.getter
     def latitude(self) -> Optional[pulumi.Input[float]]:
         """
-        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        -90 and 90 degrees.
         """
         return pulumi.get(self, "latitude")
 
@@ -93,7 +99,8 @@ class TrafficForwardingStaticIPArgs:
     @pulumi.getter
     def longitude(self) -> Optional[pulumi.Input[float]]:
         """
-        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        -180 and 180 degrees.
         """
         return pulumi.get(self, "longitude")
 
@@ -105,7 +112,8 @@ class TrafficForwardingStaticIPArgs:
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        Service Edge associated to the organization.
         """
         return pulumi.get(self, "routable_ip")
 
@@ -127,11 +135,15 @@ class _TrafficForwardingStaticIPState:
         """
         Input properties used for looking up and filtering TrafficForwardingStaticIP resources.
         :param pulumi.Input[str] comment: Additional information about this static IP address
-        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+               and longitude coordinates must be provided.
         :param pulumi.Input[str] ip_address: The static IP address
-        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
-        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
-        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+               -90 and 90 degrees.
+        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+               -180 and 180 degrees.
+        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+               Service Edge associated to the organization.
         :param pulumi.Input[int] static_ip_id: The ID of the Static IP.
         """
         if comment is not None:
@@ -165,7 +177,8 @@ class _TrafficForwardingStaticIPState:
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> Optional[pulumi.Input[bool]]:
         """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        and longitude coordinates must be provided.
         """
         return pulumi.get(self, "geo_override")
 
@@ -189,7 +202,8 @@ class _TrafficForwardingStaticIPState:
     @pulumi.getter
     def latitude(self) -> Optional[pulumi.Input[float]]:
         """
-        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        -90 and 90 degrees.
         """
         return pulumi.get(self, "latitude")
 
@@ -201,7 +215,8 @@ class _TrafficForwardingStaticIPState:
     @pulumi.getter
     def longitude(self) -> Optional[pulumi.Input[float]]:
         """
-        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        -180 and 180 degrees.
         """
         return pulumi.get(self, "longitude")
 
@@ -213,7 +228,8 @@ class _TrafficForwardingStaticIPState:
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        Service Edge associated to the organization.
         """
         return pulumi.get(self, "routable_ip")
 
@@ -255,7 +271,6 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -269,7 +284,6 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
             longitude=174.763336,
             routable_ip=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,11 +306,15 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Additional information about this static IP address
-        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+               and longitude coordinates must be provided.
         :param pulumi.Input[str] ip_address: The static IP address
-        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
-        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
-        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+               -90 and 90 degrees.
+        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+               -180 and 180 degrees.
+        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+               Service Edge associated to the organization.
         """
         ...
     @overload
@@ -313,7 +331,6 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -327,7 +344,6 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
             longitude=174.763336,
             routable_ip=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -411,11 +427,15 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Additional information about this static IP address
-        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        :param pulumi.Input[bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+               and longitude coordinates must be provided.
         :param pulumi.Input[str] ip_address: The static IP address
-        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
-        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
-        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        :param pulumi.Input[float] latitude: Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+               -90 and 90 degrees.
+        :param pulumi.Input[float] longitude: Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+               -180 and 180 degrees.
+        :param pulumi.Input[bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+               Service Edge associated to the organization.
         :param pulumi.Input[int] static_ip_id: The ID of the Static IP.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -433,7 +453,7 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comment(self) -> pulumi.Output[Optional[str]]:
+    def comment(self) -> pulumi.Output[str]:
         """
         Additional information about this static IP address
         """
@@ -443,7 +463,8 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> pulumi.Output[bool]:
         """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
+        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
+        and longitude coordinates must be provided.
         """
         return pulumi.get(self, "geo_override")
 
@@ -459,7 +480,8 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
     @pulumi.getter
     def latitude(self) -> pulumi.Output[float]:
         """
-        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees.
+        Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
+        -90 and 90 degrees.
         """
         return pulumi.get(self, "latitude")
 
@@ -467,7 +489,8 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
     @pulumi.getter
     def longitude(self) -> pulumi.Output[float]:
         """
-        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees.
+        Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
+        -180 and 180 degrees.
         """
         return pulumi.get(self, "longitude")
 
@@ -475,7 +498,8 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> pulumi.Output[bool]:
         """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
+        Service Edge associated to the organization.
         """
         return pulumi.get(self, "routable_ip")
 

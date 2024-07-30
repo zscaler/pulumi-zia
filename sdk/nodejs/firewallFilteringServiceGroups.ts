@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -38,7 +37,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -88,17 +86,11 @@ export class FirewallFilteringServiceGroups extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringServiceGroups.__pulumiType;
     }
 
-    /**
-     * Description of the network services group
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly groupId!: pulumi.Output<number>;
-    /**
-     * Name of the network service group
-     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Any number of network services ID to be added to the group
+     * list of services IDs
      */
     public readonly services!: pulumi.Output<outputs.FirewallFilteringServiceGroupsService[]>;
 
@@ -135,17 +127,11 @@ export class FirewallFilteringServiceGroups extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FirewallFilteringServiceGroups resources.
  */
 export interface FirewallFilteringServiceGroupsState {
-    /**
-     * Description of the network services group
-     */
     description?: pulumi.Input<string>;
     groupId?: pulumi.Input<number>;
-    /**
-     * Name of the network service group
-     */
     name?: pulumi.Input<string>;
     /**
-     * Any number of network services ID to be added to the group
+     * list of services IDs
      */
     services?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringServiceGroupsService>[]>;
 }
@@ -154,16 +140,10 @@ export interface FirewallFilteringServiceGroupsState {
  * The set of arguments for constructing a FirewallFilteringServiceGroups resource.
  */
 export interface FirewallFilteringServiceGroupsArgs {
-    /**
-     * Description of the network services group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the network service group
-     */
     name?: pulumi.Input<string>;
     /**
-     * Any number of network services ID to be added to the group
+     * list of services IDs
      */
     services?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringServiceGroupsService>[]>;
 }

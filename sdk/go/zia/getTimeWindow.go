@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,9 +38,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,9 +62,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +86,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTimeWindow(ctx *pulumi.Context, args *GetTimeWindowArgs, opts ...pulumi.InvokeOption) (*GetTimeWindowResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTimeWindowResult
@@ -111,6 +105,16 @@ type GetTimeWindowArgs struct {
 // A collection of values returned by getTimeWindow.
 type GetTimeWindowResult struct {
 	// (String). The supported values are:
+	// * `ANY` - (String)
+	// * `NONE` - (String)
+	// * `EVERYDAY` - (String)
+	// * `SUN` - (String)
+	// * `MON` - (String)
+	// * `TUE` - (String)
+	// * `WED` - (String)
+	// * `THU` - (String)
+	// * `FRI` - (String)
+	// * `SAT` - (String)
 	DayOfWeeks []string `pulumi:"dayOfWeeks"`
 	// (String)
 	EndTime int     `pulumi:"endTime"`
@@ -159,6 +163,16 @@ func (o GetTimeWindowResultOutput) ToGetTimeWindowResultOutputWithContext(ctx co
 }
 
 // (String). The supported values are:
+// * `ANY` - (String)
+// * `NONE` - (String)
+// * `EVERYDAY` - (String)
+// * `SUN` - (String)
+// * `MON` - (String)
+// * `TUE` - (String)
+// * `WED` - (String)
+// * `THU` - (String)
+// * `FRI` - (String)
+// * `SAT` - (String)
 func (o GetTimeWindowResultOutput) DayOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTimeWindowResult) []string { return v.DayOfWeeks }).(pulumi.StringArrayOutput)
 }

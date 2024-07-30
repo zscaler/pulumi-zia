@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const foo = zia.getAuthSettingsURLs({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthSettingsURLs(opts?: pulumi.InvokeOptions): Promise<GetAuthSettingsURLsResult> {
 
@@ -40,14 +38,12 @@ export interface GetAuthSettingsURLsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
  *
  * const foo = zia.getAuthSettingsURLs({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAuthSettingsURLsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthSettingsURLsResult> {
     return pulumi.output(getAuthSettingsURLs(opts))

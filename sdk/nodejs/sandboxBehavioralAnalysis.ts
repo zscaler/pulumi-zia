@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ### Add MD5 Hashes To Sandbox
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -24,11 +23,9 @@ import * as utilities from "./utilities";
  *     "c0202cf6aeab8437c638533d14563d35",
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Remove All MD5 Hashes To Sandbox
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -36,7 +33,6 @@ import * as utilities from "./utilities";
  * // Remove All MD5 Hashes to Sandbox
  * const _this = new zia.SandboxBehavioralAnalysis("this", {fileHashesToBeBlockeds: []});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -81,9 +77,8 @@ export class SandboxBehavioralAnalysis extends pulumi.CustomResource {
     }
 
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-     *
-     * **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+     * blocked
      */
     public readonly fileHashesToBeBlockeds!: pulumi.Output<string[] | undefined>;
 
@@ -115,9 +110,8 @@ export class SandboxBehavioralAnalysis extends pulumi.CustomResource {
  */
 export interface SandboxBehavioralAnalysisState {
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-     *
-     * **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+     * blocked
      */
     fileHashesToBeBlockeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -127,9 +121,8 @@ export interface SandboxBehavioralAnalysisState {
  */
 export interface SandboxBehavioralAnalysisArgs {
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked.
-     *
-     * **Note 3**: The Sandbox only supports MD5 hashes. The provider will validate the MD5 format prior to submission.
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
+     * blocked
      */
     fileHashesToBeBlockeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

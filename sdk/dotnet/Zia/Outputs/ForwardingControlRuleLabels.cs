@@ -17,10 +17,10 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// <summary>
         /// (int) Identifier that uniquely identifies an entity
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
 
         [OutputConstructor]
-        private ForwardingControlRuleLabels(int id)
+        private ForwardingControlRuleLabels(int? id)
         {
             Id = id;
         }

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -24,9 +23,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -37,9 +34,7 @@ import * as utilities from "./utilities";
  *     ipAddresses: ["192.0.2.1-192.0.2.10"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -50,7 +45,6 @@ import * as utilities from "./utilities";
  *     ipAddresses: ["203.0.113.0/24"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -100,21 +94,9 @@ export class FirewallFilteringSourceGroups extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringSourceGroups.__pulumiType;
     }
 
-    /**
-     * Description of the source IP group
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly groupId!: pulumi.Output<number>;
-    /**
-     * Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-     * * An IP address (198.51.100.100)
-     * * A range of IP addresses 192.0.2.1-192.0.2.10
-     * * An IP address with a netmask 203.0.113.0/24
-     */
     public readonly ipAddresses!: pulumi.Output<string[]>;
-    /**
-     * Source IP group name
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -153,21 +135,9 @@ export class FirewallFilteringSourceGroups extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FirewallFilteringSourceGroups resources.
  */
 export interface FirewallFilteringSourceGroupsState {
-    /**
-     * Description of the source IP group
-     */
     description?: pulumi.Input<string>;
     groupId?: pulumi.Input<number>;
-    /**
-     * Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-     * * An IP address (198.51.100.100)
-     * * A range of IP addresses 192.0.2.1-192.0.2.10
-     * * An IP address with a netmask 203.0.113.0/24
-     */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Source IP group name
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -175,19 +145,7 @@ export interface FirewallFilteringSourceGroupsState {
  * The set of arguments for constructing a FirewallFilteringSourceGroups resource.
  */
 export interface FirewallFilteringSourceGroupsArgs {
-    /**
-     * Description of the source IP group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-     * * An IP address (198.51.100.100)
-     * * A range of IP addresses 192.0.2.1-192.0.2.10
-     * * An IP address with a netmask 203.0.113.0/24
-     */
     ipAddresses: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Source IP group name
-     */
     name?: pulumi.Input<string>;
 }

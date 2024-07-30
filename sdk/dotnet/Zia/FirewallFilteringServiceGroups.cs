@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +59,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -85,23 +83,17 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/firewallFilteringServiceGroups:FirewallFilteringServiceGroups")]
     public partial class FirewallFilteringServiceGroups : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Description of the network services group
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("groupId")]
         public Output<int> GroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the network service group
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of network services ID to be added to the group
+        /// list of services IDs
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<Outputs.FirewallFilteringServiceGroupsService>> Services { get; private set; } = null!;
@@ -153,15 +145,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringServiceGroupsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the network services group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the network service group
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -169,7 +155,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringServiceGroupsServiceArgs>? _services;
 
         /// <summary>
-        /// Any number of network services ID to be added to the group
+        /// list of services IDs
         /// </summary>
         public InputList<Inputs.FirewallFilteringServiceGroupsServiceArgs> Services
         {
@@ -185,18 +171,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringServiceGroupsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the network services group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("groupId")]
         public Input<int>? GroupId { get; set; }
 
-        /// <summary>
-        /// Name of the network service group
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -204,7 +184,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringServiceGroupsServiceGetArgs>? _services;
 
         /// <summary>
-        /// Any number of network services ID to be added to the group
+        /// list of services IDs
         /// </summary>
         public InputList<Inputs.FirewallFilteringServiceGroupsServiceGetArgs> Services
         {

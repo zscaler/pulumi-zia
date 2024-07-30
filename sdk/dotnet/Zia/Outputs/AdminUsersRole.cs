@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class AdminUsersRole
     {
-        /// <summary>
-        /// Identifier that uniquely identifies an entity
-        /// </summary>
         public readonly int? Id;
 
         [OutputConstructor]

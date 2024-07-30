@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "Super Admin",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAdminRoles(args?: GetAdminRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRolesResult> {
     args = args || {};
@@ -99,7 +97,6 @@ export interface GetAdminRolesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -108,7 +105,6 @@ export interface GetAdminRolesResult {
  *     name: "Super Admin",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAdminRolesOutput(args?: GetAdminRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRolesResult> {
     return pulumi.output(args).apply((a: any) => getAdminRoles(a, opts))

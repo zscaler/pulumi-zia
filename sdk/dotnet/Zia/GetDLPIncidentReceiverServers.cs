@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPIncidentReceiverServersResult> InvokeAsync(GetDLPIncidentReceiverServersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPIncidentReceiverServersResult>("zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers", args ?? new GetDLPIncidentReceiverServersArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPIncidentReceiverServersResult> Invoke(GetDLPIncidentReceiverServersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPIncidentReceiverServersResult>("zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers", args ?? new GetDLPIncidentReceiverServersInvokeArgs(), options.WithDefaults());
@@ -68,9 +64,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIncidentReceiverServersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The DLP Incident Receiver Server name as configured by the admin.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -82,9 +75,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIncidentReceiverServersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The DLP Incident Receiver Server name as configured by the admin.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -83,7 +83,6 @@ def get_traffic_forwarding_vip_recommended_list(required_count: Optional[int] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -91,7 +90,6 @@ def get_traffic_forwarding_vip_recommended_list(required_count: Optional[int] = 
     this = zia.get_traffic_forwarding_vip_recommended_list(required_count=2,
         source_ip="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int required_count: Number of IP address to be exported.
@@ -119,7 +117,6 @@ def get_traffic_forwarding_vip_recommended_list_output(required_count: Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
@@ -127,7 +124,6 @@ def get_traffic_forwarding_vip_recommended_list_output(required_count: Optional[
     this = zia.get_traffic_forwarding_vip_recommended_list(required_count=2,
         source_ip="1.1.1.1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int required_count: Number of IP address to be exported.

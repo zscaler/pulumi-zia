@@ -21,14 +21,17 @@ __all__ = [
     'DLPWebRulesDepartmentsArgs',
     'DLPWebRulesDlpEnginesArgs',
     'DLPWebRulesExcludedDepartmentsArgs',
+    'DLPWebRulesExcludedDomainProfilesArgs',
     'DLPWebRulesExcludedGroupsArgs',
     'DLPWebRulesExcludedUsersArgs',
     'DLPWebRulesGroupsArgs',
     'DLPWebRulesIcapServerArgs',
+    'DLPWebRulesIncludedDomainProfilesArgs',
     'DLPWebRulesLabelsArgs',
     'DLPWebRulesLocationGroupsArgs',
     'DLPWebRulesLocationsArgs',
     'DLPWebRulesNotificationTemplateArgs',
+    'DLPWebRulesSourceIpGroupsArgs',
     'DLPWebRulesTimeWindowsArgs',
     'DLPWebRulesUrlCategoriesArgs',
     'DLPWebRulesUsersArgs',
@@ -78,6 +81,8 @@ __all__ = [
     'ForwardingControlRuleZpaGatewayArgs',
     'ForwardingControlZPAGatewayZpaAppSegmentArgs',
     'ForwardingControlZPAGatewayZpaServerGroupArgs',
+    'LocationManagementDynamicLocationGroupsArgs',
+    'LocationManagementStaticLocationGroupsArgs',
     'LocationManagementVpnCredentialArgs',
     'TrafficForwardingGRETunnelPrimaryDestVipArgs',
     'TrafficForwardingGRETunnelSecondaryDestVipArgs',
@@ -95,6 +100,7 @@ __all__ = [
     'URLFilteringRulesLocationsArgs',
     'URLFilteringRulesOverrideGroupsArgs',
     'URLFilteringRulesOverrideUsersArgs',
+    'URLFilteringRulesSourceIpGroupsArgs',
     'URLFilteringRulesTimeWindowsArgs',
     'URLFilteringRulesUsersArgs',
     'URLFilteringRulesWorkloadGroupArgs',
@@ -115,22 +121,17 @@ __all__ = [
 @pulumi.input_type
 class AdminUsersAdminScopeEntitiesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: Identifier that uniquely identifies an entity
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        Identifier that uniquely identifies an entity
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -138,18 +139,12 @@ class AdminUsersAdminScopeEntitiesArgs:
 class AdminUsersRoleArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] id: Identifier that uniquely identifies an entity
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
-        """
-        Identifier that uniquely identifies an entity
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -166,27 +161,10 @@ class DLPDictionariesExactDataMatchDetailArgs:
                  secondary_field_match_on: Optional[pulumi.Input[str]] = None,
                  secondary_fields: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
-        :param pulumi.Input[int] dictionary_edm_mapping_id: The unique identifier for the EDM mapping.
+        :param pulumi.Input[int] dictionary_edm_mapping_id: The unique identifier for the EDM mapping
         :param pulumi.Input[int] primary_field: The EDM template's primary field.
         :param pulumi.Input[int] schema_id: The unique identifier for the EDM template (or schema).
         :param pulumi.Input[str] secondary_field_match_on: The EDM secondary field to match on.
-               - `"MATCHON_NONE"`
-               - `"MATCHON_ANY_1"`
-               - `"MATCHON_ANY_2"`
-               - `"MATCHON_ANY_3"`
-               - `"MATCHON_ANY_4"`
-               - `"MATCHON_ANY_5"`
-               - `"MATCHON_ANY_6"`
-               - `"MATCHON_ANY_7"`
-               - `"MATCHON_ANY_8"`
-               - `"MATCHON_ANY_9"`
-               - `"MATCHON_ANY_10"`
-               - `"MATCHON_ANY_11"`
-               - `"MATCHON_ANY_12"`
-               - `"MATCHON_ANY_13"`
-               - `"MATCHON_ANY_14"`
-               - `"MATCHON_ANY_15"`
-               - `"MATCHON_ALL"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] secondary_fields: The EDM template's secondary fields.
         """
         if dictionary_edm_mapping_id is not None:
@@ -204,7 +182,7 @@ class DLPDictionariesExactDataMatchDetailArgs:
     @pulumi.getter(name="dictionaryEdmMappingId")
     def dictionary_edm_mapping_id(self) -> Optional[pulumi.Input[int]]:
         """
-        The unique identifier for the EDM mapping.
+        The unique identifier for the EDM mapping
         """
         return pulumi.get(self, "dictionary_edm_mapping_id")
 
@@ -241,23 +219,6 @@ class DLPDictionariesExactDataMatchDetailArgs:
     def secondary_field_match_on(self) -> Optional[pulumi.Input[str]]:
         """
         The EDM secondary field to match on.
-        - `"MATCHON_NONE"`
-        - `"MATCHON_ANY_1"`
-        - `"MATCHON_ANY_2"`
-        - `"MATCHON_ANY_3"`
-        - `"MATCHON_ANY_4"`
-        - `"MATCHON_ANY_5"`
-        - `"MATCHON_ANY_6"`
-        - `"MATCHON_ANY_7"`
-        - `"MATCHON_ANY_8"`
-        - `"MATCHON_ANY_9"`
-        - `"MATCHON_ANY_10"`
-        - `"MATCHON_ANY_11"`
-        - `"MATCHON_ANY_12"`
-        - `"MATCHON_ANY_13"`
-        - `"MATCHON_ANY_14"`
-        - `"MATCHON_ANY_15"`
-        - `"MATCHON_ALL"`
         """
         return pulumi.get(self, "secondary_field_match_on")
 
@@ -284,11 +245,8 @@ class DLPDictionariesIdmProfileMatchAccuracyArgs:
                  adp_idm_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs']]]] = None,
                  match_accuracy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs']]] adp_idm_profiles: The IDM template reference.
+        :param pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs']]] adp_idm_profiles: The action applied to a DLP dictionary using patterns
         :param pulumi.Input[str] match_accuracy: The IDM template match accuracy.
-               - `"LOW"`
-               - `"MEDIUM"`
-               - `"HEAVY"`
         """
         if adp_idm_profiles is not None:
             pulumi.set(__self__, "adp_idm_profiles", adp_idm_profiles)
@@ -299,7 +257,7 @@ class DLPDictionariesIdmProfileMatchAccuracyArgs:
     @pulumi.getter(name="adpIdmProfiles")
     def adp_idm_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfileArgs']]]]:
         """
-        The IDM template reference.
+        The action applied to a DLP dictionary using patterns
         """
         return pulumi.get(self, "adp_idm_profiles")
 
@@ -312,9 +270,6 @@ class DLPDictionariesIdmProfileMatchAccuracyArgs:
     def match_accuracy(self) -> Optional[pulumi.Input[str]]:
         """
         The IDM template match accuracy.
-        - `"LOW"`
-        - `"MEDIUM"`
-        - `"HEAVY"`
         """
         return pulumi.get(self, "match_accuracy")
 
@@ -358,7 +313,7 @@ class DLPDictionariesPatternArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: The action applied to a DLP dictionary using patterns. The following values are supported:
+        :param pulumi.Input[str] action: The action applied to a DLP dictionary using patterns
         :param pulumi.Input[str] pattern: DLP dictionary pattern
         """
         if action is not None:
@@ -370,7 +325,7 @@ class DLPDictionariesPatternArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action applied to a DLP dictionary using patterns. The following values are supported:
+        The action applied to a DLP dictionary using patterns
         """
         return pulumi.get(self, "action")
 
@@ -397,7 +352,6 @@ class DLPDictionariesPhraseArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  phrase: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: The action applied to a DLP dictionary using patterns. The following values are supported:
         :param pulumi.Input[str] phrase: DLP dictionary phrase
         """
         if action is not None:
@@ -408,9 +362,6 @@ class DLPDictionariesPhraseArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
-        """
-        The action applied to a DLP dictionary using patterns. The following values are supported:
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -434,17 +385,11 @@ class DLPDictionariesPhraseArgs:
 class DLPWebRulesAuditorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
-        """
-        A unique identifier assigned to the workload group
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -455,132 +400,119 @@ class DLPWebRulesAuditorArgs:
 @pulumi.input_type
 class DLPWebRulesDepartmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesDlpEnginesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesExcludedDepartmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
+class DLPWebRulesExcludedDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesExcludedGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesExcludedUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -588,17 +520,11 @@ class DLPWebRulesGroupsArgs:
 class DLPWebRulesIcapServerArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
-        """
-        A unique identifier assigned to the workload group
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -607,68 +533,70 @@ class DLPWebRulesIcapServerArgs:
 
 
 @pulumi.input_type
-class DLPWebRulesLabelsArgs:
+class DLPWebRulesIncludedDomainProfilesArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "id", id)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[int]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
+class DLPWebRulesLabelsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[int]):
+    def id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
 class DLPWebRulesLocationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesLocationsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -676,17 +604,11 @@ class DLPWebRulesLocationsArgs:
 class DLPWebRulesNotificationTemplateArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
-        """
-        A unique identifier assigned to the workload group
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -695,68 +617,70 @@ class DLPWebRulesNotificationTemplateArgs:
 
 
 @pulumi.input_type
-class DLPWebRulesTimeWindowsArgs:
+class DLPWebRulesSourceIpGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
+class DLPWebRulesTimeWindowsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesUrlCategoriesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class DLPWebRulesUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -766,8 +690,8 @@ class DLPWebRulesWorkloadGroupArgs:
                  id: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        :param pulumi.Input[str] name: The name of the workload group
+        :param pulumi.Input[int] id: The unique identifier for the resource.
+        :param pulumi.Input[str] name: The name of the resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -776,7 +700,7 @@ class DLPWebRulesWorkloadGroupArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
         """
-        A unique identifier assigned to the workload group
+        The unique identifier for the resource.
         """
         return pulumi.get(self, "id")
 
@@ -788,7 +712,7 @@ class DLPWebRulesWorkloadGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the workload group
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -802,9 +726,6 @@ class FirewallFilteringNetworkServicesDestTcpPortArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[int]] = None,
                  start: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] end: > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -813,9 +734,6 @@ class FirewallFilteringNetworkServicesDestTcpPortArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
-        """
-        > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -837,9 +755,6 @@ class FirewallFilteringNetworkServicesDestUdpPortArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[int]] = None,
                  start: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] end: > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -848,9 +763,6 @@ class FirewallFilteringNetworkServicesDestUdpPortArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
-        """
-        > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -872,9 +784,6 @@ class FirewallFilteringNetworkServicesSrcTcpPortArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[int]] = None,
                  start: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] end: > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -883,9 +792,6 @@ class FirewallFilteringNetworkServicesSrcTcpPortArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
-        """
-        > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -907,9 +813,6 @@ class FirewallFilteringNetworkServicesSrcUdpPortArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[int]] = None,
                  start: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] end: > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -918,9 +821,6 @@ class FirewallFilteringNetworkServicesSrcUdpPortArgs:
     @property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
-        """
-        > **NOTE** The `end` port parameter must always be greater than the value defined in the `start` port.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -940,352 +840,272 @@ class FirewallFilteringNetworkServicesSrcUdpPortArgs:
 @pulumi.input_type
 class FirewallFilteringRuleAppServiceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleAppServicesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleDepartmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleDestIpGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleDeviceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleDevicesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleLabelsArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "id", id)
+                 id: Optional[pulumi.Input[int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[int]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[int]):
+    def id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleLocationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleLocationsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleNwApplicationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleNwServiceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleNwServicesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleSrcIpGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleTimeWindowsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class FirewallFilteringRuleUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -1295,10 +1115,8 @@ class FirewallFilteringRuleWorkloadGroupArgs:
                  id: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
-        :param pulumi.Input[str] name: The name of the workload group
-               
-               * `Other Exported Arguments`
+        :param pulumi.Input[int] id: The unique identifier for the resource.
+        :param pulumi.Input[str] name: The name of the resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1307,7 +1125,7 @@ class FirewallFilteringRuleWorkloadGroupArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
         """
-        A unique identifier assigned to the workload group
+        The unique identifier for the resource.
         """
         return pulumi.get(self, "id")
 
@@ -1319,9 +1137,7 @@ class FirewallFilteringRuleWorkloadGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the workload group
-
-        * `Other Exported Arguments`
+        The name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -1337,9 +1153,7 @@ class FirewallFilteringRuleZpaAppSegmentArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] external_id: External ID of the application segment.
-        :param pulumi.Input[str] name: The name of the workload group
-               
-               * `Other Exported Arguments`
+        :param pulumi.Input[str] name: Name of the application segment.
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "name", name)
@@ -1360,9 +1174,7 @@ class FirewallFilteringRuleZpaAppSegmentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the workload group
-
-        * `Other Exported Arguments`
+        Name of the application segment.
         """
         return pulumi.get(self, "name")
 
@@ -1390,264 +1202,276 @@ class FirewallFilteringServiceGroupsServiceArgs:
 @pulumi.input_type
 class ForwardingControlRuleAppServiceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleDepartmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleDestIpGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleDestIpv6GroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleEcGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleLabelsArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[int]):
+                 id: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] id: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "id", id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[int]:
+    def id(self) -> Optional[pulumi.Input[int]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[int]):
+    def id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleLocationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleLocationsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleNwApplicationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleNwServiceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleNwServicesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -1658,7 +1482,7 @@ class ForwardingControlRuleProxyGatewayArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[int] id: (int) Identifier that uniquely identifies an entity
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1679,7 +1503,7 @@ class ForwardingControlRuleProxyGatewayArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -1691,66 +1515,69 @@ class ForwardingControlRuleProxyGatewayArgs:
 @pulumi.input_type
 class ForwardingControlRuleSrcIpGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleSrcIpv6GroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -1761,7 +1588,7 @@ class ForwardingControlRuleZpaAppSegmentArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] external_id: (int) Identifier that uniquely identifies an entity
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "name", name)
@@ -1782,7 +1609,7 @@ class ForwardingControlRuleZpaAppSegmentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -1794,44 +1621,46 @@ class ForwardingControlRuleZpaAppSegmentArgs:
 @pulumi.input_type
 class ForwardingControlRuleZpaApplicationSegmentGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class ForwardingControlRuleZpaApplicationSegmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: (int) Identifier that uniquely identifies an entity
         """
-        pulumi.set(__self__, "ids", ids)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (int) Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -1842,7 +1671,7 @@ class ForwardingControlRuleZpaGatewayArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[int] id: (int) Identifier that uniquely identifies an entity
-        :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[str] name: (string) The configured name of the entity
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1863,7 +1692,7 @@ class ForwardingControlRuleZpaGatewayArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Firewall Filtering policy rule
+        (string) The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -1947,6 +1776,40 @@ class ForwardingControlZPAGatewayZpaServerGroupArgs:
 
 
 @pulumi.input_type
+class LocationManagementDynamicLocationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
+class LocationManagementStaticLocationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
 class LocationManagementVpnCredentialArgs:
     def __init__(__self__, *,
                  comments: Optional[pulumi.Input[str]] = None,
@@ -1955,9 +1818,6 @@ class LocationManagementVpnCredentialArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  pre_shared_key: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] id: Identifier that uniquely identifies an entity
-        """
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
         if fqdn is not None:
@@ -1992,9 +1852,6 @@ class LocationManagementVpnCredentialArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
-        """
-        Identifier that uniquely identifies an entity
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2034,20 +1891,16 @@ class TrafficForwardingGRETunnelPrimaryDestVipArgs:
     def __init__(__self__, *,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[int]] = None,
-                 private_service_edge: Optional[pulumi.Input[bool]] = None,
                  virtual_ip: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] datacenter: Data center information
-        :param pulumi.Input[int] id: Unique identifer of the GRE virtual IP address (VIP)
-        :param pulumi.Input[bool] private_service_edge: Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
+        :param pulumi.Input[int] id: GRE cluster virtual IP ID
         :param pulumi.Input[str] virtual_ip: GRE cluster virtual IP address (VIP)
         """
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if private_service_edge is not None:
-            pulumi.set(__self__, "private_service_edge", private_service_edge)
         if virtual_ip is not None:
             pulumi.set(__self__, "virtual_ip", virtual_ip)
 
@@ -2067,25 +1920,13 @@ class TrafficForwardingGRETunnelPrimaryDestVipArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
         """
-        Unique identifer of the GRE virtual IP address (VIP)
+        GRE cluster virtual IP ID
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="privateServiceEdge")
-    def private_service_edge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-        """
-        return pulumi.get(self, "private_service_edge")
-
-    @private_service_edge.setter
-    def private_service_edge(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "private_service_edge", value)
 
     @property
     @pulumi.getter(name="virtualIp")
@@ -2105,20 +1946,16 @@ class TrafficForwardingGRETunnelSecondaryDestVipArgs:
     def __init__(__self__, *,
                  datacenter: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[int]] = None,
-                 private_service_edge: Optional[pulumi.Input[bool]] = None,
                  virtual_ip: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] datacenter: Data center information
-        :param pulumi.Input[int] id: Unique identifer of the GRE virtual IP address (VIP)
-        :param pulumi.Input[bool] private_service_edge: Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
+        :param pulumi.Input[int] id: GRE cluster virtual IP ID
         :param pulumi.Input[str] virtual_ip: GRE cluster virtual IP address (VIP)
         """
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if private_service_edge is not None:
-            pulumi.set(__self__, "private_service_edge", private_service_edge)
         if virtual_ip is not None:
             pulumi.set(__self__, "virtual_ip", virtual_ip)
 
@@ -2138,25 +1975,13 @@ class TrafficForwardingGRETunnelSecondaryDestVipArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[int]]:
         """
-        Unique identifer of the GRE virtual IP address (VIP)
+        GRE cluster virtual IP ID
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="privateServiceEdge")
-    def private_service_edge(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
-        """
-        return pulumi.get(self, "private_service_edge")
-
-    @private_service_edge.setter
-    def private_service_edge(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "private_service_edge", value)
 
     @property
     @pulumi.getter(name="virtualIp")
@@ -2179,8 +2004,7 @@ class URLCategoriesScopeArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['URLCategoriesScopeScopeEntitiesArgs'] scope_entities: list of scope IDs
-        :param pulumi.Input['URLCategoriesScopeScopeGroupMemberEntitiesArgs'] scope_group_member_entities: Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
-        :param pulumi.Input[str] type: The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        :param pulumi.Input['URLCategoriesScopeScopeGroupMemberEntitiesArgs'] scope_group_member_entities: list of scope group member IDs
         """
         if scope_entities is not None:
             pulumi.set(__self__, "scope_entities", scope_entities)
@@ -2205,7 +2029,7 @@ class URLCategoriesScopeArgs:
     @pulumi.getter(name="scopeGroupMemberEntities")
     def scope_group_member_entities(self) -> Optional[pulumi.Input['URLCategoriesScopeScopeGroupMemberEntitiesArgs']]:
         """
-        Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+        list of scope group member IDs
         """
         return pulumi.get(self, "scope_group_member_entities")
 
@@ -2216,9 +2040,6 @@ class URLCategoriesScopeArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2336,7 +2157,6 @@ class URLFilteringRulesCbiProfileArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: A unique identifier assigned to the workload group
         :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
         :param pulumi.Input[str] url: The browser isolation profile URL
         """
@@ -2350,9 +2170,6 @@ class URLFilteringRulesCbiProfileArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique identifier assigned to the workload group
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2387,242 +2204,204 @@ class URLFilteringRulesCbiProfileArgs:
 @pulumi.input_type
 class URLFilteringRulesDepartmentsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesDeviceGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesDevicesArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesLabelsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesLocationGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesLocationsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesOverrideGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesOverrideUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+@pulumi.input_type
+class URLFilteringRulesSourceIpGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesTimeWindowsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
 @pulumi.input_type
 class URLFilteringRulesUsersArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: A unique identifier assigned to the workload group
-        """
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
-        """
-        A unique identifier assigned to the workload group
-        """
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 
@@ -2632,7 +2411,7 @@ class URLFilteringRulesWorkloadGroupArgs:
                  id: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] id: A unique identifier assigned to the workload group
+        :param pulumi.Input[int] id: The unique identifier for the resource.
         :param pulumi.Input[str] name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
@@ -2642,7 +2421,7 @@ class URLFilteringRulesWorkloadGroupArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[int]:
         """
-        A unique identifier assigned to the workload group
+        The unique identifier for the resource.
         """
         return pulumi.get(self, "id")
 
@@ -2745,16 +2524,23 @@ class UserManagementDepartmentArgs:
 @pulumi.input_type
 class UserManagementGroupsArgs:
     def __init__(__self__, *,
-                 ids: pulumi.Input[Sequence[pulumi.Input[int]]]):
-        pulumi.set(__self__, "ids", ids)
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ids: Unique identfier for the group
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Unique identfier for the group
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ids", value)
 
 

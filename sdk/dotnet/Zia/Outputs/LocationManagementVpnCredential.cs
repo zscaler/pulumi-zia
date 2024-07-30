@@ -16,9 +16,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     {
         public readonly string? Comments;
         public readonly string? Fqdn;
-        /// <summary>
-        /// Identifier that uniquely identifies an entity
-        /// </summary>
         public readonly int? Id;
         public readonly string? IpAddress;
         public readonly string? PreSharedKey;

@@ -85,14 +85,12 @@ def get_cbi_profile(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_cbi_profile(name="ZS_CBI_Profile1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: (string) The universally unique identifier (UUID) for the browser isolation profile.
@@ -120,14 +118,12 @@ def get_cbi_profile_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     this = zia.get_cbi_profile(name="ZS_CBI_Profile1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: (string) The universally unique identifier (UUID) for the browser isolation profile.

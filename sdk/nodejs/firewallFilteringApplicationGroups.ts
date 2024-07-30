@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@bdzscaler/pulumi-zia";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -75,18 +73,8 @@ export class FirewallFilteringApplicationGroups extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly appId!: pulumi.Output<number>;
-    /**
-     * Description of the network application group
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Network application group name
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Any number of applications to be added to the group
-     * * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-     */
     public readonly networkApplications!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -123,18 +111,8 @@ export class FirewallFilteringApplicationGroups extends pulumi.CustomResource {
  */
 export interface FirewallFilteringApplicationGroupsState {
     appId?: pulumi.Input<number>;
-    /**
-     * Description of the network application group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Network application group name
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Any number of applications to be added to the group
-     * * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-     */
     networkApplications?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -142,17 +120,7 @@ export interface FirewallFilteringApplicationGroupsState {
  * The set of arguments for constructing a FirewallFilteringApplicationGroups resource.
  */
 export interface FirewallFilteringApplicationGroupsArgs {
-    /**
-     * Description of the network application group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Network application group name
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Any number of applications to be added to the group
-     * * Refer to the Zscaler API Swagger for the complete list of applications [ZIA API Guide](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-get)
-     */
     networkApplications?: pulumi.Input<pulumi.Input<string>[]>;
 }

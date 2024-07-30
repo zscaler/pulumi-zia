@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,9 +17,7 @@ import * as utilities from "./utilities";
  *     name: "IOS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -29,7 +26,6 @@ import * as utilities from "./utilities";
  *     name: "Android",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDeviceGroups(args?: GetDeviceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupsResult> {
     args = args || {};
@@ -92,7 +88,6 @@ export interface GetDeviceGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -101,9 +96,7 @@ export interface GetDeviceGroupsResult {
  *     name: "IOS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -112,7 +105,6 @@ export interface GetDeviceGroupsResult {
  *     name: "Android",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDeviceGroupsOutput(args?: GetDeviceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupsResult> {
     return pulumi.output(args).apply((a: any) => getDeviceGroups(a, opts))

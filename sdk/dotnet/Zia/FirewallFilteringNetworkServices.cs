@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -89,33 +87,24 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/firewallFilteringNetworkServices:FirewallFilteringNetworkServices")]
     public partial class FirewallFilteringNetworkServices : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Description of the service
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest tcp ports
         /// </summary>
         [Output("destTcpPorts")]
         public Output<ImmutableArray<Outputs.FirewallFilteringNetworkServicesDestTcpPort>> DestTcpPorts { get; private set; } = null!;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest udp ports
         /// </summary>
         [Output("destUdpPorts")]
         public Output<ImmutableArray<Outputs.FirewallFilteringNetworkServicesDestUdpPort>> DestUdpPorts { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional
-        /// </summary>
         [Output("isNameL10nTag")]
         public Output<bool?> IsNameL10nTag { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the service
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -123,20 +112,17 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> NetworkServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        /// src tcp ports
         /// </summary>
         [Output("srcTcpPorts")]
         public Output<ImmutableArray<Outputs.FirewallFilteringNetworkServicesSrcTcpPort>> SrcTcpPorts { get; private set; } = null!;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// src udp ports
         /// </summary>
         [Output("srcUdpPorts")]
         public Output<ImmutableArray<Outputs.FirewallFilteringNetworkServicesSrcUdpPort>> SrcUdpPorts { get; private set; } = null!;
 
-        /// <summary>
-        /// The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        /// </summary>
         [Output("tag")]
         public Output<string> Tag { get; private set; } = null!;
 
@@ -190,9 +176,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringNetworkServicesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the service
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -200,7 +183,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesDestTcpPortArgs>? _destTcpPorts;
 
         /// <summary>
-        /// The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest tcp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesDestTcpPortArgs> DestTcpPorts
         {
@@ -212,7 +195,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesDestUdpPortArgs>? _destUdpPorts;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest udp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesDestUdpPortArgs> DestUdpPorts
         {
@@ -220,15 +203,9 @@ namespace zscaler.PulumiPackage.Zia
             set => _destUdpPorts = value;
         }
 
-        /// <summary>
-        /// (Optional
-        /// </summary>
         [Input("isNameL10nTag")]
         public Input<bool>? IsNameL10nTag { get; set; }
 
-        /// <summary>
-        /// Name of the service
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -236,7 +213,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesSrcTcpPortArgs>? _srcTcpPorts;
 
         /// <summary>
-        /// The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        /// src tcp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesSrcTcpPortArgs> SrcTcpPorts
         {
@@ -248,7 +225,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesSrcUdpPortArgs>? _srcUdpPorts;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// src udp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesSrcUdpPortArgs> SrcUdpPorts
         {
@@ -256,9 +233,6 @@ namespace zscaler.PulumiPackage.Zia
             set => _srcUdpPorts = value;
         }
 
-        /// <summary>
-        /// The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
 
@@ -273,9 +247,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringNetworkServicesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the service
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -283,7 +254,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesDestTcpPortGetArgs>? _destTcpPorts;
 
         /// <summary>
-        /// The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest tcp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesDestTcpPortGetArgs> DestTcpPorts
         {
@@ -295,7 +266,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesDestUdpPortGetArgs>? _destUdpPorts;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// dest udp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesDestUdpPortGetArgs> DestUdpPorts
         {
@@ -303,15 +274,9 @@ namespace zscaler.PulumiPackage.Zia
             set => _destUdpPorts = value;
         }
 
-        /// <summary>
-        /// (Optional
-        /// </summary>
         [Input("isNameL10nTag")]
         public Input<bool>? IsNameL10nTag { get; set; }
 
-        /// <summary>
-        /// Name of the service
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -322,7 +287,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesSrcTcpPortGetArgs>? _srcTcpPorts;
 
         /// <summary>
-        /// The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        /// src tcp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesSrcTcpPortGetArgs> SrcTcpPorts
         {
@@ -334,7 +299,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringNetworkServicesSrcUdpPortGetArgs>? _srcUdpPorts;
 
         /// <summary>
-        /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        /// src udp ports
         /// </summary>
         public InputList<Inputs.FirewallFilteringNetworkServicesSrcUdpPortGetArgs> SrcUdpPorts
         {
@@ -342,9 +307,6 @@ namespace zscaler.PulumiPackage.Zia
             set => _srcUdpPorts = value;
         }
 
-        /// <summary>
-        /// The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
 

@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,9 +37,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,9 +58,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +79,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -109,27 +103,15 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("zia:index/firewallFilteringSourceGroups:FirewallFilteringSourceGroups")]
     public partial class FirewallFilteringSourceGroups : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Description of the source IP group
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("groupId")]
         public Output<int> GroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        /// * An IP address (198.51.100.100)
-        /// * A range of IP addresses 192.0.2.1-192.0.2.10
-        /// * An IP address with a netmask 203.0.113.0/24
-        /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
 
-        /// <summary>
-        /// Source IP group name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -180,30 +162,17 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringSourceGroupsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the source IP group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ipAddresses", required: true)]
         private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        /// * An IP address (198.51.100.100)
-        /// * A range of IP addresses 192.0.2.1-192.0.2.10
-        /// * An IP address with a netmask 203.0.113.0/24
-        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// Source IP group name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -215,9 +184,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallFilteringSourceGroupsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the source IP group
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -226,22 +192,12 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-        /// * An IP address (198.51.100.100)
-        /// * A range of IP addresses 192.0.2.1-192.0.2.10
-        /// * An IP address with a netmask 203.0.113.0/24
-        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// Source IP group name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

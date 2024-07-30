@@ -238,9 +238,6 @@ def get_dlpidm_profiles(profile_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPIDMProfilesResult:
     """
     Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
-
-
-    :param str profile_name: The IDM template name, which is unique per Index Tool.
     """
     __args__ = dict()
     __args__['profileName'] = profile_name
@@ -277,8 +274,5 @@ def get_dlpidm_profiles_output(profile_name: Optional[pulumi.Input[Optional[str]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDLPIDMProfilesResult]:
     """
     Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
-
-
-    :param str profile_name: The IDM template name, which is unique per Index Tool.
     """
     ...

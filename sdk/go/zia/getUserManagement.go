@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupUserManagement(ctx *pulumi.Context, args *LookupUserManagementArgs, opts ...pulumi.InvokeOption) (*LookupUserManagementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserManagementResult
@@ -82,6 +80,12 @@ type LookupUserManagementResult struct {
 	// (String) Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail string `pulumi:"tempAuthEmail"`
 	// (String) User type. Provided only if this user is not an end user. The supported types are:
+	// * `SUPERADMIN`
+	// * `ADMIN`
+	// * `AUDITOR`
+	// * `GUEST`
+	// * `REPORT_USER`
+	// * `UNAUTH_TRAFFIC_DEFAULT`
 	Type string `pulumi:"type"`
 }
 
@@ -177,6 +181,12 @@ func (o LookupUserManagementResultOutput) TempAuthEmail() pulumi.StringOutput {
 }
 
 // (String) User type. Provided only if this user is not an end user. The supported types are:
+// * `SUPERADMIN`
+// * `ADMIN`
+// * `AUDITOR`
+// * `GUEST`
+// * `REPORT_USER`
+// * `UNAUTH_TRAFFIC_DEFAULT`
 func (o LookupUserManagementResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserManagementResult) string { return v.Type }).(pulumi.StringOutput)
 }

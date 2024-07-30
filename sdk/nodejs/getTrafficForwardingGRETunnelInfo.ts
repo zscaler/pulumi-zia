@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingGRETunnelInfo(args?: GetTrafficForwardingGRETunnelInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingGRETunnelInfoResult> {
     args = args || {};
@@ -86,7 +84,6 @@ export interface GetTrafficForwardingGRETunnelInfoResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as zia from "@pulumi/zia";
@@ -95,7 +92,6 @@ export interface GetTrafficForwardingGRETunnelInfoResult {
  *     ipAddress: "1.1.1.1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrafficForwardingGRETunnelInfoOutput(args?: GetTrafficForwardingGRETunnelInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficForwardingGRETunnelInfoResult> {
     return pulumi.output(args).apply((a: any) => getTrafficForwardingGRETunnelInfo(a, opts))

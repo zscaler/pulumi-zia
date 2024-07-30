@@ -317,7 +317,6 @@ class UserManagement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -338,7 +337,6 @@ class UserManagement(pulumi.CustomResource):
                 id=engineering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Optional
 
@@ -393,7 +391,6 @@ class UserManagement(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_zia as zia
@@ -414,7 +411,6 @@ class UserManagement(pulumi.CustomResource):
                 id=engineering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Optional
 

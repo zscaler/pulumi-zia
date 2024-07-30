@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +83,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -110,19 +108,19 @@ namespace zscaler.PulumiPackage.Zia
     public partial class FirewallFilteringRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+        /// The action the Firewall Filtering policy rule takes when packets match the rule
         /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// Application service groups on which this rule is applied
+        /// list of application service groups
         /// </summary>
         [Output("appServiceGroups")]
         public Output<Outputs.FirewallFilteringRuleAppServiceGroups> AppServiceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Application services on which this rule is applied
+        /// list of application services
         /// </summary>
         [Output("appServices")]
         public Output<Outputs.FirewallFilteringRuleAppServices> AppServices { get; private set; } = null!;
@@ -134,37 +132,32 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> DefaultRule { get; private set; } = null!;
 
         /// <summary>
-        /// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        /// list of departments for which rule must be applied
         /// </summary>
         [Output("departments")]
         public Output<Outputs.FirewallFilteringRuleDepartments> Departments { get; private set; } = null!;
 
         /// <summary>
-        /// Enter additional notes or information. The description cannot exceed 10,240 characters.
+        /// Additional information about the rule
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        /// </summary>
         [Output("destAddresses")]
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
 
-        /// <summary>
-        /// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        /// </summary>
         [Output("destIpCategories")]
         public Output<ImmutableArray<string>> DestIpCategories { get; private set; } = null!;
 
         /// <summary>
-        /// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+        /// list of destination ip groups
         /// </summary>
         [Output("destIpGroups")]
         public Output<Outputs.FirewallFilteringRuleDestIpGroups> DestIpGroups { get; private set; } = null!;
@@ -193,70 +186,65 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnableFullLogging { get; private set; } = null!;
 
         /// <summary>
-        /// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// list of groups for which rule must be applied
         /// </summary>
         [Output("groups")]
         public Output<Outputs.FirewallFilteringRuleGroups> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Output("labels")]
         public Output<Outputs.FirewallFilteringRuleLabels> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// list of locations groups
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.FirewallFilteringRuleLocationGroups> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// list of locations for which rule must be applied
         /// </summary>
         [Output("locations")]
         public Output<Outputs.FirewallFilteringRuleLocations> Locations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+        /// list of nw application groups
         /// </summary>
         [Output("nwApplicationGroups")]
         public Output<Outputs.FirewallFilteringRuleNwApplicationGroups> NwApplicationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-        /// 
-        /// `source ip addresses` supports the following attributes:
+        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+        /// specific network service application.
         /// </summary>
         [Output("nwApplications")]
         public Output<ImmutableArray<string>> NwApplications { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of predefined or custom network service groups to which the rule applies.
+        /// list of nw service groups
         /// </summary>
         [Output("nwServiceGroups")]
         public Output<Outputs.FirewallFilteringRuleNwServiceGroups> NwServiceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        /// 
-        /// `network applications` supports the following attributes:
+        /// list of nw services
         /// </summary>
         [Output("nwServices")]
         public Output<Outputs.FirewallFilteringRuleNwServices> NwServices { get; private set; } = null!;
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// Rule order number of the Firewall Filtering policy rule
         /// </summary>
         [Output("order")]
-        public Output<int?> Order { get; private set; } = null!;
+        public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
         /// If set to true, a predefined rule is applied
@@ -265,9 +253,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> Predefined { get; private set; } = null!;
 
         /// <summary>
-        /// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-        /// 
-        /// `Who, Where and When` supports the following attributes:
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
@@ -276,31 +262,32 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Any number of source IP address groups that you want to control with this rule.
+        /// list of source ip groups
         /// </summary>
         [Output("srcIpGroups")]
         public Output<Outputs.FirewallFilteringRuleSrcIpGroups> SrcIpGroups { get; private set; } = null!;
 
         /// <summary>
-        /// You can enter individual IP addresses, subnets, or address ranges.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+        /// source IP address.
         /// </summary>
         [Output("srcIps")]
         public Output<ImmutableArray<string>> SrcIps { get; private set; } = null!;
 
         /// <summary>
-        /// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// Determines whether the Firewall Filtering policy rule is enabled or disabled
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// The time interval in which the Firewall Filtering policy rule applies
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.FirewallFilteringRuleTimeWindows> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// list of users for which rule must be applied
         /// </summary>
         [Output("users")]
         public Output<Outputs.FirewallFilteringRuleUsers> Users { get; private set; } = null!;
@@ -366,19 +353,19 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class FirewallFilteringRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+        /// The action the Firewall Filtering policy rule takes when packets match the rule
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Application service groups on which this rule is applied
+        /// list of application service groups
         /// </summary>
         [Input("appServiceGroups")]
         public Input<Inputs.FirewallFilteringRuleAppServiceGroupsArgs>? AppServiceGroups { get; set; }
 
         /// <summary>
-        /// Application services on which this rule is applied
+        /// list of application services
         /// </summary>
         [Input("appServices")]
         public Input<Inputs.FirewallFilteringRuleAppServicesArgs>? AppServices { get; set; }
@@ -390,23 +377,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DefaultRule { get; set; }
 
         /// <summary>
-        /// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        /// list of departments for which rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.FirewallFilteringRuleDepartmentsArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Enter additional notes or information. The description cannot exceed 10,240 characters.
+        /// Additional information about the rule
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destAddresses")]
         private InputList<string>? _destAddresses;
-
-        /// <summary>
-        /// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        /// </summary>
         public InputList<string> DestAddresses
         {
             get => _destAddresses ?? (_destAddresses = new InputList<string>());
@@ -417,7 +400,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -427,10 +411,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpCategories")]
         private InputList<string>? _destIpCategories;
-
-        /// <summary>
-        /// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        /// </summary>
         public InputList<string> DestIpCategories
         {
             get => _destIpCategories ?? (_destIpCategories = new InputList<string>());
@@ -438,7 +418,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+        /// list of destination ip groups
         /// </summary>
         [Input("destIpGroups")]
         public Input<Inputs.FirewallFilteringRuleDestIpGroupsArgs>? DestIpGroups { get; set; }
@@ -473,39 +453,37 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// list of groups for which rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallFilteringRuleGroupsArgs>? Groups { get; set; }
 
         /// <summary>
-        /// Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.FirewallFilteringRuleLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// list of locations groups
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallFilteringRuleLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// list of locations for which rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallFilteringRuleLocationsArgs>? Locations { get; set; }
 
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+        /// list of nw application groups
         /// </summary>
         [Input("nwApplicationGroups")]
         public Input<Inputs.FirewallFilteringRuleNwApplicationGroupsArgs>? NwApplicationGroups { get; set; }
@@ -514,9 +492,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _nwApplications;
 
         /// <summary>
-        /// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-        /// 
-        /// `source ip addresses` supports the following attributes:
+        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+        /// specific network service application.
         /// </summary>
         public InputList<string> NwApplications
         {
@@ -525,21 +502,19 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Any number of predefined or custom network service groups to which the rule applies.
+        /// list of nw service groups
         /// </summary>
         [Input("nwServiceGroups")]
         public Input<Inputs.FirewallFilteringRuleNwServiceGroupsArgs>? NwServiceGroups { get; set; }
 
         /// <summary>
-        /// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        /// 
-        /// `network applications` supports the following attributes:
+        /// list of nw services
         /// </summary>
         [Input("nwServices")]
         public Input<Inputs.FirewallFilteringRuleNwServicesArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// Rule order number of the Firewall Filtering policy rule
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -551,15 +526,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-        /// 
-        /// `Who, Where and When` supports the following attributes:
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         /// <summary>
-        /// Any number of source IP address groups that you want to control with this rule.
+        /// list of source ip groups
         /// </summary>
         [Input("srcIpGroups")]
         public Input<Inputs.FirewallFilteringRuleSrcIpGroupsArgs>? SrcIpGroups { get; set; }
@@ -568,7 +541,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// You can enter individual IP addresses, subnets, or address ranges.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+        /// source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -577,19 +551,19 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// Determines whether the Firewall Filtering policy rule is enabled or disabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// The time interval in which the Firewall Filtering policy rule applies
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallFilteringRuleTimeWindowsArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// list of users for which rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallFilteringRuleUsersArgs>? Users { get; set; }
@@ -628,19 +602,19 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class FirewallFilteringRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Choose the action of the service when packets match the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+        /// The action the Firewall Filtering policy rule takes when packets match the rule
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Application service groups on which this rule is applied
+        /// list of application service groups
         /// </summary>
         [Input("appServiceGroups")]
         public Input<Inputs.FirewallFilteringRuleAppServiceGroupsGetArgs>? AppServiceGroups { get; set; }
 
         /// <summary>
-        /// Application services on which this rule is applied
+        /// list of application services
         /// </summary>
         [Input("appServices")]
         public Input<Inputs.FirewallFilteringRuleAppServicesGetArgs>? AppServices { get; set; }
@@ -652,23 +626,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DefaultRule { get; set; }
 
         /// <summary>
-        /// Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        /// list of departments for which rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.FirewallFilteringRuleDepartmentsGetArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Enter additional notes or information. The description cannot exceed 10,240 characters.
+        /// Additional information about the rule
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destAddresses")]
         private InputList<string>? _destAddresses;
-
-        /// <summary>
-        /// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        /// </summary>
         public InputList<string> DestAddresses
         {
             get => _destAddresses ?? (_destAddresses = new InputList<string>());
@@ -679,7 +649,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -689,10 +660,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpCategories")]
         private InputList<string>? _destIpCategories;
-
-        /// <summary>
-        /// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        /// </summary>
         public InputList<string> DestIpCategories
         {
             get => _destIpCategories ?? (_destIpCategories = new InputList<string>());
@@ -700,7 +667,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// ** - (Optional) Any number of destination IP address groups that you want to control with this rule.
+        /// list of destination ip groups
         /// </summary>
         [Input("destIpGroups")]
         public Input<Inputs.FirewallFilteringRuleDestIpGroupsGetArgs>? DestIpGroups { get; set; }
@@ -735,39 +702,37 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// list of groups for which rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallFilteringRuleGroupsGetArgs>? Groups { get; set; }
 
         /// <summary>
-        /// Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.FirewallFilteringRuleLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// list of locations groups
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallFilteringRuleLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// list of locations for which rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallFilteringRuleLocationsGetArgs>? Locations { get; set; }
 
         /// <summary>
-        /// The name of the workload group
-        /// 
-        /// * `Other Exported Arguments`
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
+        /// list of nw application groups
         /// </summary>
         [Input("nwApplicationGroups")]
         public Input<Inputs.FirewallFilteringRuleNwApplicationGroupsGetArgs>? NwApplicationGroups { get; set; }
@@ -776,9 +741,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _nwApplications;
 
         /// <summary>
-        /// When not used it applies the rule to all applications. The service provides predefined applications, which you can group, but not modify.
-        /// 
-        /// `source ip addresses` supports the following attributes:
+        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
+        /// specific network service application.
         /// </summary>
         public InputList<string> NwApplications
         {
@@ -787,21 +751,19 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Any number of predefined or custom network service groups to which the rule applies.
+        /// list of nw service groups
         /// </summary>
         [Input("nwServiceGroups")]
         public Input<Inputs.FirewallFilteringRuleNwServiceGroupsGetArgs>? NwServiceGroups { get; set; }
 
         /// <summary>
-        /// When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        /// 
-        /// `network applications` supports the following attributes:
+        /// list of nw services
         /// </summary>
         [Input("nwServices")]
         public Input<Inputs.FirewallFilteringRuleNwServicesGetArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        /// Rule order number of the Firewall Filtering policy rule
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -813,9 +775,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
-        /// 
-        /// `Who, Where and When` supports the following attributes:
+        /// Admin rank of the Firewall Filtering policy rule
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -824,7 +784,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? RuleId { get; set; }
 
         /// <summary>
-        /// Any number of source IP address groups that you want to control with this rule.
+        /// list of source ip groups
         /// </summary>
         [Input("srcIpGroups")]
         public Input<Inputs.FirewallFilteringRuleSrcIpGroupsGetArgs>? SrcIpGroups { get; set; }
@@ -833,7 +793,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// You can enter individual IP addresses, subnets, or address ranges.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
+        /// source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -842,19 +803,19 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// Determines whether the Firewall Filtering policy rule is enabled or disabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// The time interval in which the Firewall Filtering policy rule applies
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallFilteringRuleTimeWindowsGetArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// list of users for which rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallFilteringRuleUsersGetArgs>? Users { get; set; }

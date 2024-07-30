@@ -27,14 +27,10 @@ class FirewallFilteringNetworkServicesArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallFilteringNetworkServices resource.
-        :param pulumi.Input[str] description: Description of the service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]] dest_tcp_ports: The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]] dest_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[bool] is_name_l10n_tag: (Optional
-        :param pulumi.Input[str] name: Name of the service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]] src_tcp_ports: The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]] src_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[str] tag: The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]] dest_tcp_ports: dest tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]] dest_udp_ports: dest udp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]] src_tcp_ports: src tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]] src_udp_ports: src udp ports
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -58,9 +54,6 @@ class FirewallFilteringNetworkServicesArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the service
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -71,7 +64,7 @@ class FirewallFilteringNetworkServicesArgs:
     @pulumi.getter(name="destTcpPorts")
     def dest_tcp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]]]:
         """
-        The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest tcp ports
         """
         return pulumi.get(self, "dest_tcp_ports")
 
@@ -83,7 +76,7 @@ class FirewallFilteringNetworkServicesArgs:
     @pulumi.getter(name="destUdpPorts")
     def dest_udp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest udp ports
         """
         return pulumi.get(self, "dest_udp_ports")
 
@@ -94,9 +87,6 @@ class FirewallFilteringNetworkServicesArgs:
     @property
     @pulumi.getter(name="isNameL10nTag")
     def is_name_l10n_tag(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional
-        """
         return pulumi.get(self, "is_name_l10n_tag")
 
     @is_name_l10n_tag.setter
@@ -106,9 +96,6 @@ class FirewallFilteringNetworkServicesArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the service
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,7 +106,7 @@ class FirewallFilteringNetworkServicesArgs:
     @pulumi.getter(name="srcTcpPorts")
     def src_tcp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]]:
         """
-        The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        src tcp ports
         """
         return pulumi.get(self, "src_tcp_ports")
 
@@ -131,7 +118,7 @@ class FirewallFilteringNetworkServicesArgs:
     @pulumi.getter(name="srcUdpPorts")
     def src_udp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        src udp ports
         """
         return pulumi.get(self, "src_udp_ports")
 
@@ -142,9 +129,6 @@ class FirewallFilteringNetworkServicesArgs:
     @property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -176,14 +160,10 @@ class _FirewallFilteringNetworkServicesState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FirewallFilteringNetworkServices resources.
-        :param pulumi.Input[str] description: Description of the service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]] dest_tcp_ports: The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]] dest_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[bool] is_name_l10n_tag: (Optional
-        :param pulumi.Input[str] name: Name of the service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]] src_tcp_ports: The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]] src_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[str] tag: The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]] dest_tcp_ports: dest tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]] dest_udp_ports: dest udp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]] src_tcp_ports: src tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]] src_udp_ports: src udp ports
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -209,9 +189,6 @@ class _FirewallFilteringNetworkServicesState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the service
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -222,7 +199,7 @@ class _FirewallFilteringNetworkServicesState:
     @pulumi.getter(name="destTcpPorts")
     def dest_tcp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestTcpPortArgs']]]]:
         """
-        The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest tcp ports
         """
         return pulumi.get(self, "dest_tcp_ports")
 
@@ -234,7 +211,7 @@ class _FirewallFilteringNetworkServicesState:
     @pulumi.getter(name="destUdpPorts")
     def dest_udp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesDestUdpPortArgs']]]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest udp ports
         """
         return pulumi.get(self, "dest_udp_ports")
 
@@ -245,9 +222,6 @@ class _FirewallFilteringNetworkServicesState:
     @property
     @pulumi.getter(name="isNameL10nTag")
     def is_name_l10n_tag(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional
-        """
         return pulumi.get(self, "is_name_l10n_tag")
 
     @is_name_l10n_tag.setter
@@ -257,9 +231,6 @@ class _FirewallFilteringNetworkServicesState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the service
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -279,7 +250,7 @@ class _FirewallFilteringNetworkServicesState:
     @pulumi.getter(name="srcTcpPorts")
     def src_tcp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]]:
         """
-        The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        src tcp ports
         """
         return pulumi.get(self, "src_tcp_ports")
 
@@ -291,7 +262,7 @@ class _FirewallFilteringNetworkServicesState:
     @pulumi.getter(name="srcUdpPorts")
     def src_udp_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        src udp ports
         """
         return pulumi.get(self, "src_udp_ports")
 
@@ -302,9 +273,6 @@ class _FirewallFilteringNetworkServicesState:
     @property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -341,7 +309,6 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -374,7 +341,6 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
             ],
             type="CUSTOM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -398,14 +364,10 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestTcpPortArgs']]]] dest_tcp_ports: The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestUdpPortArgs']]]] dest_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[bool] is_name_l10n_tag: (Optional
-        :param pulumi.Input[str] name: Name of the service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]] src_tcp_ports: The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]] src_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[str] tag: The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestTcpPortArgs']]]] dest_tcp_ports: dest tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestUdpPortArgs']]]] dest_udp_ports: dest udp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]] src_tcp_ports: src tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]] src_udp_ports: src udp ports
         """
         ...
     @overload
@@ -418,7 +380,6 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -451,7 +412,6 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
             ],
             type="CUSTOM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -543,14 +503,10 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestTcpPortArgs']]]] dest_tcp_ports: The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestUdpPortArgs']]]] dest_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[bool] is_name_l10n_tag: (Optional
-        :param pulumi.Input[str] name: Name of the service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]] src_tcp_ports: The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]] src_udp_ports: The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
-        :param pulumi.Input[str] tag: The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestTcpPortArgs']]]] dest_tcp_ports: dest tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesDestUdpPortArgs']]]] dest_udp_ports: dest udp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcTcpPortArgs']]]] src_tcp_ports: src tcp ports
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFilteringNetworkServicesSrcUdpPortArgs']]]] src_udp_ports: src udp ports
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -571,16 +527,13 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the service
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destTcpPorts")
     def dest_tcp_ports(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallFilteringNetworkServicesDestTcpPort']]]:
         """
-        The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest tcp ports
         """
         return pulumi.get(self, "dest_tcp_ports")
 
@@ -588,24 +541,18 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
     @pulumi.getter(name="destUdpPorts")
     def dest_udp_ports(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallFilteringNetworkServicesDestUdpPort']]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        dest udp ports
         """
         return pulumi.get(self, "dest_udp_ports")
 
     @property
     @pulumi.getter(name="isNameL10nTag")
     def is_name_l10n_tag(self) -> pulumi.Output[Optional[bool]]:
-        """
-        (Optional
-        """
         return pulumi.get(self, "is_name_l10n_tag")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the service
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -617,7 +564,7 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
     @pulumi.getter(name="srcTcpPorts")
     def src_tcp_ports(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallFilteringNetworkServicesSrcTcpPort']]]:
         """
-        The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
+        src tcp ports
         """
         return pulumi.get(self, "src_tcp_ports")
 
@@ -625,16 +572,13 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
     @pulumi.getter(name="srcUdpPorts")
     def src_udp_ports(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallFilteringNetworkServicesSrcUdpPort']]]:
         """
-        The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
+        src udp ports
         """
         return pulumi.get(self, "src_udp_ports")
 
     @property
     @pulumi.getter
     def tag(self) -> pulumi.Output[str]:
-        """
-        The following values are supported: `"ICMP_ANY`, `"UDP_ANY"`, `"TCP_ANY"`, `"OTHER_NETWORK_SERVICE"`, `"DNS"`, `"NETBIOS"`, `"FTP"`, `"GNUTELLA"`, `"H_323"`, `"HTTP"`, `"HTTPS"`, `"IKE"`, `"IMAP"`, `"ILS"`, `"IKE_NAT"`, `"IRC"`, `"LDAP"`, `"QUIC"`, `"TDS"`, `"NETMEETING"`, `"NFS"`, `"NTP"`, `"SIP"`, `"SNMP"`, `"SMB"`, `"SMTP"`, `"SSH"`, `"SYSLOG"`, `"TELNET"`, `"TRACEROUTE"`, `"POP3"`, `"PPTP"`, `"RADIUS"`, `"REAL_MEDIA"`, `"RTSP"`, `"VNC"`, `"WHOIS"`, `"KERBEROS_SEC"`, `"TACACS"`, `"SNMPTRAP"`, `"NMAP"`, `"RSYNC"`, `"L2TP"`, `"HTTP_PROXY"`, `"PC_ANYWHERE"`, `"MSN"`, `"ECHO"`, `"AIM"`, `"IDENT"`, `"YMSG"`, `"SCCP"`, `"MGCP_UA"`, `"MGCP_CA"`, `"VDO_LIVE"`, `"OPENVPN"`, `"TFTP"`, `"FTPS_IMPLICIT"`, `"ZSCALER_PROXY_NW_SERVICES"`, `"GRE_PROTOCOL"`, `"ESP_PROTOCOL"`, `"DHCP"`
-        """
         return pulumi.get(self, "tag")
 
     @property

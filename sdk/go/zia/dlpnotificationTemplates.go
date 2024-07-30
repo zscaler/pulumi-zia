@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +43,8 @@ import (
 //				Subject:          pulumi.String(fmt.Sprintf("DLP Violation: %v %v", TRANSACTION_ID, ENGINES)),
 //				AttachContent:    pulumi.Bool(true),
 //				TlsEnabled:       pulumi.Bool(true),
-//				HtmlMessage:      readFileOrPanic("./index.html"),
-//				PlainTextMessage: readFileOrPanic("./dlp.txt"),
+//				HtmlMessage:      pulumi.String(readFileOrPanic("./index.html")),
+//				PlainTextMessage: pulumi.String(readFileOrPanic("./dlp.txt")),
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -79,19 +77,19 @@ import (
 type DLPNotificationTemplates struct {
 	pulumi.CustomResourceState
 
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// f set to true, the content that is violation is attached to the DLP notification email
 	AttachContent pulumi.BoolPtrOutput `pulumi:"attachContent"`
-	// The template for the HTML message body that must be displayed in the DLP notification email.
+	// The template for the HTML message body that must be displayed in the DLP notification email
 	HtmlMessage pulumi.StringOutput `pulumi:"htmlMessage"`
-	// The DLP policy rule name.
+	// The DLP notification template name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 	PlainTextMessage pulumi.StringOutput `pulumi:"plainTextMessage"`
-	// The Subject line that is displayed within the DLP notification email.
+	// The Subject line that is displayed within the DLP notification email
 	Subject pulumi.StringOutput `pulumi:"subject"`
 	// The unique identifier for a DLP notification template
 	TemplateId pulumi.IntOutput `pulumi:"templateId"`
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// If set to true, TLS will be enabled
 	TlsEnabled pulumi.BoolPtrOutput `pulumi:"tlsEnabled"`
 }
 
@@ -134,36 +132,36 @@ func GetDLPNotificationTemplates(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DLPNotificationTemplates resources.
 type dlpnotificationTemplatesState struct {
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// f set to true, the content that is violation is attached to the DLP notification email
 	AttachContent *bool `pulumi:"attachContent"`
-	// The template for the HTML message body that must be displayed in the DLP notification email.
+	// The template for the HTML message body that must be displayed in the DLP notification email
 	HtmlMessage *string `pulumi:"htmlMessage"`
-	// The DLP policy rule name.
+	// The DLP notification template name
 	Name *string `pulumi:"name"`
-	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 	PlainTextMessage *string `pulumi:"plainTextMessage"`
-	// The Subject line that is displayed within the DLP notification email.
+	// The Subject line that is displayed within the DLP notification email
 	Subject *string `pulumi:"subject"`
 	// The unique identifier for a DLP notification template
 	TemplateId *int `pulumi:"templateId"`
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// If set to true, TLS will be enabled
 	TlsEnabled *bool `pulumi:"tlsEnabled"`
 }
 
 type DLPNotificationTemplatesState struct {
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// f set to true, the content that is violation is attached to the DLP notification email
 	AttachContent pulumi.BoolPtrInput
-	// The template for the HTML message body that must be displayed in the DLP notification email.
+	// The template for the HTML message body that must be displayed in the DLP notification email
 	HtmlMessage pulumi.StringPtrInput
-	// The DLP policy rule name.
+	// The DLP notification template name
 	Name pulumi.StringPtrInput
-	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 	PlainTextMessage pulumi.StringPtrInput
-	// The Subject line that is displayed within the DLP notification email.
+	// The Subject line that is displayed within the DLP notification email
 	Subject pulumi.StringPtrInput
 	// The unique identifier for a DLP notification template
 	TemplateId pulumi.IntPtrInput
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// If set to true, TLS will be enabled
 	TlsEnabled pulumi.BoolPtrInput
 }
 
@@ -172,33 +170,33 @@ func (DLPNotificationTemplatesState) ElementType() reflect.Type {
 }
 
 type dlpnotificationTemplatesArgs struct {
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// f set to true, the content that is violation is attached to the DLP notification email
 	AttachContent *bool `pulumi:"attachContent"`
-	// The template for the HTML message body that must be displayed in the DLP notification email.
+	// The template for the HTML message body that must be displayed in the DLP notification email
 	HtmlMessage string `pulumi:"htmlMessage"`
-	// The DLP policy rule name.
+	// The DLP notification template name
 	Name *string `pulumi:"name"`
-	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 	PlainTextMessage string `pulumi:"plainTextMessage"`
-	// The Subject line that is displayed within the DLP notification email.
+	// The Subject line that is displayed within the DLP notification email
 	Subject string `pulumi:"subject"`
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// If set to true, TLS will be enabled
 	TlsEnabled *bool `pulumi:"tlsEnabled"`
 }
 
 // The set of arguments for constructing a DLPNotificationTemplates resource.
 type DLPNotificationTemplatesArgs struct {
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// f set to true, the content that is violation is attached to the DLP notification email
 	AttachContent pulumi.BoolPtrInput
-	// The template for the HTML message body that must be displayed in the DLP notification email.
+	// The template for the HTML message body that must be displayed in the DLP notification email
 	HtmlMessage pulumi.StringInput
-	// The DLP policy rule name.
+	// The DLP notification template name
 	Name pulumi.StringPtrInput
-	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+	// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 	PlainTextMessage pulumi.StringInput
-	// The Subject line that is displayed within the DLP notification email.
+	// The Subject line that is displayed within the DLP notification email
 	Subject pulumi.StringInput
-	// If set to true, the content that is violation is attached to the DLP notification email.
+	// If set to true, TLS will be enabled
 	TlsEnabled pulumi.BoolPtrInput
 }
 
@@ -289,27 +287,27 @@ func (o DLPNotificationTemplatesOutput) ToDLPNotificationTemplatesOutputWithCont
 	return o
 }
 
-// If set to true, the content that is violation is attached to the DLP notification email.
+// f set to true, the content that is violation is attached to the DLP notification email
 func (o DLPNotificationTemplatesOutput) AttachContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.BoolPtrOutput { return v.AttachContent }).(pulumi.BoolPtrOutput)
 }
 
-// The template for the HTML message body that must be displayed in the DLP notification email.
+// The template for the HTML message body that must be displayed in the DLP notification email
 func (o DLPNotificationTemplatesOutput) HtmlMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.StringOutput { return v.HtmlMessage }).(pulumi.StringOutput)
 }
 
-// The DLP policy rule name.
+// The DLP notification template name
 func (o DLPNotificationTemplatesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email.
+// The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
 func (o DLPNotificationTemplatesOutput) PlainTextMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.StringOutput { return v.PlainTextMessage }).(pulumi.StringOutput)
 }
 
-// The Subject line that is displayed within the DLP notification email.
+// The Subject line that is displayed within the DLP notification email
 func (o DLPNotificationTemplatesOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.StringOutput { return v.Subject }).(pulumi.StringOutput)
 }
@@ -319,7 +317,7 @@ func (o DLPNotificationTemplatesOutput) TemplateId() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.IntOutput { return v.TemplateId }).(pulumi.IntOutput)
 }
 
-// If set to true, the content that is violation is attached to the DLP notification email.
+// If set to true, TLS will be enabled
 func (o DLPNotificationTemplatesOutput) TlsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPNotificationTemplates) pulumi.BoolPtrOutput { return v.TlsEnabled }).(pulumi.BoolPtrOutput)
 }

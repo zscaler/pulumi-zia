@@ -15,7 +15,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,9 +38,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,9 +63,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,9 +86,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,7 +113,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -146,13 +138,14 @@ namespace zscaler.PulumiPackage.Zia
     public partial class FirewallFilteringDestinationGroups : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Destination IP addresses, domains or FQDNs within the group
+        /// Destination IP addresses within the group
         /// </summary>
         [Output("addresses")]
         public Output<ImmutableArray<string>> Addresses { get; private set; } = null!;
 
         /// <summary>
-        /// Destination IP address counties. You can identify destinations based on the location of a server.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         [Output("countries")]
         public Output<ImmutableArray<string>> Countries { get; private set; } = null!;
@@ -170,8 +163,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        /// * !&gt; **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        /// List of URL categories for which rule must be applied
         /// </summary>
         [Output("ipCategories")]
         public Output<ImmutableArray<string>> IpCategories { get; private set; } = null!;
@@ -183,7 +175,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -239,7 +231,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _addresses;
 
         /// <summary>
-        /// Destination IP addresses, domains or FQDNs within the group
+        /// Destination IP addresses within the group
         /// </summary>
         public InputList<string> Addresses
         {
@@ -251,7 +243,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _countries;
 
         /// <summary>
-        /// Destination IP address counties. You can identify destinations based on the location of a server.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         public InputList<string> Countries
         {
@@ -269,8 +262,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _ipCategories;
 
         /// <summary>
-        /// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        /// * !&gt; **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        /// List of URL categories for which rule must be applied
         /// </summary>
         public InputList<string> IpCategories
         {
@@ -285,7 +277,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -302,7 +294,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _addresses;
 
         /// <summary>
-        /// Destination IP addresses, domains or FQDNs within the group
+        /// Destination IP addresses within the group
         /// </summary>
         public InputList<string> Addresses
         {
@@ -314,7 +306,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _countries;
 
         /// <summary>
-        /// Destination IP address counties. You can identify destinations based on the location of a server.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
+        /// countries.
         /// </summary>
         public InputList<string> Countries
         {
@@ -338,8 +331,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _ipCategories;
 
         /// <summary>
-        /// Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        /// * !&gt; **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        /// List of URL categories for which rule must be applied
         /// </summary>
         public InputList<string> IpCategories
         {
@@ -354,7 +346,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs). The supported values are:
+        /// Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

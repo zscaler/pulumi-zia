@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrafficForwardingGRETunnelInfoResult> InvokeAsync(GetTrafficForwardingGRETunnelInfoArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingGRETunnelInfoResult>("zia:index/getTrafficForwardingGRETunnelInfo:getTrafficForwardingGRETunnelInfo", args ?? new GetTrafficForwardingGRETunnelInfoArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrafficForwardingGRETunnelInfoResult> Invoke(GetTrafficForwardingGRETunnelInfoInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingGRETunnelInfoResult>("zia:index/getTrafficForwardingGRETunnelInfo:getTrafficForwardingGRETunnelInfo", args ?? new GetTrafficForwardingGRETunnelInfoInvokeArgs(), options.WithDefaults());

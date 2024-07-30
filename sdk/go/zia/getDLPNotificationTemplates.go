@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDLPNotificationTemplates(ctx *pulumi.Context, args *LookupDLPNotificationTemplatesArgs, opts ...pulumi.InvokeOption) (*LookupDLPNotificationTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDLPNotificationTemplatesResult
@@ -52,9 +50,7 @@ func LookupDLPNotificationTemplates(ctx *pulumi.Context, args *LookupDLPNotifica
 
 // A collection of arguments for invoking getDLPNotificationTemplates.
 type LookupDLPNotificationTemplatesArgs struct {
-	// The unique identifier for a DLP notification template.
-	Id *int `pulumi:"id"`
-	// The DLP policy rule name.
+	Id   *int    `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -84,9 +80,7 @@ func LookupDLPNotificationTemplatesOutput(ctx *pulumi.Context, args LookupDLPNot
 
 // A collection of arguments for invoking getDLPNotificationTemplates.
 type LookupDLPNotificationTemplatesOutputArgs struct {
-	// The unique identifier for a DLP notification template.
-	Id pulumi.IntPtrInput `pulumi:"id"`
-	// The DLP policy rule name.
+	Id   pulumi.IntPtrInput    `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

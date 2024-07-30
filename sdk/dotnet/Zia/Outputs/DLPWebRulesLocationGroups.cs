@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class DLPWebRulesLocationGroups
     {
-        /// <summary>
-        /// A unique identifier assigned to the workload group
-        /// </summary>
         public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]

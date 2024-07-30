@@ -13,8 +13,12 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class UserManagementGroupsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("ids", required: true)]
+        [Input("ids")]
         private InputList<int>? _ids;
+
+        /// <summary>
+        /// Unique identfier for the group
+        /// </summary>
         public InputList<int> Ids
         {
             get => _ids ?? (_ids = new InputList<int>());

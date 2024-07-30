@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,9 +32,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +48,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPEnginesResult> InvokeAsync(GetDLPEnginesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPEnginesResult>("zia:index/getDLPEngines:getDLPEngines", args ?? new GetDLPEnginesArgs(), options.WithDefaults());
@@ -61,7 +57,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,9 +72,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -95,7 +88,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPEnginesResult> Invoke(GetDLPEnginesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPEnginesResult>("zia:index/getDLPEngines:getDLPEngines", args ?? new GetDLPEnginesInvokeArgs(), options.WithDefaults());
@@ -104,21 +96,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPEnginesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the DLP engine.
-        /// </summary>
         [Input("id")]
         public int? Id { get; set; }
 
-        /// <summary>
-        /// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// The name of the predefined DLP engine.
-        /// </summary>
         [Input("predefinedEngineName")]
         public string? PredefinedEngineName { get; set; }
 
@@ -130,21 +113,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPEnginesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier for the DLP engine.
-        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
-        /// <summary>
-        /// The DLP engine name as configured by the admin. This attribute is required in POST and PUT requests for custom DLP engines.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the predefined DLP engine.
-        /// </summary>
         [Input("predefinedEngineName")]
         public Input<string>? PredefinedEngineName { get; set; }
 

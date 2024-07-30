@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,9 +45,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,9 +73,7 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +101,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -130,16 +124,10 @@ import (
 type FirewallFilteringSourceGroups struct {
 	pulumi.CustomResourceState
 
-	// Description of the source IP group
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	GroupId     pulumi.IntOutput       `pulumi:"groupId"`
-	// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-	// * An IP address (198.51.100.100)
-	// * A range of IP addresses 192.0.2.1-192.0.2.10
-	// * An IP address with a netmask 203.0.113.0/24
+	Description pulumi.StringPtrOutput   `pulumi:"description"`
+	GroupId     pulumi.IntOutput         `pulumi:"groupId"`
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// Source IP group name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
 }
 
 // NewFirewallFilteringSourceGroups registers a new resource with the given unique name, arguments, and options.
@@ -175,29 +163,17 @@ func GetFirewallFilteringSourceGroups(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallFilteringSourceGroups resources.
 type firewallFilteringSourceGroupsState struct {
-	// Description of the source IP group
-	Description *string `pulumi:"description"`
-	GroupId     *int    `pulumi:"groupId"`
-	// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-	// * An IP address (198.51.100.100)
-	// * A range of IP addresses 192.0.2.1-192.0.2.10
-	// * An IP address with a netmask 203.0.113.0/24
+	Description *string  `pulumi:"description"`
+	GroupId     *int     `pulumi:"groupId"`
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// Source IP group name
-	Name *string `pulumi:"name"`
+	Name        *string  `pulumi:"name"`
 }
 
 type FirewallFilteringSourceGroupsState struct {
-	// Description of the source IP group
 	Description pulumi.StringPtrInput
 	GroupId     pulumi.IntPtrInput
-	// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-	// * An IP address (198.51.100.100)
-	// * A range of IP addresses 192.0.2.1-192.0.2.10
-	// * An IP address with a netmask 203.0.113.0/24
 	IpAddresses pulumi.StringArrayInput
-	// Source IP group name
-	Name pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
 }
 
 func (FirewallFilteringSourceGroupsState) ElementType() reflect.Type {
@@ -205,28 +181,16 @@ func (FirewallFilteringSourceGroupsState) ElementType() reflect.Type {
 }
 
 type firewallFilteringSourceGroupsArgs struct {
-	// Description of the source IP group
-	Description *string `pulumi:"description"`
-	// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-	// * An IP address (198.51.100.100)
-	// * A range of IP addresses 192.0.2.1-192.0.2.10
-	// * An IP address with a netmask 203.0.113.0/24
+	Description *string  `pulumi:"description"`
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// Source IP group name
-	Name *string `pulumi:"name"`
+	Name        *string  `pulumi:"name"`
 }
 
 // The set of arguments for constructing a FirewallFilteringSourceGroups resource.
 type FirewallFilteringSourceGroupsArgs struct {
-	// Description of the source IP group
 	Description pulumi.StringPtrInput
-	// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-	// * An IP address (198.51.100.100)
-	// * A range of IP addresses 192.0.2.1-192.0.2.10
-	// * An IP address with a netmask 203.0.113.0/24
 	IpAddresses pulumi.StringArrayInput
-	// Source IP group name
-	Name pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
 }
 
 func (FirewallFilteringSourceGroupsArgs) ElementType() reflect.Type {
@@ -316,7 +280,6 @@ func (o FirewallFilteringSourceGroupsOutput) ToFirewallFilteringSourceGroupsOutp
 	return o
 }
 
-// Description of the source IP group
 func (o FirewallFilteringSourceGroupsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringSourceGroups) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -325,15 +288,10 @@ func (o FirewallFilteringSourceGroupsOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringSourceGroups) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
 }
 
-// Source IP addresses to be added to the group. Enter any number of IP addresses. You can enter:
-// * An IP address (198.51.100.100)
-// * A range of IP addresses 192.0.2.1-192.0.2.10
-// * An IP address with a netmask 203.0.113.0/24
 func (o FirewallFilteringSourceGroupsOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringSourceGroups) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Source IP group name
 func (o FirewallFilteringSourceGroupsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringSourceGroups) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

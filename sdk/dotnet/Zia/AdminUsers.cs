@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### Organization Scope
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,11 +55,9 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Department Scope
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,11 +109,9 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Location Scope
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -167,11 +162,9 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Location Group Scope
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -222,7 +215,6 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -253,14 +245,11 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> AdminId { get; private set; } = null!;
 
         /// <summary>
-        /// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        /// list of destination ip groups
         /// </summary>
         [Output("adminScopeEntities")]
         public Output<Outputs.AdminUsersAdminScopeEntities> AdminScopeEntities { get; private set; } = null!;
 
-        /// <summary>
-        /// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Output("adminScopeType")]
         public Output<string> AdminScopeType { get; private set; } = null!;
 
@@ -270,9 +259,6 @@ namespace zscaler.PulumiPackage.Zia
         [Output("comments")]
         public Output<string?> Comments { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether or not the admin account is disabled.
-        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
@@ -282,62 +268,36 @@ namespace zscaler.PulumiPackage.Zia
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the user is an auditor. This attribute is subject to change.
-        /// </summary>
         [Output("isAuditor")]
         public Output<bool?> IsAuditor { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether or not Executive Insights App access is enabled for the admin.
-        /// </summary>
         [Output("isExecMobileAppEnabled")]
         public Output<bool?> IsExecMobileAppEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether or not the admin can be edited or deleted.
-        /// </summary>
         [Output("isNonEditable")]
         public Output<bool?> IsNonEditable { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether or not an admin's password has expired.
-        /// </summary>
         [Output("isPasswordExpired")]
         public Output<bool?> IsPasswordExpired { get; private set; } = null!;
 
-        /// <summary>
-        /// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        /// </summary>
         [Output("isPasswordLoginAllowed")]
         public Output<bool?> IsPasswordLoginAllowed { get; private set; } = null!;
 
-        /// <summary>
-        /// Communication setting for Product Update.
-        /// </summary>
         [Output("isProductUpdateCommEnabled")]
         public Output<bool?> IsProductUpdateCommEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Communication for Security Report is enabled.
-        /// </summary>
         [Output("isSecurityReportCommEnabled")]
         public Output<bool?> IsSecurityReportCommEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Communication setting for Service Update.
-        /// </summary>
         [Output("isServiceUpdateCommEnabled")]
         public Output<bool?> IsServiceUpdateCommEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         [Output("loginName")]
         public Output<string> LoginName { get; private set; } = null!;
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        /// information is not provided in a GET response.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -349,7 +309,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.AdminUsersRole>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// Admin or auditor's username.
         /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
@@ -406,14 +366,11 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class AdminUsersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        /// list of destination ip groups
         /// </summary>
         [Input("adminScopeEntities")]
         public Input<Inputs.AdminUsersAdminScopeEntitiesArgs>? AdminScopeEntities { get; set; }
 
-        /// <summary>
-        /// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Input("adminScopeType")]
         public Input<string>? AdminScopeType { get; set; }
 
@@ -423,9 +380,6 @@ namespace zscaler.PulumiPackage.Zia
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not the admin account is disabled.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
@@ -435,57 +389,30 @@ namespace zscaler.PulumiPackage.Zia
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the user is an auditor. This attribute is subject to change.
-        /// </summary>
         [Input("isAuditor")]
         public Input<bool>? IsAuditor { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not Executive Insights App access is enabled for the admin.
-        /// </summary>
         [Input("isExecMobileAppEnabled")]
         public Input<bool>? IsExecMobileAppEnabled { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not the admin can be edited or deleted.
-        /// </summary>
         [Input("isNonEditable")]
         public Input<bool>? IsNonEditable { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not an admin's password has expired.
-        /// </summary>
         [Input("isPasswordExpired")]
         public Input<bool>? IsPasswordExpired { get; set; }
 
-        /// <summary>
-        /// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        /// </summary>
         [Input("isPasswordLoginAllowed")]
         public Input<bool>? IsPasswordLoginAllowed { get; set; }
 
-        /// <summary>
-        /// Communication setting for Product Update.
-        /// </summary>
         [Input("isProductUpdateCommEnabled")]
         public Input<bool>? IsProductUpdateCommEnabled { get; set; }
 
-        /// <summary>
-        /// Communication for Security Report is enabled.
-        /// </summary>
         [Input("isSecurityReportCommEnabled")]
         public Input<bool>? IsSecurityReportCommEnabled { get; set; }
 
-        /// <summary>
-        /// Communication setting for Service Update.
-        /// </summary>
         [Input("isServiceUpdateCommEnabled")]
         public Input<bool>? IsServiceUpdateCommEnabled { get; set; }
 
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         [Input("loginName", required: true)]
         public Input<string> LoginName { get; set; } = null!;
 
@@ -493,7 +420,8 @@ namespace zscaler.PulumiPackage.Zia
         private Input<string>? _password;
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        /// information is not provided in a GET response.
         /// </summary>
         public Input<string>? Password
         {
@@ -518,7 +446,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// Admin or auditor's username.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
@@ -535,14 +463,11 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? AdminId { get; set; }
 
         /// <summary>
-        /// Based on the admin scope type, the entities can be the ID/name pair of departments, locations, or location groups.
+        /// list of destination ip groups
         /// </summary>
         [Input("adminScopeEntities")]
         public Input<Inputs.AdminUsersAdminScopeEntitiesGetArgs>? AdminScopeEntities { get; set; }
 
-        /// <summary>
-        /// The admin's scope. A scope is required for admins, but not applicable to auditors. This attribute is subject to change. Support values are: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-        /// </summary>
         [Input("adminScopeType")]
         public Input<string>? AdminScopeType { get; set; }
 
@@ -552,9 +477,6 @@ namespace zscaler.PulumiPackage.Zia
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not the admin account is disabled.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
@@ -564,57 +486,30 @@ namespace zscaler.PulumiPackage.Zia
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// Indicates whether the user is an auditor. This attribute is subject to change.
-        /// </summary>
         [Input("isAuditor")]
         public Input<bool>? IsAuditor { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not Executive Insights App access is enabled for the admin.
-        /// </summary>
         [Input("isExecMobileAppEnabled")]
         public Input<bool>? IsExecMobileAppEnabled { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not the admin can be edited or deleted.
-        /// </summary>
         [Input("isNonEditable")]
         public Input<bool>? IsNonEditable { get; set; }
 
-        /// <summary>
-        /// Indicates whether or not an admin's password has expired.
-        /// </summary>
         [Input("isPasswordExpired")]
         public Input<bool>? IsPasswordExpired { get; set; }
 
-        /// <summary>
-        /// The default is true when SAML Authentication is disabled. When SAML Authentication is enabled, this can be set to false in order to force the admin to login via SSO only.
-        /// </summary>
         [Input("isPasswordLoginAllowed")]
         public Input<bool>? IsPasswordLoginAllowed { get; set; }
 
-        /// <summary>
-        /// Communication setting for Product Update.
-        /// </summary>
         [Input("isProductUpdateCommEnabled")]
         public Input<bool>? IsProductUpdateCommEnabled { get; set; }
 
-        /// <summary>
-        /// Communication for Security Report is enabled.
-        /// </summary>
         [Input("isSecurityReportCommEnabled")]
         public Input<bool>? IsSecurityReportCommEnabled { get; set; }
 
-        /// <summary>
-        /// Communication setting for Service Update.
-        /// </summary>
         [Input("isServiceUpdateCommEnabled")]
         public Input<bool>? IsServiceUpdateCommEnabled { get; set; }
 
-        /// <summary>
-        /// The email address of the admin user to be exported.
-        /// </summary>
         [Input("loginName")]
         public Input<string>? LoginName { get; set; }
 
@@ -622,7 +517,8 @@ namespace zscaler.PulumiPackage.Zia
         private Input<string>? _password;
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
+        /// information is not provided in a GET response.
         /// </summary>
         public Input<string>? Password
         {
@@ -647,7 +543,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The username of the admin user to be exported.
+        /// Admin or auditor's username.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

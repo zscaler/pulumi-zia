@@ -19,9 +19,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
-        /// <summary>
-        /// Identifier that uniquely identifies an entity
-        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

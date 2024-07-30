@@ -18,7 +18,6 @@ class RuleLabelsArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RuleLabels resource.
-        :param pulumi.Input[str] description: The rule label description.
         :param pulumi.Input[str] name: The name of the devices to be created.
         """
         if description is not None:
@@ -29,9 +28,6 @@ class RuleLabelsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The rule label description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -59,7 +55,6 @@ class _RuleLabelsState:
                  rule_label_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RuleLabels resources.
-        :param pulumi.Input[str] description: The rule label description.
         :param pulumi.Input[str] name: The name of the devices to be created.
         """
         if description is not None:
@@ -72,9 +67,6 @@ class _RuleLabelsState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The rule label description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -116,7 +108,6 @@ class RuleLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -124,7 +115,6 @@ class RuleLabels(pulumi.CustomResource):
         # ZIA Rule Labels Resource
         example = zia.RuleLabels("example", description="Example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,7 +138,6 @@ class RuleLabels(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The rule label description.
         :param pulumi.Input[str] name: The name of the devices to be created.
         """
         ...
@@ -162,7 +151,6 @@ class RuleLabels(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import zscaler_pulumi_zia as zia
@@ -170,7 +158,6 @@ class RuleLabels(pulumi.CustomResource):
         # ZIA Rule Labels Resource
         example = zia.RuleLabels("example", description="Example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +228,6 @@ class RuleLabels(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The rule label description.
         :param pulumi.Input[str] name: The name of the devices to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -256,9 +242,6 @@ class RuleLabels(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The rule label description.
-        """
         return pulumi.get(self, "description")
 
     @property

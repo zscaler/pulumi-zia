@@ -74,14 +74,7 @@
                 "current": "zia:index/dLPWebRules:DLPWebRules",
                 "fields": {
                     "auditor": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "id": {
-                                    "maxItemsOne": true
-                                }
-                            }
-                        }
+                        "maxItemsOne": false
                     },
                     "cloud_applications": {
                         "maxItemsOne": false
@@ -107,6 +100,16 @@
                         }
                     },
                     "excluded_departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "excluded_domain_profiles": {
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
@@ -150,11 +153,14 @@
                         }
                     },
                     "icap_server": {
+                        "maxItemsOne": false
+                    },
+                    "included_domain_profiles": {
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "id": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -190,17 +196,20 @@
                         }
                     },
                     "notification_template": {
+                        "maxItemsOne": false
+                    },
+                    "protocols": {
+                        "maxItemsOne": false
+                    },
+                    "source_ip_groups": {
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "id": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": false
                                 }
                             }
                         }
-                    },
-                    "protocols": {
-                        "maxItemsOne": false
                     },
                     "sub_rules": {
                         "maxItemsOne": false
@@ -707,8 +716,28 @@
             "zia_location_management": {
                 "current": "zia:index/locationManagement:LocationManagement",
                 "fields": {
+                    "dynamic_location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "ip_addresses": {
                         "maxItemsOne": false
+                    },
+                    "static_location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "vpn_credentials": {
                         "maxItemsOne": false
@@ -914,6 +943,16 @@
                     },
                     "request_methods": {
                         "maxItemsOne": false
+                    },
+                    "source_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "time_windows": {
                         "maxItemsOne": true,
@@ -1134,9 +1173,6 @@
             "zia_dlp_web_rules": {
                 "current": "zia:index/getDLPWebRules:getDLPWebRules",
                 "fields": {
-                    "auditor": {
-                        "maxItemsOne": false
-                    },
                     "cloud_applications": {
                         "maxItemsOne": false
                     },
@@ -1161,9 +1197,6 @@
                     "groups": {
                         "maxItemsOne": false
                     },
-                    "icap_server": {
-                        "maxItemsOne": false
-                    },
                     "labels": {
                         "maxItemsOne": false
                     },
@@ -1176,10 +1209,10 @@
                     "locations": {
                         "maxItemsOne": false
                     },
-                    "notification_template": {
+                    "protocols": {
                         "maxItemsOne": false
                     },
-                    "protocols": {
+                    "source_ip_groups": {
                         "maxItemsOne": false
                     },
                     "sub_rules": {
@@ -1198,30 +1231,6 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
-                                "expression_json": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "expression_containers": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "tag_container": {
-                                                            "maxItemsOne": false,
-                                                            "elem": {
-                                                                "fields": {
-                                                                    "tags": {
-                                                                        "maxItemsOne": false
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
                                 "last_modified_by": {
                                     "maxItemsOne": false
                                 }
@@ -1743,6 +1752,9 @@
             "zia_traffic_forwarding_static_ip": {
                 "current": "zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP",
                 "fields": {
+                    "city": {
+                        "maxItemsOne": false
+                    },
                     "last_modified_by": {
                         "maxItemsOne": false
                     },
@@ -1844,6 +1856,9 @@
                         "maxItemsOne": false
                     },
                     "request_methods": {
+                        "maxItemsOne": false
+                    },
+                    "source_ip_groups": {
                         "maxItemsOne": false
                     },
                     "time_windows": {

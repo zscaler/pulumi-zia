@@ -13,7 +13,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class ForwardingControlRuleNwServicesGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("ids", required: true)]
+        [Input("ids")]
         private InputList<int>? _ids;
 
         /// <summary>

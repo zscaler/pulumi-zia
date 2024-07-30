@@ -15,14 +15,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class GetDLPWebRulesWorkloadGroupResult
     {
         /// <summary>
-        /// The description of the DLP policy rule.
-        /// </summary>
-        public readonly string Description;
-        /// <summary>
         /// The description of the workload group
         /// </summary>
-        public readonly string Expression;
-        public readonly ImmutableArray<Outputs.GetDLPWebRulesWorkloadGroupExpressionJsonResult> ExpressionJsons;
+        public readonly string Description;
         /// <summary>
         /// A unique identifier assigned to the workload group
         /// </summary>
@@ -44,10 +39,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         private GetDLPWebRulesWorkloadGroupResult(
             string description,
 
-            string expression,
-
-            ImmutableArray<Outputs.GetDLPWebRulesWorkloadGroupExpressionJsonResult> expressionJsons,
-
             int id,
 
             ImmutableArray<Outputs.GetDLPWebRulesWorkloadGroupLastModifiedByResult> lastModifiedBies,
@@ -57,8 +48,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
             string name)
         {
             Description = description;
-            Expression = expression;
-            ExpressionJsons = expressionJsons;
             Id = id;
             LastModifiedBies = lastModifiedBies;
             LastModifiedTime = lastModifiedTime;

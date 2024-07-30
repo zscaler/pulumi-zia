@@ -17,7 +17,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDLPEDMSchemaResult> InvokeAsync(GetDLPEDMSchemaArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPEDMSchemaResult>("zia:index/getDLPEDMSchema:getDLPEDMSchema", args ?? new GetDLPEDMSchemaArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,7 +56,6 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDLPEDMSchemaResult> Invoke(GetDLPEDMSchemaInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPEDMSchemaResult>("zia:index/getDLPEDMSchema:getDLPEDMSchema", args ?? new GetDLPEDMSchemaInvokeArgs(), options.WithDefaults());
@@ -68,9 +64,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPEDMSchemaArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The EDM schema (i.e., EDM template) name.
-        /// </summary>
         [Input("projectName")]
         public string? ProjectName { get; set; }
 
@@ -82,9 +75,6 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPEDMSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The EDM schema (i.e., EDM template) name.
-        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 

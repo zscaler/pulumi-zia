@@ -21,7 +21,7 @@ class GetDevicesResult:
     """
     A collection of values returned by getDevices.
     """
-    def __init__(__self__, description=None, device_group_type=None, device_model=None, id=None, name=None, os_type=None, os_version=None, owner_name=None, owner_user_id=None):
+    def __init__(__self__, description=None, device_group_type=None, device_model=None, hostname=None, id=None, name=None, os_type=None, os_version=None, owner_name=None, owner_user_id=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -31,6 +31,9 @@ class GetDevicesResult:
         if device_model and not isinstance(device_model, str):
             raise TypeError("Expected argument 'device_model' to be a str")
         pulumi.set(__self__, "device_model", device_model)
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        pulumi.set(__self__, "hostname", hostname)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -73,6 +76,11 @@ class GetDevicesResult:
         (String) The device model.
         """
         return pulumi.get(self, "device_model")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
@@ -132,6 +140,7 @@ class AwaitableGetDevicesResult(GetDevicesResult):
             description=self.description,
             device_group_type=self.device_group_type,
             device_model=self.device_model,
+            hostname=self.hostname,
             id=self.id,
             name=self.name,
             os_type=self.os_type,
@@ -142,6 +151,7 @@ class AwaitableGetDevicesResult(GetDevicesResult):
 
 def get_devices(device_group_type: Optional[str] = None,
                 device_model: Optional[str] = None,
+                hostname: Optional[str] = None,
                 name: Optional[str] = None,
                 os_type: Optional[str] = None,
                 os_version: Optional[str] = None,
@@ -152,14 +162,12 @@ def get_devices(device_group_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     device = zia.get_devices(name="administrator")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str device_group_type: (String) The device group type. i.e ``ZCC_OS``, ``NON_ZCC``, ``CBI``
@@ -172,6 +180,7 @@ def get_devices(device_group_type: Optional[str] = None,
     __args__ = dict()
     __args__['deviceGroupType'] = device_group_type
     __args__['deviceModel'] = device_model
+    __args__['hostname'] = hostname
     __args__['name'] = name
     __args__['osType'] = os_type
     __args__['osVersion'] = os_version
@@ -183,6 +192,7 @@ def get_devices(device_group_type: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         device_group_type=pulumi.get(__ret__, 'device_group_type'),
         device_model=pulumi.get(__ret__, 'device_model'),
+        hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         os_type=pulumi.get(__ret__, 'os_type'),
@@ -194,6 +204,7 @@ def get_devices(device_group_type: Optional[str] = None,
 @_utilities.lift_output_func(get_devices)
 def get_devices_output(device_group_type: Optional[pulumi.Input[Optional[str]]] = None,
                        device_model: Optional[pulumi.Input[Optional[str]]] = None,
+                       hostname: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        os_type: Optional[pulumi.Input[Optional[str]]] = None,
                        os_version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -204,14 +215,12 @@ def get_devices_output(device_group_type: Optional[pulumi.Input[Optional[str]]] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_zia as zia
 
     device = zia.get_devices(name="administrator")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str device_group_type: (String) The device group type. i.e ``ZCC_OS``, ``NON_ZCC``, ``CBI``

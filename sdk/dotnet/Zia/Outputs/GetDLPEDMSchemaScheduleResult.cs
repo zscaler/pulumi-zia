@@ -15,23 +15,23 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class GetDLPEDMSchemaScheduleResult
     {
         /// <summary>
-        /// The day of the month the EDM schema (i.e., EDM template) is scheduled for.
+        /// The day of the month that the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to MONTHLY.
         /// </summary>
         public readonly ImmutableArray<string> ScheduleDayOfMonths;
         /// <summary>
-        /// The day of the week the EDM schema (i.e., EDM template) is scheduled for.
+        /// The day of the week the IDM template is scheduled for. This attribute is required by PUT and POST requests, and when scheduleType is set to WEEKLY.
         /// </summary>
         public readonly ImmutableArray<string> ScheduleDayOfWeeks;
         /// <summary>
-        /// If set to true, the schedule for the EDM schema (i.e., EDM template) is temporarily in a disabled state.
+        /// If set to true, the schedule for the IDM template is temporarily in a disabled state. This attribute is required by PUT requests in order to disable or enable a schedule.
         /// </summary>
         public readonly bool ScheduleDisabled;
         /// <summary>
-        /// The time of the day (in minutes) that the EDM schema (i.e., EDM template) is scheduled for.
+        /// The time of the day (in minutes) that the IDM template is scheduled for. For example: at 3am= 180 mins. This attribute is required by PUT and POST requests.
         /// </summary>
         public readonly int ScheduleTime;
         /// <summary>
-        /// The schedule type for the EDM schema (i.e., EDM template), Monthly, Weekly, Daily, or None.
+        /// The schedule type for the IDM template's schedule (i.e., Monthly, Weekly, Daily, or None). This attribute is required by PUT and POST requests.
         /// </summary>
         public readonly string ScheduleType;
 

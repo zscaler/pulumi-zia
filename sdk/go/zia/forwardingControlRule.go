@@ -42,7 +42,7 @@ type ForwardingControlRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
-	// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+	// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
 	// ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
@@ -52,7 +52,7 @@ type ForwardingControlRule struct {
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsOutput `pulumi:"destIpv6Groups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsOutput `pulumi:"ecGroups"`
-	// The type of traffic forwarding method selected from the available options.
+	// The type of traffic forwarding method selected from the available options
 	ForwardMethod pulumi.StringOutput `pulumi:"forwardMethod"`
 	// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups ForwardingControlRuleGroupsOutput `pulumi:"groups"`
@@ -62,7 +62,7 @@ type ForwardingControlRule struct {
 	LocationGroups ForwardingControlRuleLocationGroupsOutput `pulumi:"locationGroups"`
 	// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations ForwardingControlRuleLocationsOutput `pulumi:"locations"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
 	NwApplicationGroups ForwardingControlRuleNwApplicationGroupsOutput `pulumi:"nwApplicationGroups"`
@@ -70,7 +70,7 @@ type ForwardingControlRule struct {
 	NwServiceGroups ForwardingControlRuleNwServiceGroupsOutput `pulumi:"nwServiceGroups"`
 	// (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
 	NwServices ForwardingControlRuleNwServicesOutput `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// (int) - The order of execution for the forwarding rule order.
 	Order pulumi.IntOutput `pulumi:"order"`
 	// (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
 	ProxyGateway ForwardingControlRuleProxyGatewayOutput `pulumi:"proxyGateway"`
@@ -88,7 +88,7 @@ type ForwardingControlRule struct {
 	SrcIpv6Groups ForwardingControlRuleSrcIpv6GroupsOutput `pulumi:"srcIpv6Groups"`
 	// (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The rule type selected from the available options. Supported Values: ``FORWARDING``
+	// The rule type selected from the available options
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users ForwardingControlRuleUsersOutput `pulumi:"users"`
@@ -146,7 +146,7 @@ type forwardingControlRuleState struct {
 	Description *string `pulumi:"description"`
 	// ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses []string `pulumi:"destAddresses"`
-	// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+	// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 	DestCountries []string `pulumi:"destCountries"`
 	// ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories []string `pulumi:"destIpCategories"`
@@ -156,7 +156,7 @@ type forwardingControlRuleState struct {
 	DestIpv6Groups *ForwardingControlRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups *ForwardingControlRuleEcGroups `pulumi:"ecGroups"`
-	// The type of traffic forwarding method selected from the available options.
+	// The type of traffic forwarding method selected from the available options
 	ForwardMethod *string `pulumi:"forwardMethod"`
 	// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *ForwardingControlRuleGroups `pulumi:"groups"`
@@ -166,7 +166,7 @@ type forwardingControlRuleState struct {
 	LocationGroups *ForwardingControlRuleLocationGroups `pulumi:"locationGroups"`
 	// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations *ForwardingControlRuleLocations `pulumi:"locations"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name *string `pulumi:"name"`
 	// (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
 	NwApplicationGroups *ForwardingControlRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
@@ -174,7 +174,7 @@ type forwardingControlRuleState struct {
 	NwServiceGroups *ForwardingControlRuleNwServiceGroups `pulumi:"nwServiceGroups"`
 	// (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
 	NwServices *ForwardingControlRuleNwServices `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// (int) - The order of execution for the forwarding rule order.
 	Order *int `pulumi:"order"`
 	// (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
 	ProxyGateway *ForwardingControlRuleProxyGateway `pulumi:"proxyGateway"`
@@ -192,7 +192,7 @@ type forwardingControlRuleState struct {
 	SrcIpv6Groups *ForwardingControlRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
 	// (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
 	State *string `pulumi:"state"`
-	// The rule type selected from the available options. Supported Values: ``FORWARDING``
+	// The rule type selected from the available options
 	Type *string `pulumi:"type"`
 	// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *ForwardingControlRuleUsers `pulumi:"users"`
@@ -215,7 +215,7 @@ type ForwardingControlRuleState struct {
 	Description pulumi.StringPtrInput
 	// ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses pulumi.StringArrayInput
-	// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+	// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 	DestCountries pulumi.StringArrayInput
 	// ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayInput
@@ -225,7 +225,7 @@ type ForwardingControlRuleState struct {
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsPtrInput
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsPtrInput
-	// The type of traffic forwarding method selected from the available options.
+	// The type of traffic forwarding method selected from the available options
 	ForwardMethod pulumi.StringPtrInput
 	// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups ForwardingControlRuleGroupsPtrInput
@@ -235,7 +235,7 @@ type ForwardingControlRuleState struct {
 	LocationGroups ForwardingControlRuleLocationGroupsPtrInput
 	// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations ForwardingControlRuleLocationsPtrInput
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringPtrInput
 	// (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
 	NwApplicationGroups ForwardingControlRuleNwApplicationGroupsPtrInput
@@ -243,7 +243,7 @@ type ForwardingControlRuleState struct {
 	NwServiceGroups ForwardingControlRuleNwServiceGroupsPtrInput
 	// (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
 	NwServices ForwardingControlRuleNwServicesPtrInput
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// (int) - The order of execution for the forwarding rule order.
 	Order pulumi.IntPtrInput
 	// (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
 	ProxyGateway ForwardingControlRuleProxyGatewayPtrInput
@@ -261,7 +261,7 @@ type ForwardingControlRuleState struct {
 	SrcIpv6Groups ForwardingControlRuleSrcIpv6GroupsPtrInput
 	// (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
 	State pulumi.StringPtrInput
-	// The rule type selected from the available options. Supported Values: ``FORWARDING``
+	// The rule type selected from the available options
 	Type pulumi.StringPtrInput
 	// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users ForwardingControlRuleUsersPtrInput
@@ -288,7 +288,7 @@ type forwardingControlRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses []string `pulumi:"destAddresses"`
-	// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+	// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 	DestCountries []string `pulumi:"destCountries"`
 	// ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories []string `pulumi:"destIpCategories"`
@@ -298,7 +298,7 @@ type forwardingControlRuleArgs struct {
 	DestIpv6Groups *ForwardingControlRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups *ForwardingControlRuleEcGroups `pulumi:"ecGroups"`
-	// The type of traffic forwarding method selected from the available options.
+	// The type of traffic forwarding method selected from the available options
 	ForwardMethod string `pulumi:"forwardMethod"`
 	// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *ForwardingControlRuleGroups `pulumi:"groups"`
@@ -308,7 +308,7 @@ type forwardingControlRuleArgs struct {
 	LocationGroups *ForwardingControlRuleLocationGroups `pulumi:"locationGroups"`
 	// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations *ForwardingControlRuleLocations `pulumi:"locations"`
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name *string `pulumi:"name"`
 	// (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
 	NwApplicationGroups *ForwardingControlRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
@@ -316,7 +316,7 @@ type forwardingControlRuleArgs struct {
 	NwServiceGroups *ForwardingControlRuleNwServiceGroups `pulumi:"nwServiceGroups"`
 	// (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
 	NwServices *ForwardingControlRuleNwServices `pulumi:"nwServices"`
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// (int) - The order of execution for the forwarding rule order.
 	Order int `pulumi:"order"`
 	// (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
 	ProxyGateway *ForwardingControlRuleProxyGateway `pulumi:"proxyGateway"`
@@ -332,7 +332,7 @@ type forwardingControlRuleArgs struct {
 	SrcIpv6Groups *ForwardingControlRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
 	// (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
 	State *string `pulumi:"state"`
-	// The rule type selected from the available options. Supported Values: ``FORWARDING``
+	// The rule type selected from the available options
 	Type *string `pulumi:"type"`
 	// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *ForwardingControlRuleUsers `pulumi:"users"`
@@ -356,7 +356,7 @@ type ForwardingControlRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses pulumi.StringArrayInput
-	// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+	// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 	DestCountries pulumi.StringArrayInput
 	// ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayInput
@@ -366,7 +366,7 @@ type ForwardingControlRuleArgs struct {
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsPtrInput
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsPtrInput
-	// The type of traffic forwarding method selected from the available options.
+	// The type of traffic forwarding method selected from the available options
 	ForwardMethod pulumi.StringInput
 	// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups ForwardingControlRuleGroupsPtrInput
@@ -376,7 +376,7 @@ type ForwardingControlRuleArgs struct {
 	LocationGroups ForwardingControlRuleLocationGroupsPtrInput
 	// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations ForwardingControlRuleLocationsPtrInput
-	// Name of the Firewall Filtering policy rule
+	// (string) The configured name of the entity
 	Name pulumi.StringPtrInput
 	// (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
 	NwApplicationGroups ForwardingControlRuleNwApplicationGroupsPtrInput
@@ -384,7 +384,7 @@ type ForwardingControlRuleArgs struct {
 	NwServiceGroups ForwardingControlRuleNwServiceGroupsPtrInput
 	// (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
 	NwServices ForwardingControlRuleNwServicesPtrInput
-	// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+	// (int) - The order of execution for the forwarding rule order.
 	Order pulumi.IntInput
 	// (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
 	ProxyGateway ForwardingControlRuleProxyGatewayPtrInput
@@ -400,7 +400,7 @@ type ForwardingControlRuleArgs struct {
 	SrcIpv6Groups ForwardingControlRuleSrcIpv6GroupsPtrInput
 	// (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
 	State pulumi.StringPtrInput
-	// The rule type selected from the available options. Supported Values: ``FORWARDING``
+	// The rule type selected from the available options
 	Type pulumi.StringPtrInput
 	// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users ForwardingControlRuleUsersPtrInput
@@ -521,7 +521,7 @@ func (o ForwardingControlRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// ** - (list) estination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+// ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 func (o ForwardingControlRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
@@ -546,7 +546,7 @@ func (o ForwardingControlRuleOutput) EcGroups() ForwardingControlRuleEcGroupsOut
 	return o.ApplyT(func(v *ForwardingControlRule) ForwardingControlRuleEcGroupsOutput { return v.EcGroups }).(ForwardingControlRuleEcGroupsOutput)
 }
 
-// The type of traffic forwarding method selected from the available options.
+// The type of traffic forwarding method selected from the available options
 func (o ForwardingControlRuleOutput) ForwardMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringOutput { return v.ForwardMethod }).(pulumi.StringOutput)
 }
@@ -571,7 +571,7 @@ func (o ForwardingControlRuleOutput) Locations() ForwardingControlRuleLocationsO
 	return o.ApplyT(func(v *ForwardingControlRule) ForwardingControlRuleLocationsOutput { return v.Locations }).(ForwardingControlRuleLocationsOutput)
 }
 
-// Name of the Firewall Filtering policy rule
+// (string) The configured name of the entity
 func (o ForwardingControlRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -593,7 +593,7 @@ func (o ForwardingControlRuleOutput) NwServices() ForwardingControlRuleNwService
 	return o.ApplyT(func(v *ForwardingControlRule) ForwardingControlRuleNwServicesOutput { return v.NwServices }).(ForwardingControlRuleNwServicesOutput)
 }
 
-// Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+// (int) - The order of execution for the forwarding rule order.
 func (o ForwardingControlRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
@@ -638,7 +638,7 @@ func (o ForwardingControlRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The rule type selected from the available options. Supported Values: “FORWARDING“
+// The rule type selected from the available options
 func (o ForwardingControlRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
