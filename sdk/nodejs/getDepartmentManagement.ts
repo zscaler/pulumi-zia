@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+ *
+ * ## Example Usage
+ */
 export function getDepartmentManagement(args?: GetDepartmentManagementArgs, opts?: pulumi.InvokeOptions): Promise<GetDepartmentManagementResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +21,9 @@ export function getDepartmentManagement(args?: GetDepartmentManagementArgs, opts
  * A collection of arguments for invoking getDepartmentManagement.
  */
 export interface GetDepartmentManagementArgs {
+    /**
+     * Name of the user department
+     */
     name?: string;
 }
 
@@ -23,12 +31,26 @@ export interface GetDepartmentManagementArgs {
  * A collection of values returned by getDepartmentManagement.
  */
 export interface GetDepartmentManagementResult {
+    /**
+     * (Optional) Additional information about this department
+     */
     readonly comments: string;
+    /**
+     * (Boolean) default: false
+     */
     readonly deleted: boolean;
     readonly id: number;
+    /**
+     * (Optional) Unique identfier for the identity provider (IdP)
+     */
     readonly idpId: number;
     readonly name?: string;
 }
+/**
+ * Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+ *
+ * ## Example Usage
+ */
 export function getDepartmentManagementOutput(args?: GetDepartmentManagementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDepartmentManagementResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,5 +63,8 @@ export function getDepartmentManagementOutput(args?: GetDepartmentManagementOutp
  * A collection of arguments for invoking getDepartmentManagement.
  */
 export interface GetDepartmentManagementOutputArgs {
+    /**
+     * Name of the user department
+     */
     name?: pulumi.Input<string>;
 }

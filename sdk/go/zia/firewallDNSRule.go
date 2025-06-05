@@ -12,96 +12,114 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// ## Example Usage
+//
+// ### Create Firewall DNS Rules - Redirect Action
+//
+// ### Create Firewall DNS Rules - Redirect Request DOH
+//
+// ### Create Firewall DNS Rules - Redirect TCP Request
+//
+//	resource "FirewallDNSRule" "this3" {
+//	    name = "Example_DNS_Rule03"
+//	    description = "Example_DNS_Rule03"
+//	    action = "REDIR_REQ_TCP"
+//	    state = "ENABLED"
+//	    order = 13
+//	    rank = 7
+//	    destCountries = ["CA", "US"]
+//	    sourceCountries = ["CA", "US"]
+//	    protocols = ["ANY_RULE"]
+//	    dnsGateway {
+//	      id = 18207342
+//	      name = "DNS_GW01"
+//	    }
+//	}
 type FirewallDNSRule struct {
 	pulumi.CustomResourceState
 
-	// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-	// blocking, or redirecting the traffic.
+	// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 	Action pulumi.StringPtrOutput `pulumi:"action"`
-	// list of nw application groups
+	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrOutput `pulumi:"applicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrOutput `pulumi:"blockResponseCode"`
-	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolOutput `pulumi:"capturePcap"`
-	// If set to true, the default rule is applied
+	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
-	// list of departments for which rule must be applied
+	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 	Departments FirewallDNSRuleDepartmentsPtrOutput `pulumi:"departments"`
-	// Additional information about the rule
+	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+	// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
-	// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+	// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
-	// list of destination ip groups
+	// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 	DestIpGroups FirewallDNSRuleDestIpGroupsPtrOutput `pulumi:"destIpGroups"`
 	// list of destination ip groups
 	DestIpv6Groups FirewallDNSRuleDestIpv6GroupsPtrOutput `pulumi:"destIpv6Groups"`
-	// This field is applicable for devices that are managed using Zscaler Client Connector.
+	// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	DeviceGroups FirewallDNSRuleDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
-	// Name-ID pairs of devices for which rule must be applied.
+	// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	Devices FirewallDNSRuleDevicesPtrOutput `pulumi:"devices"`
-	// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-	// service
+	// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 	DnsGateway FirewallDNSRuleDnsGatewayOutput `pulumi:"dnsGateway"`
-	// DNS request types to which the rule applies
+	// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+	// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+	// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+	// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+	// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+	// `ZONEMD`, `SVCB`, `HTTPS`,
 	DnsRuleRequestTypes pulumi.StringArrayOutput `pulumi:"dnsRuleRequestTypes"`
-	// The EDNS ECS object which resolves DNS request
+	// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectOutput `pulumi:"ednsEcsObject"`
-	// list of groups for which rule must be applied
+	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrOutput `pulumi:"groups"`
-	// list of Labels that are applicable to the rule.
+	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrOutput `pulumi:"labels"`
-	// list of locations groups
+	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 	LocationGroups FirewallDNSRuleLocationGroupsPtrOutput `pulumi:"locationGroups"`
-	// list of locations for which rule must be applied
+	// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations FirewallDNSRuleLocationsPtrOutput `pulumi:"locations"`
-	// The name of the IPS Control rule
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Rule order number. If omitted, the rule will be added to the end of the rule set.
+	// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 	Order pulumi.IntOutput `pulumi:"order"`
-	// If set to true, a predefined rule is applied
+	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
-	// Protocol for the given rule. This field is not applicable to the Lite API.
+	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-	// be specified for the rule.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrOutput `pulumi:"redirectIp"`
-	// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-	// to a specific URL category.
+	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayOutput `pulumi:"resCategories"`
 	RuleId        pulumi.IntOutput         `pulumi:"ruleId"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
-	// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address group.
+	// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 	SrcIpGroups FirewallDNSRuleSrcIpGroupsPtrOutput `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
-	// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-	// specific source IPv6 address group.
+	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrOutput `pulumi:"srcIpv6Groups"`
-	// The state of the rule indicating whether it is enabled or disabled
+	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// The time interval in which the Firewall Filtering policy rule applies
+	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrOutput `pulumi:"timeWindows"`
-	// list of users for which rule must be applied
+	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users FirewallDNSRuleUsersPtrOutput `pulumi:"users"`
-	// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-	// from a preconfigured IP pool
+	// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 	ZpaIpGroup FirewallDNSRuleZpaIpGroupOutput `pulumi:"zpaIpGroup"`
 }
 
@@ -138,184 +156,174 @@ func GetFirewallDNSRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallDNSRule resources.
 type firewallDNSRuleState struct {
-	// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-	// blocking, or redirecting the traffic.
+	// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 	Action *string `pulumi:"action"`
-	// list of nw application groups
+	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups *FirewallDNSRuleApplicationGroups `pulumi:"applicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 	Applications []string `pulumi:"applications"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode *string `pulumi:"blockResponseCode"`
-	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
-	// If set to true, the default rule is applied
+	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule *bool `pulumi:"defaultRule"`
-	// list of departments for which rule must be applied
+	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 	Departments *FirewallDNSRuleDepartments `pulumi:"departments"`
-	// Additional information about the rule
+	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description *string `pulumi:"description"`
-	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+	// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries []string `pulumi:"destCountries"`
-	// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+	// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories []string `pulumi:"destIpCategories"`
-	// list of destination ip groups
+	// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 	DestIpGroups *FirewallDNSRuleDestIpGroups `pulumi:"destIpGroups"`
 	// list of destination ip groups
 	DestIpv6Groups *FirewallDNSRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
-	// This field is applicable for devices that are managed using Zscaler Client Connector.
+	// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	DeviceGroups *FirewallDNSRuleDeviceGroups `pulumi:"deviceGroups"`
-	// Name-ID pairs of devices for which rule must be applied.
+	// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	Devices *FirewallDNSRuleDevices `pulumi:"devices"`
-	// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-	// service
+	// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 	DnsGateway *FirewallDNSRuleDnsGateway `pulumi:"dnsGateway"`
-	// DNS request types to which the rule applies
+	// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+	// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+	// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+	// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+	// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+	// `ZONEMD`, `SVCB`, `HTTPS`,
 	DnsRuleRequestTypes []string `pulumi:"dnsRuleRequestTypes"`
-	// The EDNS ECS object which resolves DNS request
+	// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 	EdnsEcsObject *FirewallDNSRuleEdnsEcsObject `pulumi:"ednsEcsObject"`
-	// list of groups for which rule must be applied
+	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *FirewallDNSRuleGroups `pulumi:"groups"`
-	// list of Labels that are applicable to the rule.
+	// (List of Objects) Labels that are applicable to the rule.
 	Labels *FirewallDNSRuleLabels `pulumi:"labels"`
-	// list of locations groups
+	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 	LocationGroups *FirewallDNSRuleLocationGroups `pulumi:"locationGroups"`
-	// list of locations for which rule must be applied
+	// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations *FirewallDNSRuleLocations `pulumi:"locations"`
-	// The name of the IPS Control rule
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
-	// Rule order number. If omitted, the rule will be added to the end of the rule set.
+	// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 	Order *int `pulumi:"order"`
-	// If set to true, a predefined rule is applied
+	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined *bool `pulumi:"predefined"`
-	// Protocol for the given rule. This field is not applicable to the Lite API.
+	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols []string `pulumi:"protocols"`
-	// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-	// be specified for the rule.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 	Rank *int `pulumi:"rank"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp *string `pulumi:"redirectIp"`
-	// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-	// to a specific URL category.
+	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories []string `pulumi:"resCategories"`
 	RuleId        *int     `pulumi:"ruleId"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	SourceCountries []string `pulumi:"sourceCountries"`
-	// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address group.
+	// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 	SrcIpGroups *FirewallDNSRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	SrcIps []string `pulumi:"srcIps"`
-	// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-	// specific source IPv6 address group.
+	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *FirewallDNSRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// The state of the rule indicating whether it is enabled or disabled
+	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 	State *string `pulumi:"state"`
-	// The time interval in which the Firewall Filtering policy rule applies
+	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows *FirewallDNSRuleTimeWindows `pulumi:"timeWindows"`
-	// list of users for which rule must be applied
+	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *FirewallDNSRuleUsers `pulumi:"users"`
-	// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-	// from a preconfigured IP pool
+	// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 	ZpaIpGroup *FirewallDNSRuleZpaIpGroup `pulumi:"zpaIpGroup"`
 }
 
 type FirewallDNSRuleState struct {
-	// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-	// blocking, or redirecting the traffic.
+	// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 	Action pulumi.StringPtrInput
-	// list of nw application groups
+	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrInput
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 	Applications pulumi.StringArrayInput
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrInput
-	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
-	// If set to true, the default rule is applied
+	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrInput
-	// list of departments for which rule must be applied
+	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 	Departments FirewallDNSRuleDepartmentsPtrInput
-	// Additional information about the rule
+	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrInput
-	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+	// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries pulumi.StringArrayInput
-	// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+	// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayInput
-	// list of destination ip groups
+	// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 	DestIpGroups FirewallDNSRuleDestIpGroupsPtrInput
 	// list of destination ip groups
 	DestIpv6Groups FirewallDNSRuleDestIpv6GroupsPtrInput
-	// This field is applicable for devices that are managed using Zscaler Client Connector.
+	// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	DeviceGroups FirewallDNSRuleDeviceGroupsPtrInput
-	// Name-ID pairs of devices for which rule must be applied.
+	// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	Devices FirewallDNSRuleDevicesPtrInput
-	// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-	// service
+	// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 	DnsGateway FirewallDNSRuleDnsGatewayPtrInput
-	// DNS request types to which the rule applies
+	// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+	// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+	// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+	// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+	// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+	// `ZONEMD`, `SVCB`, `HTTPS`,
 	DnsRuleRequestTypes pulumi.StringArrayInput
-	// The EDNS ECS object which resolves DNS request
+	// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectPtrInput
-	// list of groups for which rule must be applied
+	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrInput
-	// list of Labels that are applicable to the rule.
+	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrInput
-	// list of locations groups
+	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 	LocationGroups FirewallDNSRuleLocationGroupsPtrInput
-	// list of locations for which rule must be applied
+	// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations FirewallDNSRuleLocationsPtrInput
-	// The name of the IPS Control rule
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput
-	// Rule order number. If omitted, the rule will be added to the end of the rule set.
+	// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 	Order pulumi.IntPtrInput
-	// If set to true, a predefined rule is applied
+	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrInput
-	// Protocol for the given rule. This field is not applicable to the Lite API.
+	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayInput
-	// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-	// be specified for the rule.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 	Rank pulumi.IntPtrInput
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrInput
-	// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-	// to a specific URL category.
+	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayInput
 	RuleId        pulumi.IntPtrInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	SourceCountries pulumi.StringArrayInput
-	// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address group.
+	// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 	SrcIpGroups FirewallDNSRuleSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	SrcIps pulumi.StringArrayInput
-	// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-	// specific source IPv6 address group.
+	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrInput
-	// The state of the rule indicating whether it is enabled or disabled
+	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 	State pulumi.StringPtrInput
-	// The time interval in which the Firewall Filtering policy rule applies
+	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrInput
-	// list of users for which rule must be applied
+	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users FirewallDNSRuleUsersPtrInput
-	// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-	// from a preconfigured IP pool
+	// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 	ZpaIpGroup FirewallDNSRuleZpaIpGroupPtrInput
 }
 
@@ -324,183 +332,173 @@ func (FirewallDNSRuleState) ElementType() reflect.Type {
 }
 
 type firewallDNSRuleArgs struct {
-	// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-	// blocking, or redirecting the traffic.
+	// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 	Action *string `pulumi:"action"`
-	// list of nw application groups
+	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups *FirewallDNSRuleApplicationGroups `pulumi:"applicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 	Applications []string `pulumi:"applications"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode *string `pulumi:"blockResponseCode"`
-	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
-	// If set to true, the default rule is applied
+	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule *bool `pulumi:"defaultRule"`
-	// list of departments for which rule must be applied
+	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 	Departments *FirewallDNSRuleDepartments `pulumi:"departments"`
-	// Additional information about the rule
+	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description *string `pulumi:"description"`
-	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+	// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries []string `pulumi:"destCountries"`
-	// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+	// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories []string `pulumi:"destIpCategories"`
-	// list of destination ip groups
+	// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 	DestIpGroups *FirewallDNSRuleDestIpGroups `pulumi:"destIpGroups"`
 	// list of destination ip groups
 	DestIpv6Groups *FirewallDNSRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
-	// This field is applicable for devices that are managed using Zscaler Client Connector.
+	// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	DeviceGroups *FirewallDNSRuleDeviceGroups `pulumi:"deviceGroups"`
-	// Name-ID pairs of devices for which rule must be applied.
+	// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	Devices *FirewallDNSRuleDevices `pulumi:"devices"`
-	// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-	// service
+	// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 	DnsGateway *FirewallDNSRuleDnsGateway `pulumi:"dnsGateway"`
-	// DNS request types to which the rule applies
+	// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+	// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+	// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+	// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+	// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+	// `ZONEMD`, `SVCB`, `HTTPS`,
 	DnsRuleRequestTypes []string `pulumi:"dnsRuleRequestTypes"`
-	// The EDNS ECS object which resolves DNS request
+	// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 	EdnsEcsObject *FirewallDNSRuleEdnsEcsObject `pulumi:"ednsEcsObject"`
-	// list of groups for which rule must be applied
+	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *FirewallDNSRuleGroups `pulumi:"groups"`
-	// list of Labels that are applicable to the rule.
+	// (List of Objects) Labels that are applicable to the rule.
 	Labels *FirewallDNSRuleLabels `pulumi:"labels"`
-	// list of locations groups
+	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 	LocationGroups *FirewallDNSRuleLocationGroups `pulumi:"locationGroups"`
-	// list of locations for which rule must be applied
+	// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations *FirewallDNSRuleLocations `pulumi:"locations"`
-	// The name of the IPS Control rule
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
-	// Rule order number. If omitted, the rule will be added to the end of the rule set.
+	// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 	Order int `pulumi:"order"`
-	// If set to true, a predefined rule is applied
+	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined *bool `pulumi:"predefined"`
-	// Protocol for the given rule. This field is not applicable to the Lite API.
+	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols []string `pulumi:"protocols"`
-	// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-	// be specified for the rule.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 	Rank *int `pulumi:"rank"`
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp *string `pulumi:"redirectIp"`
-	// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-	// to a specific URL category.
+	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories []string `pulumi:"resCategories"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	SourceCountries []string `pulumi:"sourceCountries"`
-	// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address group.
+	// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 	SrcIpGroups *FirewallDNSRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	SrcIps []string `pulumi:"srcIps"`
-	// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-	// specific source IPv6 address group.
+	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *FirewallDNSRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// The state of the rule indicating whether it is enabled or disabled
+	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 	State *string `pulumi:"state"`
-	// The time interval in which the Firewall Filtering policy rule applies
+	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows *FirewallDNSRuleTimeWindows `pulumi:"timeWindows"`
-	// list of users for which rule must be applied
+	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *FirewallDNSRuleUsers `pulumi:"users"`
-	// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-	// from a preconfigured IP pool
+	// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 	ZpaIpGroup *FirewallDNSRuleZpaIpGroup `pulumi:"zpaIpGroup"`
 }
 
 // The set of arguments for constructing a FirewallDNSRule resource.
 type FirewallDNSRuleArgs struct {
-	// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-	// blocking, or redirecting the traffic.
+	// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 	Action pulumi.StringPtrInput
-	// list of nw application groups
+	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrInput
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 	Applications pulumi.StringArrayInput
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrInput
-	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
-	// If set to true, the default rule is applied
+	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrInput
-	// list of departments for which rule must be applied
+	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 	Departments FirewallDNSRuleDepartmentsPtrInput
-	// Additional information about the rule
+	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrInput
-	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+	// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries pulumi.StringArrayInput
-	// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+	// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories pulumi.StringArrayInput
-	// list of destination ip groups
+	// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 	DestIpGroups FirewallDNSRuleDestIpGroupsPtrInput
 	// list of destination ip groups
 	DestIpv6Groups FirewallDNSRuleDestIpv6GroupsPtrInput
-	// This field is applicable for devices that are managed using Zscaler Client Connector.
+	// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	DeviceGroups FirewallDNSRuleDeviceGroupsPtrInput
-	// Name-ID pairs of devices for which rule must be applied.
+	// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 	Devices FirewallDNSRuleDevicesPtrInput
-	// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-	// service
+	// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 	DnsGateway FirewallDNSRuleDnsGatewayPtrInput
-	// DNS request types to which the rule applies
+	// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+	// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+	// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+	// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+	// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+	// `ZONEMD`, `SVCB`, `HTTPS`,
 	DnsRuleRequestTypes pulumi.StringArrayInput
-	// The EDNS ECS object which resolves DNS request
+	// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectPtrInput
-	// list of groups for which rule must be applied
+	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrInput
-	// list of Labels that are applicable to the rule.
+	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrInput
-	// list of locations groups
+	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 	LocationGroups FirewallDNSRuleLocationGroupsPtrInput
-	// list of locations for which rule must be applied
+	// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 	Locations FirewallDNSRuleLocationsPtrInput
-	// The name of the IPS Control rule
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput
-	// Rule order number. If omitted, the rule will be added to the end of the rule set.
+	// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 	Order pulumi.IntInput
-	// If set to true, a predefined rule is applied
+	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrInput
-	// Protocol for the given rule. This field is not applicable to the Lite API.
+	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayInput
-	// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-	// be specified for the rule.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 	Rank pulumi.IntPtrInput
-	// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-	// done to specific IP addresses.
+	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrInput
-	// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-	// to a specific URL category.
+	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+	// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	SourceCountries pulumi.StringArrayInput
-	// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address group.
+	// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 	SrcIpGroups FirewallDNSRuleSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 	SrcIps pulumi.StringArrayInput
-	// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-	// specific source IPv6 address group.
+	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrInput
-	// The state of the rule indicating whether it is enabled or disabled
+	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 	State pulumi.StringPtrInput
-	// The time interval in which the Firewall Filtering policy rule applies
+	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrInput
-	// list of users for which rule must be applied
+	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users FirewallDNSRuleUsersPtrInput
-	// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-	// from a preconfigured IP pool
+	// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 	ZpaIpGroup FirewallDNSRuleZpaIpGroupPtrInput
 }
 
@@ -591,66 +589,64 @@ func (o FirewallDNSRuleOutput) ToFirewallDNSRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-// blocking, or redirecting the traffic.
+// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
 func (o FirewallDNSRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// list of nw application groups
+// (List of Objects) DNS application groups to which the rule applies
 func (o FirewallDNSRuleOutput) ApplicationGroups() FirewallDNSRuleApplicationGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleApplicationGroupsPtrOutput { return v.ApplicationGroups }).(FirewallDNSRuleApplicationGroupsPtrOutput)
 }
 
-// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-// specific network service application.
+// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
 func (o FirewallDNSRuleOutput) Applications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.Applications }).(pulumi.StringArrayOutput)
 }
 
-// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-// done to specific IP addresses.
+// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 func (o FirewallDNSRuleOutput) BlockResponseCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.BlockResponseCode }).(pulumi.StringPtrOutput)
 }
 
-// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 func (o FirewallDNSRuleOutput) CapturePcap() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolOutput { return v.CapturePcap }).(pulumi.BoolOutput)
 }
 
-// If set to true, the default rule is applied
+// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 func (o FirewallDNSRuleOutput) DefaultRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolPtrOutput { return v.DefaultRule }).(pulumi.BoolPtrOutput)
 }
 
-// list of departments for which rule must be applied
+// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
 func (o FirewallDNSRuleOutput) Departments() FirewallDNSRuleDepartmentsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDepartmentsPtrOutput { return v.Departments }).(FirewallDNSRuleDepartmentsPtrOutput)
 }
 
-// Additional information about the rule
+// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 func (o FirewallDNSRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 func (o FirewallDNSRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e “"US"“, “"CA"“
 func (o FirewallDNSRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
-// Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 func (o FirewallDNSRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
-// list of destination ip groups
+// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
 func (o FirewallDNSRuleOutput) DestIpGroups() FirewallDNSRuleDestIpGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDestIpGroupsPtrOutput { return v.DestIpGroups }).(FirewallDNSRuleDestIpGroupsPtrOutput)
 }
@@ -660,86 +656,87 @@ func (o FirewallDNSRuleOutput) DestIpv6Groups() FirewallDNSRuleDestIpv6GroupsPtr
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDestIpv6GroupsPtrOutput { return v.DestIpv6Groups }).(FirewallDNSRuleDestIpv6GroupsPtrOutput)
 }
 
-// This field is applicable for devices that are managed using Zscaler Client Connector.
+// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 func (o FirewallDNSRuleOutput) DeviceGroups() FirewallDNSRuleDeviceGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDeviceGroupsPtrOutput { return v.DeviceGroups }).(FirewallDNSRuleDeviceGroupsPtrOutput)
 }
 
-// Name-ID pairs of devices for which rule must be applied.
+// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
 func (o FirewallDNSRuleOutput) Devices() FirewallDNSRuleDevicesPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDevicesPtrOutput { return v.Devices }).(FirewallDNSRuleDevicesPtrOutput)
 }
 
-// The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-// service
+// (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
 func (o FirewallDNSRuleOutput) DnsGateway() FirewallDNSRuleDnsGatewayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleDnsGatewayOutput { return v.DnsGateway }).(FirewallDNSRuleDnsGatewayOutput)
 }
 
-// DNS request types to which the rule applies
+// (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+// `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+// `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+// `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+// `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+// `ZONEMD`, `SVCB`, `HTTPS`,
 func (o FirewallDNSRuleOutput) DnsRuleRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.DnsRuleRequestTypes }).(pulumi.StringArrayOutput)
 }
 
-// The EDNS ECS object which resolves DNS request
+// (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
 func (o FirewallDNSRuleOutput) EdnsEcsObject() FirewallDNSRuleEdnsEcsObjectOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleEdnsEcsObjectOutput { return v.EdnsEcsObject }).(FirewallDNSRuleEdnsEcsObjectOutput)
 }
 
-// list of groups for which rule must be applied
+// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 func (o FirewallDNSRuleOutput) Groups() FirewallDNSRuleGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleGroupsPtrOutput { return v.Groups }).(FirewallDNSRuleGroupsPtrOutput)
 }
 
-// list of Labels that are applicable to the rule.
+// (List of Objects) Labels that are applicable to the rule.
 func (o FirewallDNSRuleOutput) Labels() FirewallDNSRuleLabelsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleLabelsPtrOutput { return v.Labels }).(FirewallDNSRuleLabelsPtrOutput)
 }
 
-// list of locations groups
+// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
 func (o FirewallDNSRuleOutput) LocationGroups() FirewallDNSRuleLocationGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleLocationGroupsPtrOutput { return v.LocationGroups }).(FirewallDNSRuleLocationGroupsPtrOutput)
 }
 
-// list of locations for which rule must be applied
+// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
 func (o FirewallDNSRuleOutput) Locations() FirewallDNSRuleLocationsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleLocationsPtrOutput { return v.Locations }).(FirewallDNSRuleLocationsPtrOutput)
 }
 
-// The name of the IPS Control rule
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Rule order number. If omitted, the rule will be added to the end of the rule set.
+// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
 func (o FirewallDNSRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
-// If set to true, a predefined rule is applied
+// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 func (o FirewallDNSRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
-// Protocol for the given rule. This field is not applicable to the Lite API.
+// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 func (o FirewallDNSRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-// be specified for the rule.
+// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
 func (o FirewallDNSRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
-// The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-// done to specific IP addresses.
+// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 func (o FirewallDNSRuleOutput) RedirectIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.RedirectIp }).(pulumi.StringPtrOutput)
 }
 
-// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-// to a specific URL category.
+// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 func (o FirewallDNSRuleOutput) ResCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.ResCategories }).(pulumi.StringArrayOutput)
 }
@@ -748,47 +745,43 @@ func (o FirewallDNSRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e “"US"“, “"CA"“
 func (o FirewallDNSRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
-// list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-// source IP address group.
+// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
 func (o FirewallDNSRuleOutput) SrcIpGroups() FirewallDNSRuleSrcIpGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleSrcIpGroupsPtrOutput { return v.SrcIpGroups }).(FirewallDNSRuleSrcIpGroupsPtrOutput)
 }
 
-// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-// source IP address.
+// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
 func (o FirewallDNSRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
-// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-// specific source IPv6 address group.
+// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 func (o FirewallDNSRuleOutput) SrcIpv6Groups() FirewallDNSRuleSrcIpv6GroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleSrcIpv6GroupsPtrOutput { return v.SrcIpv6Groups }).(FirewallDNSRuleSrcIpv6GroupsPtrOutput)
 }
 
-// The state of the rule indicating whether it is enabled or disabled
+// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
 func (o FirewallDNSRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The time interval in which the Firewall Filtering policy rule applies
+// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 func (o FirewallDNSRuleOutput) TimeWindows() FirewallDNSRuleTimeWindowsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleTimeWindowsPtrOutput { return v.TimeWindows }).(FirewallDNSRuleTimeWindowsPtrOutput)
 }
 
-// list of users for which rule must be applied
+// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 func (o FirewallDNSRuleOutput) Users() FirewallDNSRuleUsersPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleUsersPtrOutput { return v.Users }).(FirewallDNSRuleUsersPtrOutput)
 }
 
-// The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-// from a preconfigured IP pool
+// (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
 func (o FirewallDNSRuleOutput) ZpaIpGroup() FirewallDNSRuleZpaIpGroupOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleZpaIpGroupOutput { return v.ZpaIpGroup }).(FirewallDNSRuleZpaIpGroupOutput)
 }

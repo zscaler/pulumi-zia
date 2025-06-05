@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+ *
+ * ## Example Usage
+ */
 export function getGroupManagement(args?: GetGroupManagementArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupManagementResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +21,9 @@ export function getGroupManagement(args?: GetGroupManagementArgs, opts?: pulumi.
  * A collection of arguments for invoking getGroupManagement.
  */
 export interface GetGroupManagementArgs {
+    /**
+     * Name of the user group
+     */
     name?: string;
 }
 
@@ -23,11 +31,22 @@ export interface GetGroupManagementArgs {
  * A collection of values returned by getGroupManagement.
  */
 export interface GetGroupManagementResult {
+    /**
+     * (Optional) Additional information about the group
+     */
     readonly comments: string;
     readonly id: number;
+    /**
+     * (Optional) Unique identfier for the identity provider (IdP)
+     */
     readonly idpId: number;
     readonly name?: string;
 }
+/**
+ * Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+ *
+ * ## Example Usage
+ */
 export function getGroupManagementOutput(args?: GetGroupManagementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupManagementResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,5 +59,8 @@ export function getGroupManagementOutput(args?: GetGroupManagementOutputArgs, op
  * A collection of arguments for invoking getGroupManagement.
  */
 export interface GetGroupManagementOutputArgs {
+    /**
+     * Name of the user group
+     */
     name?: pulumi.Input<string>;
 }

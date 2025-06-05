@@ -13,7 +13,7 @@ namespace zscaler.PulumiPackage.Zia
     public static class GetTrafficForwardingVIPRecommendedList
     {
         /// <summary>
-        /// Use the **zia_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
+        /// Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
         /// 
         /// ## Example Usage
         /// 
@@ -41,7 +41,7 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingVIPRecommendedListResult>("zia:index/getTrafficForwardingVIPRecommendedList:getTrafficForwardingVIPRecommendedList", args ?? new GetTrafficForwardingVIPRecommendedListArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use the **zia_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
+        /// Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
         /// 
         /// ## Example Usage
         /// 
@@ -69,7 +69,7 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingVIPRecommendedListResult>("zia:index/getTrafficForwardingVIPRecommendedList:getTrafficForwardingVIPRecommendedList", args ?? new GetTrafficForwardingVIPRecommendedListInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use the **zia_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
+        /// Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
         /// 
         /// ## Example Usage
         /// 

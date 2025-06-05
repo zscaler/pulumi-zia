@@ -16,11 +16,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     {
         public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
-        /// Identifier that uniquely identifies an entity
+        /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// Identifier that uniquely identifies an entity
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         public readonly string Name;
 

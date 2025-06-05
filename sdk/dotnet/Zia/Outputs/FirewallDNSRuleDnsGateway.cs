@@ -15,11 +15,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class FirewallDNSRuleDnsGateway
     {
         /// <summary>
-        /// The unique identifier for the resource.
+        /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the resource.
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         public readonly string? Name;
 

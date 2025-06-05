@@ -11,7 +11,7 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
-// Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+// Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 //
 // ## Example Usage
 func LookupFirewallFilteringApplicationGroups(ctx *pulumi.Context, args *LookupFirewallFilteringApplicationGroupsArgs, opts ...pulumi.InvokeOption) (*LookupFirewallFilteringApplicationGroupsResult, error) {
@@ -34,12 +34,9 @@ type LookupFirewallFilteringApplicationGroupsArgs struct {
 
 // A collection of values returned by getFirewallFilteringApplicationGroups.
 type LookupFirewallFilteringApplicationGroupsResult struct {
-	// (String)
-	Description string `pulumi:"description"`
-	// The ID of this resource.
-	Id   int    `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// (List of String)
+	Description         string   `pulumi:"description"`
+	Id                  int      `pulumi:"id"`
+	Name                string   `pulumi:"name"`
 	NetworkApplications []string `pulumi:"networkApplications"`
 }
 
@@ -79,12 +76,10 @@ func (o LookupFirewallFilteringApplicationGroupsResultOutput) ToLookupFirewallFi
 	return o
 }
 
-// (String)
 func (o LookupFirewallFilteringApplicationGroupsResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringApplicationGroupsResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ID of this resource.
 func (o LookupFirewallFilteringApplicationGroupsResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringApplicationGroupsResult) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -93,7 +88,6 @@ func (o LookupFirewallFilteringApplicationGroupsResultOutput) Name() pulumi.Stri
 	return o.ApplyT(func(v LookupFirewallFilteringApplicationGroupsResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (List of String)
 func (o LookupFirewallFilteringApplicationGroupsResultOutput) NetworkApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringApplicationGroupsResult) []string { return v.NetworkApplications }).(pulumi.StringArrayOutput)
 }

@@ -107,7 +107,24 @@ class SecuritySettings(pulumi.CustomResource):
                  whitelist_urls: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a SecuritySettings resource with the given unique name, props, and options.
+        The **zia_security_settings** resource alows you to add or remove a URL to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+
+        ## Example Usage
+
+        ## Import
+
+        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+
+        Visit
+
+        **zia_security_settings** can be imported by using `all_urls` as the import ID.
+
+        For example:
+
+        ```sh
+        $ pulumi import zia:index/securitySettings:SecuritySettings example all_urls
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] blacklist_urls: URLs on the denylist for your organization. Allow up to 25000 URLs.
@@ -120,7 +137,24 @@ class SecuritySettings(pulumi.CustomResource):
                  args: Optional[SecuritySettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecuritySettings resource with the given unique name, props, and options.
+        The **zia_security_settings** resource alows you to add or remove a URL to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+
+        ## Example Usage
+
+        ## Import
+
+        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+
+        Visit
+
+        **zia_security_settings** can be imported by using `all_urls` as the import ID.
+
+        For example:
+
+        ```sh
+        $ pulumi import zia:index/securitySettings:SecuritySettings example all_urls
+        ```
+
         :param str resource_name: The name of the resource.
         :param SecuritySettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+ *
+ * ## Example Usage
+ */
 export function getFirewallFilteringAppServices(args?: GetFirewallFilteringAppServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringAppServicesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +21,9 @@ export function getFirewallFilteringAppServices(args?: GetFirewallFilteringAppSe
  * A collection of arguments for invoking getFirewallFilteringAppServices.
  */
 export interface GetFirewallFilteringAppServicesArgs {
+    /**
+     * Name of the application layer service that you want to control. It can include any character and spaces.
+     */
     name?: string;
 }
 
@@ -27,6 +35,11 @@ export interface GetFirewallFilteringAppServicesResult {
     readonly name: string;
     readonly nameL10nTag: boolean;
 }
+/**
+ * The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+ *
+ * ## Example Usage
+ */
 export function getFirewallFilteringAppServicesOutput(args?: GetFirewallFilteringAppServicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallFilteringAppServicesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,5 +52,8 @@ export function getFirewallFilteringAppServicesOutput(args?: GetFirewallFilterin
  * A collection of arguments for invoking getFirewallFilteringAppServices.
  */
 export interface GetFirewallFilteringAppServicesOutputArgs {
+    /**
+     * Name of the application layer service that you want to control. It can include any character and spaces.
+     */
     name?: pulumi.Input<string>;
 }

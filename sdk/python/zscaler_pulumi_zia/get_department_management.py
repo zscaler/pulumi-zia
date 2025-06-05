@@ -47,11 +47,17 @@ class GetDepartmentManagementResult:
     @property
     @pulumi.getter
     def comments(self) -> builtins.str:
+        """
+        (Optional) Additional information about this department
+        """
         return pulumi.get(self, "comments")
 
     @property
     @pulumi.getter
     def deleted(self) -> builtins.bool:
+        """
+        (Boolean) default: false
+        """
         return pulumi.get(self, "deleted")
 
     @property
@@ -62,6 +68,9 @@ class GetDepartmentManagementResult:
     @property
     @pulumi.getter(name="idpId")
     def idp_id(self) -> builtins.int:
+        """
+        (Optional) Unique identfier for the identity provider (IdP)
+        """
         return pulumi.get(self, "idp_id")
 
     @property
@@ -86,7 +95,12 @@ class AwaitableGetDepartmentManagementResult(GetDepartmentManagementResult):
 def get_department_management(name: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDepartmentManagementResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the user department
     """
     __args__ = dict()
     __args__['name'] = name
@@ -102,7 +116,12 @@ def get_department_management(name: Optional[builtins.str] = None,
 def get_department_management_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDepartmentManagementResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the user department
     """
     __args__ = dict()
     __args__['name'] = name

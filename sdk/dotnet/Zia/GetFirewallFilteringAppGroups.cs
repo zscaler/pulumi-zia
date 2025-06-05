@@ -10,14 +10,51 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    [Obsolete(@"zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup")]
     public static class GetFirewallFilteringAppGroups
     {
+        /// <summary>
+        /// Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Groups
+        /// data "zia_firewall_filtering_application_services_group" "example" {
+        ///     name = "example"
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetFirewallFilteringAppGroupsResult> InvokeAsync(GetFirewallFilteringAppGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallFilteringAppGroupsResult>("zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups", args ?? new GetFirewallFilteringAppGroupsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Groups
+        /// data "zia_firewall_filtering_application_services_group" "example" {
+        ///     name = "example"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetFirewallFilteringAppGroupsResult> Invoke(GetFirewallFilteringAppGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringAppGroupsResult>("zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups", args ?? new GetFirewallFilteringAppGroupsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Groups
+        /// data "zia_firewall_filtering_application_services_group" "example" {
+        ///     name = "example"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetFirewallFilteringAppGroupsResult> Invoke(GetFirewallFilteringAppGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringAppGroupsResult>("zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups", args ?? new GetFirewallFilteringAppGroupsInvokeArgs(), options.WithDefaults());
     }
@@ -25,6 +62,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetFirewallFilteringAppGroupsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the ip source group to be exported.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -36,6 +76,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetFirewallFilteringAppGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the ip source group to be exported.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -49,6 +92,9 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetFirewallFilteringAppGroupsResult
     {
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         public readonly int Id;
         public readonly string Name;
         public readonly bool NameL10nTag;

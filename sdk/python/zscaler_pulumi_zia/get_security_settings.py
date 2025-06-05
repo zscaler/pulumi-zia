@@ -70,7 +70,9 @@ class AwaitableGetSecuritySettingsResult(GetSecuritySettingsResult):
 
 def get_security_settings(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecuritySettingsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+
+    ## Example Usage
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -82,7 +84,9 @@ def get_security_settings(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
         whitelist_urls=pulumi.get(__ret__, 'whitelist_urls'))
 def get_security_settings_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecuritySettingsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+
+    ## Example Usage
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

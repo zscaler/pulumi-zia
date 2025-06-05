@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+//
+// ## Example Usage
 func GetGroupManagement(ctx *pulumi.Context, args *GetGroupManagementArgs, opts ...pulumi.InvokeOption) (*GetGroupManagementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGroupManagementResult
@@ -23,15 +26,18 @@ func GetGroupManagement(ctx *pulumi.Context, args *GetGroupManagementArgs, opts 
 
 // A collection of arguments for invoking getGroupManagement.
 type GetGroupManagementArgs struct {
+	// Name of the user group
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getGroupManagement.
 type GetGroupManagementResult struct {
-	Comments string  `pulumi:"comments"`
-	Id       int     `pulumi:"id"`
-	IdpId    int     `pulumi:"idpId"`
-	Name     *string `pulumi:"name"`
+	// (Optional) Additional information about the group
+	Comments string `pulumi:"comments"`
+	Id       int    `pulumi:"id"`
+	// (Optional) Unique identfier for the identity provider (IdP)
+	IdpId int     `pulumi:"idpId"`
+	Name  *string `pulumi:"name"`
 }
 
 func GetGroupManagementOutput(ctx *pulumi.Context, args GetGroupManagementOutputArgs, opts ...pulumi.InvokeOption) GetGroupManagementResultOutput {
@@ -45,6 +51,7 @@ func GetGroupManagementOutput(ctx *pulumi.Context, args GetGroupManagementOutput
 
 // A collection of arguments for invoking getGroupManagement.
 type GetGroupManagementOutputArgs struct {
+	// Name of the user group
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -67,6 +74,7 @@ func (o GetGroupManagementResultOutput) ToGetGroupManagementResultOutputWithCont
 	return o
 }
 
+// (Optional) Additional information about the group
 func (o GetGroupManagementResultOutput) Comments() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupManagementResult) string { return v.Comments }).(pulumi.StringOutput)
 }
@@ -75,6 +83,7 @@ func (o GetGroupManagementResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupManagementResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// (Optional) Unique identfier for the identity provider (IdP)
 func (o GetGroupManagementResultOutput) IdpId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupManagementResult) int { return v.IdpId }).(pulumi.IntOutput)
 }

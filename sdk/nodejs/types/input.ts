@@ -255,90 +255,132 @@ export interface FileTypeControlRulesZpaAppSegment {
 }
 
 export interface FirewallDNSRuleApplicationGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDepartments {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDestIpGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDestIpv6Groups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDeviceGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDevices {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleDnsGateway {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: pulumi.Input<number>;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: pulumi.Input<string>;
 }
 
 export interface FirewallDNSRuleEdnsEcsObject {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: pulumi.Input<number>;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: pulumi.Input<string>;
 }
 
 export interface FirewallDNSRuleGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleLabels {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id?: pulumi.Input<number>;
 }
 
 export interface FirewallDNSRuleLocationGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleLocations {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleSrcIpGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleSrcIpv6Groups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleTimeWindows {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleUsers {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallDNSRuleZpaIpGroup {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: pulumi.Input<number>;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: pulumi.Input<string>;
 }
@@ -454,66 +496,114 @@ export interface FirewallFilteringServiceGroupsService {
 }
 
 export interface FirewallIPSRuleDepartments {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleDestIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleDestIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleDeviceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleDevices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleLabels {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     id?: pulumi.Input<number>;
 }
 
 export interface FirewallIPSRuleLocationGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleLocations {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleNwServiceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleNwServices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleSrcIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleSrcIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleThreatCategories {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleTimeWindows {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface FirewallIPSRuleUsers {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
@@ -940,6 +1030,129 @@ export interface GetSandboxReportStealthArgs {
     risk?: pulumi.Input<string>;
     signature?: pulumi.Input<string>;
     signatureSources?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface IPSFirewallRuleDepartments {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleDestIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleDestIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleDeviceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleDevices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleLabels {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    id?: pulumi.Input<number>;
+}
+
+export interface IPSFirewallRuleLocationGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleLocations {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleNwServiceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleNwServices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleSrcIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleSrcIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleThreatCategories {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleTimeWindows {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleUsers {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface IPSFirewallRuleZpaAppSegment {
+    /**
+     * External ID of the application segment.
+     */
+    externalId: pulumi.Input<string>;
+    /**
+     * Name of the application segment.
+     */
+    name: pulumi.Input<string>;
 }
 
 export interface LocationManagementDynamicLocationGroups {

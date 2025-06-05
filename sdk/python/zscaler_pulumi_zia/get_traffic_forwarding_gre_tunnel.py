@@ -66,21 +66,33 @@ class GetTrafficForwardingGRETunnelResult:
     @property
     @pulumi.getter
     def comment(self) -> builtins.str:
+        """
+        (String) Additional information about this GRE tunnel
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.int]:
+        """
+        (Number) Unique identifer of the GRE virtual IP address (VIP)
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="internalIpRange")
     def internal_ip_range(self) -> builtins.str:
+        """
+        (String) The start of the internal IP address in /29 CIDR range. Automatically set by the provider if `ip_unnumbered` is set to `false`.
+        """
         return pulumi.get(self, "internal_ip_range")
 
     @property
     @pulumi.getter(name="ipUnnumbered")
     def ip_unnumbered(self) -> builtins.bool:
+        """
+        (Boolean) This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
+        """
         return pulumi.get(self, "ip_unnumbered")
 
     @property
@@ -101,11 +113,17 @@ class GetTrafficForwardingGRETunnelResult:
     @property
     @pulumi.getter(name="primaryDestVips")
     def primary_dest_vips(self) -> Sequence['outputs.GetTrafficForwardingGRETunnelPrimaryDestVipResult']:
+        """
+        **` (List) The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        """
         return pulumi.get(self, "primary_dest_vips")
 
     @property
     @pulumi.getter(name="secondaryDestVips")
     def secondary_dest_vips(self) -> Sequence['outputs.GetTrafficForwardingGRETunnelSecondaryDestVipResult']:
+        """
+        (List) The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        """
         return pulumi.get(self, "secondary_dest_vips")
 
     @property
@@ -116,6 +134,9 @@ class GetTrafficForwardingGRETunnelResult:
     @property
     @pulumi.getter(name="withinCountry")
     def within_country(self) -> builtins.bool:
+        """
+        (Boolean) Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
+        """
         return pulumi.get(self, "within_country")
 
 
@@ -142,7 +163,19 @@ def get_traffic_forwarding_gre_tunnel(id: Optional[builtins.int] = None,
                                       source_ip: Optional[builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingGRETunnelResult:
     """
-    Use this data source to access information about an existing resource.
+    The **zia_traffic_forwarding_gre_tunnel** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
+
+    ## Example Usage
+
+    ### Retrieve GRE Tunnel By Source IP
+
+    ### Retrieve GRE Tunnel By ID
+
+
+    :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+    :param builtins.str source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
+           
+           > **NOTE** `source_ip` is the public IP address (Static IP) associated with the GRE Tunnel
     """
     __args__ = dict()
     __args__['id'] = id
@@ -166,7 +199,19 @@ def get_traffic_forwarding_gre_tunnel_output(id: Optional[pulumi.Input[Optional[
                                              source_ip: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingGRETunnelResult]:
     """
-    Use this data source to access information about an existing resource.
+    The **zia_traffic_forwarding_gre_tunnel** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
+
+    ## Example Usage
+
+    ### Retrieve GRE Tunnel By Source IP
+
+    ### Retrieve GRE Tunnel By ID
+
+
+    :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+    :param builtins.str source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
+           
+           > **NOTE** `source_ip` is the public IP address (Static IP) associated with the GRE Tunnel
     """
     __args__ = dict()
     __args__['id'] = id

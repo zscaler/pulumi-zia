@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+//
+// ## Example Usage
 func GetDLPIDMProfileLite(ctx *pulumi.Context, args *GetDLPIDMProfileLiteArgs, opts ...pulumi.InvokeOption) (*GetDLPIDMProfileLiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDLPIDMProfileLiteResult

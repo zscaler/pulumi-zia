@@ -72,7 +72,9 @@ class AwaitableGetTrafficForwardingGREInternalIPRangeResult(GetTrafficForwarding
 def get_traffic_forwarding_gre_internal_ip_range(required_count: Optional[builtins.int] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingGREInternalIPRangeResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+
+    ## Example Usage
     """
     __args__ = dict()
     __args__['requiredCount'] = required_count
@@ -86,7 +88,9 @@ def get_traffic_forwarding_gre_internal_ip_range(required_count: Optional[builti
 def get_traffic_forwarding_gre_internal_ip_range_output(required_count: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingGREInternalIPRangeResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+
+    ## Example Usage
     """
     __args__ = dict()
     __args__['requiredCount'] = required_count

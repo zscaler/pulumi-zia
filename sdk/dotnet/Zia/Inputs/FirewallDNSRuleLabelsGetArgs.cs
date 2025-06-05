@@ -13,6 +13,9 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class FirewallDNSRuleLabelsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique identifier for the Firewall Filtering policy rule
+        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

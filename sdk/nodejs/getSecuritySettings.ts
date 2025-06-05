@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+ *
+ * ## Example Usage
+ */
 export function getSecuritySettings(opts?: pulumi.InvokeOptions): Promise<GetSecuritySettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getSecuritySettings:getSecuritySettings", {
@@ -21,6 +26,11 @@ export interface GetSecuritySettingsResult {
     readonly id: string;
     readonly whitelistUrls: string[];
 }
+/**
+ * Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+ *
+ * ## Example Usage
+ */
 export function getSecuritySettingsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecuritySettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getSecuritySettings:getSecuritySettings", {

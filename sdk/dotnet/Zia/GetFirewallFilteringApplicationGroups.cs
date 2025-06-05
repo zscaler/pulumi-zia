@@ -13,12 +13,12 @@ namespace zscaler.PulumiPackage.Zia
     public static class GetFirewallFilteringApplicationGroups
     {
         /// <summary>
-        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
         /// 
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Application Groups
+        /// # ZIA IP Source Groups
         /// data "zia_firewall_filtering_network_application_groups" "example" {
         ///     name = "example"
         /// }
@@ -28,12 +28,12 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallFilteringApplicationGroupsResult>("zia:index/getFirewallFilteringApplicationGroups:getFirewallFilteringApplicationGroups", args ?? new GetFirewallFilteringApplicationGroupsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
         /// 
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Application Groups
+        /// # ZIA IP Source Groups
         /// data "zia_firewall_filtering_network_application_groups" "example" {
         ///     name = "example"
         /// }
@@ -43,12 +43,12 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringApplicationGroupsResult>("zia:index/getFirewallFilteringApplicationGroups:getFirewallFilteringApplicationGroups", args ?? new GetFirewallFilteringApplicationGroupsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+        /// Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
         /// 
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Application Groups
+        /// # ZIA IP Source Groups
         /// data "zia_firewall_filtering_network_application_groups" "example" {
         ///     name = "example"
         /// }
@@ -103,18 +103,9 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetFirewallFilteringApplicationGroupsResult
     {
-        /// <summary>
-        /// (String)
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly int Id;
         public readonly string Name;
-        /// <summary>
-        /// (List of String)
-        /// </summary>
         public readonly ImmutableArray<string> NetworkApplications;
 
         [OutputConstructor]

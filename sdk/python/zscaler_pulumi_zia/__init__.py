@@ -61,6 +61,8 @@ from .get_dlpidm_profiles import *
 from .get_end_user_notification import *
 from .get_file_type_control_rules import *
 from .get_firewall_dns_rule import *
+from .get_firewall_dns_rules import *
+from .get_firewall_filtering_app_group import *
 from .get_firewall_filtering_app_groups import *
 from .get_firewall_filtering_app_services import *
 from .get_firewall_filtering_application import *
@@ -76,6 +78,7 @@ from .get_forwarding_control_rule import *
 from .get_forwarding_control_zpa_gateway import *
 from .get_group_management import *
 from .get_icap_servers import *
+from .get_ips_firewall_rule import *
 from .get_location_groups import *
 from .get_location_lite import *
 from .get_location_management import *
@@ -102,6 +105,7 @@ from .get_url_filtering_cloud_app_settings import *
 from .get_url_filtering_rules import *
 from .get_user_management import *
 from .get_workload_groups import *
+from .ips_firewall_rule import *
 from .location_management import *
 from .provider import *
 from .rule_labels import *
@@ -360,6 +364,14 @@ _utilities.register(
   "fqn": "zscaler_pulumi_zia",
   "classes": {
    "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway": "ForwardingControlZPAGateway"
+  }
+ },
+ {
+  "pkg": "zia",
+  "mod": "index/iPSFirewallRule",
+  "fqn": "zscaler_pulumi_zia",
+  "classes": {
+   "zia:index/iPSFirewallRule:IPSFirewallRule": "IPSFirewallRule"
   }
  },
  {

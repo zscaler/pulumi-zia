@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class GetTrafficForwardingGRETunnelLastModifiedByResult
     {
+        /// <summary>
+        /// Unique identifier of the static IP address that is associated to a GRE tunnel
+        /// </summary>
         public readonly int Id;
         public readonly string Name;
 

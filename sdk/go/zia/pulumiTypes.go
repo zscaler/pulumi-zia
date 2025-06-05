@@ -6010,6 +6010,7 @@ func (o FileTypeControlRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FirewallDNSRuleApplicationGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6025,6 +6026,7 @@ type FirewallDNSRuleApplicationGroupsInput interface {
 }
 
 type FirewallDNSRuleApplicationGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6105,6 +6107,7 @@ func (o FirewallDNSRuleApplicationGroupsOutput) ToFirewallDNSRuleApplicationGrou
 	}).(FirewallDNSRuleApplicationGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleApplicationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleApplicationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6133,6 +6136,7 @@ func (o FirewallDNSRuleApplicationGroupsPtrOutput) Elem() FirewallDNSRuleApplica
 	}).(FirewallDNSRuleApplicationGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleApplicationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleApplicationGroups) []int {
 		if v == nil {
@@ -6143,6 +6147,7 @@ func (o FirewallDNSRuleApplicationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDepartments struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6158,6 +6163,7 @@ type FirewallDNSRuleDepartmentsInput interface {
 }
 
 type FirewallDNSRuleDepartmentsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6238,6 +6244,7 @@ func (o FirewallDNSRuleDepartmentsOutput) ToFirewallDNSRuleDepartmentsPtrOutputW
 	}).(FirewallDNSRuleDepartmentsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6266,6 +6273,7 @@ func (o FirewallDNSRuleDepartmentsPtrOutput) Elem() FirewallDNSRuleDepartmentsOu
 	}).(FirewallDNSRuleDepartmentsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDepartments) []int {
 		if v == nil {
@@ -6276,6 +6284,7 @@ func (o FirewallDNSRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDestIpGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6291,6 +6300,7 @@ type FirewallDNSRuleDestIpGroupsInput interface {
 }
 
 type FirewallDNSRuleDestIpGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6371,6 +6381,7 @@ func (o FirewallDNSRuleDestIpGroupsOutput) ToFirewallDNSRuleDestIpGroupsPtrOutpu
 	}).(FirewallDNSRuleDestIpGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDestIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDestIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6399,6 +6410,7 @@ func (o FirewallDNSRuleDestIpGroupsPtrOutput) Elem() FirewallDNSRuleDestIpGroups
 	}).(FirewallDNSRuleDestIpGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDestIpGroups) []int {
 		if v == nil {
@@ -6409,6 +6421,7 @@ func (o FirewallDNSRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDestIpv6Groups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6424,6 +6437,7 @@ type FirewallDNSRuleDestIpv6GroupsInput interface {
 }
 
 type FirewallDNSRuleDestIpv6GroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6504,6 +6518,7 @@ func (o FirewallDNSRuleDestIpv6GroupsOutput) ToFirewallDNSRuleDestIpv6GroupsPtrO
 	}).(FirewallDNSRuleDestIpv6GroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDestIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDestIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6532,6 +6547,7 @@ func (o FirewallDNSRuleDestIpv6GroupsPtrOutput) Elem() FirewallDNSRuleDestIpv6Gr
 	}).(FirewallDNSRuleDestIpv6GroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDestIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDestIpv6Groups) []int {
 		if v == nil {
@@ -6542,6 +6558,7 @@ func (o FirewallDNSRuleDestIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDeviceGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6557,6 +6574,7 @@ type FirewallDNSRuleDeviceGroupsInput interface {
 }
 
 type FirewallDNSRuleDeviceGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6637,6 +6655,7 @@ func (o FirewallDNSRuleDeviceGroupsOutput) ToFirewallDNSRuleDeviceGroupsPtrOutpu
 	}).(FirewallDNSRuleDeviceGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDeviceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDeviceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6665,6 +6684,7 @@ func (o FirewallDNSRuleDeviceGroupsPtrOutput) Elem() FirewallDNSRuleDeviceGroups
 	}).(FirewallDNSRuleDeviceGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDeviceGroups) []int {
 		if v == nil {
@@ -6675,6 +6695,7 @@ func (o FirewallDNSRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDevices struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -6690,6 +6711,7 @@ type FirewallDNSRuleDevicesInput interface {
 }
 
 type FirewallDNSRuleDevicesArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -6770,6 +6792,7 @@ func (o FirewallDNSRuleDevicesOutput) ToFirewallDNSRuleDevicesPtrOutputWithConte
 	}).(FirewallDNSRuleDevicesPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDevicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDevices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -6798,6 +6821,7 @@ func (o FirewallDNSRuleDevicesPtrOutput) Elem() FirewallDNSRuleDevicesOutput {
 	}).(FirewallDNSRuleDevicesOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDevices) []int {
 		if v == nil {
@@ -6808,9 +6832,9 @@ func (o FirewallDNSRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleDnsGateway struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
 }
 
@@ -6826,9 +6850,9 @@ type FirewallDNSRuleDnsGatewayInput interface {
 }
 
 type FirewallDNSRuleDnsGatewayArgs struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -6909,12 +6933,12 @@ func (o FirewallDNSRuleDnsGatewayOutput) ToFirewallDNSRuleDnsGatewayPtrOutputWit
 	}).(FirewallDNSRuleDnsGatewayPtrOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDnsGatewayOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDnsGateway) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleDnsGatewayOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallDNSRuleDnsGateway) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6943,7 +6967,7 @@ func (o FirewallDNSRuleDnsGatewayPtrOutput) Elem() FirewallDNSRuleDnsGatewayOutp
 	}).(FirewallDNSRuleDnsGatewayOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleDnsGatewayPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDnsGateway) *int {
 		if v == nil {
@@ -6953,7 +6977,7 @@ func (o FirewallDNSRuleDnsGatewayPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleDnsGatewayPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleDnsGateway) *string {
 		if v == nil {
@@ -6964,9 +6988,9 @@ func (o FirewallDNSRuleDnsGatewayPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type FirewallDNSRuleEdnsEcsObject struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
 }
 
@@ -6982,9 +7006,9 @@ type FirewallDNSRuleEdnsEcsObjectInput interface {
 }
 
 type FirewallDNSRuleEdnsEcsObjectArgs struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -7065,12 +7089,12 @@ func (o FirewallDNSRuleEdnsEcsObjectOutput) ToFirewallDNSRuleEdnsEcsObjectPtrOut
 	}).(FirewallDNSRuleEdnsEcsObjectPtrOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleEdnsEcsObjectOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallDNSRuleEdnsEcsObject) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleEdnsEcsObjectOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallDNSRuleEdnsEcsObject) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -7099,7 +7123,7 @@ func (o FirewallDNSRuleEdnsEcsObjectPtrOutput) Elem() FirewallDNSRuleEdnsEcsObje
 	}).(FirewallDNSRuleEdnsEcsObjectOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleEdnsEcsObjectPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleEdnsEcsObject) *int {
 		if v == nil {
@@ -7109,7 +7133,7 @@ func (o FirewallDNSRuleEdnsEcsObjectPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleEdnsEcsObjectPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleEdnsEcsObject) *string {
 		if v == nil {
@@ -7120,6 +7144,7 @@ func (o FirewallDNSRuleEdnsEcsObjectPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type FirewallDNSRuleGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7135,6 +7160,7 @@ type FirewallDNSRuleGroupsInput interface {
 }
 
 type FirewallDNSRuleGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -7215,6 +7241,7 @@ func (o FirewallDNSRuleGroupsOutput) ToFirewallDNSRuleGroupsPtrOutputWithContext
 	}).(FirewallDNSRuleGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -7243,6 +7270,7 @@ func (o FirewallDNSRuleGroupsPtrOutput) Elem() FirewallDNSRuleGroupsOutput {
 	}).(FirewallDNSRuleGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleGroups) []int {
 		if v == nil {
@@ -7253,6 +7281,7 @@ func (o FirewallDNSRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleLabels struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Id *int `pulumi:"id"`
 }
 
@@ -7268,6 +7297,7 @@ type FirewallDNSRuleLabelsInput interface {
 }
 
 type FirewallDNSRuleLabelsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
@@ -7348,6 +7378,7 @@ func (o FirewallDNSRuleLabelsOutput) ToFirewallDNSRuleLabelsPtrOutputWithContext
 	}).(FirewallDNSRuleLabelsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLabelsOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallDNSRuleLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
@@ -7376,6 +7407,7 @@ func (o FirewallDNSRuleLabelsPtrOutput) Elem() FirewallDNSRuleLabelsOutput {
 	}).(FirewallDNSRuleLabelsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleLabels) *int {
 		if v == nil {
@@ -7386,6 +7418,7 @@ func (o FirewallDNSRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 }
 
 type FirewallDNSRuleLocationGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7401,6 +7434,7 @@ type FirewallDNSRuleLocationGroupsInput interface {
 }
 
 type FirewallDNSRuleLocationGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -7481,6 +7515,7 @@ func (o FirewallDNSRuleLocationGroupsOutput) ToFirewallDNSRuleLocationGroupsPtrO
 	}).(FirewallDNSRuleLocationGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -7509,6 +7544,7 @@ func (o FirewallDNSRuleLocationGroupsPtrOutput) Elem() FirewallDNSRuleLocationGr
 	}).(FirewallDNSRuleLocationGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleLocationGroups) []int {
 		if v == nil {
@@ -7519,6 +7555,7 @@ func (o FirewallDNSRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleLocations struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7534,6 +7571,7 @@ type FirewallDNSRuleLocationsInput interface {
 }
 
 type FirewallDNSRuleLocationsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -7614,6 +7652,7 @@ func (o FirewallDNSRuleLocationsOutput) ToFirewallDNSRuleLocationsPtrOutputWithC
 	}).(FirewallDNSRuleLocationsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLocationsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -7642,6 +7681,7 @@ func (o FirewallDNSRuleLocationsPtrOutput) Elem() FirewallDNSRuleLocationsOutput
 	}).(FirewallDNSRuleLocationsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleLocations) []int {
 		if v == nil {
@@ -7652,6 +7692,7 @@ func (o FirewallDNSRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleSrcIpGroups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7667,6 +7708,7 @@ type FirewallDNSRuleSrcIpGroupsInput interface {
 }
 
 type FirewallDNSRuleSrcIpGroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -7747,6 +7789,7 @@ func (o FirewallDNSRuleSrcIpGroupsOutput) ToFirewallDNSRuleSrcIpGroupsPtrOutputW
 	}).(FirewallDNSRuleSrcIpGroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleSrcIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleSrcIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -7775,6 +7818,7 @@ func (o FirewallDNSRuleSrcIpGroupsPtrOutput) Elem() FirewallDNSRuleSrcIpGroupsOu
 	}).(FirewallDNSRuleSrcIpGroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleSrcIpGroups) []int {
 		if v == nil {
@@ -7785,6 +7829,7 @@ func (o FirewallDNSRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleSrcIpv6Groups struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7800,6 +7845,7 @@ type FirewallDNSRuleSrcIpv6GroupsInput interface {
 }
 
 type FirewallDNSRuleSrcIpv6GroupsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -7880,6 +7926,7 @@ func (o FirewallDNSRuleSrcIpv6GroupsOutput) ToFirewallDNSRuleSrcIpv6GroupsPtrOut
 	}).(FirewallDNSRuleSrcIpv6GroupsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleSrcIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleSrcIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -7908,6 +7955,7 @@ func (o FirewallDNSRuleSrcIpv6GroupsPtrOutput) Elem() FirewallDNSRuleSrcIpv6Grou
 	}).(FirewallDNSRuleSrcIpv6GroupsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleSrcIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleSrcIpv6Groups) []int {
 		if v == nil {
@@ -7918,6 +7966,7 @@ func (o FirewallDNSRuleSrcIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleTimeWindows struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -7933,6 +7982,7 @@ type FirewallDNSRuleTimeWindowsInput interface {
 }
 
 type FirewallDNSRuleTimeWindowsArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -8013,6 +8063,7 @@ func (o FirewallDNSRuleTimeWindowsOutput) ToFirewallDNSRuleTimeWindowsPtrOutputW
 	}).(FirewallDNSRuleTimeWindowsPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -8041,6 +8092,7 @@ func (o FirewallDNSRuleTimeWindowsPtrOutput) Elem() FirewallDNSRuleTimeWindowsOu
 	}).(FirewallDNSRuleTimeWindowsOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleTimeWindows) []int {
 		if v == nil {
@@ -8051,6 +8103,7 @@ func (o FirewallDNSRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleUsers struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids []int `pulumi:"ids"`
 }
 
@@ -8066,6 +8119,7 @@ type FirewallDNSRuleUsersInput interface {
 }
 
 type FirewallDNSRuleUsersArgs struct {
+	// Unique identifier for the Firewall Filtering policy rule
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -8146,6 +8200,7 @@ func (o FirewallDNSRuleUsersOutput) ToFirewallDNSRuleUsersPtrOutputWithContext(c
 	}).(FirewallDNSRuleUsersPtrOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallDNSRuleUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -8174,6 +8229,7 @@ func (o FirewallDNSRuleUsersPtrOutput) Elem() FirewallDNSRuleUsersOutput {
 	}).(FirewallDNSRuleUsersOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleUsers) []int {
 		if v == nil {
@@ -8184,9 +8240,9 @@ func (o FirewallDNSRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallDNSRuleZpaIpGroup struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
 }
 
@@ -8202,9 +8258,9 @@ type FirewallDNSRuleZpaIpGroupInput interface {
 }
 
 type FirewallDNSRuleZpaIpGroupArgs struct {
-	// The unique identifier for the resource.
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the resource.
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -8285,12 +8341,12 @@ func (o FirewallDNSRuleZpaIpGroupOutput) ToFirewallDNSRuleZpaIpGroupPtrOutputWit
 	}).(FirewallDNSRuleZpaIpGroupPtrOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleZpaIpGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallDNSRuleZpaIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleZpaIpGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallDNSRuleZpaIpGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -8319,7 +8375,7 @@ func (o FirewallDNSRuleZpaIpGroupPtrOutput) Elem() FirewallDNSRuleZpaIpGroupOutp
 	}).(FirewallDNSRuleZpaIpGroupOutput)
 }
 
-// The unique identifier for the resource.
+// Unique identifier for the Firewall Filtering policy rule
 func (o FirewallDNSRuleZpaIpGroupPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleZpaIpGroup) *int {
 		if v == nil {
@@ -8329,7 +8385,7 @@ func (o FirewallDNSRuleZpaIpGroupPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the resource.
+// Name of the Firewall Filtering policy rule
 func (o FirewallDNSRuleZpaIpGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRuleZpaIpGroup) *string {
 		if v == nil {
@@ -11174,6 +11230,7 @@ func (o FirewallFilteringServiceGroupsServiceArrayOutput) Index(i pulumi.IntInpu
 }
 
 type FirewallIPSRuleDepartments struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11189,6 +11246,7 @@ type FirewallIPSRuleDepartmentsInput interface {
 }
 
 type FirewallIPSRuleDepartmentsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11269,6 +11327,7 @@ func (o FirewallIPSRuleDepartmentsOutput) ToFirewallIPSRuleDepartmentsPtrOutputW
 	}).(FirewallIPSRuleDepartmentsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDepartmentsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11297,6 +11356,7 @@ func (o FirewallIPSRuleDepartmentsPtrOutput) Elem() FirewallIPSRuleDepartmentsOu
 	}).(FirewallIPSRuleDepartmentsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleDepartments) []int {
 		if v == nil {
@@ -11307,6 +11367,7 @@ func (o FirewallIPSRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleDestIpGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11322,6 +11383,7 @@ type FirewallIPSRuleDestIpGroupsInput interface {
 }
 
 type FirewallIPSRuleDestIpGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11402,6 +11464,7 @@ func (o FirewallIPSRuleDestIpGroupsOutput) ToFirewallIPSRuleDestIpGroupsPtrOutpu
 	}).(FirewallIPSRuleDestIpGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDestIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleDestIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11430,6 +11493,7 @@ func (o FirewallIPSRuleDestIpGroupsPtrOutput) Elem() FirewallIPSRuleDestIpGroups
 	}).(FirewallIPSRuleDestIpGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleDestIpGroups) []int {
 		if v == nil {
@@ -11440,6 +11504,7 @@ func (o FirewallIPSRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleDestIpv6Groups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11455,6 +11520,7 @@ type FirewallIPSRuleDestIpv6GroupsInput interface {
 }
 
 type FirewallIPSRuleDestIpv6GroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11535,6 +11601,7 @@ func (o FirewallIPSRuleDestIpv6GroupsOutput) ToFirewallIPSRuleDestIpv6GroupsPtrO
 	}).(FirewallIPSRuleDestIpv6GroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDestIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleDestIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11563,6 +11630,7 @@ func (o FirewallIPSRuleDestIpv6GroupsPtrOutput) Elem() FirewallIPSRuleDestIpv6Gr
 	}).(FirewallIPSRuleDestIpv6GroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDestIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleDestIpv6Groups) []int {
 		if v == nil {
@@ -11573,6 +11641,7 @@ func (o FirewallIPSRuleDestIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleDeviceGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11588,6 +11657,7 @@ type FirewallIPSRuleDeviceGroupsInput interface {
 }
 
 type FirewallIPSRuleDeviceGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11668,6 +11738,7 @@ func (o FirewallIPSRuleDeviceGroupsOutput) ToFirewallIPSRuleDeviceGroupsPtrOutpu
 	}).(FirewallIPSRuleDeviceGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDeviceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleDeviceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11696,6 +11767,7 @@ func (o FirewallIPSRuleDeviceGroupsPtrOutput) Elem() FirewallIPSRuleDeviceGroups
 	}).(FirewallIPSRuleDeviceGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleDeviceGroups) []int {
 		if v == nil {
@@ -11706,6 +11778,7 @@ func (o FirewallIPSRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleDevices struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11721,6 +11794,7 @@ type FirewallIPSRuleDevicesInput interface {
 }
 
 type FirewallIPSRuleDevicesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11801,6 +11875,7 @@ func (o FirewallIPSRuleDevicesOutput) ToFirewallIPSRuleDevicesPtrOutputWithConte
 	}).(FirewallIPSRuleDevicesPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDevicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleDevices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11829,6 +11904,7 @@ func (o FirewallIPSRuleDevicesPtrOutput) Elem() FirewallIPSRuleDevicesOutput {
 	}).(FirewallIPSRuleDevicesOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleDevices) []int {
 		if v == nil {
@@ -11839,6 +11915,7 @@ func (o FirewallIPSRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -11854,6 +11931,7 @@ type FirewallIPSRuleGroupsInput interface {
 }
 
 type FirewallIPSRuleGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -11934,6 +12012,7 @@ func (o FirewallIPSRuleGroupsOutput) ToFirewallIPSRuleGroupsPtrOutputWithContext
 	}).(FirewallIPSRuleGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -11962,6 +12041,7 @@ func (o FirewallIPSRuleGroupsPtrOutput) Elem() FirewallIPSRuleGroupsOutput {
 	}).(FirewallIPSRuleGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleGroups) []int {
 		if v == nil {
@@ -11972,6 +12052,7 @@ func (o FirewallIPSRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleLabels struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Id *int `pulumi:"id"`
 }
 
@@ -11987,6 +12068,7 @@ type FirewallIPSRuleLabelsInput interface {
 }
 
 type FirewallIPSRuleLabelsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Id pulumi.IntPtrInput `pulumi:"id"`
 }
 
@@ -12067,6 +12149,7 @@ func (o FirewallIPSRuleLabelsOutput) ToFirewallIPSRuleLabelsPtrOutputWithContext
 	}).(FirewallIPSRuleLabelsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLabelsOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallIPSRuleLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
@@ -12095,6 +12178,7 @@ func (o FirewallIPSRuleLabelsPtrOutput) Elem() FirewallIPSRuleLabelsOutput {
 	}).(FirewallIPSRuleLabelsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleLabels) *int {
 		if v == nil {
@@ -12105,6 +12189,7 @@ func (o FirewallIPSRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
 }
 
 type FirewallIPSRuleLocationGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12120,6 +12205,7 @@ type FirewallIPSRuleLocationGroupsInput interface {
 }
 
 type FirewallIPSRuleLocationGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12200,6 +12286,7 @@ func (o FirewallIPSRuleLocationGroupsOutput) ToFirewallIPSRuleLocationGroupsPtrO
 	}).(FirewallIPSRuleLocationGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12228,6 +12315,7 @@ func (o FirewallIPSRuleLocationGroupsPtrOutput) Elem() FirewallIPSRuleLocationGr
 	}).(FirewallIPSRuleLocationGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleLocationGroups) []int {
 		if v == nil {
@@ -12238,6 +12326,7 @@ func (o FirewallIPSRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleLocations struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12253,6 +12342,7 @@ type FirewallIPSRuleLocationsInput interface {
 }
 
 type FirewallIPSRuleLocationsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12333,6 +12423,7 @@ func (o FirewallIPSRuleLocationsOutput) ToFirewallIPSRuleLocationsPtrOutputWithC
 	}).(FirewallIPSRuleLocationsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLocationsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12361,6 +12452,7 @@ func (o FirewallIPSRuleLocationsPtrOutput) Elem() FirewallIPSRuleLocationsOutput
 	}).(FirewallIPSRuleLocationsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleLocations) []int {
 		if v == nil {
@@ -12371,6 +12463,7 @@ func (o FirewallIPSRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleNwServiceGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12386,6 +12479,7 @@ type FirewallIPSRuleNwServiceGroupsInput interface {
 }
 
 type FirewallIPSRuleNwServiceGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12466,6 +12560,7 @@ func (o FirewallIPSRuleNwServiceGroupsOutput) ToFirewallIPSRuleNwServiceGroupsPt
 	}).(FirewallIPSRuleNwServiceGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleNwServiceGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleNwServiceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12494,6 +12589,7 @@ func (o FirewallIPSRuleNwServiceGroupsPtrOutput) Elem() FirewallIPSRuleNwService
 	}).(FirewallIPSRuleNwServiceGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleNwServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleNwServiceGroups) []int {
 		if v == nil {
@@ -12504,6 +12600,7 @@ func (o FirewallIPSRuleNwServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleNwServices struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12519,6 +12616,7 @@ type FirewallIPSRuleNwServicesInput interface {
 }
 
 type FirewallIPSRuleNwServicesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12599,6 +12697,7 @@ func (o FirewallIPSRuleNwServicesOutput) ToFirewallIPSRuleNwServicesPtrOutputWit
 	}).(FirewallIPSRuleNwServicesPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleNwServicesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleNwServices) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12627,6 +12726,7 @@ func (o FirewallIPSRuleNwServicesPtrOutput) Elem() FirewallIPSRuleNwServicesOutp
 	}).(FirewallIPSRuleNwServicesOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleNwServices) []int {
 		if v == nil {
@@ -12637,6 +12737,7 @@ func (o FirewallIPSRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleSrcIpGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12652,6 +12753,7 @@ type FirewallIPSRuleSrcIpGroupsInput interface {
 }
 
 type FirewallIPSRuleSrcIpGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12732,6 +12834,7 @@ func (o FirewallIPSRuleSrcIpGroupsOutput) ToFirewallIPSRuleSrcIpGroupsPtrOutputW
 	}).(FirewallIPSRuleSrcIpGroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleSrcIpGroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleSrcIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12760,6 +12863,7 @@ func (o FirewallIPSRuleSrcIpGroupsPtrOutput) Elem() FirewallIPSRuleSrcIpGroupsOu
 	}).(FirewallIPSRuleSrcIpGroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleSrcIpGroups) []int {
 		if v == nil {
@@ -12770,6 +12874,7 @@ func (o FirewallIPSRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleSrcIpv6Groups struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12785,6 +12890,7 @@ type FirewallIPSRuleSrcIpv6GroupsInput interface {
 }
 
 type FirewallIPSRuleSrcIpv6GroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12865,6 +12971,7 @@ func (o FirewallIPSRuleSrcIpv6GroupsOutput) ToFirewallIPSRuleSrcIpv6GroupsPtrOut
 	}).(FirewallIPSRuleSrcIpv6GroupsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleSrcIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleSrcIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -12893,6 +13000,7 @@ func (o FirewallIPSRuleSrcIpv6GroupsPtrOutput) Elem() FirewallIPSRuleSrcIpv6Grou
 	}).(FirewallIPSRuleSrcIpv6GroupsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleSrcIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleSrcIpv6Groups) []int {
 		if v == nil {
@@ -12903,6 +13011,7 @@ func (o FirewallIPSRuleSrcIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleThreatCategories struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -12918,6 +13027,7 @@ type FirewallIPSRuleThreatCategoriesInput interface {
 }
 
 type FirewallIPSRuleThreatCategoriesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -12998,6 +13108,7 @@ func (o FirewallIPSRuleThreatCategoriesOutput) ToFirewallIPSRuleThreatCategories
 	}).(FirewallIPSRuleThreatCategoriesPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleThreatCategoriesOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleThreatCategories) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -13026,6 +13137,7 @@ func (o FirewallIPSRuleThreatCategoriesPtrOutput) Elem() FirewallIPSRuleThreatCa
 	}).(FirewallIPSRuleThreatCategoriesOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleThreatCategoriesPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleThreatCategories) []int {
 		if v == nil {
@@ -13036,6 +13148,7 @@ func (o FirewallIPSRuleThreatCategoriesPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleTimeWindows struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -13051,6 +13164,7 @@ type FirewallIPSRuleTimeWindowsInput interface {
 }
 
 type FirewallIPSRuleTimeWindowsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -13131,6 +13245,7 @@ func (o FirewallIPSRuleTimeWindowsOutput) ToFirewallIPSRuleTimeWindowsPtrOutputW
 	}).(FirewallIPSRuleTimeWindowsPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -13159,6 +13274,7 @@ func (o FirewallIPSRuleTimeWindowsPtrOutput) Elem() FirewallIPSRuleTimeWindowsOu
 	}).(FirewallIPSRuleTimeWindowsOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleTimeWindows) []int {
 		if v == nil {
@@ -13169,6 +13285,7 @@ func (o FirewallIPSRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
 }
 
 type FirewallIPSRuleUsers struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids []int `pulumi:"ids"`
 }
 
@@ -13184,6 +13301,7 @@ type FirewallIPSRuleUsersInput interface {
 }
 
 type FirewallIPSRuleUsersArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
 	Ids pulumi.IntArrayInput `pulumi:"ids"`
 }
 
@@ -13264,6 +13382,7 @@ func (o FirewallIPSRuleUsersOutput) ToFirewallIPSRuleUsersPtrOutputWithContext(c
 	}).(FirewallIPSRuleUsersPtrOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleUsersOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v FirewallIPSRuleUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
 }
@@ -13292,6 +13411,7 @@ func (o FirewallIPSRuleUsersPtrOutput) Elem() FirewallIPSRuleUsersOutput {
 	}).(FirewallIPSRuleUsersOutput)
 }
 
+// (Integer) Identifier that uniquely identifies an entity
 func (o FirewallIPSRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRuleUsers) []int {
 		if v == nil {
@@ -16414,6 +16534,2304 @@ func (o ForwardingControlZPAGatewayZpaServerGroupPtrOutput) Name() pulumi.String
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type IPSFirewallRuleDepartments struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleDepartmentsInput is an input type that accepts IPSFirewallRuleDepartmentsArgs and IPSFirewallRuleDepartmentsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDepartmentsInput` via:
+//
+//	IPSFirewallRuleDepartmentsArgs{...}
+type IPSFirewallRuleDepartmentsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDepartmentsOutput() IPSFirewallRuleDepartmentsOutput
+	ToIPSFirewallRuleDepartmentsOutputWithContext(context.Context) IPSFirewallRuleDepartmentsOutput
+}
+
+type IPSFirewallRuleDepartmentsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleDepartmentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDepartments)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleDepartmentsArgs) ToIPSFirewallRuleDepartmentsOutput() IPSFirewallRuleDepartmentsOutput {
+	return i.ToIPSFirewallRuleDepartmentsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDepartmentsArgs) ToIPSFirewallRuleDepartmentsOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDepartmentsOutput)
+}
+
+func (i IPSFirewallRuleDepartmentsArgs) ToIPSFirewallRuleDepartmentsPtrOutput() IPSFirewallRuleDepartmentsPtrOutput {
+	return i.ToIPSFirewallRuleDepartmentsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDepartmentsArgs) ToIPSFirewallRuleDepartmentsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDepartmentsOutput).ToIPSFirewallRuleDepartmentsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleDepartmentsPtrInput is an input type that accepts IPSFirewallRuleDepartmentsArgs, IPSFirewallRuleDepartmentsPtr and IPSFirewallRuleDepartmentsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDepartmentsPtrInput` via:
+//
+//	        IPSFirewallRuleDepartmentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleDepartmentsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDepartmentsPtrOutput() IPSFirewallRuleDepartmentsPtrOutput
+	ToIPSFirewallRuleDepartmentsPtrOutputWithContext(context.Context) IPSFirewallRuleDepartmentsPtrOutput
+}
+
+type ipsfirewallRuleDepartmentsPtrType IPSFirewallRuleDepartmentsArgs
+
+func IPSFirewallRuleDepartmentsPtr(v *IPSFirewallRuleDepartmentsArgs) IPSFirewallRuleDepartmentsPtrInput {
+	return (*ipsfirewallRuleDepartmentsPtrType)(v)
+}
+
+func (*ipsfirewallRuleDepartmentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDepartments)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleDepartmentsPtrType) ToIPSFirewallRuleDepartmentsPtrOutput() IPSFirewallRuleDepartmentsPtrOutput {
+	return i.ToIPSFirewallRuleDepartmentsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleDepartmentsPtrType) ToIPSFirewallRuleDepartmentsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDepartmentsPtrOutput)
+}
+
+type IPSFirewallRuleDepartmentsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDepartmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDepartments)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDepartmentsOutput) ToIPSFirewallRuleDepartmentsOutput() IPSFirewallRuleDepartmentsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDepartmentsOutput) ToIPSFirewallRuleDepartmentsOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDepartmentsOutput) ToIPSFirewallRuleDepartmentsPtrOutput() IPSFirewallRuleDepartmentsPtrOutput {
+	return o.ToIPSFirewallRuleDepartmentsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleDepartmentsOutput) ToIPSFirewallRuleDepartmentsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleDepartments) *IPSFirewallRuleDepartments {
+		return &v
+	}).(IPSFirewallRuleDepartmentsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDepartmentsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleDepartments) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDepartmentsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDepartmentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDepartments)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDepartmentsPtrOutput) ToIPSFirewallRuleDepartmentsPtrOutput() IPSFirewallRuleDepartmentsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDepartmentsPtrOutput) ToIPSFirewallRuleDepartmentsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDepartmentsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDepartmentsPtrOutput) Elem() IPSFirewallRuleDepartmentsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDepartments) IPSFirewallRuleDepartments {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleDepartments
+		return ret
+	}).(IPSFirewallRuleDepartmentsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDepartmentsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDepartments) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDestIpGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleDestIpGroupsInput is an input type that accepts IPSFirewallRuleDestIpGroupsArgs and IPSFirewallRuleDestIpGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDestIpGroupsInput` via:
+//
+//	IPSFirewallRuleDestIpGroupsArgs{...}
+type IPSFirewallRuleDestIpGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDestIpGroupsOutput() IPSFirewallRuleDestIpGroupsOutput
+	ToIPSFirewallRuleDestIpGroupsOutputWithContext(context.Context) IPSFirewallRuleDestIpGroupsOutput
+}
+
+type IPSFirewallRuleDestIpGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleDestIpGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDestIpGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleDestIpGroupsArgs) ToIPSFirewallRuleDestIpGroupsOutput() IPSFirewallRuleDestIpGroupsOutput {
+	return i.ToIPSFirewallRuleDestIpGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDestIpGroupsArgs) ToIPSFirewallRuleDestIpGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpGroupsOutput)
+}
+
+func (i IPSFirewallRuleDestIpGroupsArgs) ToIPSFirewallRuleDestIpGroupsPtrOutput() IPSFirewallRuleDestIpGroupsPtrOutput {
+	return i.ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDestIpGroupsArgs) ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpGroupsOutput).ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleDestIpGroupsPtrInput is an input type that accepts IPSFirewallRuleDestIpGroupsArgs, IPSFirewallRuleDestIpGroupsPtr and IPSFirewallRuleDestIpGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDestIpGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleDestIpGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleDestIpGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDestIpGroupsPtrOutput() IPSFirewallRuleDestIpGroupsPtrOutput
+	ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleDestIpGroupsPtrOutput
+}
+
+type ipsfirewallRuleDestIpGroupsPtrType IPSFirewallRuleDestIpGroupsArgs
+
+func IPSFirewallRuleDestIpGroupsPtr(v *IPSFirewallRuleDestIpGroupsArgs) IPSFirewallRuleDestIpGroupsPtrInput {
+	return (*ipsfirewallRuleDestIpGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleDestIpGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDestIpGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleDestIpGroupsPtrType) ToIPSFirewallRuleDestIpGroupsPtrOutput() IPSFirewallRuleDestIpGroupsPtrOutput {
+	return i.ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleDestIpGroupsPtrType) ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpGroupsPtrOutput)
+}
+
+type IPSFirewallRuleDestIpGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDestIpGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDestIpGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDestIpGroupsOutput) ToIPSFirewallRuleDestIpGroupsOutput() IPSFirewallRuleDestIpGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpGroupsOutput) ToIPSFirewallRuleDestIpGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpGroupsOutput) ToIPSFirewallRuleDestIpGroupsPtrOutput() IPSFirewallRuleDestIpGroupsPtrOutput {
+	return o.ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleDestIpGroupsOutput) ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleDestIpGroups) *IPSFirewallRuleDestIpGroups {
+		return &v
+	}).(IPSFirewallRuleDestIpGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDestIpGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleDestIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDestIpGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDestIpGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDestIpGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDestIpGroupsPtrOutput) ToIPSFirewallRuleDestIpGroupsPtrOutput() IPSFirewallRuleDestIpGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpGroupsPtrOutput) ToIPSFirewallRuleDestIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpGroupsPtrOutput) Elem() IPSFirewallRuleDestIpGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDestIpGroups) IPSFirewallRuleDestIpGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleDestIpGroups
+		return ret
+	}).(IPSFirewallRuleDestIpGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDestIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDestIpGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDestIpv6Groups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleDestIpv6GroupsInput is an input type that accepts IPSFirewallRuleDestIpv6GroupsArgs and IPSFirewallRuleDestIpv6GroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDestIpv6GroupsInput` via:
+//
+//	IPSFirewallRuleDestIpv6GroupsArgs{...}
+type IPSFirewallRuleDestIpv6GroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDestIpv6GroupsOutput() IPSFirewallRuleDestIpv6GroupsOutput
+	ToIPSFirewallRuleDestIpv6GroupsOutputWithContext(context.Context) IPSFirewallRuleDestIpv6GroupsOutput
+}
+
+type IPSFirewallRuleDestIpv6GroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleDestIpv6GroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDestIpv6Groups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleDestIpv6GroupsArgs) ToIPSFirewallRuleDestIpv6GroupsOutput() IPSFirewallRuleDestIpv6GroupsOutput {
+	return i.ToIPSFirewallRuleDestIpv6GroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDestIpv6GroupsArgs) ToIPSFirewallRuleDestIpv6GroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpv6GroupsOutput)
+}
+
+func (i IPSFirewallRuleDestIpv6GroupsArgs) ToIPSFirewallRuleDestIpv6GroupsPtrOutput() IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return i.ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDestIpv6GroupsArgs) ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpv6GroupsOutput).ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleDestIpv6GroupsPtrInput is an input type that accepts IPSFirewallRuleDestIpv6GroupsArgs, IPSFirewallRuleDestIpv6GroupsPtr and IPSFirewallRuleDestIpv6GroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDestIpv6GroupsPtrInput` via:
+//
+//	        IPSFirewallRuleDestIpv6GroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleDestIpv6GroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDestIpv6GroupsPtrOutput() IPSFirewallRuleDestIpv6GroupsPtrOutput
+	ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(context.Context) IPSFirewallRuleDestIpv6GroupsPtrOutput
+}
+
+type ipsfirewallRuleDestIpv6GroupsPtrType IPSFirewallRuleDestIpv6GroupsArgs
+
+func IPSFirewallRuleDestIpv6GroupsPtr(v *IPSFirewallRuleDestIpv6GroupsArgs) IPSFirewallRuleDestIpv6GroupsPtrInput {
+	return (*ipsfirewallRuleDestIpv6GroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleDestIpv6GroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDestIpv6Groups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleDestIpv6GroupsPtrType) ToIPSFirewallRuleDestIpv6GroupsPtrOutput() IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return i.ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleDestIpv6GroupsPtrType) ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDestIpv6GroupsPtrOutput)
+}
+
+type IPSFirewallRuleDestIpv6GroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDestIpv6GroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDestIpv6Groups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsOutput) ToIPSFirewallRuleDestIpv6GroupsOutput() IPSFirewallRuleDestIpv6GroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsOutput) ToIPSFirewallRuleDestIpv6GroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsOutput) ToIPSFirewallRuleDestIpv6GroupsPtrOutput() IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return o.ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsOutput) ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleDestIpv6Groups) *IPSFirewallRuleDestIpv6Groups {
+		return &v
+	}).(IPSFirewallRuleDestIpv6GroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDestIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleDestIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDestIpv6GroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDestIpv6GroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDestIpv6Groups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsPtrOutput) ToIPSFirewallRuleDestIpv6GroupsPtrOutput() IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsPtrOutput) ToIPSFirewallRuleDestIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDestIpv6GroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDestIpv6GroupsPtrOutput) Elem() IPSFirewallRuleDestIpv6GroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDestIpv6Groups) IPSFirewallRuleDestIpv6Groups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleDestIpv6Groups
+		return ret
+	}).(IPSFirewallRuleDestIpv6GroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDestIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDestIpv6Groups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDeviceGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleDeviceGroupsInput is an input type that accepts IPSFirewallRuleDeviceGroupsArgs and IPSFirewallRuleDeviceGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDeviceGroupsInput` via:
+//
+//	IPSFirewallRuleDeviceGroupsArgs{...}
+type IPSFirewallRuleDeviceGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDeviceGroupsOutput() IPSFirewallRuleDeviceGroupsOutput
+	ToIPSFirewallRuleDeviceGroupsOutputWithContext(context.Context) IPSFirewallRuleDeviceGroupsOutput
+}
+
+type IPSFirewallRuleDeviceGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleDeviceGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDeviceGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleDeviceGroupsArgs) ToIPSFirewallRuleDeviceGroupsOutput() IPSFirewallRuleDeviceGroupsOutput {
+	return i.ToIPSFirewallRuleDeviceGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDeviceGroupsArgs) ToIPSFirewallRuleDeviceGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDeviceGroupsOutput)
+}
+
+func (i IPSFirewallRuleDeviceGroupsArgs) ToIPSFirewallRuleDeviceGroupsPtrOutput() IPSFirewallRuleDeviceGroupsPtrOutput {
+	return i.ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDeviceGroupsArgs) ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDeviceGroupsOutput).ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleDeviceGroupsPtrInput is an input type that accepts IPSFirewallRuleDeviceGroupsArgs, IPSFirewallRuleDeviceGroupsPtr and IPSFirewallRuleDeviceGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDeviceGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleDeviceGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleDeviceGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDeviceGroupsPtrOutput() IPSFirewallRuleDeviceGroupsPtrOutput
+	ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleDeviceGroupsPtrOutput
+}
+
+type ipsfirewallRuleDeviceGroupsPtrType IPSFirewallRuleDeviceGroupsArgs
+
+func IPSFirewallRuleDeviceGroupsPtr(v *IPSFirewallRuleDeviceGroupsArgs) IPSFirewallRuleDeviceGroupsPtrInput {
+	return (*ipsfirewallRuleDeviceGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleDeviceGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDeviceGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleDeviceGroupsPtrType) ToIPSFirewallRuleDeviceGroupsPtrOutput() IPSFirewallRuleDeviceGroupsPtrOutput {
+	return i.ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleDeviceGroupsPtrType) ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDeviceGroupsPtrOutput)
+}
+
+type IPSFirewallRuleDeviceGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDeviceGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDeviceGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDeviceGroupsOutput) ToIPSFirewallRuleDeviceGroupsOutput() IPSFirewallRuleDeviceGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDeviceGroupsOutput) ToIPSFirewallRuleDeviceGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDeviceGroupsOutput) ToIPSFirewallRuleDeviceGroupsPtrOutput() IPSFirewallRuleDeviceGroupsPtrOutput {
+	return o.ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleDeviceGroupsOutput) ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleDeviceGroups) *IPSFirewallRuleDeviceGroups {
+		return &v
+	}).(IPSFirewallRuleDeviceGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDeviceGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleDeviceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDeviceGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDeviceGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDeviceGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDeviceGroupsPtrOutput) ToIPSFirewallRuleDeviceGroupsPtrOutput() IPSFirewallRuleDeviceGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDeviceGroupsPtrOutput) ToIPSFirewallRuleDeviceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDeviceGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDeviceGroupsPtrOutput) Elem() IPSFirewallRuleDeviceGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDeviceGroups) IPSFirewallRuleDeviceGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleDeviceGroups
+		return ret
+	}).(IPSFirewallRuleDeviceGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDeviceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDeviceGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDevices struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleDevicesInput is an input type that accepts IPSFirewallRuleDevicesArgs and IPSFirewallRuleDevicesOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDevicesInput` via:
+//
+//	IPSFirewallRuleDevicesArgs{...}
+type IPSFirewallRuleDevicesInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDevicesOutput() IPSFirewallRuleDevicesOutput
+	ToIPSFirewallRuleDevicesOutputWithContext(context.Context) IPSFirewallRuleDevicesOutput
+}
+
+type IPSFirewallRuleDevicesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleDevicesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDevices)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleDevicesArgs) ToIPSFirewallRuleDevicesOutput() IPSFirewallRuleDevicesOutput {
+	return i.ToIPSFirewallRuleDevicesOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDevicesArgs) ToIPSFirewallRuleDevicesOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDevicesOutput)
+}
+
+func (i IPSFirewallRuleDevicesArgs) ToIPSFirewallRuleDevicesPtrOutput() IPSFirewallRuleDevicesPtrOutput {
+	return i.ToIPSFirewallRuleDevicesPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleDevicesArgs) ToIPSFirewallRuleDevicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDevicesOutput).ToIPSFirewallRuleDevicesPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleDevicesPtrInput is an input type that accepts IPSFirewallRuleDevicesArgs, IPSFirewallRuleDevicesPtr and IPSFirewallRuleDevicesPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleDevicesPtrInput` via:
+//
+//	        IPSFirewallRuleDevicesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleDevicesPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleDevicesPtrOutput() IPSFirewallRuleDevicesPtrOutput
+	ToIPSFirewallRuleDevicesPtrOutputWithContext(context.Context) IPSFirewallRuleDevicesPtrOutput
+}
+
+type ipsfirewallRuleDevicesPtrType IPSFirewallRuleDevicesArgs
+
+func IPSFirewallRuleDevicesPtr(v *IPSFirewallRuleDevicesArgs) IPSFirewallRuleDevicesPtrInput {
+	return (*ipsfirewallRuleDevicesPtrType)(v)
+}
+
+func (*ipsfirewallRuleDevicesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDevices)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleDevicesPtrType) ToIPSFirewallRuleDevicesPtrOutput() IPSFirewallRuleDevicesPtrOutput {
+	return i.ToIPSFirewallRuleDevicesPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleDevicesPtrType) ToIPSFirewallRuleDevicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleDevicesPtrOutput)
+}
+
+type IPSFirewallRuleDevicesOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDevicesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleDevices)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDevicesOutput) ToIPSFirewallRuleDevicesOutput() IPSFirewallRuleDevicesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDevicesOutput) ToIPSFirewallRuleDevicesOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDevicesOutput) ToIPSFirewallRuleDevicesPtrOutput() IPSFirewallRuleDevicesPtrOutput {
+	return o.ToIPSFirewallRuleDevicesPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleDevicesOutput) ToIPSFirewallRuleDevicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleDevices) *IPSFirewallRuleDevices {
+		return &v
+	}).(IPSFirewallRuleDevicesPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDevicesOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleDevices) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleDevicesPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleDevicesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleDevices)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleDevicesPtrOutput) ToIPSFirewallRuleDevicesPtrOutput() IPSFirewallRuleDevicesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDevicesPtrOutput) ToIPSFirewallRuleDevicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleDevicesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleDevicesPtrOutput) Elem() IPSFirewallRuleDevicesOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDevices) IPSFirewallRuleDevices {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleDevices
+		return ret
+	}).(IPSFirewallRuleDevicesOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleDevicesPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleDevices) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleGroupsInput is an input type that accepts IPSFirewallRuleGroupsArgs and IPSFirewallRuleGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleGroupsInput` via:
+//
+//	IPSFirewallRuleGroupsArgs{...}
+type IPSFirewallRuleGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleGroupsOutput() IPSFirewallRuleGroupsOutput
+	ToIPSFirewallRuleGroupsOutputWithContext(context.Context) IPSFirewallRuleGroupsOutput
+}
+
+type IPSFirewallRuleGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleGroupsArgs) ToIPSFirewallRuleGroupsOutput() IPSFirewallRuleGroupsOutput {
+	return i.ToIPSFirewallRuleGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleGroupsArgs) ToIPSFirewallRuleGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleGroupsOutput)
+}
+
+func (i IPSFirewallRuleGroupsArgs) ToIPSFirewallRuleGroupsPtrOutput() IPSFirewallRuleGroupsPtrOutput {
+	return i.ToIPSFirewallRuleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleGroupsArgs) ToIPSFirewallRuleGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleGroupsOutput).ToIPSFirewallRuleGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleGroupsPtrInput is an input type that accepts IPSFirewallRuleGroupsArgs, IPSFirewallRuleGroupsPtr and IPSFirewallRuleGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleGroupsPtrOutput() IPSFirewallRuleGroupsPtrOutput
+	ToIPSFirewallRuleGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleGroupsPtrOutput
+}
+
+type ipsfirewallRuleGroupsPtrType IPSFirewallRuleGroupsArgs
+
+func IPSFirewallRuleGroupsPtr(v *IPSFirewallRuleGroupsArgs) IPSFirewallRuleGroupsPtrInput {
+	return (*ipsfirewallRuleGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleGroupsPtrType) ToIPSFirewallRuleGroupsPtrOutput() IPSFirewallRuleGroupsPtrOutput {
+	return i.ToIPSFirewallRuleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleGroupsPtrType) ToIPSFirewallRuleGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleGroupsPtrOutput)
+}
+
+type IPSFirewallRuleGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleGroupsOutput) ToIPSFirewallRuleGroupsOutput() IPSFirewallRuleGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleGroupsOutput) ToIPSFirewallRuleGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleGroupsOutput) ToIPSFirewallRuleGroupsPtrOutput() IPSFirewallRuleGroupsPtrOutput {
+	return o.ToIPSFirewallRuleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleGroupsOutput) ToIPSFirewallRuleGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleGroups) *IPSFirewallRuleGroups {
+		return &v
+	}).(IPSFirewallRuleGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleGroupsPtrOutput) ToIPSFirewallRuleGroupsPtrOutput() IPSFirewallRuleGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleGroupsPtrOutput) ToIPSFirewallRuleGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleGroupsPtrOutput) Elem() IPSFirewallRuleGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleGroups) IPSFirewallRuleGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleGroups
+		return ret
+	}).(IPSFirewallRuleGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleLabels struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Id *int `pulumi:"id"`
+}
+
+// IPSFirewallRuleLabelsInput is an input type that accepts IPSFirewallRuleLabelsArgs and IPSFirewallRuleLabelsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLabelsInput` via:
+//
+//	IPSFirewallRuleLabelsArgs{...}
+type IPSFirewallRuleLabelsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLabelsOutput() IPSFirewallRuleLabelsOutput
+	ToIPSFirewallRuleLabelsOutputWithContext(context.Context) IPSFirewallRuleLabelsOutput
+}
+
+type IPSFirewallRuleLabelsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Id pulumi.IntPtrInput `pulumi:"id"`
+}
+
+func (IPSFirewallRuleLabelsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLabels)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleLabelsArgs) ToIPSFirewallRuleLabelsOutput() IPSFirewallRuleLabelsOutput {
+	return i.ToIPSFirewallRuleLabelsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLabelsArgs) ToIPSFirewallRuleLabelsOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLabelsOutput)
+}
+
+func (i IPSFirewallRuleLabelsArgs) ToIPSFirewallRuleLabelsPtrOutput() IPSFirewallRuleLabelsPtrOutput {
+	return i.ToIPSFirewallRuleLabelsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLabelsArgs) ToIPSFirewallRuleLabelsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLabelsOutput).ToIPSFirewallRuleLabelsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleLabelsPtrInput is an input type that accepts IPSFirewallRuleLabelsArgs, IPSFirewallRuleLabelsPtr and IPSFirewallRuleLabelsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLabelsPtrInput` via:
+//
+//	        IPSFirewallRuleLabelsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleLabelsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLabelsPtrOutput() IPSFirewallRuleLabelsPtrOutput
+	ToIPSFirewallRuleLabelsPtrOutputWithContext(context.Context) IPSFirewallRuleLabelsPtrOutput
+}
+
+type ipsfirewallRuleLabelsPtrType IPSFirewallRuleLabelsArgs
+
+func IPSFirewallRuleLabelsPtr(v *IPSFirewallRuleLabelsArgs) IPSFirewallRuleLabelsPtrInput {
+	return (*ipsfirewallRuleLabelsPtrType)(v)
+}
+
+func (*ipsfirewallRuleLabelsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLabels)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleLabelsPtrType) ToIPSFirewallRuleLabelsPtrOutput() IPSFirewallRuleLabelsPtrOutput {
+	return i.ToIPSFirewallRuleLabelsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleLabelsPtrType) ToIPSFirewallRuleLabelsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLabelsPtrOutput)
+}
+
+type IPSFirewallRuleLabelsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLabelsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLabels)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLabelsOutput) ToIPSFirewallRuleLabelsOutput() IPSFirewallRuleLabelsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLabelsOutput) ToIPSFirewallRuleLabelsOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLabelsOutput) ToIPSFirewallRuleLabelsPtrOutput() IPSFirewallRuleLabelsPtrOutput {
+	return o.ToIPSFirewallRuleLabelsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleLabelsOutput) ToIPSFirewallRuleLabelsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleLabels) *IPSFirewallRuleLabels {
+		return &v
+	}).(IPSFirewallRuleLabelsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLabelsOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IPSFirewallRuleLabels) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+type IPSFirewallRuleLabelsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLabelsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLabels)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLabelsPtrOutput) ToIPSFirewallRuleLabelsPtrOutput() IPSFirewallRuleLabelsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLabelsPtrOutput) ToIPSFirewallRuleLabelsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLabelsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLabelsPtrOutput) Elem() IPSFirewallRuleLabelsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLabels) IPSFirewallRuleLabels {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleLabels
+		return ret
+	}).(IPSFirewallRuleLabelsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLabelsPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLabels) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.IntPtrOutput)
+}
+
+type IPSFirewallRuleLocationGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleLocationGroupsInput is an input type that accepts IPSFirewallRuleLocationGroupsArgs and IPSFirewallRuleLocationGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLocationGroupsInput` via:
+//
+//	IPSFirewallRuleLocationGroupsArgs{...}
+type IPSFirewallRuleLocationGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLocationGroupsOutput() IPSFirewallRuleLocationGroupsOutput
+	ToIPSFirewallRuleLocationGroupsOutputWithContext(context.Context) IPSFirewallRuleLocationGroupsOutput
+}
+
+type IPSFirewallRuleLocationGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleLocationGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLocationGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleLocationGroupsArgs) ToIPSFirewallRuleLocationGroupsOutput() IPSFirewallRuleLocationGroupsOutput {
+	return i.ToIPSFirewallRuleLocationGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLocationGroupsArgs) ToIPSFirewallRuleLocationGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationGroupsOutput)
+}
+
+func (i IPSFirewallRuleLocationGroupsArgs) ToIPSFirewallRuleLocationGroupsPtrOutput() IPSFirewallRuleLocationGroupsPtrOutput {
+	return i.ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLocationGroupsArgs) ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationGroupsOutput).ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleLocationGroupsPtrInput is an input type that accepts IPSFirewallRuleLocationGroupsArgs, IPSFirewallRuleLocationGroupsPtr and IPSFirewallRuleLocationGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLocationGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleLocationGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleLocationGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLocationGroupsPtrOutput() IPSFirewallRuleLocationGroupsPtrOutput
+	ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleLocationGroupsPtrOutput
+}
+
+type ipsfirewallRuleLocationGroupsPtrType IPSFirewallRuleLocationGroupsArgs
+
+func IPSFirewallRuleLocationGroupsPtr(v *IPSFirewallRuleLocationGroupsArgs) IPSFirewallRuleLocationGroupsPtrInput {
+	return (*ipsfirewallRuleLocationGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleLocationGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLocationGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleLocationGroupsPtrType) ToIPSFirewallRuleLocationGroupsPtrOutput() IPSFirewallRuleLocationGroupsPtrOutput {
+	return i.ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleLocationGroupsPtrType) ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationGroupsPtrOutput)
+}
+
+type IPSFirewallRuleLocationGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLocationGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLocationGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLocationGroupsOutput) ToIPSFirewallRuleLocationGroupsOutput() IPSFirewallRuleLocationGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationGroupsOutput) ToIPSFirewallRuleLocationGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationGroupsOutput) ToIPSFirewallRuleLocationGroupsPtrOutput() IPSFirewallRuleLocationGroupsPtrOutput {
+	return o.ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleLocationGroupsOutput) ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleLocationGroups) *IPSFirewallRuleLocationGroups {
+		return &v
+	}).(IPSFirewallRuleLocationGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLocationGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleLocationGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleLocationGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLocationGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLocationGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLocationGroupsPtrOutput) ToIPSFirewallRuleLocationGroupsPtrOutput() IPSFirewallRuleLocationGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationGroupsPtrOutput) ToIPSFirewallRuleLocationGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationGroupsPtrOutput) Elem() IPSFirewallRuleLocationGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLocationGroups) IPSFirewallRuleLocationGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleLocationGroups
+		return ret
+	}).(IPSFirewallRuleLocationGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLocationGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLocationGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleLocations struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleLocationsInput is an input type that accepts IPSFirewallRuleLocationsArgs and IPSFirewallRuleLocationsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLocationsInput` via:
+//
+//	IPSFirewallRuleLocationsArgs{...}
+type IPSFirewallRuleLocationsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLocationsOutput() IPSFirewallRuleLocationsOutput
+	ToIPSFirewallRuleLocationsOutputWithContext(context.Context) IPSFirewallRuleLocationsOutput
+}
+
+type IPSFirewallRuleLocationsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleLocationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLocations)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleLocationsArgs) ToIPSFirewallRuleLocationsOutput() IPSFirewallRuleLocationsOutput {
+	return i.ToIPSFirewallRuleLocationsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLocationsArgs) ToIPSFirewallRuleLocationsOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationsOutput)
+}
+
+func (i IPSFirewallRuleLocationsArgs) ToIPSFirewallRuleLocationsPtrOutput() IPSFirewallRuleLocationsPtrOutput {
+	return i.ToIPSFirewallRuleLocationsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleLocationsArgs) ToIPSFirewallRuleLocationsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationsOutput).ToIPSFirewallRuleLocationsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleLocationsPtrInput is an input type that accepts IPSFirewallRuleLocationsArgs, IPSFirewallRuleLocationsPtr and IPSFirewallRuleLocationsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleLocationsPtrInput` via:
+//
+//	        IPSFirewallRuleLocationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleLocationsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleLocationsPtrOutput() IPSFirewallRuleLocationsPtrOutput
+	ToIPSFirewallRuleLocationsPtrOutputWithContext(context.Context) IPSFirewallRuleLocationsPtrOutput
+}
+
+type ipsfirewallRuleLocationsPtrType IPSFirewallRuleLocationsArgs
+
+func IPSFirewallRuleLocationsPtr(v *IPSFirewallRuleLocationsArgs) IPSFirewallRuleLocationsPtrInput {
+	return (*ipsfirewallRuleLocationsPtrType)(v)
+}
+
+func (*ipsfirewallRuleLocationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLocations)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleLocationsPtrType) ToIPSFirewallRuleLocationsPtrOutput() IPSFirewallRuleLocationsPtrOutput {
+	return i.ToIPSFirewallRuleLocationsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleLocationsPtrType) ToIPSFirewallRuleLocationsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleLocationsPtrOutput)
+}
+
+type IPSFirewallRuleLocationsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLocationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleLocations)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLocationsOutput) ToIPSFirewallRuleLocationsOutput() IPSFirewallRuleLocationsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationsOutput) ToIPSFirewallRuleLocationsOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationsOutput) ToIPSFirewallRuleLocationsPtrOutput() IPSFirewallRuleLocationsPtrOutput {
+	return o.ToIPSFirewallRuleLocationsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleLocationsOutput) ToIPSFirewallRuleLocationsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleLocations) *IPSFirewallRuleLocations {
+		return &v
+	}).(IPSFirewallRuleLocationsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLocationsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleLocations) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleLocationsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleLocationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleLocations)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleLocationsPtrOutput) ToIPSFirewallRuleLocationsPtrOutput() IPSFirewallRuleLocationsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationsPtrOutput) ToIPSFirewallRuleLocationsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleLocationsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleLocationsPtrOutput) Elem() IPSFirewallRuleLocationsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLocations) IPSFirewallRuleLocations {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleLocations
+		return ret
+	}).(IPSFirewallRuleLocationsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleLocationsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleLocations) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleNwServiceGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleNwServiceGroupsInput is an input type that accepts IPSFirewallRuleNwServiceGroupsArgs and IPSFirewallRuleNwServiceGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleNwServiceGroupsInput` via:
+//
+//	IPSFirewallRuleNwServiceGroupsArgs{...}
+type IPSFirewallRuleNwServiceGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleNwServiceGroupsOutput() IPSFirewallRuleNwServiceGroupsOutput
+	ToIPSFirewallRuleNwServiceGroupsOutputWithContext(context.Context) IPSFirewallRuleNwServiceGroupsOutput
+}
+
+type IPSFirewallRuleNwServiceGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleNwServiceGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleNwServiceGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleNwServiceGroupsArgs) ToIPSFirewallRuleNwServiceGroupsOutput() IPSFirewallRuleNwServiceGroupsOutput {
+	return i.ToIPSFirewallRuleNwServiceGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleNwServiceGroupsArgs) ToIPSFirewallRuleNwServiceGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServiceGroupsOutput)
+}
+
+func (i IPSFirewallRuleNwServiceGroupsArgs) ToIPSFirewallRuleNwServiceGroupsPtrOutput() IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return i.ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleNwServiceGroupsArgs) ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServiceGroupsOutput).ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleNwServiceGroupsPtrInput is an input type that accepts IPSFirewallRuleNwServiceGroupsArgs, IPSFirewallRuleNwServiceGroupsPtr and IPSFirewallRuleNwServiceGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleNwServiceGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleNwServiceGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleNwServiceGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleNwServiceGroupsPtrOutput() IPSFirewallRuleNwServiceGroupsPtrOutput
+	ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleNwServiceGroupsPtrOutput
+}
+
+type ipsfirewallRuleNwServiceGroupsPtrType IPSFirewallRuleNwServiceGroupsArgs
+
+func IPSFirewallRuleNwServiceGroupsPtr(v *IPSFirewallRuleNwServiceGroupsArgs) IPSFirewallRuleNwServiceGroupsPtrInput {
+	return (*ipsfirewallRuleNwServiceGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleNwServiceGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleNwServiceGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleNwServiceGroupsPtrType) ToIPSFirewallRuleNwServiceGroupsPtrOutput() IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return i.ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleNwServiceGroupsPtrType) ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServiceGroupsPtrOutput)
+}
+
+type IPSFirewallRuleNwServiceGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleNwServiceGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleNwServiceGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleNwServiceGroupsOutput) ToIPSFirewallRuleNwServiceGroupsOutput() IPSFirewallRuleNwServiceGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServiceGroupsOutput) ToIPSFirewallRuleNwServiceGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServiceGroupsOutput) ToIPSFirewallRuleNwServiceGroupsPtrOutput() IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return o.ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleNwServiceGroupsOutput) ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleNwServiceGroups) *IPSFirewallRuleNwServiceGroups {
+		return &v
+	}).(IPSFirewallRuleNwServiceGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleNwServiceGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleNwServiceGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleNwServiceGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleNwServiceGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleNwServiceGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleNwServiceGroupsPtrOutput) ToIPSFirewallRuleNwServiceGroupsPtrOutput() IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServiceGroupsPtrOutput) ToIPSFirewallRuleNwServiceGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServiceGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServiceGroupsPtrOutput) Elem() IPSFirewallRuleNwServiceGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleNwServiceGroups) IPSFirewallRuleNwServiceGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleNwServiceGroups
+		return ret
+	}).(IPSFirewallRuleNwServiceGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleNwServiceGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleNwServiceGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleNwServices struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleNwServicesInput is an input type that accepts IPSFirewallRuleNwServicesArgs and IPSFirewallRuleNwServicesOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleNwServicesInput` via:
+//
+//	IPSFirewallRuleNwServicesArgs{...}
+type IPSFirewallRuleNwServicesInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleNwServicesOutput() IPSFirewallRuleNwServicesOutput
+	ToIPSFirewallRuleNwServicesOutputWithContext(context.Context) IPSFirewallRuleNwServicesOutput
+}
+
+type IPSFirewallRuleNwServicesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleNwServicesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleNwServices)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleNwServicesArgs) ToIPSFirewallRuleNwServicesOutput() IPSFirewallRuleNwServicesOutput {
+	return i.ToIPSFirewallRuleNwServicesOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleNwServicesArgs) ToIPSFirewallRuleNwServicesOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServicesOutput)
+}
+
+func (i IPSFirewallRuleNwServicesArgs) ToIPSFirewallRuleNwServicesPtrOutput() IPSFirewallRuleNwServicesPtrOutput {
+	return i.ToIPSFirewallRuleNwServicesPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleNwServicesArgs) ToIPSFirewallRuleNwServicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServicesOutput).ToIPSFirewallRuleNwServicesPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleNwServicesPtrInput is an input type that accepts IPSFirewallRuleNwServicesArgs, IPSFirewallRuleNwServicesPtr and IPSFirewallRuleNwServicesPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleNwServicesPtrInput` via:
+//
+//	        IPSFirewallRuleNwServicesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleNwServicesPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleNwServicesPtrOutput() IPSFirewallRuleNwServicesPtrOutput
+	ToIPSFirewallRuleNwServicesPtrOutputWithContext(context.Context) IPSFirewallRuleNwServicesPtrOutput
+}
+
+type ipsfirewallRuleNwServicesPtrType IPSFirewallRuleNwServicesArgs
+
+func IPSFirewallRuleNwServicesPtr(v *IPSFirewallRuleNwServicesArgs) IPSFirewallRuleNwServicesPtrInput {
+	return (*ipsfirewallRuleNwServicesPtrType)(v)
+}
+
+func (*ipsfirewallRuleNwServicesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleNwServices)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleNwServicesPtrType) ToIPSFirewallRuleNwServicesPtrOutput() IPSFirewallRuleNwServicesPtrOutput {
+	return i.ToIPSFirewallRuleNwServicesPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleNwServicesPtrType) ToIPSFirewallRuleNwServicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleNwServicesPtrOutput)
+}
+
+type IPSFirewallRuleNwServicesOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleNwServicesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleNwServices)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleNwServicesOutput) ToIPSFirewallRuleNwServicesOutput() IPSFirewallRuleNwServicesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServicesOutput) ToIPSFirewallRuleNwServicesOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServicesOutput) ToIPSFirewallRuleNwServicesPtrOutput() IPSFirewallRuleNwServicesPtrOutput {
+	return o.ToIPSFirewallRuleNwServicesPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleNwServicesOutput) ToIPSFirewallRuleNwServicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleNwServices) *IPSFirewallRuleNwServices {
+		return &v
+	}).(IPSFirewallRuleNwServicesPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleNwServicesOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleNwServices) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleNwServicesPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleNwServicesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleNwServices)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleNwServicesPtrOutput) ToIPSFirewallRuleNwServicesPtrOutput() IPSFirewallRuleNwServicesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServicesPtrOutput) ToIPSFirewallRuleNwServicesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleNwServicesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleNwServicesPtrOutput) Elem() IPSFirewallRuleNwServicesOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleNwServices) IPSFirewallRuleNwServices {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleNwServices
+		return ret
+	}).(IPSFirewallRuleNwServicesOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleNwServicesPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleNwServices) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleSrcIpGroups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleSrcIpGroupsInput is an input type that accepts IPSFirewallRuleSrcIpGroupsArgs and IPSFirewallRuleSrcIpGroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleSrcIpGroupsInput` via:
+//
+//	IPSFirewallRuleSrcIpGroupsArgs{...}
+type IPSFirewallRuleSrcIpGroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleSrcIpGroupsOutput() IPSFirewallRuleSrcIpGroupsOutput
+	ToIPSFirewallRuleSrcIpGroupsOutputWithContext(context.Context) IPSFirewallRuleSrcIpGroupsOutput
+}
+
+type IPSFirewallRuleSrcIpGroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleSrcIpGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleSrcIpGroups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleSrcIpGroupsArgs) ToIPSFirewallRuleSrcIpGroupsOutput() IPSFirewallRuleSrcIpGroupsOutput {
+	return i.ToIPSFirewallRuleSrcIpGroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleSrcIpGroupsArgs) ToIPSFirewallRuleSrcIpGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpGroupsOutput)
+}
+
+func (i IPSFirewallRuleSrcIpGroupsArgs) ToIPSFirewallRuleSrcIpGroupsPtrOutput() IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return i.ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleSrcIpGroupsArgs) ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpGroupsOutput).ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleSrcIpGroupsPtrInput is an input type that accepts IPSFirewallRuleSrcIpGroupsArgs, IPSFirewallRuleSrcIpGroupsPtr and IPSFirewallRuleSrcIpGroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleSrcIpGroupsPtrInput` via:
+//
+//	        IPSFirewallRuleSrcIpGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleSrcIpGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleSrcIpGroupsPtrOutput() IPSFirewallRuleSrcIpGroupsPtrOutput
+	ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(context.Context) IPSFirewallRuleSrcIpGroupsPtrOutput
+}
+
+type ipsfirewallRuleSrcIpGroupsPtrType IPSFirewallRuleSrcIpGroupsArgs
+
+func IPSFirewallRuleSrcIpGroupsPtr(v *IPSFirewallRuleSrcIpGroupsArgs) IPSFirewallRuleSrcIpGroupsPtrInput {
+	return (*ipsfirewallRuleSrcIpGroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleSrcIpGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleSrcIpGroups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleSrcIpGroupsPtrType) ToIPSFirewallRuleSrcIpGroupsPtrOutput() IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return i.ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleSrcIpGroupsPtrType) ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpGroupsPtrOutput)
+}
+
+type IPSFirewallRuleSrcIpGroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleSrcIpGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleSrcIpGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleSrcIpGroupsOutput) ToIPSFirewallRuleSrcIpGroupsOutput() IPSFirewallRuleSrcIpGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpGroupsOutput) ToIPSFirewallRuleSrcIpGroupsOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpGroupsOutput) ToIPSFirewallRuleSrcIpGroupsPtrOutput() IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return o.ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleSrcIpGroupsOutput) ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleSrcIpGroups) *IPSFirewallRuleSrcIpGroups {
+		return &v
+	}).(IPSFirewallRuleSrcIpGroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleSrcIpGroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleSrcIpGroups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleSrcIpGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleSrcIpGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleSrcIpGroups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleSrcIpGroupsPtrOutput) ToIPSFirewallRuleSrcIpGroupsPtrOutput() IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpGroupsPtrOutput) ToIPSFirewallRuleSrcIpGroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpGroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpGroupsPtrOutput) Elem() IPSFirewallRuleSrcIpGroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleSrcIpGroups) IPSFirewallRuleSrcIpGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleSrcIpGroups
+		return ret
+	}).(IPSFirewallRuleSrcIpGroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleSrcIpGroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleSrcIpGroups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleSrcIpv6Groups struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleSrcIpv6GroupsInput is an input type that accepts IPSFirewallRuleSrcIpv6GroupsArgs and IPSFirewallRuleSrcIpv6GroupsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleSrcIpv6GroupsInput` via:
+//
+//	IPSFirewallRuleSrcIpv6GroupsArgs{...}
+type IPSFirewallRuleSrcIpv6GroupsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleSrcIpv6GroupsOutput() IPSFirewallRuleSrcIpv6GroupsOutput
+	ToIPSFirewallRuleSrcIpv6GroupsOutputWithContext(context.Context) IPSFirewallRuleSrcIpv6GroupsOutput
+}
+
+type IPSFirewallRuleSrcIpv6GroupsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleSrcIpv6GroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleSrcIpv6Groups)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleSrcIpv6GroupsArgs) ToIPSFirewallRuleSrcIpv6GroupsOutput() IPSFirewallRuleSrcIpv6GroupsOutput {
+	return i.ToIPSFirewallRuleSrcIpv6GroupsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleSrcIpv6GroupsArgs) ToIPSFirewallRuleSrcIpv6GroupsOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpv6GroupsOutput)
+}
+
+func (i IPSFirewallRuleSrcIpv6GroupsArgs) ToIPSFirewallRuleSrcIpv6GroupsPtrOutput() IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return i.ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleSrcIpv6GroupsArgs) ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpv6GroupsOutput).ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleSrcIpv6GroupsPtrInput is an input type that accepts IPSFirewallRuleSrcIpv6GroupsArgs, IPSFirewallRuleSrcIpv6GroupsPtr and IPSFirewallRuleSrcIpv6GroupsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleSrcIpv6GroupsPtrInput` via:
+//
+//	        IPSFirewallRuleSrcIpv6GroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleSrcIpv6GroupsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleSrcIpv6GroupsPtrOutput() IPSFirewallRuleSrcIpv6GroupsPtrOutput
+	ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(context.Context) IPSFirewallRuleSrcIpv6GroupsPtrOutput
+}
+
+type ipsfirewallRuleSrcIpv6GroupsPtrType IPSFirewallRuleSrcIpv6GroupsArgs
+
+func IPSFirewallRuleSrcIpv6GroupsPtr(v *IPSFirewallRuleSrcIpv6GroupsArgs) IPSFirewallRuleSrcIpv6GroupsPtrInput {
+	return (*ipsfirewallRuleSrcIpv6GroupsPtrType)(v)
+}
+
+func (*ipsfirewallRuleSrcIpv6GroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleSrcIpv6Groups)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleSrcIpv6GroupsPtrType) ToIPSFirewallRuleSrcIpv6GroupsPtrOutput() IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return i.ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleSrcIpv6GroupsPtrType) ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleSrcIpv6GroupsPtrOutput)
+}
+
+type IPSFirewallRuleSrcIpv6GroupsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleSrcIpv6GroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleSrcIpv6Groups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsOutput) ToIPSFirewallRuleSrcIpv6GroupsOutput() IPSFirewallRuleSrcIpv6GroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsOutput) ToIPSFirewallRuleSrcIpv6GroupsOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsOutput) ToIPSFirewallRuleSrcIpv6GroupsPtrOutput() IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return o.ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsOutput) ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleSrcIpv6Groups) *IPSFirewallRuleSrcIpv6Groups {
+		return &v
+	}).(IPSFirewallRuleSrcIpv6GroupsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleSrcIpv6GroupsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleSrcIpv6Groups) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleSrcIpv6GroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleSrcIpv6GroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleSrcIpv6Groups)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsPtrOutput) ToIPSFirewallRuleSrcIpv6GroupsPtrOutput() IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsPtrOutput) ToIPSFirewallRuleSrcIpv6GroupsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleSrcIpv6GroupsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleSrcIpv6GroupsPtrOutput) Elem() IPSFirewallRuleSrcIpv6GroupsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleSrcIpv6Groups) IPSFirewallRuleSrcIpv6Groups {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleSrcIpv6Groups
+		return ret
+	}).(IPSFirewallRuleSrcIpv6GroupsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleSrcIpv6GroupsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleSrcIpv6Groups) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleThreatCategories struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleThreatCategoriesInput is an input type that accepts IPSFirewallRuleThreatCategoriesArgs and IPSFirewallRuleThreatCategoriesOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleThreatCategoriesInput` via:
+//
+//	IPSFirewallRuleThreatCategoriesArgs{...}
+type IPSFirewallRuleThreatCategoriesInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleThreatCategoriesOutput() IPSFirewallRuleThreatCategoriesOutput
+	ToIPSFirewallRuleThreatCategoriesOutputWithContext(context.Context) IPSFirewallRuleThreatCategoriesOutput
+}
+
+type IPSFirewallRuleThreatCategoriesArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleThreatCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleThreatCategories)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleThreatCategoriesArgs) ToIPSFirewallRuleThreatCategoriesOutput() IPSFirewallRuleThreatCategoriesOutput {
+	return i.ToIPSFirewallRuleThreatCategoriesOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleThreatCategoriesArgs) ToIPSFirewallRuleThreatCategoriesOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleThreatCategoriesOutput)
+}
+
+func (i IPSFirewallRuleThreatCategoriesArgs) ToIPSFirewallRuleThreatCategoriesPtrOutput() IPSFirewallRuleThreatCategoriesPtrOutput {
+	return i.ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleThreatCategoriesArgs) ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleThreatCategoriesOutput).ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleThreatCategoriesPtrInput is an input type that accepts IPSFirewallRuleThreatCategoriesArgs, IPSFirewallRuleThreatCategoriesPtr and IPSFirewallRuleThreatCategoriesPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleThreatCategoriesPtrInput` via:
+//
+//	        IPSFirewallRuleThreatCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleThreatCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleThreatCategoriesPtrOutput() IPSFirewallRuleThreatCategoriesPtrOutput
+	ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(context.Context) IPSFirewallRuleThreatCategoriesPtrOutput
+}
+
+type ipsfirewallRuleThreatCategoriesPtrType IPSFirewallRuleThreatCategoriesArgs
+
+func IPSFirewallRuleThreatCategoriesPtr(v *IPSFirewallRuleThreatCategoriesArgs) IPSFirewallRuleThreatCategoriesPtrInput {
+	return (*ipsfirewallRuleThreatCategoriesPtrType)(v)
+}
+
+func (*ipsfirewallRuleThreatCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleThreatCategories)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleThreatCategoriesPtrType) ToIPSFirewallRuleThreatCategoriesPtrOutput() IPSFirewallRuleThreatCategoriesPtrOutput {
+	return i.ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleThreatCategoriesPtrType) ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleThreatCategoriesPtrOutput)
+}
+
+type IPSFirewallRuleThreatCategoriesOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleThreatCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleThreatCategories)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleThreatCategoriesOutput) ToIPSFirewallRuleThreatCategoriesOutput() IPSFirewallRuleThreatCategoriesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleThreatCategoriesOutput) ToIPSFirewallRuleThreatCategoriesOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesOutput {
+	return o
+}
+
+func (o IPSFirewallRuleThreatCategoriesOutput) ToIPSFirewallRuleThreatCategoriesPtrOutput() IPSFirewallRuleThreatCategoriesPtrOutput {
+	return o.ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleThreatCategoriesOutput) ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleThreatCategories) *IPSFirewallRuleThreatCategories {
+		return &v
+	}).(IPSFirewallRuleThreatCategoriesPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleThreatCategoriesOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleThreatCategories) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleThreatCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleThreatCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleThreatCategories)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleThreatCategoriesPtrOutput) ToIPSFirewallRuleThreatCategoriesPtrOutput() IPSFirewallRuleThreatCategoriesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleThreatCategoriesPtrOutput) ToIPSFirewallRuleThreatCategoriesPtrOutputWithContext(ctx context.Context) IPSFirewallRuleThreatCategoriesPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleThreatCategoriesPtrOutput) Elem() IPSFirewallRuleThreatCategoriesOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleThreatCategories) IPSFirewallRuleThreatCategories {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleThreatCategories
+		return ret
+	}).(IPSFirewallRuleThreatCategoriesOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleThreatCategoriesPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleThreatCategories) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleTimeWindows struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleTimeWindowsInput is an input type that accepts IPSFirewallRuleTimeWindowsArgs and IPSFirewallRuleTimeWindowsOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleTimeWindowsInput` via:
+//
+//	IPSFirewallRuleTimeWindowsArgs{...}
+type IPSFirewallRuleTimeWindowsInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleTimeWindowsOutput() IPSFirewallRuleTimeWindowsOutput
+	ToIPSFirewallRuleTimeWindowsOutputWithContext(context.Context) IPSFirewallRuleTimeWindowsOutput
+}
+
+type IPSFirewallRuleTimeWindowsArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleTimeWindowsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleTimeWindows)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleTimeWindowsArgs) ToIPSFirewallRuleTimeWindowsOutput() IPSFirewallRuleTimeWindowsOutput {
+	return i.ToIPSFirewallRuleTimeWindowsOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleTimeWindowsArgs) ToIPSFirewallRuleTimeWindowsOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleTimeWindowsOutput)
+}
+
+func (i IPSFirewallRuleTimeWindowsArgs) ToIPSFirewallRuleTimeWindowsPtrOutput() IPSFirewallRuleTimeWindowsPtrOutput {
+	return i.ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleTimeWindowsArgs) ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleTimeWindowsOutput).ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleTimeWindowsPtrInput is an input type that accepts IPSFirewallRuleTimeWindowsArgs, IPSFirewallRuleTimeWindowsPtr and IPSFirewallRuleTimeWindowsPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleTimeWindowsPtrInput` via:
+//
+//	        IPSFirewallRuleTimeWindowsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleTimeWindowsPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleTimeWindowsPtrOutput() IPSFirewallRuleTimeWindowsPtrOutput
+	ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(context.Context) IPSFirewallRuleTimeWindowsPtrOutput
+}
+
+type ipsfirewallRuleTimeWindowsPtrType IPSFirewallRuleTimeWindowsArgs
+
+func IPSFirewallRuleTimeWindowsPtr(v *IPSFirewallRuleTimeWindowsArgs) IPSFirewallRuleTimeWindowsPtrInput {
+	return (*ipsfirewallRuleTimeWindowsPtrType)(v)
+}
+
+func (*ipsfirewallRuleTimeWindowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleTimeWindows)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleTimeWindowsPtrType) ToIPSFirewallRuleTimeWindowsPtrOutput() IPSFirewallRuleTimeWindowsPtrOutput {
+	return i.ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleTimeWindowsPtrType) ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleTimeWindowsPtrOutput)
+}
+
+type IPSFirewallRuleTimeWindowsOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleTimeWindowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleTimeWindows)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleTimeWindowsOutput) ToIPSFirewallRuleTimeWindowsOutput() IPSFirewallRuleTimeWindowsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleTimeWindowsOutput) ToIPSFirewallRuleTimeWindowsOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsOutput {
+	return o
+}
+
+func (o IPSFirewallRuleTimeWindowsOutput) ToIPSFirewallRuleTimeWindowsPtrOutput() IPSFirewallRuleTimeWindowsPtrOutput {
+	return o.ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleTimeWindowsOutput) ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleTimeWindows) *IPSFirewallRuleTimeWindows {
+		return &v
+	}).(IPSFirewallRuleTimeWindowsPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleTimeWindowsOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleTimeWindows) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleTimeWindowsPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleTimeWindowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleTimeWindows)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleTimeWindowsPtrOutput) ToIPSFirewallRuleTimeWindowsPtrOutput() IPSFirewallRuleTimeWindowsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleTimeWindowsPtrOutput) ToIPSFirewallRuleTimeWindowsPtrOutputWithContext(ctx context.Context) IPSFirewallRuleTimeWindowsPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleTimeWindowsPtrOutput) Elem() IPSFirewallRuleTimeWindowsOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleTimeWindows) IPSFirewallRuleTimeWindows {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleTimeWindows
+		return ret
+	}).(IPSFirewallRuleTimeWindowsOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleTimeWindowsPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleTimeWindows) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleUsers struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids []int `pulumi:"ids"`
+}
+
+// IPSFirewallRuleUsersInput is an input type that accepts IPSFirewallRuleUsersArgs and IPSFirewallRuleUsersOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleUsersInput` via:
+//
+//	IPSFirewallRuleUsersArgs{...}
+type IPSFirewallRuleUsersInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleUsersOutput() IPSFirewallRuleUsersOutput
+	ToIPSFirewallRuleUsersOutputWithContext(context.Context) IPSFirewallRuleUsersOutput
+}
+
+type IPSFirewallRuleUsersArgs struct {
+	// (Integer) Identifier that uniquely identifies an entity
+	Ids pulumi.IntArrayInput `pulumi:"ids"`
+}
+
+func (IPSFirewallRuleUsersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleUsers)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleUsersArgs) ToIPSFirewallRuleUsersOutput() IPSFirewallRuleUsersOutput {
+	return i.ToIPSFirewallRuleUsersOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleUsersArgs) ToIPSFirewallRuleUsersOutputWithContext(ctx context.Context) IPSFirewallRuleUsersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleUsersOutput)
+}
+
+func (i IPSFirewallRuleUsersArgs) ToIPSFirewallRuleUsersPtrOutput() IPSFirewallRuleUsersPtrOutput {
+	return i.ToIPSFirewallRuleUsersPtrOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleUsersArgs) ToIPSFirewallRuleUsersPtrOutputWithContext(ctx context.Context) IPSFirewallRuleUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleUsersOutput).ToIPSFirewallRuleUsersPtrOutputWithContext(ctx)
+}
+
+// IPSFirewallRuleUsersPtrInput is an input type that accepts IPSFirewallRuleUsersArgs, IPSFirewallRuleUsersPtr and IPSFirewallRuleUsersPtrOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleUsersPtrInput` via:
+//
+//	        IPSFirewallRuleUsersArgs{...}
+//
+//	or:
+//
+//	        nil
+type IPSFirewallRuleUsersPtrInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleUsersPtrOutput() IPSFirewallRuleUsersPtrOutput
+	ToIPSFirewallRuleUsersPtrOutputWithContext(context.Context) IPSFirewallRuleUsersPtrOutput
+}
+
+type ipsfirewallRuleUsersPtrType IPSFirewallRuleUsersArgs
+
+func IPSFirewallRuleUsersPtr(v *IPSFirewallRuleUsersArgs) IPSFirewallRuleUsersPtrInput {
+	return (*ipsfirewallRuleUsersPtrType)(v)
+}
+
+func (*ipsfirewallRuleUsersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleUsers)(nil)).Elem()
+}
+
+func (i *ipsfirewallRuleUsersPtrType) ToIPSFirewallRuleUsersPtrOutput() IPSFirewallRuleUsersPtrOutput {
+	return i.ToIPSFirewallRuleUsersPtrOutputWithContext(context.Background())
+}
+
+func (i *ipsfirewallRuleUsersPtrType) ToIPSFirewallRuleUsersPtrOutputWithContext(ctx context.Context) IPSFirewallRuleUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleUsersPtrOutput)
+}
+
+type IPSFirewallRuleUsersOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleUsersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleUsers)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleUsersOutput) ToIPSFirewallRuleUsersOutput() IPSFirewallRuleUsersOutput {
+	return o
+}
+
+func (o IPSFirewallRuleUsersOutput) ToIPSFirewallRuleUsersOutputWithContext(ctx context.Context) IPSFirewallRuleUsersOutput {
+	return o
+}
+
+func (o IPSFirewallRuleUsersOutput) ToIPSFirewallRuleUsersPtrOutput() IPSFirewallRuleUsersPtrOutput {
+	return o.ToIPSFirewallRuleUsersPtrOutputWithContext(context.Background())
+}
+
+func (o IPSFirewallRuleUsersOutput) ToIPSFirewallRuleUsersPtrOutputWithContext(ctx context.Context) IPSFirewallRuleUsersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSFirewallRuleUsers) *IPSFirewallRuleUsers {
+		return &v
+	}).(IPSFirewallRuleUsersPtrOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleUsersOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v IPSFirewallRuleUsers) []int { return v.Ids }).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleUsersPtrOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleUsersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPSFirewallRuleUsers)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleUsersPtrOutput) ToIPSFirewallRuleUsersPtrOutput() IPSFirewallRuleUsersPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleUsersPtrOutput) ToIPSFirewallRuleUsersPtrOutputWithContext(ctx context.Context) IPSFirewallRuleUsersPtrOutput {
+	return o
+}
+
+func (o IPSFirewallRuleUsersPtrOutput) Elem() IPSFirewallRuleUsersOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleUsers) IPSFirewallRuleUsers {
+		if v != nil {
+			return *v
+		}
+		var ret IPSFirewallRuleUsers
+		return ret
+	}).(IPSFirewallRuleUsersOutput)
+}
+
+// (Integer) Identifier that uniquely identifies an entity
+func (o IPSFirewallRuleUsersPtrOutput) Ids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *IPSFirewallRuleUsers) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.IntArrayOutput)
+}
+
+type IPSFirewallRuleZpaAppSegment struct {
+	// External ID of the application segment.
+	ExternalId string `pulumi:"externalId"`
+	// Name of the application segment.
+	Name string `pulumi:"name"`
+}
+
+// IPSFirewallRuleZpaAppSegmentInput is an input type that accepts IPSFirewallRuleZpaAppSegmentArgs and IPSFirewallRuleZpaAppSegmentOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleZpaAppSegmentInput` via:
+//
+//	IPSFirewallRuleZpaAppSegmentArgs{...}
+type IPSFirewallRuleZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleZpaAppSegmentOutput() IPSFirewallRuleZpaAppSegmentOutput
+	ToIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Context) IPSFirewallRuleZpaAppSegmentOutput
+}
+
+type IPSFirewallRuleZpaAppSegmentArgs struct {
+	// External ID of the application segment.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// Name of the application segment.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IPSFirewallRuleZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleZpaAppSegmentArgs) ToIPSFirewallRuleZpaAppSegmentOutput() IPSFirewallRuleZpaAppSegmentOutput {
+	return i.ToIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleZpaAppSegmentArgs) ToIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) IPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleZpaAppSegmentOutput)
+}
+
+// IPSFirewallRuleZpaAppSegmentArrayInput is an input type that accepts IPSFirewallRuleZpaAppSegmentArray and IPSFirewallRuleZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `IPSFirewallRuleZpaAppSegmentArrayInput` via:
+//
+//	IPSFirewallRuleZpaAppSegmentArray{ IPSFirewallRuleZpaAppSegmentArgs{...} }
+type IPSFirewallRuleZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToIPSFirewallRuleZpaAppSegmentArrayOutput() IPSFirewallRuleZpaAppSegmentArrayOutput
+	ToIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Context) IPSFirewallRuleZpaAppSegmentArrayOutput
+}
+
+type IPSFirewallRuleZpaAppSegmentArray []IPSFirewallRuleZpaAppSegmentInput
+
+func (IPSFirewallRuleZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i IPSFirewallRuleZpaAppSegmentArray) ToIPSFirewallRuleZpaAppSegmentArrayOutput() IPSFirewallRuleZpaAppSegmentArrayOutput {
+	return i.ToIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i IPSFirewallRuleZpaAppSegmentArray) ToIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) IPSFirewallRuleZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSFirewallRuleZpaAppSegmentArrayOutput)
+}
+
+type IPSFirewallRuleZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleZpaAppSegmentOutput) ToIPSFirewallRuleZpaAppSegmentOutput() IPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+func (o IPSFirewallRuleZpaAppSegmentOutput) ToIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) IPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+// External ID of the application segment.
+func (o IPSFirewallRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IPSFirewallRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// Name of the application segment.
+func (o IPSFirewallRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IPSFirewallRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IPSFirewallRuleZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (IPSFirewallRuleZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o IPSFirewallRuleZpaAppSegmentArrayOutput) ToIPSFirewallRuleZpaAppSegmentArrayOutput() IPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o IPSFirewallRuleZpaAppSegmentArrayOutput) ToIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) IPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o IPSFirewallRuleZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) IPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPSFirewallRuleZpaAppSegment {
+		return vs[0].([]IPSFirewallRuleZpaAppSegment)[vs[1].(int)]
+	}).(IPSFirewallRuleZpaAppSegmentOutput)
 }
 
 type LocationManagementDynamicLocationGroups struct {
@@ -29492,10 +31910,1692 @@ func (o GetFileTypeControlRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput
 	}).(GetFileTypeControlRulesZpaAppSegmentOutput)
 }
 
+type GetFirewallDNSRulesApplicationGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesApplicationGroupInput is an input type that accepts GetFirewallDNSRulesApplicationGroupArgs and GetFirewallDNSRulesApplicationGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesApplicationGroupInput` via:
+//
+//	GetFirewallDNSRulesApplicationGroupArgs{...}
+type GetFirewallDNSRulesApplicationGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesApplicationGroupOutput() GetFirewallDNSRulesApplicationGroupOutput
+	ToGetFirewallDNSRulesApplicationGroupOutputWithContext(context.Context) GetFirewallDNSRulesApplicationGroupOutput
+}
+
+type GetFirewallDNSRulesApplicationGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesApplicationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesApplicationGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesApplicationGroupArgs) ToGetFirewallDNSRulesApplicationGroupOutput() GetFirewallDNSRulesApplicationGroupOutput {
+	return i.ToGetFirewallDNSRulesApplicationGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesApplicationGroupArgs) ToGetFirewallDNSRulesApplicationGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesApplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesApplicationGroupOutput)
+}
+
+// GetFirewallDNSRulesApplicationGroupArrayInput is an input type that accepts GetFirewallDNSRulesApplicationGroupArray and GetFirewallDNSRulesApplicationGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesApplicationGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesApplicationGroupArray{ GetFirewallDNSRulesApplicationGroupArgs{...} }
+type GetFirewallDNSRulesApplicationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesApplicationGroupArrayOutput() GetFirewallDNSRulesApplicationGroupArrayOutput
+	ToGetFirewallDNSRulesApplicationGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesApplicationGroupArrayOutput
+}
+
+type GetFirewallDNSRulesApplicationGroupArray []GetFirewallDNSRulesApplicationGroupInput
+
+func (GetFirewallDNSRulesApplicationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesApplicationGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesApplicationGroupArray) ToGetFirewallDNSRulesApplicationGroupArrayOutput() GetFirewallDNSRulesApplicationGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesApplicationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesApplicationGroupArray) ToGetFirewallDNSRulesApplicationGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesApplicationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesApplicationGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesApplicationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesApplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesApplicationGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesApplicationGroupOutput) ToGetFirewallDNSRulesApplicationGroupOutput() GetFirewallDNSRulesApplicationGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesApplicationGroupOutput) ToGetFirewallDNSRulesApplicationGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesApplicationGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesApplicationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesApplicationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesApplicationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesApplicationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesApplicationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesApplicationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesApplicationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesApplicationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesApplicationGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesApplicationGroupArrayOutput) ToGetFirewallDNSRulesApplicationGroupArrayOutput() GetFirewallDNSRulesApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesApplicationGroupArrayOutput) ToGetFirewallDNSRulesApplicationGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesApplicationGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesApplicationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesApplicationGroup {
+		return vs[0].([]GetFirewallDNSRulesApplicationGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesApplicationGroupOutput)
+}
+
+type GetFirewallDNSRulesDepartment struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesDepartmentInput is an input type that accepts GetFirewallDNSRulesDepartmentArgs and GetFirewallDNSRulesDepartmentOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDepartmentInput` via:
+//
+//	GetFirewallDNSRulesDepartmentArgs{...}
+type GetFirewallDNSRulesDepartmentInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDepartmentOutput() GetFirewallDNSRulesDepartmentOutput
+	ToGetFirewallDNSRulesDepartmentOutputWithContext(context.Context) GetFirewallDNSRulesDepartmentOutput
+}
+
+type GetFirewallDNSRulesDepartmentArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDepartment)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDepartmentArgs) ToGetFirewallDNSRulesDepartmentOutput() GetFirewallDNSRulesDepartmentOutput {
+	return i.ToGetFirewallDNSRulesDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDepartmentArgs) ToGetFirewallDNSRulesDepartmentOutputWithContext(ctx context.Context) GetFirewallDNSRulesDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDepartmentOutput)
+}
+
+// GetFirewallDNSRulesDepartmentArrayInput is an input type that accepts GetFirewallDNSRulesDepartmentArray and GetFirewallDNSRulesDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDepartmentArrayInput` via:
+//
+//	GetFirewallDNSRulesDepartmentArray{ GetFirewallDNSRulesDepartmentArgs{...} }
+type GetFirewallDNSRulesDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDepartmentArrayOutput() GetFirewallDNSRulesDepartmentArrayOutput
+	ToGetFirewallDNSRulesDepartmentArrayOutputWithContext(context.Context) GetFirewallDNSRulesDepartmentArrayOutput
+}
+
+type GetFirewallDNSRulesDepartmentArray []GetFirewallDNSRulesDepartmentInput
+
+func (GetFirewallDNSRulesDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDepartment)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDepartmentArray) ToGetFirewallDNSRulesDepartmentArrayOutput() GetFirewallDNSRulesDepartmentArrayOutput {
+	return i.ToGetFirewallDNSRulesDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDepartmentArray) ToGetFirewallDNSRulesDepartmentArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDepartmentArrayOutput)
+}
+
+type GetFirewallDNSRulesDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDepartment)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDepartmentOutput) ToGetFirewallDNSRulesDepartmentOutput() GetFirewallDNSRulesDepartmentOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDepartmentOutput) ToGetFirewallDNSRulesDepartmentOutputWithContext(ctx context.Context) GetFirewallDNSRulesDepartmentOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDepartment)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDepartmentArrayOutput) ToGetFirewallDNSRulesDepartmentArrayOutput() GetFirewallDNSRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDepartmentArrayOutput) ToGetFirewallDNSRulesDepartmentArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesDepartment {
+		return vs[0].([]GetFirewallDNSRulesDepartment)[vs[1].(int)]
+	}).(GetFirewallDNSRulesDepartmentOutput)
+}
+
+type GetFirewallDNSRulesDestIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesDestIpGroupInput is an input type that accepts GetFirewallDNSRulesDestIpGroupArgs and GetFirewallDNSRulesDestIpGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDestIpGroupInput` via:
+//
+//	GetFirewallDNSRulesDestIpGroupArgs{...}
+type GetFirewallDNSRulesDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDestIpGroupOutput() GetFirewallDNSRulesDestIpGroupOutput
+	ToGetFirewallDNSRulesDestIpGroupOutputWithContext(context.Context) GetFirewallDNSRulesDestIpGroupOutput
+}
+
+type GetFirewallDNSRulesDestIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDestIpGroupArgs) ToGetFirewallDNSRulesDestIpGroupOutput() GetFirewallDNSRulesDestIpGroupOutput {
+	return i.ToGetFirewallDNSRulesDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDestIpGroupArgs) ToGetFirewallDNSRulesDestIpGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDestIpGroupOutput)
+}
+
+// GetFirewallDNSRulesDestIpGroupArrayInput is an input type that accepts GetFirewallDNSRulesDestIpGroupArray and GetFirewallDNSRulesDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDestIpGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesDestIpGroupArray{ GetFirewallDNSRulesDestIpGroupArgs{...} }
+type GetFirewallDNSRulesDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDestIpGroupArrayOutput() GetFirewallDNSRulesDestIpGroupArrayOutput
+	ToGetFirewallDNSRulesDestIpGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesDestIpGroupArrayOutput
+}
+
+type GetFirewallDNSRulesDestIpGroupArray []GetFirewallDNSRulesDestIpGroupInput
+
+func (GetFirewallDNSRulesDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDestIpGroupArray) ToGetFirewallDNSRulesDestIpGroupArrayOutput() GetFirewallDNSRulesDestIpGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDestIpGroupArray) ToGetFirewallDNSRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDestIpGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDestIpGroupOutput) ToGetFirewallDNSRulesDestIpGroupOutput() GetFirewallDNSRulesDestIpGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpGroupOutput) ToGetFirewallDNSRulesDestIpGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDestIpGroupArrayOutput) ToGetFirewallDNSRulesDestIpGroupArrayOutput() GetFirewallDNSRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpGroupArrayOutput) ToGetFirewallDNSRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesDestIpGroup {
+		return vs[0].([]GetFirewallDNSRulesDestIpGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesDestIpGroupOutput)
+}
+
+type GetFirewallDNSRulesDestIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesDestIpv6GroupInput is an input type that accepts GetFirewallDNSRulesDestIpv6GroupArgs and GetFirewallDNSRulesDestIpv6GroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDestIpv6GroupInput` via:
+//
+//	GetFirewallDNSRulesDestIpv6GroupArgs{...}
+type GetFirewallDNSRulesDestIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDestIpv6GroupOutput() GetFirewallDNSRulesDestIpv6GroupOutput
+	ToGetFirewallDNSRulesDestIpv6GroupOutputWithContext(context.Context) GetFirewallDNSRulesDestIpv6GroupOutput
+}
+
+type GetFirewallDNSRulesDestIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesDestIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDestIpv6GroupArgs) ToGetFirewallDNSRulesDestIpv6GroupOutput() GetFirewallDNSRulesDestIpv6GroupOutput {
+	return i.ToGetFirewallDNSRulesDestIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDestIpv6GroupArgs) ToGetFirewallDNSRulesDestIpv6GroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDestIpv6GroupOutput)
+}
+
+// GetFirewallDNSRulesDestIpv6GroupArrayInput is an input type that accepts GetFirewallDNSRulesDestIpv6GroupArray and GetFirewallDNSRulesDestIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDestIpv6GroupArrayInput` via:
+//
+//	GetFirewallDNSRulesDestIpv6GroupArray{ GetFirewallDNSRulesDestIpv6GroupArgs{...} }
+type GetFirewallDNSRulesDestIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDestIpv6GroupArrayOutput() GetFirewallDNSRulesDestIpv6GroupArrayOutput
+	ToGetFirewallDNSRulesDestIpv6GroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesDestIpv6GroupArrayOutput
+}
+
+type GetFirewallDNSRulesDestIpv6GroupArray []GetFirewallDNSRulesDestIpv6GroupInput
+
+func (GetFirewallDNSRulesDestIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDestIpv6GroupArray) ToGetFirewallDNSRulesDestIpv6GroupArrayOutput() GetFirewallDNSRulesDestIpv6GroupArrayOutput {
+	return i.ToGetFirewallDNSRulesDestIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDestIpv6GroupArray) ToGetFirewallDNSRulesDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDestIpv6GroupArrayOutput)
+}
+
+type GetFirewallDNSRulesDestIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDestIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupOutput) ToGetFirewallDNSRulesDestIpv6GroupOutput() GetFirewallDNSRulesDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupOutput) ToGetFirewallDNSRulesDestIpv6GroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDestIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDestIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesDestIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDestIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupArrayOutput) ToGetFirewallDNSRulesDestIpv6GroupArrayOutput() GetFirewallDNSRulesDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupArrayOutput) ToGetFirewallDNSRulesDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesDestIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesDestIpv6Group {
+		return vs[0].([]GetFirewallDNSRulesDestIpv6Group)[vs[1].(int)]
+	}).(GetFirewallDNSRulesDestIpv6GroupOutput)
+}
+
+type GetFirewallDNSRulesDevice struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesDeviceInput is an input type that accepts GetFirewallDNSRulesDeviceArgs and GetFirewallDNSRulesDeviceOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDeviceInput` via:
+//
+//	GetFirewallDNSRulesDeviceArgs{...}
+type GetFirewallDNSRulesDeviceInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDeviceOutput() GetFirewallDNSRulesDeviceOutput
+	ToGetFirewallDNSRulesDeviceOutputWithContext(context.Context) GetFirewallDNSRulesDeviceOutput
+}
+
+type GetFirewallDNSRulesDeviceArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDevice)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDeviceArgs) ToGetFirewallDNSRulesDeviceOutput() GetFirewallDNSRulesDeviceOutput {
+	return i.ToGetFirewallDNSRulesDeviceOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDeviceArgs) ToGetFirewallDNSRulesDeviceOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDeviceOutput)
+}
+
+// GetFirewallDNSRulesDeviceArrayInput is an input type that accepts GetFirewallDNSRulesDeviceArray and GetFirewallDNSRulesDeviceArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDeviceArrayInput` via:
+//
+//	GetFirewallDNSRulesDeviceArray{ GetFirewallDNSRulesDeviceArgs{...} }
+type GetFirewallDNSRulesDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDeviceArrayOutput() GetFirewallDNSRulesDeviceArrayOutput
+	ToGetFirewallDNSRulesDeviceArrayOutputWithContext(context.Context) GetFirewallDNSRulesDeviceArrayOutput
+}
+
+type GetFirewallDNSRulesDeviceArray []GetFirewallDNSRulesDeviceInput
+
+func (GetFirewallDNSRulesDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDevice)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDeviceArray) ToGetFirewallDNSRulesDeviceArrayOutput() GetFirewallDNSRulesDeviceArrayOutput {
+	return i.ToGetFirewallDNSRulesDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDeviceArray) ToGetFirewallDNSRulesDeviceArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDeviceArrayOutput)
+}
+
+type GetFirewallDNSRulesDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDevice)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDeviceOutput) ToGetFirewallDNSRulesDeviceOutput() GetFirewallDNSRulesDeviceOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceOutput) ToGetFirewallDNSRulesDeviceOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDevice)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDeviceArrayOutput) ToGetFirewallDNSRulesDeviceArrayOutput() GetFirewallDNSRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceArrayOutput) ToGetFirewallDNSRulesDeviceArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesDevice {
+		return vs[0].([]GetFirewallDNSRulesDevice)[vs[1].(int)]
+	}).(GetFirewallDNSRulesDeviceOutput)
+}
+
+type GetFirewallDNSRulesDeviceGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesDeviceGroupInput is an input type that accepts GetFirewallDNSRulesDeviceGroupArgs and GetFirewallDNSRulesDeviceGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDeviceGroupInput` via:
+//
+//	GetFirewallDNSRulesDeviceGroupArgs{...}
+type GetFirewallDNSRulesDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDeviceGroupOutput() GetFirewallDNSRulesDeviceGroupOutput
+	ToGetFirewallDNSRulesDeviceGroupOutputWithContext(context.Context) GetFirewallDNSRulesDeviceGroupOutput
+}
+
+type GetFirewallDNSRulesDeviceGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDeviceGroupArgs) ToGetFirewallDNSRulesDeviceGroupOutput() GetFirewallDNSRulesDeviceGroupOutput {
+	return i.ToGetFirewallDNSRulesDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDeviceGroupArgs) ToGetFirewallDNSRulesDeviceGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDeviceGroupOutput)
+}
+
+// GetFirewallDNSRulesDeviceGroupArrayInput is an input type that accepts GetFirewallDNSRulesDeviceGroupArray and GetFirewallDNSRulesDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesDeviceGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesDeviceGroupArray{ GetFirewallDNSRulesDeviceGroupArgs{...} }
+type GetFirewallDNSRulesDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesDeviceGroupArrayOutput() GetFirewallDNSRulesDeviceGroupArrayOutput
+	ToGetFirewallDNSRulesDeviceGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesDeviceGroupArrayOutput
+}
+
+type GetFirewallDNSRulesDeviceGroupArray []GetFirewallDNSRulesDeviceGroupInput
+
+func (GetFirewallDNSRulesDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesDeviceGroupArray) ToGetFirewallDNSRulesDeviceGroupArrayOutput() GetFirewallDNSRulesDeviceGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesDeviceGroupArray) ToGetFirewallDNSRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesDeviceGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDeviceGroupOutput) ToGetFirewallDNSRulesDeviceGroupOutput() GetFirewallDNSRulesDeviceGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceGroupOutput) ToGetFirewallDNSRulesDeviceGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesDeviceGroupArrayOutput) ToGetFirewallDNSRulesDeviceGroupArrayOutput() GetFirewallDNSRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceGroupArrayOutput) ToGetFirewallDNSRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesDeviceGroup {
+		return vs[0].([]GetFirewallDNSRulesDeviceGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesDeviceGroupOutput)
+}
+
+type GetFirewallDNSRulesGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesGroupInput is an input type that accepts GetFirewallDNSRulesGroupArgs and GetFirewallDNSRulesGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesGroupInput` via:
+//
+//	GetFirewallDNSRulesGroupArgs{...}
+type GetFirewallDNSRulesGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesGroupOutput() GetFirewallDNSRulesGroupOutput
+	ToGetFirewallDNSRulesGroupOutputWithContext(context.Context) GetFirewallDNSRulesGroupOutput
+}
+
+type GetFirewallDNSRulesGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesGroupArgs) ToGetFirewallDNSRulesGroupOutput() GetFirewallDNSRulesGroupOutput {
+	return i.ToGetFirewallDNSRulesGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesGroupArgs) ToGetFirewallDNSRulesGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesGroupOutput)
+}
+
+// GetFirewallDNSRulesGroupArrayInput is an input type that accepts GetFirewallDNSRulesGroupArray and GetFirewallDNSRulesGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesGroupArray{ GetFirewallDNSRulesGroupArgs{...} }
+type GetFirewallDNSRulesGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesGroupArrayOutput() GetFirewallDNSRulesGroupArrayOutput
+	ToGetFirewallDNSRulesGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesGroupArrayOutput
+}
+
+type GetFirewallDNSRulesGroupArray []GetFirewallDNSRulesGroupInput
+
+func (GetFirewallDNSRulesGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesGroupArray) ToGetFirewallDNSRulesGroupArrayOutput() GetFirewallDNSRulesGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesGroupArray) ToGetFirewallDNSRulesGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesGroupOutput) ToGetFirewallDNSRulesGroupOutput() GetFirewallDNSRulesGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesGroupOutput) ToGetFirewallDNSRulesGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesGroupArrayOutput) ToGetFirewallDNSRulesGroupArrayOutput() GetFirewallDNSRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesGroupArrayOutput) ToGetFirewallDNSRulesGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesGroup {
+		return vs[0].([]GetFirewallDNSRulesGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesGroupOutput)
+}
+
+type GetFirewallDNSRulesLabel struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesLabelInput is an input type that accepts GetFirewallDNSRulesLabelArgs and GetFirewallDNSRulesLabelOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLabelInput` via:
+//
+//	GetFirewallDNSRulesLabelArgs{...}
+type GetFirewallDNSRulesLabelInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLabelOutput() GetFirewallDNSRulesLabelOutput
+	ToGetFirewallDNSRulesLabelOutputWithContext(context.Context) GetFirewallDNSRulesLabelOutput
+}
+
+type GetFirewallDNSRulesLabelArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLabel)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLabelArgs) ToGetFirewallDNSRulesLabelOutput() GetFirewallDNSRulesLabelOutput {
+	return i.ToGetFirewallDNSRulesLabelOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLabelArgs) ToGetFirewallDNSRulesLabelOutputWithContext(ctx context.Context) GetFirewallDNSRulesLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLabelOutput)
+}
+
+// GetFirewallDNSRulesLabelArrayInput is an input type that accepts GetFirewallDNSRulesLabelArray and GetFirewallDNSRulesLabelArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLabelArrayInput` via:
+//
+//	GetFirewallDNSRulesLabelArray{ GetFirewallDNSRulesLabelArgs{...} }
+type GetFirewallDNSRulesLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLabelArrayOutput() GetFirewallDNSRulesLabelArrayOutput
+	ToGetFirewallDNSRulesLabelArrayOutputWithContext(context.Context) GetFirewallDNSRulesLabelArrayOutput
+}
+
+type GetFirewallDNSRulesLabelArray []GetFirewallDNSRulesLabelInput
+
+func (GetFirewallDNSRulesLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLabel)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLabelArray) ToGetFirewallDNSRulesLabelArrayOutput() GetFirewallDNSRulesLabelArrayOutput {
+	return i.ToGetFirewallDNSRulesLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLabelArray) ToGetFirewallDNSRulesLabelArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLabelArrayOutput)
+}
+
+type GetFirewallDNSRulesLabelOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLabel)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLabelOutput) ToGetFirewallDNSRulesLabelOutput() GetFirewallDNSRulesLabelOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLabelOutput) ToGetFirewallDNSRulesLabelOutputWithContext(ctx context.Context) GetFirewallDNSRulesLabelOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLabel)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLabelArrayOutput) ToGetFirewallDNSRulesLabelArrayOutput() GetFirewallDNSRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLabelArrayOutput) ToGetFirewallDNSRulesLabelArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLabelArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesLabel {
+		return vs[0].([]GetFirewallDNSRulesLabel)[vs[1].(int)]
+	}).(GetFirewallDNSRulesLabelOutput)
+}
+
+type GetFirewallDNSRulesLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesLastModifiedByInput is an input type that accepts GetFirewallDNSRulesLastModifiedByArgs and GetFirewallDNSRulesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLastModifiedByInput` via:
+//
+//	GetFirewallDNSRulesLastModifiedByArgs{...}
+type GetFirewallDNSRulesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLastModifiedByOutput() GetFirewallDNSRulesLastModifiedByOutput
+	ToGetFirewallDNSRulesLastModifiedByOutputWithContext(context.Context) GetFirewallDNSRulesLastModifiedByOutput
+}
+
+type GetFirewallDNSRulesLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLastModifiedByArgs) ToGetFirewallDNSRulesLastModifiedByOutput() GetFirewallDNSRulesLastModifiedByOutput {
+	return i.ToGetFirewallDNSRulesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLastModifiedByArgs) ToGetFirewallDNSRulesLastModifiedByOutputWithContext(ctx context.Context) GetFirewallDNSRulesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLastModifiedByOutput)
+}
+
+// GetFirewallDNSRulesLastModifiedByArrayInput is an input type that accepts GetFirewallDNSRulesLastModifiedByArray and GetFirewallDNSRulesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLastModifiedByArrayInput` via:
+//
+//	GetFirewallDNSRulesLastModifiedByArray{ GetFirewallDNSRulesLastModifiedByArgs{...} }
+type GetFirewallDNSRulesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLastModifiedByArrayOutput() GetFirewallDNSRulesLastModifiedByArrayOutput
+	ToGetFirewallDNSRulesLastModifiedByArrayOutputWithContext(context.Context) GetFirewallDNSRulesLastModifiedByArrayOutput
+}
+
+type GetFirewallDNSRulesLastModifiedByArray []GetFirewallDNSRulesLastModifiedByInput
+
+func (GetFirewallDNSRulesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLastModifiedByArray) ToGetFirewallDNSRulesLastModifiedByArrayOutput() GetFirewallDNSRulesLastModifiedByArrayOutput {
+	return i.ToGetFirewallDNSRulesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLastModifiedByArray) ToGetFirewallDNSRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLastModifiedByArrayOutput)
+}
+
+type GetFirewallDNSRulesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLastModifiedByOutput) ToGetFirewallDNSRulesLastModifiedByOutput() GetFirewallDNSRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLastModifiedByOutput) ToGetFirewallDNSRulesLastModifiedByOutputWithContext(ctx context.Context) GetFirewallDNSRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLastModifiedByArrayOutput) ToGetFirewallDNSRulesLastModifiedByArrayOutput() GetFirewallDNSRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLastModifiedByArrayOutput) ToGetFirewallDNSRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesLastModifiedBy {
+		return vs[0].([]GetFirewallDNSRulesLastModifiedBy)[vs[1].(int)]
+	}).(GetFirewallDNSRulesLastModifiedByOutput)
+}
+
+type GetFirewallDNSRulesLocation struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesLocationInput is an input type that accepts GetFirewallDNSRulesLocationArgs and GetFirewallDNSRulesLocationOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLocationInput` via:
+//
+//	GetFirewallDNSRulesLocationArgs{...}
+type GetFirewallDNSRulesLocationInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLocationOutput() GetFirewallDNSRulesLocationOutput
+	ToGetFirewallDNSRulesLocationOutputWithContext(context.Context) GetFirewallDNSRulesLocationOutput
+}
+
+type GetFirewallDNSRulesLocationArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLocation)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLocationArgs) ToGetFirewallDNSRulesLocationOutput() GetFirewallDNSRulesLocationOutput {
+	return i.ToGetFirewallDNSRulesLocationOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLocationArgs) ToGetFirewallDNSRulesLocationOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLocationOutput)
+}
+
+// GetFirewallDNSRulesLocationArrayInput is an input type that accepts GetFirewallDNSRulesLocationArray and GetFirewallDNSRulesLocationArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLocationArrayInput` via:
+//
+//	GetFirewallDNSRulesLocationArray{ GetFirewallDNSRulesLocationArgs{...} }
+type GetFirewallDNSRulesLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLocationArrayOutput() GetFirewallDNSRulesLocationArrayOutput
+	ToGetFirewallDNSRulesLocationArrayOutputWithContext(context.Context) GetFirewallDNSRulesLocationArrayOutput
+}
+
+type GetFirewallDNSRulesLocationArray []GetFirewallDNSRulesLocationInput
+
+func (GetFirewallDNSRulesLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLocation)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLocationArray) ToGetFirewallDNSRulesLocationArrayOutput() GetFirewallDNSRulesLocationArrayOutput {
+	return i.ToGetFirewallDNSRulesLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLocationArray) ToGetFirewallDNSRulesLocationArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLocationArrayOutput)
+}
+
+type GetFirewallDNSRulesLocationOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLocation)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLocationOutput) ToGetFirewallDNSRulesLocationOutput() GetFirewallDNSRulesLocationOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationOutput) ToGetFirewallDNSRulesLocationOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLocation)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLocationArrayOutput) ToGetFirewallDNSRulesLocationArrayOutput() GetFirewallDNSRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationArrayOutput) ToGetFirewallDNSRulesLocationArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesLocation {
+		return vs[0].([]GetFirewallDNSRulesLocation)[vs[1].(int)]
+	}).(GetFirewallDNSRulesLocationOutput)
+}
+
+type GetFirewallDNSRulesLocationGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesLocationGroupInput is an input type that accepts GetFirewallDNSRulesLocationGroupArgs and GetFirewallDNSRulesLocationGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLocationGroupInput` via:
+//
+//	GetFirewallDNSRulesLocationGroupArgs{...}
+type GetFirewallDNSRulesLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLocationGroupOutput() GetFirewallDNSRulesLocationGroupOutput
+	ToGetFirewallDNSRulesLocationGroupOutputWithContext(context.Context) GetFirewallDNSRulesLocationGroupOutput
+}
+
+type GetFirewallDNSRulesLocationGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLocationGroupArgs) ToGetFirewallDNSRulesLocationGroupOutput() GetFirewallDNSRulesLocationGroupOutput {
+	return i.ToGetFirewallDNSRulesLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLocationGroupArgs) ToGetFirewallDNSRulesLocationGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLocationGroupOutput)
+}
+
+// GetFirewallDNSRulesLocationGroupArrayInput is an input type that accepts GetFirewallDNSRulesLocationGroupArray and GetFirewallDNSRulesLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesLocationGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesLocationGroupArray{ GetFirewallDNSRulesLocationGroupArgs{...} }
+type GetFirewallDNSRulesLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesLocationGroupArrayOutput() GetFirewallDNSRulesLocationGroupArrayOutput
+	ToGetFirewallDNSRulesLocationGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesLocationGroupArrayOutput
+}
+
+type GetFirewallDNSRulesLocationGroupArray []GetFirewallDNSRulesLocationGroupInput
+
+func (GetFirewallDNSRulesLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesLocationGroupArray) ToGetFirewallDNSRulesLocationGroupArrayOutput() GetFirewallDNSRulesLocationGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesLocationGroupArray) ToGetFirewallDNSRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesLocationGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLocationGroupOutput) ToGetFirewallDNSRulesLocationGroupOutput() GetFirewallDNSRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationGroupOutput) ToGetFirewallDNSRulesLocationGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesLocationGroupArrayOutput) ToGetFirewallDNSRulesLocationGroupArrayOutput() GetFirewallDNSRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationGroupArrayOutput) ToGetFirewallDNSRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesLocationGroup {
+		return vs[0].([]GetFirewallDNSRulesLocationGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesLocationGroupOutput)
+}
+
+type GetFirewallDNSRulesSrcIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesSrcIpGroupInput is an input type that accepts GetFirewallDNSRulesSrcIpGroupArgs and GetFirewallDNSRulesSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesSrcIpGroupInput` via:
+//
+//	GetFirewallDNSRulesSrcIpGroupArgs{...}
+type GetFirewallDNSRulesSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesSrcIpGroupOutput() GetFirewallDNSRulesSrcIpGroupOutput
+	ToGetFirewallDNSRulesSrcIpGroupOutputWithContext(context.Context) GetFirewallDNSRulesSrcIpGroupOutput
+}
+
+type GetFirewallDNSRulesSrcIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesSrcIpGroupArgs) ToGetFirewallDNSRulesSrcIpGroupOutput() GetFirewallDNSRulesSrcIpGroupOutput {
+	return i.ToGetFirewallDNSRulesSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesSrcIpGroupArgs) ToGetFirewallDNSRulesSrcIpGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesSrcIpGroupOutput)
+}
+
+// GetFirewallDNSRulesSrcIpGroupArrayInput is an input type that accepts GetFirewallDNSRulesSrcIpGroupArray and GetFirewallDNSRulesSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesSrcIpGroupArrayInput` via:
+//
+//	GetFirewallDNSRulesSrcIpGroupArray{ GetFirewallDNSRulesSrcIpGroupArgs{...} }
+type GetFirewallDNSRulesSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesSrcIpGroupArrayOutput() GetFirewallDNSRulesSrcIpGroupArrayOutput
+	ToGetFirewallDNSRulesSrcIpGroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesSrcIpGroupArrayOutput
+}
+
+type GetFirewallDNSRulesSrcIpGroupArray []GetFirewallDNSRulesSrcIpGroupInput
+
+func (GetFirewallDNSRulesSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesSrcIpGroupArray) ToGetFirewallDNSRulesSrcIpGroupArrayOutput() GetFirewallDNSRulesSrcIpGroupArrayOutput {
+	return i.ToGetFirewallDNSRulesSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesSrcIpGroupArray) ToGetFirewallDNSRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesSrcIpGroupArrayOutput)
+}
+
+type GetFirewallDNSRulesSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupOutput) ToGetFirewallDNSRulesSrcIpGroupOutput() GetFirewallDNSRulesSrcIpGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupOutput) ToGetFirewallDNSRulesSrcIpGroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpGroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupArrayOutput) ToGetFirewallDNSRulesSrcIpGroupArrayOutput() GetFirewallDNSRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupArrayOutput) ToGetFirewallDNSRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesSrcIpGroup {
+		return vs[0].([]GetFirewallDNSRulesSrcIpGroup)[vs[1].(int)]
+	}).(GetFirewallDNSRulesSrcIpGroupOutput)
+}
+
+type GetFirewallDNSRulesSrcIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesSrcIpv6GroupInput is an input type that accepts GetFirewallDNSRulesSrcIpv6GroupArgs and GetFirewallDNSRulesSrcIpv6GroupOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesSrcIpv6GroupInput` via:
+//
+//	GetFirewallDNSRulesSrcIpv6GroupArgs{...}
+type GetFirewallDNSRulesSrcIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesSrcIpv6GroupOutput() GetFirewallDNSRulesSrcIpv6GroupOutput
+	ToGetFirewallDNSRulesSrcIpv6GroupOutputWithContext(context.Context) GetFirewallDNSRulesSrcIpv6GroupOutput
+}
+
+type GetFirewallDNSRulesSrcIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesSrcIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesSrcIpv6GroupArgs) ToGetFirewallDNSRulesSrcIpv6GroupOutput() GetFirewallDNSRulesSrcIpv6GroupOutput {
+	return i.ToGetFirewallDNSRulesSrcIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesSrcIpv6GroupArgs) ToGetFirewallDNSRulesSrcIpv6GroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesSrcIpv6GroupOutput)
+}
+
+// GetFirewallDNSRulesSrcIpv6GroupArrayInput is an input type that accepts GetFirewallDNSRulesSrcIpv6GroupArray and GetFirewallDNSRulesSrcIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesSrcIpv6GroupArrayInput` via:
+//
+//	GetFirewallDNSRulesSrcIpv6GroupArray{ GetFirewallDNSRulesSrcIpv6GroupArgs{...} }
+type GetFirewallDNSRulesSrcIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesSrcIpv6GroupArrayOutput() GetFirewallDNSRulesSrcIpv6GroupArrayOutput
+	ToGetFirewallDNSRulesSrcIpv6GroupArrayOutputWithContext(context.Context) GetFirewallDNSRulesSrcIpv6GroupArrayOutput
+}
+
+type GetFirewallDNSRulesSrcIpv6GroupArray []GetFirewallDNSRulesSrcIpv6GroupInput
+
+func (GetFirewallDNSRulesSrcIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesSrcIpv6GroupArray) ToGetFirewallDNSRulesSrcIpv6GroupArrayOutput() GetFirewallDNSRulesSrcIpv6GroupArrayOutput {
+	return i.ToGetFirewallDNSRulesSrcIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesSrcIpv6GroupArray) ToGetFirewallDNSRulesSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesSrcIpv6GroupArrayOutput)
+}
+
+type GetFirewallDNSRulesSrcIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesSrcIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupOutput) ToGetFirewallDNSRulesSrcIpv6GroupOutput() GetFirewallDNSRulesSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupOutput) ToGetFirewallDNSRulesSrcIpv6GroupOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesSrcIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesSrcIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesSrcIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesSrcIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupArrayOutput) ToGetFirewallDNSRulesSrcIpv6GroupArrayOutput() GetFirewallDNSRulesSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupArrayOutput) ToGetFirewallDNSRulesSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesSrcIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesSrcIpv6Group {
+		return vs[0].([]GetFirewallDNSRulesSrcIpv6Group)[vs[1].(int)]
+	}).(GetFirewallDNSRulesSrcIpv6GroupOutput)
+}
+
+type GetFirewallDNSRulesTimeWindow struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesTimeWindowInput is an input type that accepts GetFirewallDNSRulesTimeWindowArgs and GetFirewallDNSRulesTimeWindowOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesTimeWindowInput` via:
+//
+//	GetFirewallDNSRulesTimeWindowArgs{...}
+type GetFirewallDNSRulesTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesTimeWindowOutput() GetFirewallDNSRulesTimeWindowOutput
+	ToGetFirewallDNSRulesTimeWindowOutputWithContext(context.Context) GetFirewallDNSRulesTimeWindowOutput
+}
+
+type GetFirewallDNSRulesTimeWindowArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesTimeWindowArgs) ToGetFirewallDNSRulesTimeWindowOutput() GetFirewallDNSRulesTimeWindowOutput {
+	return i.ToGetFirewallDNSRulesTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesTimeWindowArgs) ToGetFirewallDNSRulesTimeWindowOutputWithContext(ctx context.Context) GetFirewallDNSRulesTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesTimeWindowOutput)
+}
+
+// GetFirewallDNSRulesTimeWindowArrayInput is an input type that accepts GetFirewallDNSRulesTimeWindowArray and GetFirewallDNSRulesTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesTimeWindowArrayInput` via:
+//
+//	GetFirewallDNSRulesTimeWindowArray{ GetFirewallDNSRulesTimeWindowArgs{...} }
+type GetFirewallDNSRulesTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesTimeWindowArrayOutput() GetFirewallDNSRulesTimeWindowArrayOutput
+	ToGetFirewallDNSRulesTimeWindowArrayOutputWithContext(context.Context) GetFirewallDNSRulesTimeWindowArrayOutput
+}
+
+type GetFirewallDNSRulesTimeWindowArray []GetFirewallDNSRulesTimeWindowInput
+
+func (GetFirewallDNSRulesTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesTimeWindowArray) ToGetFirewallDNSRulesTimeWindowArrayOutput() GetFirewallDNSRulesTimeWindowArrayOutput {
+	return i.ToGetFirewallDNSRulesTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesTimeWindowArray) ToGetFirewallDNSRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesTimeWindowArrayOutput)
+}
+
+type GetFirewallDNSRulesTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesTimeWindowOutput) ToGetFirewallDNSRulesTimeWindowOutput() GetFirewallDNSRulesTimeWindowOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesTimeWindowOutput) ToGetFirewallDNSRulesTimeWindowOutputWithContext(ctx context.Context) GetFirewallDNSRulesTimeWindowOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesTimeWindowArrayOutput) ToGetFirewallDNSRulesTimeWindowArrayOutput() GetFirewallDNSRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesTimeWindowArrayOutput) ToGetFirewallDNSRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesTimeWindowArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesTimeWindow {
+		return vs[0].([]GetFirewallDNSRulesTimeWindow)[vs[1].(int)]
+	}).(GetFirewallDNSRulesTimeWindowOutput)
+}
+
+type GetFirewallDNSRulesUser struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetFirewallDNSRulesUserInput is an input type that accepts GetFirewallDNSRulesUserArgs and GetFirewallDNSRulesUserOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesUserInput` via:
+//
+//	GetFirewallDNSRulesUserArgs{...}
+type GetFirewallDNSRulesUserInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesUserOutput() GetFirewallDNSRulesUserOutput
+	ToGetFirewallDNSRulesUserOutputWithContext(context.Context) GetFirewallDNSRulesUserOutput
+}
+
+type GetFirewallDNSRulesUserArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetFirewallDNSRulesUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesUser)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesUserArgs) ToGetFirewallDNSRulesUserOutput() GetFirewallDNSRulesUserOutput {
+	return i.ToGetFirewallDNSRulesUserOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesUserArgs) ToGetFirewallDNSRulesUserOutputWithContext(ctx context.Context) GetFirewallDNSRulesUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesUserOutput)
+}
+
+// GetFirewallDNSRulesUserArrayInput is an input type that accepts GetFirewallDNSRulesUserArray and GetFirewallDNSRulesUserArrayOutput values.
+// You can construct a concrete instance of `GetFirewallDNSRulesUserArrayInput` via:
+//
+//	GetFirewallDNSRulesUserArray{ GetFirewallDNSRulesUserArgs{...} }
+type GetFirewallDNSRulesUserArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallDNSRulesUserArrayOutput() GetFirewallDNSRulesUserArrayOutput
+	ToGetFirewallDNSRulesUserArrayOutputWithContext(context.Context) GetFirewallDNSRulesUserArrayOutput
+}
+
+type GetFirewallDNSRulesUserArray []GetFirewallDNSRulesUserInput
+
+func (GetFirewallDNSRulesUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesUser)(nil)).Elem()
+}
+
+func (i GetFirewallDNSRulesUserArray) ToGetFirewallDNSRulesUserArrayOutput() GetFirewallDNSRulesUserArrayOutput {
+	return i.ToGetFirewallDNSRulesUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallDNSRulesUserArray) ToGetFirewallDNSRulesUserArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallDNSRulesUserArrayOutput)
+}
+
+type GetFirewallDNSRulesUserOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallDNSRulesUser)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesUserOutput) ToGetFirewallDNSRulesUserOutput() GetFirewallDNSRulesUserOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesUserOutput) ToGetFirewallDNSRulesUserOutputWithContext(ctx context.Context) GetFirewallDNSRulesUserOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetFirewallDNSRulesUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetFirewallDNSRulesUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallDNSRulesUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallDNSRulesUser)(nil)).Elem()
+}
+
+func (o GetFirewallDNSRulesUserArrayOutput) ToGetFirewallDNSRulesUserArrayOutput() GetFirewallDNSRulesUserArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesUserArrayOutput) ToGetFirewallDNSRulesUserArrayOutputWithContext(ctx context.Context) GetFirewallDNSRulesUserArrayOutput {
+	return o
+}
+
+func (o GetFirewallDNSRulesUserArrayOutput) Index(i pulumi.IntInput) GetFirewallDNSRulesUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallDNSRulesUser {
+		return vs[0].([]GetFirewallDNSRulesUser)[vs[1].(int)]
+	}).(GetFirewallDNSRulesUserOutput)
+}
+
 type GetFirewallDnsRuleApplicationGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleApplicationGroupInput is an input type that accepts GetFirewallDnsRuleApplicationGroupArgs and GetFirewallDnsRuleApplicationGroupOutput values.
@@ -29511,8 +33611,10 @@ type GetFirewallDnsRuleApplicationGroupInput interface {
 
 type GetFirewallDnsRuleApplicationGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleApplicationGroupArgs) ElementType() reflect.Type {
@@ -29570,10 +33672,12 @@ func (o GetFirewallDnsRuleApplicationGroupOutput) Extensions() pulumi.StringMapO
 	return o.ApplyT(func(v GetFirewallDnsRuleApplicationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleApplicationGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleApplicationGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleApplicationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleApplicationGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -29600,8 +33704,10 @@ func (o GetFirewallDnsRuleApplicationGroupArrayOutput) Index(i pulumi.IntInput) 
 
 type GetFirewallDnsRuleDepartment struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleDepartmentInput is an input type that accepts GetFirewallDnsRuleDepartmentArgs and GetFirewallDnsRuleDepartmentOutput values.
@@ -29617,8 +33723,10 @@ type GetFirewallDnsRuleDepartmentInput interface {
 
 type GetFirewallDnsRuleDepartmentArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleDepartmentArgs) ElementType() reflect.Type {
@@ -29676,10 +33784,12 @@ func (o GetFirewallDnsRuleDepartmentOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallDnsRuleDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDepartmentOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDepartment) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDepartmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDepartment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -29706,8 +33816,10 @@ func (o GetFirewallDnsRuleDepartmentArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallDnsRuleDestIpGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleDestIpGroupInput is an input type that accepts GetFirewallDnsRuleDestIpGroupArgs and GetFirewallDnsRuleDestIpGroupOutput values.
@@ -29723,8 +33835,10 @@ type GetFirewallDnsRuleDestIpGroupInput interface {
 
 type GetFirewallDnsRuleDestIpGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleDestIpGroupArgs) ElementType() reflect.Type {
@@ -29782,10 +33896,12 @@ func (o GetFirewallDnsRuleDestIpGroupOutput) Extensions() pulumi.StringMapOutput
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDestIpGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDestIpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -29812,8 +33928,10 @@ func (o GetFirewallDnsRuleDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetFi
 
 type GetFirewallDnsRuleDestIpv6Group struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleDestIpv6GroupInput is an input type that accepts GetFirewallDnsRuleDestIpv6GroupArgs and GetFirewallDnsRuleDestIpv6GroupOutput values.
@@ -29829,8 +33947,10 @@ type GetFirewallDnsRuleDestIpv6GroupInput interface {
 
 type GetFirewallDnsRuleDestIpv6GroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleDestIpv6GroupArgs) ElementType() reflect.Type {
@@ -29888,10 +34008,12 @@ func (o GetFirewallDnsRuleDestIpv6GroupOutput) Extensions() pulumi.StringMapOutp
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDestIpv6GroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDestIpv6GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -29918,8 +34040,10 @@ func (o GetFirewallDnsRuleDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetFirewallDnsRuleDevice struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleDeviceInput is an input type that accepts GetFirewallDnsRuleDeviceArgs and GetFirewallDnsRuleDeviceOutput values.
@@ -29935,8 +34059,10 @@ type GetFirewallDnsRuleDeviceInput interface {
 
 type GetFirewallDnsRuleDeviceArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleDeviceArgs) ElementType() reflect.Type {
@@ -29994,10 +34120,12 @@ func (o GetFirewallDnsRuleDeviceOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDeviceOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDevice) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDeviceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDevice) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30024,8 +34152,10 @@ func (o GetFirewallDnsRuleDeviceArrayOutput) Index(i pulumi.IntInput) GetFirewal
 
 type GetFirewallDnsRuleDeviceGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleDeviceGroupInput is an input type that accepts GetFirewallDnsRuleDeviceGroupArgs and GetFirewallDnsRuleDeviceGroupOutput values.
@@ -30041,8 +34171,10 @@ type GetFirewallDnsRuleDeviceGroupInput interface {
 
 type GetFirewallDnsRuleDeviceGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleDeviceGroupArgs) ElementType() reflect.Type {
@@ -30100,10 +34232,12 @@ func (o GetFirewallDnsRuleDeviceGroupOutput) Extensions() pulumi.StringMapOutput
 	return o.ApplyT(func(v GetFirewallDnsRuleDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDeviceGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleDeviceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30130,8 +34264,10 @@ func (o GetFirewallDnsRuleDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetFi
 
 type GetFirewallDnsRuleGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleGroupInput is an input type that accepts GetFirewallDnsRuleGroupArgs and GetFirewallDnsRuleGroupOutput values.
@@ -30147,8 +34283,10 @@ type GetFirewallDnsRuleGroupInput interface {
 
 type GetFirewallDnsRuleGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleGroupArgs) ElementType() reflect.Type {
@@ -30206,10 +34344,12 @@ func (o GetFirewallDnsRuleGroupOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30236,8 +34376,10 @@ func (o GetFirewallDnsRuleGroupArrayOutput) Index(i pulumi.IntInput) GetFirewall
 
 type GetFirewallDnsRuleLabel struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleLabelInput is an input type that accepts GetFirewallDnsRuleLabelArgs and GetFirewallDnsRuleLabelOutput values.
@@ -30253,8 +34395,10 @@ type GetFirewallDnsRuleLabelInput interface {
 
 type GetFirewallDnsRuleLabelArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleLabelArgs) ElementType() reflect.Type {
@@ -30312,10 +34456,12 @@ func (o GetFirewallDnsRuleLabelOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLabelOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLabel) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30342,9 +34488,9 @@ func (o GetFirewallDnsRuleLabelArrayOutput) Index(i pulumi.IntInput) GetFirewall
 
 type GetFirewallDnsRuleLastModifiedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// Identifier that uniquely identifies an entity
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// Identifier that uniquely identifies an entity
+	// Name of the Firewall Filtering policy rule
 	Name string `pulumi:"name"`
 }
 
@@ -30361,9 +34507,9 @@ type GetFirewallDnsRuleLastModifiedByInput interface {
 
 type GetFirewallDnsRuleLastModifiedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// Identifier that uniquely identifies an entity
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// Identifier that uniquely identifies an entity
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -30422,12 +34568,12 @@ func (o GetFirewallDnsRuleLastModifiedByOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetFirewallDnsRuleLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// Identifier that uniquely identifies an entity
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// Identifier that uniquely identifies an entity
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLastModifiedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30454,8 +34600,10 @@ func (o GetFirewallDnsRuleLastModifiedByArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetFirewallDnsRuleLocation struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleLocationInput is an input type that accepts GetFirewallDnsRuleLocationArgs and GetFirewallDnsRuleLocationOutput values.
@@ -30471,8 +34619,10 @@ type GetFirewallDnsRuleLocationInput interface {
 
 type GetFirewallDnsRuleLocationArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleLocationArgs) ElementType() reflect.Type {
@@ -30530,10 +34680,12 @@ func (o GetFirewallDnsRuleLocationOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLocationOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLocation) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLocation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30560,8 +34712,10 @@ func (o GetFirewallDnsRuleLocationArrayOutput) Index(i pulumi.IntInput) GetFirew
 
 type GetFirewallDnsRuleLocationGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleLocationGroupInput is an input type that accepts GetFirewallDnsRuleLocationGroupArgs and GetFirewallDnsRuleLocationGroupOutput values.
@@ -30577,8 +34731,10 @@ type GetFirewallDnsRuleLocationGroupInput interface {
 
 type GetFirewallDnsRuleLocationGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleLocationGroupArgs) ElementType() reflect.Type {
@@ -30636,10 +34792,12 @@ func (o GetFirewallDnsRuleLocationGroupOutput) Extensions() pulumi.StringMapOutp
 	return o.ApplyT(func(v GetFirewallDnsRuleLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLocationGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLocationGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleLocationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleLocationGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30666,8 +34824,10 @@ func (o GetFirewallDnsRuleLocationGroupArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetFirewallDnsRuleSrcIpGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleSrcIpGroupInput is an input type that accepts GetFirewallDnsRuleSrcIpGroupArgs and GetFirewallDnsRuleSrcIpGroupOutput values.
@@ -30683,8 +34843,10 @@ type GetFirewallDnsRuleSrcIpGroupInput interface {
 
 type GetFirewallDnsRuleSrcIpGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleSrcIpGroupArgs) ElementType() reflect.Type {
@@ -30742,10 +34904,12 @@ func (o GetFirewallDnsRuleSrcIpGroupOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleSrcIpGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleSrcIpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30772,8 +34936,10 @@ func (o GetFirewallDnsRuleSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallDnsRuleSrcIpv6Group struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleSrcIpv6GroupInput is an input type that accepts GetFirewallDnsRuleSrcIpv6GroupArgs and GetFirewallDnsRuleSrcIpv6GroupOutput values.
@@ -30789,8 +34955,10 @@ type GetFirewallDnsRuleSrcIpv6GroupInput interface {
 
 type GetFirewallDnsRuleSrcIpv6GroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleSrcIpv6GroupArgs) ElementType() reflect.Type {
@@ -30848,10 +35016,12 @@ func (o GetFirewallDnsRuleSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutpu
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleSrcIpv6GroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleSrcIpv6GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30878,8 +35048,10 @@ func (o GetFirewallDnsRuleSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetF
 
 type GetFirewallDnsRuleTimeWindow struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleTimeWindowInput is an input type that accepts GetFirewallDnsRuleTimeWindowArgs and GetFirewallDnsRuleTimeWindowOutput values.
@@ -30895,8 +35067,10 @@ type GetFirewallDnsRuleTimeWindowInput interface {
 
 type GetFirewallDnsRuleTimeWindowArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleTimeWindowArgs) ElementType() reflect.Type {
@@ -30954,10 +35128,12 @@ func (o GetFirewallDnsRuleTimeWindowOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallDnsRuleTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleTimeWindowOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleTimeWindow) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleTimeWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleTimeWindow) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -30984,8 +35160,10 @@ func (o GetFirewallDnsRuleTimeWindowArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallDnsRuleUser struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallDnsRuleUserInput is an input type that accepts GetFirewallDnsRuleUserArgs and GetFirewallDnsRuleUserOutput values.
@@ -31001,8 +35179,10 @@ type GetFirewallDnsRuleUserInput interface {
 
 type GetFirewallDnsRuleUserArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallDnsRuleUserArgs) ElementType() reflect.Type {
@@ -31060,10 +35240,12 @@ func (o GetFirewallDnsRuleUserOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleUserOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleUser) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallDnsRuleUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallDnsRuleUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34388,8 +38570,10 @@ func (o GetFirewallFilteringRuleZpaAppSegmentArrayOutput) Index(i pulumi.IntInpu
 
 type GetFirewallIpsRuleDepartment struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleDepartmentInput is an input type that accepts GetFirewallIpsRuleDepartmentArgs and GetFirewallIpsRuleDepartmentOutput values.
@@ -34405,8 +38589,10 @@ type GetFirewallIpsRuleDepartmentInput interface {
 
 type GetFirewallIpsRuleDepartmentArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleDepartmentArgs) ElementType() reflect.Type {
@@ -34464,10 +38650,12 @@ func (o GetFirewallIpsRuleDepartmentOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallIpsRuleDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDepartmentOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDepartment) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDepartmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDepartment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34494,8 +38682,10 @@ func (o GetFirewallIpsRuleDepartmentArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallIpsRuleDestIpGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleDestIpGroupInput is an input type that accepts GetFirewallIpsRuleDestIpGroupArgs and GetFirewallIpsRuleDestIpGroupOutput values.
@@ -34511,8 +38701,10 @@ type GetFirewallIpsRuleDestIpGroupInput interface {
 
 type GetFirewallIpsRuleDestIpGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleDestIpGroupArgs) ElementType() reflect.Type {
@@ -34570,10 +38762,12 @@ func (o GetFirewallIpsRuleDestIpGroupOutput) Extensions() pulumi.StringMapOutput
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDestIpGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDestIpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34600,8 +38794,10 @@ func (o GetFirewallIpsRuleDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetFi
 
 type GetFirewallIpsRuleDestIpv6Group struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleDestIpv6GroupInput is an input type that accepts GetFirewallIpsRuleDestIpv6GroupArgs and GetFirewallIpsRuleDestIpv6GroupOutput values.
@@ -34617,8 +38813,10 @@ type GetFirewallIpsRuleDestIpv6GroupInput interface {
 
 type GetFirewallIpsRuleDestIpv6GroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleDestIpv6GroupArgs) ElementType() reflect.Type {
@@ -34676,10 +38874,12 @@ func (o GetFirewallIpsRuleDestIpv6GroupOutput) Extensions() pulumi.StringMapOutp
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDestIpv6GroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDestIpv6GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34706,8 +38906,10 @@ func (o GetFirewallIpsRuleDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetFirewallIpsRuleDevice struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleDeviceInput is an input type that accepts GetFirewallIpsRuleDeviceArgs and GetFirewallIpsRuleDeviceOutput values.
@@ -34723,8 +38925,10 @@ type GetFirewallIpsRuleDeviceInput interface {
 
 type GetFirewallIpsRuleDeviceArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleDeviceArgs) ElementType() reflect.Type {
@@ -34782,10 +38986,12 @@ func (o GetFirewallIpsRuleDeviceOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDeviceOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDevice) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDeviceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDevice) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34812,8 +39018,10 @@ func (o GetFirewallIpsRuleDeviceArrayOutput) Index(i pulumi.IntInput) GetFirewal
 
 type GetFirewallIpsRuleDeviceGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleDeviceGroupInput is an input type that accepts GetFirewallIpsRuleDeviceGroupArgs and GetFirewallIpsRuleDeviceGroupOutput values.
@@ -34829,8 +39037,10 @@ type GetFirewallIpsRuleDeviceGroupInput interface {
 
 type GetFirewallIpsRuleDeviceGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleDeviceGroupArgs) ElementType() reflect.Type {
@@ -34888,10 +39098,12 @@ func (o GetFirewallIpsRuleDeviceGroupOutput) Extensions() pulumi.StringMapOutput
 	return o.ApplyT(func(v GetFirewallIpsRuleDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDeviceGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleDeviceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -34918,8 +39130,10 @@ func (o GetFirewallIpsRuleDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetFi
 
 type GetFirewallIpsRuleGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleGroupInput is an input type that accepts GetFirewallIpsRuleGroupArgs and GetFirewallIpsRuleGroupOutput values.
@@ -34935,8 +39149,10 @@ type GetFirewallIpsRuleGroupInput interface {
 
 type GetFirewallIpsRuleGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleGroupArgs) ElementType() reflect.Type {
@@ -34994,10 +39210,12 @@ func (o GetFirewallIpsRuleGroupOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35024,8 +39242,10 @@ func (o GetFirewallIpsRuleGroupArrayOutput) Index(i pulumi.IntInput) GetFirewall
 
 type GetFirewallIpsRuleLabel struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleLabelInput is an input type that accepts GetFirewallIpsRuleLabelArgs and GetFirewallIpsRuleLabelOutput values.
@@ -35041,8 +39261,10 @@ type GetFirewallIpsRuleLabelInput interface {
 
 type GetFirewallIpsRuleLabelArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleLabelArgs) ElementType() reflect.Type {
@@ -35100,10 +39322,12 @@ func (o GetFirewallIpsRuleLabelOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLabelOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLabel) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35130,9 +39354,9 @@ func (o GetFirewallIpsRuleLabelArrayOutput) Index(i pulumi.IntInput) GetFirewall
 
 type GetFirewallIpsRuleLastModifiedBy struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	// Identifier that uniquely identifies an entity
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// Identifier that uniquely identifies an entity
+	// Name of the Firewall Filtering policy rule
 	Name string `pulumi:"name"`
 }
 
@@ -35149,9 +39373,9 @@ type GetFirewallIpsRuleLastModifiedByInput interface {
 
 type GetFirewallIpsRuleLastModifiedByArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// Identifier that uniquely identifies an entity
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// Identifier that uniquely identifies an entity
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -35210,12 +39434,12 @@ func (o GetFirewallIpsRuleLastModifiedByOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetFirewallIpsRuleLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// Identifier that uniquely identifies an entity
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// Identifier that uniquely identifies an entity
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLastModifiedByOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35242,8 +39466,10 @@ func (o GetFirewallIpsRuleLastModifiedByArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetFirewallIpsRuleLocation struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleLocationInput is an input type that accepts GetFirewallIpsRuleLocationArgs and GetFirewallIpsRuleLocationOutput values.
@@ -35259,8 +39485,10 @@ type GetFirewallIpsRuleLocationInput interface {
 
 type GetFirewallIpsRuleLocationArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleLocationArgs) ElementType() reflect.Type {
@@ -35318,10 +39546,12 @@ func (o GetFirewallIpsRuleLocationOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLocationOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLocation) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLocation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35348,8 +39578,10 @@ func (o GetFirewallIpsRuleLocationArrayOutput) Index(i pulumi.IntInput) GetFirew
 
 type GetFirewallIpsRuleLocationGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleLocationGroupInput is an input type that accepts GetFirewallIpsRuleLocationGroupArgs and GetFirewallIpsRuleLocationGroupOutput values.
@@ -35365,8 +39597,10 @@ type GetFirewallIpsRuleLocationGroupInput interface {
 
 type GetFirewallIpsRuleLocationGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleLocationGroupArgs) ElementType() reflect.Type {
@@ -35424,10 +39658,12 @@ func (o GetFirewallIpsRuleLocationGroupOutput) Extensions() pulumi.StringMapOutp
 	return o.ApplyT(func(v GetFirewallIpsRuleLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLocationGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLocationGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleLocationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleLocationGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35454,8 +39690,10 @@ func (o GetFirewallIpsRuleLocationGroupArrayOutput) Index(i pulumi.IntInput) Get
 
 type GetFirewallIpsRuleNwService struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleNwServiceInput is an input type that accepts GetFirewallIpsRuleNwServiceArgs and GetFirewallIpsRuleNwServiceOutput values.
@@ -35471,8 +39709,10 @@ type GetFirewallIpsRuleNwServiceInput interface {
 
 type GetFirewallIpsRuleNwServiceArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleNwServiceArgs) ElementType() reflect.Type {
@@ -35530,10 +39770,12 @@ func (o GetFirewallIpsRuleNwServiceOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleNwService) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleNwServiceOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleNwService) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleNwServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleNwService) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35560,8 +39802,10 @@ func (o GetFirewallIpsRuleNwServiceArrayOutput) Index(i pulumi.IntInput) GetFire
 
 type GetFirewallIpsRuleNwServiceGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleNwServiceGroupInput is an input type that accepts GetFirewallIpsRuleNwServiceGroupArgs and GetFirewallIpsRuleNwServiceGroupOutput values.
@@ -35577,8 +39821,10 @@ type GetFirewallIpsRuleNwServiceGroupInput interface {
 
 type GetFirewallIpsRuleNwServiceGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleNwServiceGroupArgs) ElementType() reflect.Type {
@@ -35636,10 +39882,12 @@ func (o GetFirewallIpsRuleNwServiceGroupOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetFirewallIpsRuleNwServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleNwServiceGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleNwServiceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35666,8 +39914,10 @@ func (o GetFirewallIpsRuleNwServiceGroupArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetFirewallIpsRuleSrcIpGroup struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleSrcIpGroupInput is an input type that accepts GetFirewallIpsRuleSrcIpGroupArgs and GetFirewallIpsRuleSrcIpGroupOutput values.
@@ -35683,8 +39933,10 @@ type GetFirewallIpsRuleSrcIpGroupInput interface {
 
 type GetFirewallIpsRuleSrcIpGroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleSrcIpGroupArgs) ElementType() reflect.Type {
@@ -35742,10 +39994,12 @@ func (o GetFirewallIpsRuleSrcIpGroupOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleSrcIpGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleSrcIpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35772,8 +40026,10 @@ func (o GetFirewallIpsRuleSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallIpsRuleSrcIpv6Group struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleSrcIpv6GroupInput is an input type that accepts GetFirewallIpsRuleSrcIpv6GroupArgs and GetFirewallIpsRuleSrcIpv6GroupOutput values.
@@ -35789,8 +40045,10 @@ type GetFirewallIpsRuleSrcIpv6GroupInput interface {
 
 type GetFirewallIpsRuleSrcIpv6GroupArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleSrcIpv6GroupArgs) ElementType() reflect.Type {
@@ -35848,10 +40106,12 @@ func (o GetFirewallIpsRuleSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutpu
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleSrcIpv6GroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleSrcIpv6GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35878,8 +40138,10 @@ func (o GetFirewallIpsRuleSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetF
 
 type GetFirewallIpsRuleThreatCategory struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleThreatCategoryInput is an input type that accepts GetFirewallIpsRuleThreatCategoryArgs and GetFirewallIpsRuleThreatCategoryOutput values.
@@ -35895,8 +40157,10 @@ type GetFirewallIpsRuleThreatCategoryInput interface {
 
 type GetFirewallIpsRuleThreatCategoryArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleThreatCategoryArgs) ElementType() reflect.Type {
@@ -35954,10 +40218,12 @@ func (o GetFirewallIpsRuleThreatCategoryOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetFirewallIpsRuleThreatCategory) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleThreatCategoryOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleThreatCategory) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleThreatCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleThreatCategory) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -35984,8 +40250,10 @@ func (o GetFirewallIpsRuleThreatCategoryArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetFirewallIpsRuleTimeWindow struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleTimeWindowInput is an input type that accepts GetFirewallIpsRuleTimeWindowArgs and GetFirewallIpsRuleTimeWindowOutput values.
@@ -36001,8 +40269,10 @@ type GetFirewallIpsRuleTimeWindowInput interface {
 
 type GetFirewallIpsRuleTimeWindowArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleTimeWindowArgs) ElementType() reflect.Type {
@@ -36060,10 +40330,12 @@ func (o GetFirewallIpsRuleTimeWindowOutput) Extensions() pulumi.StringMapOutput 
 	return o.ApplyT(func(v GetFirewallIpsRuleTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleTimeWindowOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleTimeWindow) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleTimeWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleTimeWindow) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36090,8 +40362,10 @@ func (o GetFirewallIpsRuleTimeWindowArrayOutput) Index(i pulumi.IntInput) GetFir
 
 type GetFirewallIpsRuleUser struct {
 	Extensions map[string]string `pulumi:"extensions"`
-	Id         int               `pulumi:"id"`
-	Name       string            `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
 }
 
 // GetFirewallIpsRuleUserInput is an input type that accepts GetFirewallIpsRuleUserArgs and GetFirewallIpsRuleUserOutput values.
@@ -36107,8 +40381,10 @@ type GetFirewallIpsRuleUserInput interface {
 
 type GetFirewallIpsRuleUserArgs struct {
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	Id         pulumi.IntInput       `pulumi:"id"`
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetFirewallIpsRuleUserArgs) ElementType() reflect.Type {
@@ -36166,10 +40442,12 @@ func (o GetFirewallIpsRuleUserOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleUserOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleUser) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36197,9 +40475,9 @@ func (o GetFirewallIpsRuleUserArrayOutput) Index(i pulumi.IntInput) GetFirewallI
 type GetFirewallIpsRuleZpaAppSegment struct {
 	// Indicates the external ID. Applicable only when this reference is of an external entity.
 	ExternalId string `pulumi:"externalId"`
-	// A unique identifier assigned to the Application Segment
+	// Unique identifier for the Firewall Filtering policy rule
 	Id int `pulumi:"id"`
-	// The name of the Application Segment
+	// Name of the Firewall Filtering policy rule
 	Name string `pulumi:"name"`
 }
 
@@ -36217,9 +40495,9 @@ type GetFirewallIpsRuleZpaAppSegmentInput interface {
 type GetFirewallIpsRuleZpaAppSegmentArgs struct {
 	// Indicates the external ID. Applicable only when this reference is of an external entity.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// A unique identifier assigned to the Application Segment
+	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntInput `pulumi:"id"`
-	// The name of the Application Segment
+	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36279,12 +40557,12 @@ func (o GetFirewallIpsRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutput 
 	return o.ApplyT(func(v GetFirewallIpsRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// A unique identifier assigned to the Application Segment
+// Unique identifier for the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleZpaAppSegmentOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The name of the Application Segment
+// Name of the Firewall Filtering policy rule
 func (o GetFirewallIpsRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpsRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -39262,6 +43540,2025 @@ func (o GetForwardingControlZPAGatewayZpaServerGroupArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlZPAGatewayZpaServerGroup {
 		return vs[0].([]GetForwardingControlZPAGatewayZpaServerGroup)[vs[1].(int)]
 	}).(GetForwardingControlZPAGatewayZpaServerGroupOutput)
+}
+
+type GetIPSFirewallRuleDepartment struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDepartmentInput is an input type that accepts GetIPSFirewallRuleDepartmentArgs and GetIPSFirewallRuleDepartmentOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDepartmentInput` via:
+//
+//	GetIPSFirewallRuleDepartmentArgs{...}
+type GetIPSFirewallRuleDepartmentInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput
+	ToGetIPSFirewallRuleDepartmentOutputWithContext(context.Context) GetIPSFirewallRuleDepartmentOutput
+}
+
+type GetIPSFirewallRuleDepartmentArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDepartmentArgs) ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput {
+	return i.ToGetIPSFirewallRuleDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDepartmentArgs) ToGetIPSFirewallRuleDepartmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDepartmentOutput)
+}
+
+// GetIPSFirewallRuleDepartmentArrayInput is an input type that accepts GetIPSFirewallRuleDepartmentArray and GetIPSFirewallRuleDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDepartmentArrayInput` via:
+//
+//	GetIPSFirewallRuleDepartmentArray{ GetIPSFirewallRuleDepartmentArgs{...} }
+type GetIPSFirewallRuleDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput
+	ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(context.Context) GetIPSFirewallRuleDepartmentArrayOutput
+}
+
+type GetIPSFirewallRuleDepartmentArray []GetIPSFirewallRuleDepartmentInput
+
+func (GetIPSFirewallRuleDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDepartmentArray) ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput {
+	return i.ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDepartmentArray) ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDepartmentArrayOutput)
+}
+
+type GetIPSFirewallRuleDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) ToGetIPSFirewallRuleDepartmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDepartment {
+		return vs[0].([]GetIPSFirewallRuleDepartment)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDepartmentOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDestIpGroupInput is an input type that accepts GetIPSFirewallRuleDestIpGroupArgs and GetIPSFirewallRuleDestIpGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpGroupInput` via:
+//
+//	GetIPSFirewallRuleDestIpGroupArgs{...}
+type GetIPSFirewallRuleDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput
+	ToGetIPSFirewallRuleDestIpGroupOutputWithContext(context.Context) GetIPSFirewallRuleDestIpGroupOutput
+}
+
+type GetIPSFirewallRuleDestIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArgs) ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput {
+	return i.ToGetIPSFirewallRuleDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArgs) ToGetIPSFirewallRuleDestIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpGroupOutput)
+}
+
+// GetIPSFirewallRuleDestIpGroupArrayInput is an input type that accepts GetIPSFirewallRuleDestIpGroupArray and GetIPSFirewallRuleDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDestIpGroupArray{ GetIPSFirewallRuleDestIpGroupArgs{...} }
+type GetIPSFirewallRuleDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput
+	ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput
+}
+
+type GetIPSFirewallRuleDestIpGroupArray []GetIPSFirewallRuleDestIpGroupInput
+
+func (GetIPSFirewallRuleDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArray) ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArray) ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) ToGetIPSFirewallRuleDestIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDestIpGroup {
+		return vs[0].([]GetIPSFirewallRuleDestIpGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDestIpGroupOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDestIpv6GroupInput is an input type that accepts GetIPSFirewallRuleDestIpv6GroupArgs and GetIPSFirewallRuleDestIpv6GroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpv6GroupInput` via:
+//
+//	GetIPSFirewallRuleDestIpv6GroupArgs{...}
+type GetIPSFirewallRuleDestIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput
+	ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(context.Context) GetIPSFirewallRuleDestIpv6GroupOutput
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDestIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArgs) ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput {
+	return i.ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArgs) ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpv6GroupOutput)
+}
+
+// GetIPSFirewallRuleDestIpv6GroupArrayInput is an input type that accepts GetIPSFirewallRuleDestIpv6GroupArray and GetIPSFirewallRuleDestIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpv6GroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDestIpv6GroupArray{ GetIPSFirewallRuleDestIpv6GroupArgs{...} }
+type GetIPSFirewallRuleDestIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput
+	ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArray []GetIPSFirewallRuleDestIpv6GroupInput
+
+func (GetIPSFirewallRuleDestIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArray) ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArray) ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpv6GroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDestIpv6Group {
+		return vs[0].([]GetIPSFirewallRuleDestIpv6Group)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDestIpv6GroupOutput)
+}
+
+type GetIPSFirewallRuleDevice struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDeviceInput is an input type that accepts GetIPSFirewallRuleDeviceArgs and GetIPSFirewallRuleDeviceOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceInput` via:
+//
+//	GetIPSFirewallRuleDeviceArgs{...}
+type GetIPSFirewallRuleDeviceInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput
+	ToGetIPSFirewallRuleDeviceOutputWithContext(context.Context) GetIPSFirewallRuleDeviceOutput
+}
+
+type GetIPSFirewallRuleDeviceArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceArgs) ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput {
+	return i.ToGetIPSFirewallRuleDeviceOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceArgs) ToGetIPSFirewallRuleDeviceOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceOutput)
+}
+
+// GetIPSFirewallRuleDeviceArrayInput is an input type that accepts GetIPSFirewallRuleDeviceArray and GetIPSFirewallRuleDeviceArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceArrayInput` via:
+//
+//	GetIPSFirewallRuleDeviceArray{ GetIPSFirewallRuleDeviceArgs{...} }
+type GetIPSFirewallRuleDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput
+	ToGetIPSFirewallRuleDeviceArrayOutputWithContext(context.Context) GetIPSFirewallRuleDeviceArrayOutput
+}
+
+type GetIPSFirewallRuleDeviceArray []GetIPSFirewallRuleDeviceInput
+
+func (GetIPSFirewallRuleDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceArray) ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput {
+	return i.ToGetIPSFirewallRuleDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceArray) ToGetIPSFirewallRuleDeviceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceArrayOutput)
+}
+
+type GetIPSFirewallRuleDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) ToGetIPSFirewallRuleDeviceOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) ToGetIPSFirewallRuleDeviceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDevice {
+		return vs[0].([]GetIPSFirewallRuleDevice)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDeviceOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDeviceGroupInput is an input type that accepts GetIPSFirewallRuleDeviceGroupArgs and GetIPSFirewallRuleDeviceGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceGroupInput` via:
+//
+//	GetIPSFirewallRuleDeviceGroupArgs{...}
+type GetIPSFirewallRuleDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput
+	ToGetIPSFirewallRuleDeviceGroupOutputWithContext(context.Context) GetIPSFirewallRuleDeviceGroupOutput
+}
+
+type GetIPSFirewallRuleDeviceGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArgs) ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput {
+	return i.ToGetIPSFirewallRuleDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArgs) ToGetIPSFirewallRuleDeviceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceGroupOutput)
+}
+
+// GetIPSFirewallRuleDeviceGroupArrayInput is an input type that accepts GetIPSFirewallRuleDeviceGroupArray and GetIPSFirewallRuleDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDeviceGroupArray{ GetIPSFirewallRuleDeviceGroupArgs{...} }
+type GetIPSFirewallRuleDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput
+	ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput
+}
+
+type GetIPSFirewallRuleDeviceGroupArray []GetIPSFirewallRuleDeviceGroupInput
+
+func (GetIPSFirewallRuleDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArray) ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArray) ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) ToGetIPSFirewallRuleDeviceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDeviceGroup {
+		return vs[0].([]GetIPSFirewallRuleDeviceGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDeviceGroupOutput)
+}
+
+type GetIPSFirewallRuleGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleGroupInput is an input type that accepts GetIPSFirewallRuleGroupArgs and GetIPSFirewallRuleGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleGroupInput` via:
+//
+//	GetIPSFirewallRuleGroupArgs{...}
+type GetIPSFirewallRuleGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput
+	ToGetIPSFirewallRuleGroupOutputWithContext(context.Context) GetIPSFirewallRuleGroupOutput
+}
+
+type GetIPSFirewallRuleGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleGroupArgs) ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput {
+	return i.ToGetIPSFirewallRuleGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleGroupArgs) ToGetIPSFirewallRuleGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleGroupOutput)
+}
+
+// GetIPSFirewallRuleGroupArrayInput is an input type that accepts GetIPSFirewallRuleGroupArray and GetIPSFirewallRuleGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleGroupArray{ GetIPSFirewallRuleGroupArgs{...} }
+type GetIPSFirewallRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput
+	ToGetIPSFirewallRuleGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleGroupArrayOutput
+}
+
+type GetIPSFirewallRuleGroupArray []GetIPSFirewallRuleGroupInput
+
+func (GetIPSFirewallRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleGroupArray) ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleGroupArray) ToGetIPSFirewallRuleGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleGroupOutput) ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupOutput) ToGetIPSFirewallRuleGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) ToGetIPSFirewallRuleGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleGroup {
+		return vs[0].([]GetIPSFirewallRuleGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleGroupOutput)
+}
+
+type GetIPSFirewallRuleLabel struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLabelInput is an input type that accepts GetIPSFirewallRuleLabelArgs and GetIPSFirewallRuleLabelOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLabelInput` via:
+//
+//	GetIPSFirewallRuleLabelArgs{...}
+type GetIPSFirewallRuleLabelInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput
+	ToGetIPSFirewallRuleLabelOutputWithContext(context.Context) GetIPSFirewallRuleLabelOutput
+}
+
+type GetIPSFirewallRuleLabelArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLabelArgs) ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput {
+	return i.ToGetIPSFirewallRuleLabelOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLabelArgs) ToGetIPSFirewallRuleLabelOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLabelOutput)
+}
+
+// GetIPSFirewallRuleLabelArrayInput is an input type that accepts GetIPSFirewallRuleLabelArray and GetIPSFirewallRuleLabelArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLabelArrayInput` via:
+//
+//	GetIPSFirewallRuleLabelArray{ GetIPSFirewallRuleLabelArgs{...} }
+type GetIPSFirewallRuleLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput
+	ToGetIPSFirewallRuleLabelArrayOutputWithContext(context.Context) GetIPSFirewallRuleLabelArrayOutput
+}
+
+type GetIPSFirewallRuleLabelArray []GetIPSFirewallRuleLabelInput
+
+func (GetIPSFirewallRuleLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLabelArray) ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput {
+	return i.ToGetIPSFirewallRuleLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLabelArray) ToGetIPSFirewallRuleLabelArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLabelArrayOutput)
+}
+
+type GetIPSFirewallRuleLabelOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLabelOutput) ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelOutput) ToGetIPSFirewallRuleLabelOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) ToGetIPSFirewallRuleLabelArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLabel {
+		return vs[0].([]GetIPSFirewallRuleLabel)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLabelOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLastModifiedByInput is an input type that accepts GetIPSFirewallRuleLastModifiedByArgs and GetIPSFirewallRuleLastModifiedByOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLastModifiedByInput` via:
+//
+//	GetIPSFirewallRuleLastModifiedByArgs{...}
+type GetIPSFirewallRuleLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput
+	ToGetIPSFirewallRuleLastModifiedByOutputWithContext(context.Context) GetIPSFirewallRuleLastModifiedByOutput
+}
+
+type GetIPSFirewallRuleLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArgs) ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput {
+	return i.ToGetIPSFirewallRuleLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArgs) ToGetIPSFirewallRuleLastModifiedByOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLastModifiedByOutput)
+}
+
+// GetIPSFirewallRuleLastModifiedByArrayInput is an input type that accepts GetIPSFirewallRuleLastModifiedByArray and GetIPSFirewallRuleLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLastModifiedByArrayInput` via:
+//
+//	GetIPSFirewallRuleLastModifiedByArray{ GetIPSFirewallRuleLastModifiedByArgs{...} }
+type GetIPSFirewallRuleLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput
+	ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput
+}
+
+type GetIPSFirewallRuleLastModifiedByArray []GetIPSFirewallRuleLastModifiedByInput
+
+func (GetIPSFirewallRuleLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArray) ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return i.ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArray) ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLastModifiedByArrayOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) ToGetIPSFirewallRuleLastModifiedByOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLastModifiedBy {
+		return vs[0].([]GetIPSFirewallRuleLastModifiedBy)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLastModifiedByOutput)
+}
+
+type GetIPSFirewallRuleLocation struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLocationInput is an input type that accepts GetIPSFirewallRuleLocationArgs and GetIPSFirewallRuleLocationOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationInput` via:
+//
+//	GetIPSFirewallRuleLocationArgs{...}
+type GetIPSFirewallRuleLocationInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput
+	ToGetIPSFirewallRuleLocationOutputWithContext(context.Context) GetIPSFirewallRuleLocationOutput
+}
+
+type GetIPSFirewallRuleLocationArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationArgs) ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput {
+	return i.ToGetIPSFirewallRuleLocationOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationArgs) ToGetIPSFirewallRuleLocationOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationOutput)
+}
+
+// GetIPSFirewallRuleLocationArrayInput is an input type that accepts GetIPSFirewallRuleLocationArray and GetIPSFirewallRuleLocationArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationArrayInput` via:
+//
+//	GetIPSFirewallRuleLocationArray{ GetIPSFirewallRuleLocationArgs{...} }
+type GetIPSFirewallRuleLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput
+	ToGetIPSFirewallRuleLocationArrayOutputWithContext(context.Context) GetIPSFirewallRuleLocationArrayOutput
+}
+
+type GetIPSFirewallRuleLocationArray []GetIPSFirewallRuleLocationInput
+
+func (GetIPSFirewallRuleLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationArray) ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput {
+	return i.ToGetIPSFirewallRuleLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationArray) ToGetIPSFirewallRuleLocationArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationArrayOutput)
+}
+
+type GetIPSFirewallRuleLocationOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationOutput) ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationOutput) ToGetIPSFirewallRuleLocationOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) ToGetIPSFirewallRuleLocationArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLocation {
+		return vs[0].([]GetIPSFirewallRuleLocation)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLocationOutput)
+}
+
+type GetIPSFirewallRuleLocationGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLocationGroupInput is an input type that accepts GetIPSFirewallRuleLocationGroupArgs and GetIPSFirewallRuleLocationGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationGroupInput` via:
+//
+//	GetIPSFirewallRuleLocationGroupArgs{...}
+type GetIPSFirewallRuleLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput
+	ToGetIPSFirewallRuleLocationGroupOutputWithContext(context.Context) GetIPSFirewallRuleLocationGroupOutput
+}
+
+type GetIPSFirewallRuleLocationGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationGroupArgs) ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput {
+	return i.ToGetIPSFirewallRuleLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationGroupArgs) ToGetIPSFirewallRuleLocationGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationGroupOutput)
+}
+
+// GetIPSFirewallRuleLocationGroupArrayInput is an input type that accepts GetIPSFirewallRuleLocationGroupArray and GetIPSFirewallRuleLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleLocationGroupArray{ GetIPSFirewallRuleLocationGroupArgs{...} }
+type GetIPSFirewallRuleLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput
+	ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleLocationGroupArrayOutput
+}
+
+type GetIPSFirewallRuleLocationGroupArray []GetIPSFirewallRuleLocationGroupInput
+
+func (GetIPSFirewallRuleLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationGroupArray) ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationGroupArray) ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) ToGetIPSFirewallRuleLocationGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLocationGroup {
+		return vs[0].([]GetIPSFirewallRuleLocationGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLocationGroupOutput)
+}
+
+type GetIPSFirewallRuleNwService struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleNwServiceInput is an input type that accepts GetIPSFirewallRuleNwServiceArgs and GetIPSFirewallRuleNwServiceOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceInput` via:
+//
+//	GetIPSFirewallRuleNwServiceArgs{...}
+type GetIPSFirewallRuleNwServiceInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput
+	ToGetIPSFirewallRuleNwServiceOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceOutput
+}
+
+type GetIPSFirewallRuleNwServiceArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleNwServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceArgs) ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput {
+	return i.ToGetIPSFirewallRuleNwServiceOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceArgs) ToGetIPSFirewallRuleNwServiceOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceOutput)
+}
+
+// GetIPSFirewallRuleNwServiceArrayInput is an input type that accepts GetIPSFirewallRuleNwServiceArray and GetIPSFirewallRuleNwServiceArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceArrayInput` via:
+//
+//	GetIPSFirewallRuleNwServiceArray{ GetIPSFirewallRuleNwServiceArgs{...} }
+type GetIPSFirewallRuleNwServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput
+	ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceArrayOutput
+}
+
+type GetIPSFirewallRuleNwServiceArray []GetIPSFirewallRuleNwServiceInput
+
+func (GetIPSFirewallRuleNwServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceArray) ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput {
+	return i.ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceArray) ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceArrayOutput)
+}
+
+type GetIPSFirewallRuleNwServiceOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) ToGetIPSFirewallRuleNwServiceOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleNwServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleNwServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleNwService {
+		return vs[0].([]GetIPSFirewallRuleNwService)[vs[1].(int)]
+	}).(GetIPSFirewallRuleNwServiceOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleNwServiceGroupInput is an input type that accepts GetIPSFirewallRuleNwServiceGroupArgs and GetIPSFirewallRuleNwServiceGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceGroupInput` via:
+//
+//	GetIPSFirewallRuleNwServiceGroupArgs{...}
+type GetIPSFirewallRuleNwServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput
+	ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceGroupOutput
+}
+
+type GetIPSFirewallRuleNwServiceGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleNwServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArgs) ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput {
+	return i.ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArgs) ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceGroupOutput)
+}
+
+// GetIPSFirewallRuleNwServiceGroupArrayInput is an input type that accepts GetIPSFirewallRuleNwServiceGroupArray and GetIPSFirewallRuleNwServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleNwServiceGroupArray{ GetIPSFirewallRuleNwServiceGroupArgs{...} }
+type GetIPSFirewallRuleNwServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput
+	ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput
+}
+
+type GetIPSFirewallRuleNwServiceGroupArray []GetIPSFirewallRuleNwServiceGroupInput
+
+func (GetIPSFirewallRuleNwServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArray) ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArray) ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleNwServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleNwServiceGroup {
+		return vs[0].([]GetIPSFirewallRuleNwServiceGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleNwServiceGroupOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleSrcIpGroupInput is an input type that accepts GetIPSFirewallRuleSrcIpGroupArgs and GetIPSFirewallRuleSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpGroupInput` via:
+//
+//	GetIPSFirewallRuleSrcIpGroupArgs{...}
+type GetIPSFirewallRuleSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput
+	ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpGroupOutput
+}
+
+type GetIPSFirewallRuleSrcIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArgs) ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput {
+	return i.ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArgs) ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpGroupOutput)
+}
+
+// GetIPSFirewallRuleSrcIpGroupArrayInput is an input type that accepts GetIPSFirewallRuleSrcIpGroupArray and GetIPSFirewallRuleSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleSrcIpGroupArray{ GetIPSFirewallRuleSrcIpGroupArgs{...} }
+type GetIPSFirewallRuleSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput
+	ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput
+}
+
+type GetIPSFirewallRuleSrcIpGroupArray []GetIPSFirewallRuleSrcIpGroupInput
+
+func (GetIPSFirewallRuleSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArray) ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArray) ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleSrcIpGroup {
+		return vs[0].([]GetIPSFirewallRuleSrcIpGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleSrcIpGroupOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleSrcIpv6GroupInput is an input type that accepts GetIPSFirewallRuleSrcIpv6GroupArgs and GetIPSFirewallRuleSrcIpv6GroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpv6GroupInput` via:
+//
+//	GetIPSFirewallRuleSrcIpv6GroupArgs{...}
+type GetIPSFirewallRuleSrcIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput
+	ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleSrcIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArgs) ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return i.ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArgs) ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpv6GroupOutput)
+}
+
+// GetIPSFirewallRuleSrcIpv6GroupArrayInput is an input type that accepts GetIPSFirewallRuleSrcIpv6GroupArray and GetIPSFirewallRuleSrcIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpv6GroupArrayInput` via:
+//
+//	GetIPSFirewallRuleSrcIpv6GroupArray{ GetIPSFirewallRuleSrcIpv6GroupArgs{...} }
+type GetIPSFirewallRuleSrcIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput
+	ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArray []GetIPSFirewallRuleSrcIpv6GroupInput
+
+func (GetIPSFirewallRuleSrcIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArray) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return i.ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArray) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpv6GroupArrayOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleSrcIpv6Group {
+		return vs[0].([]GetIPSFirewallRuleSrcIpv6Group)[vs[1].(int)]
+	}).(GetIPSFirewallRuleSrcIpv6GroupOutput)
+}
+
+type GetIPSFirewallRuleThreatCategory struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleThreatCategoryInput is an input type that accepts GetIPSFirewallRuleThreatCategoryArgs and GetIPSFirewallRuleThreatCategoryOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleThreatCategoryInput` via:
+//
+//	GetIPSFirewallRuleThreatCategoryArgs{...}
+type GetIPSFirewallRuleThreatCategoryInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput
+	ToGetIPSFirewallRuleThreatCategoryOutputWithContext(context.Context) GetIPSFirewallRuleThreatCategoryOutput
+}
+
+type GetIPSFirewallRuleThreatCategoryArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleThreatCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArgs) ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput {
+	return i.ToGetIPSFirewallRuleThreatCategoryOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArgs) ToGetIPSFirewallRuleThreatCategoryOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleThreatCategoryOutput)
+}
+
+// GetIPSFirewallRuleThreatCategoryArrayInput is an input type that accepts GetIPSFirewallRuleThreatCategoryArray and GetIPSFirewallRuleThreatCategoryArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleThreatCategoryArrayInput` via:
+//
+//	GetIPSFirewallRuleThreatCategoryArray{ GetIPSFirewallRuleThreatCategoryArgs{...} }
+type GetIPSFirewallRuleThreatCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput
+	ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput
+}
+
+type GetIPSFirewallRuleThreatCategoryArray []GetIPSFirewallRuleThreatCategoryInput
+
+func (GetIPSFirewallRuleThreatCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArray) ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return i.ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArray) ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleThreatCategoryArrayOutput)
+}
+
+type GetIPSFirewallRuleThreatCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleThreatCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) ToGetIPSFirewallRuleThreatCategoryOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleThreatCategoryOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleThreatCategoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleThreatCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleThreatCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleThreatCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleThreatCategory {
+		return vs[0].([]GetIPSFirewallRuleThreatCategory)[vs[1].(int)]
+	}).(GetIPSFirewallRuleThreatCategoryOutput)
+}
+
+type GetIPSFirewallRuleTimeWindow struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleTimeWindowInput is an input type that accepts GetIPSFirewallRuleTimeWindowArgs and GetIPSFirewallRuleTimeWindowOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleTimeWindowInput` via:
+//
+//	GetIPSFirewallRuleTimeWindowArgs{...}
+type GetIPSFirewallRuleTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput
+	ToGetIPSFirewallRuleTimeWindowOutputWithContext(context.Context) GetIPSFirewallRuleTimeWindowOutput
+}
+
+type GetIPSFirewallRuleTimeWindowArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleTimeWindowArgs) ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput {
+	return i.ToGetIPSFirewallRuleTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleTimeWindowArgs) ToGetIPSFirewallRuleTimeWindowOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleTimeWindowOutput)
+}
+
+// GetIPSFirewallRuleTimeWindowArrayInput is an input type that accepts GetIPSFirewallRuleTimeWindowArray and GetIPSFirewallRuleTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleTimeWindowArrayInput` via:
+//
+//	GetIPSFirewallRuleTimeWindowArray{ GetIPSFirewallRuleTimeWindowArgs{...} }
+type GetIPSFirewallRuleTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput
+	ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(context.Context) GetIPSFirewallRuleTimeWindowArrayOutput
+}
+
+type GetIPSFirewallRuleTimeWindowArray []GetIPSFirewallRuleTimeWindowInput
+
+func (GetIPSFirewallRuleTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleTimeWindowArray) ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput {
+	return i.ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleTimeWindowArray) ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleTimeWindowArrayOutput)
+}
+
+type GetIPSFirewallRuleTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) ToGetIPSFirewallRuleTimeWindowOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleTimeWindow {
+		return vs[0].([]GetIPSFirewallRuleTimeWindow)[vs[1].(int)]
+	}).(GetIPSFirewallRuleTimeWindowOutput)
+}
+
+type GetIPSFirewallRuleUser struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleUserInput is an input type that accepts GetIPSFirewallRuleUserArgs and GetIPSFirewallRuleUserOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleUserInput` via:
+//
+//	GetIPSFirewallRuleUserArgs{...}
+type GetIPSFirewallRuleUserInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput
+	ToGetIPSFirewallRuleUserOutputWithContext(context.Context) GetIPSFirewallRuleUserOutput
+}
+
+type GetIPSFirewallRuleUserArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleUserArgs) ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput {
+	return i.ToGetIPSFirewallRuleUserOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleUserArgs) ToGetIPSFirewallRuleUserOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleUserOutput)
+}
+
+// GetIPSFirewallRuleUserArrayInput is an input type that accepts GetIPSFirewallRuleUserArray and GetIPSFirewallRuleUserArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleUserArrayInput` via:
+//
+//	GetIPSFirewallRuleUserArray{ GetIPSFirewallRuleUserArgs{...} }
+type GetIPSFirewallRuleUserArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput
+	ToGetIPSFirewallRuleUserArrayOutputWithContext(context.Context) GetIPSFirewallRuleUserArrayOutput
+}
+
+type GetIPSFirewallRuleUserArray []GetIPSFirewallRuleUserInput
+
+func (GetIPSFirewallRuleUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleUserArray) ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput {
+	return i.ToGetIPSFirewallRuleUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleUserArray) ToGetIPSFirewallRuleUserArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleUserArrayOutput)
+}
+
+type GetIPSFirewallRuleUserOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleUserOutput) ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserOutput) ToGetIPSFirewallRuleUserOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) ToGetIPSFirewallRuleUserArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleUser {
+		return vs[0].([]GetIPSFirewallRuleUser)[vs[1].(int)]
+	}).(GetIPSFirewallRuleUserOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegment struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId string `pulumi:"externalId"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleZpaAppSegmentInput is an input type that accepts GetIPSFirewallRuleZpaAppSegmentArgs and GetIPSFirewallRuleZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleZpaAppSegmentInput` via:
+//
+//	GetIPSFirewallRuleZpaAppSegmentArgs{...}
+type GetIPSFirewallRuleZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput
+	ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Context) GetIPSFirewallRuleZpaAppSegmentOutput
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArgs struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArgs) ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput {
+	return i.ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArgs) ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleZpaAppSegmentOutput)
+}
+
+// GetIPSFirewallRuleZpaAppSegmentArrayInput is an input type that accepts GetIPSFirewallRuleZpaAppSegmentArray and GetIPSFirewallRuleZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleZpaAppSegmentArrayInput` via:
+//
+//	GetIPSFirewallRuleZpaAppSegmentArray{ GetIPSFirewallRuleZpaAppSegmentArgs{...} }
+type GetIPSFirewallRuleZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput
+	ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArray []GetIPSFirewallRuleZpaAppSegmentInput
+
+func (GetIPSFirewallRuleZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArray) ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return i.ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArray) ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleZpaAppSegmentArrayOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+// Indicates the external ID. Applicable only when this reference is of an external entity.
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleZpaAppSegment {
+		return vs[0].([]GetIPSFirewallRuleZpaAppSegment)[vs[1].(int)]
+	}).(GetIPSFirewallRuleZpaAppSegmentOutput)
 }
 
 type GetLocationGroupsDynamicLocationGroupCriteria struct {
@@ -45590,7 +51887,9 @@ func (o GetSandboxRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetSan
 }
 
 type GetTrafficForwardingGREInternalIPRangeList struct {
-	EndIpAddress   string `pulumi:"endIpAddress"`
+	// (String) Starting IP address in the range
+	EndIpAddress string `pulumi:"endIpAddress"`
+	// (String) Ending IP address in the range
 	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
@@ -45606,7 +51905,9 @@ type GetTrafficForwardingGREInternalIPRangeListInput interface {
 }
 
 type GetTrafficForwardingGREInternalIPRangeListArgs struct {
-	EndIpAddress   pulumi.StringInput `pulumi:"endIpAddress"`
+	// (String) Starting IP address in the range
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
+	// (String) Ending IP address in the range
 	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
@@ -45661,10 +51962,12 @@ func (o GetTrafficForwardingGREInternalIPRangeListOutput) ToGetTrafficForwarding
 	return o
 }
 
+// (String) Starting IP address in the range
 func (o GetTrafficForwardingGREInternalIPRangeListOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGREInternalIPRangeList) string { return v.EndIpAddress }).(pulumi.StringOutput)
 }
 
+// (String) Ending IP address in the range
 func (o GetTrafficForwardingGREInternalIPRangeListOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGREInternalIPRangeList) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
@@ -45690,6 +51993,7 @@ func (o GetTrafficForwardingGREInternalIPRangeListArrayOutput) Index(i pulumi.In
 }
 
 type GetTrafficForwardingGRETunnelLastModifiedBy struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id   int    `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
@@ -45706,6 +52010,7 @@ type GetTrafficForwardingGRETunnelLastModifiedByInput interface {
 }
 
 type GetTrafficForwardingGRETunnelLastModifiedByArgs struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id   pulumi.IntInput    `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -45761,6 +52066,7 @@ func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) ToGetTrafficForwardin
 	return o
 }
 
+// Unique identifier of the static IP address that is associated to a GRE tunnel
 func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -45790,6 +52096,7 @@ func (o GetTrafficForwardingGRETunnelLastModifiedByArrayOutput) Index(i pulumi.I
 }
 
 type GetTrafficForwardingGRETunnelManagedBy struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id   int    `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
@@ -45806,6 +52113,7 @@ type GetTrafficForwardingGRETunnelManagedByInput interface {
 }
 
 type GetTrafficForwardingGRETunnelManagedByArgs struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id   pulumi.IntInput    `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -45861,6 +52169,7 @@ func (o GetTrafficForwardingGRETunnelManagedByOutput) ToGetTrafficForwardingGRET
 	return o
 }
 
+// Unique identifier of the static IP address that is associated to a GRE tunnel
 func (o GetTrafficForwardingGRETunnelManagedByOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelManagedBy) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -45890,15 +52199,18 @@ func (o GetTrafficForwardingGRETunnelManagedByArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetTrafficForwardingGRETunnelPrimaryDestVip struct {
-	City               string `pulumi:"city"`
-	CountryCode        string `pulumi:"countryCode"`
-	Datacenter         string `pulumi:"datacenter"`
+	City string `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode string `pulumi:"countryCode"`
+	Datacenter  string `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id                 int    `pulumi:"id"`
 	Latitude           int    `pulumi:"latitude"`
 	Longitude          int    `pulumi:"longitude"`
 	PrivateServiceEdge bool   `pulumi:"privateServiceEdge"`
 	Region             string `pulumi:"region"`
-	VirtualIp          string `pulumi:"virtualIp"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp string `pulumi:"virtualIp"`
 }
 
 // GetTrafficForwardingGRETunnelPrimaryDestVipInput is an input type that accepts GetTrafficForwardingGRETunnelPrimaryDestVipArgs and GetTrafficForwardingGRETunnelPrimaryDestVipOutput values.
@@ -45913,15 +52225,18 @@ type GetTrafficForwardingGRETunnelPrimaryDestVipInput interface {
 }
 
 type GetTrafficForwardingGRETunnelPrimaryDestVipArgs struct {
-	City               pulumi.StringInput `pulumi:"city"`
-	CountryCode        pulumi.StringInput `pulumi:"countryCode"`
-	Datacenter         pulumi.StringInput `pulumi:"datacenter"`
+	City pulumi.StringInput `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	Datacenter  pulumi.StringInput `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id                 pulumi.IntInput    `pulumi:"id"`
 	Latitude           pulumi.IntInput    `pulumi:"latitude"`
 	Longitude          pulumi.IntInput    `pulumi:"longitude"`
 	PrivateServiceEdge pulumi.BoolInput   `pulumi:"privateServiceEdge"`
 	Region             pulumi.StringInput `pulumi:"region"`
-	VirtualIp          pulumi.StringInput `pulumi:"virtualIp"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp pulumi.StringInput `pulumi:"virtualIp"`
 }
 
 func (GetTrafficForwardingGRETunnelPrimaryDestVipArgs) ElementType() reflect.Type {
@@ -45979,6 +52294,7 @@ func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) City() pulumi.StringO
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.City }).(pulumi.StringOutput)
 }
 
+// (String) When withinCountry is enabled, you must set this to the country code.
 func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.CountryCode }).(pulumi.StringOutput)
 }
@@ -45987,6 +52303,7 @@ func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Datacenter() pulumi.S
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
+// Unique identifier of the static IP address that is associated to a GRE tunnel
 func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -46007,6 +52324,7 @@ func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Region() pulumi.Strin
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// (String) GRE cluster virtual IP address (VIP)
 func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) VirtualIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.VirtualIp }).(pulumi.StringOutput)
 }
@@ -46032,15 +52350,18 @@ func (o GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput) Index(i pulumi.I
 }
 
 type GetTrafficForwardingGRETunnelSecondaryDestVip struct {
-	City               string `pulumi:"city"`
-	CountryCode        string `pulumi:"countryCode"`
-	Datacenter         string `pulumi:"datacenter"`
+	City string `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode string `pulumi:"countryCode"`
+	Datacenter  string `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id                 int    `pulumi:"id"`
 	Latitude           int    `pulumi:"latitude"`
 	Longitude          int    `pulumi:"longitude"`
 	PrivateServiceEdge bool   `pulumi:"privateServiceEdge"`
 	Region             string `pulumi:"region"`
-	VirtualIp          string `pulumi:"virtualIp"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp string `pulumi:"virtualIp"`
 }
 
 // GetTrafficForwardingGRETunnelSecondaryDestVipInput is an input type that accepts GetTrafficForwardingGRETunnelSecondaryDestVipArgs and GetTrafficForwardingGRETunnelSecondaryDestVipOutput values.
@@ -46055,15 +52376,18 @@ type GetTrafficForwardingGRETunnelSecondaryDestVipInput interface {
 }
 
 type GetTrafficForwardingGRETunnelSecondaryDestVipArgs struct {
-	City               pulumi.StringInput `pulumi:"city"`
-	CountryCode        pulumi.StringInput `pulumi:"countryCode"`
-	Datacenter         pulumi.StringInput `pulumi:"datacenter"`
+	City pulumi.StringInput `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	Datacenter  pulumi.StringInput `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
 	Id                 pulumi.IntInput    `pulumi:"id"`
 	Latitude           pulumi.IntInput    `pulumi:"latitude"`
 	Longitude          pulumi.IntInput    `pulumi:"longitude"`
 	PrivateServiceEdge pulumi.BoolInput   `pulumi:"privateServiceEdge"`
 	Region             pulumi.StringInput `pulumi:"region"`
-	VirtualIp          pulumi.StringInput `pulumi:"virtualIp"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp pulumi.StringInput `pulumi:"virtualIp"`
 }
 
 func (GetTrafficForwardingGRETunnelSecondaryDestVipArgs) ElementType() reflect.Type {
@@ -46121,6 +52445,7 @@ func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) City() pulumi.Strin
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.City }).(pulumi.StringOutput)
 }
 
+// (String) When withinCountry is enabled, you must set this to the country code.
 func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.CountryCode }).(pulumi.StringOutput)
 }
@@ -46129,6 +52454,7 @@ func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Datacenter() pulumi
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
+// Unique identifier of the static IP address that is associated to a GRE tunnel
 func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -46149,6 +52475,7 @@ func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Region() pulumi.Str
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// (String) GRE cluster virtual IP address (VIP)
 func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) VirtualIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.VirtualIp }).(pulumi.StringOutput)
 }
@@ -50710,6 +57037,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaAppSegmentArrayInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaAppSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaServerGroupInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaServerGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingControlZPAGatewayZpaServerGroupPtrInput)(nil)).Elem(), ForwardingControlZPAGatewayZpaServerGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDepartmentsInput)(nil)).Elem(), IPSFirewallRuleDepartmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDepartmentsPtrInput)(nil)).Elem(), IPSFirewallRuleDepartmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDestIpGroupsInput)(nil)).Elem(), IPSFirewallRuleDestIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDestIpGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleDestIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDestIpv6GroupsInput)(nil)).Elem(), IPSFirewallRuleDestIpv6GroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDestIpv6GroupsPtrInput)(nil)).Elem(), IPSFirewallRuleDestIpv6GroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDeviceGroupsInput)(nil)).Elem(), IPSFirewallRuleDeviceGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDeviceGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleDeviceGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDevicesInput)(nil)).Elem(), IPSFirewallRuleDevicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleDevicesPtrInput)(nil)).Elem(), IPSFirewallRuleDevicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleGroupsInput)(nil)).Elem(), IPSFirewallRuleGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLabelsInput)(nil)).Elem(), IPSFirewallRuleLabelsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLabelsPtrInput)(nil)).Elem(), IPSFirewallRuleLabelsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLocationGroupsInput)(nil)).Elem(), IPSFirewallRuleLocationGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLocationGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleLocationGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLocationsInput)(nil)).Elem(), IPSFirewallRuleLocationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleLocationsPtrInput)(nil)).Elem(), IPSFirewallRuleLocationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleNwServiceGroupsInput)(nil)).Elem(), IPSFirewallRuleNwServiceGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleNwServiceGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleNwServiceGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleNwServicesInput)(nil)).Elem(), IPSFirewallRuleNwServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleNwServicesPtrInput)(nil)).Elem(), IPSFirewallRuleNwServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleSrcIpGroupsInput)(nil)).Elem(), IPSFirewallRuleSrcIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleSrcIpGroupsPtrInput)(nil)).Elem(), IPSFirewallRuleSrcIpGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleSrcIpv6GroupsInput)(nil)).Elem(), IPSFirewallRuleSrcIpv6GroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleSrcIpv6GroupsPtrInput)(nil)).Elem(), IPSFirewallRuleSrcIpv6GroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleThreatCategoriesInput)(nil)).Elem(), IPSFirewallRuleThreatCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleThreatCategoriesPtrInput)(nil)).Elem(), IPSFirewallRuleThreatCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleTimeWindowsInput)(nil)).Elem(), IPSFirewallRuleTimeWindowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleTimeWindowsPtrInput)(nil)).Elem(), IPSFirewallRuleTimeWindowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleUsersInput)(nil)).Elem(), IPSFirewallRuleUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleUsersPtrInput)(nil)).Elem(), IPSFirewallRuleUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleZpaAppSegmentInput)(nil)).Elem(), IPSFirewallRuleZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSFirewallRuleZpaAppSegmentArrayInput)(nil)).Elem(), IPSFirewallRuleZpaAppSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementDynamicLocationGroupsInput)(nil)).Elem(), LocationManagementDynamicLocationGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementDynamicLocationGroupsPtrInput)(nil)).Elem(), LocationManagementDynamicLocationGroupsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationManagementStaticLocationGroupsInput)(nil)).Elem(), LocationManagementStaticLocationGroupsArgs{})
@@ -50922,6 +57283,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileTypeControlRulesUserArrayInput)(nil)).Elem(), GetFileTypeControlRulesUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileTypeControlRulesZpaAppSegmentInput)(nil)).Elem(), GetFileTypeControlRulesZpaAppSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileTypeControlRulesZpaAppSegmentArrayInput)(nil)).Elem(), GetFileTypeControlRulesZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesApplicationGroupInput)(nil)).Elem(), GetFirewallDNSRulesApplicationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesApplicationGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesApplicationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDepartmentInput)(nil)).Elem(), GetFirewallDNSRulesDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDepartmentArrayInput)(nil)).Elem(), GetFirewallDNSRulesDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDestIpGroupInput)(nil)).Elem(), GetFirewallDNSRulesDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDestIpGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDestIpv6GroupInput)(nil)).Elem(), GetFirewallDNSRulesDestIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDestIpv6GroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesDestIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDeviceInput)(nil)).Elem(), GetFirewallDNSRulesDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDeviceArrayInput)(nil)).Elem(), GetFirewallDNSRulesDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDeviceGroupInput)(nil)).Elem(), GetFirewallDNSRulesDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesDeviceGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesGroupInput)(nil)).Elem(), GetFirewallDNSRulesGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLabelInput)(nil)).Elem(), GetFirewallDNSRulesLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLabelArrayInput)(nil)).Elem(), GetFirewallDNSRulesLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLastModifiedByInput)(nil)).Elem(), GetFirewallDNSRulesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLastModifiedByArrayInput)(nil)).Elem(), GetFirewallDNSRulesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLocationInput)(nil)).Elem(), GetFirewallDNSRulesLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLocationArrayInput)(nil)).Elem(), GetFirewallDNSRulesLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLocationGroupInput)(nil)).Elem(), GetFirewallDNSRulesLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesLocationGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesSrcIpGroupInput)(nil)).Elem(), GetFirewallDNSRulesSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesSrcIpGroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesSrcIpv6GroupInput)(nil)).Elem(), GetFirewallDNSRulesSrcIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesSrcIpv6GroupArrayInput)(nil)).Elem(), GetFirewallDNSRulesSrcIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesTimeWindowInput)(nil)).Elem(), GetFirewallDNSRulesTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesTimeWindowArrayInput)(nil)).Elem(), GetFirewallDNSRulesTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesUserInput)(nil)).Elem(), GetFirewallDNSRulesUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDNSRulesUserArrayInput)(nil)).Elem(), GetFirewallDNSRulesUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDnsRuleApplicationGroupInput)(nil)).Elem(), GetFirewallDnsRuleApplicationGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDnsRuleApplicationGroupArrayInput)(nil)).Elem(), GetFirewallDnsRuleApplicationGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallDnsRuleDepartmentInput)(nil)).Elem(), GetFirewallDnsRuleDepartmentArgs{})
@@ -51100,6 +57491,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaAppSegmentArrayInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaAppSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroupInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaServerGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroupArrayInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaServerGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDepartmentInput)(nil)).Elem(), GetIPSFirewallRuleDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDepartmentArrayInput)(nil)).Elem(), GetIPSFirewallRuleDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpGroupInput)(nil)).Elem(), GetIPSFirewallRuleDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpv6GroupInput)(nil)).Elem(), GetIPSFirewallRuleDestIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpv6GroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDestIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceInput)(nil)).Elem(), GetIPSFirewallRuleDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceArrayInput)(nil)).Elem(), GetIPSFirewallRuleDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceGroupInput)(nil)).Elem(), GetIPSFirewallRuleDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleGroupInput)(nil)).Elem(), GetIPSFirewallRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLabelInput)(nil)).Elem(), GetIPSFirewallRuleLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLabelArrayInput)(nil)).Elem(), GetIPSFirewallRuleLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLastModifiedByInput)(nil)).Elem(), GetIPSFirewallRuleLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLastModifiedByArrayInput)(nil)).Elem(), GetIPSFirewallRuleLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationInput)(nil)).Elem(), GetIPSFirewallRuleLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationArrayInput)(nil)).Elem(), GetIPSFirewallRuleLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationGroupInput)(nil)).Elem(), GetIPSFirewallRuleLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceArrayInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroupInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroupInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6GroupInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6GroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleThreatCategoryInput)(nil)).Elem(), GetIPSFirewallRuleThreatCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleThreatCategoryArrayInput)(nil)).Elem(), GetIPSFirewallRuleThreatCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleTimeWindowInput)(nil)).Elem(), GetIPSFirewallRuleTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleTimeWindowArrayInput)(nil)).Elem(), GetIPSFirewallRuleTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleUserInput)(nil)).Elem(), GetIPSFirewallRuleUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleUserArrayInput)(nil)).Elem(), GetIPSFirewallRuleUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegmentInput)(nil)).Elem(), GetIPSFirewallRuleZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegmentArrayInput)(nil)).Elem(), GetIPSFirewallRuleZpaAppSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaArrayInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaCityInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaCityArgs{})
@@ -51546,6 +57973,40 @@ func init() {
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaAppSegmentArrayOutput{})
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaServerGroupOutput{})
 	pulumi.RegisterOutputType(ForwardingControlZPAGatewayZpaServerGroupPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDepartmentsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDepartmentsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDestIpGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDestIpGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDestIpv6GroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDestIpv6GroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDeviceGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDeviceGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDevicesOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleDevicesPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLabelsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLabelsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLocationGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLocationGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLocationsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleLocationsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleNwServiceGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleNwServiceGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleNwServicesOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleNwServicesPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleSrcIpGroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleSrcIpGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleSrcIpv6GroupsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleSrcIpv6GroupsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleThreatCategoriesOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleThreatCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleTimeWindowsOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleTimeWindowsPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleUsersOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleUsersPtrOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(IPSFirewallRuleZpaAppSegmentArrayOutput{})
 	pulumi.RegisterOutputType(LocationManagementDynamicLocationGroupsOutput{})
 	pulumi.RegisterOutputType(LocationManagementDynamicLocationGroupsPtrOutput{})
 	pulumi.RegisterOutputType(LocationManagementStaticLocationGroupsOutput{})
@@ -51758,6 +58219,36 @@ func init() {
 	pulumi.RegisterOutputType(GetFileTypeControlRulesUserArrayOutput{})
 	pulumi.RegisterOutputType(GetFileTypeControlRulesZpaAppSegmentOutput{})
 	pulumi.RegisterOutputType(GetFileTypeControlRulesZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesApplicationGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesApplicationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDepartmentOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDestIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDestIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDeviceOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLabelOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLocationOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesSrcIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesSrcIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesUserOutput{})
+	pulumi.RegisterOutputType(GetFirewallDNSRulesUserArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallDnsRuleApplicationGroupOutput{})
 	pulumi.RegisterOutputType(GetFirewallDnsRuleApplicationGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallDnsRuleDepartmentOutput{})
@@ -51936,6 +58427,42 @@ func init() {
 	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaServerGroupOutput{})
 	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaServerGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDepartmentOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLabelOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleThreatCategoryOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleThreatCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleUserOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleUserArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleZpaAppSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaOutput{})
 	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaCityOutput{})

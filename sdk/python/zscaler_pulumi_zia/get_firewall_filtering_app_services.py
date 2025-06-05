@@ -68,7 +68,12 @@ class AwaitableGetFirewallFilteringAppServicesResult(GetFirewallFilteringAppServ
 def get_firewall_filtering_app_services(name: Optional[builtins.str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringAppServicesResult:
     """
-    Use this data source to access information about an existing resource.
+    The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the application layer service that you want to control. It can include any character and spaces.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -82,7 +87,12 @@ def get_firewall_filtering_app_services(name: Optional[builtins.str] = None,
 def get_firewall_filtering_app_services_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringAppServicesResult]:
     """
-    Use this data source to access information about an existing resource.
+    The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the application layer service that you want to control. It can include any character and spaces.
     """
     __args__ = dict()
     __args__['name'] = name

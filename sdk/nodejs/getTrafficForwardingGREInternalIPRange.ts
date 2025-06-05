@@ -6,6 +6,11 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ipUnnumbered` parameter is set to `false`
+ *
+ * ## Example Usage
+ */
 export function getTrafficForwardingGREInternalIPRange(args?: GetTrafficForwardingGREInternalIPRangeArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficForwardingGREInternalIPRangeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,6 +37,11 @@ export interface GetTrafficForwardingGREInternalIPRangeResult {
     readonly lists: outputs.GetTrafficForwardingGREInternalIPRangeList[];
     readonly requiredCount?: number;
 }
+/**
+ * Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ipUnnumbered` parameter is set to `false`
+ *
+ * ## Example Usage
+ */
 export function getTrafficForwardingGREInternalIPRangeOutput(args?: GetTrafficForwardingGREInternalIPRangeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficForwardingGREInternalIPRangeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -44,17 +44,11 @@ class GetFirewallFilteringApplicationGroupsResult:
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
-        """
-        (String)
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
-        """
-        The ID of this resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -65,9 +59,6 @@ class GetFirewallFilteringApplicationGroupsResult:
     @property
     @pulumi.getter(name="networkApplications")
     def network_applications(self) -> Sequence[builtins.str]:
-        """
-        (List of String)
-        """
         return pulumi.get(self, "network_applications")
 
 
@@ -87,7 +78,7 @@ def get_firewall_filtering_application_groups(id: Optional[builtins.int] = None,
                                               name: Optional[builtins.str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringApplicationGroupsResult:
     """
-    Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+    Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage
 
@@ -110,7 +101,7 @@ def get_firewall_filtering_application_groups_output(id: Optional[pulumi.Input[O
                                                      name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringApplicationGroupsResult]:
     """
-    Use the **zia_firewall_filtering_network_application_groups** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+    Use the **zia_firewall_filtering_network_application_groups** data source to get information about network application groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage
 

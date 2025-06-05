@@ -12,12 +12,72 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetTrafficForwardingGREInternalIPRange
     {
+        /// <summary>
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By default it will return the first 10 available internal ip ranges
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By using the `required_count` parameter it will return the indicated number of IP ranges.
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        ///   required_count = 20
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetTrafficForwardingGREInternalIPRangeResult> InvokeAsync(GetTrafficForwardingGREInternalIPRangeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficForwardingGREInternalIPRangeResult>("zia:index/getTrafficForwardingGREInternalIPRange:getTrafficForwardingGREInternalIPRange", args ?? new GetTrafficForwardingGREInternalIPRangeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By default it will return the first 10 available internal ip ranges
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By using the `required_count` parameter it will return the indicated number of IP ranges.
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        ///   required_count = 20
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetTrafficForwardingGREInternalIPRangeResult> Invoke(GetTrafficForwardingGREInternalIPRangeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingGREInternalIPRangeResult>("zia:index/getTrafficForwardingGREInternalIPRange:getTrafficForwardingGREInternalIPRange", args ?? new GetTrafficForwardingGREInternalIPRangeInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By default it will return the first 10 available internal ip ranges
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve GRE available Internal IP Ranges
+        /// # By using the `required_count` parameter it will return the indicated number of IP ranges.
+        /// data "zia_gre_internal_ip_range_list" "example"{
+        ///   required_count = 20
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetTrafficForwardingGREInternalIPRangeResult> Invoke(GetTrafficForwardingGREInternalIPRangeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficForwardingGREInternalIPRangeResult>("zia:index/getTrafficForwardingGREInternalIPRange:getTrafficForwardingGREInternalIPRange", args ?? new GetTrafficForwardingGREInternalIPRangeInvokeArgs(), options.WithDefaults());
     }

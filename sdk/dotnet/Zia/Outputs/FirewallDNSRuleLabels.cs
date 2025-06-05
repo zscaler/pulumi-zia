@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class FirewallDNSRuleLabels
     {
+        /// <summary>
+        /// Unique identifier for the Firewall Filtering policy rule
+        /// </summary>
         public readonly int? Id;
 
         [OutputConstructor]

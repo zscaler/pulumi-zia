@@ -15,6 +15,10 @@ namespace zscaler.PulumiPackage.Zia.Inputs
     {
         [Input("ids")]
         private InputList<int>? _ids;
+
+        /// <summary>
+        /// Unique identifier for the Firewall Filtering policy rule
+        /// </summary>
         public InputList<int> Ids
         {
             get => _ids ?? (_ids = new InputList<int>());

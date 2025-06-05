@@ -15,7 +15,13 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class GetFirewallIpsRuleGroupResult
     {
         public readonly ImmutableDictionary<string, string> Extensions;
+        /// <summary>
+        /// Unique identifier for the Firewall Filtering policy rule
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Name of the Firewall Filtering policy rule
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

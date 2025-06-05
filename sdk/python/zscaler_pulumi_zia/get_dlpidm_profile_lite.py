@@ -118,7 +118,9 @@ def get_dlpidm_profile_lite(active_only: Optional[builtins.bool] = None,
                             template_name: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPIDMProfileLiteResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+
+    ## Example Usage
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only
@@ -139,7 +141,9 @@ def get_dlpidm_profile_lite_output(active_only: Optional[pulumi.Input[Optional[b
                                    template_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPIDMProfileLiteResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+
+    ## Example Usage
     """
     __args__ = dict()
     __args__['activeOnly'] = active_only

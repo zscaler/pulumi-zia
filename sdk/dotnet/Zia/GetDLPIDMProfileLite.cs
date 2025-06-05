@@ -12,12 +12,69 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetDLPIDMProfileLite
     {
+        /// <summary>
+        /// Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by name
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by ID
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetDLPIDMProfileLiteResult> InvokeAsync(GetDLPIDMProfileLiteArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDLPIDMProfileLiteResult>("zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite", args ?? new GetDLPIDMProfileLiteArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by name
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by ID
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetDLPIDMProfileLiteResult> Invoke(GetDLPIDMProfileLiteInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPIDMProfileLiteResult>("zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite", args ?? new GetDLPIDMProfileLiteInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by name
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # Retrieve a DLP IDM Profile Lite by ID
+        /// data "zia_dlp_idm_profile_lite" "example"{
+        ///     name = "Example"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetDLPIDMProfileLiteResult> Invoke(GetDLPIDMProfileLiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDLPIDMProfileLiteResult>("zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite", args ?? new GetDLPIDMProfileLiteInvokeArgs(), options.WithDefaults());
     }

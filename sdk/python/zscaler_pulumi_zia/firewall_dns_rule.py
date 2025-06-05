@@ -61,56 +61,51 @@ class FirewallDNSRuleArgs:
                  zpa_ip_group: Optional[pulumi.Input['FirewallDNSRuleZpaIpGroupArgs']] = None):
         """
         The set of arguments for constructing a FirewallDNSRule resource.
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-               blocking, or redirecting the traffic.
-        :param pulumi.Input['FirewallDNSRuleApplicationGroupsArgs'] application_groups: list of nw application groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-               specific network service application.
-        :param pulumi.Input[builtins.str] block_response_code: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallDNSRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
-        :param pulumi.Input['FirewallDNSRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
+        :param pulumi.Input['FirewallDNSRuleApplicationGroupsArgs'] application_groups: (List of Objects) DNS application groups to which the rule applies
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        :param pulumi.Input[builtins.str] block_response_code: (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+               `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
+        :param pulumi.Input['FirewallDNSRuleDepartmentsArgs'] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input['FirewallDNSRuleDestIpGroupsArgs'] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['FirewallDNSRuleDestIpv6GroupsArgs'] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input['FirewallDNSRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input['FirewallDNSRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input['FirewallDNSRuleDnsGatewayArgs'] dns_gateway: The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-               service
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies
-        :param pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs'] edns_ecs_object: The EDNS ECS object which resolves DNS request
-        :param pulumi.Input['FirewallDNSRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallDNSRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallDNSRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallDNSRuleLocationsArgs'] locations: list of locations for which rule must be applied
-        :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: Protocol for the given rule. This field is not applicable to the Lite API.
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[builtins.str] redirect_ip: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs'] src_ip_groups: list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input['FirewallDNSRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallDNSRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input['FirewallDNSRuleZpaIpGroupArgs'] zpa_ip_group: The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-               from a preconfigured IP pool
+        :param pulumi.Input['FirewallDNSRuleDeviceGroupsArgs'] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallDNSRuleDevicesArgs'] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallDNSRuleDnsGatewayArgs'] dns_gateway: (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+               `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+               `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+               `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+               `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+               `ZONEMD`, `SVCB`, `HTTPS`,
+        :param pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs'] edns_ecs_object: (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
+        :param pulumi.Input['FirewallDNSRuleGroupsArgs'] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input['FirewallDNSRuleLabelsArgs'] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input['FirewallDNSRuleLocationGroupsArgs'] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input['FirewallDNSRuleLocationsArgs'] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[builtins.str] redirect_ip: (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs'] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input['FirewallDNSRuleTimeWindowsArgs'] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input['FirewallDNSRuleUsersArgs'] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input['FirewallDNSRuleZpaIpGroupArgs'] zpa_ip_group: (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         pulumi.set(__self__, "order", order)
         if action is not None:
@@ -190,7 +185,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def order(self) -> pulumi.Input[builtins.int]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -202,8 +197,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-        blocking, or redirecting the traffic.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
         """
         return pulumi.get(self, "action")
 
@@ -215,7 +209,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="applicationGroups")
     def application_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleApplicationGroupsArgs']]:
         """
-        list of nw application groups
+        (List of Objects) DNS application groups to which the rule applies
         """
         return pulumi.get(self, "application_groups")
 
@@ -227,8 +221,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        specific network service application.
+        (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
         """
         return pulumi.get(self, "applications")
 
@@ -240,8 +233,8 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="blockResponseCode")
     def block_response_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+        `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
         """
         return pulumi.get(self, "block_response_code")
 
@@ -253,7 +246,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -265,7 +258,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -277,7 +270,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['FirewallDNSRuleDepartmentsArgs']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -289,7 +282,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -301,7 +294,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -313,8 +306,8 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
@@ -326,7 +319,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         """
         return pulumi.get(self, "dest_ip_categories")
 
@@ -338,7 +331,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleDestIpGroupsArgs']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -362,7 +355,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleDeviceGroupsArgs']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -374,7 +367,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input['FirewallDNSRuleDevicesArgs']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -386,8 +379,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="dnsGateway")
     def dns_gateway(self) -> Optional[pulumi.Input['FirewallDNSRuleDnsGatewayArgs']]:
         """
-        The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-        service
+        (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
         """
         return pulumi.get(self, "dns_gateway")
 
@@ -399,7 +391,12 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="dnsRuleRequestTypes")
     def dns_rule_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        DNS request types to which the rule applies
+        (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+        `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+        `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+        `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+        `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+        `ZONEMD`, `SVCB`, `HTTPS`,
         """
         return pulumi.get(self, "dns_rule_request_types")
 
@@ -411,7 +408,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="ednsEcsObject")
     def edns_ecs_object(self) -> Optional[pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs']]:
         """
-        The EDNS ECS object which resolves DNS request
+        (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
         """
         return pulumi.get(self, "edns_ecs_object")
 
@@ -423,7 +420,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['FirewallDNSRuleGroupsArgs']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -435,7 +432,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['FirewallDNSRuleLabelsArgs']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -447,7 +444,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleLocationGroupsArgs']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -459,7 +456,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['FirewallDNSRuleLocationsArgs']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -471,7 +468,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the IPS Control rule
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -483,7 +480,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -495,7 +492,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Protocol for the given rule. This field is not applicable to the Lite API.
+        (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
         """
         return pulumi.get(self, "protocols")
 
@@ -507,8 +504,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -520,8 +516,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
         """
         return pulumi.get(self, "redirect_ip")
 
@@ -533,8 +528,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -546,8 +540,8 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -559,8 +553,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs']]:
         """
-        list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address group.
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -572,8 +565,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -585,8 +577,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -598,7 +589,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -610,7 +601,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['FirewallDNSRuleTimeWindowsArgs']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -622,7 +613,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['FirewallDNSRuleUsersArgs']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -634,8 +625,7 @@ class FirewallDNSRuleArgs:
     @pulumi.getter(name="zpaIpGroup")
     def zpa_ip_group(self) -> Optional[pulumi.Input['FirewallDNSRuleZpaIpGroupArgs']]:
         """
-        The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-        from a preconfigured IP pool
+        (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         return pulumi.get(self, "zpa_ip_group")
 
@@ -687,56 +677,51 @@ class _FirewallDNSRuleState:
                  zpa_ip_group: Optional[pulumi.Input['FirewallDNSRuleZpaIpGroupArgs']] = None):
         """
         Input properties used for looking up and filtering FirewallDNSRule resources.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-               blocking, or redirecting the traffic.
-        :param pulumi.Input['FirewallDNSRuleApplicationGroupsArgs'] application_groups: list of nw application groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-               specific network service application.
-        :param pulumi.Input[builtins.str] block_response_code: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallDNSRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
-        :param pulumi.Input['FirewallDNSRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
+        :param pulumi.Input['FirewallDNSRuleApplicationGroupsArgs'] application_groups: (List of Objects) DNS application groups to which the rule applies
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        :param pulumi.Input[builtins.str] block_response_code: (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+               `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
+        :param pulumi.Input['FirewallDNSRuleDepartmentsArgs'] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input['FirewallDNSRuleDestIpGroupsArgs'] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['FirewallDNSRuleDestIpv6GroupsArgs'] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input['FirewallDNSRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input['FirewallDNSRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input['FirewallDNSRuleDnsGatewayArgs'] dns_gateway: The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-               service
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies
-        :param pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs'] edns_ecs_object: The EDNS ECS object which resolves DNS request
-        :param pulumi.Input['FirewallDNSRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallDNSRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallDNSRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallDNSRuleLocationsArgs'] locations: list of locations for which rule must be applied
-        :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: Protocol for the given rule. This field is not applicable to the Lite API.
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[builtins.str] redirect_ip: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs'] src_ip_groups: list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input['FirewallDNSRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallDNSRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input['FirewallDNSRuleZpaIpGroupArgs'] zpa_ip_group: The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-               from a preconfigured IP pool
+        :param pulumi.Input['FirewallDNSRuleDeviceGroupsArgs'] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallDNSRuleDevicesArgs'] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallDNSRuleDnsGatewayArgs'] dns_gateway: (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+               `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+               `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+               `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+               `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+               `ZONEMD`, `SVCB`, `HTTPS`,
+        :param pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs'] edns_ecs_object: (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
+        :param pulumi.Input['FirewallDNSRuleGroupsArgs'] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input['FirewallDNSRuleLabelsArgs'] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input['FirewallDNSRuleLocationGroupsArgs'] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input['FirewallDNSRuleLocationsArgs'] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[builtins.str] redirect_ip: (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs'] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input['FirewallDNSRuleTimeWindowsArgs'] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input['FirewallDNSRuleUsersArgs'] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input['FirewallDNSRuleZpaIpGroupArgs'] zpa_ip_group: (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -819,8 +804,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-        blocking, or redirecting the traffic.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
         """
         return pulumi.get(self, "action")
 
@@ -832,7 +816,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="applicationGroups")
     def application_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleApplicationGroupsArgs']]:
         """
-        list of nw application groups
+        (List of Objects) DNS application groups to which the rule applies
         """
         return pulumi.get(self, "application_groups")
 
@@ -844,8 +828,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        specific network service application.
+        (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
         """
         return pulumi.get(self, "applications")
 
@@ -857,8 +840,8 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="blockResponseCode")
     def block_response_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+        `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
         """
         return pulumi.get(self, "block_response_code")
 
@@ -870,7 +853,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -882,7 +865,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -894,7 +877,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['FirewallDNSRuleDepartmentsArgs']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -906,7 +889,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -918,7 +901,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -930,8 +913,8 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
@@ -943,7 +926,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         """
         return pulumi.get(self, "dest_ip_categories")
 
@@ -955,7 +938,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleDestIpGroupsArgs']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -979,7 +962,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleDeviceGroupsArgs']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -991,7 +974,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input['FirewallDNSRuleDevicesArgs']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -1003,8 +986,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="dnsGateway")
     def dns_gateway(self) -> Optional[pulumi.Input['FirewallDNSRuleDnsGatewayArgs']]:
         """
-        The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-        service
+        (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
         """
         return pulumi.get(self, "dns_gateway")
 
@@ -1016,7 +998,12 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="dnsRuleRequestTypes")
     def dns_rule_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        DNS request types to which the rule applies
+        (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+        `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+        `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+        `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+        `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+        `ZONEMD`, `SVCB`, `HTTPS`,
         """
         return pulumi.get(self, "dns_rule_request_types")
 
@@ -1028,7 +1015,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="ednsEcsObject")
     def edns_ecs_object(self) -> Optional[pulumi.Input['FirewallDNSRuleEdnsEcsObjectArgs']]:
         """
-        The EDNS ECS object which resolves DNS request
+        (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
         """
         return pulumi.get(self, "edns_ecs_object")
 
@@ -1040,7 +1027,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['FirewallDNSRuleGroupsArgs']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -1052,7 +1039,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['FirewallDNSRuleLabelsArgs']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -1064,7 +1051,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleLocationGroupsArgs']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -1076,7 +1063,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['FirewallDNSRuleLocationsArgs']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -1088,7 +1075,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the IPS Control rule
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1100,7 +1087,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -1112,7 +1099,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -1124,7 +1111,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Protocol for the given rule. This field is not applicable to the Lite API.
+        (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
         """
         return pulumi.get(self, "protocols")
 
@@ -1136,8 +1123,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -1149,8 +1135,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
         """
         return pulumi.get(self, "redirect_ip")
 
@@ -1162,8 +1147,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -1184,8 +1168,8 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -1197,8 +1181,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleSrcIpGroupsArgs']]:
         """
-        list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address group.
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -1210,8 +1193,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -1223,8 +1205,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input['FirewallDNSRuleSrcIpv6GroupsArgs']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -1236,7 +1217,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -1248,7 +1229,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['FirewallDNSRuleTimeWindowsArgs']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -1260,7 +1241,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['FirewallDNSRuleUsersArgs']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -1272,8 +1253,7 @@ class _FirewallDNSRuleState:
     @pulumi.getter(name="zpaIpGroup")
     def zpa_ip_group(self) -> Optional[pulumi.Input['FirewallDNSRuleZpaIpGroupArgs']]:
         """
-        The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-        from a preconfigured IP pool
+        (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         return pulumi.get(self, "zpa_ip_group")
 
@@ -1327,59 +1307,77 @@ class FirewallDNSRule(pulumi.CustomResource):
                  zpa_ip_group: Optional[pulumi.Input[Union['FirewallDNSRuleZpaIpGroupArgs', 'FirewallDNSRuleZpaIpGroupArgsDict']]] = None,
                  __props__=None):
         """
-        Create a FirewallDNSRule resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ### Create Firewall DNS Rules - Redirect Action
+
+        ### Create Firewall DNS Rules - Redirect Request DOH
+
+        ### Create Firewall DNS Rules - Redirect TCP Request
+
+        resource "FirewallDNSRule" "this3" {
+            name = "Example_DNS_Rule03"
+            description = "Example_DNS_Rule03"
+            action = "REDIR_REQ_TCP"
+            state = "ENABLED"
+            order = 13
+            rank = 7
+            dest_countries = ["CA", "US"]
+            source_countries = ["CA", "US"]
+            protocols = ["ANY_RULE"]
+            dns_gateway {
+              id = 18207342
+              name = "DNS_GW01"
+            }
+        }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-               blocking, or redirecting the traffic.
-        :param pulumi.Input[Union['FirewallDNSRuleApplicationGroupsArgs', 'FirewallDNSRuleApplicationGroupsArgsDict']] application_groups: list of nw application groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-               specific network service application.
-        :param pulumi.Input[builtins.str] block_response_code: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallDNSRuleDepartmentsArgs', 'FirewallDNSRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
-        :param pulumi.Input[Union['FirewallDNSRuleDestIpGroupsArgs', 'FirewallDNSRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
+        :param pulumi.Input[Union['FirewallDNSRuleApplicationGroupsArgs', 'FirewallDNSRuleApplicationGroupsArgsDict']] application_groups: (List of Objects) DNS application groups to which the rule applies
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        :param pulumi.Input[builtins.str] block_response_code: (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+               `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
+        :param pulumi.Input[Union['FirewallDNSRuleDepartmentsArgs', 'FirewallDNSRuleDepartmentsArgsDict']] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input[Union['FirewallDNSRuleDestIpGroupsArgs', 'FirewallDNSRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[Union['FirewallDNSRuleDestIpv6GroupsArgs', 'FirewallDNSRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallDNSRuleDeviceGroupsArgs', 'FirewallDNSRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Union['FirewallDNSRuleDevicesArgs', 'FirewallDNSRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[Union['FirewallDNSRuleDnsGatewayArgs', 'FirewallDNSRuleDnsGatewayArgsDict']] dns_gateway: The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-               service
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies
-        :param pulumi.Input[Union['FirewallDNSRuleEdnsEcsObjectArgs', 'FirewallDNSRuleEdnsEcsObjectArgsDict']] edns_ecs_object: The EDNS ECS object which resolves DNS request
-        :param pulumi.Input[Union['FirewallDNSRuleGroupsArgs', 'FirewallDNSRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallDNSRuleLabelsArgs', 'FirewallDNSRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallDNSRuleLocationGroupsArgs', 'FirewallDNSRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallDNSRuleLocationsArgs', 'FirewallDNSRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
-        :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: Protocol for the given rule. This field is not applicable to the Lite API.
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[builtins.str] redirect_ip: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallDNSRuleSrcIpGroupsArgs', 'FirewallDNSRuleSrcIpGroupsArgsDict']] src_ip_groups: list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input[Union['FirewallDNSRuleSrcIpv6GroupsArgs', 'FirewallDNSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input[Union['FirewallDNSRuleTimeWindowsArgs', 'FirewallDNSRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallDNSRuleUsersArgs', 'FirewallDNSRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Union['FirewallDNSRuleZpaIpGroupArgs', 'FirewallDNSRuleZpaIpGroupArgsDict']] zpa_ip_group: The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-               from a preconfigured IP pool
+        :param pulumi.Input[Union['FirewallDNSRuleDeviceGroupsArgs', 'FirewallDNSRuleDeviceGroupsArgsDict']] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallDNSRuleDevicesArgs', 'FirewallDNSRuleDevicesArgsDict']] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallDNSRuleDnsGatewayArgs', 'FirewallDNSRuleDnsGatewayArgsDict']] dns_gateway: (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+               `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+               `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+               `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+               `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+               `ZONEMD`, `SVCB`, `HTTPS`,
+        :param pulumi.Input[Union['FirewallDNSRuleEdnsEcsObjectArgs', 'FirewallDNSRuleEdnsEcsObjectArgsDict']] edns_ecs_object: (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
+        :param pulumi.Input[Union['FirewallDNSRuleGroupsArgs', 'FirewallDNSRuleGroupsArgsDict']] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[Union['FirewallDNSRuleLabelsArgs', 'FirewallDNSRuleLabelsArgsDict']] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input[Union['FirewallDNSRuleLocationGroupsArgs', 'FirewallDNSRuleLocationGroupsArgsDict']] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input[Union['FirewallDNSRuleLocationsArgs', 'FirewallDNSRuleLocationsArgsDict']] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[builtins.str] redirect_ip: (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Union['FirewallDNSRuleSrcIpGroupsArgs', 'FirewallDNSRuleSrcIpGroupsArgsDict']] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Union['FirewallDNSRuleSrcIpv6GroupsArgs', 'FirewallDNSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input[Union['FirewallDNSRuleTimeWindowsArgs', 'FirewallDNSRuleTimeWindowsArgsDict']] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[Union['FirewallDNSRuleUsersArgs', 'FirewallDNSRuleUsersArgsDict']] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Union['FirewallDNSRuleZpaIpGroupArgs', 'FirewallDNSRuleZpaIpGroupArgsDict']] zpa_ip_group: (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         ...
     @overload
@@ -1388,7 +1386,30 @@ class FirewallDNSRule(pulumi.CustomResource):
                  args: FirewallDNSRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FirewallDNSRule resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ### Create Firewall DNS Rules - Redirect Action
+
+        ### Create Firewall DNS Rules - Redirect Request DOH
+
+        ### Create Firewall DNS Rules - Redirect TCP Request
+
+        resource "FirewallDNSRule" "this3" {
+            name = "Example_DNS_Rule03"
+            description = "Example_DNS_Rule03"
+            action = "REDIR_REQ_TCP"
+            state = "ENABLED"
+            order = 13
+            rank = 7
+            dest_countries = ["CA", "US"]
+            source_countries = ["CA", "US"]
+            protocols = ["ANY_RULE"]
+            dns_gateway {
+              id = 18207342
+              name = "DNS_GW01"
+            }
+        }
+
         :param str resource_name: The name of the resource.
         :param FirewallDNSRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1545,56 +1566,51 @@ class FirewallDNSRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-               blocking, or redirecting the traffic.
-        :param pulumi.Input[Union['FirewallDNSRuleApplicationGroupsArgs', 'FirewallDNSRuleApplicationGroupsArgsDict']] application_groups: list of nw application groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-               specific network service application.
-        :param pulumi.Input[builtins.str] block_response_code: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallDNSRuleDepartmentsArgs', 'FirewallDNSRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
-        :param pulumi.Input[Union['FirewallDNSRuleDestIpGroupsArgs', 'FirewallDNSRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
+        :param pulumi.Input[Union['FirewallDNSRuleApplicationGroupsArgs', 'FirewallDNSRuleApplicationGroupsArgsDict']] application_groups: (List of Objects) DNS application groups to which the rule applies
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        :param pulumi.Input[builtins.str] block_response_code: (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+               `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
+        :param pulumi.Input[Union['FirewallDNSRuleDepartmentsArgs', 'FirewallDNSRuleDepartmentsArgsDict']] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input[Union['FirewallDNSRuleDestIpGroupsArgs', 'FirewallDNSRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[Union['FirewallDNSRuleDestIpv6GroupsArgs', 'FirewallDNSRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallDNSRuleDeviceGroupsArgs', 'FirewallDNSRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Union['FirewallDNSRuleDevicesArgs', 'FirewallDNSRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[Union['FirewallDNSRuleDnsGatewayArgs', 'FirewallDNSRuleDnsGatewayArgsDict']] dns_gateway: The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-               service
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies
-        :param pulumi.Input[Union['FirewallDNSRuleEdnsEcsObjectArgs', 'FirewallDNSRuleEdnsEcsObjectArgsDict']] edns_ecs_object: The EDNS ECS object which resolves DNS request
-        :param pulumi.Input[Union['FirewallDNSRuleGroupsArgs', 'FirewallDNSRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallDNSRuleLabelsArgs', 'FirewallDNSRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallDNSRuleLocationGroupsArgs', 'FirewallDNSRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallDNSRuleLocationsArgs', 'FirewallDNSRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
-        :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: Protocol for the given rule. This field is not applicable to the Lite API.
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[builtins.str] redirect_ip: The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-               done to specific IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallDNSRuleSrcIpGroupsArgs', 'FirewallDNSRuleSrcIpGroupsArgsDict']] src_ip_groups: list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input[Union['FirewallDNSRuleSrcIpv6GroupsArgs', 'FirewallDNSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input[Union['FirewallDNSRuleTimeWindowsArgs', 'FirewallDNSRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallDNSRuleUsersArgs', 'FirewallDNSRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Union['FirewallDNSRuleZpaIpGroupArgs', 'FirewallDNSRuleZpaIpGroupArgsDict']] zpa_ip_group: The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-               from a preconfigured IP pool
+        :param pulumi.Input[Union['FirewallDNSRuleDeviceGroupsArgs', 'FirewallDNSRuleDeviceGroupsArgsDict']] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallDNSRuleDevicesArgs', 'FirewallDNSRuleDevicesArgsDict']] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallDNSRuleDnsGatewayArgs', 'FirewallDNSRuleDnsGatewayArgsDict']] dns_gateway: (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_rule_request_types: (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+               `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+               `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+               `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+               `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+               `ZONEMD`, `SVCB`, `HTTPS`,
+        :param pulumi.Input[Union['FirewallDNSRuleEdnsEcsObjectArgs', 'FirewallDNSRuleEdnsEcsObjectArgsDict']] edns_ecs_object: (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
+        :param pulumi.Input[Union['FirewallDNSRuleGroupsArgs', 'FirewallDNSRuleGroupsArgsDict']] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[Union['FirewallDNSRuleLabelsArgs', 'FirewallDNSRuleLabelsArgsDict']] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input[Union['FirewallDNSRuleLocationGroupsArgs', 'FirewallDNSRuleLocationGroupsArgsDict']] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input[Union['FirewallDNSRuleLocationsArgs', 'FirewallDNSRuleLocationsArgsDict']] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protocols: (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[builtins.str] redirect_ip: (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Union['FirewallDNSRuleSrcIpGroupsArgs', 'FirewallDNSRuleSrcIpGroupsArgsDict']] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Union['FirewallDNSRuleSrcIpv6GroupsArgs', 'FirewallDNSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input[Union['FirewallDNSRuleTimeWindowsArgs', 'FirewallDNSRuleTimeWindowsArgsDict']] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[Union['FirewallDNSRuleUsersArgs', 'FirewallDNSRuleUsersArgsDict']] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Union['FirewallDNSRuleZpaIpGroupArgs', 'FirewallDNSRuleZpaIpGroupArgsDict']] zpa_ip_group: (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1644,8 +1660,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing,
-        blocking, or redirecting the traffic.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
         """
         return pulumi.get(self, "action")
 
@@ -1653,7 +1668,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="applicationGroups")
     def application_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleApplicationGroups']]:
         """
-        list of nw application groups
+        (List of Objects) DNS application groups to which the rule applies
         """
         return pulumi.get(self, "application_groups")
 
@@ -1661,8 +1676,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def applications(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        specific network service application.
+        (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `get_cloud_applications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
         """
         return pulumi.get(self, "applications")
 
@@ -1670,8 +1684,8 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="blockResponseCode")
     def block_response_code(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+        `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
         """
         return pulumi.get(self, "block_response_code")
 
@@ -1679,7 +1693,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> pulumi.Output[builtins.bool]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -1687,7 +1701,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -1695,7 +1709,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleDepartments']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -1703,7 +1717,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -1711,7 +1725,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -1719,8 +1733,8 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
@@ -1728,7 +1742,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Destination IP categories to which the rule applies. If not set, the rule is not restricted to specific categories.
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
         """
         return pulumi.get(self, "dest_ip_categories")
 
@@ -1736,7 +1750,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleDestIpGroups']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -1752,7 +1766,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleDeviceGroups']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -1760,7 +1774,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleDevices']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -1768,8 +1782,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="dnsGateway")
     def dns_gateway(self) -> pulumi.Output['outputs.FirewallDNSRuleDnsGateway']:
         """
-        The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS
-        service
+        (Set of Objects) The DNS gateway used to redirect traffic, specified when the rule action is to redirect DNS request to an external DNS service. Only one DNS Gateway is supported.
         """
         return pulumi.get(self, "dns_gateway")
 
@@ -1777,7 +1790,12 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="dnsRuleRequestTypes")
     def dns_rule_request_types(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        DNS request types to which the rule applies
+        (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+        `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+        `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+        `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+        `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+        `ZONEMD`, `SVCB`, `HTTPS`,
         """
         return pulumi.get(self, "dns_rule_request_types")
 
@@ -1785,7 +1803,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="ednsEcsObject")
     def edns_ecs_object(self) -> pulumi.Output['outputs.FirewallDNSRuleEdnsEcsObject']:
         """
-        The EDNS ECS object which resolves DNS request
+        (List of Objects) The EDNS ECS object which resolves DNS request. Only one object is supported.
         """
         return pulumi.get(self, "edns_ecs_object")
 
@@ -1793,7 +1811,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleGroups']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -1801,7 +1819,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleLabels']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -1809,7 +1827,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleLocationGroups']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -1817,7 +1835,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleLocations']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -1825,7 +1843,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the IPS Control rule
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1833,7 +1851,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def order(self) -> pulumi.Output[builtins.int]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -1841,7 +1859,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -1849,7 +1867,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Protocol for the given rule. This field is not applicable to the Lite API.
+        (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
         """
         return pulumi.get(self, "protocols")
 
@@ -1857,8 +1875,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -1866,8 +1883,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is
-        done to specific IP addresses.
+        (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
         """
         return pulumi.get(self, "redirect_ip")
 
@@ -1875,8 +1891,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -1889,8 +1904,8 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -1898,8 +1913,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleSrcIpGroups']]:
         """
-        list of Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address group.
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -1907,8 +1921,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -1916,8 +1929,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleSrcIpv6Groups']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -1925,7 +1937,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -1933,7 +1945,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleTimeWindows']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -1941,7 +1953,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional['outputs.FirewallDNSRuleUsers']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -1949,8 +1961,7 @@ class FirewallDNSRule(pulumi.CustomResource):
     @pulumi.getter(name="zpaIpGroup")
     def zpa_ip_group(self) -> pulumi.Output['outputs.FirewallDNSRuleZpaIpGroup']:
         """
-        The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address
-        from a preconfigured IP pool
+        (Set of Objects) The ZPA IP pool specified when the rule action is to resolve domain names of ZPA applications to an ephemeral IP address from a preconfigured IP pool. Only one object is supported.
         """
         return pulumi.get(self, "zpa_ip_group")
 

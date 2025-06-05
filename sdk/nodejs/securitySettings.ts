@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The **zia_security_settings** resource alows you to add or remove a URL to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+ *
+ * Visit
+ *
+ * **zia_security_settings** can be imported by using `all_urls` as the import ID.
+ *
+ * For example:
+ *
+ * ```sh
+ * $ pulumi import zia:index/securitySettings:SecuritySettings example all_urls
+ * ```
+ */
 export class SecuritySettings extends pulumi.CustomResource {
     /**
      * Get an existing SecuritySettings resource's state with the given name, ID, and optional extra

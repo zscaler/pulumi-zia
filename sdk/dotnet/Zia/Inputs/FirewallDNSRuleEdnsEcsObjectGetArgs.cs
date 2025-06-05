@@ -14,13 +14,13 @@ namespace zscaler.PulumiPackage.Zia.Inputs
     public sealed class FirewallDNSRuleEdnsEcsObjectGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for the resource.
+        /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

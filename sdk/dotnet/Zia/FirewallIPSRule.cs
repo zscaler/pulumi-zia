@@ -10,58 +10,66 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
+    /// 
+    /// ## Example Usage
+    /// </summary>
+    [Obsolete(@"zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule")]
     [ZiaResourceType("zia:index/firewallIPSRule:FirewallIPSRule")]
     public partial class FirewallIPSRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        /// blocking the traffic or bypassing the rule.
+        /// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        /// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
         [Output("capturePcap")]
         public Output<bool> CapturePcap { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, the default rule is applied
+        /// (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         /// </summary>
         [Output("defaultRule")]
         public Output<bool?> DefaultRule { get; private set; } = null!;
 
         /// <summary>
-        /// list of departments for which rule must be applied
+        /// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         /// </summary>
         [Output("departments")]
         public Output<Outputs.FirewallIPSRuleDepartments?> Departments { get; private set; } = null!;
 
         /// <summary>
-        /// Additional information about the rule
+        /// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        /// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         [Output("destAddresses")]
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
 
+        /// <summary>
+        /// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        /// </summary>
         [Output("destIpCategories")]
         public Output<ImmutableArray<string>> DestIpCategories { get; private set; } = null!;
 
         /// <summary>
-        /// list of destination ip groups
+        /// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         /// </summary>
         [Output("destIpGroups")]
         public Output<Outputs.FirewallIPSRuleDestIpGroups?> DestIpGroups { get; private set; } = null!;
@@ -73,44 +81,43 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallIPSRuleDestIpv6Groups?> DestIpv6Groups { get; private set; } = null!;
 
         /// <summary>
-        /// This field is applicable for devices that are managed using Zscaler Client Connector.
+        /// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("deviceGroups")]
         public Output<Outputs.FirewallIPSRuleDeviceGroups?> DeviceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Name-ID pairs of devices for which rule must be applied.
+        /// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("devices")]
         public Output<Outputs.FirewallIPSRuleDevices?> Devices { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        /// whereas a false value indicates that aggregate logging is enabled.
+        /// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         /// </summary>
         [Output("enableFullLogging")]
         public Output<bool?> EnableFullLogging { get; private set; } = null!;
 
         /// <summary>
-        /// list of groups for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.FirewallIPSRuleGroups?> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// (List of Objects) Labels that are applicable to the rule.
         /// </summary>
         [Output("labels")]
         public Output<Outputs.FirewallIPSRuleLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// list of locations groups
+        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.FirewallIPSRuleLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// list of locations for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.FirewallIPSRuleLocations?> Locations { get; private set; } = null!;
@@ -122,39 +129,37 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// list of nw service groups
+        /// (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         /// </summary>
         [Output("nwServiceGroups")]
         public Output<Outputs.FirewallIPSRuleNwServiceGroups?> NwServiceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// list of nw services
+        /// (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         /// </summary>
         [Output("nwServices")]
         public Output<Outputs.FirewallIPSRuleNwServices?> NwServices { get; private set; } = null!;
 
         /// <summary>
-        /// Rule order number. If omitted, the rule will be added to the end of the rule set.
+        /// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, a predefined rule is applied
+        /// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         /// </summary>
         [Output("predefined")]
         public Output<bool?> Predefined { get; private set; } = null!;
 
         /// <summary>
-        /// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        /// be specified for the rule.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
         /// <summary>
-        /// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        /// to a specific URL category.
+        /// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         /// </summary>
         [Output("resCategories")]
         public Output<ImmutableArray<string>> ResCategories { get; private set; } = null!;
@@ -163,59 +168,56 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         [Output("sourceCountries")]
         public Output<ImmutableArray<string>> SourceCountries { get; private set; } = null!;
 
         /// <summary>
-        /// list of source ip groups
+        /// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         /// </summary>
         [Output("srcIpGroups")]
         public Output<Outputs.FirewallIPSRuleSrcIpGroups?> SrcIpGroups { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         [Output("srcIps")]
         public Output<ImmutableArray<string>> SrcIps { get; private set; } = null!;
 
         /// <summary>
-        /// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        /// specific source IPv6 address group.
+        /// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         /// </summary>
         [Output("srcIpv6Groups")]
         public Output<Outputs.FirewallIPSRuleSrcIpv6Groups?> SrcIpv6Groups { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the rule indicating whether it is enabled or disabled
+        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// list of Advanced threat categories to which the rule applies
+        /// (List of Objects) Advanced threat categories to which the rule applies
         /// </summary>
         [Output("threatCategories")]
         public Output<Outputs.FirewallIPSRuleThreatCategories?> ThreatCategories { get; private set; } = null!;
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.FirewallIPSRuleTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// list of users for which rule must be applied
+        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Output("users")]
         public Output<Outputs.FirewallIPSRuleUsers?> Users { get; private set; } = null!;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// (List of Objects) The ZPA application segments to which the rule applies
         /// </summary>
         [Output("zpaAppSegments")]
         public Output<ImmutableArray<Outputs.FirewallIPSRuleZpaAppSegment>> ZpaAppSegments { get; private set; } = null!;
@@ -268,32 +270,31 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class FirewallIPSRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        /// blocking the traffic or bypassing the rule.
+        /// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        /// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
 
         /// <summary>
-        /// If set to true, the default rule is applied
+        /// (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         /// </summary>
         [Input("defaultRule")]
         public Input<bool>? DefaultRule { get; set; }
 
         /// <summary>
-        /// list of departments for which rule must be applied
+        /// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         /// </summary>
         [Input("departments")]
         public Input<Inputs.FirewallIPSRuleDepartmentsArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Additional information about the rule
+        /// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -302,7 +303,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destAddresses;
 
         /// <summary>
-        /// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        /// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         public InputList<string> DestAddresses
         {
@@ -314,8 +315,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -325,6 +326,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpCategories")]
         private InputList<string>? _destIpCategories;
+
+        /// <summary>
+        /// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        /// </summary>
         public InputList<string> DestIpCategories
         {
             get => _destIpCategories ?? (_destIpCategories = new InputList<string>());
@@ -332,7 +337,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of destination ip groups
+        /// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         /// </summary>
         [Input("destIpGroups")]
         public Input<Inputs.FirewallIPSRuleDestIpGroupsArgs>? DestIpGroups { get; set; }
@@ -344,44 +349,43 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallIPSRuleDestIpv6GroupsArgs>? DestIpv6Groups { get; set; }
 
         /// <summary>
-        /// This field is applicable for devices that are managed using Zscaler Client Connector.
+        /// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Input("deviceGroups")]
         public Input<Inputs.FirewallIPSRuleDeviceGroupsArgs>? DeviceGroups { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of devices for which rule must be applied.
+        /// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Input("devices")]
         public Input<Inputs.FirewallIPSRuleDevicesArgs>? Devices { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        /// whereas a false value indicates that aggregate logging is enabled.
+        /// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         /// </summary>
         [Input("enableFullLogging")]
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// list of groups for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallIPSRuleGroupsArgs>? Groups { get; set; }
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// (List of Objects) Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.FirewallIPSRuleLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// list of locations groups
+        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallIPSRuleLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// list of locations for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallIPSRuleLocationsArgs>? Locations { get; set; }
@@ -393,32 +397,31 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// list of nw service groups
+        /// (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         /// </summary>
         [Input("nwServiceGroups")]
         public Input<Inputs.FirewallIPSRuleNwServiceGroupsArgs>? NwServiceGroups { get; set; }
 
         /// <summary>
-        /// list of nw services
+        /// (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         /// </summary>
         [Input("nwServices")]
         public Input<Inputs.FirewallIPSRuleNwServicesArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Rule order number. If omitted, the rule will be added to the end of the rule set.
+        /// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
         /// <summary>
-        /// If set to true, a predefined rule is applied
+        /// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         /// </summary>
         [Input("predefined")]
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        /// be specified for the rule.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -427,8 +430,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _resCategories;
 
         /// <summary>
-        /// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        /// to a specific URL category.
+        /// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         /// </summary>
         public InputList<string> ResCategories
         {
@@ -440,8 +442,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sourceCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         public InputList<string> SourceCountries
         {
@@ -450,7 +452,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of source ip groups
+        /// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         /// </summary>
         [Input("srcIpGroups")]
         public Input<Inputs.FirewallIPSRuleSrcIpGroupsArgs>? SrcIpGroups { get; set; }
@@ -459,8 +461,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -469,32 +470,31 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        /// specific source IPv6 address group.
+        /// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         /// </summary>
         [Input("srcIpv6Groups")]
         public Input<Inputs.FirewallIPSRuleSrcIpv6GroupsArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// The state of the rule indicating whether it is enabled or disabled
+        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// list of Advanced threat categories to which the rule applies
+        /// (List of Objects) Advanced threat categories to which the rule applies
         /// </summary>
         [Input("threatCategories")]
         public Input<Inputs.FirewallIPSRuleThreatCategoriesArgs>? ThreatCategories { get; set; }
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallIPSRuleTimeWindowsArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// list of users for which rule must be applied
+        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallIPSRuleUsersArgs>? Users { get; set; }
@@ -503,8 +503,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallIPSRuleZpaAppSegmentArgs>? _zpaAppSegments;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// (List of Objects) The ZPA application segments to which the rule applies
         /// </summary>
         public InputList<Inputs.FirewallIPSRuleZpaAppSegmentArgs> ZpaAppSegments
         {
@@ -521,32 +520,31 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class FirewallIPSRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        /// blocking the traffic or bypassing the rule.
+        /// (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        /// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
 
         /// <summary>
-        /// If set to true, the default rule is applied
+        /// (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         /// </summary>
         [Input("defaultRule")]
         public Input<bool>? DefaultRule { get; set; }
 
         /// <summary>
-        /// list of departments for which rule must be applied
+        /// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         /// </summary>
         [Input("departments")]
         public Input<Inputs.FirewallIPSRuleDepartmentsGetArgs>? Departments { get; set; }
 
         /// <summary>
-        /// Additional information about the rule
+        /// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -555,7 +553,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destAddresses;
 
         /// <summary>
-        /// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        /// (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         public InputList<string> DestAddresses
         {
@@ -567,8 +565,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -578,6 +576,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpCategories")]
         private InputList<string>? _destIpCategories;
+
+        /// <summary>
+        /// (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        /// </summary>
         public InputList<string> DestIpCategories
         {
             get => _destIpCategories ?? (_destIpCategories = new InputList<string>());
@@ -585,7 +587,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of destination ip groups
+        /// ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         /// </summary>
         [Input("destIpGroups")]
         public Input<Inputs.FirewallIPSRuleDestIpGroupsGetArgs>? DestIpGroups { get; set; }
@@ -597,44 +599,43 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallIPSRuleDestIpv6GroupsGetArgs>? DestIpv6Groups { get; set; }
 
         /// <summary>
-        /// This field is applicable for devices that are managed using Zscaler Client Connector.
+        /// (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Input("deviceGroups")]
         public Input<Inputs.FirewallIPSRuleDeviceGroupsGetArgs>? DeviceGroups { get; set; }
 
         /// <summary>
-        /// Name-ID pairs of devices for which rule must be applied.
+        /// (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Input("devices")]
         public Input<Inputs.FirewallIPSRuleDevicesGetArgs>? Devices { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        /// whereas a false value indicates that aggregate logging is enabled.
+        /// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         /// </summary>
         [Input("enableFullLogging")]
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// list of groups for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallIPSRuleGroupsGetArgs>? Groups { get; set; }
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// (List of Objects) Labels that are applicable to the rule.
         /// </summary>
         [Input("labels")]
         public Input<Inputs.FirewallIPSRuleLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// list of locations groups
+        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallIPSRuleLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// list of locations for which rule must be applied
+        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallIPSRuleLocationsGetArgs>? Locations { get; set; }
@@ -646,32 +647,31 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// list of nw service groups
+        /// (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         /// </summary>
         [Input("nwServiceGroups")]
         public Input<Inputs.FirewallIPSRuleNwServiceGroupsGetArgs>? NwServiceGroups { get; set; }
 
         /// <summary>
-        /// list of nw services
+        /// (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         /// </summary>
         [Input("nwServices")]
         public Input<Inputs.FirewallIPSRuleNwServicesGetArgs>? NwServices { get; set; }
 
         /// <summary>
-        /// Rule order number. If omitted, the rule will be added to the end of the rule set.
+        /// (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// If set to true, a predefined rule is applied
+        /// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         /// </summary>
         [Input("predefined")]
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        /// be specified for the rule.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -680,8 +680,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _resCategories;
 
         /// <summary>
-        /// URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        /// to a specific URL category.
+        /// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         /// </summary>
         public InputList<string> ResCategories
         {
@@ -696,8 +695,8 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sourceCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        /// **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         public InputList<string> SourceCountries
         {
@@ -706,7 +705,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of source ip groups
+        /// (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         /// </summary>
         [Input("srcIpGroups")]
         public Input<Inputs.FirewallIPSRuleSrcIpGroupsGetArgs>? SrcIpGroups { get; set; }
@@ -715,8 +714,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -725,32 +723,31 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        /// specific source IPv6 address group.
+        /// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         /// </summary>
         [Input("srcIpv6Groups")]
         public Input<Inputs.FirewallIPSRuleSrcIpv6GroupsGetArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// The state of the rule indicating whether it is enabled or disabled
+        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// list of Advanced threat categories to which the rule applies
+        /// (List of Objects) Advanced threat categories to which the rule applies
         /// </summary>
         [Input("threatCategories")]
         public Input<Inputs.FirewallIPSRuleThreatCategoriesGetArgs>? ThreatCategories { get; set; }
 
         /// <summary>
-        /// The time interval in which the Firewall Filtering policy rule applies
+        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallIPSRuleTimeWindowsGetArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// list of users for which rule must be applied
+        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallIPSRuleUsersGetArgs>? Users { get; set; }
@@ -759,8 +756,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallIPSRuleZpaAppSegmentGetArgs>? _zpaAppSegments;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// (List of Objects) The ZPA application segments to which the rule applies
         /// </summary>
         public InputList<Inputs.FirewallIPSRuleZpaAppSegmentGetArgs> ZpaAppSegments
         {

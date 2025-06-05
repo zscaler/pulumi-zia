@@ -15,13 +15,22 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class GetTrafficForwardingGRETunnelSecondaryDestVipResult
     {
         public readonly string City;
+        /// <summary>
+        /// (String) When within_country is enabled, you must set this to the country code.
+        /// </summary>
         public readonly string CountryCode;
         public readonly string Datacenter;
+        /// <summary>
+        /// Unique identifier of the static IP address that is associated to a GRE tunnel
+        /// </summary>
         public readonly int Id;
         public readonly int Latitude;
         public readonly int Longitude;
         public readonly bool PrivateServiceEdge;
         public readonly string Region;
+        /// <summary>
+        /// (String) GRE cluster virtual IP address (VIP)
+        /// </summary>
         public readonly string VirtualIp;
 
         [OutputConstructor]

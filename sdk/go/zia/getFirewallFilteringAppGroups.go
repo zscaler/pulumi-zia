@@ -11,6 +11,11 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+//
+// ## Example Usage
+//
+// Deprecated: zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup
 func GetFirewallFilteringAppGroups(ctx *pulumi.Context, args *GetFirewallFilteringAppGroupsArgs, opts ...pulumi.InvokeOption) (*GetFirewallFilteringAppGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFirewallFilteringAppGroupsResult
@@ -23,11 +28,13 @@ func GetFirewallFilteringAppGroups(ctx *pulumi.Context, args *GetFirewallFilteri
 
 // A collection of arguments for invoking getFirewallFilteringAppGroups.
 type GetFirewallFilteringAppGroupsArgs struct {
+	// The name of the ip source group to be exported.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getFirewallFilteringAppGroups.
 type GetFirewallFilteringAppGroupsResult struct {
+	// The ID of this resource.
 	Id          int    `pulumi:"id"`
 	Name        string `pulumi:"name"`
 	NameL10nTag bool   `pulumi:"nameL10nTag"`
@@ -44,6 +51,7 @@ func GetFirewallFilteringAppGroupsOutput(ctx *pulumi.Context, args GetFirewallFi
 
 // A collection of arguments for invoking getFirewallFilteringAppGroups.
 type GetFirewallFilteringAppGroupsOutputArgs struct {
+	// The name of the ip source group to be exported.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -66,6 +74,7 @@ func (o GetFirewallFilteringAppGroupsResultOutput) ToGetFirewallFilteringAppGrou
 	return o
 }
 
+// The ID of this resource.
 func (o GetFirewallFilteringAppGroupsResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallFilteringAppGroupsResult) int { return v.Id }).(pulumi.IntOutput)
 }

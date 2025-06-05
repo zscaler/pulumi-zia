@@ -19,11 +19,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string ExternalId;
         /// <summary>
-        /// A unique identifier assigned to the Application Segment
+        /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         public readonly int Id;
         /// <summary>
-        /// The name of the Application Segment
+        /// Name of the Firewall Filtering policy rule
         /// </summary>
         public readonly string Name;
 

@@ -12,12 +12,69 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetDepartmentManagement
     {
+        /// <summary>
+        /// Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "engineering" {
+        ///  name = "Engineering"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "finance" {
+        ///  name = "Finance"
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetDepartmentManagementResult> InvokeAsync(GetDepartmentManagementArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDepartmentManagementResult>("zia:index/getDepartmentManagement:getDepartmentManagement", args ?? new GetDepartmentManagementArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "engineering" {
+        ///  name = "Engineering"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "finance" {
+        ///  name = "Finance"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetDepartmentManagementResult> Invoke(GetDepartmentManagementInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDepartmentManagementResult>("zia:index/getDepartmentManagement:getDepartmentManagement", args ?? new GetDepartmentManagementInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "engineering" {
+        ///  name = "Engineering"
+        /// }
+        /// ```
+        /// 
+        /// ```hcl
+        /// # ZIA User Department Data Source
+        /// data "zia_department_management" "finance" {
+        ///  name = "Finance"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetDepartmentManagementResult> Invoke(GetDepartmentManagementInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDepartmentManagementResult>("zia:index/getDepartmentManagement:getDepartmentManagement", args ?? new GetDepartmentManagementInvokeArgs(), options.WithDefaults());
     }
@@ -25,6 +82,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDepartmentManagementArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the user department
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -36,6 +96,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDepartmentManagementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the user department
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -49,9 +112,18 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetDepartmentManagementResult
     {
+        /// <summary>
+        /// (Optional) Additional information about this department
+        /// </summary>
         public readonly string Comments;
+        /// <summary>
+        /// (Boolean) default: false
+        /// </summary>
         public readonly bool Deleted;
         public readonly int Id;
+        /// <summary>
+        /// (Optional) Unique identfier for the identity provider (IdP)
+        /// </summary>
         public readonly int IdpId;
         public readonly string? Name;
 

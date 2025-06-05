@@ -255,90 +255,132 @@ export interface FileTypeControlRulesZpaAppSegment {
 }
 
 export interface FirewallDNSRuleApplicationGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDepartments {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDestIpGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDestIpv6Groups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDeviceGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDevices {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleDnsGateway {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: string;
 }
 
 export interface FirewallDNSRuleEdnsEcsObject {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: string;
 }
 
 export interface FirewallDNSRuleGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleLabels {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id?: number;
 }
 
 export interface FirewallDNSRuleLocationGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleLocations {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleSrcIpGroups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleSrcIpv6Groups {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleTimeWindows {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleUsers {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     ids?: number[];
 }
 
 export interface FirewallDNSRuleZpaIpGroup {
     /**
-     * The unique identifier for the resource.
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * The name of the resource.
+     * Name of the Firewall Filtering policy rule
      */
     name?: string;
 }
@@ -454,66 +496,114 @@ export interface FirewallFilteringServiceGroupsService {
 }
 
 export interface FirewallIPSRuleDepartments {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleDestIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleDestIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleDeviceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleDevices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleLabels {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     id?: number;
 }
 
 export interface FirewallIPSRuleLocationGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleLocations {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleNwServiceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleNwServices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleSrcIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleSrcIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleThreatCategories {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleTimeWindows {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
 export interface FirewallIPSRuleUsers {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     ids?: number[];
 }
 
@@ -1434,99 +1524,363 @@ export interface GetFileTypeControlRulesZpaAppSegment {
     name: string;
 }
 
+export interface GetFirewallDNSRulesApplicationGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesDepartment {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesDestIpGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesDestIpv6Group {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesDevice {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesDeviceGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesLabel {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesLocation {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesLocationGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesSrcIpGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesSrcIpv6Group {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesTimeWindow {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetFirewallDNSRulesUser {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
 export interface GetFirewallDnsRuleApplicationGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleDepartment {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleDestIpGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleDestIpv6Group {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleDevice {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleDeviceGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleLabel {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleLastModifiedBy {
     extensions: {[key: string]: string};
     /**
-     * Identifier that uniquely identifies an entity
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * Identifier that uniquely identifies an entity
+     * Name of the Firewall Filtering policy rule
      */
     name: string;
 }
 
 export interface GetFirewallDnsRuleLocation {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleLocationGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleSrcIpGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleSrcIpv6Group {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleTimeWindow {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallDnsRuleUser {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
@@ -1925,109 +2279,205 @@ export interface GetFirewallFilteringRuleZpaAppSegment {
 
 export interface GetFirewallIpsRuleDepartment {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleDestIpGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleDestIpv6Group {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleDevice {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleDeviceGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleLabel {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleLastModifiedBy {
     extensions: {[key: string]: string};
     /**
-     * Identifier that uniquely identifies an entity
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * Identifier that uniquely identifies an entity
+     * Name of the Firewall Filtering policy rule
      */
     name: string;
 }
 
 export interface GetFirewallIpsRuleLocation {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleLocationGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleNwService {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleNwServiceGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleSrcIpGroup {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleSrcIpv6Group {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleThreatCategory {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleTimeWindow {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
 export interface GetFirewallIpsRuleUser {
     extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name: string;
 }
 
@@ -2037,11 +2487,11 @@ export interface GetFirewallIpsRuleZpaAppSegment {
      */
     externalId: string;
     /**
-     * A unique identifier assigned to the Application Segment
+     * Unique identifier for the Firewall Filtering policy rule
      */
     id: number;
     /**
-     * The name of the Application Segment
+     * Name of the Firewall Filtering policy rule
      */
     name: string;
 }
@@ -2372,6 +2822,225 @@ export interface GetForwardingControlZPAGatewayZpaServerGroup {
     externalId: string;
     /**
      * The name of the forwarding control ZPA Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleDepartment {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleDestIpGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleDestIpv6Group {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleDevice {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleDeviceGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleLabel {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleLocation {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleLocationGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleNwService {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleNwServiceGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleSrcIpGroup {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleSrcIpv6Group {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleThreatCategory {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleTimeWindow {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleUser {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
+    name: string;
+}
+
+export interface GetIPSFirewallRuleZpaAppSegment {
+    /**
+     * Indicates the external ID. Applicable only when this reference is of an external entity.
+     */
+    externalId: string;
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
+    id: number;
+    /**
+     * Name of the Firewall Filtering policy rule
      */
     name: string;
 }
@@ -3136,41 +3805,71 @@ export interface GetSandboxRulesZpaAppSegment {
 }
 
 export interface GetTrafficForwardingGREInternalIPRangeList {
+    /**
+     * (String) Starting IP address in the range
+     */
     endIpAddress: string;
+    /**
+     * (String) Ending IP address in the range
+     */
     startIpAddress: string;
 }
 
 export interface GetTrafficForwardingGRETunnelLastModifiedBy {
+    /**
+     * Unique identifier of the static IP address that is associated to a GRE tunnel
+     */
     id: number;
     name: string;
 }
 
 export interface GetTrafficForwardingGRETunnelManagedBy {
+    /**
+     * Unique identifier of the static IP address that is associated to a GRE tunnel
+     */
     id: number;
     name: string;
 }
 
 export interface GetTrafficForwardingGRETunnelPrimaryDestVip {
     city: string;
+    /**
+     * (String) When withinCountry is enabled, you must set this to the country code.
+     */
     countryCode: string;
     datacenter: string;
+    /**
+     * Unique identifier of the static IP address that is associated to a GRE tunnel
+     */
     id: number;
     latitude: number;
     longitude: number;
     privateServiceEdge: boolean;
     region: string;
+    /**
+     * (String) GRE cluster virtual IP address (VIP)
+     */
     virtualIp: string;
 }
 
 export interface GetTrafficForwardingGRETunnelSecondaryDestVip {
     city: string;
+    /**
+     * (String) When withinCountry is enabled, you must set this to the country code.
+     */
     countryCode: string;
     datacenter: string;
+    /**
+     * Unique identifier of the static IP address that is associated to a GRE tunnel
+     */
     id: number;
     latitude: number;
     longitude: number;
     privateServiceEdge: boolean;
     region: string;
+    /**
+     * (String) GRE cluster virtual IP address (VIP)
+     */
     virtualIp: string;
 }
 
@@ -3708,6 +4407,129 @@ export interface GetWorkloadGroupsLastModifiedBy {
     id: number;
     /**
      * The name of the workload group to be exported.
+     */
+    name: string;
+}
+
+export interface IPSFirewallRuleDepartments {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleDestIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleDestIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleDeviceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleDevices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleLabels {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    id?: number;
+}
+
+export interface IPSFirewallRuleLocationGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleLocations {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleNwServiceGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleNwServices {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleSrcIpGroups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleSrcIpv6Groups {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleThreatCategories {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleTimeWindows {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleUsers {
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface IPSFirewallRuleZpaAppSegment {
+    /**
+     * External ID of the application segment.
+     */
+    externalId: string;
+    /**
+     * Name of the application segment.
      */
     name: string;
 }

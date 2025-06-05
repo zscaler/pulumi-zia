@@ -144,6 +144,23 @@ __all__ = [
     'ForwardingControlRuleZpaGateway',
     'ForwardingControlZPAGatewayZpaAppSegment',
     'ForwardingControlZPAGatewayZpaServerGroup',
+    'IPSFirewallRuleDepartments',
+    'IPSFirewallRuleDestIpGroups',
+    'IPSFirewallRuleDestIpv6Groups',
+    'IPSFirewallRuleDeviceGroups',
+    'IPSFirewallRuleDevices',
+    'IPSFirewallRuleGroups',
+    'IPSFirewallRuleLabels',
+    'IPSFirewallRuleLocationGroups',
+    'IPSFirewallRuleLocations',
+    'IPSFirewallRuleNwServiceGroups',
+    'IPSFirewallRuleNwServices',
+    'IPSFirewallRuleSrcIpGroups',
+    'IPSFirewallRuleSrcIpv6Groups',
+    'IPSFirewallRuleThreatCategories',
+    'IPSFirewallRuleTimeWindows',
+    'IPSFirewallRuleUsers',
+    'IPSFirewallRuleZpaAppSegment',
     'LocationManagementDynamicLocationGroups',
     'LocationManagementStaticLocationGroups',
     'LocationManagementVpnCredential',
@@ -250,6 +267,21 @@ __all__ = [
     'GetFileTypeControlRulesTimeWindowResult',
     'GetFileTypeControlRulesUserResult',
     'GetFileTypeControlRulesZpaAppSegmentResult',
+    'GetFirewallDNSRulesApplicationGroupResult',
+    'GetFirewallDNSRulesDepartmentResult',
+    'GetFirewallDNSRulesDestIpGroupResult',
+    'GetFirewallDNSRulesDestIpv6GroupResult',
+    'GetFirewallDNSRulesDeviceResult',
+    'GetFirewallDNSRulesDeviceGroupResult',
+    'GetFirewallDNSRulesGroupResult',
+    'GetFirewallDNSRulesLabelResult',
+    'GetFirewallDNSRulesLastModifiedByResult',
+    'GetFirewallDNSRulesLocationResult',
+    'GetFirewallDNSRulesLocationGroupResult',
+    'GetFirewallDNSRulesSrcIpGroupResult',
+    'GetFirewallDNSRulesSrcIpv6GroupResult',
+    'GetFirewallDNSRulesTimeWindowResult',
+    'GetFirewallDNSRulesUserResult',
     'GetFirewallDnsRuleApplicationGroupResult',
     'GetFirewallDnsRuleDepartmentResult',
     'GetFirewallDnsRuleDestIpGroupResult',
@@ -339,6 +371,24 @@ __all__ = [
     'GetForwardingControlZPAGatewayLastModifiedByResult',
     'GetForwardingControlZPAGatewayZpaAppSegmentResult',
     'GetForwardingControlZPAGatewayZpaServerGroupResult',
+    'GetIPSFirewallRuleDepartmentResult',
+    'GetIPSFirewallRuleDestIpGroupResult',
+    'GetIPSFirewallRuleDestIpv6GroupResult',
+    'GetIPSFirewallRuleDeviceResult',
+    'GetIPSFirewallRuleDeviceGroupResult',
+    'GetIPSFirewallRuleGroupResult',
+    'GetIPSFirewallRuleLabelResult',
+    'GetIPSFirewallRuleLastModifiedByResult',
+    'GetIPSFirewallRuleLocationResult',
+    'GetIPSFirewallRuleLocationGroupResult',
+    'GetIPSFirewallRuleNwServiceResult',
+    'GetIPSFirewallRuleNwServiceGroupResult',
+    'GetIPSFirewallRuleSrcIpGroupResult',
+    'GetIPSFirewallRuleSrcIpv6GroupResult',
+    'GetIPSFirewallRuleThreatCategoryResult',
+    'GetIPSFirewallRuleTimeWindowResult',
+    'GetIPSFirewallRuleUserResult',
+    'GetIPSFirewallRuleZpaAppSegmentResult',
     'GetLocationGroupsDynamicLocationGroupCriteriaResult',
     'GetLocationGroupsDynamicLocationGroupCriteriaCityResult',
     'GetLocationGroupsDynamicLocationGroupCriteriaManagedByResult',
@@ -1289,12 +1339,18 @@ class FileTypeControlRulesZpaAppSegment(dict):
 class FirewallDNSRuleApplicationGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1302,12 +1358,18 @@ class FirewallDNSRuleApplicationGroups(dict):
 class FirewallDNSRuleDepartments(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1315,12 +1377,18 @@ class FirewallDNSRuleDepartments(dict):
 class FirewallDNSRuleDestIpGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1328,12 +1396,18 @@ class FirewallDNSRuleDestIpGroups(dict):
 class FirewallDNSRuleDestIpv6Groups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1341,12 +1415,18 @@ class FirewallDNSRuleDestIpv6Groups(dict):
 class FirewallDNSRuleDeviceGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1354,12 +1434,18 @@ class FirewallDNSRuleDeviceGroups(dict):
 class FirewallDNSRuleDevices(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1369,8 +1455,8 @@ class FirewallDNSRuleDnsGateway(dict):
                  id: builtins.int,
                  name: Optional[builtins.str] = None):
         """
-        :param builtins.int id: The unique identifier for the resource.
-        :param builtins.str name: The name of the resource.
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -1380,7 +1466,7 @@ class FirewallDNSRuleDnsGateway(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -1388,7 +1474,7 @@ class FirewallDNSRuleDnsGateway(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1399,8 +1485,8 @@ class FirewallDNSRuleEdnsEcsObject(dict):
                  id: builtins.int,
                  name: Optional[builtins.str] = None):
         """
-        :param builtins.int id: The unique identifier for the resource.
-        :param builtins.str name: The name of the resource.
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -1410,7 +1496,7 @@ class FirewallDNSRuleEdnsEcsObject(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -1418,7 +1504,7 @@ class FirewallDNSRuleEdnsEcsObject(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1427,12 +1513,18 @@ class FirewallDNSRuleEdnsEcsObject(dict):
 class FirewallDNSRuleGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1440,12 +1532,18 @@ class FirewallDNSRuleGroups(dict):
 class FirewallDNSRuleLabels(dict):
     def __init__(__self__, *,
                  id: Optional[builtins.int] = None):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.int]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
 
@@ -1453,12 +1551,18 @@ class FirewallDNSRuleLabels(dict):
 class FirewallDNSRuleLocationGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1466,12 +1570,18 @@ class FirewallDNSRuleLocationGroups(dict):
 class FirewallDNSRuleLocations(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1479,12 +1589,18 @@ class FirewallDNSRuleLocations(dict):
 class FirewallDNSRuleSrcIpGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1492,12 +1608,18 @@ class FirewallDNSRuleSrcIpGroups(dict):
 class FirewallDNSRuleSrcIpv6Groups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1505,12 +1627,18 @@ class FirewallDNSRuleSrcIpv6Groups(dict):
 class FirewallDNSRuleTimeWindows(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1518,12 +1646,18 @@ class FirewallDNSRuleTimeWindows(dict):
 class FirewallDNSRuleUsers(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1533,8 +1667,8 @@ class FirewallDNSRuleZpaIpGroup(dict):
                  id: builtins.int,
                  name: Optional[builtins.str] = None):
         """
-        :param builtins.int id: The unique identifier for the resource.
-        :param builtins.str name: The name of the resource.
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -1544,7 +1678,7 @@ class FirewallDNSRuleZpaIpGroup(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -1552,7 +1686,7 @@ class FirewallDNSRuleZpaIpGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1941,12 +2075,18 @@ class FirewallFilteringServiceGroupsService(dict):
 class FirewallIPSRuleDepartments(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1954,12 +2094,18 @@ class FirewallIPSRuleDepartments(dict):
 class FirewallIPSRuleDestIpGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1967,12 +2113,18 @@ class FirewallIPSRuleDestIpGroups(dict):
 class FirewallIPSRuleDestIpv6Groups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1980,12 +2132,18 @@ class FirewallIPSRuleDestIpv6Groups(dict):
 class FirewallIPSRuleDeviceGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -1993,12 +2151,18 @@ class FirewallIPSRuleDeviceGroups(dict):
 class FirewallIPSRuleDevices(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2006,12 +2170,18 @@ class FirewallIPSRuleDevices(dict):
 class FirewallIPSRuleGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2019,12 +2189,18 @@ class FirewallIPSRuleGroups(dict):
 class FirewallIPSRuleLabels(dict):
     def __init__(__self__, *,
                  id: Optional[builtins.int] = None):
+        """
+        :param builtins.int id: (Integer) Identifier that uniquely identifies an entity
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.int]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "id")
 
 
@@ -2032,12 +2208,18 @@ class FirewallIPSRuleLabels(dict):
 class FirewallIPSRuleLocationGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2045,12 +2227,18 @@ class FirewallIPSRuleLocationGroups(dict):
 class FirewallIPSRuleLocations(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2058,12 +2246,18 @@ class FirewallIPSRuleLocations(dict):
 class FirewallIPSRuleNwServiceGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2071,12 +2265,18 @@ class FirewallIPSRuleNwServiceGroups(dict):
 class FirewallIPSRuleNwServices(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2084,12 +2284,18 @@ class FirewallIPSRuleNwServices(dict):
 class FirewallIPSRuleSrcIpGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2097,12 +2303,18 @@ class FirewallIPSRuleSrcIpGroups(dict):
 class FirewallIPSRuleSrcIpv6Groups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2110,12 +2322,18 @@ class FirewallIPSRuleSrcIpv6Groups(dict):
 class FirewallIPSRuleThreatCategories(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2123,12 +2341,18 @@ class FirewallIPSRuleThreatCategories(dict):
 class FirewallIPSRuleTimeWindows(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2136,12 +2360,18 @@ class FirewallIPSRuleTimeWindows(dict):
 class FirewallIPSRuleUsers(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
 
@@ -2708,6 +2938,356 @@ class ForwardingControlZPAGatewayZpaServerGroup(dict):
     def name(self) -> builtins.str:
         """
         The configured name of the entity
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IPSFirewallRuleDepartments(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleDestIpGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleDestIpv6Groups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleDeviceGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleDevices(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        """
+        :param builtins.int id: (Integer) Identifier that uniquely identifies an entity
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class IPSFirewallRuleLocationGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleLocations(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleNwServiceGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleNwServices(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleSrcIpGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleSrcIpv6Groups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleThreatCategories(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleTimeWindows(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class IPSFirewallRuleZpaAppSegment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPSFirewallRuleZpaAppSegment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPSFirewallRuleZpaAppSegment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPSFirewallRuleZpaAppSegment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: builtins.str,
+                 name: builtins.str):
+        """
+        :param builtins.str external_id: External ID of the application segment.
+        :param builtins.str name: Name of the application segment.
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> builtins.str:
+        """
+        External ID of the application segment.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the application segment.
         """
         return pulumi.get(self, "name")
 
@@ -6374,11 +6954,15 @@ class GetFileTypeControlRulesZpaAppSegmentResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallDnsRuleApplicationGroupResult(dict):
+class GetFirewallDNSRulesApplicationGroupResult(dict):
     def __init__(__self__, *,
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6391,11 +6975,557 @@ class GetFirewallDnsRuleApplicationGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesDepartmentResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesDestIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesDestIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesDeviceResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesDeviceGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesLabelResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesLocationResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesLocationGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesSrcIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesSrcIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesTimeWindowResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDNSRulesUserResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFirewallDnsRuleApplicationGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6405,6 +7535,10 @@ class GetFirewallDnsRuleDepartmentResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6417,11 +7551,17 @@ class GetFirewallDnsRuleDepartmentResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6431,6 +7571,10 @@ class GetFirewallDnsRuleDestIpGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6443,11 +7587,17 @@ class GetFirewallDnsRuleDestIpGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6457,6 +7607,10 @@ class GetFirewallDnsRuleDestIpv6GroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6469,11 +7623,17 @@ class GetFirewallDnsRuleDestIpv6GroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6483,6 +7643,10 @@ class GetFirewallDnsRuleDeviceResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6495,11 +7659,17 @@ class GetFirewallDnsRuleDeviceResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6509,6 +7679,10 @@ class GetFirewallDnsRuleDeviceGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6521,11 +7695,17 @@ class GetFirewallDnsRuleDeviceGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6535,6 +7715,10 @@ class GetFirewallDnsRuleGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6547,11 +7731,17 @@ class GetFirewallDnsRuleGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6561,6 +7751,10 @@ class GetFirewallDnsRuleLabelResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6573,11 +7767,17 @@ class GetFirewallDnsRuleLabelResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6588,8 +7788,8 @@ class GetFirewallDnsRuleLastModifiedByResult(dict):
                  id: builtins.int,
                  name: builtins.str):
         """
-        :param builtins.int id: Identifier that uniquely identifies an entity
-        :param builtins.str name: Identifier that uniquely identifies an entity
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
@@ -6604,7 +7804,7 @@ class GetFirewallDnsRuleLastModifiedByResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        Identifier that uniquely identifies an entity
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -6612,7 +7812,7 @@ class GetFirewallDnsRuleLastModifiedByResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Identifier that uniquely identifies an entity
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -6623,6 +7823,10 @@ class GetFirewallDnsRuleLocationResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6635,11 +7839,17 @@ class GetFirewallDnsRuleLocationResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6649,6 +7859,10 @@ class GetFirewallDnsRuleLocationGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6661,11 +7875,17 @@ class GetFirewallDnsRuleLocationGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6675,6 +7895,10 @@ class GetFirewallDnsRuleSrcIpGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6687,11 +7911,17 @@ class GetFirewallDnsRuleSrcIpGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6701,6 +7931,10 @@ class GetFirewallDnsRuleSrcIpv6GroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6713,11 +7947,17 @@ class GetFirewallDnsRuleSrcIpv6GroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6727,6 +7967,10 @@ class GetFirewallDnsRuleTimeWindowResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6739,11 +7983,17 @@ class GetFirewallDnsRuleTimeWindowResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -6753,6 +8003,10 @@ class GetFirewallDnsRuleUserResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -6765,11 +8019,17 @@ class GetFirewallDnsRuleUserResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7859,6 +9119,10 @@ class GetFirewallIpsRuleDepartmentResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -7871,11 +9135,17 @@ class GetFirewallIpsRuleDepartmentResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7885,6 +9155,10 @@ class GetFirewallIpsRuleDestIpGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -7897,11 +9171,17 @@ class GetFirewallIpsRuleDestIpGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7911,6 +9191,10 @@ class GetFirewallIpsRuleDestIpv6GroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -7923,11 +9207,17 @@ class GetFirewallIpsRuleDestIpv6GroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7937,6 +9227,10 @@ class GetFirewallIpsRuleDeviceResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -7949,11 +9243,17 @@ class GetFirewallIpsRuleDeviceResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7963,6 +9263,10 @@ class GetFirewallIpsRuleDeviceGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -7975,11 +9279,17 @@ class GetFirewallIpsRuleDeviceGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -7989,6 +9299,10 @@ class GetFirewallIpsRuleGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8001,11 +9315,17 @@ class GetFirewallIpsRuleGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8015,6 +9335,10 @@ class GetFirewallIpsRuleLabelResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8027,11 +9351,17 @@ class GetFirewallIpsRuleLabelResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8042,8 +9372,8 @@ class GetFirewallIpsRuleLastModifiedByResult(dict):
                  id: builtins.int,
                  name: builtins.str):
         """
-        :param builtins.int id: Identifier that uniquely identifies an entity
-        :param builtins.str name: Identifier that uniquely identifies an entity
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
@@ -8058,7 +9388,7 @@ class GetFirewallIpsRuleLastModifiedByResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        Identifier that uniquely identifies an entity
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -8066,7 +9396,7 @@ class GetFirewallIpsRuleLastModifiedByResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Identifier that uniquely identifies an entity
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -8077,6 +9407,10 @@ class GetFirewallIpsRuleLocationResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8089,11 +9423,17 @@ class GetFirewallIpsRuleLocationResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8103,6 +9443,10 @@ class GetFirewallIpsRuleLocationGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8115,11 +9459,17 @@ class GetFirewallIpsRuleLocationGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8129,6 +9479,10 @@ class GetFirewallIpsRuleNwServiceResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8141,11 +9495,17 @@ class GetFirewallIpsRuleNwServiceResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8155,6 +9515,10 @@ class GetFirewallIpsRuleNwServiceGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8167,11 +9531,17 @@ class GetFirewallIpsRuleNwServiceGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8181,6 +9551,10 @@ class GetFirewallIpsRuleSrcIpGroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8193,11 +9567,17 @@ class GetFirewallIpsRuleSrcIpGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8207,6 +9587,10 @@ class GetFirewallIpsRuleSrcIpv6GroupResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8219,11 +9603,17 @@ class GetFirewallIpsRuleSrcIpv6GroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8233,6 +9623,10 @@ class GetFirewallIpsRuleThreatCategoryResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8245,11 +9639,17 @@ class GetFirewallIpsRuleThreatCategoryResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8259,6 +9659,10 @@ class GetFirewallIpsRuleTimeWindowResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8271,11 +9675,17 @@ class GetFirewallIpsRuleTimeWindowResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8285,6 +9695,10 @@ class GetFirewallIpsRuleUserResult(dict):
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
         pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8297,11 +9711,17 @@ class GetFirewallIpsRuleUserResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "name")
 
 
@@ -8313,8 +9733,8 @@ class GetFirewallIpsRuleZpaAppSegmentResult(dict):
                  name: builtins.str):
         """
         :param builtins.str external_id: Indicates the external ID. Applicable only when this reference is of an external entity.
-        :param builtins.int id: A unique identifier assigned to the Application Segment
-        :param builtins.str name: The name of the Application Segment
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "id", id)
@@ -8332,7 +9752,7 @@ class GetFirewallIpsRuleZpaAppSegmentResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        A unique identifier assigned to the Application Segment
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -8340,7 +9760,7 @@ class GetFirewallIpsRuleZpaAppSegmentResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the Application Segment
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -9236,6 +10656,658 @@ class GetForwardingControlZPAGatewayZpaServerGroupResult(dict):
     def name(self) -> builtins.str:
         """
         The name of the forwarding control ZPA Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleDepartmentResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleDestIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleDestIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleDeviceResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleDeviceGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleLabelResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleLocationResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleLocationGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleNwServiceResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleNwServiceGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleSrcIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleSrcIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleThreatCategoryResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleTimeWindowResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleUserResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetIPSFirewallRuleZpaAppSegmentResult(dict):
+    def __init__(__self__, *,
+                 external_id: builtins.str,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.str external_id: Indicates the external ID. Applicable only when this reference is of an external entity.
+        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
+        :param builtins.str name: Name of the Firewall Filtering policy rule
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> builtins.str:
+        """
+        Indicates the external ID. Applicable only when this reference is of an external entity.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -11470,17 +13542,27 @@ class GetTrafficForwardingGREInternalIPRangeListResult(dict):
     def __init__(__self__, *,
                  end_ip_address: builtins.str,
                  start_ip_address: builtins.str):
+        """
+        :param builtins.str end_ip_address: (String) Starting IP address in the range
+        :param builtins.str start_ip_address: (String) Ending IP address in the range
+        """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
         pulumi.set(__self__, "start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> builtins.str:
+        """
+        (String) Starting IP address in the range
+        """
         return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> builtins.str:
+        """
+        (String) Ending IP address in the range
+        """
         return pulumi.get(self, "start_ip_address")
 
 
@@ -11489,12 +13571,18 @@ class GetTrafficForwardingGRETunnelLastModifiedByResult(dict):
     def __init__(__self__, *,
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -11508,12 +13596,18 @@ class GetTrafficForwardingGRETunnelManagedByResult(dict):
     def __init__(__self__, *,
                  id: builtins.int,
                  name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -11534,6 +13628,11 @@ class GetTrafficForwardingGRETunnelPrimaryDestVipResult(dict):
                  private_service_edge: builtins.bool,
                  region: builtins.str,
                  virtual_ip: builtins.str):
+        """
+        :param builtins.str country_code: (String) When within_country is enabled, you must set this to the country code.
+        :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+        :param builtins.str virtual_ip: (String) GRE cluster virtual IP address (VIP)
+        """
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "datacenter", datacenter)
@@ -11552,6 +13651,9 @@ class GetTrafficForwardingGRETunnelPrimaryDestVipResult(dict):
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> builtins.str:
+        """
+        (String) When within_country is enabled, you must set this to the country code.
+        """
         return pulumi.get(self, "country_code")
 
     @property
@@ -11562,6 +13664,9 @@ class GetTrafficForwardingGRETunnelPrimaryDestVipResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -11587,6 +13692,9 @@ class GetTrafficForwardingGRETunnelPrimaryDestVipResult(dict):
     @property
     @pulumi.getter(name="virtualIp")
     def virtual_ip(self) -> builtins.str:
+        """
+        (String) GRE cluster virtual IP address (VIP)
+        """
         return pulumi.get(self, "virtual_ip")
 
 
@@ -11602,6 +13710,11 @@ class GetTrafficForwardingGRETunnelSecondaryDestVipResult(dict):
                  private_service_edge: builtins.bool,
                  region: builtins.str,
                  virtual_ip: builtins.str):
+        """
+        :param builtins.str country_code: (String) When within_country is enabled, you must set this to the country code.
+        :param builtins.int id: Unique identifier of the static IP address that is associated to a GRE tunnel
+        :param builtins.str virtual_ip: (String) GRE cluster virtual IP address (VIP)
+        """
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "datacenter", datacenter)
@@ -11620,6 +13733,9 @@ class GetTrafficForwardingGRETunnelSecondaryDestVipResult(dict):
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> builtins.str:
+        """
+        (String) When within_country is enabled, you must set this to the country code.
+        """
         return pulumi.get(self, "country_code")
 
     @property
@@ -11630,6 +13746,9 @@ class GetTrafficForwardingGRETunnelSecondaryDestVipResult(dict):
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        Unique identifier of the static IP address that is associated to a GRE tunnel
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -11655,6 +13774,9 @@ class GetTrafficForwardingGRETunnelSecondaryDestVipResult(dict):
     @property
     @pulumi.getter(name="virtualIp")
     def virtual_ip(self) -> builtins.str:
+        """
+        (String) GRE cluster virtual IP address (VIP)
+        """
         return pulumi.get(self, "virtual_ip")
 
 

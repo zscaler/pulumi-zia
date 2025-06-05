@@ -4,7 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+ *
+ * ## Example Usage
+ */
+/** @deprecated zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup */
 export function getFirewallFilteringAppGroups(args?: GetFirewallFilteringAppGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallFilteringAppGroupsResult> {
+    pulumi.log.warn("getFirewallFilteringAppGroups is deprecated: zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups", {
@@ -16,6 +23,9 @@ export function getFirewallFilteringAppGroups(args?: GetFirewallFilteringAppGrou
  * A collection of arguments for invoking getFirewallFilteringAppGroups.
  */
 export interface GetFirewallFilteringAppGroupsArgs {
+    /**
+     * The name of the ip source group to be exported.
+     */
     name?: string;
 }
 
@@ -23,11 +33,21 @@ export interface GetFirewallFilteringAppGroupsArgs {
  * A collection of values returned by getFirewallFilteringAppGroups.
  */
 export interface GetFirewallFilteringAppGroupsResult {
+    /**
+     * The ID of this resource.
+     */
     readonly id: number;
     readonly name: string;
     readonly nameL10nTag: boolean;
 }
+/**
+ * Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+ *
+ * ## Example Usage
+ */
+/** @deprecated zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup */
 export function getFirewallFilteringAppGroupsOutput(args?: GetFirewallFilteringAppGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallFilteringAppGroupsResult> {
+    pulumi.log.warn("getFirewallFilteringAppGroups is deprecated: zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups", {
@@ -39,5 +59,8 @@ export function getFirewallFilteringAppGroupsOutput(args?: GetFirewallFilteringA
  * A collection of arguments for invoking getFirewallFilteringAppGroups.
  */
 export interface GetFirewallFilteringAppGroupsOutputArgs {
+    /**
+     * The name of the ip source group to be exported.
+     */
     name?: pulumi.Input<string>;
 }

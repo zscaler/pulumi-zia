@@ -6,7 +6,14 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
+ *
+ * ## Example Usage
+ */
+/** @deprecated zia.index/getfirewalldnsrule.getFirewallDnsRule has been deprecated in favor of zia.index/getfirewalldnsrules.getFirewallDNSRules */
 export function getFirewallDnsRule(args?: GetFirewallDnsRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallDnsRuleResult> {
+    pulumi.log.warn("getFirewallDnsRule is deprecated: zia.index/getfirewalldnsrule.getFirewallDnsRule has been deprecated in favor of zia.index/getfirewalldnsrules.getFirewallDNSRules")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getFirewallDnsRule:getFirewallDnsRule", {
@@ -19,7 +26,13 @@ export function getFirewallDnsRule(args?: GetFirewallDnsRuleArgs, opts?: pulumi.
  * A collection of arguments for invoking getFirewallDnsRule.
  */
 export interface GetFirewallDnsRuleArgs {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id?: number;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name?: string;
 }
 
@@ -27,45 +40,162 @@ export interface GetFirewallDnsRuleArgs {
  * A collection of values returned by getFirewallDnsRule.
  */
 export interface GetFirewallDnsRuleResult {
+    /**
+     * (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK`, `REDIR_REQ`, `REDIR_RES`, `REDIR_ZPA`, `REDIR_REQ_DOH`, `REDIR_REQ_KEEP_SENDER`, `REDIR_REQ_TCP`, `REDIR_REQ_UDP`, `BLOCK_WITH_RESPONSE`
+     */
     readonly action: string;
+    /**
+     * (List of Objects) DNS application groups to which the rule applies
+     */
     readonly applicationGroups: outputs.GetFirewallDnsRuleApplicationGroup[];
+    /**
+     * (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `zia.getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+     */
     readonly applications: string[];
+    /**
+     * (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
+     * `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
+     */
     readonly blockResponseCode: string;
+    /**
+     * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+     */
     readonly capturePcap: boolean;
+    /**
+     * (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
+     */
     readonly defaultRule: boolean;
+    /**
+     * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+     */
     readonly departments: outputs.GetFirewallDnsRuleDepartment[];
+    /**
+     * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+     */
     readonly description: string;
+    /**
+     * (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+     */
     readonly destAddresses: string[];
+    /**
+     * (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+     */
     readonly destCountries: string[];
+    /**
+     * (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+     */
     readonly destIpCategories: string[];
+    /**
+     * ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
+     */
     readonly destIpGroups: outputs.GetFirewallDnsRuleDestIpGroup[];
     readonly destIpv6Groups: outputs.GetFirewallDnsRuleDestIpv6Group[];
+    /**
+     * (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+     */
     readonly deviceGroups: outputs.GetFirewallDnsRuleDeviceGroup[];
+    /**
+     * (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+     */
     readonly devices: outputs.GetFirewallDnsRuleDevice[];
+    /**
+     * (Set of Strings) DNS request types to which the rule applies. Supportedn values are:
+     * `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`,
+     * `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`,
+     * `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `PSECKEF`, `RRSIG`, `NSEC`, `DNSKEY`,
+     * `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`,
+     * `ZONEMD`, `SVCB`, `HTTPS`,
+     */
     readonly dnsRuleRequestTypes: string[];
+    /**
+     * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+     */
     readonly groups: outputs.GetFirewallDnsRuleGroup[];
+    /**
+     * (Integer) Identifier that uniquely identifies an entity
+     */
     readonly id: number;
+    /**
+     * (List of Objects) Labels that are applicable to the rule.
+     */
     readonly labels: outputs.GetFirewallDnsRuleLabel[];
     readonly lastModifiedBies: outputs.GetFirewallDnsRuleLastModifiedBy[];
     readonly lastModifiedTime: number;
+    /**
+     * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+     */
     readonly locationGroups: outputs.GetFirewallDnsRuleLocationGroup[];
+    /**
+     * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+     */
     readonly locations: outputs.GetFirewallDnsRuleLocation[];
+    /**
+     * (string) The configured name of the entity
+     */
     readonly name: string;
+    /**
+     * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+     */
     readonly order: number;
+    /**
+     * (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+     */
     readonly predefined: boolean;
+    /**
+     * (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
+     */
     readonly protocols: string[];
+    /**
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+     */
     readonly rank: number;
+    /**
+     * (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+     */
     readonly redirectIp: string;
+    /**
+     * (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+     */
     readonly resCategories: string[];
+    /**
+     * (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+     */
     readonly sourceCountries: string[];
+    /**
+     * (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+     */
     readonly srcIpGroups: outputs.GetFirewallDnsRuleSrcIpGroup[];
+    /**
+     * (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+     */
     readonly srcIps: string[];
+    /**
+     * (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+     */
     readonly srcIpv6Groups: outputs.GetFirewallDnsRuleSrcIpv6Group[];
+    /**
+     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+     */
     readonly state: string;
+    /**
+     * (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+     */
     readonly timeWindows: outputs.GetFirewallDnsRuleTimeWindow[];
+    /**
+     * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+     */
     readonly users: outputs.GetFirewallDnsRuleUser[];
 }
+/**
+ * Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
+ *
+ * ## Example Usage
+ */
+/** @deprecated zia.index/getfirewalldnsrule.getFirewallDnsRule has been deprecated in favor of zia.index/getfirewalldnsrules.getFirewallDNSRules */
 export function getFirewallDnsRuleOutput(args?: GetFirewallDnsRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallDnsRuleResult> {
+    pulumi.log.warn("getFirewallDnsRule is deprecated: zia.index/getfirewalldnsrule.getFirewallDnsRule has been deprecated in favor of zia.index/getfirewalldnsrules.getFirewallDNSRules")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getFirewallDnsRule:getFirewallDnsRule", {
@@ -78,6 +208,12 @@ export function getFirewallDnsRuleOutput(args?: GetFirewallDnsRuleOutputArgs, op
  * A collection of arguments for invoking getFirewallDnsRule.
  */
 export interface GetFirewallDnsRuleOutputArgs {
+    /**
+     * Unique identifier for the Firewall Filtering policy rule
+     */
     id?: pulumi.Input<number>;
+    /**
+     * Name of the Firewall Filtering policy rule
+     */
     name?: pulumi.Input<string>;
 }

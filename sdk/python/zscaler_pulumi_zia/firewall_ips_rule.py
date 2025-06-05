@@ -57,47 +57,41 @@ class FirewallIPSRuleArgs:
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallIPSRule resource.
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-               blocking the traffic or bypassing the rule.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallIPSRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallIPSRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
+        :param pulumi.Input['FirewallIPSRuleDepartmentsArgs'] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input['FirewallIPSRuleDestIpGroupsArgs'] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['FirewallIPSRuleDestIpv6GroupsArgs'] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input['FirewallIPSRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input['FirewallIPSRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[builtins.bool] enable_full_logging: A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-               whereas a false value indicates that aggregate logging is enabled.
-        :param pulumi.Input['FirewallIPSRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallIPSRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallIPSRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallIPSRuleLocationsArgs'] locations: list of locations for which rule must be applied
+        :param pulumi.Input['FirewallIPSRuleDeviceGroupsArgs'] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallIPSRuleDevicesArgs'] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[builtins.bool] enable_full_logging: (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
+        :param pulumi.Input['FirewallIPSRuleGroupsArgs'] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input['FirewallIPSRuleLabelsArgs'] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input['FirewallIPSRuleLocationGroupsArgs'] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input['FirewallIPSRuleLocationsArgs'] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs'] nw_service_groups: list of nw service groups
-        :param pulumi.Input['FirewallIPSRuleNwServicesArgs'] nw_services: list of nw services
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs'] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input['FirewallIPSRuleThreatCategoriesArgs'] threat_categories: list of Advanced threat categories to which the rule applies
-        :param pulumi.Input['FirewallIPSRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallIPSRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-               Gateway forwarding method.
+        :param pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs'] nw_service_groups: (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
+        :param pulumi.Input['FirewallIPSRuleNwServicesArgs'] nw_services: (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs'] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input['FirewallIPSRuleThreatCategoriesArgs'] threat_categories: (List of Objects) Advanced threat categories to which the rule applies
+        :param pulumi.Input['FirewallIPSRuleTimeWindowsArgs'] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input['FirewallIPSRuleUsersArgs'] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]] zpa_app_segments: (List of Objects) The ZPA application segments to which the rule applies
         """
         pulumi.set(__self__, "order", order)
         if action is not None:
@@ -169,7 +163,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def order(self) -> pulumi.Input[builtins.int]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -181,8 +175,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        blocking the traffic or bypassing the rule.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         """
         return pulumi.get(self, "action")
 
@@ -194,7 +187,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -206,7 +199,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -218,7 +211,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['FirewallIPSRuleDepartmentsArgs']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -230,7 +223,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -242,7 +235,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -254,8 +247,8 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
@@ -266,6 +259,9 @@ class FirewallIPSRuleArgs:
     @property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -276,7 +272,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleDestIpGroupsArgs']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -300,7 +296,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleDeviceGroupsArgs']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -312,7 +308,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input['FirewallIPSRuleDevicesArgs']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -324,8 +320,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        whereas a false value indicates that aggregate logging is enabled.
+        (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         """
         return pulumi.get(self, "enable_full_logging")
 
@@ -337,7 +332,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['FirewallIPSRuleGroupsArgs']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -349,7 +344,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['FirewallIPSRuleLabelsArgs']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -361,7 +356,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleLocationGroupsArgs']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -373,7 +368,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['FirewallIPSRuleLocationsArgs']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -397,7 +392,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs']]:
         """
-        list of nw service groups
+        (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         """
         return pulumi.get(self, "nw_service_groups")
 
@@ -409,7 +404,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input['FirewallIPSRuleNwServicesArgs']]:
         """
-        list of nw services
+        (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         """
         return pulumi.get(self, "nw_services")
 
@@ -421,7 +416,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -433,8 +428,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -446,8 +440,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -459,8 +452,8 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -472,7 +465,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs']]:
         """
-        list of source ip groups
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -484,8 +477,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -497,8 +489,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -510,7 +501,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -522,7 +513,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="threatCategories")
     def threat_categories(self) -> Optional[pulumi.Input['FirewallIPSRuleThreatCategoriesArgs']]:
         """
-        list of Advanced threat categories to which the rule applies
+        (List of Objects) Advanced threat categories to which the rule applies
         """
         return pulumi.get(self, "threat_categories")
 
@@ -534,7 +525,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['FirewallIPSRuleTimeWindowsArgs']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -546,7 +537,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['FirewallIPSRuleUsersArgs']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -558,8 +549,7 @@ class FirewallIPSRuleArgs:
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]]]:
         """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        Gateway forwarding method.
+        (List of Objects) The ZPA application segments to which the rule applies
         """
         return pulumi.get(self, "zpa_app_segments")
 
@@ -607,47 +597,41 @@ class _FirewallIPSRuleState:
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]]] = None):
         """
         Input properties used for looking up and filtering FirewallIPSRule resources.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-               blocking the traffic or bypassing the rule.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallIPSRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallIPSRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
+        :param pulumi.Input['FirewallIPSRuleDepartmentsArgs'] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input['FirewallIPSRuleDestIpGroupsArgs'] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input['FirewallIPSRuleDestIpv6GroupsArgs'] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input['FirewallIPSRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input['FirewallIPSRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[builtins.bool] enable_full_logging: A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-               whereas a false value indicates that aggregate logging is enabled.
-        :param pulumi.Input['FirewallIPSRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallIPSRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallIPSRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallIPSRuleLocationsArgs'] locations: list of locations for which rule must be applied
+        :param pulumi.Input['FirewallIPSRuleDeviceGroupsArgs'] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input['FirewallIPSRuleDevicesArgs'] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[builtins.bool] enable_full_logging: (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
+        :param pulumi.Input['FirewallIPSRuleGroupsArgs'] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input['FirewallIPSRuleLabelsArgs'] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input['FirewallIPSRuleLocationGroupsArgs'] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input['FirewallIPSRuleLocationsArgs'] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs'] nw_service_groups: list of nw service groups
-        :param pulumi.Input['FirewallIPSRuleNwServicesArgs'] nw_services: list of nw services
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs'] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input['FirewallIPSRuleThreatCategoriesArgs'] threat_categories: list of Advanced threat categories to which the rule applies
-        :param pulumi.Input['FirewallIPSRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallIPSRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-               Gateway forwarding method.
+        :param pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs'] nw_service_groups: (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
+        :param pulumi.Input['FirewallIPSRuleNwServicesArgs'] nw_services: (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs'] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input['FirewallIPSRuleThreatCategoriesArgs'] threat_categories: (List of Objects) Advanced threat categories to which the rule applies
+        :param pulumi.Input['FirewallIPSRuleTimeWindowsArgs'] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input['FirewallIPSRuleUsersArgs'] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]] zpa_app_segments: (List of Objects) The ZPA application segments to which the rule applies
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -722,8 +706,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        blocking the traffic or bypassing the rule.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         """
         return pulumi.get(self, "action")
 
@@ -735,7 +718,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -747,7 +730,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -759,7 +742,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input['FirewallIPSRuleDepartmentsArgs']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -771,7 +754,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -783,7 +766,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -795,8 +778,8 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
@@ -807,6 +790,9 @@ class _FirewallIPSRuleState:
     @property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -817,7 +803,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleDestIpGroupsArgs']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -841,7 +827,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleDeviceGroupsArgs']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -853,7 +839,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input['FirewallIPSRuleDevicesArgs']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -865,8 +851,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        whereas a false value indicates that aggregate logging is enabled.
+        (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         """
         return pulumi.get(self, "enable_full_logging")
 
@@ -878,7 +863,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input['FirewallIPSRuleGroupsArgs']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -890,7 +875,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input['FirewallIPSRuleLabelsArgs']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -902,7 +887,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleLocationGroupsArgs']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -914,7 +899,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input['FirewallIPSRuleLocationsArgs']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -938,7 +923,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleNwServiceGroupsArgs']]:
         """
-        list of nw service groups
+        (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         """
         return pulumi.get(self, "nw_service_groups")
 
@@ -950,7 +935,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input['FirewallIPSRuleNwServicesArgs']]:
         """
-        list of nw services
+        (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         """
         return pulumi.get(self, "nw_services")
 
@@ -962,7 +947,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -974,7 +959,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -986,8 +971,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -999,8 +983,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -1021,8 +1004,8 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -1034,7 +1017,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleSrcIpGroupsArgs']]:
         """
-        list of source ip groups
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -1046,8 +1029,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -1059,8 +1041,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input['FirewallIPSRuleSrcIpv6GroupsArgs']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -1072,7 +1053,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -1084,7 +1065,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="threatCategories")
     def threat_categories(self) -> Optional[pulumi.Input['FirewallIPSRuleThreatCategoriesArgs']]:
         """
-        list of Advanced threat categories to which the rule applies
+        (List of Objects) Advanced threat categories to which the rule applies
         """
         return pulumi.get(self, "threat_categories")
 
@@ -1096,7 +1077,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input['FirewallIPSRuleTimeWindowsArgs']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -1108,7 +1089,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input['FirewallIPSRuleUsersArgs']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -1120,8 +1101,7 @@ class _FirewallIPSRuleState:
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIPSRuleZpaAppSegmentArgs']]]]:
         """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        Gateway forwarding method.
+        (List of Objects) The ZPA application segments to which the rule applies
         """
         return pulumi.get(self, "zpa_app_segments")
 
@@ -1130,8 +1110,13 @@ class _FirewallIPSRuleState:
         pulumi.set(self, "zpa_app_segments", value)
 
 
+warnings.warn("""zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule""", DeprecationWarning)
+
+
 @pulumi.type_token("zia:index/firewallIPSRule:FirewallIPSRule")
 class FirewallIPSRule(pulumi.CustomResource):
+    warnings.warn("""zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1171,50 +1156,47 @@ class FirewallIPSRule(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a FirewallIPSRule resource with the given unique name, props, and options.
+        The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
+
+        ## Example Usage
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-               blocking the traffic or bypassing the rule.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallIPSRuleDepartmentsArgs', 'FirewallIPSRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallIPSRuleDestIpGroupsArgs', 'FirewallIPSRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
+        :param pulumi.Input[Union['FirewallIPSRuleDepartmentsArgs', 'FirewallIPSRuleDepartmentsArgsDict']] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input[Union['FirewallIPSRuleDestIpGroupsArgs', 'FirewallIPSRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[Union['FirewallIPSRuleDestIpv6GroupsArgs', 'FirewallIPSRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallIPSRuleDeviceGroupsArgs', 'FirewallIPSRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Union['FirewallIPSRuleDevicesArgs', 'FirewallIPSRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[builtins.bool] enable_full_logging: A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-               whereas a false value indicates that aggregate logging is enabled.
-        :param pulumi.Input[Union['FirewallIPSRuleGroupsArgs', 'FirewallIPSRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallIPSRuleLabelsArgs', 'FirewallIPSRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallIPSRuleLocationGroupsArgs', 'FirewallIPSRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallIPSRuleLocationsArgs', 'FirewallIPSRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
+        :param pulumi.Input[Union['FirewallIPSRuleDeviceGroupsArgs', 'FirewallIPSRuleDeviceGroupsArgsDict']] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallIPSRuleDevicesArgs', 'FirewallIPSRuleDevicesArgsDict']] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[builtins.bool] enable_full_logging: (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
+        :param pulumi.Input[Union['FirewallIPSRuleGroupsArgs', 'FirewallIPSRuleGroupsArgsDict']] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[Union['FirewallIPSRuleLabelsArgs', 'FirewallIPSRuleLabelsArgsDict']] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input[Union['FirewallIPSRuleLocationGroupsArgs', 'FirewallIPSRuleLocationGroupsArgsDict']] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input[Union['FirewallIPSRuleLocationsArgs', 'FirewallIPSRuleLocationsArgsDict']] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[Union['FirewallIPSRuleNwServiceGroupsArgs', 'FirewallIPSRuleNwServiceGroupsArgsDict']] nw_service_groups: list of nw service groups
-        :param pulumi.Input[Union['FirewallIPSRuleNwServicesArgs', 'FirewallIPSRuleNwServicesArgsDict']] nw_services: list of nw services
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallIPSRuleSrcIpGroupsArgs', 'FirewallIPSRuleSrcIpGroupsArgsDict']] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input[Union['FirewallIPSRuleSrcIpv6GroupsArgs', 'FirewallIPSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input[Union['FirewallIPSRuleThreatCategoriesArgs', 'FirewallIPSRuleThreatCategoriesArgsDict']] threat_categories: list of Advanced threat categories to which the rule applies
-        :param pulumi.Input[Union['FirewallIPSRuleTimeWindowsArgs', 'FirewallIPSRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallIPSRuleUsersArgs', 'FirewallIPSRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-               Gateway forwarding method.
+        :param pulumi.Input[Union['FirewallIPSRuleNwServiceGroupsArgs', 'FirewallIPSRuleNwServiceGroupsArgsDict']] nw_service_groups: (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
+        :param pulumi.Input[Union['FirewallIPSRuleNwServicesArgs', 'FirewallIPSRuleNwServicesArgsDict']] nw_services: (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Union['FirewallIPSRuleSrcIpGroupsArgs', 'FirewallIPSRuleSrcIpGroupsArgsDict']] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Union['FirewallIPSRuleSrcIpv6GroupsArgs', 'FirewallIPSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input[Union['FirewallIPSRuleThreatCategoriesArgs', 'FirewallIPSRuleThreatCategoriesArgsDict']] threat_categories: (List of Objects) Advanced threat categories to which the rule applies
+        :param pulumi.Input[Union['FirewallIPSRuleTimeWindowsArgs', 'FirewallIPSRuleTimeWindowsArgsDict']] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[Union['FirewallIPSRuleUsersArgs', 'FirewallIPSRuleUsersArgsDict']] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: (List of Objects) The ZPA application segments to which the rule applies
         """
         ...
     @overload
@@ -1223,7 +1205,10 @@ class FirewallIPSRule(pulumi.CustomResource):
                  args: FirewallIPSRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FirewallIPSRule resource with the given unique name, props, and options.
+        The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
+
+        ## Example Usage
+
         :param str resource_name: The name of the resource.
         :param FirewallIPSRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1273,6 +1258,7 @@ class FirewallIPSRule(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Union['FirewallIPSRuleUsersArgs', 'FirewallIPSRuleUsersArgsDict']]] = None,
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""FirewallIPSRule is deprecated: zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -1368,47 +1354,41 @@ class FirewallIPSRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] action: The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-               blocking the traffic or bypassing the rule.
-        :param pulumi.Input[builtins.bool] capture_pcap: A Boolean value that indicates whether packet capture (PCAP) is enabled or not
-        :param pulumi.Input[builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallIPSRuleDepartmentsArgs', 'FirewallIPSRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallIPSRuleDestIpGroupsArgs', 'FirewallIPSRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
+        :param pulumi.Input[builtins.str] action: (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
+        :param pulumi.Input[builtins.bool] capture_pcap: (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
+        :param pulumi.Input[builtins.bool] default_rule: (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
+        :param pulumi.Input[Union['FirewallIPSRuleDepartmentsArgs', 'FirewallIPSRuleDepartmentsArgsDict']] departments: (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
+        :param pulumi.Input[builtins.str] description: (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_addresses: (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_countries: (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dest_ip_categories: (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        :param pulumi.Input[Union['FirewallIPSRuleDestIpGroupsArgs', 'FirewallIPSRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         :param pulumi.Input[Union['FirewallIPSRuleDestIpv6GroupsArgs', 'FirewallIPSRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallIPSRuleDeviceGroupsArgs', 'FirewallIPSRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Union['FirewallIPSRuleDevicesArgs', 'FirewallIPSRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[builtins.bool] enable_full_logging: A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-               whereas a false value indicates that aggregate logging is enabled.
-        :param pulumi.Input[Union['FirewallIPSRuleGroupsArgs', 'FirewallIPSRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallIPSRuleLabelsArgs', 'FirewallIPSRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallIPSRuleLocationGroupsArgs', 'FirewallIPSRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallIPSRuleLocationsArgs', 'FirewallIPSRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
+        :param pulumi.Input[Union['FirewallIPSRuleDeviceGroupsArgs', 'FirewallIPSRuleDeviceGroupsArgsDict']] device_groups: (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[Union['FirewallIPSRuleDevicesArgs', 'FirewallIPSRuleDevicesArgsDict']] devices: (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        :param pulumi.Input[builtins.bool] enable_full_logging: (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
+        :param pulumi.Input[Union['FirewallIPSRuleGroupsArgs', 'FirewallIPSRuleGroupsArgsDict']] groups: (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        :param pulumi.Input[Union['FirewallIPSRuleLabelsArgs', 'FirewallIPSRuleLabelsArgsDict']] labels: (List of Objects) Labels that are applicable to the rule.
+        :param pulumi.Input[Union['FirewallIPSRuleLocationGroupsArgs', 'FirewallIPSRuleLocationGroupsArgsDict']] location_groups: (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        :param pulumi.Input[Union['FirewallIPSRuleLocationsArgs', 'FirewallIPSRuleLocationsArgsDict']] locations: (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         :param pulumi.Input[builtins.str] name: The name of the IPS Control rule
-        :param pulumi.Input[Union['FirewallIPSRuleNwServiceGroupsArgs', 'FirewallIPSRuleNwServiceGroupsArgsDict']] nw_service_groups: list of nw service groups
-        :param pulumi.Input[Union['FirewallIPSRuleNwServicesArgs', 'FirewallIPSRuleNwServicesArgsDict']] nw_services: list of nw services
-        :param pulumi.Input[builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[builtins.int] rank: The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-               be specified for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-               to a specific URL category.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-               countries.
-        :param pulumi.Input[Union['FirewallIPSRuleSrcIpGroupsArgs', 'FirewallIPSRuleSrcIpGroupsArgsDict']] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-               source IP address.
-        :param pulumi.Input[Union['FirewallIPSRuleSrcIpv6GroupsArgs', 'FirewallIPSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-               specific source IPv6 address group.
-        :param pulumi.Input[builtins.str] state: The state of the rule indicating whether it is enabled or disabled
-        :param pulumi.Input[Union['FirewallIPSRuleThreatCategoriesArgs', 'FirewallIPSRuleThreatCategoriesArgsDict']] threat_categories: list of Advanced threat categories to which the rule applies
-        :param pulumi.Input[Union['FirewallIPSRuleTimeWindowsArgs', 'FirewallIPSRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallIPSRuleUsersArgs', 'FirewallIPSRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-               Gateway forwarding method.
+        :param pulumi.Input[Union['FirewallIPSRuleNwServiceGroupsArgs', 'FirewallIPSRuleNwServiceGroupsArgsDict']] nw_service_groups: (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
+        :param pulumi.Input[Union['FirewallIPSRuleNwServicesArgs', 'FirewallIPSRuleNwServicesArgsDict']] nw_services: (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
+        :param pulumi.Input[builtins.int] order: (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
+        :param pulumi.Input[builtins.bool] predefined: (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
+        :param pulumi.Input[builtins.int] rank: (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] res_categories: (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_countries: (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+               **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
+        :param pulumi.Input[Union['FirewallIPSRuleSrcIpGroupsArgs', 'FirewallIPSRuleSrcIpGroupsArgsDict']] src_ip_groups: (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] src_ips: (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
+        :param pulumi.Input[Union['FirewallIPSRuleSrcIpv6GroupsArgs', 'FirewallIPSRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
+        :param pulumi.Input[builtins.str] state: (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        :param pulumi.Input[Union['FirewallIPSRuleThreatCategoriesArgs', 'FirewallIPSRuleThreatCategoriesArgsDict']] threat_categories: (List of Objects) Advanced threat categories to which the rule applies
+        :param pulumi.Input[Union['FirewallIPSRuleTimeWindowsArgs', 'FirewallIPSRuleTimeWindowsArgsDict']] time_windows: (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        :param pulumi.Input[Union['FirewallIPSRuleUsersArgs', 'FirewallIPSRuleUsersArgsDict']] users: (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallIPSRuleZpaAppSegmentArgs', 'FirewallIPSRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: (List of Objects) The ZPA application segments to which the rule applies
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1454,8 +1434,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-        blocking the traffic or bypassing the rule.
+        (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
         """
         return pulumi.get(self, "action")
 
@@ -1463,7 +1442,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> pulumi.Output[builtins.bool]:
         """
-        A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+        (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         """
         return pulumi.get(self, "capture_pcap")
 
@@ -1471,7 +1450,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If set to true, the default rule is applied
+        (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
         """
         return pulumi.get(self, "default_rule")
 
@@ -1479,7 +1458,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleDepartments']]:
         """
-        list of departments for which rule must be applied
+        (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
         """
         return pulumi.get(self, "departments")
 
@@ -1487,7 +1466,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Additional information about the rule
+        (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
         """
         return pulumi.get(self, "description")
 
@@ -1495,7 +1474,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+        (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "dest_addresses")
 
@@ -1503,21 +1482,24 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "dest_countries")
 
     @property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleDestIpGroups']]:
         """
-        list of destination ip groups
+        ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
         """
         return pulumi.get(self, "dest_ip_groups")
 
@@ -1533,7 +1515,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleDeviceGroups']]:
         """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
+        (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "device_groups")
 
@@ -1541,7 +1523,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleDevices']]:
         """
-        Name-ID pairs of devices for which rule must be applied.
+        (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
         """
         return pulumi.get(self, "devices")
 
@@ -1549,8 +1531,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-        whereas a false value indicates that aggregate logging is enabled.
+        (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
         """
         return pulumi.get(self, "enable_full_logging")
 
@@ -1558,7 +1539,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleGroups']]:
         """
-        list of groups for which rule must be applied
+        (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "groups")
 
@@ -1566,7 +1547,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleLabels']]:
         """
-        list of Labels that are applicable to the rule.
+        (List of Objects) Labels that are applicable to the rule.
         """
         return pulumi.get(self, "labels")
 
@@ -1574,7 +1555,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleLocationGroups']]:
         """
-        list of locations groups
+        (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
         """
         return pulumi.get(self, "location_groups")
 
@@ -1582,7 +1563,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleLocations']]:
         """
-        list of locations for which rule must be applied
+        (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
         """
         return pulumi.get(self, "locations")
 
@@ -1598,7 +1579,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleNwServiceGroups']]:
         """
-        list of nw service groups
+        (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
         """
         return pulumi.get(self, "nw_service_groups")
 
@@ -1606,7 +1587,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleNwServices']]:
         """
-        list of nw services
+        (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
         """
         return pulumi.get(self, "nw_services")
 
@@ -1614,7 +1595,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def order(self) -> pulumi.Output[builtins.int]:
         """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
+        (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
         """
         return pulumi.get(self, "order")
 
@@ -1622,7 +1603,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If set to true, a predefined rule is applied
+        (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
         """
         return pulumi.get(self, "predefined")
 
@@ -1630,8 +1611,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-        be specified for the rule.
+        (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
         """
         return pulumi.get(self, "rank")
 
@@ -1639,8 +1619,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-        to a specific URL category.
+        (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
         """
         return pulumi.get(self, "res_categories")
 
@@ -1653,8 +1632,8 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        countries.
+        (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+        **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         """
         return pulumi.get(self, "source_countries")
 
@@ -1662,7 +1641,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleSrcIpGroups']]:
         """
-        list of source ip groups
+        (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
         """
         return pulumi.get(self, "src_ip_groups")
 
@@ -1670,8 +1649,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        source IP address.
+        (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
         """
         return pulumi.get(self, "src_ips")
 
@@ -1679,8 +1657,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleSrcIpv6Groups']]:
         """
-        list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-        specific source IPv6 address group.
+        (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
         """
         return pulumi.get(self, "src_ipv6_groups")
 
@@ -1688,7 +1665,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The state of the rule indicating whether it is enabled or disabled
+        (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
         """
         return pulumi.get(self, "state")
 
@@ -1696,7 +1673,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="threatCategories")
     def threat_categories(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleThreatCategories']]:
         """
-        list of Advanced threat categories to which the rule applies
+        (List of Objects) Advanced threat categories to which the rule applies
         """
         return pulumi.get(self, "threat_categories")
 
@@ -1704,7 +1681,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleTimeWindows']]:
         """
-        The time interval in which the Firewall Filtering policy rule applies
+        (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
         """
         return pulumi.get(self, "time_windows")
 
@@ -1712,7 +1689,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional['outputs.FirewallIPSRuleUsers']]:
         """
-        list of users for which rule must be applied
+        (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
         """
         return pulumi.get(self, "users")
 
@@ -1720,8 +1697,7 @@ class FirewallIPSRule(pulumi.CustomResource):
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> pulumi.Output[Sequence['outputs.FirewallIPSRuleZpaAppSegment']]:
         """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        Gateway forwarding method.
+        (List of Objects) The ZPA application segments to which the rule applies
         """
         return pulumi.get(self, "zpa_app_segments")
 

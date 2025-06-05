@@ -12,12 +12,42 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetSecuritySettings
     {
+        /// <summary>
+        /// Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Security Policy Settings Data Source
+        /// data "zia_security_settings" "example"{}
+        /// ```
+        /// </summary>
         public static Task<GetSecuritySettingsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecuritySettingsResult>("zia:index/getSecuritySettings:getSecuritySettings", InvokeArgs.Empty, options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Security Policy Settings Data Source
+        /// data "zia_security_settings" "example"{}
+        /// ```
+        /// </summary>
         public static Output<GetSecuritySettingsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingsResult>("zia:index/getSecuritySettings:getSecuritySettings", InvokeArgs.Empty, options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Security Policy Settings Data Source
+        /// data "zia_security_settings" "example"{}
+        /// ```
+        /// </summary>
         public static Output<GetSecuritySettingsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingsResult>("zia:index/getSecuritySettings:getSecuritySettings", InvokeArgs.Empty, options.WithDefaults());
     }

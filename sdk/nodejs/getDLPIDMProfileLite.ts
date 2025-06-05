@@ -6,6 +6,11 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+ *
+ * ## Example Usage
+ */
 export function getDLPIDMProfileLite(args?: GetDLPIDMProfileLiteArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPIDMProfileLiteResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +44,11 @@ export interface GetDLPIDMProfileLiteResult {
     readonly profileId: number;
     readonly templateName?: string;
 }
+/**
+ * Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
+ *
+ * ## Example Usage
+ */
 export function getDLPIDMProfileLiteOutput(args?: GetDLPIDMProfileLiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDLPIDMProfileLiteResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

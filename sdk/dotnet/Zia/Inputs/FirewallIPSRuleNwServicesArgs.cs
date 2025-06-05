@@ -15,6 +15,10 @@ namespace zscaler.PulumiPackage.Zia.Inputs
     {
         [Input("ids")]
         private InputList<int>? _ids;
+
+        /// <summary>
+        /// (Integer) Identifier that uniquely identifies an entity
+        /// </summary>
         public InputList<int> Ids
         {
             get => _ids ?? (_ids = new InputList<int>());

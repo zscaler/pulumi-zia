@@ -12,12 +12,45 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetGroupManagement
     {
+        /// <summary>
+        /// Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// data "zia_group_management" "devops" {
+        ///  name = "DevOps"
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetGroupManagementResult> InvokeAsync(GetGroupManagementArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupManagementResult>("zia:index/getGroupManagement:getGroupManagement", args ?? new GetGroupManagementArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// data "zia_group_management" "devops" {
+        ///  name = "DevOps"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetGroupManagementResult> Invoke(GetGroupManagementInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupManagementResult>("zia:index/getGroupManagement:getGroupManagement", args ?? new GetGroupManagementInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// data "zia_group_management" "devops" {
+        ///  name = "DevOps"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetGroupManagementResult> Invoke(GetGroupManagementInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupManagementResult>("zia:index/getGroupManagement:getGroupManagement", args ?? new GetGroupManagementInvokeArgs(), options.WithDefaults());
     }
@@ -25,6 +58,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetGroupManagementArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the user group
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -36,6 +72,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetGroupManagementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the user group
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -49,8 +88,14 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetGroupManagementResult
     {
+        /// <summary>
+        /// (Optional) Additional information about the group
+        /// </summary>
         public readonly string Comments;
         public readonly int Id;
+        /// <summary>
+        /// (Optional) Unique identfier for the identity provider (IdP)
+        /// </summary>
         public readonly int IdpId;
         public readonly string? Name;
 

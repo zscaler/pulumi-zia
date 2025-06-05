@@ -270,6 +270,40 @@ __all__ = [
     'ForwardingControlZPAGatewayZpaAppSegmentArgsDict',
     'ForwardingControlZPAGatewayZpaServerGroupArgs',
     'ForwardingControlZPAGatewayZpaServerGroupArgsDict',
+    'IPSFirewallRuleDepartmentsArgs',
+    'IPSFirewallRuleDepartmentsArgsDict',
+    'IPSFirewallRuleDestIpGroupsArgs',
+    'IPSFirewallRuleDestIpGroupsArgsDict',
+    'IPSFirewallRuleDestIpv6GroupsArgs',
+    'IPSFirewallRuleDestIpv6GroupsArgsDict',
+    'IPSFirewallRuleDeviceGroupsArgs',
+    'IPSFirewallRuleDeviceGroupsArgsDict',
+    'IPSFirewallRuleDevicesArgs',
+    'IPSFirewallRuleDevicesArgsDict',
+    'IPSFirewallRuleGroupsArgs',
+    'IPSFirewallRuleGroupsArgsDict',
+    'IPSFirewallRuleLabelsArgs',
+    'IPSFirewallRuleLabelsArgsDict',
+    'IPSFirewallRuleLocationGroupsArgs',
+    'IPSFirewallRuleLocationGroupsArgsDict',
+    'IPSFirewallRuleLocationsArgs',
+    'IPSFirewallRuleLocationsArgsDict',
+    'IPSFirewallRuleNwServiceGroupsArgs',
+    'IPSFirewallRuleNwServiceGroupsArgsDict',
+    'IPSFirewallRuleNwServicesArgs',
+    'IPSFirewallRuleNwServicesArgsDict',
+    'IPSFirewallRuleSrcIpGroupsArgs',
+    'IPSFirewallRuleSrcIpGroupsArgsDict',
+    'IPSFirewallRuleSrcIpv6GroupsArgs',
+    'IPSFirewallRuleSrcIpv6GroupsArgsDict',
+    'IPSFirewallRuleThreatCategoriesArgs',
+    'IPSFirewallRuleThreatCategoriesArgsDict',
+    'IPSFirewallRuleTimeWindowsArgs',
+    'IPSFirewallRuleTimeWindowsArgsDict',
+    'IPSFirewallRuleUsersArgs',
+    'IPSFirewallRuleUsersArgsDict',
+    'IPSFirewallRuleZpaAppSegmentArgs',
+    'IPSFirewallRuleZpaAppSegmentArgsDict',
     'LocationManagementDynamicLocationGroupsArgs',
     'LocationManagementDynamicLocationGroupsArgsDict',
     'LocationManagementStaticLocationGroupsArgs',
@@ -1769,6 +1803,9 @@ class FileTypeControlRulesZpaAppSegmentArgs:
 if not MYPY:
     class FirewallDNSRuleApplicationGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleApplicationGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1776,12 +1813,18 @@ elif False:
 class FirewallDNSRuleApplicationGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1792,6 +1835,9 @@ class FirewallDNSRuleApplicationGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleDepartmentsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1799,12 +1845,18 @@ elif False:
 class FirewallDNSRuleDepartmentsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1815,6 +1867,9 @@ class FirewallDNSRuleDepartmentsArgs:
 if not MYPY:
     class FirewallDNSRuleDestIpGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleDestIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1822,12 +1877,18 @@ elif False:
 class FirewallDNSRuleDestIpGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1838,6 +1899,9 @@ class FirewallDNSRuleDestIpGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleDestIpv6GroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleDestIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1845,12 +1909,18 @@ elif False:
 class FirewallDNSRuleDestIpv6GroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1861,6 +1931,9 @@ class FirewallDNSRuleDestIpv6GroupsArgs:
 if not MYPY:
     class FirewallDNSRuleDeviceGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleDeviceGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1868,12 +1941,18 @@ elif False:
 class FirewallDNSRuleDeviceGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1884,6 +1963,9 @@ class FirewallDNSRuleDeviceGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleDevicesArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleDevicesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1891,12 +1973,18 @@ elif False:
 class FirewallDNSRuleDevicesArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -1908,11 +1996,11 @@ if not MYPY:
     class FirewallDNSRuleDnsGatewayArgsDict(TypedDict):
         id: pulumi.Input[builtins.int]
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
 elif False:
     FirewallDNSRuleDnsGatewayArgsDict: TypeAlias = Mapping[str, Any]
@@ -1923,8 +2011,8 @@ class FirewallDNSRuleDnsGatewayArgs:
                  id: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] id: The unique identifier for the resource.
-        :param pulumi.Input[builtins.str] name: The name of the resource.
+        :param pulumi.Input[builtins.int] id: Unique identifier for the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -1934,7 +2022,7 @@ class FirewallDNSRuleDnsGatewayArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[builtins.int]:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -1946,7 +2034,7 @@ class FirewallDNSRuleDnsGatewayArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -1959,11 +2047,11 @@ if not MYPY:
     class FirewallDNSRuleEdnsEcsObjectArgsDict(TypedDict):
         id: pulumi.Input[builtins.int]
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
 elif False:
     FirewallDNSRuleEdnsEcsObjectArgsDict: TypeAlias = Mapping[str, Any]
@@ -1974,8 +2062,8 @@ class FirewallDNSRuleEdnsEcsObjectArgs:
                  id: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] id: The unique identifier for the resource.
-        :param pulumi.Input[builtins.str] name: The name of the resource.
+        :param pulumi.Input[builtins.int] id: Unique identifier for the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -1985,7 +2073,7 @@ class FirewallDNSRuleEdnsEcsObjectArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[builtins.int]:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -1997,7 +2085,7 @@ class FirewallDNSRuleEdnsEcsObjectArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -2009,6 +2097,9 @@ class FirewallDNSRuleEdnsEcsObjectArgs:
 if not MYPY:
     class FirewallDNSRuleGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2016,12 +2107,18 @@ elif False:
 class FirewallDNSRuleGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2032,6 +2129,9 @@ class FirewallDNSRuleGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleLabelsArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2039,12 +2139,18 @@ elif False:
 class FirewallDNSRuleLabelsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] id: Unique identifier for the Firewall Filtering policy rule
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2055,6 +2161,9 @@ class FirewallDNSRuleLabelsArgs:
 if not MYPY:
     class FirewallDNSRuleLocationGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleLocationGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2062,12 +2171,18 @@ elif False:
 class FirewallDNSRuleLocationGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2078,6 +2193,9 @@ class FirewallDNSRuleLocationGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleLocationsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleLocationsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2085,12 +2203,18 @@ elif False:
 class FirewallDNSRuleLocationsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2101,6 +2225,9 @@ class FirewallDNSRuleLocationsArgs:
 if not MYPY:
     class FirewallDNSRuleSrcIpGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleSrcIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2108,12 +2235,18 @@ elif False:
 class FirewallDNSRuleSrcIpGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2124,6 +2257,9 @@ class FirewallDNSRuleSrcIpGroupsArgs:
 if not MYPY:
     class FirewallDNSRuleSrcIpv6GroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleSrcIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2131,12 +2267,18 @@ elif False:
 class FirewallDNSRuleSrcIpv6GroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2147,6 +2289,9 @@ class FirewallDNSRuleSrcIpv6GroupsArgs:
 if not MYPY:
     class FirewallDNSRuleTimeWindowsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleTimeWindowsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2154,12 +2299,18 @@ elif False:
 class FirewallDNSRuleTimeWindowsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2170,6 +2321,9 @@ class FirewallDNSRuleTimeWindowsArgs:
 if not MYPY:
     class FirewallDNSRuleUsersArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
 elif False:
     FirewallDNSRuleUsersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2177,12 +2331,18 @@ elif False:
 class FirewallDNSRuleUsersArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: Unique identifier for the Firewall Filtering policy rule
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        Unique identifier for the Firewall Filtering policy rule
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2194,11 +2354,11 @@ if not MYPY:
     class FirewallDNSRuleZpaIpGroupArgsDict(TypedDict):
         id: pulumi.Input[builtins.int]
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
 elif False:
     FirewallDNSRuleZpaIpGroupArgsDict: TypeAlias = Mapping[str, Any]
@@ -2209,8 +2369,8 @@ class FirewallDNSRuleZpaIpGroupArgs:
                  id: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] id: The unique identifier for the resource.
-        :param pulumi.Input[builtins.str] name: The name of the resource.
+        :param pulumi.Input[builtins.int] id: Unique identifier for the Firewall Filtering policy rule
+        :param pulumi.Input[builtins.str] name: Name of the Firewall Filtering policy rule
         """
         pulumi.set(__self__, "id", id)
         if name is not None:
@@ -2220,7 +2380,7 @@ class FirewallDNSRuleZpaIpGroupArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[builtins.int]:
         """
-        The unique identifier for the resource.
+        Unique identifier for the Firewall Filtering policy rule
         """
         return pulumi.get(self, "id")
 
@@ -2232,7 +2392,7 @@ class FirewallDNSRuleZpaIpGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the resource.
+        Name of the Firewall Filtering policy rule
         """
         return pulumi.get(self, "name")
 
@@ -2879,6 +3039,9 @@ class FirewallFilteringServiceGroupsServiceArgs:
 if not MYPY:
     class FirewallIPSRuleDepartmentsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2886,12 +3049,18 @@ elif False:
 class FirewallIPSRuleDepartmentsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2902,6 +3071,9 @@ class FirewallIPSRuleDepartmentsArgs:
 if not MYPY:
     class FirewallIPSRuleDestIpGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleDestIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2909,12 +3081,18 @@ elif False:
 class FirewallIPSRuleDestIpGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2925,6 +3103,9 @@ class FirewallIPSRuleDestIpGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleDestIpv6GroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleDestIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2932,12 +3113,18 @@ elif False:
 class FirewallIPSRuleDestIpv6GroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2948,6 +3135,9 @@ class FirewallIPSRuleDestIpv6GroupsArgs:
 if not MYPY:
     class FirewallIPSRuleDeviceGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleDeviceGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2955,12 +3145,18 @@ elif False:
 class FirewallIPSRuleDeviceGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2971,6 +3167,9 @@ class FirewallIPSRuleDeviceGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleDevicesArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleDevicesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2978,12 +3177,18 @@ elif False:
 class FirewallIPSRuleDevicesArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -2994,6 +3199,9 @@ class FirewallIPSRuleDevicesArgs:
 if not MYPY:
     class FirewallIPSRuleGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3001,12 +3209,18 @@ elif False:
 class FirewallIPSRuleGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3017,6 +3231,9 @@ class FirewallIPSRuleGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleLabelsArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[builtins.int]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3024,12 +3241,18 @@ elif False:
 class FirewallIPSRuleLabelsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] id: (Integer) Identifier that uniquely identifies an entity
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3040,6 +3263,9 @@ class FirewallIPSRuleLabelsArgs:
 if not MYPY:
     class FirewallIPSRuleLocationGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleLocationGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3047,12 +3273,18 @@ elif False:
 class FirewallIPSRuleLocationGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3063,6 +3295,9 @@ class FirewallIPSRuleLocationGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleLocationsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleLocationsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3070,12 +3305,18 @@ elif False:
 class FirewallIPSRuleLocationsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3086,6 +3327,9 @@ class FirewallIPSRuleLocationsArgs:
 if not MYPY:
     class FirewallIPSRuleNwServiceGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleNwServiceGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3093,12 +3337,18 @@ elif False:
 class FirewallIPSRuleNwServiceGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3109,6 +3359,9 @@ class FirewallIPSRuleNwServiceGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleNwServicesArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleNwServicesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3116,12 +3369,18 @@ elif False:
 class FirewallIPSRuleNwServicesArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3132,6 +3391,9 @@ class FirewallIPSRuleNwServicesArgs:
 if not MYPY:
     class FirewallIPSRuleSrcIpGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleSrcIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3139,12 +3401,18 @@ elif False:
 class FirewallIPSRuleSrcIpGroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3155,6 +3423,9 @@ class FirewallIPSRuleSrcIpGroupsArgs:
 if not MYPY:
     class FirewallIPSRuleSrcIpv6GroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleSrcIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3162,12 +3433,18 @@ elif False:
 class FirewallIPSRuleSrcIpv6GroupsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3178,6 +3455,9 @@ class FirewallIPSRuleSrcIpv6GroupsArgs:
 if not MYPY:
     class FirewallIPSRuleThreatCategoriesArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleThreatCategoriesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3185,12 +3465,18 @@ elif False:
 class FirewallIPSRuleThreatCategoriesArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3201,6 +3487,9 @@ class FirewallIPSRuleThreatCategoriesArgs:
 if not MYPY:
     class FirewallIPSRuleTimeWindowsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleTimeWindowsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3208,12 +3497,18 @@ elif False:
 class FirewallIPSRuleTimeWindowsArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -3224,6 +3519,9 @@ class FirewallIPSRuleTimeWindowsArgs:
 if not MYPY:
     class FirewallIPSRuleUsersArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
 elif False:
     FirewallIPSRuleUsersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3231,12 +3529,18 @@ elif False:
 class FirewallIPSRuleUsersArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
         if ids is not None:
             pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
         return pulumi.get(self, "ids")
 
     @ids.setter
@@ -4082,6 +4386,568 @@ class ForwardingControlZPAGatewayZpaServerGroupArgs:
     def name(self) -> pulumi.Input[builtins.str]:
         """
         The configured name of the entity
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleDepartmentsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleDepartmentsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleDestIpGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleDestIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleDestIpGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleDestIpv6GroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleDestIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleDestIpv6GroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleDeviceGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleDeviceGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleDeviceGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleDevicesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleDevicesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleDevicesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleLabelsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] id: (Integer) Identifier that uniquely identifies an entity
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleLocationGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleLocationGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleLocationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleLocationsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleLocationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleLocationsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleNwServiceGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleNwServiceGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleNwServiceGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleNwServicesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleNwServicesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleNwServicesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleSrcIpGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleSrcIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleSrcIpGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleSrcIpv6GroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleSrcIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleSrcIpv6GroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleThreatCategoriesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleThreatCategoriesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleThreatCategoriesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleTimeWindowsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleTimeWindowsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleTimeWindowsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+elif False:
+    IPSFirewallRuleUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        (Integer) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class IPSFirewallRuleZpaAppSegmentArgsDict(TypedDict):
+        external_id: pulumi.Input[builtins.str]
+        """
+        External ID of the application segment.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        Name of the application segment.
+        """
+elif False:
+    IPSFirewallRuleZpaAppSegmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPSFirewallRuleZpaAppSegmentArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[builtins.str],
+                 name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] external_id: External ID of the application segment.
+        :param pulumi.Input[builtins.str] name: Name of the application segment.
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[builtins.str]:
+        """
+        External ID of the application segment.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the application segment.
         """
         return pulumi.get(self, "name")
 

@@ -22,6 +22,8 @@ __all__ = [
     'get_firewall_filtering_app_groups_output',
 ]
 
+warnings.warn("""zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallFilteringAppGroupsResult:
     """
@@ -41,6 +43,9 @@ class GetFirewallFilteringAppGroupsResult:
     @property
     @pulumi.getter
     def id(self) -> builtins.int:
+        """
+        The ID of this resource.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -68,8 +73,14 @@ class AwaitableGetFirewallFilteringAppGroupsResult(GetFirewallFilteringAppGroups
 def get_firewall_filtering_app_groups(name: Optional[builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringAppGroupsResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+
+    ## Example Usage
+
+
+    :param builtins.str name: The name of the ip source group to be exported.
     """
+    pulumi.log.warn("""get_firewall_filtering_app_groups is deprecated: zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup""")
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -82,8 +93,14 @@ def get_firewall_filtering_app_groups(name: Optional[builtins.str] = None,
 def get_firewall_filtering_app_groups_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringAppGroupsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
+
+    ## Example Usage
+
+
+    :param builtins.str name: The name of the ip source group to be exported.
     """
+    pulumi.log.warn("""get_firewall_filtering_app_groups is deprecated: zia.index/getfirewallfilteringappgroups.getFirewallFilteringAppGroups has been deprecated in favor of zia.index/getfirewallfilteringappgroup.getFirewallFilteringAppGroup""")
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

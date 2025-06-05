@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class FirewallIPSRuleSrcIpGroups
     {
+        /// <summary>
+        /// (Integer) Identifier that uniquely identifies an entity
+        /// </summary>
         public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]

@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class FirewallDNSRuleSrcIpv6Groups
     {
+        /// <summary>
+        /// Unique identifier for the Firewall Filtering policy rule
+        /// </summary>
         public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class FirewallIPSRuleLabelsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Integer) Identifier that uniquely identifies an entity
+        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

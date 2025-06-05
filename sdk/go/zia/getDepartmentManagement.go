@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
+//
+// ## Example Usage
 func GetDepartmentManagement(ctx *pulumi.Context, args *GetDepartmentManagementArgs, opts ...pulumi.InvokeOption) (*GetDepartmentManagementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDepartmentManagementResult
@@ -23,16 +26,20 @@ func GetDepartmentManagement(ctx *pulumi.Context, args *GetDepartmentManagementA
 
 // A collection of arguments for invoking getDepartmentManagement.
 type GetDepartmentManagementArgs struct {
+	// Name of the user department
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getDepartmentManagement.
 type GetDepartmentManagementResult struct {
-	Comments string  `pulumi:"comments"`
-	Deleted  bool    `pulumi:"deleted"`
-	Id       int     `pulumi:"id"`
-	IdpId    int     `pulumi:"idpId"`
-	Name     *string `pulumi:"name"`
+	// (Optional) Additional information about this department
+	Comments string `pulumi:"comments"`
+	// (Boolean) default: false
+	Deleted bool `pulumi:"deleted"`
+	Id      int  `pulumi:"id"`
+	// (Optional) Unique identfier for the identity provider (IdP)
+	IdpId int     `pulumi:"idpId"`
+	Name  *string `pulumi:"name"`
 }
 
 func GetDepartmentManagementOutput(ctx *pulumi.Context, args GetDepartmentManagementOutputArgs, opts ...pulumi.InvokeOption) GetDepartmentManagementResultOutput {
@@ -46,6 +53,7 @@ func GetDepartmentManagementOutput(ctx *pulumi.Context, args GetDepartmentManage
 
 // A collection of arguments for invoking getDepartmentManagement.
 type GetDepartmentManagementOutputArgs struct {
+	// Name of the user department
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -68,10 +76,12 @@ func (o GetDepartmentManagementResultOutput) ToGetDepartmentManagementResultOutp
 	return o
 }
 
+// (Optional) Additional information about this department
 func (o GetDepartmentManagementResultOutput) Comments() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDepartmentManagementResult) string { return v.Comments }).(pulumi.StringOutput)
 }
 
+// (Boolean) default: false
 func (o GetDepartmentManagementResultOutput) Deleted() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDepartmentManagementResult) bool { return v.Deleted }).(pulumi.BoolOutput)
 }
@@ -80,6 +90,7 @@ func (o GetDepartmentManagementResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDepartmentManagementResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// (Optional) Unique identfier for the identity provider (IdP)
 func (o GetDepartmentManagementResultOutput) IdpId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDepartmentManagementResult) int { return v.IdpId }).(pulumi.IntOutput)
 }

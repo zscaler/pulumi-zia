@@ -12,12 +12,228 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetFirewallFilteringAppServices
     {
+        /// <summary>
+        /// The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Service
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "SKYPEFORBUSINESS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "FILE_SHAREPT_ONEDRIVE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "EXCHANGEONLINE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "M365COMMON"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZOOMMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXCALLING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "RINGCENTRALMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING_INROOM"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINRESCUE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "AWS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GCP"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZSCALER_CLOUD_ENDPOINTS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "TALK_DESK"
+        /// }
+        /// ```
+        /// </summary>
         public static Task<GetFirewallFilteringAppServicesResult> InvokeAsync(GetFirewallFilteringAppServicesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallFilteringAppServicesResult>("zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices", args ?? new GetFirewallFilteringAppServicesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Service
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "SKYPEFORBUSINESS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "FILE_SHAREPT_ONEDRIVE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "EXCHANGEONLINE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "M365COMMON"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZOOMMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXCALLING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "RINGCENTRALMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING_INROOM"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINRESCUE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "AWS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GCP"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZSCALER_CLOUD_ENDPOINTS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "TALK_DESK"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetFirewallFilteringAppServicesResult> Invoke(GetFirewallFilteringAppServicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringAppServicesResult>("zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices", args ?? new GetFirewallFilteringAppServicesInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```hcl
+        /// # ZIA Network Application Service
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "SKYPEFORBUSINESS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "FILE_SHAREPT_ONEDRIVE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "EXCHANGEONLINE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "M365COMMON"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZOOMMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "WEBEXCALLING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "RINGCENTRALMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GOTOMEETING_INROOM"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINMEETING"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "LOGMEINRESCUE"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "AWS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "GCP"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "ZSCALER_CLOUD_ENDPOINTS"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_application_services" "example" {
+        ///   name = "TALK_DESK"
+        /// }
+        /// ```
+        /// </summary>
         public static Output<GetFirewallFilteringAppServicesResult> Invoke(GetFirewallFilteringAppServicesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallFilteringAppServicesResult>("zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices", args ?? new GetFirewallFilteringAppServicesInvokeArgs(), options.WithDefaults());
     }
@@ -25,6 +241,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetFirewallFilteringAppServicesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the application layer service that you want to control. It can include any character and spaces.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -36,6 +255,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetFirewallFilteringAppServicesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the application layer service that you want to control. It can include any character and spaces.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
+//
+// ## Example Usage
 func GetFirewallFilteringAppServices(ctx *pulumi.Context, args *GetFirewallFilteringAppServicesArgs, opts ...pulumi.InvokeOption) (*GetFirewallFilteringAppServicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFirewallFilteringAppServicesResult
@@ -23,6 +26,7 @@ func GetFirewallFilteringAppServices(ctx *pulumi.Context, args *GetFirewallFilte
 
 // A collection of arguments for invoking getFirewallFilteringAppServices.
 type GetFirewallFilteringAppServicesArgs struct {
+	// Name of the application layer service that you want to control. It can include any character and spaces.
 	Name *string `pulumi:"name"`
 }
 
@@ -44,6 +48,7 @@ func GetFirewallFilteringAppServicesOutput(ctx *pulumi.Context, args GetFirewall
 
 // A collection of arguments for invoking getFirewallFilteringAppServices.
 type GetFirewallFilteringAppServicesOutputArgs struct {
+	// Name of the application layer service that you want to control. It can include any character and spaces.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

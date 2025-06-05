@@ -44,6 +44,9 @@ class GetGroupManagementResult:
     @property
     @pulumi.getter
     def comments(self) -> builtins.str:
+        """
+        (Optional) Additional information about the group
+        """
         return pulumi.get(self, "comments")
 
     @property
@@ -54,6 +57,9 @@ class GetGroupManagementResult:
     @property
     @pulumi.getter(name="idpId")
     def idp_id(self) -> builtins.int:
+        """
+        (Optional) Unique identfier for the identity provider (IdP)
+        """
         return pulumi.get(self, "idp_id")
 
     @property
@@ -77,7 +83,12 @@ class AwaitableGetGroupManagementResult(GetGroupManagementResult):
 def get_group_management(name: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupManagementResult:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the user group
     """
     __args__ = dict()
     __args__['name'] = name
@@ -92,7 +103,12 @@ def get_group_management(name: Optional[builtins.str] = None,
 def get_group_management_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupManagementResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
+
+    ## Example Usage
+
+
+    :param builtins.str name: Name of the user group
     """
     __args__ = dict()
     __args__['name'] = name

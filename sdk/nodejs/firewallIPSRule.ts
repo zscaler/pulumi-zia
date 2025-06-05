@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
+ *
+ * ## Example Usage
+ *
+ * @deprecated zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule
+ */
 export class FirewallIPSRule extends pulumi.CustomResource {
     /**
      * Get an existing FirewallIPSRule resource's state with the given name, ID, and optional extra
@@ -17,6 +24,7 @@ export class FirewallIPSRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FirewallIPSRuleState, opts?: pulumi.CustomResourceOptions): FirewallIPSRule {
+        pulumi.log.warn("FirewallIPSRule is deprecated: zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule")
         return new FirewallIPSRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -35,38 +43,40 @@ export class FirewallIPSRule extends pulumi.CustomResource {
     }
 
     /**
-     * The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-     * blocking the traffic or bypassing the rule.
+     * (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
      */
     public readonly action!: pulumi.Output<string | undefined>;
     /**
-     * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+     * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
      */
     public readonly capturePcap!: pulumi.Output<boolean>;
     /**
-     * If set to true, the default rule is applied
+     * (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
      */
     public readonly defaultRule!: pulumi.Output<boolean | undefined>;
     /**
-     * list of departments for which rule must be applied
+     * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
     public readonly departments!: pulumi.Output<outputs.FirewallIPSRuleDepartments | undefined>;
     /**
-     * Additional information about the rule
+     * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+     * (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     public readonly destAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     public readonly destCountries!: pulumi.Output<string[]>;
+    /**
+     * (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+     */
     public readonly destIpCategories!: pulumi.Output<string[] | undefined>;
     /**
-     * list of destination ip groups
+     * ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
      */
     public readonly destIpGroups!: pulumi.Output<outputs.FirewallIPSRuleDestIpGroups | undefined>;
     /**
@@ -74,32 +84,31 @@ export class FirewallIPSRule extends pulumi.CustomResource {
      */
     public readonly destIpv6Groups!: pulumi.Output<outputs.FirewallIPSRuleDestIpv6Groups | undefined>;
     /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
+     * (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     public readonly deviceGroups!: pulumi.Output<outputs.FirewallIPSRuleDeviceGroups | undefined>;
     /**
-     * Name-ID pairs of devices for which rule must be applied.
+     * (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     public readonly devices!: pulumi.Output<outputs.FirewallIPSRuleDevices | undefined>;
     /**
-     * A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-     * whereas a false value indicates that aggregate logging is enabled.
+     * (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
      */
     public readonly enableFullLogging!: pulumi.Output<boolean | undefined>;
     /**
-     * list of groups for which rule must be applied
+     * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     public readonly groups!: pulumi.Output<outputs.FirewallIPSRuleGroups | undefined>;
     /**
-     * list of Labels that are applicable to the rule.
+     * (List of Objects) Labels that are applicable to the rule.
      */
     public readonly labels!: pulumi.Output<outputs.FirewallIPSRuleLabels | undefined>;
     /**
-     * list of locations groups
+     * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
     public readonly locationGroups!: pulumi.Output<outputs.FirewallIPSRuleLocationGroups | undefined>;
     /**
-     * list of locations for which rule must be applied
+     * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
     public readonly locations!: pulumi.Output<outputs.FirewallIPSRuleLocations | undefined>;
     /**
@@ -107,70 +116,65 @@ export class FirewallIPSRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * list of nw service groups
+     * (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
      */
     public readonly nwServiceGroups!: pulumi.Output<outputs.FirewallIPSRuleNwServiceGroups | undefined>;
     /**
-     * list of nw services
+     * (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
      */
     public readonly nwServices!: pulumi.Output<outputs.FirewallIPSRuleNwServices | undefined>;
     /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
+     * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
     public readonly order!: pulumi.Output<number>;
     /**
-     * If set to true, a predefined rule is applied
+     * (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
      */
     public readonly predefined!: pulumi.Output<boolean | undefined>;
     /**
-     * The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-     * be specified for the rule.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
      */
     public readonly rank!: pulumi.Output<number | undefined>;
     /**
-     * URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-     * to a specific URL category.
+     * (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
      */
     public readonly resCategories!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly ruleId!: pulumi.Output<number>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     public readonly sourceCountries!: pulumi.Output<string[]>;
     /**
-     * list of source ip groups
+     * (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
      */
     public readonly srcIpGroups!: pulumi.Output<outputs.FirewallIPSRuleSrcIpGroups | undefined>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     public readonly srcIps!: pulumi.Output<string[] | undefined>;
     /**
-     * list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-     * specific source IPv6 address group.
+     * (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
     public readonly srcIpv6Groups!: pulumi.Output<outputs.FirewallIPSRuleSrcIpv6Groups | undefined>;
     /**
-     * The state of the rule indicating whether it is enabled or disabled
+     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * list of Advanced threat categories to which the rule applies
+     * (List of Objects) Advanced threat categories to which the rule applies
      */
     public readonly threatCategories!: pulumi.Output<outputs.FirewallIPSRuleThreatCategories | undefined>;
     /**
-     * The time interval in which the Firewall Filtering policy rule applies
+     * (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
      */
     public readonly timeWindows!: pulumi.Output<outputs.FirewallIPSRuleTimeWindows | undefined>;
     /**
-     * list of users for which rule must be applied
+     * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
     public readonly users!: pulumi.Output<outputs.FirewallIPSRuleUsers | undefined>;
     /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-     * Gateway forwarding method.
+     * (List of Objects) The ZPA application segments to which the rule applies
      */
     public readonly zpaAppSegments!: pulumi.Output<outputs.FirewallIPSRuleZpaAppSegment[]>;
 
@@ -181,8 +185,11 @@ export class FirewallIPSRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule */
     constructor(name: string, args: FirewallIPSRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule */
     constructor(name: string, argsOrState?: FirewallIPSRuleArgs | FirewallIPSRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FirewallIPSRule is deprecated: zia.index/firewallipsrule.FirewallIPSRule has been deprecated in favor of zia.index/ipsfirewallrule.IPSFirewallRule")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -271,38 +278,40 @@ export class FirewallIPSRule extends pulumi.CustomResource {
  */
 export interface FirewallIPSRuleState {
     /**
-     * The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-     * blocking the traffic or bypassing the rule.
+     * (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
      */
     action?: pulumi.Input<string>;
     /**
-     * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+     * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
      */
     capturePcap?: pulumi.Input<boolean>;
     /**
-     * If set to true, the default rule is applied
+     * (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
      */
     defaultRule?: pulumi.Input<boolean>;
     /**
-     * list of departments for which rule must be applied
+     * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
     departments?: pulumi.Input<inputs.FirewallIPSRuleDepartments>;
     /**
-     * Additional information about the rule
+     * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+     * (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of destination ip groups
+     * ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
      */
     destIpGroups?: pulumi.Input<inputs.FirewallIPSRuleDestIpGroups>;
     /**
@@ -310,32 +319,31 @@ export interface FirewallIPSRuleState {
      */
     destIpv6Groups?: pulumi.Input<inputs.FirewallIPSRuleDestIpv6Groups>;
     /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
+     * (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceGroups?: pulumi.Input<inputs.FirewallIPSRuleDeviceGroups>;
     /**
-     * Name-ID pairs of devices for which rule must be applied.
+     * (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     devices?: pulumi.Input<inputs.FirewallIPSRuleDevices>;
     /**
-     * A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-     * whereas a false value indicates that aggregate logging is enabled.
+     * (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
      */
     enableFullLogging?: pulumi.Input<boolean>;
     /**
-     * list of groups for which rule must be applied
+     * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     groups?: pulumi.Input<inputs.FirewallIPSRuleGroups>;
     /**
-     * list of Labels that are applicable to the rule.
+     * (List of Objects) Labels that are applicable to the rule.
      */
     labels?: pulumi.Input<inputs.FirewallIPSRuleLabels>;
     /**
-     * list of locations groups
+     * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
     locationGroups?: pulumi.Input<inputs.FirewallIPSRuleLocationGroups>;
     /**
-     * list of locations for which rule must be applied
+     * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
     locations?: pulumi.Input<inputs.FirewallIPSRuleLocations>;
     /**
@@ -343,70 +351,65 @@ export interface FirewallIPSRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * list of nw service groups
+     * (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
      */
     nwServiceGroups?: pulumi.Input<inputs.FirewallIPSRuleNwServiceGroups>;
     /**
-     * list of nw services
+     * (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
      */
     nwServices?: pulumi.Input<inputs.FirewallIPSRuleNwServices>;
     /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
+     * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
     order?: pulumi.Input<number>;
     /**
-     * If set to true, a predefined rule is applied
+     * (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
      */
     predefined?: pulumi.Input<boolean>;
     /**
-     * The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-     * be specified for the rule.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
      */
     rank?: pulumi.Input<number>;
     /**
-     * URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-     * to a specific URL category.
+     * (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
      */
     resCategories?: pulumi.Input<pulumi.Input<string>[]>;
     ruleId?: pulumi.Input<number>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of source ip groups
+     * (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
      */
     srcIpGroups?: pulumi.Input<inputs.FirewallIPSRuleSrcIpGroups>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-     * specific source IPv6 address group.
+     * (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
     srcIpv6Groups?: pulumi.Input<inputs.FirewallIPSRuleSrcIpv6Groups>;
     /**
-     * The state of the rule indicating whether it is enabled or disabled
+     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
      */
     state?: pulumi.Input<string>;
     /**
-     * list of Advanced threat categories to which the rule applies
+     * (List of Objects) Advanced threat categories to which the rule applies
      */
     threatCategories?: pulumi.Input<inputs.FirewallIPSRuleThreatCategories>;
     /**
-     * The time interval in which the Firewall Filtering policy rule applies
+     * (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
      */
     timeWindows?: pulumi.Input<inputs.FirewallIPSRuleTimeWindows>;
     /**
-     * list of users for which rule must be applied
+     * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
     users?: pulumi.Input<inputs.FirewallIPSRuleUsers>;
     /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-     * Gateway forwarding method.
+     * (List of Objects) The ZPA application segments to which the rule applies
      */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.FirewallIPSRuleZpaAppSegment>[]>;
 }
@@ -416,38 +419,40 @@ export interface FirewallIPSRuleState {
  */
 export interface FirewallIPSRuleArgs {
     /**
-     * The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or
-     * blocking the traffic or bypassing the rule.
+     * (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
      */
     action?: pulumi.Input<string>;
     /**
-     * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
+     * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
      */
     capturePcap?: pulumi.Input<boolean>;
     /**
-     * If set to true, the default rule is applied
+     * (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
      */
     defaultRule?: pulumi.Input<boolean>;
     /**
-     * list of departments for which rule must be applied
+     * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
     departments?: pulumi.Input<inputs.FirewallIPSRuleDepartments>;
     /**
-     * Additional information about the rule
+     * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
+     * (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of destination ip groups
+     * ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
      */
     destIpGroups?: pulumi.Input<inputs.FirewallIPSRuleDestIpGroups>;
     /**
@@ -455,32 +460,31 @@ export interface FirewallIPSRuleArgs {
      */
     destIpv6Groups?: pulumi.Input<inputs.FirewallIPSRuleDestIpv6Groups>;
     /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
+     * (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceGroups?: pulumi.Input<inputs.FirewallIPSRuleDeviceGroups>;
     /**
-     * Name-ID pairs of devices for which rule must be applied.
+     * (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
     devices?: pulumi.Input<inputs.FirewallIPSRuleDevices>;
     /**
-     * A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled,
-     * whereas a false value indicates that aggregate logging is enabled.
+     * (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
      */
     enableFullLogging?: pulumi.Input<boolean>;
     /**
-     * list of groups for which rule must be applied
+     * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     groups?: pulumi.Input<inputs.FirewallIPSRuleGroups>;
     /**
-     * list of Labels that are applicable to the rule.
+     * (List of Objects) Labels that are applicable to the rule.
      */
     labels?: pulumi.Input<inputs.FirewallIPSRuleLabels>;
     /**
-     * list of locations groups
+     * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
     locationGroups?: pulumi.Input<inputs.FirewallIPSRuleLocationGroups>;
     /**
-     * list of locations for which rule must be applied
+     * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
     locations?: pulumi.Input<inputs.FirewallIPSRuleLocations>;
     /**
@@ -488,69 +492,64 @@ export interface FirewallIPSRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * list of nw service groups
+     * (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
      */
     nwServiceGroups?: pulumi.Input<inputs.FirewallIPSRuleNwServiceGroups>;
     /**
-     * list of nw services
+     * (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
      */
     nwServices?: pulumi.Input<inputs.FirewallIPSRuleNwServices>;
     /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
+     * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
     order: pulumi.Input<number>;
     /**
-     * If set to true, a predefined rule is applied
+     * (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
      */
     predefined?: pulumi.Input<boolean>;
     /**
-     * The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can
-     * be specified for the rule.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
      */
     rank?: pulumi.Input<number>;
     /**
-     * URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted
-     * to a specific URL category.
+     * (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
      */
     resCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
+     * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of source ip groups
+     * (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
      */
     srcIpGroups?: pulumi.Input<inputs.FirewallIPSRuleSrcIpGroups>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a
-     * specific source IPv6 address group.
+     * (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
     srcIpv6Groups?: pulumi.Input<inputs.FirewallIPSRuleSrcIpv6Groups>;
     /**
-     * The state of the rule indicating whether it is enabled or disabled
+     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
      */
     state?: pulumi.Input<string>;
     /**
-     * list of Advanced threat categories to which the rule applies
+     * (List of Objects) Advanced threat categories to which the rule applies
      */
     threatCategories?: pulumi.Input<inputs.FirewallIPSRuleThreatCategories>;
     /**
-     * The time interval in which the Firewall Filtering policy rule applies
+     * (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
      */
     timeWindows?: pulumi.Input<inputs.FirewallIPSRuleTimeWindows>;
     /**
-     * list of users for which rule must be applied
+     * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
     users?: pulumi.Input<inputs.FirewallIPSRuleUsers>;
     /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-     * Gateway forwarding method.
+     * (List of Objects) The ZPA application segments to which the rule applies
      */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.FirewallIPSRuleZpaAppSegment>[]>;
 }

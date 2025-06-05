@@ -79,6 +79,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ForwardingControlRule{}
 	case "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway":
 		r = &ForwardingControlZPAGateway{}
+	case "zia:index/iPSFirewallRule:IPSFirewallRule":
+		r = &IPSFirewallRule{}
 	case "zia:index/locationManagement:LocationManagement":
 		r = &LocationManagement{}
 	case "zia:index/ruleLabels:RuleLabels":
@@ -281,6 +283,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/forwardingControlZPAGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/iPSFirewallRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

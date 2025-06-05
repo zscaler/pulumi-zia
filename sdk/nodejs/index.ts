@@ -275,10 +275,20 @@ export const getFileTypeControlRules: typeof import("./getFileTypeControlRules")
 export const getFileTypeControlRulesOutput: typeof import("./getFileTypeControlRules").getFileTypeControlRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getFileTypeControlRules","getFileTypeControlRulesOutput"], () => require("./getFileTypeControlRules"));
 
+export { GetFirewallDNSRulesArgs, GetFirewallDNSRulesResult, GetFirewallDNSRulesOutputArgs } from "./getFirewallDNSRules";
+export const getFirewallDNSRules: typeof import("./getFirewallDNSRules").getFirewallDNSRules = null as any;
+export const getFirewallDNSRulesOutput: typeof import("./getFirewallDNSRules").getFirewallDNSRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallDNSRules","getFirewallDNSRulesOutput"], () => require("./getFirewallDNSRules"));
+
 export { GetFirewallDnsRuleArgs, GetFirewallDnsRuleResult, GetFirewallDnsRuleOutputArgs } from "./getFirewallDnsRule";
 export const getFirewallDnsRule: typeof import("./getFirewallDnsRule").getFirewallDnsRule = null as any;
 export const getFirewallDnsRuleOutput: typeof import("./getFirewallDnsRule").getFirewallDnsRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallDnsRule","getFirewallDnsRuleOutput"], () => require("./getFirewallDnsRule"));
+
+export { GetFirewallFilteringAppGroupArgs, GetFirewallFilteringAppGroupResult, GetFirewallFilteringAppGroupOutputArgs } from "./getFirewallFilteringAppGroup";
+export const getFirewallFilteringAppGroup: typeof import("./getFirewallFilteringAppGroup").getFirewallFilteringAppGroup = null as any;
+export const getFirewallFilteringAppGroupOutput: typeof import("./getFirewallFilteringAppGroup").getFirewallFilteringAppGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallFilteringAppGroup","getFirewallFilteringAppGroupOutput"], () => require("./getFirewallFilteringAppGroup"));
 
 export { GetFirewallFilteringAppGroupsArgs, GetFirewallFilteringAppGroupsResult, GetFirewallFilteringAppGroupsOutputArgs } from "./getFirewallFilteringAppGroups";
 export const getFirewallFilteringAppGroups: typeof import("./getFirewallFilteringAppGroups").getFirewallFilteringAppGroups = null as any;
@@ -349,6 +359,11 @@ export { GetGroupManagementArgs, GetGroupManagementResult, GetGroupManagementOut
 export const getGroupManagement: typeof import("./getGroupManagement").getGroupManagement = null as any;
 export const getGroupManagementOutput: typeof import("./getGroupManagement").getGroupManagementOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupManagement","getGroupManagementOutput"], () => require("./getGroupManagement"));
+
+export { GetIPSFirewallRuleArgs, GetIPSFirewallRuleResult, GetIPSFirewallRuleOutputArgs } from "./getIPSFirewallRule";
+export const getIPSFirewallRule: typeof import("./getIPSFirewallRule").getIPSFirewallRule = null as any;
+export const getIPSFirewallRuleOutput: typeof import("./getIPSFirewallRule").getIPSFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getIPSFirewallRule","getIPSFirewallRuleOutput"], () => require("./getIPSFirewallRule"));
 
 export { GetIcapServersArgs, GetIcapServersResult, GetIcapServersOutputArgs } from "./getIcapServers";
 export const getIcapServers: typeof import("./getIcapServers").getIcapServers = null as any;
@@ -484,6 +499,11 @@ export { GetWorkloadGroupsArgs, GetWorkloadGroupsResult, GetWorkloadGroupsOutput
 export const getWorkloadGroups: typeof import("./getWorkloadGroups").getWorkloadGroups = null as any;
 export const getWorkloadGroupsOutput: typeof import("./getWorkloadGroups").getWorkloadGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkloadGroups","getWorkloadGroupsOutput"], () => require("./getWorkloadGroups"));
+
+export { IPSFirewallRuleArgs, IPSFirewallRuleState } from "./ipsfirewallRule";
+export type IPSFirewallRule = import("./ipsfirewallRule").IPSFirewallRule;
+export const IPSFirewallRule: typeof import("./ipsfirewallRule").IPSFirewallRule = null as any;
+utilities.lazyLoad(exports, ["IPSFirewallRule"], () => require("./ipsfirewallRule"));
 
 export { LocationManagementArgs, LocationManagementState } from "./locationManagement";
 export type LocationManagement = import("./locationManagement").LocationManagement;
@@ -630,6 +650,8 @@ const _module = {
                 return new ForwardingControlRule(name, <any>undefined, { urn })
             case "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway":
                 return new ForwardingControlZPAGateway(name, <any>undefined, { urn })
+            case "zia:index/iPSFirewallRule:IPSFirewallRule":
+                return new IPSFirewallRule(name, <any>undefined, { urn })
             case "zia:index/locationManagement:LocationManagement":
                 return new LocationManagement(name, <any>undefined, { urn })
             case "zia:index/ruleLabels:RuleLabels":
@@ -692,6 +714,7 @@ pulumi.runtime.registerResourceModule("zia", "index/firewallFilteringSourceGroup
 pulumi.runtime.registerResourceModule("zia", "index/firewallIPSRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/forwardingControlRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/forwardingControlZPAGateway", _module)
+pulumi.runtime.registerResourceModule("zia", "index/iPSFirewallRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/locationManagement", _module)
 pulumi.runtime.registerResourceModule("zia", "index/ruleLabels", _module)
 pulumi.runtime.registerResourceModule("zia", "index/sSLInspectionRules", _module)
