@@ -59,12 +59,21 @@ build_go:: install_plugins tfgen # build the go sdk
 	$(WORKING_DIR)/bin/$(TFGEN) go --skip-examples --overlays provider/overlays/go --out sdk/go/
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
-build_dotnet:: install_plugins tfgen # build the dotnet sdk
+build_dotnet:: install_plugins tfgen
 	pulumictl get version --language dotnet
-	$(WORKING_DIR)/bin/$(TFGEN) dotnet --skip-examples --overlays provider/overlays/dotnet --out sdk/dotnet/
-	cd sdk/dotnet/ && \
-		echo "${DOTNET_VERSION}" >version.txt && \
-        dotnet build /p:Version=${DOTNET_VERSION}
+
+	mkdir -p provider/cmd/$(PROVIDER)
+	$(WORKING_DIR)/bin/$(TFGEN) schema --skip-examples --out provider/cmd/$(PROVIDER)
+
+	pulumi package gen-sdk \
+		--language dotnet \
+		--out sdk/dotnet \
+		provider/cmd/$(PROVIDER)/schema.json
+
+	# Step 3: Build the dotnet package
+	cd sdk/dotnet && \
+		echo "$(DOTNET_VERSION)" > version.txt && \
+		dotnet build /p:Version=$(DOTNET_VERSION)
 
 build_go:: install_plugins tfgen # build the go sdk
 	$(WORKING_DIR)/bin/$(TFGEN) go --skip-examples --overlays provider/overlays/go --out sdk/go/
