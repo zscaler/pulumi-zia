@@ -231,6 +231,7 @@ github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/terraform-providers/terraform-provider-random v1.3.2-0.20231204135814-c6e90de46687/go.mod h1:nH2NdrX91QoiiaPJsTZ9vKoezUq5IgHJ8nijpD6lT5o=
 github.com/tklauser/go-sysconf v0.3.10/go.mod h1:C8XykCvCb+Gn0oNCWPIlcb0RuglQTYaQ2hGm7jmxEFk=
 github.com/tklauser/numcpus v0.4.0/go.mod h1:1+UI3pD8NW14VMwdgJNJ1ESk2UnwhAnz5hMwiKKqXCQ=
+github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7/go.mod h1:UxoP3EypF8JfGEjAII8jx1q8rQyDnX8qdTCs/UQBVIE=
 github.com/ulikunitz/xz v0.5.8/go.mod h1:nbz6k7qbPmH4IRqmfOplQw/tblSgqTqBwxkY0oWt/14=
 github.com/vmihailenco/msgpack/v4 v4.3.12/go.mod h1:gborTTJjAo/GWTqqRjrLCn9pgNN+NXzzngzBKDPIqw4=
@@ -246,9 +247,8 @@ github.com/zclconf/go-cty v1.11.0/go.mod h1:s9IfD1LK5ccNMSWCVFCE2rJfHiZgi7JijgeW
 github.com/zclconf/go-cty v1.12.1/go.mod h1:s9IfD1LK5ccNMSWCVFCE2rJfHiZgi7JijgeWIMfhLvA=
 github.com/zclconf/go-cty-yaml v1.0.2 h1:dNyg4QLTrv2IfJpm7Wtxi55ed5gLGOlPrZ6kMd51hY0=
 github.com/zclconf/go-cty-yaml v1.0.2/go.mod h1:IP3Ylp0wQpYm50IHK8OZWKMu6sPJIUgKa8XhiVHura0=
-github.com/zscaler/terraform-provider-zia/v4 v4.1.5 h1:Te9kxJFmVTv45Q2wHJ7hzwcMsuCjGttt2xRcOKMwFL8=
-github.com/zscaler/terraform-provider-zia/v4 v4.1.5/go.mod h1:toATCJ+6qNqasf3RS5I0KiHBmHANY8TU2Tj4aqcH+vk=
 github.com/zscaler/zscaler-sdk-go v1.7.0 h1:vE0DhIqNMxEnD7AUzSpm66wrWog29LMGBOfdCiRoem4=
+github.com/zscaler/zscaler-sdk-go/v2 v2.732.0 h1:oyESzPJJswG9dTSH0VcCeZH1ebYUmhIOKeTQg0sLu+w=
 github.com/zscaler/zscaler-sdk-go/v2 v2.732.0/go.mod h1:ugDudbyESUrANGw74moJypgVnWuOyLm8NyIJgfUzNNo=
 github.com/zscaler/zscaler-sdk-go/v3 v3.3.1/go.mod h1:QS5lME4DPDrvJ01qIKHQpsIa/aqYX7YW8mE69oKsZ1w=
 go.opentelemetry.io/contrib v0.20.0 h1:ubFQUn0VCZ0gPwIoJfBJVpeBlyRMxu8Mm/huKWYd9p0=
