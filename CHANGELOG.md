@@ -5,7 +5,6 @@
 ### Notes
 
 - Release date: **(June, 5 2025)**
-- Supported Terraform version: **v1.x**
 
 #### Enhancements - Zscaler OneAPI Support
 
