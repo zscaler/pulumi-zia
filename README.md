@@ -45,7 +45,44 @@ To use from .NET, install using `dotnet add package`:
 dotnet add package zscaler.PulumiPackage.Zia
 ```
 
-## Configuration
+## Zscaler OneAPI Client Secret Authentication
+
+The following configuration points are available for the `zia` provider:
+
+You can provide credentials via the `ZSCALER_CLIENT_ID`, `ZSCALER_CLIENT_SECRET`, `ZSCALER_VANITY_DOMAIN`, `ZSCALER_CLOUD` environment variables, representing your Zidentity OneAPI credentials `clientId`, `clientSecret`, `vanityDomain` and `zscaler_cloud` respectively.
+
+| Argument        | Description                                                                                         | Environment Variable     |
+|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
+| `client_id`     | _(String)_ Zscaler API Client ID, used with `clientSecret` or `PrivateKey` OAuth auth mode.         | `ZSCALER_CLIENT_ID`      |
+| `client_secret` | _(String)_ Secret key associated with the API Client ID for authentication.                         | `ZSCALER_CLIENT_SECRET`  |
+| `vanity_domain` | _(String)_ Refers to the domain name used by your organization.                                     | `ZSCALER_VANITY_DOMAIN`  |
+| `zscaler_cloud`         | _(String)_ The name of the Zidentity cloud, e.g., beta.                                             | `ZSCALER_CLOUD`          |
+
+## Zscaler OneAPI Private Key Authentication
+
+The following configuration points are available for the `zia` provider:
+
+You can provide credentials via the `ZSCALER_CLIENT_ID`, `ZSCALER_CLIENT_SECRET`, `ZSCALER_VANITY_DOMAIN`, `ZSCALER_CLOUD` environment variables, representing your Zidentity OneAPI credentials `clientId`, `clientSecret`, `vanityDomain` and `zscaler_cloud` respectively.
+
+| Argument        | Description                                                                                         | Environment Variable     |
+|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
+| `client_id`     | _(String)_ Zscaler API Client ID, used with `clientSecret` or `PrivateKey` OAuth auth mode.         | `ZSCALER_CLIENT_ID`      |
+| `privateKey`    | _(String)_ A string Private key value.                                                              | `ZSCALER_PRIVATE_KEY`    |
+| `vanity_domain` | _(String)_ Refers to the domain name used by your organization.                                     | `ZSCALER_VANITY_DOMAIN`  |
+| `zscaler_cloud`         | _(String)_ The name of the Zidentity cloud, e.g., beta.                                             | `ZSCALER_CLOUD`          |
+
+## Zscaler Sandbox Authentication
+
+The following configuration points are available for the `zia` provider:
+
+You can provide credentials via the `ZSCALER_SANDBOX_TOKEN`, `ZSCALER_SANDBOX_CLOUD`, environment variables, representing your Zidentity OneAPI credentials `sandbox_token`, `sandbox_cloud` respectively.
+
+| Argument        | Description                                                                                         | Environment Variable     |
+|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
+| `sandbox_token`    | _(String)_ ZIA Sandbox API Token                                                             | `ZSCALER_SANDBOX_TOKEN`    |
+| `sandbox_cloud`     | _(String)_ Zscaler Sandbox Cloud name.      | `ZSCALER_SANDBOX_CLOUD`      |
+
+## ZIA Native API Credential Configuration
 
 The following configuration points are available for the `zia` provider:
 

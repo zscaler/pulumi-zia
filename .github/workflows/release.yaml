@@ -33,11 +33,12 @@ env:
   PUBLISH_PYPI: true
   PUBLISH_NPM: true
   PUBLISH_NUGET: true
-  ZIA_USERNAME: ${{ secrets.ZIA_USERNAME }}
-  ZIA_PASSWORD: ${{ secrets.ZIA_PASSWORD }}
-  ZIA_API_KEY: ${{ secrets.ZIA_API_KEY }}
-  ZIA_CLOUD: ${{ secrets.ZIA_CLOUD }}
   TRAVIS_OS_NAME: linux
+  ZSCALER_CLIENT_ID: ${{ secrets.ZSCALER_CLIENT_ID }}
+  ZSCALER_CLIENT_SECRET: ${{ secrets.ZSCALER_CLIENT_SECRET }}
+  ZSCALER_VANITY_DOMAIN: ${{ secrets.ZSCALER_VANITY_DOMAIN }}
+  ZSCALER_CLOUD: ${{ secrets.ZSCALER_CLOUD }}
+  ZPA_CUSTOMER_ID: ${{ secrets.ZPA_CUSTOMER_ID }}
 
 jobs:
   publish_binary:
