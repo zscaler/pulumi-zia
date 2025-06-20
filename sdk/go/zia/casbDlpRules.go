@@ -35,6 +35,8 @@ import (
 // ```sh
 // $ pulumi import zia:index/casbDlpRules:CasbDlpRules this <"rule_type:rule_name">
 // ```
+//
+// Deprecated: zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule
 type CasbDlpRules struct {
 	pulumi.CustomResourceState
 

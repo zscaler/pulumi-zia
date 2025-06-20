@@ -19,7 +19,10 @@ from .atp_malware_settings import *
 from .atp_security_exceptions import *
 from .auth_settings_urls import *
 from .browser_control_policy import *
+from .browser_control_settings import *
+from .casb_dlp_rule import *
 from .casb_dlp_rules import *
+from .casb_malware_rule import *
 from .casb_malware_rules import *
 from .cloud_app_control_rule import *
 from .cloud_application_instance import *
@@ -49,6 +52,7 @@ from .get_atp_malicious_urls import *
 from .get_atp_security_exceptions import *
 from .get_auth_settings_urls import *
 from .get_browser_control_policy import *
+from .get_browser_control_settings import *
 from .get_casb_dlp_rules import *
 from .get_casb_email_label import *
 from .get_casb_malware_rules import *
@@ -87,6 +91,7 @@ from .get_forwarding_control_proxies import *
 from .get_forwarding_control_proxy_gateway import *
 from .get_forwarding_control_rule import *
 from .get_forwarding_control_zpa_gateway import *
+from .get_forwarding_proxy_gateway import *
 from .get_ftp_control_policy import *
 from .get_group_management import *
 from .get_icap_servers import *
@@ -265,10 +270,34 @@ _utilities.register(
  },
  {
   "pkg": "zia",
+  "mod": "index/browserControlSettings",
+  "fqn": "zscaler_pulumi_zia",
+  "classes": {
+   "zia:index/browserControlSettings:BrowserControlSettings": "BrowserControlSettings"
+  }
+ },
+ {
+  "pkg": "zia",
+  "mod": "index/casbDlpRule",
+  "fqn": "zscaler_pulumi_zia",
+  "classes": {
+   "zia:index/casbDlpRule:CasbDlpRule": "CasbDlpRule"
+  }
+ },
+ {
+  "pkg": "zia",
   "mod": "index/casbDlpRules",
   "fqn": "zscaler_pulumi_zia",
   "classes": {
    "zia:index/casbDlpRules:CasbDlpRules": "CasbDlpRules"
+  }
+ },
+ {
+  "pkg": "zia",
+  "mod": "index/casbMalwareRule",
+  "fqn": "zscaler_pulumi_zia",
+  "classes": {
+   "zia:index/casbMalwareRule:CasbMalwareRule": "CasbMalwareRule"
   }
  },
  {

@@ -10,6 +10,7 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    [Obsolete(@"zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings")]
     public static class GetBrowserControlPolicy
     {
         /// <summary>

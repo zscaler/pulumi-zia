@@ -23,6 +23,8 @@ __all__ = [
     'get_browser_control_policy_output',
 ]
 
+warnings.warn("""zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBrowserControlPolicyResult:
     """
@@ -251,6 +253,7 @@ def get_browser_control_policy(opts: Optional[pulumi.InvokeOptions] = None) -> A
 
     ## Example Usage
     """
+    pulumi.log.warn("""get_browser_control_policy is deprecated: zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings""")
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('zia:index/getBrowserControlPolicy:getBrowserControlPolicy', __args__, opts=opts, typ=GetBrowserControlPolicyResult).value
@@ -280,6 +283,7 @@ def get_browser_control_policy_output(opts: Optional[Union[pulumi.InvokeOptions,
 
     ## Example Usage
     """
+    pulumi.log.warn("""get_browser_control_policy is deprecated: zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings""")
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('zia:index/getBrowserControlPolicy:getBrowserControlPolicy', __args__, opts=opts, typ=GetBrowserControlPolicyResult)

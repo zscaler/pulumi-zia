@@ -17,6 +17,8 @@ import (
 // Use the **zia_browser_control_policy** data source to retrieves information about the security exceptions configured for the Malware Protection policy. To learn more see [Configuring the Browser Control Policy](https://help.zscaler.com/zia/configuring-browser-control-policy)
 //
 // ## Example Usage
+//
+// Deprecated: zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings
 func LookupBrowserControlPolicy(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupBrowserControlPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrowserControlPolicyResult

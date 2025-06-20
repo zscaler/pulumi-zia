@@ -36,6 +36,7 @@ namespace zscaler.PulumiPackage.Zia
     /// $ pulumi import zia:index/casbDlpRules:CasbDlpRules this &lt;"rule_type:rule_name"&gt;
     /// ```
     /// </summary>
+    [Obsolete(@"zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule")]
     [ZiaResourceType("zia:index/casbDlpRules:CasbDlpRules")]
     public partial class CasbDlpRules : global::Pulumi.CustomResource
     {

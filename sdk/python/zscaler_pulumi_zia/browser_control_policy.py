@@ -531,8 +531,13 @@ class _BrowserControlPolicyState:
         pulumi.set(self, "smart_isolation_users", value)
 
 
+warnings.warn("""zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("zia:index/browserControlPolicy:BrowserControlPolicy")
 class BrowserControlPolicy(pulumi.CustomResource):
+    warnings.warn("""zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -660,6 +665,7 @@ class BrowserControlPolicy(pulumi.CustomResource):
                  smart_isolation_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrowserControlPolicySmartIsolationProfileArgs', 'BrowserControlPolicySmartIsolationProfileArgsDict']]]]] = None,
                  smart_isolation_users: Optional[pulumi.Input[Union['BrowserControlPolicySmartIsolationUsersArgs', 'BrowserControlPolicySmartIsolationUsersArgsDict']]] = None,
                  __props__=None):
+        pulumi.log.warn("""BrowserControlPolicy is deprecated: zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

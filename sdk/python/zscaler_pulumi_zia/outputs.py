@@ -22,6 +22,29 @@ __all__ = [
     'BrowserControlPolicySmartIsolationGroups',
     'BrowserControlPolicySmartIsolationProfile',
     'BrowserControlPolicySmartIsolationUsers',
+    'BrowserControlSettingsSmartIsolationGroups',
+    'BrowserControlSettingsSmartIsolationProfile',
+    'BrowserControlSettingsSmartIsolationUsers',
+    'CasbDlpRuleAuditorNotification',
+    'CasbDlpRuleBuckets',
+    'CasbDlpRuleCasbEmailLabel',
+    'CasbDlpRuleCasbTombstoneTemplate',
+    'CasbDlpRuleCloudAppTenants',
+    'CasbDlpRuleCriteriaDomainProfiles',
+    'CasbDlpRuleDepartments',
+    'CasbDlpRuleDlpEngines',
+    'CasbDlpRuleEmailRecipientProfiles',
+    'CasbDlpRuleEntityGroups',
+    'CasbDlpRuleExcludedDomainProfiles',
+    'CasbDlpRuleGroups',
+    'CasbDlpRuleIncludedDomainProfiles',
+    'CasbDlpRuleLabels',
+    'CasbDlpRuleObjectTypes',
+    'CasbDlpRuleRedactionProfile',
+    'CasbDlpRuleTag',
+    'CasbDlpRuleUsers',
+    'CasbDlpRuleWatermarkProfile',
+    'CasbDlpRuleZscalerIncidentReceiver',
     'CasbDlpRulesAuditorNotification',
     'CasbDlpRulesBuckets',
     'CasbDlpRulesCasbEmailLabel',
@@ -42,6 +65,12 @@ __all__ = [
     'CasbDlpRulesUsers',
     'CasbDlpRulesWatermarkProfile',
     'CasbDlpRulesZscalerIncidentReceiver',
+    'CasbMalwareRuleBuckets',
+    'CasbMalwareRuleCasbEmailLabel',
+    'CasbMalwareRuleCasbTombstoneTemplate',
+    'CasbMalwareRuleCloudAppTenantIds',
+    'CasbMalwareRuleCloudAppTenants',
+    'CasbMalwareRuleLabels',
     'CasbMalwareRulesBuckets',
     'CasbMalwareRulesCasbEmailLabel',
     'CasbMalwareRulesCasbTombstoneTemplate',
@@ -252,6 +281,7 @@ __all__ = [
     'GetAdminUsersExecMobileAppTokenResult',
     'GetAdminUsersRoleResult',
     'GetBrowserControlPolicySmartIsolationProfileResult',
+    'GetBrowserControlSettingsSmartIsolationProfileResult',
     'GetCasbDlpRulesAuditorNotificationResult',
     'GetCasbDlpRulesBucketResult',
     'GetCasbDlpRulesCasbEmailLabelResult',
@@ -408,6 +438,9 @@ __all__ = [
     'GetForwardingControlZPAGatewayLastModifiedByResult',
     'GetForwardingControlZPAGatewayZpaAppSegmentResult',
     'GetForwardingControlZPAGatewayZpaServerGroupResult',
+    'GetForwardingProxyGatewayLastModifiedByResult',
+    'GetForwardingProxyGatewayPrimaryProxyResult',
+    'GetForwardingProxyGatewaySecondaryProxyResult',
     'GetIPSFirewallRuleDepartmentResult',
     'GetIPSFirewallRuleDestIpGroupResult',
     'GetIPSFirewallRuleDestIpv6GroupResult',
@@ -627,6 +660,323 @@ class BrowserControlPolicySmartIsolationUsers(dict):
         A unique identifier for an entity.
         """
         return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None):
+        """
+        :param builtins.str id: The universally unique identifier (UUID) for the browser isolation profile
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleAuditorNotification(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleCriteriaDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleDepartments(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleDlpEngines(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleEmailRecipientProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleEntityGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleExcludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleIncludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleObjectTypes(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleRedactionProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleTag(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleWatermarkProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleZscalerIncidentReceiver(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -878,6 +1228,84 @@ class CasbDlpRulesWatermarkProfile(dict):
 
 @pulumi.output_type
 class CasbDlpRulesZscalerIncidentReceiver(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCloudAppTenantIds(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleLabels(dict):
     def __init__(__self__, *,
                  id: Optional[builtins.int] = None):
         if id is not None:
@@ -5545,6 +5973,57 @@ class GetAdminUsersRoleResult(dict):
 
 @pulumi.output_type
 class GetBrowserControlPolicySmartIsolationProfileResult(dict):
+    def __init__(__self__, *,
+                 default_profile: builtins.bool,
+                 id: builtins.str,
+                 name: builtins.str,
+                 url: builtins.str):
+        """
+        :param builtins.bool default_profile: Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        :param builtins.str id: (int) A unique identifier for an entity.
+        :param builtins.str name: Name of the browser isolation profile
+        :param builtins.str url: The browser isolation profile URL
+        """
+        pulumi.set(__self__, "default_profile", default_profile)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="defaultProfile")
+    def default_profile(self) -> builtins.bool:
+        """
+        Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        """
+        return pulumi.get(self, "default_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        (int) A unique identifier for an entity.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the browser isolation profile
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> builtins.str:
+        """
+        The browser isolation profile URL
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetBrowserControlSettingsSmartIsolationProfileResult(dict):
     def __init__(__self__, *,
                  default_profile: builtins.bool,
                  id: builtins.str,
@@ -11106,6 +11585,100 @@ class GetForwardingControlZPAGatewayZpaServerGroupResult(dict):
     def name(self) -> builtins.str:
         """
         The name of the forwarding control ZPA Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewayLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewayPrimaryProxyResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewaySecondaryProxyResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
         """
         return pulumi.get(self, "name")
 

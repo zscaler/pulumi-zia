@@ -31,6 +31,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import zia:index/casbDlpRules:CasbDlpRules this <"rule_type:rule_name">
  * ```
+ *
+ * @deprecated zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule
  */
 export class CasbDlpRules extends pulumi.CustomResource {
     /**
@@ -43,6 +45,7 @@ export class CasbDlpRules extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CasbDlpRulesState, opts?: pulumi.CustomResourceOptions): CasbDlpRules {
+        pulumi.log.warn("CasbDlpRules is deprecated: zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule")
         return new CasbDlpRules(name, <any>state, { ...opts, id: id });
     }
 
@@ -242,8 +245,11 @@ export class CasbDlpRules extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule */
     constructor(name: string, args?: CasbDlpRulesArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule */
     constructor(name: string, argsOrState?: CasbDlpRulesArgs | CasbDlpRulesState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CasbDlpRules is deprecated: zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

@@ -10,6 +10,7 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    [Obsolete(@"zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway")]
     public static class GetForwardingControlProxyGateway
     {
         /// <summary>

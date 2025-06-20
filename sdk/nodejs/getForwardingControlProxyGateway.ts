@@ -14,7 +14,9 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  */
+/** @deprecated zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway */
 export function getForwardingControlProxyGateway(args?: GetForwardingControlProxyGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingControlProxyGatewayResult> {
+    pulumi.log.warn("getForwardingControlProxyGateway is deprecated: zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway", {
@@ -86,7 +88,9 @@ export interface GetForwardingControlProxyGatewayResult {
  *
  * ## Example Usage
  */
+/** @deprecated zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway */
 export function getForwardingControlProxyGatewayOutput(args?: GetForwardingControlProxyGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetForwardingControlProxyGatewayResult> {
+    pulumi.log.warn("getForwardingControlProxyGateway is deprecated: zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway", {

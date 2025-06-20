@@ -29,6 +29,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import zia:index/browserControlPolicy:BrowserControlPolicy this "browser_settings"
  * ```
+ *
+ * @deprecated zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings
  */
 export class BrowserControlPolicy extends pulumi.CustomResource {
     /**
@@ -41,6 +43,7 @@ export class BrowserControlPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BrowserControlPolicyState, opts?: pulumi.CustomResourceOptions): BrowserControlPolicy {
+        pulumi.log.warn("BrowserControlPolicy is deprecated: zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings")
         return new BrowserControlPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -130,8 +133,11 @@ export class BrowserControlPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings */
     constructor(name: string, args?: BrowserControlPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings */
     constructor(name: string, argsOrState?: BrowserControlPolicyArgs | BrowserControlPolicyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BrowserControlPolicy is deprecated: zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

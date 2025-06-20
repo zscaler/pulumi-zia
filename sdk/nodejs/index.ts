@@ -70,10 +70,25 @@ export type BrowserControlPolicy = import("./browserControlPolicy").BrowserContr
 export const BrowserControlPolicy: typeof import("./browserControlPolicy").BrowserControlPolicy = null as any;
 utilities.lazyLoad(exports, ["BrowserControlPolicy"], () => require("./browserControlPolicy"));
 
+export { BrowserControlSettingsArgs, BrowserControlSettingsState } from "./browserControlSettings";
+export type BrowserControlSettings = import("./browserControlSettings").BrowserControlSettings;
+export const BrowserControlSettings: typeof import("./browserControlSettings").BrowserControlSettings = null as any;
+utilities.lazyLoad(exports, ["BrowserControlSettings"], () => require("./browserControlSettings"));
+
+export { CasbDlpRuleArgs, CasbDlpRuleState } from "./casbDlpRule";
+export type CasbDlpRule = import("./casbDlpRule").CasbDlpRule;
+export const CasbDlpRule: typeof import("./casbDlpRule").CasbDlpRule = null as any;
+utilities.lazyLoad(exports, ["CasbDlpRule"], () => require("./casbDlpRule"));
+
 export { CasbDlpRulesArgs, CasbDlpRulesState } from "./casbDlpRules";
 export type CasbDlpRules = import("./casbDlpRules").CasbDlpRules;
 export const CasbDlpRules: typeof import("./casbDlpRules").CasbDlpRules = null as any;
 utilities.lazyLoad(exports, ["CasbDlpRules"], () => require("./casbDlpRules"));
+
+export { CasbMalwareRuleArgs, CasbMalwareRuleState } from "./casbMalwareRule";
+export type CasbMalwareRule = import("./casbMalwareRule").CasbMalwareRule;
+export const CasbMalwareRule: typeof import("./casbMalwareRule").CasbMalwareRule = null as any;
+utilities.lazyLoad(exports, ["CasbMalwareRule"], () => require("./casbMalwareRule"));
 
 export { CasbMalwareRulesArgs, CasbMalwareRulesState } from "./casbMalwareRules";
 export type CasbMalwareRules = import("./casbMalwareRules").CasbMalwareRules;
@@ -219,6 +234,11 @@ export { GetBrowserControlPolicyResult } from "./getBrowserControlPolicy";
 export const getBrowserControlPolicy: typeof import("./getBrowserControlPolicy").getBrowserControlPolicy = null as any;
 export const getBrowserControlPolicyOutput: typeof import("./getBrowserControlPolicy").getBrowserControlPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBrowserControlPolicy","getBrowserControlPolicyOutput"], () => require("./getBrowserControlPolicy"));
+
+export { GetBrowserControlSettingsResult } from "./getBrowserControlSettings";
+export const getBrowserControlSettings: typeof import("./getBrowserControlSettings").getBrowserControlSettings = null as any;
+export const getBrowserControlSettingsOutput: typeof import("./getBrowserControlSettings").getBrowserControlSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getBrowserControlSettings","getBrowserControlSettingsOutput"], () => require("./getBrowserControlSettings"));
 
 export { GetCasbDlpRulesArgs, GetCasbDlpRulesResult, GetCasbDlpRulesOutputArgs } from "./getCasbDlpRules";
 export const getCasbDlpRules: typeof import("./getCasbDlpRules").getCasbDlpRules = null as any;
@@ -409,6 +429,11 @@ export { GetForwardingControlZPAGatewayArgs, GetForwardingControlZPAGatewayResul
 export const getForwardingControlZPAGateway: typeof import("./getForwardingControlZPAGateway").getForwardingControlZPAGateway = null as any;
 export const getForwardingControlZPAGatewayOutput: typeof import("./getForwardingControlZPAGateway").getForwardingControlZPAGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getForwardingControlZPAGateway","getForwardingControlZPAGatewayOutput"], () => require("./getForwardingControlZPAGateway"));
+
+export { GetForwardingProxyGatewayArgs, GetForwardingProxyGatewayResult, GetForwardingProxyGatewayOutputArgs } from "./getForwardingProxyGateway";
+export const getForwardingProxyGateway: typeof import("./getForwardingProxyGateway").getForwardingProxyGateway = null as any;
+export const getForwardingProxyGatewayOutput: typeof import("./getForwardingProxyGateway").getForwardingProxyGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getForwardingProxyGateway","getForwardingProxyGatewayOutput"], () => require("./getForwardingProxyGateway"));
 
 export { GetFtpControlPolicyResult } from "./getFtpControlPolicy";
 export const getFtpControlPolicy: typeof import("./getFtpControlPolicy").getFtpControlPolicy = null as any;
@@ -743,8 +768,14 @@ const _module = {
                 return new AuthSettingsURLs(name, <any>undefined, { urn })
             case "zia:index/browserControlPolicy:BrowserControlPolicy":
                 return new BrowserControlPolicy(name, <any>undefined, { urn })
+            case "zia:index/browserControlSettings:BrowserControlSettings":
+                return new BrowserControlSettings(name, <any>undefined, { urn })
+            case "zia:index/casbDlpRule:CasbDlpRule":
+                return new CasbDlpRule(name, <any>undefined, { urn })
             case "zia:index/casbDlpRules:CasbDlpRules":
                 return new CasbDlpRules(name, <any>undefined, { urn })
+            case "zia:index/casbMalwareRule:CasbMalwareRule":
+                return new CasbMalwareRule(name, <any>undefined, { urn })
             case "zia:index/casbMalwareRules:CasbMalwareRules":
                 return new CasbMalwareRules(name, <any>undefined, { urn })
             case "zia:index/cloudAppControlRule:CloudAppControlRule":
@@ -845,7 +876,10 @@ pulumi.runtime.registerResourceModule("zia", "index/advancedSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/advancedThreatSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/authSettingsURLs", _module)
 pulumi.runtime.registerResourceModule("zia", "index/browserControlPolicy", _module)
+pulumi.runtime.registerResourceModule("zia", "index/browserControlSettings", _module)
+pulumi.runtime.registerResourceModule("zia", "index/casbDlpRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/casbDlpRules", _module)
+pulumi.runtime.registerResourceModule("zia", "index/casbMalwareRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/casbMalwareRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/cloudAppControlRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/cloudApplicationInstance", _module)

@@ -1403,8 +1403,13 @@ class _CasbDlpRulesState:
         pulumi.set(self, "zscaler_incident_receivers", value)
 
 
+warnings.warn("""zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule""", DeprecationWarning)
+
+
 @pulumi.type_token("zia:index/casbDlpRules:CasbDlpRules")
 class CasbDlpRules(pulumi.CustomResource):
+    warnings.warn("""zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1615,6 +1620,7 @@ class CasbDlpRules(pulumi.CustomResource):
                  without_content_inspection: Optional[pulumi.Input[builtins.bool]] = None,
                  zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRulesZscalerIncidentReceiverArgs', 'CasbDlpRulesZscalerIncidentReceiverArgsDict']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""CasbDlpRules is deprecated: zia.index/casbdlprules.CasbDlpRules has been deprecated in favor of zia.index/casbdlprule.CasbDlpRule""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -34,6 +34,107 @@ export interface BrowserControlPolicySmartIsolationUsers {
     ids?: number[];
 }
 
+export interface BrowserControlSettingsSmartIsolationGroups {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface BrowserControlSettingsSmartIsolationProfile {
+    /**
+     * The universally unique identifier (UUID) for the browser isolation profile
+     */
+    id: string;
+}
+
+export interface BrowserControlSettingsSmartIsolationUsers {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface CasbDlpRuleAuditorNotification {
+    id?: number;
+}
+
+export interface CasbDlpRuleBuckets {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbDlpRuleCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbDlpRuleCloudAppTenants {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleCriteriaDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleDepartments {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleDlpEngines {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleEmailRecipientProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleEntityGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleExcludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleIncludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleLabels {
+    id?: number;
+}
+
+export interface CasbDlpRuleObjectTypes {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleRedactionProfile {
+    id?: number;
+}
+
+export interface CasbDlpRuleTag {
+    id?: number;
+}
+
+export interface CasbDlpRuleUsers {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleWatermarkProfile {
+    id?: number;
+}
+
+export interface CasbDlpRuleZscalerIncidentReceiver {
+    id?: number;
+}
+
 export interface CasbDlpRulesAuditorNotification {
     id?: number;
 }
@@ -111,6 +212,30 @@ export interface CasbDlpRulesWatermarkProfile {
 }
 
 export interface CasbDlpRulesZscalerIncidentReceiver {
+    id?: number;
+}
+
+export interface CasbMalwareRuleBuckets {
+    ids?: number[];
+}
+
+export interface CasbMalwareRuleCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCloudAppTenantIds {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCloudAppTenants {
+    id?: number;
+}
+
+export interface CasbMalwareRuleLabels {
     id?: number;
 }
 
@@ -915,6 +1040,25 @@ export interface GetAdminUsersRole {
 }
 
 export interface GetBrowserControlPolicySmartIsolationProfile {
+    /**
+     * Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+     */
+    defaultProfile: boolean;
+    /**
+     * (int) A unique identifier for an entity.
+     */
+    id: string;
+    /**
+     * Name of the browser isolation profile
+     */
+    name: string;
+    /**
+     * The browser isolation profile URL
+     */
+    url: string;
+}
+
+export interface GetBrowserControlSettingsSmartIsolationProfile {
     /**
      * Indicates whether this is a default browser isolation profile. Zscaler sets this field.
      */
@@ -2885,6 +3029,40 @@ export interface GetForwardingControlZPAGatewayZpaServerGroup {
     externalId: string;
     /**
      * The name of the forwarding control ZPA Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewayLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewayPrimaryProxy {
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewaySecondaryProxy {
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
      */
     name: string;
 }

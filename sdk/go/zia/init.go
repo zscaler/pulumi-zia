@@ -47,8 +47,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthSettingsURLs{}
 	case "zia:index/browserControlPolicy:BrowserControlPolicy":
 		r = &BrowserControlPolicy{}
+	case "zia:index/browserControlSettings:BrowserControlSettings":
+		r = &BrowserControlSettings{}
+	case "zia:index/casbDlpRule:CasbDlpRule":
+		r = &CasbDlpRule{}
 	case "zia:index/casbDlpRules:CasbDlpRules":
 		r = &CasbDlpRules{}
+	case "zia:index/casbMalwareRule:CasbMalwareRule":
+		r = &CasbMalwareRule{}
 	case "zia:index/casbMalwareRules:CasbMalwareRules":
 		r = &CasbMalwareRules{}
 	case "zia:index/cloudAppControlRule:CloudAppControlRule":
@@ -229,7 +235,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/browserControlSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbDlpRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/casbDlpRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbMalwareRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

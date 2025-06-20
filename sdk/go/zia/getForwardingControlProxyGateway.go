@@ -17,6 +17,8 @@ import (
 // Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxyGateway` when creating a Forwarding Control Rule via the resource: `ForwardingControlRule`
 //
 // ## Example Usage
+//
+// Deprecated: zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway
 func GetForwardingControlProxyGateway(ctx *pulumi.Context, args *GetForwardingControlProxyGatewayArgs, opts ...pulumi.InvokeOption) (*GetForwardingControlProxyGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetForwardingControlProxyGatewayResult

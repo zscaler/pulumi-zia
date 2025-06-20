@@ -33,6 +33,8 @@ import (
 // ```sh
 // $ pulumi import zia:index/browserControlPolicy:BrowserControlPolicy this "browser_settings"
 // ```
+//
+// Deprecated: zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings
 type BrowserControlPolicy struct {
 	pulumi.CustomResourceState
 

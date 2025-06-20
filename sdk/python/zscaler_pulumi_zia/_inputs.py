@@ -26,6 +26,52 @@ __all__ = [
     'BrowserControlPolicySmartIsolationProfileArgsDict',
     'BrowserControlPolicySmartIsolationUsersArgs',
     'BrowserControlPolicySmartIsolationUsersArgsDict',
+    'BrowserControlSettingsSmartIsolationGroupsArgs',
+    'BrowserControlSettingsSmartIsolationGroupsArgsDict',
+    'BrowserControlSettingsSmartIsolationProfileArgs',
+    'BrowserControlSettingsSmartIsolationProfileArgsDict',
+    'BrowserControlSettingsSmartIsolationUsersArgs',
+    'BrowserControlSettingsSmartIsolationUsersArgsDict',
+    'CasbDlpRuleAuditorNotificationArgs',
+    'CasbDlpRuleAuditorNotificationArgsDict',
+    'CasbDlpRuleBucketsArgs',
+    'CasbDlpRuleBucketsArgsDict',
+    'CasbDlpRuleCasbEmailLabelArgs',
+    'CasbDlpRuleCasbEmailLabelArgsDict',
+    'CasbDlpRuleCasbTombstoneTemplateArgs',
+    'CasbDlpRuleCasbTombstoneTemplateArgsDict',
+    'CasbDlpRuleCloudAppTenantsArgs',
+    'CasbDlpRuleCloudAppTenantsArgsDict',
+    'CasbDlpRuleCriteriaDomainProfilesArgs',
+    'CasbDlpRuleCriteriaDomainProfilesArgsDict',
+    'CasbDlpRuleDepartmentsArgs',
+    'CasbDlpRuleDepartmentsArgsDict',
+    'CasbDlpRuleDlpEnginesArgs',
+    'CasbDlpRuleDlpEnginesArgsDict',
+    'CasbDlpRuleEmailRecipientProfilesArgs',
+    'CasbDlpRuleEmailRecipientProfilesArgsDict',
+    'CasbDlpRuleEntityGroupsArgs',
+    'CasbDlpRuleEntityGroupsArgsDict',
+    'CasbDlpRuleExcludedDomainProfilesArgs',
+    'CasbDlpRuleExcludedDomainProfilesArgsDict',
+    'CasbDlpRuleGroupsArgs',
+    'CasbDlpRuleGroupsArgsDict',
+    'CasbDlpRuleIncludedDomainProfilesArgs',
+    'CasbDlpRuleIncludedDomainProfilesArgsDict',
+    'CasbDlpRuleLabelsArgs',
+    'CasbDlpRuleLabelsArgsDict',
+    'CasbDlpRuleObjectTypesArgs',
+    'CasbDlpRuleObjectTypesArgsDict',
+    'CasbDlpRuleRedactionProfileArgs',
+    'CasbDlpRuleRedactionProfileArgsDict',
+    'CasbDlpRuleTagArgs',
+    'CasbDlpRuleTagArgsDict',
+    'CasbDlpRuleUsersArgs',
+    'CasbDlpRuleUsersArgsDict',
+    'CasbDlpRuleWatermarkProfileArgs',
+    'CasbDlpRuleWatermarkProfileArgsDict',
+    'CasbDlpRuleZscalerIncidentReceiverArgs',
+    'CasbDlpRuleZscalerIncidentReceiverArgsDict',
     'CasbDlpRulesAuditorNotificationArgs',
     'CasbDlpRulesAuditorNotificationArgsDict',
     'CasbDlpRulesBucketsArgs',
@@ -66,6 +112,18 @@ __all__ = [
     'CasbDlpRulesWatermarkProfileArgsDict',
     'CasbDlpRulesZscalerIncidentReceiverArgs',
     'CasbDlpRulesZscalerIncidentReceiverArgsDict',
+    'CasbMalwareRuleBucketsArgs',
+    'CasbMalwareRuleBucketsArgsDict',
+    'CasbMalwareRuleCasbEmailLabelArgs',
+    'CasbMalwareRuleCasbEmailLabelArgsDict',
+    'CasbMalwareRuleCasbTombstoneTemplateArgs',
+    'CasbMalwareRuleCasbTombstoneTemplateArgsDict',
+    'CasbMalwareRuleCloudAppTenantIdsArgs',
+    'CasbMalwareRuleCloudAppTenantIdsArgsDict',
+    'CasbMalwareRuleCloudAppTenantsArgs',
+    'CasbMalwareRuleCloudAppTenantsArgsDict',
+    'CasbMalwareRuleLabelsArgs',
+    'CasbMalwareRuleLabelsArgsDict',
     'CasbMalwareRulesBucketsArgs',
     'CasbMalwareRulesBucketsArgsDict',
     'CasbMalwareRulesCasbEmailLabelArgs',
@@ -641,6 +699,562 @@ class BrowserControlPolicySmartIsolationUsersArgs:
 
 
 if not MYPY:
+    class BrowserControlSettingsSmartIsolationGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        A unique identifier for an entity.
+        """
+elif False:
+    BrowserControlSettingsSmartIsolationGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlSettingsSmartIsolationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class BrowserControlSettingsSmartIsolationProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+elif False:
+    BrowserControlSettingsSmartIsolationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlSettingsSmartIsolationProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] id: The universally unique identifier (UUID) for the browser isolation profile
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class BrowserControlSettingsSmartIsolationUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        A unique identifier for an entity.
+        """
+elif False:
+    BrowserControlSettingsSmartIsolationUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlSettingsSmartIsolationUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleAuditorNotificationArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleAuditorNotificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleAuditorNotificationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleBucketsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleBucketsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleBucketsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleCasbEmailLabelArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleCasbEmailLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleCasbEmailLabelArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleCasbTombstoneTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleCasbTombstoneTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleCasbTombstoneTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleCloudAppTenantsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleCloudAppTenantsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleCloudAppTenantsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleCriteriaDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleCriteriaDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleCriteriaDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleDepartmentsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleDepartmentsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleDlpEnginesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleDlpEnginesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleDlpEnginesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleEmailRecipientProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleEmailRecipientProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleEmailRecipientProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleEntityGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleEntityGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleEntityGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleExcludedDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleExcludedDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleExcludedDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleIncludedDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleIncludedDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleIncludedDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleLabelsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleObjectTypesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleObjectTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleObjectTypesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleRedactionProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleRedactionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleRedactionProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleTagArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleTagArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRuleUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRuleWatermarkProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleWatermarkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleWatermarkProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRuleZscalerIncidentReceiverArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRuleZscalerIncidentReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRuleZscalerIncidentReceiverArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class CasbDlpRulesAuditorNotificationArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[builtins.int]]
 elif False:
@@ -1085,6 +1699,144 @@ elif False:
 
 @pulumi.input_type
 class CasbDlpRulesZscalerIncidentReceiverArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleBucketsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbMalwareRuleBucketsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleBucketsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleCasbEmailLabelArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRuleCasbEmailLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleCasbEmailLabelArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleCasbTombstoneTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRuleCasbTombstoneTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleCasbTombstoneTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleCloudAppTenantIdsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRuleCloudAppTenantIdsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleCloudAppTenantIdsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleCloudAppTenantsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRuleCloudAppTenantsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleCloudAppTenantsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRuleLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRuleLabelsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[builtins.int]] = None):
         if id is not None:

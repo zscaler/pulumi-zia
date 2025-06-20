@@ -14,7 +14,9 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  */
+/** @deprecated zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings */
 export function getBrowserControlPolicy(opts?: pulumi.InvokeOptions): Promise<GetBrowserControlPolicyResult> {
+    pulumi.log.warn("getBrowserControlPolicy is deprecated: zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getBrowserControlPolicy:getBrowserControlPolicy", {
     }, opts);
@@ -116,7 +118,9 @@ export interface GetBrowserControlPolicyResult {
  *
  * ## Example Usage
  */
+/** @deprecated zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings */
 export function getBrowserControlPolicyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrowserControlPolicyResult> {
+    pulumi.log.warn("getBrowserControlPolicy is deprecated: zia.index/getbrowsercontrolpolicy.getBrowserControlPolicy has been deprecated in favor of zia.index/getbrowsercontrolsettings.getBrowserControlSettings")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getBrowserControlPolicy:getBrowserControlPolicy", {
     }, opts);

@@ -34,6 +34,107 @@ export interface BrowserControlPolicySmartIsolationUsers {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface BrowserControlSettingsSmartIsolationGroups {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BrowserControlSettingsSmartIsolationProfile {
+    /**
+     * The universally unique identifier (UUID) for the browser isolation profile
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface BrowserControlSettingsSmartIsolationUsers {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleAuditorNotification {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleBuckets {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleCasbEmailLabel {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleCasbTombstoneTemplate {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleCloudAppTenants {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleCriteriaDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleDepartments {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleDlpEngines {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleEmailRecipientProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleEntityGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleExcludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleIncludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleLabels {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleObjectTypes {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleRedactionProfile {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleTag {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleUsers {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRuleWatermarkProfile {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRuleZscalerIncidentReceiver {
+    id?: pulumi.Input<number>;
+}
+
 export interface CasbDlpRulesAuditorNotification {
     id?: pulumi.Input<number>;
 }
@@ -111,6 +212,30 @@ export interface CasbDlpRulesWatermarkProfile {
 }
 
 export interface CasbDlpRulesZscalerIncidentReceiver {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRuleBuckets {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbMalwareRuleCasbEmailLabel {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRuleCasbTombstoneTemplate {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRuleCloudAppTenantIds {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRuleCloudAppTenants {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRuleLabels {
     id?: pulumi.Input<number>;
 }
 

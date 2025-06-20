@@ -13,6 +13,3845 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSandboxReportFileProperty struct {
+	DigitalCerificate string `pulumi:"digitalCerificate"`
+	FileSize          int    `pulumi:"fileSize"`
+	FileType          string `pulumi:"fileType"`
+	Issuer            string `pulumi:"issuer"`
+	Md5               string `pulumi:"md5"`
+	RootCa            string `pulumi:"rootCa"`
+	Sha1              string `pulumi:"sha1"`
+	Sha256            string `pulumi:"sha256"`
+	Ssdeep            string `pulumi:"ssdeep"`
+}
+
+// GetSandboxReportFilePropertyInput is an input type that accepts GetSandboxReportFilePropertyArgs and GetSandboxReportFilePropertyOutput values.
+// You can construct a concrete instance of `GetSandboxReportFilePropertyInput` via:
+//
+//	GetSandboxReportFilePropertyArgs{...}
+type GetSandboxReportFilePropertyInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportFilePropertyOutput() GetSandboxReportFilePropertyOutput
+	ToGetSandboxReportFilePropertyOutputWithContext(context.Context) GetSandboxReportFilePropertyOutput
+}
+
+type GetSandboxReportFilePropertyArgs struct {
+	DigitalCerificate pulumi.StringInput `pulumi:"digitalCerificate"`
+	FileSize          pulumi.IntInput    `pulumi:"fileSize"`
+	FileType          pulumi.StringInput `pulumi:"fileType"`
+	Issuer            pulumi.StringInput `pulumi:"issuer"`
+	Md5               pulumi.StringInput `pulumi:"md5"`
+	RootCa            pulumi.StringInput `pulumi:"rootCa"`
+	Sha1              pulumi.StringInput `pulumi:"sha1"`
+	Sha256            pulumi.StringInput `pulumi:"sha256"`
+	Ssdeep            pulumi.StringInput `pulumi:"ssdeep"`
+}
+
+func (GetSandboxReportFilePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportFileProperty)(nil)).Elem()
+}
+
+func (i GetSandboxReportFilePropertyArgs) ToGetSandboxReportFilePropertyOutput() GetSandboxReportFilePropertyOutput {
+	return i.ToGetSandboxReportFilePropertyOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportFilePropertyArgs) ToGetSandboxReportFilePropertyOutputWithContext(ctx context.Context) GetSandboxReportFilePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportFilePropertyOutput)
+}
+
+// GetSandboxReportFilePropertyArrayInput is an input type that accepts GetSandboxReportFilePropertyArray and GetSandboxReportFilePropertyArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportFilePropertyArrayInput` via:
+//
+//	GetSandboxReportFilePropertyArray{ GetSandboxReportFilePropertyArgs{...} }
+type GetSandboxReportFilePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportFilePropertyArrayOutput() GetSandboxReportFilePropertyArrayOutput
+	ToGetSandboxReportFilePropertyArrayOutputWithContext(context.Context) GetSandboxReportFilePropertyArrayOutput
+}
+
+type GetSandboxReportFilePropertyArray []GetSandboxReportFilePropertyInput
+
+func (GetSandboxReportFilePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportFileProperty)(nil)).Elem()
+}
+
+func (i GetSandboxReportFilePropertyArray) ToGetSandboxReportFilePropertyArrayOutput() GetSandboxReportFilePropertyArrayOutput {
+	return i.ToGetSandboxReportFilePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportFilePropertyArray) ToGetSandboxReportFilePropertyArrayOutputWithContext(ctx context.Context) GetSandboxReportFilePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportFilePropertyArrayOutput)
+}
+
+type GetSandboxReportFilePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportFilePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportFileProperty)(nil)).Elem()
+}
+
+func (o GetSandboxReportFilePropertyOutput) ToGetSandboxReportFilePropertyOutput() GetSandboxReportFilePropertyOutput {
+	return o
+}
+
+func (o GetSandboxReportFilePropertyOutput) ToGetSandboxReportFilePropertyOutputWithContext(ctx context.Context) GetSandboxReportFilePropertyOutput {
+	return o
+}
+
+func (o GetSandboxReportFilePropertyOutput) DigitalCerificate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.DigitalCerificate }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) FileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) int { return v.FileSize }).(pulumi.IntOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) Md5() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.Md5 }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) RootCa() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.RootCa }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) Sha1() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.Sha1 }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) Sha256() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.Sha256 }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportFilePropertyOutput) Ssdeep() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportFileProperty) string { return v.Ssdeep }).(pulumi.StringOutput)
+}
+
+type GetSandboxReportFilePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportFilePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportFileProperty)(nil)).Elem()
+}
+
+func (o GetSandboxReportFilePropertyArrayOutput) ToGetSandboxReportFilePropertyArrayOutput() GetSandboxReportFilePropertyArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportFilePropertyArrayOutput) ToGetSandboxReportFilePropertyArrayOutputWithContext(ctx context.Context) GetSandboxReportFilePropertyArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportFilePropertyArrayOutput) Index(i pulumi.IntInput) GetSandboxReportFilePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportFileProperty {
+		return vs[0].([]GetSandboxReportFileProperty)[vs[1].(int)]
+	}).(GetSandboxReportFilePropertyOutput)
+}
+
+type GetSandboxReportNetworking struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportNetworkingInput is an input type that accepts GetSandboxReportNetworkingArgs and GetSandboxReportNetworkingOutput values.
+// You can construct a concrete instance of `GetSandboxReportNetworkingInput` via:
+//
+//	GetSandboxReportNetworkingArgs{...}
+type GetSandboxReportNetworkingInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportNetworkingOutput() GetSandboxReportNetworkingOutput
+	ToGetSandboxReportNetworkingOutputWithContext(context.Context) GetSandboxReportNetworkingOutput
+}
+
+type GetSandboxReportNetworkingArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportNetworkingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportNetworking)(nil)).Elem()
+}
+
+func (i GetSandboxReportNetworkingArgs) ToGetSandboxReportNetworkingOutput() GetSandboxReportNetworkingOutput {
+	return i.ToGetSandboxReportNetworkingOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportNetworkingArgs) ToGetSandboxReportNetworkingOutputWithContext(ctx context.Context) GetSandboxReportNetworkingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportNetworkingOutput)
+}
+
+// GetSandboxReportNetworkingArrayInput is an input type that accepts GetSandboxReportNetworkingArray and GetSandboxReportNetworkingArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportNetworkingArrayInput` via:
+//
+//	GetSandboxReportNetworkingArray{ GetSandboxReportNetworkingArgs{...} }
+type GetSandboxReportNetworkingArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportNetworkingArrayOutput() GetSandboxReportNetworkingArrayOutput
+	ToGetSandboxReportNetworkingArrayOutputWithContext(context.Context) GetSandboxReportNetworkingArrayOutput
+}
+
+type GetSandboxReportNetworkingArray []GetSandboxReportNetworkingInput
+
+func (GetSandboxReportNetworkingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportNetworking)(nil)).Elem()
+}
+
+func (i GetSandboxReportNetworkingArray) ToGetSandboxReportNetworkingArrayOutput() GetSandboxReportNetworkingArrayOutput {
+	return i.ToGetSandboxReportNetworkingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportNetworkingArray) ToGetSandboxReportNetworkingArrayOutputWithContext(ctx context.Context) GetSandboxReportNetworkingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportNetworkingArrayOutput)
+}
+
+type GetSandboxReportNetworkingOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportNetworkingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportNetworking)(nil)).Elem()
+}
+
+func (o GetSandboxReportNetworkingOutput) ToGetSandboxReportNetworkingOutput() GetSandboxReportNetworkingOutput {
+	return o
+}
+
+func (o GetSandboxReportNetworkingOutput) ToGetSandboxReportNetworkingOutputWithContext(ctx context.Context) GetSandboxReportNetworkingOutput {
+	return o
+}
+
+func (o GetSandboxReportNetworkingOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportNetworking) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportNetworkingOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportNetworking) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportNetworkingOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportNetworking) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportNetworkingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportNetworkingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportNetworking)(nil)).Elem()
+}
+
+func (o GetSandboxReportNetworkingArrayOutput) ToGetSandboxReportNetworkingArrayOutput() GetSandboxReportNetworkingArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportNetworkingArrayOutput) ToGetSandboxReportNetworkingArrayOutputWithContext(ctx context.Context) GetSandboxReportNetworkingArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportNetworkingArrayOutput) Index(i pulumi.IntInput) GetSandboxReportNetworkingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportNetworking {
+		return vs[0].([]GetSandboxReportNetworking)[vs[1].(int)]
+	}).(GetSandboxReportNetworkingOutput)
+}
+
+type GetSandboxReportOrigin struct {
+	Country  string `pulumi:"country"`
+	Language string `pulumi:"language"`
+	Risk     string `pulumi:"risk"`
+}
+
+// GetSandboxReportOriginInput is an input type that accepts GetSandboxReportOriginArgs and GetSandboxReportOriginOutput values.
+// You can construct a concrete instance of `GetSandboxReportOriginInput` via:
+//
+//	GetSandboxReportOriginArgs{...}
+type GetSandboxReportOriginInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportOriginOutput() GetSandboxReportOriginOutput
+	ToGetSandboxReportOriginOutputWithContext(context.Context) GetSandboxReportOriginOutput
+}
+
+type GetSandboxReportOriginArgs struct {
+	Country  pulumi.StringInput `pulumi:"country"`
+	Language pulumi.StringInput `pulumi:"language"`
+	Risk     pulumi.StringInput `pulumi:"risk"`
+}
+
+func (GetSandboxReportOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportOrigin)(nil)).Elem()
+}
+
+func (i GetSandboxReportOriginArgs) ToGetSandboxReportOriginOutput() GetSandboxReportOriginOutput {
+	return i.ToGetSandboxReportOriginOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportOriginArgs) ToGetSandboxReportOriginOutputWithContext(ctx context.Context) GetSandboxReportOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportOriginOutput)
+}
+
+// GetSandboxReportOriginArrayInput is an input type that accepts GetSandboxReportOriginArray and GetSandboxReportOriginArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportOriginArrayInput` via:
+//
+//	GetSandboxReportOriginArray{ GetSandboxReportOriginArgs{...} }
+type GetSandboxReportOriginArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportOriginArrayOutput() GetSandboxReportOriginArrayOutput
+	ToGetSandboxReportOriginArrayOutputWithContext(context.Context) GetSandboxReportOriginArrayOutput
+}
+
+type GetSandboxReportOriginArray []GetSandboxReportOriginInput
+
+func (GetSandboxReportOriginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportOrigin)(nil)).Elem()
+}
+
+func (i GetSandboxReportOriginArray) ToGetSandboxReportOriginArrayOutput() GetSandboxReportOriginArrayOutput {
+	return i.ToGetSandboxReportOriginArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportOriginArray) ToGetSandboxReportOriginArrayOutputWithContext(ctx context.Context) GetSandboxReportOriginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportOriginArrayOutput)
+}
+
+type GetSandboxReportOriginOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportOrigin)(nil)).Elem()
+}
+
+func (o GetSandboxReportOriginOutput) ToGetSandboxReportOriginOutput() GetSandboxReportOriginOutput {
+	return o
+}
+
+func (o GetSandboxReportOriginOutput) ToGetSandboxReportOriginOutputWithContext(ctx context.Context) GetSandboxReportOriginOutput {
+	return o
+}
+
+func (o GetSandboxReportOriginOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportOrigin) string { return v.Country }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportOriginOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportOrigin) string { return v.Language }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportOriginOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportOrigin) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+type GetSandboxReportOriginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportOriginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportOrigin)(nil)).Elem()
+}
+
+func (o GetSandboxReportOriginArrayOutput) ToGetSandboxReportOriginArrayOutput() GetSandboxReportOriginArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportOriginArrayOutput) ToGetSandboxReportOriginArrayOutputWithContext(ctx context.Context) GetSandboxReportOriginArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportOriginArrayOutput) Index(i pulumi.IntInput) GetSandboxReportOriginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportOrigin {
+		return vs[0].([]GetSandboxReportOrigin)[vs[1].(int)]
+	}).(GetSandboxReportOriginOutput)
+}
+
+type GetSandboxReportPersistence struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportPersistenceInput is an input type that accepts GetSandboxReportPersistenceArgs and GetSandboxReportPersistenceOutput values.
+// You can construct a concrete instance of `GetSandboxReportPersistenceInput` via:
+//
+//	GetSandboxReportPersistenceArgs{...}
+type GetSandboxReportPersistenceInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportPersistenceOutput() GetSandboxReportPersistenceOutput
+	ToGetSandboxReportPersistenceOutputWithContext(context.Context) GetSandboxReportPersistenceOutput
+}
+
+type GetSandboxReportPersistenceArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportPersistenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportPersistence)(nil)).Elem()
+}
+
+func (i GetSandboxReportPersistenceArgs) ToGetSandboxReportPersistenceOutput() GetSandboxReportPersistenceOutput {
+	return i.ToGetSandboxReportPersistenceOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportPersistenceArgs) ToGetSandboxReportPersistenceOutputWithContext(ctx context.Context) GetSandboxReportPersistenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportPersistenceOutput)
+}
+
+// GetSandboxReportPersistenceArrayInput is an input type that accepts GetSandboxReportPersistenceArray and GetSandboxReportPersistenceArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportPersistenceArrayInput` via:
+//
+//	GetSandboxReportPersistenceArray{ GetSandboxReportPersistenceArgs{...} }
+type GetSandboxReportPersistenceArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportPersistenceArrayOutput() GetSandboxReportPersistenceArrayOutput
+	ToGetSandboxReportPersistenceArrayOutputWithContext(context.Context) GetSandboxReportPersistenceArrayOutput
+}
+
+type GetSandboxReportPersistenceArray []GetSandboxReportPersistenceInput
+
+func (GetSandboxReportPersistenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportPersistence)(nil)).Elem()
+}
+
+func (i GetSandboxReportPersistenceArray) ToGetSandboxReportPersistenceArrayOutput() GetSandboxReportPersistenceArrayOutput {
+	return i.ToGetSandboxReportPersistenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportPersistenceArray) ToGetSandboxReportPersistenceArrayOutputWithContext(ctx context.Context) GetSandboxReportPersistenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportPersistenceArrayOutput)
+}
+
+type GetSandboxReportPersistenceOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportPersistenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportPersistence)(nil)).Elem()
+}
+
+func (o GetSandboxReportPersistenceOutput) ToGetSandboxReportPersistenceOutput() GetSandboxReportPersistenceOutput {
+	return o
+}
+
+func (o GetSandboxReportPersistenceOutput) ToGetSandboxReportPersistenceOutputWithContext(ctx context.Context) GetSandboxReportPersistenceOutput {
+	return o
+}
+
+func (o GetSandboxReportPersistenceOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportPersistence) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportPersistenceOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportPersistence) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportPersistenceOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportPersistence) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportPersistenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportPersistenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportPersistence)(nil)).Elem()
+}
+
+func (o GetSandboxReportPersistenceArrayOutput) ToGetSandboxReportPersistenceArrayOutput() GetSandboxReportPersistenceArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportPersistenceArrayOutput) ToGetSandboxReportPersistenceArrayOutputWithContext(ctx context.Context) GetSandboxReportPersistenceArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportPersistenceArrayOutput) Index(i pulumi.IntInput) GetSandboxReportPersistenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportPersistence {
+		return vs[0].([]GetSandboxReportPersistence)[vs[1].(int)]
+	}).(GetSandboxReportPersistenceOutput)
+}
+
+type GetSandboxReportSecurityBypass struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportSecurityBypassInput is an input type that accepts GetSandboxReportSecurityBypassArgs and GetSandboxReportSecurityBypassOutput values.
+// You can construct a concrete instance of `GetSandboxReportSecurityBypassInput` via:
+//
+//	GetSandboxReportSecurityBypassArgs{...}
+type GetSandboxReportSecurityBypassInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSecurityBypassOutput() GetSandboxReportSecurityBypassOutput
+	ToGetSandboxReportSecurityBypassOutputWithContext(context.Context) GetSandboxReportSecurityBypassOutput
+}
+
+type GetSandboxReportSecurityBypassArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportSecurityBypassArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSecurityBypass)(nil)).Elem()
+}
+
+func (i GetSandboxReportSecurityBypassArgs) ToGetSandboxReportSecurityBypassOutput() GetSandboxReportSecurityBypassOutput {
+	return i.ToGetSandboxReportSecurityBypassOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSecurityBypassArgs) ToGetSandboxReportSecurityBypassOutputWithContext(ctx context.Context) GetSandboxReportSecurityBypassOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSecurityBypassOutput)
+}
+
+// GetSandboxReportSecurityBypassArrayInput is an input type that accepts GetSandboxReportSecurityBypassArray and GetSandboxReportSecurityBypassArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportSecurityBypassArrayInput` via:
+//
+//	GetSandboxReportSecurityBypassArray{ GetSandboxReportSecurityBypassArgs{...} }
+type GetSandboxReportSecurityBypassArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSecurityBypassArrayOutput() GetSandboxReportSecurityBypassArrayOutput
+	ToGetSandboxReportSecurityBypassArrayOutputWithContext(context.Context) GetSandboxReportSecurityBypassArrayOutput
+}
+
+type GetSandboxReportSecurityBypassArray []GetSandboxReportSecurityBypassInput
+
+func (GetSandboxReportSecurityBypassArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSecurityBypass)(nil)).Elem()
+}
+
+func (i GetSandboxReportSecurityBypassArray) ToGetSandboxReportSecurityBypassArrayOutput() GetSandboxReportSecurityBypassArrayOutput {
+	return i.ToGetSandboxReportSecurityBypassArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSecurityBypassArray) ToGetSandboxReportSecurityBypassArrayOutputWithContext(ctx context.Context) GetSandboxReportSecurityBypassArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSecurityBypassArrayOutput)
+}
+
+type GetSandboxReportSecurityBypassOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSecurityBypassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSecurityBypass)(nil)).Elem()
+}
+
+func (o GetSandboxReportSecurityBypassOutput) ToGetSandboxReportSecurityBypassOutput() GetSandboxReportSecurityBypassOutput {
+	return o
+}
+
+func (o GetSandboxReportSecurityBypassOutput) ToGetSandboxReportSecurityBypassOutputWithContext(ctx context.Context) GetSandboxReportSecurityBypassOutput {
+	return o
+}
+
+func (o GetSandboxReportSecurityBypassOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSecurityBypass) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSecurityBypassOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSecurityBypass) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSecurityBypassOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportSecurityBypass) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportSecurityBypassArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSecurityBypassArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSecurityBypass)(nil)).Elem()
+}
+
+func (o GetSandboxReportSecurityBypassArrayOutput) ToGetSandboxReportSecurityBypassArrayOutput() GetSandboxReportSecurityBypassArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSecurityBypassArrayOutput) ToGetSandboxReportSecurityBypassArrayOutputWithContext(ctx context.Context) GetSandboxReportSecurityBypassArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSecurityBypassArrayOutput) Index(i pulumi.IntInput) GetSandboxReportSecurityBypassOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportSecurityBypass {
+		return vs[0].([]GetSandboxReportSecurityBypass)[vs[1].(int)]
+	}).(GetSandboxReportSecurityBypassOutput)
+}
+
+type GetSandboxReportSpyware struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportSpywareInput is an input type that accepts GetSandboxReportSpywareArgs and GetSandboxReportSpywareOutput values.
+// You can construct a concrete instance of `GetSandboxReportSpywareInput` via:
+//
+//	GetSandboxReportSpywareArgs{...}
+type GetSandboxReportSpywareInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSpywareOutput() GetSandboxReportSpywareOutput
+	ToGetSandboxReportSpywareOutputWithContext(context.Context) GetSandboxReportSpywareOutput
+}
+
+type GetSandboxReportSpywareArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportSpywareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSpyware)(nil)).Elem()
+}
+
+func (i GetSandboxReportSpywareArgs) ToGetSandboxReportSpywareOutput() GetSandboxReportSpywareOutput {
+	return i.ToGetSandboxReportSpywareOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSpywareArgs) ToGetSandboxReportSpywareOutputWithContext(ctx context.Context) GetSandboxReportSpywareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSpywareOutput)
+}
+
+// GetSandboxReportSpywareArrayInput is an input type that accepts GetSandboxReportSpywareArray and GetSandboxReportSpywareArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportSpywareArrayInput` via:
+//
+//	GetSandboxReportSpywareArray{ GetSandboxReportSpywareArgs{...} }
+type GetSandboxReportSpywareArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSpywareArrayOutput() GetSandboxReportSpywareArrayOutput
+	ToGetSandboxReportSpywareArrayOutputWithContext(context.Context) GetSandboxReportSpywareArrayOutput
+}
+
+type GetSandboxReportSpywareArray []GetSandboxReportSpywareInput
+
+func (GetSandboxReportSpywareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSpyware)(nil)).Elem()
+}
+
+func (i GetSandboxReportSpywareArray) ToGetSandboxReportSpywareArrayOutput() GetSandboxReportSpywareArrayOutput {
+	return i.ToGetSandboxReportSpywareArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSpywareArray) ToGetSandboxReportSpywareArrayOutputWithContext(ctx context.Context) GetSandboxReportSpywareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSpywareArrayOutput)
+}
+
+type GetSandboxReportSpywareOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSpywareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSpyware)(nil)).Elem()
+}
+
+func (o GetSandboxReportSpywareOutput) ToGetSandboxReportSpywareOutput() GetSandboxReportSpywareOutput {
+	return o
+}
+
+func (o GetSandboxReportSpywareOutput) ToGetSandboxReportSpywareOutputWithContext(ctx context.Context) GetSandboxReportSpywareOutput {
+	return o
+}
+
+func (o GetSandboxReportSpywareOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSpyware) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSpywareOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSpyware) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSpywareOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportSpyware) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportSpywareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSpywareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSpyware)(nil)).Elem()
+}
+
+func (o GetSandboxReportSpywareArrayOutput) ToGetSandboxReportSpywareArrayOutput() GetSandboxReportSpywareArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSpywareArrayOutput) ToGetSandboxReportSpywareArrayOutputWithContext(ctx context.Context) GetSandboxReportSpywareArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSpywareArrayOutput) Index(i pulumi.IntInput) GetSandboxReportSpywareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportSpyware {
+		return vs[0].([]GetSandboxReportSpyware)[vs[1].(int)]
+	}).(GetSandboxReportSpywareOutput)
+}
+
+type GetSandboxReportStealth struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportStealthInput is an input type that accepts GetSandboxReportStealthArgs and GetSandboxReportStealthOutput values.
+// You can construct a concrete instance of `GetSandboxReportStealthInput` via:
+//
+//	GetSandboxReportStealthArgs{...}
+type GetSandboxReportStealthInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportStealthOutput() GetSandboxReportStealthOutput
+	ToGetSandboxReportStealthOutputWithContext(context.Context) GetSandboxReportStealthOutput
+}
+
+type GetSandboxReportStealthArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportStealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportStealth)(nil)).Elem()
+}
+
+func (i GetSandboxReportStealthArgs) ToGetSandboxReportStealthOutput() GetSandboxReportStealthOutput {
+	return i.ToGetSandboxReportStealthOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportStealthArgs) ToGetSandboxReportStealthOutputWithContext(ctx context.Context) GetSandboxReportStealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportStealthOutput)
+}
+
+// GetSandboxReportStealthArrayInput is an input type that accepts GetSandboxReportStealthArray and GetSandboxReportStealthArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportStealthArrayInput` via:
+//
+//	GetSandboxReportStealthArray{ GetSandboxReportStealthArgs{...} }
+type GetSandboxReportStealthArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportStealthArrayOutput() GetSandboxReportStealthArrayOutput
+	ToGetSandboxReportStealthArrayOutputWithContext(context.Context) GetSandboxReportStealthArrayOutput
+}
+
+type GetSandboxReportStealthArray []GetSandboxReportStealthInput
+
+func (GetSandboxReportStealthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportStealth)(nil)).Elem()
+}
+
+func (i GetSandboxReportStealthArray) ToGetSandboxReportStealthArrayOutput() GetSandboxReportStealthArrayOutput {
+	return i.ToGetSandboxReportStealthArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportStealthArray) ToGetSandboxReportStealthArrayOutputWithContext(ctx context.Context) GetSandboxReportStealthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportStealthArrayOutput)
+}
+
+type GetSandboxReportStealthOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportStealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportStealth)(nil)).Elem()
+}
+
+func (o GetSandboxReportStealthOutput) ToGetSandboxReportStealthOutput() GetSandboxReportStealthOutput {
+	return o
+}
+
+func (o GetSandboxReportStealthOutput) ToGetSandboxReportStealthOutputWithContext(ctx context.Context) GetSandboxReportStealthOutput {
+	return o
+}
+
+func (o GetSandboxReportStealthOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportStealth) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportStealthOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportStealth) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportStealthOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportStealth) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportStealthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportStealthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportStealth)(nil)).Elem()
+}
+
+func (o GetSandboxReportStealthArrayOutput) ToGetSandboxReportStealthArrayOutput() GetSandboxReportStealthArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportStealthArrayOutput) ToGetSandboxReportStealthArrayOutputWithContext(ctx context.Context) GetSandboxReportStealthArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportStealthArrayOutput) Index(i pulumi.IntInput) GetSandboxReportStealthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportStealth {
+		return vs[0].([]GetSandboxReportStealth)[vs[1].(int)]
+	}).(GetSandboxReportStealthOutput)
+}
+
+type GetSandboxReportSummary struct {
+	Category  string `pulumi:"category"`
+	Duration  int    `pulumi:"duration"`
+	FileType  string `pulumi:"fileType"`
+	StartTime int    `pulumi:"startTime"`
+	Status    string `pulumi:"status"`
+}
+
+// GetSandboxReportSummaryInput is an input type that accepts GetSandboxReportSummaryArgs and GetSandboxReportSummaryOutput values.
+// You can construct a concrete instance of `GetSandboxReportSummaryInput` via:
+//
+//	GetSandboxReportSummaryArgs{...}
+type GetSandboxReportSummaryInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSummaryOutput() GetSandboxReportSummaryOutput
+	ToGetSandboxReportSummaryOutputWithContext(context.Context) GetSandboxReportSummaryOutput
+}
+
+type GetSandboxReportSummaryArgs struct {
+	Category  pulumi.StringInput `pulumi:"category"`
+	Duration  pulumi.IntInput    `pulumi:"duration"`
+	FileType  pulumi.StringInput `pulumi:"fileType"`
+	StartTime pulumi.IntInput    `pulumi:"startTime"`
+	Status    pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetSandboxReportSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSummary)(nil)).Elem()
+}
+
+func (i GetSandboxReportSummaryArgs) ToGetSandboxReportSummaryOutput() GetSandboxReportSummaryOutput {
+	return i.ToGetSandboxReportSummaryOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSummaryArgs) ToGetSandboxReportSummaryOutputWithContext(ctx context.Context) GetSandboxReportSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSummaryOutput)
+}
+
+// GetSandboxReportSummaryArrayInput is an input type that accepts GetSandboxReportSummaryArray and GetSandboxReportSummaryArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportSummaryArrayInput` via:
+//
+//	GetSandboxReportSummaryArray{ GetSandboxReportSummaryArgs{...} }
+type GetSandboxReportSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSummaryArrayOutput() GetSandboxReportSummaryArrayOutput
+	ToGetSandboxReportSummaryArrayOutputWithContext(context.Context) GetSandboxReportSummaryArrayOutput
+}
+
+type GetSandboxReportSummaryArray []GetSandboxReportSummaryInput
+
+func (GetSandboxReportSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSummary)(nil)).Elem()
+}
+
+func (i GetSandboxReportSummaryArray) ToGetSandboxReportSummaryArrayOutput() GetSandboxReportSummaryArrayOutput {
+	return i.ToGetSandboxReportSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSummaryArray) ToGetSandboxReportSummaryArrayOutputWithContext(ctx context.Context) GetSandboxReportSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSummaryArrayOutput)
+}
+
+type GetSandboxReportSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSummary)(nil)).Elem()
+}
+
+func (o GetSandboxReportSummaryOutput) ToGetSandboxReportSummaryOutput() GetSandboxReportSummaryOutput {
+	return o
+}
+
+func (o GetSandboxReportSummaryOutput) ToGetSandboxReportSummaryOutputWithContext(ctx context.Context) GetSandboxReportSummaryOutput {
+	return o
+}
+
+func (o GetSandboxReportSummaryOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSummary) string { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSummaryOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxReportSummary) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+func (o GetSandboxReportSummaryOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSummary) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSummaryOutput) StartTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxReportSummary) int { return v.StartTime }).(pulumi.IntOutput)
+}
+
+func (o GetSandboxReportSummaryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSummary) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetSandboxReportSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSummary)(nil)).Elem()
+}
+
+func (o GetSandboxReportSummaryArrayOutput) ToGetSandboxReportSummaryArrayOutput() GetSandboxReportSummaryArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSummaryArrayOutput) ToGetSandboxReportSummaryArrayOutputWithContext(ctx context.Context) GetSandboxReportSummaryArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSummaryArrayOutput) Index(i pulumi.IntInput) GetSandboxReportSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportSummary {
+		return vs[0].([]GetSandboxReportSummary)[vs[1].(int)]
+	}).(GetSandboxReportSummaryOutput)
+}
+
+type GetSandboxReportSystemSummary struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportSystemSummaryInput is an input type that accepts GetSandboxReportSystemSummaryArgs and GetSandboxReportSystemSummaryOutput values.
+// You can construct a concrete instance of `GetSandboxReportSystemSummaryInput` via:
+//
+//	GetSandboxReportSystemSummaryArgs{...}
+type GetSandboxReportSystemSummaryInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSystemSummaryOutput() GetSandboxReportSystemSummaryOutput
+	ToGetSandboxReportSystemSummaryOutputWithContext(context.Context) GetSandboxReportSystemSummaryOutput
+}
+
+type GetSandboxReportSystemSummaryArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportSystemSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSystemSummary)(nil)).Elem()
+}
+
+func (i GetSandboxReportSystemSummaryArgs) ToGetSandboxReportSystemSummaryOutput() GetSandboxReportSystemSummaryOutput {
+	return i.ToGetSandboxReportSystemSummaryOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSystemSummaryArgs) ToGetSandboxReportSystemSummaryOutputWithContext(ctx context.Context) GetSandboxReportSystemSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSystemSummaryOutput)
+}
+
+// GetSandboxReportSystemSummaryArrayInput is an input type that accepts GetSandboxReportSystemSummaryArray and GetSandboxReportSystemSummaryArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportSystemSummaryArrayInput` via:
+//
+//	GetSandboxReportSystemSummaryArray{ GetSandboxReportSystemSummaryArgs{...} }
+type GetSandboxReportSystemSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportSystemSummaryArrayOutput() GetSandboxReportSystemSummaryArrayOutput
+	ToGetSandboxReportSystemSummaryArrayOutputWithContext(context.Context) GetSandboxReportSystemSummaryArrayOutput
+}
+
+type GetSandboxReportSystemSummaryArray []GetSandboxReportSystemSummaryInput
+
+func (GetSandboxReportSystemSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSystemSummary)(nil)).Elem()
+}
+
+func (i GetSandboxReportSystemSummaryArray) ToGetSandboxReportSystemSummaryArrayOutput() GetSandboxReportSystemSummaryArrayOutput {
+	return i.ToGetSandboxReportSystemSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportSystemSummaryArray) ToGetSandboxReportSystemSummaryArrayOutputWithContext(ctx context.Context) GetSandboxReportSystemSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportSystemSummaryArrayOutput)
+}
+
+type GetSandboxReportSystemSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSystemSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportSystemSummary)(nil)).Elem()
+}
+
+func (o GetSandboxReportSystemSummaryOutput) ToGetSandboxReportSystemSummaryOutput() GetSandboxReportSystemSummaryOutput {
+	return o
+}
+
+func (o GetSandboxReportSystemSummaryOutput) ToGetSandboxReportSystemSummaryOutputWithContext(ctx context.Context) GetSandboxReportSystemSummaryOutput {
+	return o
+}
+
+func (o GetSandboxReportSystemSummaryOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSystemSummary) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSystemSummaryOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportSystemSummary) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportSystemSummaryOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportSystemSummary) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportSystemSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportSystemSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportSystemSummary)(nil)).Elem()
+}
+
+func (o GetSandboxReportSystemSummaryArrayOutput) ToGetSandboxReportSystemSummaryArrayOutput() GetSandboxReportSystemSummaryArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSystemSummaryArrayOutput) ToGetSandboxReportSystemSummaryArrayOutputWithContext(ctx context.Context) GetSandboxReportSystemSummaryArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportSystemSummaryArrayOutput) Index(i pulumi.IntInput) GetSandboxReportSystemSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportSystemSummary {
+		return vs[0].([]GetSandboxReportSystemSummary)[vs[1].(int)]
+	}).(GetSandboxReportSystemSummaryOutput)
+}
+
+type GetSandboxRulesDepartment struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesDepartmentInput is an input type that accepts GetSandboxRulesDepartmentArgs and GetSandboxRulesDepartmentOutput values.
+// You can construct a concrete instance of `GetSandboxRulesDepartmentInput` via:
+//
+//	GetSandboxRulesDepartmentArgs{...}
+type GetSandboxRulesDepartmentInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesDepartmentOutput() GetSandboxRulesDepartmentOutput
+	ToGetSandboxRulesDepartmentOutputWithContext(context.Context) GetSandboxRulesDepartmentOutput
+}
+
+type GetSandboxRulesDepartmentArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesDepartment)(nil)).Elem()
+}
+
+func (i GetSandboxRulesDepartmentArgs) ToGetSandboxRulesDepartmentOutput() GetSandboxRulesDepartmentOutput {
+	return i.ToGetSandboxRulesDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesDepartmentArgs) ToGetSandboxRulesDepartmentOutputWithContext(ctx context.Context) GetSandboxRulesDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesDepartmentOutput)
+}
+
+// GetSandboxRulesDepartmentArrayInput is an input type that accepts GetSandboxRulesDepartmentArray and GetSandboxRulesDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesDepartmentArrayInput` via:
+//
+//	GetSandboxRulesDepartmentArray{ GetSandboxRulesDepartmentArgs{...} }
+type GetSandboxRulesDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesDepartmentArrayOutput() GetSandboxRulesDepartmentArrayOutput
+	ToGetSandboxRulesDepartmentArrayOutputWithContext(context.Context) GetSandboxRulesDepartmentArrayOutput
+}
+
+type GetSandboxRulesDepartmentArray []GetSandboxRulesDepartmentInput
+
+func (GetSandboxRulesDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesDepartment)(nil)).Elem()
+}
+
+func (i GetSandboxRulesDepartmentArray) ToGetSandboxRulesDepartmentArrayOutput() GetSandboxRulesDepartmentArrayOutput {
+	return i.ToGetSandboxRulesDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesDepartmentArray) ToGetSandboxRulesDepartmentArrayOutputWithContext(ctx context.Context) GetSandboxRulesDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesDepartmentArrayOutput)
+}
+
+type GetSandboxRulesDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesDepartment)(nil)).Elem()
+}
+
+func (o GetSandboxRulesDepartmentOutput) ToGetSandboxRulesDepartmentOutput() GetSandboxRulesDepartmentOutput {
+	return o
+}
+
+func (o GetSandboxRulesDepartmentOutput) ToGetSandboxRulesDepartmentOutputWithContext(ctx context.Context) GetSandboxRulesDepartmentOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesDepartment)(nil)).Elem()
+}
+
+func (o GetSandboxRulesDepartmentArrayOutput) ToGetSandboxRulesDepartmentArrayOutput() GetSandboxRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesDepartmentArrayOutput) ToGetSandboxRulesDepartmentArrayOutputWithContext(ctx context.Context) GetSandboxRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesDepartment {
+		return vs[0].([]GetSandboxRulesDepartment)[vs[1].(int)]
+	}).(GetSandboxRulesDepartmentOutput)
+}
+
+type GetSandboxRulesGroup struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesGroupInput is an input type that accepts GetSandboxRulesGroupArgs and GetSandboxRulesGroupOutput values.
+// You can construct a concrete instance of `GetSandboxRulesGroupInput` via:
+//
+//	GetSandboxRulesGroupArgs{...}
+type GetSandboxRulesGroupInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesGroupOutput() GetSandboxRulesGroupOutput
+	ToGetSandboxRulesGroupOutputWithContext(context.Context) GetSandboxRulesGroupOutput
+}
+
+type GetSandboxRulesGroupArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesGroup)(nil)).Elem()
+}
+
+func (i GetSandboxRulesGroupArgs) ToGetSandboxRulesGroupOutput() GetSandboxRulesGroupOutput {
+	return i.ToGetSandboxRulesGroupOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesGroupArgs) ToGetSandboxRulesGroupOutputWithContext(ctx context.Context) GetSandboxRulesGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesGroupOutput)
+}
+
+// GetSandboxRulesGroupArrayInput is an input type that accepts GetSandboxRulesGroupArray and GetSandboxRulesGroupArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesGroupArrayInput` via:
+//
+//	GetSandboxRulesGroupArray{ GetSandboxRulesGroupArgs{...} }
+type GetSandboxRulesGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesGroupArrayOutput() GetSandboxRulesGroupArrayOutput
+	ToGetSandboxRulesGroupArrayOutputWithContext(context.Context) GetSandboxRulesGroupArrayOutput
+}
+
+type GetSandboxRulesGroupArray []GetSandboxRulesGroupInput
+
+func (GetSandboxRulesGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesGroup)(nil)).Elem()
+}
+
+func (i GetSandboxRulesGroupArray) ToGetSandboxRulesGroupArrayOutput() GetSandboxRulesGroupArrayOutput {
+	return i.ToGetSandboxRulesGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesGroupArray) ToGetSandboxRulesGroupArrayOutputWithContext(ctx context.Context) GetSandboxRulesGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesGroupArrayOutput)
+}
+
+type GetSandboxRulesGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesGroup)(nil)).Elem()
+}
+
+func (o GetSandboxRulesGroupOutput) ToGetSandboxRulesGroupOutput() GetSandboxRulesGroupOutput {
+	return o
+}
+
+func (o GetSandboxRulesGroupOutput) ToGetSandboxRulesGroupOutputWithContext(ctx context.Context) GetSandboxRulesGroupOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesGroup)(nil)).Elem()
+}
+
+func (o GetSandboxRulesGroupArrayOutput) ToGetSandboxRulesGroupArrayOutput() GetSandboxRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesGroupArrayOutput) ToGetSandboxRulesGroupArrayOutputWithContext(ctx context.Context) GetSandboxRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesGroupArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesGroup {
+		return vs[0].([]GetSandboxRulesGroup)[vs[1].(int)]
+	}).(GetSandboxRulesGroupOutput)
+}
+
+type GetSandboxRulesLabel struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesLabelInput is an input type that accepts GetSandboxRulesLabelArgs and GetSandboxRulesLabelOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLabelInput` via:
+//
+//	GetSandboxRulesLabelArgs{...}
+type GetSandboxRulesLabelInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLabelOutput() GetSandboxRulesLabelOutput
+	ToGetSandboxRulesLabelOutputWithContext(context.Context) GetSandboxRulesLabelOutput
+}
+
+type GetSandboxRulesLabelArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLabel)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLabelArgs) ToGetSandboxRulesLabelOutput() GetSandboxRulesLabelOutput {
+	return i.ToGetSandboxRulesLabelOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLabelArgs) ToGetSandboxRulesLabelOutputWithContext(ctx context.Context) GetSandboxRulesLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLabelOutput)
+}
+
+// GetSandboxRulesLabelArrayInput is an input type that accepts GetSandboxRulesLabelArray and GetSandboxRulesLabelArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLabelArrayInput` via:
+//
+//	GetSandboxRulesLabelArray{ GetSandboxRulesLabelArgs{...} }
+type GetSandboxRulesLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLabelArrayOutput() GetSandboxRulesLabelArrayOutput
+	ToGetSandboxRulesLabelArrayOutputWithContext(context.Context) GetSandboxRulesLabelArrayOutput
+}
+
+type GetSandboxRulesLabelArray []GetSandboxRulesLabelInput
+
+func (GetSandboxRulesLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLabel)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLabelArray) ToGetSandboxRulesLabelArrayOutput() GetSandboxRulesLabelArrayOutput {
+	return i.ToGetSandboxRulesLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLabelArray) ToGetSandboxRulesLabelArrayOutputWithContext(ctx context.Context) GetSandboxRulesLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLabelArrayOutput)
+}
+
+type GetSandboxRulesLabelOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLabel)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLabelOutput) ToGetSandboxRulesLabelOutput() GetSandboxRulesLabelOutput {
+	return o
+}
+
+func (o GetSandboxRulesLabelOutput) ToGetSandboxRulesLabelOutputWithContext(ctx context.Context) GetSandboxRulesLabelOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLabel)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLabelArrayOutput) ToGetSandboxRulesLabelArrayOutput() GetSandboxRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLabelArrayOutput) ToGetSandboxRulesLabelArrayOutputWithContext(ctx context.Context) GetSandboxRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLabelArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesLabel {
+		return vs[0].([]GetSandboxRulesLabel)[vs[1].(int)]
+	}).(GetSandboxRulesLabelOutput)
+}
+
+type GetSandboxRulesLastModifiedBy struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesLastModifiedByInput is an input type that accepts GetSandboxRulesLastModifiedByArgs and GetSandboxRulesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLastModifiedByInput` via:
+//
+//	GetSandboxRulesLastModifiedByArgs{...}
+type GetSandboxRulesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLastModifiedByOutput() GetSandboxRulesLastModifiedByOutput
+	ToGetSandboxRulesLastModifiedByOutputWithContext(context.Context) GetSandboxRulesLastModifiedByOutput
+}
+
+type GetSandboxRulesLastModifiedByArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLastModifiedByArgs) ToGetSandboxRulesLastModifiedByOutput() GetSandboxRulesLastModifiedByOutput {
+	return i.ToGetSandboxRulesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLastModifiedByArgs) ToGetSandboxRulesLastModifiedByOutputWithContext(ctx context.Context) GetSandboxRulesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLastModifiedByOutput)
+}
+
+// GetSandboxRulesLastModifiedByArrayInput is an input type that accepts GetSandboxRulesLastModifiedByArray and GetSandboxRulesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLastModifiedByArrayInput` via:
+//
+//	GetSandboxRulesLastModifiedByArray{ GetSandboxRulesLastModifiedByArgs{...} }
+type GetSandboxRulesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLastModifiedByArrayOutput() GetSandboxRulesLastModifiedByArrayOutput
+	ToGetSandboxRulesLastModifiedByArrayOutputWithContext(context.Context) GetSandboxRulesLastModifiedByArrayOutput
+}
+
+type GetSandboxRulesLastModifiedByArray []GetSandboxRulesLastModifiedByInput
+
+func (GetSandboxRulesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLastModifiedByArray) ToGetSandboxRulesLastModifiedByArrayOutput() GetSandboxRulesLastModifiedByArrayOutput {
+	return i.ToGetSandboxRulesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLastModifiedByArray) ToGetSandboxRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetSandboxRulesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLastModifiedByArrayOutput)
+}
+
+type GetSandboxRulesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLastModifiedByOutput) ToGetSandboxRulesLastModifiedByOutput() GetSandboxRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetSandboxRulesLastModifiedByOutput) ToGetSandboxRulesLastModifiedByOutputWithContext(ctx context.Context) GetSandboxRulesLastModifiedByOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLastModifiedByArrayOutput) ToGetSandboxRulesLastModifiedByArrayOutput() GetSandboxRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLastModifiedByArrayOutput) ToGetSandboxRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetSandboxRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesLastModifiedBy {
+		return vs[0].([]GetSandboxRulesLastModifiedBy)[vs[1].(int)]
+	}).(GetSandboxRulesLastModifiedByOutput)
+}
+
+type GetSandboxRulesLocation struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesLocationInput is an input type that accepts GetSandboxRulesLocationArgs and GetSandboxRulesLocationOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLocationInput` via:
+//
+//	GetSandboxRulesLocationArgs{...}
+type GetSandboxRulesLocationInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLocationOutput() GetSandboxRulesLocationOutput
+	ToGetSandboxRulesLocationOutputWithContext(context.Context) GetSandboxRulesLocationOutput
+}
+
+type GetSandboxRulesLocationArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLocation)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLocationArgs) ToGetSandboxRulesLocationOutput() GetSandboxRulesLocationOutput {
+	return i.ToGetSandboxRulesLocationOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLocationArgs) ToGetSandboxRulesLocationOutputWithContext(ctx context.Context) GetSandboxRulesLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLocationOutput)
+}
+
+// GetSandboxRulesLocationArrayInput is an input type that accepts GetSandboxRulesLocationArray and GetSandboxRulesLocationArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLocationArrayInput` via:
+//
+//	GetSandboxRulesLocationArray{ GetSandboxRulesLocationArgs{...} }
+type GetSandboxRulesLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLocationArrayOutput() GetSandboxRulesLocationArrayOutput
+	ToGetSandboxRulesLocationArrayOutputWithContext(context.Context) GetSandboxRulesLocationArrayOutput
+}
+
+type GetSandboxRulesLocationArray []GetSandboxRulesLocationInput
+
+func (GetSandboxRulesLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLocation)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLocationArray) ToGetSandboxRulesLocationArrayOutput() GetSandboxRulesLocationArrayOutput {
+	return i.ToGetSandboxRulesLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLocationArray) ToGetSandboxRulesLocationArrayOutputWithContext(ctx context.Context) GetSandboxRulesLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLocationArrayOutput)
+}
+
+type GetSandboxRulesLocationOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLocation)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLocationOutput) ToGetSandboxRulesLocationOutput() GetSandboxRulesLocationOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationOutput) ToGetSandboxRulesLocationOutputWithContext(ctx context.Context) GetSandboxRulesLocationOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLocation)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLocationArrayOutput) ToGetSandboxRulesLocationArrayOutput() GetSandboxRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationArrayOutput) ToGetSandboxRulesLocationArrayOutputWithContext(ctx context.Context) GetSandboxRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesLocation {
+		return vs[0].([]GetSandboxRulesLocation)[vs[1].(int)]
+	}).(GetSandboxRulesLocationOutput)
+}
+
+type GetSandboxRulesLocationGroup struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesLocationGroupInput is an input type that accepts GetSandboxRulesLocationGroupArgs and GetSandboxRulesLocationGroupOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLocationGroupInput` via:
+//
+//	GetSandboxRulesLocationGroupArgs{...}
+type GetSandboxRulesLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLocationGroupOutput() GetSandboxRulesLocationGroupOutput
+	ToGetSandboxRulesLocationGroupOutputWithContext(context.Context) GetSandboxRulesLocationGroupOutput
+}
+
+type GetSandboxRulesLocationGroupArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLocationGroupArgs) ToGetSandboxRulesLocationGroupOutput() GetSandboxRulesLocationGroupOutput {
+	return i.ToGetSandboxRulesLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLocationGroupArgs) ToGetSandboxRulesLocationGroupOutputWithContext(ctx context.Context) GetSandboxRulesLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLocationGroupOutput)
+}
+
+// GetSandboxRulesLocationGroupArrayInput is an input type that accepts GetSandboxRulesLocationGroupArray and GetSandboxRulesLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesLocationGroupArrayInput` via:
+//
+//	GetSandboxRulesLocationGroupArray{ GetSandboxRulesLocationGroupArgs{...} }
+type GetSandboxRulesLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesLocationGroupArrayOutput() GetSandboxRulesLocationGroupArrayOutput
+	ToGetSandboxRulesLocationGroupArrayOutputWithContext(context.Context) GetSandboxRulesLocationGroupArrayOutput
+}
+
+type GetSandboxRulesLocationGroupArray []GetSandboxRulesLocationGroupInput
+
+func (GetSandboxRulesLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetSandboxRulesLocationGroupArray) ToGetSandboxRulesLocationGroupArrayOutput() GetSandboxRulesLocationGroupArrayOutput {
+	return i.ToGetSandboxRulesLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesLocationGroupArray) ToGetSandboxRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetSandboxRulesLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesLocationGroupArrayOutput)
+}
+
+type GetSandboxRulesLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLocationGroupOutput) ToGetSandboxRulesLocationGroupOutput() GetSandboxRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationGroupOutput) ToGetSandboxRulesLocationGroupOutputWithContext(ctx context.Context) GetSandboxRulesLocationGroupOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetSandboxRulesLocationGroupArrayOutput) ToGetSandboxRulesLocationGroupArrayOutput() GetSandboxRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationGroupArrayOutput) ToGetSandboxRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetSandboxRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesLocationGroup {
+		return vs[0].([]GetSandboxRulesLocationGroup)[vs[1].(int)]
+	}).(GetSandboxRulesLocationGroupOutput)
+}
+
+type GetSandboxRulesUser struct {
+	// Additional information about the entity
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesUserInput is an input type that accepts GetSandboxRulesUserArgs and GetSandboxRulesUserOutput values.
+// You can construct a concrete instance of `GetSandboxRulesUserInput` via:
+//
+//	GetSandboxRulesUserArgs{...}
+type GetSandboxRulesUserInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesUserOutput() GetSandboxRulesUserOutput
+	ToGetSandboxRulesUserOutputWithContext(context.Context) GetSandboxRulesUserOutput
+}
+
+type GetSandboxRulesUserArgs struct {
+	// Additional information about the entity
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesUser)(nil)).Elem()
+}
+
+func (i GetSandboxRulesUserArgs) ToGetSandboxRulesUserOutput() GetSandboxRulesUserOutput {
+	return i.ToGetSandboxRulesUserOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesUserArgs) ToGetSandboxRulesUserOutputWithContext(ctx context.Context) GetSandboxRulesUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesUserOutput)
+}
+
+// GetSandboxRulesUserArrayInput is an input type that accepts GetSandboxRulesUserArray and GetSandboxRulesUserArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesUserArrayInput` via:
+//
+//	GetSandboxRulesUserArray{ GetSandboxRulesUserArgs{...} }
+type GetSandboxRulesUserArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesUserArrayOutput() GetSandboxRulesUserArrayOutput
+	ToGetSandboxRulesUserArrayOutputWithContext(context.Context) GetSandboxRulesUserArrayOutput
+}
+
+type GetSandboxRulesUserArray []GetSandboxRulesUserInput
+
+func (GetSandboxRulesUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesUser)(nil)).Elem()
+}
+
+func (i GetSandboxRulesUserArray) ToGetSandboxRulesUserArrayOutput() GetSandboxRulesUserArrayOutput {
+	return i.ToGetSandboxRulesUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesUserArray) ToGetSandboxRulesUserArrayOutputWithContext(ctx context.Context) GetSandboxRulesUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesUserArrayOutput)
+}
+
+type GetSandboxRulesUserOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesUser)(nil)).Elem()
+}
+
+func (o GetSandboxRulesUserOutput) ToGetSandboxRulesUserOutput() GetSandboxRulesUserOutput {
+	return o
+}
+
+func (o GetSandboxRulesUserOutput) ToGetSandboxRulesUserOutputWithContext(ctx context.Context) GetSandboxRulesUserOutput {
+	return o
+}
+
+// Additional information about the entity
+func (o GetSandboxRulesUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSandboxRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesUser)(nil)).Elem()
+}
+
+func (o GetSandboxRulesUserArrayOutput) ToGetSandboxRulesUserArrayOutput() GetSandboxRulesUserArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesUserArrayOutput) ToGetSandboxRulesUserArrayOutputWithContext(ctx context.Context) GetSandboxRulesUserArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesUserArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesUser {
+		return vs[0].([]GetSandboxRulesUser)[vs[1].(int)]
+	}).(GetSandboxRulesUserOutput)
+}
+
+type GetSandboxRulesZpaAppSegment struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId string `pulumi:"externalId"`
+	// Unique identifier for the Sandbox rule
+	Id int `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name string `pulumi:"name"`
+}
+
+// GetSandboxRulesZpaAppSegmentInput is an input type that accepts GetSandboxRulesZpaAppSegmentArgs and GetSandboxRulesZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetSandboxRulesZpaAppSegmentInput` via:
+//
+//	GetSandboxRulesZpaAppSegmentArgs{...}
+type GetSandboxRulesZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesZpaAppSegmentOutput() GetSandboxRulesZpaAppSegmentOutput
+	ToGetSandboxRulesZpaAppSegmentOutputWithContext(context.Context) GetSandboxRulesZpaAppSegmentOutput
+}
+
+type GetSandboxRulesZpaAppSegmentArgs struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// Unique identifier for the Sandbox rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Sandbox rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSandboxRulesZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetSandboxRulesZpaAppSegmentArgs) ToGetSandboxRulesZpaAppSegmentOutput() GetSandboxRulesZpaAppSegmentOutput {
+	return i.ToGetSandboxRulesZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesZpaAppSegmentArgs) ToGetSandboxRulesZpaAppSegmentOutputWithContext(ctx context.Context) GetSandboxRulesZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesZpaAppSegmentOutput)
+}
+
+// GetSandboxRulesZpaAppSegmentArrayInput is an input type that accepts GetSandboxRulesZpaAppSegmentArray and GetSandboxRulesZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetSandboxRulesZpaAppSegmentArrayInput` via:
+//
+//	GetSandboxRulesZpaAppSegmentArray{ GetSandboxRulesZpaAppSegmentArgs{...} }
+type GetSandboxRulesZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxRulesZpaAppSegmentArrayOutput() GetSandboxRulesZpaAppSegmentArrayOutput
+	ToGetSandboxRulesZpaAppSegmentArrayOutputWithContext(context.Context) GetSandboxRulesZpaAppSegmentArrayOutput
+}
+
+type GetSandboxRulesZpaAppSegmentArray []GetSandboxRulesZpaAppSegmentInput
+
+func (GetSandboxRulesZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetSandboxRulesZpaAppSegmentArray) ToGetSandboxRulesZpaAppSegmentArrayOutput() GetSandboxRulesZpaAppSegmentArrayOutput {
+	return i.ToGetSandboxRulesZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxRulesZpaAppSegmentArray) ToGetSandboxRulesZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetSandboxRulesZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxRulesZpaAppSegmentArrayOutput)
+}
+
+type GetSandboxRulesZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetSandboxRulesZpaAppSegmentOutput) ToGetSandboxRulesZpaAppSegmentOutput() GetSandboxRulesZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetSandboxRulesZpaAppSegmentOutput) ToGetSandboxRulesZpaAppSegmentOutputWithContext(ctx context.Context) GetSandboxRulesZpaAppSegmentOutput {
+	return o
+}
+
+// Indicates the external ID. Applicable only when this reference is of an external entity.
+func (o GetSandboxRulesZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the Sandbox rule
+func (o GetSandboxRulesZpaAppSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxRulesZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Sandbox rule
+func (o GetSandboxRulesZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxRulesZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSandboxRulesZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxRulesZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetSandboxRulesZpaAppSegmentArrayOutput) ToGetSandboxRulesZpaAppSegmentArrayOutput() GetSandboxRulesZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesZpaAppSegmentArrayOutput) ToGetSandboxRulesZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetSandboxRulesZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetSandboxRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetSandboxRulesZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxRulesZpaAppSegment {
+		return vs[0].([]GetSandboxRulesZpaAppSegment)[vs[1].(int)]
+	}).(GetSandboxRulesZpaAppSegmentOutput)
+}
+
+type GetTrafficForwardingGREInternalIPRangeList struct {
+	// (String) Starting IP address in the range
+	EndIpAddress string `pulumi:"endIpAddress"`
+	// (String) Ending IP address in the range
+	StartIpAddress string `pulumi:"startIpAddress"`
+}
+
+// GetTrafficForwardingGREInternalIPRangeListInput is an input type that accepts GetTrafficForwardingGREInternalIPRangeListArgs and GetTrafficForwardingGREInternalIPRangeListOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGREInternalIPRangeListInput` via:
+//
+//	GetTrafficForwardingGREInternalIPRangeListArgs{...}
+type GetTrafficForwardingGREInternalIPRangeListInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGREInternalIPRangeListOutput() GetTrafficForwardingGREInternalIPRangeListOutput
+	ToGetTrafficForwardingGREInternalIPRangeListOutputWithContext(context.Context) GetTrafficForwardingGREInternalIPRangeListOutput
+}
+
+type GetTrafficForwardingGREInternalIPRangeListArgs struct {
+	// (String) Starting IP address in the range
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
+	// (String) Ending IP address in the range
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
+}
+
+func (GetTrafficForwardingGREInternalIPRangeListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeList)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGREInternalIPRangeListArgs) ToGetTrafficForwardingGREInternalIPRangeListOutput() GetTrafficForwardingGREInternalIPRangeListOutput {
+	return i.ToGetTrafficForwardingGREInternalIPRangeListOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGREInternalIPRangeListArgs) ToGetTrafficForwardingGREInternalIPRangeListOutputWithContext(ctx context.Context) GetTrafficForwardingGREInternalIPRangeListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGREInternalIPRangeListOutput)
+}
+
+// GetTrafficForwardingGREInternalIPRangeListArrayInput is an input type that accepts GetTrafficForwardingGREInternalIPRangeListArray and GetTrafficForwardingGREInternalIPRangeListArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGREInternalIPRangeListArrayInput` via:
+//
+//	GetTrafficForwardingGREInternalIPRangeListArray{ GetTrafficForwardingGREInternalIPRangeListArgs{...} }
+type GetTrafficForwardingGREInternalIPRangeListArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGREInternalIPRangeListArrayOutput() GetTrafficForwardingGREInternalIPRangeListArrayOutput
+	ToGetTrafficForwardingGREInternalIPRangeListArrayOutputWithContext(context.Context) GetTrafficForwardingGREInternalIPRangeListArrayOutput
+}
+
+type GetTrafficForwardingGREInternalIPRangeListArray []GetTrafficForwardingGREInternalIPRangeListInput
+
+func (GetTrafficForwardingGREInternalIPRangeListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGREInternalIPRangeList)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGREInternalIPRangeListArray) ToGetTrafficForwardingGREInternalIPRangeListArrayOutput() GetTrafficForwardingGREInternalIPRangeListArrayOutput {
+	return i.ToGetTrafficForwardingGREInternalIPRangeListArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGREInternalIPRangeListArray) ToGetTrafficForwardingGREInternalIPRangeListArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGREInternalIPRangeListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGREInternalIPRangeListArrayOutput)
+}
+
+type GetTrafficForwardingGREInternalIPRangeListOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGREInternalIPRangeListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeList)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGREInternalIPRangeListOutput) ToGetTrafficForwardingGREInternalIPRangeListOutput() GetTrafficForwardingGREInternalIPRangeListOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGREInternalIPRangeListOutput) ToGetTrafficForwardingGREInternalIPRangeListOutputWithContext(ctx context.Context) GetTrafficForwardingGREInternalIPRangeListOutput {
+	return o
+}
+
+// (String) Starting IP address in the range
+func (o GetTrafficForwardingGREInternalIPRangeListOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGREInternalIPRangeList) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// (String) Ending IP address in the range
+func (o GetTrafficForwardingGREInternalIPRangeListOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGREInternalIPRangeList) string { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingGREInternalIPRangeListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGREInternalIPRangeListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGREInternalIPRangeList)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGREInternalIPRangeListArrayOutput) ToGetTrafficForwardingGREInternalIPRangeListArrayOutput() GetTrafficForwardingGREInternalIPRangeListArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGREInternalIPRangeListArrayOutput) ToGetTrafficForwardingGREInternalIPRangeListArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGREInternalIPRangeListArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGREInternalIPRangeListArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingGREInternalIPRangeListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingGREInternalIPRangeList {
+		return vs[0].([]GetTrafficForwardingGREInternalIPRangeList)[vs[1].(int)]
+	}).(GetTrafficForwardingGREInternalIPRangeListOutput)
+}
+
+type GetTrafficForwardingGRETunnelLastModifiedBy struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id   int    `pulumi:"id"`
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingGRETunnelLastModifiedByInput is an input type that accepts GetTrafficForwardingGRETunnelLastModifiedByArgs and GetTrafficForwardingGRETunnelLastModifiedByOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelLastModifiedByInput` via:
+//
+//	GetTrafficForwardingGRETunnelLastModifiedByArgs{...}
+type GetTrafficForwardingGRETunnelLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelLastModifiedByOutput() GetTrafficForwardingGRETunnelLastModifiedByOutput
+	ToGetTrafficForwardingGRETunnelLastModifiedByOutputWithContext(context.Context) GetTrafficForwardingGRETunnelLastModifiedByOutput
+}
+
+type GetTrafficForwardingGRETunnelLastModifiedByArgs struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id   pulumi.IntInput    `pulumi:"id"`
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingGRETunnelLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelLastModifiedByArgs) ToGetTrafficForwardingGRETunnelLastModifiedByOutput() GetTrafficForwardingGRETunnelLastModifiedByOutput {
+	return i.ToGetTrafficForwardingGRETunnelLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelLastModifiedByArgs) ToGetTrafficForwardingGRETunnelLastModifiedByOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelLastModifiedByOutput)
+}
+
+// GetTrafficForwardingGRETunnelLastModifiedByArrayInput is an input type that accepts GetTrafficForwardingGRETunnelLastModifiedByArray and GetTrafficForwardingGRETunnelLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelLastModifiedByArrayInput` via:
+//
+//	GetTrafficForwardingGRETunnelLastModifiedByArray{ GetTrafficForwardingGRETunnelLastModifiedByArgs{...} }
+type GetTrafficForwardingGRETunnelLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutput() GetTrafficForwardingGRETunnelLastModifiedByArrayOutput
+	ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutputWithContext(context.Context) GetTrafficForwardingGRETunnelLastModifiedByArrayOutput
+}
+
+type GetTrafficForwardingGRETunnelLastModifiedByArray []GetTrafficForwardingGRETunnelLastModifiedByInput
+
+func (GetTrafficForwardingGRETunnelLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelLastModifiedByArray) ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutput() GetTrafficForwardingGRETunnelLastModifiedByArrayOutput {
+	return i.ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelLastModifiedByArray) ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelLastModifiedByArrayOutput)
+}
+
+type GetTrafficForwardingGRETunnelLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) ToGetTrafficForwardingGRETunnelLastModifiedByOutput() GetTrafficForwardingGRETunnelLastModifiedByOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) ToGetTrafficForwardingGRETunnelLastModifiedByOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelLastModifiedByOutput {
+	return o
+}
+
+// Unique identifier of the static IP address that is associated to a GRE tunnel
+func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingGRETunnelLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByArrayOutput) ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutput() GetTrafficForwardingGRETunnelLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByArrayOutput) ToGetTrafficForwardingGRETunnelLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingGRETunnelLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingGRETunnelLastModifiedBy {
+		return vs[0].([]GetTrafficForwardingGRETunnelLastModifiedBy)[vs[1].(int)]
+	}).(GetTrafficForwardingGRETunnelLastModifiedByOutput)
+}
+
+type GetTrafficForwardingGRETunnelManagedBy struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id   int    `pulumi:"id"`
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingGRETunnelManagedByInput is an input type that accepts GetTrafficForwardingGRETunnelManagedByArgs and GetTrafficForwardingGRETunnelManagedByOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelManagedByInput` via:
+//
+//	GetTrafficForwardingGRETunnelManagedByArgs{...}
+type GetTrafficForwardingGRETunnelManagedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelManagedByOutput() GetTrafficForwardingGRETunnelManagedByOutput
+	ToGetTrafficForwardingGRETunnelManagedByOutputWithContext(context.Context) GetTrafficForwardingGRETunnelManagedByOutput
+}
+
+type GetTrafficForwardingGRETunnelManagedByArgs struct {
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id   pulumi.IntInput    `pulumi:"id"`
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingGRETunnelManagedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelManagedByArgs) ToGetTrafficForwardingGRETunnelManagedByOutput() GetTrafficForwardingGRETunnelManagedByOutput {
+	return i.ToGetTrafficForwardingGRETunnelManagedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelManagedByArgs) ToGetTrafficForwardingGRETunnelManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelManagedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelManagedByOutput)
+}
+
+// GetTrafficForwardingGRETunnelManagedByArrayInput is an input type that accepts GetTrafficForwardingGRETunnelManagedByArray and GetTrafficForwardingGRETunnelManagedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelManagedByArrayInput` via:
+//
+//	GetTrafficForwardingGRETunnelManagedByArray{ GetTrafficForwardingGRETunnelManagedByArgs{...} }
+type GetTrafficForwardingGRETunnelManagedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelManagedByArrayOutput() GetTrafficForwardingGRETunnelManagedByArrayOutput
+	ToGetTrafficForwardingGRETunnelManagedByArrayOutputWithContext(context.Context) GetTrafficForwardingGRETunnelManagedByArrayOutput
+}
+
+type GetTrafficForwardingGRETunnelManagedByArray []GetTrafficForwardingGRETunnelManagedByInput
+
+func (GetTrafficForwardingGRETunnelManagedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelManagedByArray) ToGetTrafficForwardingGRETunnelManagedByArrayOutput() GetTrafficForwardingGRETunnelManagedByArrayOutput {
+	return i.ToGetTrafficForwardingGRETunnelManagedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelManagedByArray) ToGetTrafficForwardingGRETunnelManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelManagedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelManagedByArrayOutput)
+}
+
+type GetTrafficForwardingGRETunnelManagedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelManagedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByOutput) ToGetTrafficForwardingGRETunnelManagedByOutput() GetTrafficForwardingGRETunnelManagedByOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByOutput) ToGetTrafficForwardingGRETunnelManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelManagedByOutput {
+	return o
+}
+
+// Unique identifier of the static IP address that is associated to a GRE tunnel
+func (o GetTrafficForwardingGRETunnelManagedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelManagedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelManagedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingGRETunnelManagedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelManagedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByArrayOutput) ToGetTrafficForwardingGRETunnelManagedByArrayOutput() GetTrafficForwardingGRETunnelManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByArrayOutput) ToGetTrafficForwardingGRETunnelManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelManagedByArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingGRETunnelManagedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingGRETunnelManagedBy {
+		return vs[0].([]GetTrafficForwardingGRETunnelManagedBy)[vs[1].(int)]
+	}).(GetTrafficForwardingGRETunnelManagedByOutput)
+}
+
+type GetTrafficForwardingGRETunnelPrimaryDestVip struct {
+	City string `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode string `pulumi:"countryCode"`
+	Datacenter  string `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id                 int    `pulumi:"id"`
+	Latitude           int    `pulumi:"latitude"`
+	Longitude          int    `pulumi:"longitude"`
+	PrivateServiceEdge bool   `pulumi:"privateServiceEdge"`
+	Region             string `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp string `pulumi:"virtualIp"`
+}
+
+// GetTrafficForwardingGRETunnelPrimaryDestVipInput is an input type that accepts GetTrafficForwardingGRETunnelPrimaryDestVipArgs and GetTrafficForwardingGRETunnelPrimaryDestVipOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelPrimaryDestVipInput` via:
+//
+//	GetTrafficForwardingGRETunnelPrimaryDestVipArgs{...}
+type GetTrafficForwardingGRETunnelPrimaryDestVipInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelPrimaryDestVipOutput() GetTrafficForwardingGRETunnelPrimaryDestVipOutput
+	ToGetTrafficForwardingGRETunnelPrimaryDestVipOutputWithContext(context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipOutput
+}
+
+type GetTrafficForwardingGRETunnelPrimaryDestVipArgs struct {
+	City pulumi.StringInput `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	Datacenter  pulumi.StringInput `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id                 pulumi.IntInput    `pulumi:"id"`
+	Latitude           pulumi.IntInput    `pulumi:"latitude"`
+	Longitude          pulumi.IntInput    `pulumi:"longitude"`
+	PrivateServiceEdge pulumi.BoolInput   `pulumi:"privateServiceEdge"`
+	Region             pulumi.StringInput `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp pulumi.StringInput `pulumi:"virtualIp"`
+}
+
+func (GetTrafficForwardingGRETunnelPrimaryDestVipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelPrimaryDestVip)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelPrimaryDestVipArgs) ToGetTrafficForwardingGRETunnelPrimaryDestVipOutput() GetTrafficForwardingGRETunnelPrimaryDestVipOutput {
+	return i.ToGetTrafficForwardingGRETunnelPrimaryDestVipOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelPrimaryDestVipArgs) ToGetTrafficForwardingGRETunnelPrimaryDestVipOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelPrimaryDestVipOutput)
+}
+
+// GetTrafficForwardingGRETunnelPrimaryDestVipArrayInput is an input type that accepts GetTrafficForwardingGRETunnelPrimaryDestVipArray and GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelPrimaryDestVipArrayInput` via:
+//
+//	GetTrafficForwardingGRETunnelPrimaryDestVipArray{ GetTrafficForwardingGRETunnelPrimaryDestVipArgs{...} }
+type GetTrafficForwardingGRETunnelPrimaryDestVipArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput() GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput
+	ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutputWithContext(context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput
+}
+
+type GetTrafficForwardingGRETunnelPrimaryDestVipArray []GetTrafficForwardingGRETunnelPrimaryDestVipInput
+
+func (GetTrafficForwardingGRETunnelPrimaryDestVipArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelPrimaryDestVip)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelPrimaryDestVipArray) ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput() GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput {
+	return i.ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelPrimaryDestVipArray) ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput)
+}
+
+type GetTrafficForwardingGRETunnelPrimaryDestVipOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelPrimaryDestVipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelPrimaryDestVip)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) ToGetTrafficForwardingGRETunnelPrimaryDestVipOutput() GetTrafficForwardingGRETunnelPrimaryDestVipOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) ToGetTrafficForwardingGRETunnelPrimaryDestVipOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.City }).(pulumi.StringOutput)
+}
+
+// (String) When withinCountry is enabled, you must set this to the country code.
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Datacenter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.Datacenter }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the static IP address that is associated to a GRE tunnel
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Latitude() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) int { return v.Latitude }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Longitude() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) int { return v.Longitude }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) PrivateServiceEdge() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) bool { return v.PrivateServiceEdge }).(pulumi.BoolOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (String) GRE cluster virtual IP address (VIP)
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipOutput) VirtualIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelPrimaryDestVip) string { return v.VirtualIp }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelPrimaryDestVip)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput) ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput() GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput) ToGetTrafficForwardingGRETunnelPrimaryDestVipArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingGRETunnelPrimaryDestVipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingGRETunnelPrimaryDestVip {
+		return vs[0].([]GetTrafficForwardingGRETunnelPrimaryDestVip)[vs[1].(int)]
+	}).(GetTrafficForwardingGRETunnelPrimaryDestVipOutput)
+}
+
+type GetTrafficForwardingGRETunnelSecondaryDestVip struct {
+	City string `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode string `pulumi:"countryCode"`
+	Datacenter  string `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id                 int    `pulumi:"id"`
+	Latitude           int    `pulumi:"latitude"`
+	Longitude          int    `pulumi:"longitude"`
+	PrivateServiceEdge bool   `pulumi:"privateServiceEdge"`
+	Region             string `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp string `pulumi:"virtualIp"`
+}
+
+// GetTrafficForwardingGRETunnelSecondaryDestVipInput is an input type that accepts GetTrafficForwardingGRETunnelSecondaryDestVipArgs and GetTrafficForwardingGRETunnelSecondaryDestVipOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelSecondaryDestVipInput` via:
+//
+//	GetTrafficForwardingGRETunnelSecondaryDestVipArgs{...}
+type GetTrafficForwardingGRETunnelSecondaryDestVipInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelSecondaryDestVipOutput() GetTrafficForwardingGRETunnelSecondaryDestVipOutput
+	ToGetTrafficForwardingGRETunnelSecondaryDestVipOutputWithContext(context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipOutput
+}
+
+type GetTrafficForwardingGRETunnelSecondaryDestVipArgs struct {
+	City pulumi.StringInput `pulumi:"city"`
+	// (String) When withinCountry is enabled, you must set this to the country code.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	Datacenter  pulumi.StringInput `pulumi:"datacenter"`
+	// Unique identifier of the static IP address that is associated to a GRE tunnel
+	Id                 pulumi.IntInput    `pulumi:"id"`
+	Latitude           pulumi.IntInput    `pulumi:"latitude"`
+	Longitude          pulumi.IntInput    `pulumi:"longitude"`
+	PrivateServiceEdge pulumi.BoolInput   `pulumi:"privateServiceEdge"`
+	Region             pulumi.StringInput `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp pulumi.StringInput `pulumi:"virtualIp"`
+}
+
+func (GetTrafficForwardingGRETunnelSecondaryDestVipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVip)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelSecondaryDestVipArgs) ToGetTrafficForwardingGRETunnelSecondaryDestVipOutput() GetTrafficForwardingGRETunnelSecondaryDestVipOutput {
+	return i.ToGetTrafficForwardingGRETunnelSecondaryDestVipOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelSecondaryDestVipArgs) ToGetTrafficForwardingGRETunnelSecondaryDestVipOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelSecondaryDestVipOutput)
+}
+
+// GetTrafficForwardingGRETunnelSecondaryDestVipArrayInput is an input type that accepts GetTrafficForwardingGRETunnelSecondaryDestVipArray and GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingGRETunnelSecondaryDestVipArrayInput` via:
+//
+//	GetTrafficForwardingGRETunnelSecondaryDestVipArray{ GetTrafficForwardingGRETunnelSecondaryDestVipArgs{...} }
+type GetTrafficForwardingGRETunnelSecondaryDestVipArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput() GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput
+	ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutputWithContext(context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput
+}
+
+type GetTrafficForwardingGRETunnelSecondaryDestVipArray []GetTrafficForwardingGRETunnelSecondaryDestVipInput
+
+func (GetTrafficForwardingGRETunnelSecondaryDestVipArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelSecondaryDestVip)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingGRETunnelSecondaryDestVipArray) ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput() GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput {
+	return i.ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingGRETunnelSecondaryDestVipArray) ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput)
+}
+
+type GetTrafficForwardingGRETunnelSecondaryDestVipOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelSecondaryDestVipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVip)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) ToGetTrafficForwardingGRETunnelSecondaryDestVipOutput() GetTrafficForwardingGRETunnelSecondaryDestVipOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) ToGetTrafficForwardingGRETunnelSecondaryDestVipOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.City }).(pulumi.StringOutput)
+}
+
+// (String) When withinCountry is enabled, you must set this to the country code.
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Datacenter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.Datacenter }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the static IP address that is associated to a GRE tunnel
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Latitude() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) int { return v.Latitude }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Longitude() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) int { return v.Longitude }).(pulumi.IntOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) PrivateServiceEdge() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) bool { return v.PrivateServiceEdge }).(pulumi.BoolOutput)
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (String) GRE cluster virtual IP address (VIP)
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipOutput) VirtualIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingGRETunnelSecondaryDestVip) string { return v.VirtualIp }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingGRETunnelSecondaryDestVip)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput) ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput() GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput) ToGetTrafficForwardingGRETunnelSecondaryDestVipArrayOutputWithContext(ctx context.Context) GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingGRETunnelSecondaryDestVipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingGRETunnelSecondaryDestVip {
+		return vs[0].([]GetTrafficForwardingGRETunnelSecondaryDestVip)[vs[1].(int)]
+	}).(GetTrafficForwardingGRETunnelSecondaryDestVipOutput)
+}
+
+type GetTrafficForwardingStaticIPCity struct {
+	// The unique identifier for the static IP address
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingStaticIPCityInput is an input type that accepts GetTrafficForwardingStaticIPCityArgs and GetTrafficForwardingStaticIPCityOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPCityInput` via:
+//
+//	GetTrafficForwardingStaticIPCityArgs{...}
+type GetTrafficForwardingStaticIPCityInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput
+	ToGetTrafficForwardingStaticIPCityOutputWithContext(context.Context) GetTrafficForwardingStaticIPCityOutput
+}
+
+type GetTrafficForwardingStaticIPCityArgs struct {
+	// The unique identifier for the static IP address
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingStaticIPCityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPCityArgs) ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput {
+	return i.ToGetTrafficForwardingStaticIPCityOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPCityArgs) ToGetTrafficForwardingStaticIPCityOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPCityOutput)
+}
+
+// GetTrafficForwardingStaticIPCityArrayInput is an input type that accepts GetTrafficForwardingStaticIPCityArray and GetTrafficForwardingStaticIPCityArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPCityArrayInput` via:
+//
+//	GetTrafficForwardingStaticIPCityArray{ GetTrafficForwardingStaticIPCityArgs{...} }
+type GetTrafficForwardingStaticIPCityArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput
+	ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(context.Context) GetTrafficForwardingStaticIPCityArrayOutput
+}
+
+type GetTrafficForwardingStaticIPCityArray []GetTrafficForwardingStaticIPCityInput
+
+func (GetTrafficForwardingStaticIPCityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPCityArray) ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput {
+	return i.ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPCityArray) ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPCityArrayOutput)
+}
+
+type GetTrafficForwardingStaticIPCityOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPCityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPCityOutput) ToGetTrafficForwardingStaticIPCityOutput() GetTrafficForwardingStaticIPCityOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityOutput) ToGetTrafficForwardingStaticIPCityOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityOutput {
+	return o
+}
+
+// The unique identifier for the static IP address
+func (o GetTrafficForwardingStaticIPCityOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPCity) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingStaticIPCityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPCity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingStaticIPCityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPCityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPCity)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) ToGetTrafficForwardingStaticIPCityArrayOutput() GetTrafficForwardingStaticIPCityArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) ToGetTrafficForwardingStaticIPCityArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPCityArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPCityArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingStaticIPCityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingStaticIPCity {
+		return vs[0].([]GetTrafficForwardingStaticIPCity)[vs[1].(int)]
+	}).(GetTrafficForwardingStaticIPCityOutput)
+}
+
+type GetTrafficForwardingStaticIPLastModifiedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// The unique identifier for the static IP address
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingStaticIPLastModifiedByInput is an input type that accepts GetTrafficForwardingStaticIPLastModifiedByArgs and GetTrafficForwardingStaticIPLastModifiedByOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPLastModifiedByInput` via:
+//
+//	GetTrafficForwardingStaticIPLastModifiedByArgs{...}
+type GetTrafficForwardingStaticIPLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPLastModifiedByOutput() GetTrafficForwardingStaticIPLastModifiedByOutput
+	ToGetTrafficForwardingStaticIPLastModifiedByOutputWithContext(context.Context) GetTrafficForwardingStaticIPLastModifiedByOutput
+}
+
+type GetTrafficForwardingStaticIPLastModifiedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The unique identifier for the static IP address
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingStaticIPLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPLastModifiedByArgs) ToGetTrafficForwardingStaticIPLastModifiedByOutput() GetTrafficForwardingStaticIPLastModifiedByOutput {
+	return i.ToGetTrafficForwardingStaticIPLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPLastModifiedByArgs) ToGetTrafficForwardingStaticIPLastModifiedByOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPLastModifiedByOutput)
+}
+
+// GetTrafficForwardingStaticIPLastModifiedByArrayInput is an input type that accepts GetTrafficForwardingStaticIPLastModifiedByArray and GetTrafficForwardingStaticIPLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPLastModifiedByArrayInput` via:
+//
+//	GetTrafficForwardingStaticIPLastModifiedByArray{ GetTrafficForwardingStaticIPLastModifiedByArgs{...} }
+type GetTrafficForwardingStaticIPLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPLastModifiedByArrayOutput() GetTrafficForwardingStaticIPLastModifiedByArrayOutput
+	ToGetTrafficForwardingStaticIPLastModifiedByArrayOutputWithContext(context.Context) GetTrafficForwardingStaticIPLastModifiedByArrayOutput
+}
+
+type GetTrafficForwardingStaticIPLastModifiedByArray []GetTrafficForwardingStaticIPLastModifiedByInput
+
+func (GetTrafficForwardingStaticIPLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPLastModifiedByArray) ToGetTrafficForwardingStaticIPLastModifiedByArrayOutput() GetTrafficForwardingStaticIPLastModifiedByArrayOutput {
+	return i.ToGetTrafficForwardingStaticIPLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPLastModifiedByArray) ToGetTrafficForwardingStaticIPLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPLastModifiedByArrayOutput)
+}
+
+type GetTrafficForwardingStaticIPLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPLastModifiedByOutput) ToGetTrafficForwardingStaticIPLastModifiedByOutput() GetTrafficForwardingStaticIPLastModifiedByOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPLastModifiedByOutput) ToGetTrafficForwardingStaticIPLastModifiedByOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPLastModifiedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficForwardingStaticIPLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The unique identifier for the static IP address
+func (o GetTrafficForwardingStaticIPLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingStaticIPLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingStaticIPLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPLastModifiedByArrayOutput) ToGetTrafficForwardingStaticIPLastModifiedByArrayOutput() GetTrafficForwardingStaticIPLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPLastModifiedByArrayOutput) ToGetTrafficForwardingStaticIPLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingStaticIPLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingStaticIPLastModifiedBy {
+		return vs[0].([]GetTrafficForwardingStaticIPLastModifiedBy)[vs[1].(int)]
+	}).(GetTrafficForwardingStaticIPLastModifiedByOutput)
+}
+
+type GetTrafficForwardingStaticIPManagedBy struct {
+	// The unique identifier for the static IP address
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingStaticIPManagedByInput is an input type that accepts GetTrafficForwardingStaticIPManagedByArgs and GetTrafficForwardingStaticIPManagedByOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPManagedByInput` via:
+//
+//	GetTrafficForwardingStaticIPManagedByArgs{...}
+type GetTrafficForwardingStaticIPManagedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPManagedByOutput() GetTrafficForwardingStaticIPManagedByOutput
+	ToGetTrafficForwardingStaticIPManagedByOutputWithContext(context.Context) GetTrafficForwardingStaticIPManagedByOutput
+}
+
+type GetTrafficForwardingStaticIPManagedByArgs struct {
+	// The unique identifier for the static IP address
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingStaticIPManagedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPManagedByArgs) ToGetTrafficForwardingStaticIPManagedByOutput() GetTrafficForwardingStaticIPManagedByOutput {
+	return i.ToGetTrafficForwardingStaticIPManagedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPManagedByArgs) ToGetTrafficForwardingStaticIPManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPManagedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPManagedByOutput)
+}
+
+// GetTrafficForwardingStaticIPManagedByArrayInput is an input type that accepts GetTrafficForwardingStaticIPManagedByArray and GetTrafficForwardingStaticIPManagedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingStaticIPManagedByArrayInput` via:
+//
+//	GetTrafficForwardingStaticIPManagedByArray{ GetTrafficForwardingStaticIPManagedByArgs{...} }
+type GetTrafficForwardingStaticIPManagedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingStaticIPManagedByArrayOutput() GetTrafficForwardingStaticIPManagedByArrayOutput
+	ToGetTrafficForwardingStaticIPManagedByArrayOutputWithContext(context.Context) GetTrafficForwardingStaticIPManagedByArrayOutput
+}
+
+type GetTrafficForwardingStaticIPManagedByArray []GetTrafficForwardingStaticIPManagedByInput
+
+func (GetTrafficForwardingStaticIPManagedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingStaticIPManagedByArray) ToGetTrafficForwardingStaticIPManagedByArrayOutput() GetTrafficForwardingStaticIPManagedByArrayOutput {
+	return i.ToGetTrafficForwardingStaticIPManagedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingStaticIPManagedByArray) ToGetTrafficForwardingStaticIPManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPManagedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingStaticIPManagedByArrayOutput)
+}
+
+type GetTrafficForwardingStaticIPManagedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPManagedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingStaticIPManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPManagedByOutput) ToGetTrafficForwardingStaticIPManagedByOutput() GetTrafficForwardingStaticIPManagedByOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPManagedByOutput) ToGetTrafficForwardingStaticIPManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPManagedByOutput {
+	return o
+}
+
+// The unique identifier for the static IP address
+func (o GetTrafficForwardingStaticIPManagedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPManagedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingStaticIPManagedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingStaticIPManagedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingStaticIPManagedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingStaticIPManagedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingStaticIPManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingStaticIPManagedByArrayOutput) ToGetTrafficForwardingStaticIPManagedByArrayOutput() GetTrafficForwardingStaticIPManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPManagedByArrayOutput) ToGetTrafficForwardingStaticIPManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingStaticIPManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingStaticIPManagedByArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingStaticIPManagedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingStaticIPManagedBy {
+		return vs[0].([]GetTrafficForwardingStaticIPManagedBy)[vs[1].(int)]
+	}).(GetTrafficForwardingStaticIPManagedByOutput)
+}
+
+type GetTrafficForwardingVIPRecommendedListList struct {
+	// (String) Data center city information
+	City string `pulumi:"city"`
+	// (String) Data center information
+	Datacenter *string `pulumi:"datacenter"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id *int `pulumi:"id"`
+	// (Number) The latitude coordinate of the GRE tunnel source.
+	Latitude float64 `pulumi:"latitude"`
+	// (Number) The longitude coordinate of the GRE tunnel source.
+	Longitude float64 `pulumi:"longitude"`
+	// (Boolean) Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
+	PrivateServiceEdge *bool `pulumi:"privateServiceEdge"`
+	// (String) Data center region information.
+	Region string `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp *string `pulumi:"virtualIp"`
+}
+
+// GetTrafficForwardingVIPRecommendedListListInput is an input type that accepts GetTrafficForwardingVIPRecommendedListListArgs and GetTrafficForwardingVIPRecommendedListListOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVIPRecommendedListListInput` via:
+//
+//	GetTrafficForwardingVIPRecommendedListListArgs{...}
+type GetTrafficForwardingVIPRecommendedListListInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVIPRecommendedListListOutput() GetTrafficForwardingVIPRecommendedListListOutput
+	ToGetTrafficForwardingVIPRecommendedListListOutputWithContext(context.Context) GetTrafficForwardingVIPRecommendedListListOutput
+}
+
+type GetTrafficForwardingVIPRecommendedListListArgs struct {
+	// (String) Data center city information
+	City pulumi.StringInput `pulumi:"city"`
+	// (String) Data center information
+	Datacenter pulumi.StringPtrInput `pulumi:"datacenter"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// (Number) The latitude coordinate of the GRE tunnel source.
+	Latitude pulumi.Float64Input `pulumi:"latitude"`
+	// (Number) The longitude coordinate of the GRE tunnel source.
+	Longitude pulumi.Float64Input `pulumi:"longitude"`
+	// (Boolean) Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
+	PrivateServiceEdge pulumi.BoolPtrInput `pulumi:"privateServiceEdge"`
+	// (String) Data center region information.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (String) GRE cluster virtual IP address (VIP)
+	VirtualIp pulumi.StringPtrInput `pulumi:"virtualIp"`
+}
+
+func (GetTrafficForwardingVIPRecommendedListListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVIPRecommendedListList)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVIPRecommendedListListArgs) ToGetTrafficForwardingVIPRecommendedListListOutput() GetTrafficForwardingVIPRecommendedListListOutput {
+	return i.ToGetTrafficForwardingVIPRecommendedListListOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVIPRecommendedListListArgs) ToGetTrafficForwardingVIPRecommendedListListOutputWithContext(ctx context.Context) GetTrafficForwardingVIPRecommendedListListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVIPRecommendedListListOutput)
+}
+
+// GetTrafficForwardingVIPRecommendedListListArrayInput is an input type that accepts GetTrafficForwardingVIPRecommendedListListArray and GetTrafficForwardingVIPRecommendedListListArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVIPRecommendedListListArrayInput` via:
+//
+//	GetTrafficForwardingVIPRecommendedListListArray{ GetTrafficForwardingVIPRecommendedListListArgs{...} }
+type GetTrafficForwardingVIPRecommendedListListArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVIPRecommendedListListArrayOutput() GetTrafficForwardingVIPRecommendedListListArrayOutput
+	ToGetTrafficForwardingVIPRecommendedListListArrayOutputWithContext(context.Context) GetTrafficForwardingVIPRecommendedListListArrayOutput
+}
+
+type GetTrafficForwardingVIPRecommendedListListArray []GetTrafficForwardingVIPRecommendedListListInput
+
+func (GetTrafficForwardingVIPRecommendedListListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVIPRecommendedListList)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVIPRecommendedListListArray) ToGetTrafficForwardingVIPRecommendedListListArrayOutput() GetTrafficForwardingVIPRecommendedListListArrayOutput {
+	return i.ToGetTrafficForwardingVIPRecommendedListListArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVIPRecommendedListListArray) ToGetTrafficForwardingVIPRecommendedListListArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVIPRecommendedListListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVIPRecommendedListListArrayOutput)
+}
+
+type GetTrafficForwardingVIPRecommendedListListOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVIPRecommendedListListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVIPRecommendedListList)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVIPRecommendedListListOutput) ToGetTrafficForwardingVIPRecommendedListListOutput() GetTrafficForwardingVIPRecommendedListListOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVIPRecommendedListListOutput) ToGetTrafficForwardingVIPRecommendedListListOutputWithContext(ctx context.Context) GetTrafficForwardingVIPRecommendedListListOutput {
+	return o
+}
+
+// (String) Data center city information
+func (o GetTrafficForwardingVIPRecommendedListListOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) string { return v.City }).(pulumi.StringOutput)
+}
+
+// (String) Data center information
+func (o GetTrafficForwardingVIPRecommendedListListOutput) Datacenter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
+}
+
+// Unique identifer of the GRE virtual IP address (VIP)
+func (o GetTrafficForwardingVIPRecommendedListListOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// (Number) The latitude coordinate of the GRE tunnel source.
+func (o GetTrafficForwardingVIPRecommendedListListOutput) Latitude() pulumi.Float64Output {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) float64 { return v.Latitude }).(pulumi.Float64Output)
+}
+
+// (Number) The longitude coordinate of the GRE tunnel source.
+func (o GetTrafficForwardingVIPRecommendedListListOutput) Longitude() pulumi.Float64Output {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) float64 { return v.Longitude }).(pulumi.Float64Output)
+}
+
+// (Boolean) Set to true if the virtual IP address (VIP) is a ZIA Private Service Edge
+func (o GetTrafficForwardingVIPRecommendedListListOutput) PrivateServiceEdge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) *bool { return v.PrivateServiceEdge }).(pulumi.BoolPtrOutput)
+}
+
+// (String) Data center region information.
+func (o GetTrafficForwardingVIPRecommendedListListOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (String) GRE cluster virtual IP address (VIP)
+func (o GetTrafficForwardingVIPRecommendedListListOutput) VirtualIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVIPRecommendedListList) *string { return v.VirtualIp }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficForwardingVIPRecommendedListListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVIPRecommendedListListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVIPRecommendedListList)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVIPRecommendedListListArrayOutput) ToGetTrafficForwardingVIPRecommendedListListArrayOutput() GetTrafficForwardingVIPRecommendedListListArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVIPRecommendedListListArrayOutput) ToGetTrafficForwardingVIPRecommendedListListArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVIPRecommendedListListArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVIPRecommendedListListArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingVIPRecommendedListListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingVIPRecommendedListList {
+		return vs[0].([]GetTrafficForwardingVIPRecommendedListList)[vs[1].(int)]
+	}).(GetTrafficForwardingVIPRecommendedListListOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsLocation struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingVPNCredentialsLocationInput is an input type that accepts GetTrafficForwardingVPNCredentialsLocationArgs and GetTrafficForwardingVPNCredentialsLocationOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVPNCredentialsLocationInput` via:
+//
+//	GetTrafficForwardingVPNCredentialsLocationArgs{...}
+type GetTrafficForwardingVPNCredentialsLocationInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVPNCredentialsLocationOutput() GetTrafficForwardingVPNCredentialsLocationOutput
+	ToGetTrafficForwardingVPNCredentialsLocationOutputWithContext(context.Context) GetTrafficForwardingVPNCredentialsLocationOutput
+}
+
+type GetTrafficForwardingVPNCredentialsLocationArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingVPNCredentialsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVPNCredentialsLocation)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVPNCredentialsLocationArgs) ToGetTrafficForwardingVPNCredentialsLocationOutput() GetTrafficForwardingVPNCredentialsLocationOutput {
+	return i.ToGetTrafficForwardingVPNCredentialsLocationOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVPNCredentialsLocationArgs) ToGetTrafficForwardingVPNCredentialsLocationOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVPNCredentialsLocationOutput)
+}
+
+// GetTrafficForwardingVPNCredentialsLocationArrayInput is an input type that accepts GetTrafficForwardingVPNCredentialsLocationArray and GetTrafficForwardingVPNCredentialsLocationArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVPNCredentialsLocationArrayInput` via:
+//
+//	GetTrafficForwardingVPNCredentialsLocationArray{ GetTrafficForwardingVPNCredentialsLocationArgs{...} }
+type GetTrafficForwardingVPNCredentialsLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVPNCredentialsLocationArrayOutput() GetTrafficForwardingVPNCredentialsLocationArrayOutput
+	ToGetTrafficForwardingVPNCredentialsLocationArrayOutputWithContext(context.Context) GetTrafficForwardingVPNCredentialsLocationArrayOutput
+}
+
+type GetTrafficForwardingVPNCredentialsLocationArray []GetTrafficForwardingVPNCredentialsLocationInput
+
+func (GetTrafficForwardingVPNCredentialsLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVPNCredentialsLocation)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVPNCredentialsLocationArray) ToGetTrafficForwardingVPNCredentialsLocationArrayOutput() GetTrafficForwardingVPNCredentialsLocationArrayOutput {
+	return i.ToGetTrafficForwardingVPNCredentialsLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVPNCredentialsLocationArray) ToGetTrafficForwardingVPNCredentialsLocationArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVPNCredentialsLocationArrayOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsLocationOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVPNCredentialsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVPNCredentialsLocation)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVPNCredentialsLocationOutput) ToGetTrafficForwardingVPNCredentialsLocationOutput() GetTrafficForwardingVPNCredentialsLocationOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsLocationOutput) ToGetTrafficForwardingVPNCredentialsLocationOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsLocationOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficForwardingVPNCredentialsLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifer of the GRE virtual IP address (VIP)
+func (o GetTrafficForwardingVPNCredentialsLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingVPNCredentialsLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVPNCredentialsLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVPNCredentialsLocation)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVPNCredentialsLocationArrayOutput) ToGetTrafficForwardingVPNCredentialsLocationArrayOutput() GetTrafficForwardingVPNCredentialsLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsLocationArrayOutput) ToGetTrafficForwardingVPNCredentialsLocationArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingVPNCredentialsLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingVPNCredentialsLocation {
+		return vs[0].([]GetTrafficForwardingVPNCredentialsLocation)[vs[1].(int)]
+	}).(GetTrafficForwardingVPNCredentialsLocationOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsManagedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficForwardingVPNCredentialsManagedByInput is an input type that accepts GetTrafficForwardingVPNCredentialsManagedByArgs and GetTrafficForwardingVPNCredentialsManagedByOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVPNCredentialsManagedByInput` via:
+//
+//	GetTrafficForwardingVPNCredentialsManagedByArgs{...}
+type GetTrafficForwardingVPNCredentialsManagedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVPNCredentialsManagedByOutput() GetTrafficForwardingVPNCredentialsManagedByOutput
+	ToGetTrafficForwardingVPNCredentialsManagedByOutputWithContext(context.Context) GetTrafficForwardingVPNCredentialsManagedByOutput
+}
+
+type GetTrafficForwardingVPNCredentialsManagedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifer of the GRE virtual IP address (VIP)
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficForwardingVPNCredentialsManagedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVPNCredentialsManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVPNCredentialsManagedByArgs) ToGetTrafficForwardingVPNCredentialsManagedByOutput() GetTrafficForwardingVPNCredentialsManagedByOutput {
+	return i.ToGetTrafficForwardingVPNCredentialsManagedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVPNCredentialsManagedByArgs) ToGetTrafficForwardingVPNCredentialsManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsManagedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVPNCredentialsManagedByOutput)
+}
+
+// GetTrafficForwardingVPNCredentialsManagedByArrayInput is an input type that accepts GetTrafficForwardingVPNCredentialsManagedByArray and GetTrafficForwardingVPNCredentialsManagedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficForwardingVPNCredentialsManagedByArrayInput` via:
+//
+//	GetTrafficForwardingVPNCredentialsManagedByArray{ GetTrafficForwardingVPNCredentialsManagedByArgs{...} }
+type GetTrafficForwardingVPNCredentialsManagedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficForwardingVPNCredentialsManagedByArrayOutput() GetTrafficForwardingVPNCredentialsManagedByArrayOutput
+	ToGetTrafficForwardingVPNCredentialsManagedByArrayOutputWithContext(context.Context) GetTrafficForwardingVPNCredentialsManagedByArrayOutput
+}
+
+type GetTrafficForwardingVPNCredentialsManagedByArray []GetTrafficForwardingVPNCredentialsManagedByInput
+
+func (GetTrafficForwardingVPNCredentialsManagedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVPNCredentialsManagedBy)(nil)).Elem()
+}
+
+func (i GetTrafficForwardingVPNCredentialsManagedByArray) ToGetTrafficForwardingVPNCredentialsManagedByArrayOutput() GetTrafficForwardingVPNCredentialsManagedByArrayOutput {
+	return i.ToGetTrafficForwardingVPNCredentialsManagedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficForwardingVPNCredentialsManagedByArray) ToGetTrafficForwardingVPNCredentialsManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsManagedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficForwardingVPNCredentialsManagedByArrayOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsManagedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVPNCredentialsManagedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficForwardingVPNCredentialsManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVPNCredentialsManagedByOutput) ToGetTrafficForwardingVPNCredentialsManagedByOutput() GetTrafficForwardingVPNCredentialsManagedByOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsManagedByOutput) ToGetTrafficForwardingVPNCredentialsManagedByOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsManagedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficForwardingVPNCredentialsManagedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsManagedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifer of the GRE virtual IP address (VIP)
+func (o GetTrafficForwardingVPNCredentialsManagedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsManagedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetTrafficForwardingVPNCredentialsManagedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficForwardingVPNCredentialsManagedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficForwardingVPNCredentialsManagedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficForwardingVPNCredentialsManagedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficForwardingVPNCredentialsManagedBy)(nil)).Elem()
+}
+
+func (o GetTrafficForwardingVPNCredentialsManagedByArrayOutput) ToGetTrafficForwardingVPNCredentialsManagedByArrayOutput() GetTrafficForwardingVPNCredentialsManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsManagedByArrayOutput) ToGetTrafficForwardingVPNCredentialsManagedByArrayOutputWithContext(ctx context.Context) GetTrafficForwardingVPNCredentialsManagedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficForwardingVPNCredentialsManagedByArrayOutput) Index(i pulumi.IntInput) GetTrafficForwardingVPNCredentialsManagedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficForwardingVPNCredentialsManagedBy {
+		return vs[0].([]GetTrafficForwardingVPNCredentialsManagedBy)[vs[1].(int)]
+	}).(GetTrafficForwardingVPNCredentialsManagedByOutput)
+}
+
+type GetURLCategoriesScope struct {
+	// (List of Object)
+	ScopeEntities []GetURLCategoriesScopeScopeEntity `pulumi:"scopeEntities"`
+	// (List of Object) Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+	ScopeGroupMemberEntities []GetURLCategoriesScopeScopeGroupMemberEntity `pulumi:"scopeGroupMemberEntities"`
+	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+	Type string `pulumi:"type"`
+}
+
+// GetURLCategoriesScopeInput is an input type that accepts GetURLCategoriesScopeArgs and GetURLCategoriesScopeOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeInput` via:
+//
+//	GetURLCategoriesScopeArgs{...}
+type GetURLCategoriesScopeInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeOutput() GetURLCategoriesScopeOutput
+	ToGetURLCategoriesScopeOutputWithContext(context.Context) GetURLCategoriesScopeOutput
+}
+
+type GetURLCategoriesScopeArgs struct {
+	// (List of Object)
+	ScopeEntities GetURLCategoriesScopeScopeEntityArrayInput `pulumi:"scopeEntities"`
+	// (List of Object) Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+	ScopeGroupMemberEntities GetURLCategoriesScopeScopeGroupMemberEntityArrayInput `pulumi:"scopeGroupMemberEntities"`
+	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetURLCategoriesScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScope)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeArgs) ToGetURLCategoriesScopeOutput() GetURLCategoriesScopeOutput {
+	return i.ToGetURLCategoriesScopeOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeArgs) ToGetURLCategoriesScopeOutputWithContext(ctx context.Context) GetURLCategoriesScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeOutput)
+}
+
+// GetURLCategoriesScopeArrayInput is an input type that accepts GetURLCategoriesScopeArray and GetURLCategoriesScopeArrayOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeArrayInput` via:
+//
+//	GetURLCategoriesScopeArray{ GetURLCategoriesScopeArgs{...} }
+type GetURLCategoriesScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeArrayOutput() GetURLCategoriesScopeArrayOutput
+	ToGetURLCategoriesScopeArrayOutputWithContext(context.Context) GetURLCategoriesScopeArrayOutput
+}
+
+type GetURLCategoriesScopeArray []GetURLCategoriesScopeInput
+
+func (GetURLCategoriesScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScope)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeArray) ToGetURLCategoriesScopeArrayOutput() GetURLCategoriesScopeArrayOutput {
+	return i.ToGetURLCategoriesScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeArray) ToGetURLCategoriesScopeArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeArrayOutput)
+}
+
+type GetURLCategoriesScopeOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScope)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeOutput) ToGetURLCategoriesScopeOutput() GetURLCategoriesScopeOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeOutput) ToGetURLCategoriesScopeOutputWithContext(ctx context.Context) GetURLCategoriesScopeOutput {
+	return o
+}
+
+// (List of Object)
+func (o GetURLCategoriesScopeOutput) ScopeEntities() GetURLCategoriesScopeScopeEntityArrayOutput {
+	return o.ApplyT(func(v GetURLCategoriesScope) []GetURLCategoriesScopeScopeEntity { return v.ScopeEntities }).(GetURLCategoriesScopeScopeEntityArrayOutput)
+}
+
+// (List of Object) Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
+func (o GetURLCategoriesScopeOutput) ScopeGroupMemberEntities() GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput {
+	return o.ApplyT(func(v GetURLCategoriesScope) []GetURLCategoriesScopeScopeGroupMemberEntity {
+		return v.ScopeGroupMemberEntities
+	}).(GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput)
+}
+
+// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+func (o GetURLCategoriesScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLCategoriesScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetURLCategoriesScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScope)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeArrayOutput) ToGetURLCategoriesScopeArrayOutput() GetURLCategoriesScopeArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeArrayOutput) ToGetURLCategoriesScopeArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeArrayOutput) Index(i pulumi.IntInput) GetURLCategoriesScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLCategoriesScope {
+		return vs[0].([]GetURLCategoriesScope)[vs[1].(int)]
+	}).(GetURLCategoriesScopeOutput)
+}
+
+type GetURLCategoriesScopeScopeEntity struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// URL category
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetURLCategoriesScopeScopeEntityInput is an input type that accepts GetURLCategoriesScopeScopeEntityArgs and GetURLCategoriesScopeScopeEntityOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeScopeEntityInput` via:
+//
+//	GetURLCategoriesScopeScopeEntityArgs{...}
+type GetURLCategoriesScopeScopeEntityInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeScopeEntityOutput() GetURLCategoriesScopeScopeEntityOutput
+	ToGetURLCategoriesScopeScopeEntityOutputWithContext(context.Context) GetURLCategoriesScopeScopeEntityOutput
+}
+
+type GetURLCategoriesScopeScopeEntityArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// URL category
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetURLCategoriesScopeScopeEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScopeScopeEntity)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeScopeEntityArgs) ToGetURLCategoriesScopeScopeEntityOutput() GetURLCategoriesScopeScopeEntityOutput {
+	return i.ToGetURLCategoriesScopeScopeEntityOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeScopeEntityArgs) ToGetURLCategoriesScopeScopeEntityOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeScopeEntityOutput)
+}
+
+// GetURLCategoriesScopeScopeEntityArrayInput is an input type that accepts GetURLCategoriesScopeScopeEntityArray and GetURLCategoriesScopeScopeEntityArrayOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeScopeEntityArrayInput` via:
+//
+//	GetURLCategoriesScopeScopeEntityArray{ GetURLCategoriesScopeScopeEntityArgs{...} }
+type GetURLCategoriesScopeScopeEntityArrayInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeScopeEntityArrayOutput() GetURLCategoriesScopeScopeEntityArrayOutput
+	ToGetURLCategoriesScopeScopeEntityArrayOutputWithContext(context.Context) GetURLCategoriesScopeScopeEntityArrayOutput
+}
+
+type GetURLCategoriesScopeScopeEntityArray []GetURLCategoriesScopeScopeEntityInput
+
+func (GetURLCategoriesScopeScopeEntityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScopeScopeEntity)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeScopeEntityArray) ToGetURLCategoriesScopeScopeEntityArrayOutput() GetURLCategoriesScopeScopeEntityArrayOutput {
+	return i.ToGetURLCategoriesScopeScopeEntityArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeScopeEntityArray) ToGetURLCategoriesScopeScopeEntityArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeEntityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeScopeEntityArrayOutput)
+}
+
+type GetURLCategoriesScopeScopeEntityOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeScopeEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScopeScopeEntity)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeScopeEntityOutput) ToGetURLCategoriesScopeScopeEntityOutput() GetURLCategoriesScopeScopeEntityOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeEntityOutput) ToGetURLCategoriesScopeScopeEntityOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeEntityOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetURLCategoriesScopeScopeEntityOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeEntity) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// URL category
+func (o GetURLCategoriesScopeScopeEntityOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeEntity) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetURLCategoriesScopeScopeEntityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeEntity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetURLCategoriesScopeScopeEntityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeScopeEntityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScopeScopeEntity)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeScopeEntityArrayOutput) ToGetURLCategoriesScopeScopeEntityArrayOutput() GetURLCategoriesScopeScopeEntityArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeEntityArrayOutput) ToGetURLCategoriesScopeScopeEntityArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeEntityArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeEntityArrayOutput) Index(i pulumi.IntInput) GetURLCategoriesScopeScopeEntityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLCategoriesScopeScopeEntity {
+		return vs[0].([]GetURLCategoriesScopeScopeEntity)[vs[1].(int)]
+	}).(GetURLCategoriesScopeScopeEntityOutput)
+}
+
+type GetURLCategoriesScopeScopeGroupMemberEntity struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// URL category
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name string `pulumi:"name"`
+}
+
+// GetURLCategoriesScopeScopeGroupMemberEntityInput is an input type that accepts GetURLCategoriesScopeScopeGroupMemberEntityArgs and GetURLCategoriesScopeScopeGroupMemberEntityOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeScopeGroupMemberEntityInput` via:
+//
+//	GetURLCategoriesScopeScopeGroupMemberEntityArgs{...}
+type GetURLCategoriesScopeScopeGroupMemberEntityInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeScopeGroupMemberEntityOutput() GetURLCategoriesScopeScopeGroupMemberEntityOutput
+	ToGetURLCategoriesScopeScopeGroupMemberEntityOutputWithContext(context.Context) GetURLCategoriesScopeScopeGroupMemberEntityOutput
+}
+
+type GetURLCategoriesScopeScopeGroupMemberEntityArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// URL category
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetURLCategoriesScopeScopeGroupMemberEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScopeScopeGroupMemberEntity)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeScopeGroupMemberEntityArgs) ToGetURLCategoriesScopeScopeGroupMemberEntityOutput() GetURLCategoriesScopeScopeGroupMemberEntityOutput {
+	return i.ToGetURLCategoriesScopeScopeGroupMemberEntityOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeScopeGroupMemberEntityArgs) ToGetURLCategoriesScopeScopeGroupMemberEntityOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeGroupMemberEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeScopeGroupMemberEntityOutput)
+}
+
+// GetURLCategoriesScopeScopeGroupMemberEntityArrayInput is an input type that accepts GetURLCategoriesScopeScopeGroupMemberEntityArray and GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput values.
+// You can construct a concrete instance of `GetURLCategoriesScopeScopeGroupMemberEntityArrayInput` via:
+//
+//	GetURLCategoriesScopeScopeGroupMemberEntityArray{ GetURLCategoriesScopeScopeGroupMemberEntityArgs{...} }
+type GetURLCategoriesScopeScopeGroupMemberEntityArrayInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutput() GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput
+	ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutputWithContext(context.Context) GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput
+}
+
+type GetURLCategoriesScopeScopeGroupMemberEntityArray []GetURLCategoriesScopeScopeGroupMemberEntityInput
+
+func (GetURLCategoriesScopeScopeGroupMemberEntityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScopeScopeGroupMemberEntity)(nil)).Elem()
+}
+
+func (i GetURLCategoriesScopeScopeGroupMemberEntityArray) ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutput() GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput {
+	return i.ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesScopeScopeGroupMemberEntityArray) ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput)
+}
+
+type GetURLCategoriesScopeScopeGroupMemberEntityOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeScopeGroupMemberEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesScopeScopeGroupMemberEntity)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) ToGetURLCategoriesScopeScopeGroupMemberEntityOutput() GetURLCategoriesScopeScopeGroupMemberEntityOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) ToGetURLCategoriesScopeScopeGroupMemberEntityOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeGroupMemberEntityOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeGroupMemberEntity) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// URL category
+func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeGroupMemberEntity) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity
+func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLCategoriesScopeScopeGroupMemberEntity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesScopeScopeGroupMemberEntity)(nil)).Elem()
+}
+
+func (o GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput) ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutput() GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput) ToGetURLCategoriesScopeScopeGroupMemberEntityArrayOutputWithContext(ctx context.Context) GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput) Index(i pulumi.IntInput) GetURLCategoriesScopeScopeGroupMemberEntityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLCategoriesScopeScopeGroupMemberEntity {
+		return vs[0].([]GetURLCategoriesScopeScopeGroupMemberEntity)[vs[1].(int)]
+	}).(GetURLCategoriesScopeScopeGroupMemberEntityOutput)
+}
+
+type GetURLCategoriesUrlKeywordCount struct {
+	// (Number) Count of total keywords with retain parent category.
+	RetainParentKeywordCount int `pulumi:"retainParentKeywordCount"`
+	// (Number) Count of URLs with retain parent category.
+	RetainParentUrlCount int `pulumi:"retainParentUrlCount"`
+	// (Number) Total keyword count for the category.
+	TotalKeywordCount int `pulumi:"totalKeywordCount"`
+	// (Number) Custom URL count for the category.
+	TotalUrlCount int `pulumi:"totalUrlCount"`
+}
+
+// GetURLCategoriesUrlKeywordCountInput is an input type that accepts GetURLCategoriesUrlKeywordCountArgs and GetURLCategoriesUrlKeywordCountOutput values.
+// You can construct a concrete instance of `GetURLCategoriesUrlKeywordCountInput` via:
+//
+//	GetURLCategoriesUrlKeywordCountArgs{...}
+type GetURLCategoriesUrlKeywordCountInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesUrlKeywordCountOutput() GetURLCategoriesUrlKeywordCountOutput
+	ToGetURLCategoriesUrlKeywordCountOutputWithContext(context.Context) GetURLCategoriesUrlKeywordCountOutput
+}
+
+type GetURLCategoriesUrlKeywordCountArgs struct {
+	// (Number) Count of total keywords with retain parent category.
+	RetainParentKeywordCount pulumi.IntInput `pulumi:"retainParentKeywordCount"`
+	// (Number) Count of URLs with retain parent category.
+	RetainParentUrlCount pulumi.IntInput `pulumi:"retainParentUrlCount"`
+	// (Number) Total keyword count for the category.
+	TotalKeywordCount pulumi.IntInput `pulumi:"totalKeywordCount"`
+	// (Number) Custom URL count for the category.
+	TotalUrlCount pulumi.IntInput `pulumi:"totalUrlCount"`
+}
+
+func (GetURLCategoriesUrlKeywordCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesUrlKeywordCount)(nil)).Elem()
+}
+
+func (i GetURLCategoriesUrlKeywordCountArgs) ToGetURLCategoriesUrlKeywordCountOutput() GetURLCategoriesUrlKeywordCountOutput {
+	return i.ToGetURLCategoriesUrlKeywordCountOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesUrlKeywordCountArgs) ToGetURLCategoriesUrlKeywordCountOutputWithContext(ctx context.Context) GetURLCategoriesUrlKeywordCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesUrlKeywordCountOutput)
+}
+
+// GetURLCategoriesUrlKeywordCountArrayInput is an input type that accepts GetURLCategoriesUrlKeywordCountArray and GetURLCategoriesUrlKeywordCountArrayOutput values.
+// You can construct a concrete instance of `GetURLCategoriesUrlKeywordCountArrayInput` via:
+//
+//	GetURLCategoriesUrlKeywordCountArray{ GetURLCategoriesUrlKeywordCountArgs{...} }
+type GetURLCategoriesUrlKeywordCountArrayInput interface {
+	pulumi.Input
+
+	ToGetURLCategoriesUrlKeywordCountArrayOutput() GetURLCategoriesUrlKeywordCountArrayOutput
+	ToGetURLCategoriesUrlKeywordCountArrayOutputWithContext(context.Context) GetURLCategoriesUrlKeywordCountArrayOutput
+}
+
+type GetURLCategoriesUrlKeywordCountArray []GetURLCategoriesUrlKeywordCountInput
+
+func (GetURLCategoriesUrlKeywordCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesUrlKeywordCount)(nil)).Elem()
+}
+
+func (i GetURLCategoriesUrlKeywordCountArray) ToGetURLCategoriesUrlKeywordCountArrayOutput() GetURLCategoriesUrlKeywordCountArrayOutput {
+	return i.ToGetURLCategoriesUrlKeywordCountArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLCategoriesUrlKeywordCountArray) ToGetURLCategoriesUrlKeywordCountArrayOutputWithContext(ctx context.Context) GetURLCategoriesUrlKeywordCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLCategoriesUrlKeywordCountArrayOutput)
+}
+
+type GetURLCategoriesUrlKeywordCountOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesUrlKeywordCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLCategoriesUrlKeywordCount)(nil)).Elem()
+}
+
+func (o GetURLCategoriesUrlKeywordCountOutput) ToGetURLCategoriesUrlKeywordCountOutput() GetURLCategoriesUrlKeywordCountOutput {
+	return o
+}
+
+func (o GetURLCategoriesUrlKeywordCountOutput) ToGetURLCategoriesUrlKeywordCountOutputWithContext(ctx context.Context) GetURLCategoriesUrlKeywordCountOutput {
+	return o
+}
+
+// (Number) Count of total keywords with retain parent category.
+func (o GetURLCategoriesUrlKeywordCountOutput) RetainParentKeywordCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesUrlKeywordCount) int { return v.RetainParentKeywordCount }).(pulumi.IntOutput)
+}
+
+// (Number) Count of URLs with retain parent category.
+func (o GetURLCategoriesUrlKeywordCountOutput) RetainParentUrlCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesUrlKeywordCount) int { return v.RetainParentUrlCount }).(pulumi.IntOutput)
+}
+
+// (Number) Total keyword count for the category.
+func (o GetURLCategoriesUrlKeywordCountOutput) TotalKeywordCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesUrlKeywordCount) int { return v.TotalKeywordCount }).(pulumi.IntOutput)
+}
+
+// (Number) Custom URL count for the category.
+func (o GetURLCategoriesUrlKeywordCountOutput) TotalUrlCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLCategoriesUrlKeywordCount) int { return v.TotalUrlCount }).(pulumi.IntOutput)
+}
+
+type GetURLCategoriesUrlKeywordCountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLCategoriesUrlKeywordCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLCategoriesUrlKeywordCount)(nil)).Elem()
+}
+
+func (o GetURLCategoriesUrlKeywordCountArrayOutput) ToGetURLCategoriesUrlKeywordCountArrayOutput() GetURLCategoriesUrlKeywordCountArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesUrlKeywordCountArrayOutput) ToGetURLCategoriesUrlKeywordCountArrayOutputWithContext(ctx context.Context) GetURLCategoriesUrlKeywordCountArrayOutput {
+	return o
+}
+
+func (o GetURLCategoriesUrlKeywordCountArrayOutput) Index(i pulumi.IntInput) GetURLCategoriesUrlKeywordCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLCategoriesUrlKeywordCount {
+		return vs[0].([]GetURLCategoriesUrlKeywordCount)[vs[1].(int)]
+	}).(GetURLCategoriesUrlKeywordCountOutput)
+}
+
+type GetURLFilteringRulesCbiProfile struct {
+	// URL Filtering Rule ID
+	Id string `pulumi:"id"`
+	// Name of the URL Filtering policy rule
+	Name string `pulumi:"name"`
+	// (String) The browser isolation profile URL
+	Url string `pulumi:"url"`
+}
+
+// GetURLFilteringRulesCbiProfileInput is an input type that accepts GetURLFilteringRulesCbiProfileArgs and GetURLFilteringRulesCbiProfileOutput values.
+// You can construct a concrete instance of `GetURLFilteringRulesCbiProfileInput` via:
+//
+//	GetURLFilteringRulesCbiProfileArgs{...}
+type GetURLFilteringRulesCbiProfileInput interface {
+	pulumi.Input
+
+	ToGetURLFilteringRulesCbiProfileOutput() GetURLFilteringRulesCbiProfileOutput
+	ToGetURLFilteringRulesCbiProfileOutputWithContext(context.Context) GetURLFilteringRulesCbiProfileOutput
+}
+
+type GetURLFilteringRulesCbiProfileArgs struct {
+	// URL Filtering Rule ID
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the URL Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+	// (String) The browser isolation profile URL
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetURLFilteringRulesCbiProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLFilteringRulesCbiProfile)(nil)).Elem()
+}
+
+func (i GetURLFilteringRulesCbiProfileArgs) ToGetURLFilteringRulesCbiProfileOutput() GetURLFilteringRulesCbiProfileOutput {
+	return i.ToGetURLFilteringRulesCbiProfileOutputWithContext(context.Background())
+}
+
+func (i GetURLFilteringRulesCbiProfileArgs) ToGetURLFilteringRulesCbiProfileOutputWithContext(ctx context.Context) GetURLFilteringRulesCbiProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLFilteringRulesCbiProfileOutput)
+}
+
+// GetURLFilteringRulesCbiProfileArrayInput is an input type that accepts GetURLFilteringRulesCbiProfileArray and GetURLFilteringRulesCbiProfileArrayOutput values.
+// You can construct a concrete instance of `GetURLFilteringRulesCbiProfileArrayInput` via:
+//
+//	GetURLFilteringRulesCbiProfileArray{ GetURLFilteringRulesCbiProfileArgs{...} }
+type GetURLFilteringRulesCbiProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetURLFilteringRulesCbiProfileArrayOutput() GetURLFilteringRulesCbiProfileArrayOutput
+	ToGetURLFilteringRulesCbiProfileArrayOutputWithContext(context.Context) GetURLFilteringRulesCbiProfileArrayOutput
+}
+
+type GetURLFilteringRulesCbiProfileArray []GetURLFilteringRulesCbiProfileInput
+
+func (GetURLFilteringRulesCbiProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLFilteringRulesCbiProfile)(nil)).Elem()
+}
+
+func (i GetURLFilteringRulesCbiProfileArray) ToGetURLFilteringRulesCbiProfileArrayOutput() GetURLFilteringRulesCbiProfileArrayOutput {
+	return i.ToGetURLFilteringRulesCbiProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetURLFilteringRulesCbiProfileArray) ToGetURLFilteringRulesCbiProfileArrayOutputWithContext(ctx context.Context) GetURLFilteringRulesCbiProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetURLFilteringRulesCbiProfileArrayOutput)
+}
+
+type GetURLFilteringRulesCbiProfileOutput struct{ *pulumi.OutputState }
+
+func (GetURLFilteringRulesCbiProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetURLFilteringRulesCbiProfile)(nil)).Elem()
+}
+
+func (o GetURLFilteringRulesCbiProfileOutput) ToGetURLFilteringRulesCbiProfileOutput() GetURLFilteringRulesCbiProfileOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesCbiProfileOutput) ToGetURLFilteringRulesCbiProfileOutputWithContext(ctx context.Context) GetURLFilteringRulesCbiProfileOutput {
+	return o
+}
+
+// URL Filtering Rule ID
+func (o GetURLFilteringRulesCbiProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesCbiProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the URL Filtering policy rule
+func (o GetURLFilteringRulesCbiProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesCbiProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (String) The browser isolation profile URL
+func (o GetURLFilteringRulesCbiProfileOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesCbiProfile) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetURLFilteringRulesCbiProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetURLFilteringRulesCbiProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetURLFilteringRulesCbiProfile)(nil)).Elem()
+}
+
+func (o GetURLFilteringRulesCbiProfileArrayOutput) ToGetURLFilteringRulesCbiProfileArrayOutput() GetURLFilteringRulesCbiProfileArrayOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesCbiProfileArrayOutput) ToGetURLFilteringRulesCbiProfileArrayOutputWithContext(ctx context.Context) GetURLFilteringRulesCbiProfileArrayOutput {
+	return o
+}
+
+func (o GetURLFilteringRulesCbiProfileArrayOutput) Index(i pulumi.IntInput) GetURLFilteringRulesCbiProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetURLFilteringRulesCbiProfile {
+		return vs[0].([]GetURLFilteringRulesCbiProfile)[vs[1].(int)]
+	}).(GetURLFilteringRulesCbiProfileOutput)
+}
+
 type GetURLFilteringRulesDepartment struct {
 	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
@@ -3117,6 +6956,72 @@ func (o GetWorkloadGroupsLastModifiedByArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportFilePropertyInput)(nil)).Elem(), GetSandboxReportFilePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportFilePropertyArrayInput)(nil)).Elem(), GetSandboxReportFilePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportNetworkingInput)(nil)).Elem(), GetSandboxReportNetworkingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportNetworkingArrayInput)(nil)).Elem(), GetSandboxReportNetworkingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportOriginInput)(nil)).Elem(), GetSandboxReportOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportOriginArrayInput)(nil)).Elem(), GetSandboxReportOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportPersistenceInput)(nil)).Elem(), GetSandboxReportPersistenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportPersistenceArrayInput)(nil)).Elem(), GetSandboxReportPersistenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSecurityBypassInput)(nil)).Elem(), GetSandboxReportSecurityBypassArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSecurityBypassArrayInput)(nil)).Elem(), GetSandboxReportSecurityBypassArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSpywareInput)(nil)).Elem(), GetSandboxReportSpywareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSpywareArrayInput)(nil)).Elem(), GetSandboxReportSpywareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportStealthInput)(nil)).Elem(), GetSandboxReportStealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportStealthArrayInput)(nil)).Elem(), GetSandboxReportStealthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSummaryInput)(nil)).Elem(), GetSandboxReportSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSummaryArrayInput)(nil)).Elem(), GetSandboxReportSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSystemSummaryInput)(nil)).Elem(), GetSandboxReportSystemSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportSystemSummaryArrayInput)(nil)).Elem(), GetSandboxReportSystemSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesDepartmentInput)(nil)).Elem(), GetSandboxRulesDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesDepartmentArrayInput)(nil)).Elem(), GetSandboxRulesDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesGroupInput)(nil)).Elem(), GetSandboxRulesGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesGroupArrayInput)(nil)).Elem(), GetSandboxRulesGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLabelInput)(nil)).Elem(), GetSandboxRulesLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLabelArrayInput)(nil)).Elem(), GetSandboxRulesLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLastModifiedByInput)(nil)).Elem(), GetSandboxRulesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLastModifiedByArrayInput)(nil)).Elem(), GetSandboxRulesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLocationInput)(nil)).Elem(), GetSandboxRulesLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLocationArrayInput)(nil)).Elem(), GetSandboxRulesLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLocationGroupInput)(nil)).Elem(), GetSandboxRulesLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesLocationGroupArrayInput)(nil)).Elem(), GetSandboxRulesLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesUserInput)(nil)).Elem(), GetSandboxRulesUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesUserArrayInput)(nil)).Elem(), GetSandboxRulesUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesZpaAppSegmentInput)(nil)).Elem(), GetSandboxRulesZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesZpaAppSegmentArrayInput)(nil)).Elem(), GetSandboxRulesZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeListInput)(nil)).Elem(), GetTrafficForwardingGREInternalIPRangeListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeListArrayInput)(nil)).Elem(), GetTrafficForwardingGREInternalIPRangeListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelLastModifiedByInput)(nil)).Elem(), GetTrafficForwardingGRETunnelLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelLastModifiedByArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelManagedByInput)(nil)).Elem(), GetTrafficForwardingGRETunnelManagedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelManagedByArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelManagedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelPrimaryDestVipInput)(nil)).Elem(), GetTrafficForwardingGRETunnelPrimaryDestVipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelPrimaryDestVipArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelPrimaryDestVipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVipInput)(nil)).Elem(), GetTrafficForwardingGRETunnelSecondaryDestVipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelSecondaryDestVipArrayInput)(nil)).Elem(), GetTrafficForwardingGRETunnelSecondaryDestVipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPCityInput)(nil)).Elem(), GetTrafficForwardingStaticIPCityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPCityArrayInput)(nil)).Elem(), GetTrafficForwardingStaticIPCityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedByInput)(nil)).Elem(), GetTrafficForwardingStaticIPLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPLastModifiedByArrayInput)(nil)).Elem(), GetTrafficForwardingStaticIPLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPManagedByInput)(nil)).Elem(), GetTrafficForwardingStaticIPManagedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingStaticIPManagedByArrayInput)(nil)).Elem(), GetTrafficForwardingStaticIPManagedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVIPRecommendedListListInput)(nil)).Elem(), GetTrafficForwardingVIPRecommendedListListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVIPRecommendedListListArrayInput)(nil)).Elem(), GetTrafficForwardingVIPRecommendedListListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVPNCredentialsLocationInput)(nil)).Elem(), GetTrafficForwardingVPNCredentialsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVPNCredentialsLocationArrayInput)(nil)).Elem(), GetTrafficForwardingVPNCredentialsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVPNCredentialsManagedByInput)(nil)).Elem(), GetTrafficForwardingVPNCredentialsManagedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingVPNCredentialsManagedByArrayInput)(nil)).Elem(), GetTrafficForwardingVPNCredentialsManagedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeInput)(nil)).Elem(), GetURLCategoriesScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeArrayInput)(nil)).Elem(), GetURLCategoriesScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeScopeEntityInput)(nil)).Elem(), GetURLCategoriesScopeScopeEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeScopeEntityArrayInput)(nil)).Elem(), GetURLCategoriesScopeScopeEntityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeScopeGroupMemberEntityInput)(nil)).Elem(), GetURLCategoriesScopeScopeGroupMemberEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesScopeScopeGroupMemberEntityArrayInput)(nil)).Elem(), GetURLCategoriesScopeScopeGroupMemberEntityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesUrlKeywordCountInput)(nil)).Elem(), GetURLCategoriesUrlKeywordCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLCategoriesUrlKeywordCountArrayInput)(nil)).Elem(), GetURLCategoriesUrlKeywordCountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesCbiProfileInput)(nil)).Elem(), GetURLFilteringRulesCbiProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesCbiProfileArrayInput)(nil)).Elem(), GetURLFilteringRulesCbiProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesDepartmentInput)(nil)).Elem(), GetURLFilteringRulesDepartmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesDepartmentArrayInput)(nil)).Elem(), GetURLFilteringRulesDepartmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetURLFilteringRulesDeviceInput)(nil)).Elem(), GetURLFilteringRulesDeviceArgs{})
@@ -3171,6 +7076,72 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsExpressionJsonExpressionContainerTagContainerTagArrayInput)(nil)).Elem(), GetWorkloadGroupsExpressionJsonExpressionContainerTagContainerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsLastModifiedByInput)(nil)).Elem(), GetWorkloadGroupsLastModifiedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsLastModifiedByArrayInput)(nil)).Elem(), GetWorkloadGroupsLastModifiedByArray{})
+	pulumi.RegisterOutputType(GetSandboxReportFilePropertyOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportFilePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportNetworkingOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportNetworkingArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportOriginOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportOriginArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportPersistenceOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportPersistenceArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSecurityBypassOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSecurityBypassArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSpywareOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSpywareArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportStealthOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportStealthArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSummaryOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSystemSummaryOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportSystemSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesDepartmentOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesGroupOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLabelOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLocationOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesUserOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesUserArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetSandboxRulesZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGREInternalIPRangeListOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGREInternalIPRangeListArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelManagedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelManagedByArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelPrimaryDestVipOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelPrimaryDestVipArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelSecondaryDestVipOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelSecondaryDestVipArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPCityOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPCityArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPManagedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingStaticIPManagedByArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVIPRecommendedListListOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVIPRecommendedListListArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVPNCredentialsLocationOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVPNCredentialsLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVPNCredentialsManagedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficForwardingVPNCredentialsManagedByArrayOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeScopeEntityOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeScopeEntityArrayOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeScopeGroupMemberEntityOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesScopeScopeGroupMemberEntityArrayOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesUrlKeywordCountOutput{})
+	pulumi.RegisterOutputType(GetURLCategoriesUrlKeywordCountArrayOutput{})
+	pulumi.RegisterOutputType(GetURLFilteringRulesCbiProfileOutput{})
+	pulumi.RegisterOutputType(GetURLFilteringRulesCbiProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesDepartmentOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesDepartmentArrayOutput{})
 	pulumi.RegisterOutputType(GetURLFilteringRulesDeviceOutput{})

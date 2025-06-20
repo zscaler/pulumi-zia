@@ -34,6 +34,7 @@ namespace zscaler.PulumiPackage.Zia
     /// $ pulumi import zia:index/browserControlPolicy:BrowserControlPolicy this "browser_settings"
     /// ```
     /// </summary>
+    [Obsolete(@"zia.index/browsercontrolpolicy.BrowserControlPolicy has been deprecated in favor of zia.index/browsercontrolsettings.BrowserControlSettings")]
     [ZiaResourceType("zia:index/browserControlPolicy:BrowserControlPolicy")]
     public partial class BrowserControlPolicy : global::Pulumi.CustomResource
     {
