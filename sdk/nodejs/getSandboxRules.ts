@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+ *
  * Use the **zia_sandbox_rules** data source to get information about a sandbox rule in the Zscaler Internet Access.
  *
  * ## Example Usage
@@ -103,6 +106,9 @@ export interface GetSandboxRulesResult {
     readonly zpaAppSegments: outputs.GetSandboxRulesZpaAppSegment[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+ *
  * Use the **zia_sandbox_rules** data source to get information about a sandbox rule in the Zscaler Internet Access.
  *
  * ## Example Usage

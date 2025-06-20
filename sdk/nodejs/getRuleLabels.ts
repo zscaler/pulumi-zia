@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+ * * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+ *
  * Use the **zia_rule_labels** data source to get information about a rule label resource in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: Firewall Rules and URL filtering rules
  *
  * ## Example Usage
@@ -25,7 +28,7 @@ export function getRuleLabels(args?: GetRuleLabelsArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetRuleLabelsArgs {
     /**
-     * The unique identifer for the device group.
+     * The unique identifer for the rule label.
      */
     id?: number;
     /**
@@ -62,6 +65,9 @@ export interface GetRuleLabelsResult {
     readonly referencedRuleCount: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+ * * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+ *
  * Use the **zia_rule_labels** data source to get information about a rule label resource in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: Firewall Rules and URL filtering rules
  *
  * ## Example Usage
@@ -80,7 +86,7 @@ export function getRuleLabelsOutput(args?: GetRuleLabelsOutputArgs, opts?: pulum
  */
 export interface GetRuleLabelsOutputArgs {
     /**
-     * The unique identifer for the device group.
+     * The unique identifer for the rule label.
      */
     id?: pulumi.Input<number>;
     /**

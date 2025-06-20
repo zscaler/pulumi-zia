@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-zscaler-incident-receiver)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/incidentReceiverServers-get)
+ *
  * Use the **zia_dlp_incident_receiver_servers** data source to get information about a ZIA DLP Incident Receiver Server in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -35,6 +38,9 @@ export interface GetDLPIncidentReceiverServersResult {
     readonly url: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-zscaler-incident-receiver)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/incidentReceiverServers-get)
+ *
  * Use the **zia_dlp_incident_receiver_servers** data source to get information about a ZIA DLP Incident Receiver Server in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

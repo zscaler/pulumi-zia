@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+// * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+//
 // Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage

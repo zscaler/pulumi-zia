@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+ * * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+ *
  * Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloudApplications` on supported rules.
  *
  * ## Cloud Application Category App Class Matrix
@@ -85,6 +88,9 @@ export interface GetCloudApplicationsResult {
     readonly policyType: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+ * * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+ *
  * Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloudApplications` on supported rules.
  *
  * ## Cloud Application Category App Class Matrix

@@ -259,6 +259,9 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+
         The **zia_firewall_filtering_destination_groups** resource allows the creation and management of ZIA Cloud Firewall IP destination groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage
@@ -300,6 +303,9 @@ class FirewallFilteringDestinationGroups(pulumi.CustomResource):
                  args: Optional[FirewallFilteringDestinationGroupsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+
         The **zia_firewall_filtering_destination_groups** resource allows the creation and management of ZIA Cloud Firewall IP destination groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage

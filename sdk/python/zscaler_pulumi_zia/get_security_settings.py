@@ -70,6 +70,9 @@ class AwaitableGetSecuritySettingsResult(GetSecuritySettingsResult):
 
 def get_security_settings(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecuritySettingsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+    * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+
     Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -84,6 +87,9 @@ def get_security_settings(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
         whitelist_urls=pulumi.get(__ret__, 'whitelist_urls'))
 def get_security_settings_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecuritySettingsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+    * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+
     Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+//
 // Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage

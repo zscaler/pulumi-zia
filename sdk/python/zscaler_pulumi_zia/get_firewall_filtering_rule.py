@@ -472,6 +472,9 @@ def get_firewall_filtering_rule(id: Optional[builtins.int] = None,
                                 name: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringRuleResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+
     Use the **zia_firewall_filtering_rule** data source to get information about a cloud firewall rule available in the Zscaler Internet Access cloud firewall.
 
     ## Example Usage
@@ -528,6 +531,9 @@ def get_firewall_filtering_rule_output(id: Optional[pulumi.Input[Optional[builti
                                        name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringRuleResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+
     Use the **zia_firewall_filtering_rule** data source to get information about a cloud firewall rule available in the Zscaler Internet Access cloud firewall.
 
     ## Example Usage

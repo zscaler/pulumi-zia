@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+ * * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+ *
  * The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
  *
  * **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
@@ -243,9 +246,13 @@ export class CloudAppControlRule extends pulumi.CustomResource {
     public readonly cascadingEnabled!: pulumi.Output<boolean | undefined>;
     public readonly cbiProfiles!: pulumi.Output<outputs.CloudAppControlRuleCbiProfile[] | undefined>;
     /**
+     * The cloud application instance ID.
+     */
+    public readonly cloudAppInstances!: pulumi.Output<outputs.CloudAppControlRuleCloudAppInstances | undefined>;
+    /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
-    public readonly cloudAppRiskProfiles!: pulumi.Output<outputs.CloudAppControlRuleCloudAppRiskProfile[]>;
+    public readonly cloudAppRiskProfiles!: pulumi.Output<outputs.CloudAppControlRuleCloudAppRiskProfile[] | undefined>;
     /**
      * Name-ID pairs of departments for which rule must be applied
      */
@@ -370,6 +377,7 @@ export class CloudAppControlRule extends pulumi.CustomResource {
             resourceInputs["applications"] = state ? state.applications : undefined;
             resourceInputs["cascadingEnabled"] = state ? state.cascadingEnabled : undefined;
             resourceInputs["cbiProfiles"] = state ? state.cbiProfiles : undefined;
+            resourceInputs["cloudAppInstances"] = state ? state.cloudAppInstances : undefined;
             resourceInputs["cloudAppRiskProfiles"] = state ? state.cloudAppRiskProfiles : undefined;
             resourceInputs["departments"] = state ? state.departments : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -406,6 +414,7 @@ export class CloudAppControlRule extends pulumi.CustomResource {
             resourceInputs["applications"] = args ? args.applications : undefined;
             resourceInputs["cascadingEnabled"] = args ? args.cascadingEnabled : undefined;
             resourceInputs["cbiProfiles"] = args ? args.cbiProfiles : undefined;
+            resourceInputs["cloudAppInstances"] = args ? args.cloudAppInstances : undefined;
             resourceInputs["cloudAppRiskProfiles"] = args ? args.cloudAppRiskProfiles : undefined;
             resourceInputs["departments"] = args ? args.departments : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -456,6 +465,10 @@ export interface CloudAppControlRuleState {
      */
     cascadingEnabled?: pulumi.Input<boolean>;
     cbiProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCbiProfile>[]>;
+    /**
+     * The cloud application instance ID.
+     */
+    cloudAppInstances?: pulumi.Input<inputs.CloudAppControlRuleCloudAppInstances>;
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
@@ -585,6 +598,10 @@ export interface CloudAppControlRuleArgs {
      */
     cascadingEnabled?: pulumi.Input<boolean>;
     cbiProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCbiProfile>[]>;
+    /**
+     * The cloud application instance ID.
+     */
+    cloudAppInstances?: pulumi.Input<inputs.CloudAppControlRuleCloudAppInstances>;
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */

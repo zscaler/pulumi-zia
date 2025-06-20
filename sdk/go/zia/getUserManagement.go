@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+// * [API documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+//
 // Use the **zia_user_management** data source to get information about a user account that may have been created in the Zscaler Internet Access portal or via API. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
 //
 // ## Example Usage

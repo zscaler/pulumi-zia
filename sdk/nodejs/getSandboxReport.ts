@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/sandbox-report-use-cases)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-report#/sandbox/report/{md5Hash}-get)
+ *
  * Use the **zia_sandbox_report** data source gets a full (i.e., complete) or summary detail report for an MD5 hash of a file that was analyzed by Sandbox.
  *
  * ## Example Usage
@@ -81,6 +84,9 @@ export interface GetSandboxReportResult {
     readonly systemSummaries: outputs.GetSandboxReportSystemSummary[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/sandbox-report-use-cases)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-report#/sandbox/report/{md5Hash}-get)
+ *
  * Use the **zia_sandbox_report** data source gets a full (i.e., complete) or summary detail report for an MD5 hash of a file that was analyzed by Sandbox.
  *
  * ## Example Usage

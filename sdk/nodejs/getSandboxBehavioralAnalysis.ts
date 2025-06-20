@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+ *
  * Use the **zia_sandbox_behavioral_analysis** data source to get get the custom list of MD5 file hashes that are blocked by Sandbox
  *
  * ## Example Usage
@@ -26,6 +29,9 @@ export interface GetSandboxBehavioralAnalysisResult {
     readonly id: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+ *
  * Use the **zia_sandbox_behavioral_analysis** data source to get get the custom list of MD5 file hashes that are blocked by Sandbox
  *
  * ## Example Usage

@@ -23,6 +23,8 @@ __all__ = [
     'get_forwarding_control_proxy_gateway_output',
 ]
 
+warnings.warn("""zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway""", DeprecationWarning)
+
 @pulumi.output_type
 class GetForwardingControlProxyGatewayResult:
     """
@@ -151,6 +153,9 @@ def get_forwarding_control_proxy_gateway(id: Optional[builtins.int] = None,
                                          name: Optional[builtins.str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetForwardingControlProxyGatewayResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
+
     Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxy_gateway` when creating a Forwarding Control Rule via the resource: `ForwardingControlRule`
 
     ## Example Usage
@@ -159,6 +164,7 @@ def get_forwarding_control_proxy_gateway(id: Optional[builtins.int] = None,
     :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
     :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
     """
+    pulumi.log.warn("""get_forwarding_control_proxy_gateway is deprecated: zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
@@ -179,6 +185,9 @@ def get_forwarding_control_proxy_gateway_output(id: Optional[pulumi.Input[Option
                                                 name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetForwardingControlProxyGatewayResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
+
     Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxy_gateway` when creating a Forwarding Control Rule via the resource: `ForwardingControlRule`
 
     ## Example Usage
@@ -187,6 +196,7 @@ def get_forwarding_control_proxy_gateway_output(id: Optional[pulumi.Input[Option
     :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
     :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
     """
+    pulumi.log.warn("""get_forwarding_control_proxy_gateway is deprecated: zia.index/getforwardingcontrolproxygateway.getForwardingControlProxyGateway has been deprecated in favor of zia.index/getforwardingproxygateway.getForwardingProxyGateway""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name

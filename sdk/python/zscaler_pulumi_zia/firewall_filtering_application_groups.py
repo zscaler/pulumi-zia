@@ -128,6 +128,9 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
                  network_applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+
         The **zia_firewall_filtering_network_application_groups** resource allows the creation and management of ZIA Cloud Firewall IP source groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage
@@ -162,6 +165,9 @@ class FirewallFilteringApplicationGroups(pulumi.CustomResource):
                  args: Optional[FirewallFilteringApplicationGroupsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+
         The **zia_firewall_filtering_network_application_groups** resource allows the creation and management of ZIA Cloud Firewall IP source groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage

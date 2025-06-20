@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+// * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+//
 // Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 func LookupURLCategories(ctx *pulumi.Context, args *LookupURLCategoriesArgs, opts ...pulumi.InvokeOption) (*LookupURLCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

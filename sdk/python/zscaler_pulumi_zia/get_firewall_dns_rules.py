@@ -486,6 +486,9 @@ def get_firewall_dns_rules(id: Optional[builtins.int] = None,
                            name: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallDNSRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+    * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+
     Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
 
     ## Example Usage
@@ -542,6 +545,9 @@ def get_firewall_dns_rules_output(id: Optional[pulumi.Input[Optional[builtins.in
                                   name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallDNSRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+    * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+
     Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
 
     ## Example Usage

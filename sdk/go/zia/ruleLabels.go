@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+// * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+//
 // The **zia_rule_labels** resource allows the creation and management of rule labels in the Zscaler Internet Access cloud or via the API. This resource can then be associated with resources such as: Firewall Rules and URL filtering rules
 //
 // ## Example Usage

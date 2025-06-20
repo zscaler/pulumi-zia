@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+ *
  * The **zia_traffic_forwarding_gre_tunnel_info** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
  *
  * ## Example Usage
@@ -70,6 +73,9 @@ export interface GetTrafficForwardingGRETunnelInfoResult {
     readonly tunId: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+ *
  * The **zia_traffic_forwarding_gre_tunnel_info** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
  *
  * ## Example Usage

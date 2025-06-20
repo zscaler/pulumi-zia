@@ -72,6 +72,9 @@ class AwaitableGetTrafficForwardingGREInternalIPRangeResult(GetTrafficForwarding
 def get_traffic_forwarding_gre_internal_ip_range(required_count: Optional[builtins.int] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingGREInternalIPRangeResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+
     Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
 
     ## Example Usage
@@ -88,6 +91,9 @@ def get_traffic_forwarding_gre_internal_ip_range(required_count: Optional[builti
 def get_traffic_forwarding_gre_internal_ip_range_output(required_count: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingGREInternalIPRangeResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+
     Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
 
     ## Example Usage

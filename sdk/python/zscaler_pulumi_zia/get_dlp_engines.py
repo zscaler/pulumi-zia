@@ -97,6 +97,9 @@ def get_dlp_engines(id: Optional[builtins.int] = None,
                     predefined_engine_name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPEnginesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+
     Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -120,6 +123,9 @@ def get_dlp_engines_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = 
                            predefined_engine_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPEnginesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+
     Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

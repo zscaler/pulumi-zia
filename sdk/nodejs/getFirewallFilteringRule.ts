@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+ *
  * Use the **zia_firewall_filtering_rule** data source to get information about a cloud firewall rule available in the Zscaler Internet Access cloud firewall.
  *
  * ## Example Usage
@@ -173,6 +176,9 @@ export interface GetFirewallFilteringRuleResult {
     readonly zpaAppSegments: outputs.GetFirewallFilteringRuleZpaAppSegment[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+ *
  * Use the **zia_firewall_filtering_rule** data source to get information about a cloud firewall rule available in the Zscaler Internet Access cloud firewall.
  *
  * ## Example Usage

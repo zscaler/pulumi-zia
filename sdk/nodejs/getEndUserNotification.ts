@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+ * * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+ *
  * Use the **zia_end_user_notification** data source to get information about browser-based end user notification (EUN) configuration details.
  *
  * ## Example Usage
@@ -55,6 +58,9 @@ export interface GetEndUserNotificationResult {
     readonly webDlpReviewText: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+ * * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+ *
  * Use the **zia_end_user_notification** data source to get information about browser-based end user notification (EUN) configuration details.
  *
  * ## Example Usage

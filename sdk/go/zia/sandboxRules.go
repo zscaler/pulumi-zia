@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+// * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+//
 // The **zia_sandbox_rules** resource allows the creation and management of SAndbox rules in the Zscaler Internet Access.
 //
 // ## Example Usage

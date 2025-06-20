@@ -179,6 +179,9 @@ def get_traffic_forwarding_vip_recommended_list(include_current_vips: Optional[b
                                                 within_country_only: Optional[builtins.bool] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingVIPRecommendedListResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+
     Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
 
     ## Example Usage
@@ -232,6 +235,9 @@ def get_traffic_forwarding_vip_recommended_list_output(include_current_vips: Opt
                                                        within_country_only: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingVIPRecommendedListResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+
     Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
 
     ## Example Usage

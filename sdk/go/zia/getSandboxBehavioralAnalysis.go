@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+// * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+//
 // Use the **zia_sandbox_behavioral_analysis** data source to get get the custom list of MD5 file hashes that are blocked by Sandbox
 //
 // ## Example Usage

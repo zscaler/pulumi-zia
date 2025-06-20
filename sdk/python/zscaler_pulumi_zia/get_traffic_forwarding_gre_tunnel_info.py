@@ -144,6 +144,9 @@ def get_traffic_forwarding_gre_tunnel_info(gre_enabled: Optional[builtins.bool] 
                                            ip_address: Optional[builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingGRETunnelInfoResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+
     The **zia_traffic_forwarding_gre_tunnel_info** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
 
     ## Example Usage
@@ -174,6 +177,9 @@ def get_traffic_forwarding_gre_tunnel_info_output(gre_enabled: Optional[pulumi.I
                                                   ip_address: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingGRETunnelInfoResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+
     The **zia_traffic_forwarding_gre_tunnel_info** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
 
     ## Example Usage

@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+ * * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+ *
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
  */
 export function getURLCategories(args?: GetURLCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetURLCategoriesResult> {
@@ -124,6 +127,9 @@ export interface GetURLCategoriesResult {
     readonly val: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+ * * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+ *
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
  */
 export function getURLCategoriesOutput(args?: GetURLCategoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetURLCategoriesResult> {

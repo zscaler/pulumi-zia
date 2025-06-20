@@ -232,6 +232,9 @@ class AwaitableGetURLFilteringCloudAppSettingsResult(GetURLFilteringCloudAppSett
 
 def get_url_filtering_cloud_app_settings(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetURLFilteringCloudAppSettingsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+    * [API documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+
     Use the **zia_url_filtering_and_cloud_app_settings** data source to get information about URL and Cloud App Control advanced policy settings.
     """
     __args__ = dict()
@@ -262,6 +265,9 @@ def get_url_filtering_cloud_app_settings(opts: Optional[pulumi.InvokeOptions] = 
         id=pulumi.get(__ret__, 'id'))
 def get_url_filtering_cloud_app_settings_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetURLFilteringCloudAppSettingsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+    * [API documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+
     Use the **zia_url_filtering_and_cloud_app_settings** data source to get information about URL and Cloud App Control advanced policy settings.
     """
     __args__ = dict()

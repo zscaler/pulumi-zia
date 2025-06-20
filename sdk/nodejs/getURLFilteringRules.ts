@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+ * * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+ *
  * Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
  */
 export function getURLFilteringRules(args?: GetURLFilteringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetURLFilteringRulesResult> {
@@ -168,6 +171,9 @@ export interface GetURLFilteringRulesResult {
     readonly workloadGroups: outputs.GetURLFilteringRulesWorkloadGroup[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+ * * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+ *
  * Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
  */
 export function getURLFilteringRulesOutput(args?: GetURLFilteringRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetURLFilteringRulesResult> {

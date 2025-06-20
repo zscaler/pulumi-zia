@@ -95,6 +95,9 @@ class AwaitableGetDepartmentManagementResult(GetDepartmentManagementResult):
 def get_department_management(name: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDepartmentManagementResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-departments)
+    * [API documentation](https://help.zscaler.com/zia/user-management#/departments-get)
+
     Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
 
     ## Example Usage
@@ -116,6 +119,9 @@ def get_department_management(name: Optional[builtins.str] = None,
 def get_department_management_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDepartmentManagementResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-departments)
+    * [API documentation](https://help.zscaler.com/zia/user-management#/departments-get)
+
     Use the **zia_department_management** data source to get information about user department created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with several ZIA resources such as: URL filtering rules, Cloud Firewall rules, and locations.
 
     ## Example Usage

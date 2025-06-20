@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+ *
  * Use the **zia_forwarding_control_zpa_gateway** data source to get information about a forwarding control zpa gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This data source can then be associated with a ZIA Forwarding Control Rule.
  *
  * ## Example Usage
@@ -70,6 +73,9 @@ export interface GetForwardingControlZPAGatewayResult {
     readonly zpaTenantId: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+ *
  * Use the **zia_forwarding_control_zpa_gateway** data source to get information about a forwarding control zpa gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This data source can then be associated with a ZIA Forwarding Control Rule.
  *
  * ## Example Usage

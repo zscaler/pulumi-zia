@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+// * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+//
 // The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
 //
 // **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
@@ -215,6 +218,8 @@ type CloudAppControlRule struct {
 	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrOutput                     `pulumi:"cascadingEnabled"`
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayOutput `pulumi:"cbiProfiles"`
+	// The cloud application instance ID.
+	CloudAppInstances CloudAppControlRuleCloudAppInstancesPtrOutput `pulumi:"cloudAppInstances"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
 	CloudAppRiskProfiles CloudAppControlRuleCloudAppRiskProfileArrayOutput `pulumi:"cloudAppRiskProfiles"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -315,6 +320,8 @@ type cloudAppControlRuleState struct {
 	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled *bool                           `pulumi:"cascadingEnabled"`
 	CbiProfiles      []CloudAppControlRuleCbiProfile `pulumi:"cbiProfiles"`
+	// The cloud application instance ID.
+	CloudAppInstances *CloudAppControlRuleCloudAppInstances `pulumi:"cloudAppInstances"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
 	CloudAppRiskProfiles []CloudAppControlRuleCloudAppRiskProfile `pulumi:"cloudAppRiskProfiles"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -383,6 +390,8 @@ type CloudAppControlRuleState struct {
 	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrInput
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayInput
+	// The cloud application instance ID.
+	CloudAppInstances CloudAppControlRuleCloudAppInstancesPtrInput
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
 	CloudAppRiskProfiles CloudAppControlRuleCloudAppRiskProfileArrayInput
 	// Name-ID pairs of departments for which rule must be applied
@@ -455,6 +464,8 @@ type cloudAppControlRuleArgs struct {
 	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled *bool                           `pulumi:"cascadingEnabled"`
 	CbiProfiles      []CloudAppControlRuleCbiProfile `pulumi:"cbiProfiles"`
+	// The cloud application instance ID.
+	CloudAppInstances *CloudAppControlRuleCloudAppInstances `pulumi:"cloudAppInstances"`
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
 	CloudAppRiskProfiles []CloudAppControlRuleCloudAppRiskProfile `pulumi:"cloudAppRiskProfiles"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -522,6 +533,8 @@ type CloudAppControlRuleArgs struct {
 	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrInput
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayInput
+	// The cloud application instance ID.
+	CloudAppInstances CloudAppControlRuleCloudAppInstancesPtrInput
 	// The DLP server, using ICAP, to which the transaction content is forwarded.
 	CloudAppRiskProfiles CloudAppControlRuleCloudAppRiskProfileArrayInput
 	// Name-ID pairs of departments for which rule must be applied
@@ -684,6 +697,11 @@ func (o CloudAppControlRuleOutput) CascadingEnabled() pulumi.BoolPtrOutput {
 
 func (o CloudAppControlRuleOutput) CbiProfiles() CloudAppControlRuleCbiProfileArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) CloudAppControlRuleCbiProfileArrayOutput { return v.CbiProfiles }).(CloudAppControlRuleCbiProfileArrayOutput)
+}
+
+// The cloud application instance ID.
+func (o CloudAppControlRuleOutput) CloudAppInstances() CloudAppControlRuleCloudAppInstancesPtrOutput {
+	return o.ApplyT(func(v *CloudAppControlRule) CloudAppControlRuleCloudAppInstancesPtrOutput { return v.CloudAppInstances }).(CloudAppControlRuleCloudAppInstancesPtrOutput)
 }
 
 // The DLP server, using ICAP, to which the transaction content is forwarded.

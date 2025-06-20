@@ -749,6 +749,9 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
                  enforce_safe_search: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
         The **zia_url_filtering_and_cloud_app_settings** resource allows you to updates the the URL and Cloud App Control advanced policy settings To learn more see [Configuring Advanced Policy Settings](https://help.zscaler.com/unified/configuring-advanced-policy-settings)
 
         ## Example Usage
@@ -809,6 +812,9 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
                  args: Optional[URLFilteringCloudAppSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
         The **zia_url_filtering_and_cloud_app_settings** resource allows you to updates the the URL and Cloud App Control advanced policy settings To learn more see [Configuring Advanced Policy Settings](https://help.zscaler.com/unified/configuring-advanced-policy-settings)
 
         ## Example Usage

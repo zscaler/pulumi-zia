@@ -105,6 +105,9 @@ class AwaitableGetTimeWindowResult(GetTimeWindowResult):
 def get_time_window(name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTimeWindowResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/defining-time-intervals)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/timeWindows-get)
+
     Use the **zia_firewall_filtering_time_window** data source to get information about a time window option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage
@@ -126,6 +129,9 @@ def get_time_window(name: Optional[builtins.str] = None,
 def get_time_window_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTimeWindowResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/defining-time-intervals)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/timeWindows-get)
+
     Use the **zia_firewall_filtering_time_window** data source to get information about a time window option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage

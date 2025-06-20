@@ -340,6 +340,9 @@ def get_file_type_control_rules(id: Optional[builtins.int] = None,
                                 name: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileTypeControlRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-file-type-control)
+    * [API documentation](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-post)
+
     Use the **zia_file_type_control_rules** data source to retrieves File Type Control rules.
 
     ## Example Usage
@@ -388,6 +391,9 @@ def get_file_type_control_rules_output(id: Optional[pulumi.Input[Optional[builti
                                        name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileTypeControlRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-file-type-control)
+    * [API documentation](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-post)
+
     Use the **zia_file_type_control_rules** data source to retrieves File Type Control rules.
 
     ## Example Usage

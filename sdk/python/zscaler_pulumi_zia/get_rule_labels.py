@@ -121,12 +121,15 @@ def get_rule_labels(id: Optional[builtins.int] = None,
                     name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleLabelsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+    * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+
     Use the **zia_rule_labels** data source to get information about a rule label resource in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: Firewall Rules and URL filtering rules
 
     ## Example Usage
 
 
-    :param builtins.int id: The unique identifer for the device group.
+    :param builtins.int id: The unique identifer for the rule label.
     :param builtins.str name: The name of the rule label to be exported.
     """
     __args__ = dict()
@@ -147,12 +150,15 @@ def get_rule_labels_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = 
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleLabelsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+    * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+
     Use the **zia_rule_labels** data source to get information about a rule label resource in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: Firewall Rules and URL filtering rules
 
     ## Example Usage
 
 
-    :param builtins.int id: The unique identifer for the device group.
+    :param builtins.int id: The unique identifer for the rule label.
     :param builtins.str name: The name of the rule label to be exported.
     """
     __args__ = dict()

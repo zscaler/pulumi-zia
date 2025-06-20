@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-locations)
+ * * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+ *
  * Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
  */
 export function getLocationGroups(args?: GetLocationGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationGroupsResult> {
@@ -78,6 +81,9 @@ export interface GetLocationGroupsResult {
     readonly predefined: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-locations)
+ * * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+ *
  * Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
  */
 export function getLocationGroupsOutput(args?: GetLocationGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationGroupsResult> {

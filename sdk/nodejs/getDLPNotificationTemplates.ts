@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+ *
  * Use the **zia_dlp_notification_templates** data source to get information about a ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -39,6 +42,9 @@ export interface GetDLPNotificationTemplatesResult {
     readonly tlsEnabled: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+ *
  * Use the **zia_dlp_notification_templates** data source to get information about a ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

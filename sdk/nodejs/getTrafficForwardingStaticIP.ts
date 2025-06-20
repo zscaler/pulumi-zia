@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+ *
  * Use the **zia_traffic_forwarding_static_ip** data source to get information about all provisioned static IP addresses. This resource can then be utilized when creating a GRE Tunnel or VPN Credential resource of Type `IP`
  *
  * ## Example Usage
@@ -81,6 +84,9 @@ export interface GetTrafficForwardingStaticIPResult {
     readonly routableIp: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+ *
  * Use the **zia_traffic_forwarding_static_ip** data source to get information about all provisioned static IP addresses. This resource can then be utilized when creating a GRE Tunnel or VPN Credential resource of Type `IP`
  *
  * ## Example Usage

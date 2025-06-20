@@ -13,6 +13,256 @@ export interface AdminUsersRole {
     id?: number;
 }
 
+export interface BrowserControlPolicySmartIsolationGroups {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface BrowserControlPolicySmartIsolationProfile {
+    /**
+     * The universally unique identifier (UUID) for the browser isolation profile
+     */
+    id: string;
+}
+
+export interface BrowserControlPolicySmartIsolationUsers {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface BrowserControlSettingsSmartIsolationGroups {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface BrowserControlSettingsSmartIsolationProfile {
+    /**
+     * The universally unique identifier (UUID) for the browser isolation profile
+     */
+    id: string;
+}
+
+export interface BrowserControlSettingsSmartIsolationUsers {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: number[];
+}
+
+export interface CasbDlpRuleAuditorNotification {
+    id?: number;
+}
+
+export interface CasbDlpRuleBuckets {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbDlpRuleCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbDlpRuleCloudAppTenants {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleCriteriaDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleDepartments {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleDlpEngines {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleEmailRecipientProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleEntityGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleExcludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleIncludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleLabels {
+    id?: number;
+}
+
+export interface CasbDlpRuleObjectTypes {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleRedactionProfile {
+    id?: number;
+}
+
+export interface CasbDlpRuleTag {
+    id?: number;
+}
+
+export interface CasbDlpRuleUsers {
+    ids?: number[];
+}
+
+export interface CasbDlpRuleWatermarkProfile {
+    id?: number;
+}
+
+export interface CasbDlpRuleZscalerIncidentReceiver {
+    id?: number;
+}
+
+export interface CasbDlpRulesAuditorNotification {
+    id?: number;
+}
+
+export interface CasbDlpRulesBuckets {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbDlpRulesCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbDlpRulesCloudAppTenants {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesCriteriaDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesDepartments {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesDlpEngines {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesEmailRecipientProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesEntityGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesExcludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesGroups {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesIncludedDomainProfiles {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesLabels {
+    id?: number;
+}
+
+export interface CasbDlpRulesObjectTypes {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesRedactionProfile {
+    id?: number;
+}
+
+export interface CasbDlpRulesTag {
+    id?: number;
+}
+
+export interface CasbDlpRulesUsers {
+    ids?: number[];
+}
+
+export interface CasbDlpRulesWatermarkProfile {
+    id?: number;
+}
+
+export interface CasbDlpRulesZscalerIncidentReceiver {
+    id?: number;
+}
+
+export interface CasbMalwareRuleBuckets {
+    ids?: number[];
+}
+
+export interface CasbMalwareRuleCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCloudAppTenantIds {
+    id?: number;
+}
+
+export interface CasbMalwareRuleCloudAppTenants {
+    id?: number;
+}
+
+export interface CasbMalwareRuleLabels {
+    id?: number;
+}
+
+export interface CasbMalwareRulesBuckets {
+    ids?: number[];
+}
+
+export interface CasbMalwareRulesCasbEmailLabel {
+    id?: number;
+}
+
+export interface CasbMalwareRulesCasbTombstoneTemplate {
+    id?: number;
+}
+
+export interface CasbMalwareRulesCloudAppTenantIds {
+    id?: number;
+}
+
+export interface CasbMalwareRulesCloudAppTenants {
+    id?: number;
+}
+
+export interface CasbMalwareRulesLabels {
+    id?: number;
+}
+
 export interface CloudAppControlRuleCbiProfile {
     id?: string;
     name?: string;
@@ -22,8 +272,12 @@ export interface CloudAppControlRuleCbiProfile {
     url?: string;
 }
 
+export interface CloudAppControlRuleCloudAppInstances {
+    ids?: number[];
+}
+
 export interface CloudAppControlRuleCloudAppRiskProfile {
-    id: number;
+    id?: number;
 }
 
 export interface CloudAppControlRuleDepartments {
@@ -64,6 +318,25 @@ export interface CloudAppControlRuleTimeWindows {
 
 export interface CloudAppControlRuleUsers {
     ids?: number[];
+}
+
+export interface CloudApplicationInstanceInstanceIdentifier {
+    /**
+     * Type of the cloud application instance.
+     */
+    identifierType?: string;
+    /**
+     * Unique identifier for the cloud application instance.
+     */
+    instanceId: number;
+    /**
+     * Unique identifying string for the instance.
+     */
+    instanceIdentifier?: string;
+    /**
+     * Unique identifying string for the instance.
+     */
+    instanceIdentifierName?: string;
 }
 
 export interface DLPDictionariesExactDataMatchDetail {
@@ -125,7 +398,7 @@ export interface DLPDictionariesPhrase {
 }
 
 export interface DLPWebRulesAuditor {
-    id: number;
+    id?: number;
 }
 
 export interface DLPWebRulesDepartments {
@@ -157,7 +430,7 @@ export interface DLPWebRulesGroups {
 }
 
 export interface DLPWebRulesIcapServer {
-    id: number;
+    id?: number;
 }
 
 export interface DLPWebRulesIncludedDomainProfiles {
@@ -177,7 +450,7 @@ export interface DLPWebRulesLocations {
 }
 
 export interface DLPWebRulesNotificationTemplate {
-    id: number;
+    id?: number;
 }
 
 export interface DLPWebRulesSourceIpGroups {
@@ -495,127 +768,11 @@ export interface FirewallFilteringServiceGroupsService {
     ids: number[];
 }
 
-export interface FirewallIPSRuleDepartments {
+export interface ForwardingControlProxiesCert {
     /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleDestIpGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleDestIpv6Groups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleDeviceGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleDevices {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleLabels {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
+     * (Integer) Identifier that uniquely identifies the certificate
      */
     id?: number;
-}
-
-export interface FirewallIPSRuleLocationGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleLocations {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleNwServiceGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleNwServices {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleSrcIpGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleSrcIpv6Groups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleThreatCategories {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleTimeWindows {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleUsers {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: number[];
-}
-
-export interface FirewallIPSRuleZpaAppSegment {
-    /**
-     * External ID of the application segment.
-     */
-    externalId: string;
-    /**
-     * Name of the application segment.
-     */
-    name: string;
 }
 
 export interface ForwardingControlRuleAppServiceGroups {
@@ -882,6 +1039,360 @@ export interface GetAdminUsersRole {
     name: string;
 }
 
+export interface GetBrowserControlPolicySmartIsolationProfile {
+    /**
+     * Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+     */
+    defaultProfile: boolean;
+    /**
+     * (int) A unique identifier for an entity.
+     */
+    id: string;
+    /**
+     * Name of the browser isolation profile
+     */
+    name: string;
+    /**
+     * The browser isolation profile URL
+     */
+    url: string;
+}
+
+export interface GetBrowserControlSettingsSmartIsolationProfile {
+    /**
+     * Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+     */
+    defaultProfile: boolean;
+    /**
+     * (int) A unique identifier for an entity.
+     */
+    id: string;
+    /**
+     * Name of the browser isolation profile
+     */
+    name: string;
+    /**
+     * The browser isolation profile URL
+     */
+    url: string;
+}
+
+export interface GetCasbDlpRulesAuditorNotification {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesBucket {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesCasbEmailLabel {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesCasbTombstoneTemplate {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesCloudAppTenant {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesCriteriaDomainProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesDepartment {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesDlpEngine {
+    /**
+     * (Map of String) Optional metadata for the DLP engine.
+     */
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesEmailRecipientProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesEntityGroup {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesExcludedDomainProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesGroup {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesIncludedDomainProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesLabel {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesObjectType {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesRedactionProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesTag {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesUser {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesWatermarkProfile {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesZscalerIncidentReceiver {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesBucket {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesCasbEmailLabel {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesCasbTombstoneTemplate {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesCloudAppTenant {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesCloudAppTenantId {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesLabel {
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbMalwareRulesLastModifiedBy {
+    /**
+     * Additional information about the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbTenantZscalerAppTenantId {
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    id: number;
+    /**
+     * The configured name of the entity
+     */
+    name: string;
+}
+
 export interface GetCloudAppControlRuleCbiProfile {
     /**
      * The browser isolation profile URL
@@ -950,6 +1461,57 @@ export interface GetCloudAppControlRuleLocationGroup {
 export interface GetCloudAppControlRuleUser {
     extensions: {[key: string]: string};
     id: number;
+    name: string;
+}
+
+export interface GetCloudApplicationInstanceInstanceIdentifier {
+    /**
+     * Type of the cloud application instance
+     */
+    identifierType: string;
+    /**
+     * Unique identifier for the cloud application instance
+     */
+    instanceId: number;
+    /**
+     * Unique identifying string for the instance
+     */
+    instanceIdentifier: string;
+    /**
+     * Unique identifying string for the instance
+     */
+    instanceIdentifierName: string;
+    /**
+     * The admin that modified the instance last.
+     */
+    lastModifiedBies: outputs.GetCloudApplicationInstanceInstanceIdentifierLastModifiedBy[];
+    /**
+     * Timestamp of when the instance was last modified.
+     */
+    modifiedAt: number;
+}
+
+export interface GetCloudApplicationInstanceInstanceIdentifierLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    id: number;
+    /**
+     * The configured name of the entity
+     */
+    name: string;
+}
+
+export interface GetCloudApplicationInstanceLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    id: number;
+    /**
+     * The configured name of the entity
+     */
     name: string;
 }
 
@@ -1230,6 +1792,18 @@ export interface GetDLPWebRulesGroup {
     id: number;
     /**
      * Identifier that uniquely identifies an entity
+     */
+    name: string;
+}
+
+export interface GetDLPWebRulesIncludedDomainProfile {
+    extensions: {[key: string]: string};
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    id: number;
+    /**
+     * The name of the workload group
      */
     name: string;
 }
@@ -1704,186 +2278,6 @@ export interface GetFirewallDNSRulesUser {
     name: string;
 }
 
-export interface GetFirewallDnsRuleApplicationGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleDepartment {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleDestIpGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleDestIpv6Group {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleDevice {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleDeviceGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleLabel {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleLastModifiedBy {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleLocation {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleLocationGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleSrcIpGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleSrcIpv6Group {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleTimeWindow {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallDnsRuleUser {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
 export interface GetFirewallFilteringNetworkServiceGroupsService {
     /**
      * (String)
@@ -2277,221 +2671,34 @@ export interface GetFirewallFilteringRuleZpaAppSegment {
     name: string;
 }
 
-export interface GetFirewallIpsRuleDepartment {
+export interface GetForwardingControlProxiesCert {
     extensions: {[key: string]: string};
     /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleDestIpGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleDestIpv6Group {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleDevice {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleDeviceGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleLabel {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleLastModifiedBy {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleLocation {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleLocationGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleNwService {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleNwServiceGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleSrcIpGroup {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleSrcIpv6Group {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleThreatCategory {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleTimeWindow {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleUser {
-    extensions: {[key: string]: string};
-    /**
-     * Unique identifier for the Firewall Filtering policy rule
-     */
-    id: number;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name: string;
-}
-
-export interface GetFirewallIpsRuleZpaAppSegment {
-    /**
-     * Indicates the external ID. Applicable only when this reference is of an external entity.
+     * The configured name of the entity
      */
     externalId: string;
     /**
-     * Unique identifier for the Firewall Filtering policy rule
+     * Unique identifier for the third-party proxy services
      */
     id: number;
     /**
-     * Name of the Firewall Filtering policy rule
+     * Proxy name for the third-party proxy services
+     */
+    name: string;
+}
+
+export interface GetForwardingControlProxiesLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * The configured name of the entity
+     */
+    externalId: string;
+    /**
+     * Unique identifier for the third-party proxy services
+     */
+    id: number;
+    /**
+     * Proxy name for the third-party proxy services
      */
     name: string;
 }
@@ -2822,6 +3029,40 @@ export interface GetForwardingControlZPAGatewayZpaServerGroup {
     externalId: string;
     /**
      * The name of the forwarding control ZPA Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewayLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewayPrimaryProxy {
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
+     */
+    name: string;
+}
+
+export interface GetForwardingProxyGatewaySecondaryProxy {
+    /**
+     * The ID of the forwarding control Proxy Gateway resource.
+     */
+    id: number;
+    /**
+     * The name of the forwarding control Proxy Gateway to be exported.
      */
     name: string;
 }
@@ -3159,6 +3400,27 @@ export interface GetLocationGroupsLocation {
     name: string;
 }
 
+export interface GetLocationManagementExtranet {
+    /**
+     * The ID of the location to be exported.
+     */
+    id: number;
+}
+
+export interface GetLocationManagementExtranetDn {
+    /**
+     * The ID of the location to be exported.
+     */
+    id: number;
+}
+
+export interface GetLocationManagementExtranetIpPool {
+    /**
+     * The ID of the location to be exported.
+     */
+    id: number;
+}
+
 export interface GetLocationManagementVpnCredential {
     /**
      * (String) Additional information about this VPN credential.
@@ -3221,10 +3483,273 @@ export interface GetLocationManagementVpnCredentialManagedBy {
     name: string;
 }
 
+export interface GetNatControlRulesDepartment {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesDestIpGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesDestIpv6Group {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesDevice {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesDeviceGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesLabel {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesLastModifiedBy {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesLocation {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesLocationGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesNwService {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesNwServiceGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesSrcIpGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesSrcIpv6Group {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesTimeWindow {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetNatControlRulesUser {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * A unique identifier assigned to the forwarding rule.
+     */
+    id: number;
+    /**
+     * The name of the forwarding rule.
+     */
+    name: string;
+}
+
+export interface GetRiskProfilesCustomTag {
+    /**
+     * Unique identifier for the risk profile.
+     */
+    id: number;
+    /**
+     * Cloud application risk profile name.
+     */
+    name: string;
+}
+
+export interface GetRiskProfilesLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * Unique identifier for the risk profile.
+     */
+    id: number;
+    /**
+     * Cloud application risk profile name.
+     */
+    name: string;
+}
+
 export interface GetRuleLabelsCreatedBy {
     extensions: {[key: string]: string};
     /**
-     * The unique identifer for the device group.
+     * The unique identifer for the rule label.
      */
     id: number;
     /**
@@ -3236,7 +3761,7 @@ export interface GetRuleLabelsCreatedBy {
 export interface GetRuleLabelsLastModifiedBy {
     extensions: {[key: string]: string};
     /**
-     * The unique identifer for the device group.
+     * The unique identifer for the rule label.
      */
     id: number;
     /**
@@ -4351,6 +4876,25 @@ export interface GetUserManagementGroup {
     name: string;
 }
 
+export interface GetVirtualServiceEdgeClusterVirtualZenNode {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (String) An external identifier used for an entity that is managed outside of ZIA.
+     */
+    externalId: string;
+    /**
+     * USystem-generated Virtual Service Edge cluster ID
+     */
+    id: number;
+    /**
+     * Name of the Virtual Service Edge cluster
+     */
+    name: string;
+}
+
 export interface GetWorkloadGroupsExpressionJson {
     /**
      * (List) Contains one or more tag types (and associated tags) combined using logical operators within a workload group
@@ -4538,6 +5082,18 @@ export interface LocationManagementDynamicLocationGroups {
     ids?: number[];
 }
 
+export interface LocationManagementExtranet {
+    id?: number;
+}
+
+export interface LocationManagementExtranetDn {
+    id?: number;
+}
+
+export interface LocationManagementExtranetIpPool {
+    id?: number;
+}
+
 export interface LocationManagementStaticLocationGroups {
     ids?: number[];
 }
@@ -4549,6 +5105,70 @@ export interface LocationManagementVpnCredential {
     ipAddress: string;
     preSharedKey?: string;
     type: string;
+}
+
+export interface NatControlRulesDepartments {
+    ids?: number[];
+}
+
+export interface NatControlRulesDestIpGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesDestIpv6Groups {
+    ids?: number[];
+}
+
+export interface NatControlRulesDeviceGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesDevices {
+    ids?: number[];
+}
+
+export interface NatControlRulesGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesLabels {
+    id?: number;
+}
+
+export interface NatControlRulesLocationGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesLocations {
+    ids?: number[];
+}
+
+export interface NatControlRulesNwServiceGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesNwServices {
+    ids?: number[];
+}
+
+export interface NatControlRulesSrcIpGroups {
+    ids?: number[];
+}
+
+export interface NatControlRulesSrcIpv6Groups {
+    ids?: number[];
+}
+
+export interface NatControlRulesTimeWindows {
+    ids?: number[];
+}
+
+export interface NatControlRulesUsers {
+    ids?: number[];
+}
+
+export interface RiskProfilesCustomTags {
+    ids: number[];
 }
 
 export interface SSLInspectionRulesAction {
@@ -4966,5 +5586,12 @@ export interface UserManagementGroups {
      * Unique identfier for the group
      */
     ids?: number[];
+}
+
+export interface VirtualServiceEdgeClusterVirtualZenNodes {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids: number[];
 }
 

@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/configuring-url-filtering-policy#Action)
+// * [API documentation](https://help.zscaler.com/zia/browser-isolation#/browserIsolation/profiles-get)
+//
 // Use the **zia_cloud_browser_isolation_profile** data source to get information about an isolation profile in the Zscaler Internet Access cloud. This data source is required when configuring URL filtering rule where the action is set to `ISOLATE`
 //
 // ## Example Usage

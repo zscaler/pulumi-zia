@@ -105,6 +105,9 @@ def get_dlp_notification_templates(id: Optional[builtins.int] = None,
                                    name: Optional[builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPNotificationTemplatesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+
     Use the **zia_dlp_notification_templates** data source to get information about a ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -127,6 +130,9 @@ def get_dlp_notification_templates_output(id: Optional[pulumi.Input[Optional[bui
                                           name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPNotificationTemplatesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+
     Use the **zia_dlp_notification_templates** data source to get information about a ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

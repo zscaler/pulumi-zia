@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+ * * [API documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+ *
  * Use the **zia_url_filtering_and_cloud_app_settings** data source to get information about URL and Cloud App Control advanced policy settings.
  */
 export function getURLFilteringCloudAppSettings(opts?: pulumi.InvokeOptions): Promise<GetURLFilteringCloudAppSettingsResult> {
@@ -43,6 +46,9 @@ export interface GetURLFilteringCloudAppSettingsResult {
     readonly id: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+ * * [API documentation](https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get)
+ *
  * Use the **zia_url_filtering_and_cloud_app_settings** data source to get information about URL and Cloud App Control advanced policy settings.
  */
 export function getURLFilteringCloudAppSettingsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetURLFilteringCloudAppSettingsResult> {

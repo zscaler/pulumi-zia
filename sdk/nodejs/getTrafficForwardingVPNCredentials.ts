@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
+ *
  * Use the **zia_traffic_forwarding_vpn_credentials** data source to get information about VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-Site IPSec VPN credentials can be identified by the cloud through one of the following methods:
  *
  * * Common Name (CN) of IPSec Certificate
@@ -84,6 +87,9 @@ export interface GetTrafficForwardingVPNCredentialsResult {
     readonly type: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
+ *
  * Use the **zia_traffic_forwarding_vpn_credentials** data source to get information about VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-Site IPSec VPN credentials can be identified by the cloud through one of the following methods:
  *
  * * Common Name (CN) of IPSec Certificate

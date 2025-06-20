@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+ *
  * The **zia_dlp_web_rules** resource allows the creation and management of ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
  *
  * ⚠️ **WARNING:** Zscaler Internet Access DLP supports a maximum of 127 Web DLP Rules to be created via API.
@@ -80,7 +83,7 @@ export class DLPWebRules extends pulumi.CustomResource {
     /**
      * The auditor to which the DLP policy rule must be applied.
      */
-    public readonly auditors!: pulumi.Output<outputs.DLPWebRulesAuditor[]>;
+    public readonly auditors!: pulumi.Output<outputs.DLPWebRulesAuditor[] | undefined>;
     /**
      * The list of cloud applications to which the DLP policy rule must be applied.
      */
@@ -118,9 +121,9 @@ export class DLPWebRules extends pulumi.CustomResource {
      */
     public readonly excludedUsers!: pulumi.Output<outputs.DLPWebRulesExcludedUsers | undefined>;
     /**
-     * The email address of an external auditor to whom DLP email notifications are sent.
+     * The email address of an external auditor to whom DLP email notifications are sent
      */
-    public readonly externalAuditorEmail!: pulumi.Output<string>;
+    public readonly externalAuditorEmail!: pulumi.Output<string | undefined>;
     /**
      * The list of file types for which the DLP policy rule must be applied.
      */
@@ -132,7 +135,7 @@ export class DLPWebRules extends pulumi.CustomResource {
     /**
      * The DLP server, using ICAP, to which the transaction content is forwarded.
      */
-    public readonly icapServers!: pulumi.Output<outputs.DLPWebRulesIcapServer[]>;
+    public readonly icapServers!: pulumi.Output<outputs.DLPWebRulesIcapServer[] | undefined>;
     /**
      * The Name-ID pairs of users to which the DLP policy rule must be applied.
      */
@@ -165,7 +168,7 @@ export class DLPWebRules extends pulumi.CustomResource {
     /**
      * The template used for DLP notification emails.
      */
-    public readonly notificationTemplates!: pulumi.Output<outputs.DLPWebRulesNotificationTemplate[]>;
+    public readonly notificationTemplates!: pulumi.Output<outputs.DLPWebRulesNotificationTemplate[] | undefined>;
     /**
      * The rule order of execution for the DLP policy rule with respect to other rules.
      */
@@ -384,7 +387,7 @@ export interface DLPWebRulesState {
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
-     * The email address of an external auditor to whom DLP email notifications are sent.
+     * The email address of an external auditor to whom DLP email notifications are sent
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**
@@ -545,7 +548,7 @@ export interface DLPWebRulesArgs {
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
-     * The email address of an external auditor to whom DLP email notifications are sent.
+     * The email address of an external auditor to whom DLP email notifications are sent
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**

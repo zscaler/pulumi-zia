@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+//
 // Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 func LookupDLPDictionaries(ctx *pulumi.Context, args *LookupDLPDictionariesArgs, opts ...pulumi.InvokeOption) (*LookupDLPDictionariesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

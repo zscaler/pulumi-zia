@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+ * * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+ *
  * The **zia_end_user_notification** resource allows you to update the browser-based end user notification (EUN) configuration details. To learn more see [Understanding Browser-Based End User Notifications](https://help.zscaler.com/unified/understanding-browser-based-end-user-notifications)
  *
  * ## Example Usage

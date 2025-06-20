@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+//
 // Use the **zia_traffic_forwarding_public_node_vips** data source to retrieve a paginated list of virtual IP addresses (VIPs) available in the Zscaler cloud.
 //
 // ## Example Usage

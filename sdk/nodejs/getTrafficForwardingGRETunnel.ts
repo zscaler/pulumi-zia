@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+ *
  * The **zia_traffic_forwarding_gre_tunnel** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
  *
  * ## Example Usage
@@ -78,6 +81,9 @@ export interface GetTrafficForwardingGRETunnelResult {
     readonly withinCountry: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+ * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+ *
  * The **zia_traffic_forwarding_gre_tunnel** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
  *
  * ## Example Usage

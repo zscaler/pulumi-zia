@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-role-management)
+// * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminRoles-get)
+//
 // Use the **zia_admin_roles** data source to get information about an admin role created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with a ZIA administrator account.
 //
 // ## Example Usage

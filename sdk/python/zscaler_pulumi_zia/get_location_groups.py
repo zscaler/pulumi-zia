@@ -164,6 +164,9 @@ def get_location_groups(dynamic_location_group_criterias: Optional[Sequence[Unio
                         name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationGroupsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
     Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
 
 
@@ -191,6 +194,9 @@ def get_location_groups_output(dynamic_location_group_criterias: Optional[pulumi
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationGroupsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
     Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
 
 

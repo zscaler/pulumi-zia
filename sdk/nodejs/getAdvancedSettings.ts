@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+ *
  * The **zia_advanced_settings** Retrieves information about the advanced settings configured in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
  *
  * ## Example Usage
@@ -74,6 +77,9 @@ export interface GetAdvancedSettingsResult {
     readonly zscalerClientConnector1AndPacRoadWarriorInFirewall: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+ *
  * The **zia_advanced_settings** Retrieves information about the advanced settings configured in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
  *
  * ## Example Usage

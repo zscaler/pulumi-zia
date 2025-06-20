@@ -260,6 +260,9 @@ def get_sandbox_rules(id: Optional[builtins.int] = None,
                       url_categories: Optional[Sequence[builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSandboxRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+
     Use the **zia_sandbox_rules** data source to get information about a sandbox rule in the Zscaler Internet Access.
 
     ## Example Usage
@@ -342,6 +345,9 @@ def get_sandbox_rules_output(id: Optional[pulumi.Input[Optional[builtins.int]]] 
                              url_categories: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+
     Use the **zia_sandbox_rules** data source to get information about a sandbox rule in the Zscaler Internet Access.
 
     ## Example Usage

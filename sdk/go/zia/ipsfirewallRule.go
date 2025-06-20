@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/ips-control-policy#/firewallIpsRules-get)
+// * [API documentation](https://help.zscaler.com/zia/configuring-ips-control-policy)
+//
 // The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
 //
 // ## Example Usage

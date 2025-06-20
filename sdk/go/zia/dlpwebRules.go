@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+//
 // The **zia_dlp_web_rules** resource allows the creation and management of ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 //
 // ⚠️ **WARNING:** Zscaler Internet Access DLP supports a maximum of 127 Web DLP Rules to be created via API.
@@ -74,8 +77,8 @@ type DLPWebRules struct {
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrOutput `pulumi:"excludedGroups"`
 	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersPtrOutput `pulumi:"excludedUsers"`
-	// The email address of an external auditor to whom DLP email notifications are sent.
-	ExternalAuditorEmail pulumi.StringOutput `pulumi:"externalAuditorEmail"`
+	// The email address of an external auditor to whom DLP email notifications are sent
+	ExternalAuditorEmail pulumi.StringPtrOutput `pulumi:"externalAuditorEmail"`
 	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
 	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
@@ -188,7 +191,7 @@ type dlpwebRulesState struct {
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
 	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
-	// The email address of an external auditor to whom DLP email notifications are sent.
+	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
 	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes []string `pulumi:"fileTypes"`
@@ -270,7 +273,7 @@ type DLPWebRulesState struct {
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
 	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
-	// The email address of an external auditor to whom DLP email notifications are sent.
+	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail pulumi.StringPtrInput
 	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayInput
@@ -356,7 +359,7 @@ type dlpwebRulesArgs struct {
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
 	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
-	// The email address of an external auditor to whom DLP email notifications are sent.
+	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
 	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes []string `pulumi:"fileTypes"`
@@ -438,7 +441,7 @@ type DLPWebRulesArgs struct {
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
 	// The Name-ID pairs of users to which the DLP policy rule must be applied.
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
-	// The email address of an external auditor to whom DLP email notifications are sent.
+	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail pulumi.StringPtrInput
 	// The list of file types for which the DLP policy rule must be applied.
 	FileTypes pulumi.StringArrayInput
@@ -638,9 +641,9 @@ func (o DLPWebRulesOutput) ExcludedUsers() DLPWebRulesExcludedUsersPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedUsersPtrOutput { return v.ExcludedUsers }).(DLPWebRulesExcludedUsersPtrOutput)
 }
 
-// The email address of an external auditor to whom DLP email notifications are sent.
-func (o DLPWebRulesOutput) ExternalAuditorEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.ExternalAuditorEmail }).(pulumi.StringOutput)
+// The email address of an external auditor to whom DLP email notifications are sent
+func (o DLPWebRulesOutput) ExternalAuditorEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DLPWebRules) pulumi.StringPtrOutput { return v.ExternalAuditorEmail }).(pulumi.StringPtrOutput)
 }
 
 // The list of file types for which the DLP policy rule must be applied.

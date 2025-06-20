@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+ *
  * The **zia_advanced_settings** resource alows you to updates the advanced settings configuration in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
  *
  * ## Example Usage

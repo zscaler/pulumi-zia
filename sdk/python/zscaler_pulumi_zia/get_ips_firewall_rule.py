@@ -468,6 +468,9 @@ def get_ips_firewall_rule(id: Optional[builtins.int] = None,
                           name: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIPSFirewallRuleResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/ips-control-policy#/firewallIpsRules-get)
+    * [API documentation](https://help.zscaler.com/zia/configuring-ips-control-policy)
+
     Use the **zia_firewall_ips_rule** data source to get information about a cloud firewall IPS rule available in the Zscaler Internet Access.
 
     ## Example Usage
@@ -523,6 +526,9 @@ def get_ips_firewall_rule_output(id: Optional[pulumi.Input[Optional[builtins.int
                                  name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIPSFirewallRuleResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/ips-control-policy#/firewallIpsRules-get)
+    * [API documentation](https://help.zscaler.com/zia/configuring-ips-control-policy)
+
     Use the **zia_firewall_ips_rule** data source to get information about a cloud firewall IPS rule available in the Zscaler Internet Access.
 
     ## Example Usage

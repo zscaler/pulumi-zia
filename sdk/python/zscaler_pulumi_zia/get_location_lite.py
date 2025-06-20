@@ -277,6 +277,9 @@ def get_location_lite(digest_auth_enabled: Optional[builtins.bool] = None,
                       name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationLiteResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
+
     Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``URLFilteringRules``, ``FirewallFilteringRule`` and ``DLPWebRules`
 
 
@@ -317,6 +320,9 @@ def get_location_lite_output(digest_auth_enabled: Optional[pulumi.Input[Optional
                              name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationLiteResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
+
     Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``URLFilteringRules``, ``FirewallFilteringRule`` and ``DLPWebRules`
 
 

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+ *
  * Use the **zia_firewall_filtering_ip_source_groups** data source to get information about ip source groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage
@@ -51,6 +54,9 @@ export interface GetFirewallFilteringSourceIPGroupsResult {
     readonly name: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+ *
  * Use the **zia_firewall_filtering_ip_source_groups** data source to get information about ip source groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage

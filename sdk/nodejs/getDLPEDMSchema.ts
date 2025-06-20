@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-exact-data-match)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpExactDataMatchSchemas-get)
+ *
  * Use the **zia_dlp_edm_schema** data source to get information about a the list of DLP Exact Data Match (EDM) templates in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -52,6 +55,9 @@ export interface GetDLPEDMSchemaResult {
     readonly tokenLists: outputs.GetDLPEDMSchemaTokenList[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-exact-data-match)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpExactDataMatchSchemas-get)
+ *
  * Use the **zia_dlp_edm_schema** data source to get information about a the list of DLP Exact Data Match (EDM) templates in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

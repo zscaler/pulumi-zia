@@ -152,6 +152,9 @@ class AwaitableGetTrafficForwardingNodeVIPsResult(GetTrafficForwardingNodeVIPsRe
 def get_traffic_forwarding_node_vips(datacenter: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingNodeVIPsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+
     Use the **zia_traffic_forwarding_public_node_vips** data source to retrieve a paginated list of virtual IP addresses (VIPs) available in the Zscaler cloud.
 
     ## Example Usage
@@ -180,6 +183,9 @@ def get_traffic_forwarding_node_vips(datacenter: Optional[builtins.str] = None,
 def get_traffic_forwarding_node_vips_output(datacenter: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingNodeVIPsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+
     Use the **zia_traffic_forwarding_public_node_vips** data source to retrieve a paginated list of virtual IP addresses (VIPs) available in the Zscaler cloud.
 
     ## Example Usage

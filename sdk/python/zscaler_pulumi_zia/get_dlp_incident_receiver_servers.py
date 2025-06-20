@@ -86,6 +86,9 @@ class AwaitableGetDLPIncidentReceiverServersResult(GetDLPIncidentReceiverServers
 def get_dlp_incident_receiver_servers(name: Optional[builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPIncidentReceiverServersResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-zscaler-incident-receiver)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/incidentReceiverServers-get)
+
     Use the **zia_dlp_incident_receiver_servers** data source to get information about a ZIA DLP Incident Receiver Server in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -104,6 +107,9 @@ def get_dlp_incident_receiver_servers(name: Optional[builtins.str] = None,
 def get_dlp_incident_receiver_servers_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPIncidentReceiverServersResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-zscaler-incident-receiver)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/incidentReceiverServers-get)
+
     Use the **zia_dlp_incident_receiver_servers** data source to get information about a ZIA DLP Incident Receiver Server in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

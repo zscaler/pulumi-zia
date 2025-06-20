@@ -493,6 +493,9 @@ class AwaitableGetAdvancedSettingsResult(GetAdvancedSettingsResult):
 
 def get_advanced_settings(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdvancedSettingsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+    * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+
     The **zia_advanced_settings** Retrieves information about the advanced settings configured in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
     ## Example Usage
@@ -554,6 +557,9 @@ def get_advanced_settings(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
         zscaler_client_connector1_and_pac_road_warrior_in_firewall=pulumi.get(__ret__, 'zscaler_client_connector1_and_pac_road_warrior_in_firewall'))
 def get_advanced_settings_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedSettingsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+    * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+
     The **zia_advanced_settings** Retrieves information about the advanced settings configured in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
     ## Example Usage

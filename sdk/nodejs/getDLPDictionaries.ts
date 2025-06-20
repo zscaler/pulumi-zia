@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+ *
  * Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
  */
 export function getDLPDictionaries(args?: GetDLPDictionariesArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPDictionariesResult> {
@@ -95,6 +98,9 @@ export interface GetDLPDictionariesResult {
     readonly thresholdType: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+ *
  * Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
  */
 export function getDLPDictionariesOutput(args?: GetDLPDictionariesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDLPDictionariesResult> {

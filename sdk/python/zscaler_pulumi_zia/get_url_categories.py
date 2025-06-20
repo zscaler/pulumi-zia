@@ -277,6 +277,9 @@ def get_url_categories(configured_name: Optional[builtins.str] = None,
                        super_category: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetURLCategoriesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+    * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
     Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 
 
@@ -323,6 +326,9 @@ def get_url_categories_output(configured_name: Optional[pulumi.Input[Optional[bu
                               super_category: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetURLCategoriesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+    * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
     Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
 
 

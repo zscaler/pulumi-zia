@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+// * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups/{groupId}-get)
+//
 // The **zia_firewall_filtering_network_application_groups** resource allows the creation and management of ZIA Cloud Firewall IP source groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 //
 // ## Example Usage

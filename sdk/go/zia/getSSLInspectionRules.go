@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+// * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+//
 // Use the **zia_ssl_inspection_rules** data source to get information about a ssl inspection rule in the Zscaler Internet Access.
 //
 // ## Example Usage

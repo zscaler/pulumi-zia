@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+ * * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+ *
  * Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -45,6 +48,9 @@ export interface GetDLPIDMProfileLiteResult {
     readonly templateName?: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+ * * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+ *
  * Use the **zia_dlp_idm_profile_lite** data source to get summarized information about a ZIA DLP IDM Profile Lite in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

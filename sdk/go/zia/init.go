@@ -45,8 +45,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdvancedThreatSettings{}
 	case "zia:index/authSettingsURLs:AuthSettingsURLs":
 		r = &AuthSettingsURLs{}
+	case "zia:index/browserControlPolicy:BrowserControlPolicy":
+		r = &BrowserControlPolicy{}
+	case "zia:index/browserControlSettings:BrowserControlSettings":
+		r = &BrowserControlSettings{}
+	case "zia:index/casbDlpRule:CasbDlpRule":
+		r = &CasbDlpRule{}
+	case "zia:index/casbDlpRules:CasbDlpRules":
+		r = &CasbDlpRules{}
+	case "zia:index/casbMalwareRule:CasbMalwareRule":
+		r = &CasbMalwareRule{}
+	case "zia:index/casbMalwareRules:CasbMalwareRules":
+		r = &CasbMalwareRules{}
 	case "zia:index/cloudAppControlRule:CloudAppControlRule":
 		r = &CloudAppControlRule{}
+	case "zia:index/cloudApplicationInstance:CloudApplicationInstance":
+		r = &CloudApplicationInstance{}
 	case "zia:index/dLPDictionaries:DLPDictionaries":
 		r = &DLPDictionaries{}
 	case "zia:index/dLPEngines:DLPEngines":
@@ -73,16 +87,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallFilteringServiceGroups{}
 	case "zia:index/firewallFilteringSourceGroups:FirewallFilteringSourceGroups":
 		r = &FirewallFilteringSourceGroups{}
-	case "zia:index/firewallIPSRule:FirewallIPSRule":
-		r = &FirewallIPSRule{}
+	case "zia:index/forwardingControlProxies:ForwardingControlProxies":
+		r = &ForwardingControlProxies{}
 	case "zia:index/forwardingControlRule:ForwardingControlRule":
 		r = &ForwardingControlRule{}
 	case "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway":
 		r = &ForwardingControlZPAGateway{}
+	case "zia:index/ftpControlPolicy:FtpControlPolicy":
+		r = &FtpControlPolicy{}
 	case "zia:index/iPSFirewallRule:IPSFirewallRule":
 		r = &IPSFirewallRule{}
 	case "zia:index/locationManagement:LocationManagement":
 		r = &LocationManagement{}
+	case "zia:index/mobileMalwareProtectionPolicy:MobileMalwareProtectionPolicy":
+		r = &MobileMalwareProtectionPolicy{}
+	case "zia:index/natControlRules:NatControlRules":
+		r = &NatControlRules{}
+	case "zia:index/nssServer:NssServer":
+		r = &NssServer{}
+	case "zia:index/riskProfiles:RiskProfiles":
+		r = &RiskProfiles{}
 	case "zia:index/ruleLabels:RuleLabels":
 		r = &RuleLabels{}
 	case "zia:index/sSLInspectionRules:SSLInspectionRules":
@@ -95,6 +119,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SandboxRules{}
 	case "zia:index/securitySettings:SecuritySettings":
 		r = &SecuritySettings{}
+	case "zia:index/subscriptionAlert:SubscriptionAlert":
+		r = &SubscriptionAlert{}
 	case "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel":
 		r = &TrafficForwardingGRETunnel{}
 	case "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP":
@@ -109,6 +135,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &URLFilteringRules{}
 	case "zia:index/userManagement:UserManagement":
 		r = &UserManagement{}
+	case "zia:index/virtualServiceEdgeCluster:VirtualServiceEdgeCluster":
+		r = &VirtualServiceEdgeCluster{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -202,7 +230,42 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/browserControlPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/browserControlSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbDlpRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbDlpRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbMalwareRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/casbMalwareRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/cloudAppControlRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/cloudApplicationInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -272,7 +335,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
-		"index/firewallIPSRule",
+		"index/forwardingControlProxies",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -287,12 +350,37 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/ftpControlPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/iPSFirewallRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/locationManagement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/mobileMalwareProtectionPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/natControlRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/nssServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/riskProfiles",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -323,6 +411,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/securitySettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/subscriptionAlert",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -358,6 +451,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/userManagement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/virtualServiceEdgeCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

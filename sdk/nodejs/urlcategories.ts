@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+ * * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+ *
  * The **zia_url_categories** resource creates and manages a new custom URL category. If keywords are included within the request, they will be added to the new category.
  *
  * ## Example Usage

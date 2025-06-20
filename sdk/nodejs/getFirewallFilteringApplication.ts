@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+ *
  * Use the **zia_firewall_filtering_network_application** data source to get information about a network application available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
  *
  * ## Example Usage
@@ -49,6 +52,9 @@ export interface GetFirewallFilteringApplicationResult {
     readonly parentCategory: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+ *
  * Use the **zia_firewall_filtering_network_application** data source to get information about a network application available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
  *
  * ## Example Usage

@@ -123,6 +123,9 @@ class AwaitableGetWorkloadGroupsResult(GetWorkloadGroupsResult):
 def get_workload_groups(name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadGroupsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-workload-groups)
+    * [API documentation](https://help.zscaler.com/zia/workload-groups#/workloadGroups-get)
+
     Use the **zia_workload_groups** data source to get information about Workload Groups in the Zscaler Internet Access cloud or via the API. This data source can then be used as a criterion in ZIA policies such as, Firewall Filtering, URL Filtering, and Data Loss Prevention (DLP) to apply security policies to the workload traffic.
 
     ## Example Usage
@@ -146,6 +149,9 @@ def get_workload_groups(name: Optional[builtins.str] = None,
 def get_workload_groups_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadGroupsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-workload-groups)
+    * [API documentation](https://help.zscaler.com/zia/workload-groups#/workloadGroups-get)
+
     Use the **zia_workload_groups** data source to get information about Workload Groups in the Zscaler Internet Access cloud or via the API. This data source can then be used as a criterion in ZIA policies such as, Firewall Filtering, URL Filtering, and Data Loss Prevention (DLP) to apply security policies to the workload traffic.
 
     ## Example Usage

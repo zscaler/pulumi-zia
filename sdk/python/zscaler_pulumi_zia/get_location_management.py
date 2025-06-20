@@ -28,7 +28,7 @@ class GetLocationManagementResult:
     """
     A collection of values returned by getLocationManagement.
     """
-    def __init__(__self__, aup_block_internet_until_accepted=None, aup_enabled=None, aup_force_ssl_inspection=None, aup_timeout_in_days=None, auth_required=None, basic_auth_enabled=None, caution_enabled=None, country=None, description=None, digest_auth_enabled=None, display_time_unit=None, dn_bandwidth=None, id=None, idle_time_in_minutes=None, iot_discovery_enabled=None, ip_addresses=None, ips_control=None, kerberos_auth_enabled=None, name=None, ofw_enabled=None, parent_id=None, parent_name=None, ports=None, profile=None, ssl_scan_enabled=None, surrogate_ip=None, surrogate_ip_enforced_for_known_browsers=None, surrogate_refresh_time_in_minutes=None, surrogate_refresh_time_unit=None, tz=None, up_bandwidth=None, vpn_credentials=None, xff_forward_enabled=None, zapp_ssl_scan_enabled=None):
+    def __init__(__self__, aup_block_internet_until_accepted=None, aup_enabled=None, aup_force_ssl_inspection=None, aup_timeout_in_days=None, auth_required=None, basic_auth_enabled=None, caution_enabled=None, country=None, default_extranet_dns=None, default_extranet_ts_pool=None, description=None, digest_auth_enabled=None, display_time_unit=None, dn_bandwidth=None, extranet_dns=None, extranet_ip_pools=None, extranets=None, id=None, idle_time_in_minutes=None, iot_discovery_enabled=None, ip_addresses=None, ips_control=None, kerberos_auth_enabled=None, name=None, ofw_enabled=None, parent_id=None, parent_name=None, ports=None, profile=None, ssl_scan_enabled=None, surrogate_ip=None, surrogate_ip_enforced_for_known_browsers=None, surrogate_refresh_time_in_minutes=None, surrogate_refresh_time_unit=None, tz=None, up_bandwidth=None, vpn_credentials=None, xff_forward_enabled=None, zapp_ssl_scan_enabled=None):
         if aup_block_internet_until_accepted and not isinstance(aup_block_internet_until_accepted, bool):
             raise TypeError("Expected argument 'aup_block_internet_until_accepted' to be a bool")
         pulumi.set(__self__, "aup_block_internet_until_accepted", aup_block_internet_until_accepted)
@@ -53,6 +53,12 @@ class GetLocationManagementResult:
         if country and not isinstance(country, str):
             raise TypeError("Expected argument 'country' to be a str")
         pulumi.set(__self__, "country", country)
+        if default_extranet_dns and not isinstance(default_extranet_dns, bool):
+            raise TypeError("Expected argument 'default_extranet_dns' to be a bool")
+        pulumi.set(__self__, "default_extranet_dns", default_extranet_dns)
+        if default_extranet_ts_pool and not isinstance(default_extranet_ts_pool, bool):
+            raise TypeError("Expected argument 'default_extranet_ts_pool' to be a bool")
+        pulumi.set(__self__, "default_extranet_ts_pool", default_extranet_ts_pool)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -65,6 +71,15 @@ class GetLocationManagementResult:
         if dn_bandwidth and not isinstance(dn_bandwidth, int):
             raise TypeError("Expected argument 'dn_bandwidth' to be a int")
         pulumi.set(__self__, "dn_bandwidth", dn_bandwidth)
+        if extranet_dns and not isinstance(extranet_dns, list):
+            raise TypeError("Expected argument 'extranet_dns' to be a list")
+        pulumi.set(__self__, "extranet_dns", extranet_dns)
+        if extranet_ip_pools and not isinstance(extranet_ip_pools, list):
+            raise TypeError("Expected argument 'extranet_ip_pools' to be a list")
+        pulumi.set(__self__, "extranet_ip_pools", extranet_ip_pools)
+        if extranets and not isinstance(extranets, list):
+            raise TypeError("Expected argument 'extranets' to be a list")
+        pulumi.set(__self__, "extranets", extranets)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
@@ -194,6 +209,16 @@ class GetLocationManagementResult:
         return pulumi.get(self, "country")
 
     @property
+    @pulumi.getter(name="defaultExtranetDns")
+    def default_extranet_dns(self) -> builtins.bool:
+        return pulumi.get(self, "default_extranet_dns")
+
+    @property
+    @pulumi.getter(name="defaultExtranetTsPool")
+    def default_extranet_ts_pool(self) -> builtins.bool:
+        return pulumi.get(self, "default_extranet_ts_pool")
+
+    @property
     @pulumi.getter
     def description(self) -> builtins.str:
         """
@@ -223,10 +248,34 @@ class GetLocationManagementResult:
         return pulumi.get(self, "dn_bandwidth")
 
     @property
+    @pulumi.getter(name="extranetDns")
+    def extranet_dns(self) -> Sequence['outputs.GetLocationManagementExtranetDnResult']:
+        """
+        (Block, Max: 1) The ID of the DNS server configuration used in the extranet
+        """
+        return pulumi.get(self, "extranet_dns")
+
+    @property
+    @pulumi.getter(name="extranetIpPools")
+    def extranet_ip_pools(self) -> Sequence['outputs.GetLocationManagementExtranetIpPoolResult']:
+        """
+        (Block, Max: 1) The ID of the traffic selector specified in the extranet
+        """
+        return pulumi.get(self, "extranet_ip_pools")
+
+    @property
+    @pulumi.getter
+    def extranets(self) -> Sequence['outputs.GetLocationManagementExtranetResult']:
+        """
+        (Block, Max: 1) The ID of the extranet resource that must be assigned to the location
+        """
+        return pulumi.get(self, "extranets")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[builtins.int]:
         """
-        (Number) Identifier that uniquely identifies an entity
+        (int) The Identifier that uniquely identifies an entity
         """
         return pulumi.get(self, "id")
 
@@ -401,10 +450,15 @@ class AwaitableGetLocationManagementResult(GetLocationManagementResult):
             basic_auth_enabled=self.basic_auth_enabled,
             caution_enabled=self.caution_enabled,
             country=self.country,
+            default_extranet_dns=self.default_extranet_dns,
+            default_extranet_ts_pool=self.default_extranet_ts_pool,
             description=self.description,
             digest_auth_enabled=self.digest_auth_enabled,
             display_time_unit=self.display_time_unit,
             dn_bandwidth=self.dn_bandwidth,
+            extranet_dns=self.extranet_dns,
+            extranet_ip_pools=self.extranet_ip_pools,
+            extranets=self.extranets,
             id=self.id,
             idle_time_in_minutes=self.idle_time_in_minutes,
             iot_discovery_enabled=self.iot_discovery_enabled,
@@ -435,6 +489,9 @@ def get_location_management(basic_auth_enabled: Optional[builtins.bool] = None,
                             parent_name: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationManagementResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
     Use the **zia_location_management** data source to get information about a location resource available in the Zscaler Internet Access Location Management. This resource can then be referenced in multiple other resources, such as URL Filtering Rules, Firewall rules etc.
 
     ## Example Usage
@@ -460,10 +517,15 @@ def get_location_management(basic_auth_enabled: Optional[builtins.bool] = None,
         basic_auth_enabled=pulumi.get(__ret__, 'basic_auth_enabled'),
         caution_enabled=pulumi.get(__ret__, 'caution_enabled'),
         country=pulumi.get(__ret__, 'country'),
+        default_extranet_dns=pulumi.get(__ret__, 'default_extranet_dns'),
+        default_extranet_ts_pool=pulumi.get(__ret__, 'default_extranet_ts_pool'),
         description=pulumi.get(__ret__, 'description'),
         digest_auth_enabled=pulumi.get(__ret__, 'digest_auth_enabled'),
         display_time_unit=pulumi.get(__ret__, 'display_time_unit'),
         dn_bandwidth=pulumi.get(__ret__, 'dn_bandwidth'),
+        extranet_dns=pulumi.get(__ret__, 'extranet_dns'),
+        extranet_ip_pools=pulumi.get(__ret__, 'extranet_ip_pools'),
+        extranets=pulumi.get(__ret__, 'extranets'),
         id=pulumi.get(__ret__, 'id'),
         idle_time_in_minutes=pulumi.get(__ret__, 'idle_time_in_minutes'),
         iot_discovery_enabled=pulumi.get(__ret__, 'iot_discovery_enabled'),
@@ -492,6 +554,9 @@ def get_location_management_output(basic_auth_enabled: Optional[pulumi.Input[Opt
                                    parent_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationManagementResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-locations)
+    * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
     Use the **zia_location_management** data source to get information about a location resource available in the Zscaler Internet Access Location Management. This resource can then be referenced in multiple other resources, such as URL Filtering Rules, Firewall rules etc.
 
     ## Example Usage
@@ -516,10 +581,15 @@ def get_location_management_output(basic_auth_enabled: Optional[pulumi.Input[Opt
         basic_auth_enabled=pulumi.get(__response__, 'basic_auth_enabled'),
         caution_enabled=pulumi.get(__response__, 'caution_enabled'),
         country=pulumi.get(__response__, 'country'),
+        default_extranet_dns=pulumi.get(__response__, 'default_extranet_dns'),
+        default_extranet_ts_pool=pulumi.get(__response__, 'default_extranet_ts_pool'),
         description=pulumi.get(__response__, 'description'),
         digest_auth_enabled=pulumi.get(__response__, 'digest_auth_enabled'),
         display_time_unit=pulumi.get(__response__, 'display_time_unit'),
         dn_bandwidth=pulumi.get(__response__, 'dn_bandwidth'),
+        extranet_dns=pulumi.get(__response__, 'extranet_dns'),
+        extranet_ip_pools=pulumi.get(__response__, 'extranet_ip_pools'),
+        extranets=pulumi.get(__response__, 'extranets'),
         id=pulumi.get(__response__, 'id'),
         idle_time_in_minutes=pulumi.get(__response__, 'idle_time_in_minutes'),
         iot_discovery_enabled=pulumi.get(__response__, 'iot_discovery_enabled'),

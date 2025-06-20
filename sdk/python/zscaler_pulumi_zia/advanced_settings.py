@@ -1710,6 +1710,9 @@ class AdvancedSettings(pulumi.CustomResource):
                  zscaler_client_connector1_and_pac_road_warrior_in_firewall: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+        * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+
         The **zia_advanced_settings** resource alows you to updates the advanced settings configuration in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
         ## Example Usage
@@ -1802,6 +1805,9 @@ class AdvancedSettings(pulumi.CustomResource):
                  args: Optional[AdvancedSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
+        * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
+
         The **zia_advanced_settings** resource alows you to updates the advanced settings configuration in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
         ## Example Usage

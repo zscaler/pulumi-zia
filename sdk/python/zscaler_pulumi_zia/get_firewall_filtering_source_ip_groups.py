@@ -87,6 +87,9 @@ def get_firewall_filtering_source_ip_groups(id: Optional[builtins.int] = None,
                                             name: Optional[builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringSourceIPGroupsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+
     Use the **zia_firewall_filtering_ip_source_groups** data source to get information about ip source groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage
@@ -110,6 +113,9 @@ def get_firewall_filtering_source_ip_groups_output(id: Optional[pulumi.Input[Opt
                                                    name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringSourceIPGroupsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipSourceGroups-get)
+
     Use the **zia_firewall_filtering_ip_source_groups** data source to get information about ip source groups available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
 
     ## Example Usage

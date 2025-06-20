@@ -169,6 +169,8 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_activation_status":          {Tok: ziaResource(ziaMod, "ActivationStatus")},
 			"zia_advanced_settings":          {Tok: ziaResource(ziaMod, "AdvancedSettings")},
 			"zia_advanced_threat_settings":   {Tok: ziaResource(ziaMod, "AdvancedThreatSettings")},
+			"zia_auth_settings_urls":         {Tok: ziaResource(ziaMod, "AuthSettingsURLs")},
+			"zia_browser_control_policy":     {Tok: ziaResource(ziaMod, "BrowserControlSettings")},
 			"zia_atp_malicious_urls":         {Tok: ziaResource(ziaMod, "ATPMaliciousURLs")},
 			"zia_atp_malware_inspection":     {Tok: ziaResource(ziaMod, "ATPMalwareInspection")},
 			"zia_atp_malware_policy":         {Tok: ziaResource(ziaMod, "ATPMalwarePolicy")},
@@ -176,6 +178,9 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_atp_malware_settings":       {Tok: ziaResource(ziaMod, "ATPMalwareSettings")},
 			"zia_atp_security_exceptions":    {Tok: ziaResource(ziaMod, "ATPSecurityExceptions")},
 			"zia_cloud_app_control_rule":     {Tok: ziaResource(ziaMod, "CloudAppControlRule")},
+			"zia_casb_dlp_rules":             {Tok: ziaResource(ziaMod, "CasbDlpRule")},
+			"zia_casb_malware_rules":         {Tok: ziaResource(ziaMod, "CasbMalwareRule")},
+			"zia_cloud_application_instance": {Tok: ziaResource(ziaMod, "CloudApplicationInstance")},
 			"zia_admin_users":                {Tok: ziaResource(ziaMod, "AdminUsers")},
 			"zia_dlp_dictionaries":           {Tok: ziaResource(ziaMod, "DLPDictionaries")},
 			"zia_dlp_engines":                {Tok: ziaResource(ziaMod, "DLPEngines")},
@@ -202,10 +207,14 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_firewall_filtering_network_application_groups": {Tok: ziaResource(ziaMod, "FirewallFilteringApplicationGroups")},
 			"zia_forwarding_control_rule":                       {Tok: ziaResource(ziaMod, "ForwardingControlRule")},
 			"zia_forwarding_control_zpa_gateway":                {Tok: ziaResource(ziaMod, "ForwardingControlZPAGateway")},
+			"zia_forwarding_control_proxies":                    {Tok: ziaResource(ziaMod, "ForwardingControlProxies")},
+			"zia_nat_control_rules":                             {Tok: ziaResource(ziaMod, "NatControlRules")},
+			"zia_nss_server":                                    {Tok: ziaResource(ziaMod, "NssServer")},
 			"zia_ssl_inspection_rules":                          {Tok: ziaResource(ziaMod, "SSLInspectionRules")},
 			"zia_sandbox_rules":                                 {Tok: ziaResource(ziaMod, "SandboxRules")},
 			"zia_sandbox_behavioral_analysis":                   {Tok: ziaResource(ziaMod, "SandboxBehavioralAnalysis")},
 			"zia_sandbox_file_submission":                       {Tok: ziaResource(ziaMod, "SandboxFileSubmission")},
+			"zia_subscription_alert":                            {Tok: ziaResource(ziaMod, "SubscriptionAlert")},
 			"zia_traffic_forwarding_gre_tunnel":                 {Tok: ziaResource(ziaMod, "TrafficForwardingGRETunnel")},
 			"zia_traffic_forwarding_static_ip":                  {Tok: ziaResource(ziaMod, "TrafficForwardingStaticIP")},
 			"zia_traffic_forwarding_vpn_credentials":            {Tok: ziaResource(ziaMod, "TrafficForwardingVPNCredentials")},
@@ -214,12 +223,13 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_url_filtering_rules":                           {Tok: ziaResource(ziaMod, "URLFilteringRules")},
 			"zia_url_filtering_and_cloud_app_settings":          {Tok: ziaResource(ziaMod, "URLFilteringCloudAppSettings")},
 			"zia_user_management":                               {Tok: ziaResource(ziaMod, "UserManagement")},
+			"zia_risk_profiles":                                 {Tok: ziaResource(ziaMod, "RiskProfiles")},
 			"zia_rule_labels":                                   {Tok: ziaResource(ziaMod, "RuleLabels")},
-			"zia_auth_settings_urls":                            {Tok: ziaResource(ziaMod, "AuthSettingsURLs")},
 			"zia_security_settings": {
 				Tok: ziaResource(ziaMod, "SecuritySettings"),
 				// Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+			"zia_virtual_service_edge_cluster": {Tok: ziaResource(ziaMod, "VirtualServiceEdgeCluster")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"zia_activation_status": {
@@ -252,17 +262,47 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_atp_security_exceptions": {
 				Tok: ziaDataSource(ziaMod, "getATPSecurityExceptions"),
 			},
+			"zia_browser_control_policy": {
+				Tok: ziaDataSource(ziaMod, "getBrowserControlSettings"),
+			},
 			"zia_admin_users": {
 				Tok: ziaDataSource(ziaMod, "getAdminUsers"),
 			},
 			"zia_admin_roles": {
 				Tok: ziaDataSource(ziaMod, "getAdminRoles"),
 			},
+			"zia_casb_dlp_rules": {
+				Tok: ziaDataSource(ziaMod, "getCasbDlpRules"),
+			},
+			"zia_casb_malware_rules": {
+				Tok: ziaDataSource(ziaMod, "getCasbMalwareRules"),
+			},
+			"zia_risk_profiles": {
+				Tok: ziaDataSource(ziaMod, "getRiskProfiles"),
+			},
+			"zia_cloud_application_instance": {
+				Tok: ziaDataSource(ziaMod, "getCloudApplicationInstance"),
+			},
 			"zia_cloud_app_control_rule": {
 				Tok: ziaDataSource(ziaMod, "getCloudAppControlRule"),
 			},
 			"zia_cloud_browser_isolation_profile": {
 				Tok: ziaDataSource(ziaMod, "getCbiProfile"),
+			},
+			"zia_domain_profiles": {
+				Tok: ziaDataSource(ziaMod, "getDomainProfiles"),
+			},
+			"zia_casb_email_label": {
+				Tok: ziaDataSource(ziaMod, "getCasbEmailLabel"),
+			},
+			"zia_casb_tombstone_template": {
+				Tok: ziaDataSource(ziaMod, "getCasbTombstoneTemplate"),
+			},
+			"zia_casb_tenant": {
+				Tok: ziaDataSource(ziaMod, "getCasbTenant"),
+			},
+			"zia_tenant_restriction_profile": {
+				Tok: ziaDataSource(ziaMod, "getTenantRestrictionProfile"),
 			},
 			"zia_end_user_notification": {
 				Tok: ziaDataSource(ziaMod, "getEndUserNotification"),
@@ -288,6 +328,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"zia_firewall_ips_rule": {
 				Tok:  ziaDataSource(ziaMod, "getIPSFirewallRule"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
+			},
+			"zia_nat_control_rules": {
+				Tok:  ziaDataSource(ziaMod, "getNatControlRules"),
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"zia_firewall_filtering_rule": {
@@ -324,6 +368,15 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"zia_forwarding_control_zpa_gateway": {
 				Tok: ziaDataSource(ziaMod, "getForwardingControlZPAGateway"),
+			},
+			"zia_forwarding_control_proxies": {
+				Tok: ziaDataSource(ziaMod, "getForwardingControlProxies"),
+			},
+			"zia_forwarding_control_proxy_gateway": {
+				Tok: ziaDataSource(ziaMod, "getForwardingProxyGateway"),
+			},
+			"zia_ftp_control_policy": {
+				Tok: ziaDataSource(ziaMod, "getFtpControlPolicy"),
 			},
 			"zia_sandbox_behavioral_analysis": {
 				Tok: ziaDataSource(ziaMod, "getSandboxBehavioralAnalysis"),
@@ -412,6 +465,9 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_auth_settings_urls": {
 				Tok: ziaDataSource(ziaMod, "getAuthSettingsURLs"),
 			},
+			"zia_nss_server": {
+				Tok: ziaDataSource(ziaMod, "getNssServer"),
+			},
 			"zia_sandbox_rules": {
 				Tok: ziaDataSource(ziaMod, "getSandboxRules"),
 			},
@@ -422,11 +478,17 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: ziaDataSource(ziaMod, "getSecuritySettings"),
 				// Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+			"zia_subscription_alert": {
+				Tok: ziaDataSource(ziaMod, "getSubscriptionAlert"),
+			},
 			"zia_firewall_filtering_time_window": {
 				Tok: ziaDataSource(ziaMod, "getTimeWindow"),
 			},
 			"zia_workload_groups": {
 				Tok: ziaDataSource(ziaMod, "getWorkloadGroups"),
+			},
+			"zia_virtual_service_edge_cluster": {
+				Tok: ziaDataSource(ziaMod, "getVirtualServiceEdgeCluster"),
 			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

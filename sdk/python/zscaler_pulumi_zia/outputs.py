@@ -19,7 +19,66 @@ from . import outputs
 __all__ = [
     'AdminUsersAdminScopeEntities',
     'AdminUsersRole',
+    'BrowserControlPolicySmartIsolationGroups',
+    'BrowserControlPolicySmartIsolationProfile',
+    'BrowserControlPolicySmartIsolationUsers',
+    'BrowserControlSettingsSmartIsolationGroups',
+    'BrowserControlSettingsSmartIsolationProfile',
+    'BrowserControlSettingsSmartIsolationUsers',
+    'CasbDlpRuleAuditorNotification',
+    'CasbDlpRuleBuckets',
+    'CasbDlpRuleCasbEmailLabel',
+    'CasbDlpRuleCasbTombstoneTemplate',
+    'CasbDlpRuleCloudAppTenants',
+    'CasbDlpRuleCriteriaDomainProfiles',
+    'CasbDlpRuleDepartments',
+    'CasbDlpRuleDlpEngines',
+    'CasbDlpRuleEmailRecipientProfiles',
+    'CasbDlpRuleEntityGroups',
+    'CasbDlpRuleExcludedDomainProfiles',
+    'CasbDlpRuleGroups',
+    'CasbDlpRuleIncludedDomainProfiles',
+    'CasbDlpRuleLabels',
+    'CasbDlpRuleObjectTypes',
+    'CasbDlpRuleRedactionProfile',
+    'CasbDlpRuleTag',
+    'CasbDlpRuleUsers',
+    'CasbDlpRuleWatermarkProfile',
+    'CasbDlpRuleZscalerIncidentReceiver',
+    'CasbDlpRulesAuditorNotification',
+    'CasbDlpRulesBuckets',
+    'CasbDlpRulesCasbEmailLabel',
+    'CasbDlpRulesCasbTombstoneTemplate',
+    'CasbDlpRulesCloudAppTenants',
+    'CasbDlpRulesCriteriaDomainProfiles',
+    'CasbDlpRulesDepartments',
+    'CasbDlpRulesDlpEngines',
+    'CasbDlpRulesEmailRecipientProfiles',
+    'CasbDlpRulesEntityGroups',
+    'CasbDlpRulesExcludedDomainProfiles',
+    'CasbDlpRulesGroups',
+    'CasbDlpRulesIncludedDomainProfiles',
+    'CasbDlpRulesLabels',
+    'CasbDlpRulesObjectTypes',
+    'CasbDlpRulesRedactionProfile',
+    'CasbDlpRulesTag',
+    'CasbDlpRulesUsers',
+    'CasbDlpRulesWatermarkProfile',
+    'CasbDlpRulesZscalerIncidentReceiver',
+    'CasbMalwareRuleBuckets',
+    'CasbMalwareRuleCasbEmailLabel',
+    'CasbMalwareRuleCasbTombstoneTemplate',
+    'CasbMalwareRuleCloudAppTenantIds',
+    'CasbMalwareRuleCloudAppTenants',
+    'CasbMalwareRuleLabels',
+    'CasbMalwareRulesBuckets',
+    'CasbMalwareRulesCasbEmailLabel',
+    'CasbMalwareRulesCasbTombstoneTemplate',
+    'CasbMalwareRulesCloudAppTenantIds',
+    'CasbMalwareRulesCloudAppTenants',
+    'CasbMalwareRulesLabels',
     'CloudAppControlRuleCbiProfile',
+    'CloudAppControlRuleCloudAppInstances',
     'CloudAppControlRuleCloudAppRiskProfile',
     'CloudAppControlRuleDepartments',
     'CloudAppControlRuleDeviceGroups',
@@ -31,6 +90,7 @@ __all__ = [
     'CloudAppControlRuleTenancyProfileIds',
     'CloudAppControlRuleTimeWindows',
     'CloudAppControlRuleUsers',
+    'CloudApplicationInstanceInstanceIdentifier',
     'DLPDictionariesExactDataMatchDetail',
     'DLPDictionariesIdmProfileMatchAccuracy',
     'DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile',
@@ -105,23 +165,7 @@ __all__ = [
     'FirewallFilteringRuleWorkloadGroup',
     'FirewallFilteringRuleZpaAppSegment',
     'FirewallFilteringServiceGroupsService',
-    'FirewallIPSRuleDepartments',
-    'FirewallIPSRuleDestIpGroups',
-    'FirewallIPSRuleDestIpv6Groups',
-    'FirewallIPSRuleDeviceGroups',
-    'FirewallIPSRuleDevices',
-    'FirewallIPSRuleGroups',
-    'FirewallIPSRuleLabels',
-    'FirewallIPSRuleLocationGroups',
-    'FirewallIPSRuleLocations',
-    'FirewallIPSRuleNwServiceGroups',
-    'FirewallIPSRuleNwServices',
-    'FirewallIPSRuleSrcIpGroups',
-    'FirewallIPSRuleSrcIpv6Groups',
-    'FirewallIPSRuleThreatCategories',
-    'FirewallIPSRuleTimeWindows',
-    'FirewallIPSRuleUsers',
-    'FirewallIPSRuleZpaAppSegment',
+    'ForwardingControlProxiesCert',
     'ForwardingControlRuleAppServiceGroups',
     'ForwardingControlRuleDepartments',
     'ForwardingControlRuleDestIpGroups',
@@ -162,8 +206,27 @@ __all__ = [
     'IPSFirewallRuleUsers',
     'IPSFirewallRuleZpaAppSegment',
     'LocationManagementDynamicLocationGroups',
+    'LocationManagementExtranet',
+    'LocationManagementExtranetDn',
+    'LocationManagementExtranetIpPool',
     'LocationManagementStaticLocationGroups',
     'LocationManagementVpnCredential',
+    'NatControlRulesDepartments',
+    'NatControlRulesDestIpGroups',
+    'NatControlRulesDestIpv6Groups',
+    'NatControlRulesDeviceGroups',
+    'NatControlRulesDevices',
+    'NatControlRulesGroups',
+    'NatControlRulesLabels',
+    'NatControlRulesLocationGroups',
+    'NatControlRulesLocations',
+    'NatControlRulesNwServiceGroups',
+    'NatControlRulesNwServices',
+    'NatControlRulesSrcIpGroups',
+    'NatControlRulesSrcIpv6Groups',
+    'NatControlRulesTimeWindows',
+    'NatControlRulesUsers',
+    'RiskProfilesCustomTags',
     'SSLInspectionRulesAction',
     'SSLInspectionRulesActionDecryptSubAction',
     'SSLInspectionRulesActionDoNotDecryptSubAction',
@@ -211,11 +274,42 @@ __all__ = [
     'URLFilteringRulesWorkloadGroup',
     'UserManagementDepartment',
     'UserManagementGroups',
+    'VirtualServiceEdgeClusterVirtualZenNodes',
     'GetAdminUsersAdminScopeResult',
     'GetAdminUsersAdminScopeScopeEntityResult',
     'GetAdminUsersAdminScopeScopeGroupMemberEntityResult',
     'GetAdminUsersExecMobileAppTokenResult',
     'GetAdminUsersRoleResult',
+    'GetBrowserControlPolicySmartIsolationProfileResult',
+    'GetBrowserControlSettingsSmartIsolationProfileResult',
+    'GetCasbDlpRulesAuditorNotificationResult',
+    'GetCasbDlpRulesBucketResult',
+    'GetCasbDlpRulesCasbEmailLabelResult',
+    'GetCasbDlpRulesCasbTombstoneTemplateResult',
+    'GetCasbDlpRulesCloudAppTenantResult',
+    'GetCasbDlpRulesCriteriaDomainProfileResult',
+    'GetCasbDlpRulesDepartmentResult',
+    'GetCasbDlpRulesDlpEngineResult',
+    'GetCasbDlpRulesEmailRecipientProfileResult',
+    'GetCasbDlpRulesEntityGroupResult',
+    'GetCasbDlpRulesExcludedDomainProfileResult',
+    'GetCasbDlpRulesGroupResult',
+    'GetCasbDlpRulesIncludedDomainProfileResult',
+    'GetCasbDlpRulesLabelResult',
+    'GetCasbDlpRulesObjectTypeResult',
+    'GetCasbDlpRulesRedactionProfileResult',
+    'GetCasbDlpRulesTagResult',
+    'GetCasbDlpRulesUserResult',
+    'GetCasbDlpRulesWatermarkProfileResult',
+    'GetCasbDlpRulesZscalerIncidentReceiverResult',
+    'GetCasbMalwareRulesBucketResult',
+    'GetCasbMalwareRulesCasbEmailLabelResult',
+    'GetCasbMalwareRulesCasbTombstoneTemplateResult',
+    'GetCasbMalwareRulesCloudAppTenantResult',
+    'GetCasbMalwareRulesCloudAppTenantIdResult',
+    'GetCasbMalwareRulesLabelResult',
+    'GetCasbMalwareRulesLastModifiedByResult',
+    'GetCasbTenantZscalerAppTenantIdResult',
     'GetCloudAppControlRuleCbiProfileResult',
     'GetCloudAppControlRuleDepartmentResult',
     'GetCloudAppControlRuleDeviceResult',
@@ -225,6 +319,9 @@ __all__ = [
     'GetCloudAppControlRuleLocationResult',
     'GetCloudAppControlRuleLocationGroupResult',
     'GetCloudAppControlRuleUserResult',
+    'GetCloudApplicationInstanceInstanceIdentifierResult',
+    'GetCloudApplicationInstanceInstanceIdentifierLastModifiedByResult',
+    'GetCloudApplicationInstanceLastModifiedByResult',
     'GetCloudApplicationsApplicationResult',
     'GetDLPDictionariesExactDataMatchDetailResult',
     'GetDLPDictionariesIdmProfileMatchAccuracyResult',
@@ -246,6 +343,7 @@ __all__ = [
     'GetDLPWebRulesExcludedGroupResult',
     'GetDLPWebRulesExcludedUserResult',
     'GetDLPWebRulesGroupResult',
+    'GetDLPWebRulesIncludedDomainProfileResult',
     'GetDLPWebRulesLabelResult',
     'GetDLPWebRulesLastModifiedByResult',
     'GetDLPWebRulesLocationResult',
@@ -282,21 +380,6 @@ __all__ = [
     'GetFirewallDNSRulesSrcIpv6GroupResult',
     'GetFirewallDNSRulesTimeWindowResult',
     'GetFirewallDNSRulesUserResult',
-    'GetFirewallDnsRuleApplicationGroupResult',
-    'GetFirewallDnsRuleDepartmentResult',
-    'GetFirewallDnsRuleDestIpGroupResult',
-    'GetFirewallDnsRuleDestIpv6GroupResult',
-    'GetFirewallDnsRuleDeviceResult',
-    'GetFirewallDnsRuleDeviceGroupResult',
-    'GetFirewallDnsRuleGroupResult',
-    'GetFirewallDnsRuleLabelResult',
-    'GetFirewallDnsRuleLastModifiedByResult',
-    'GetFirewallDnsRuleLocationResult',
-    'GetFirewallDnsRuleLocationGroupResult',
-    'GetFirewallDnsRuleSrcIpGroupResult',
-    'GetFirewallDnsRuleSrcIpv6GroupResult',
-    'GetFirewallDnsRuleTimeWindowResult',
-    'GetFirewallDnsRuleUserResult',
     'GetFirewallFilteringNetworkServiceGroupsServiceResult',
     'GetFirewallFilteringNetworkServicesDestTcpPortResult',
     'GetFirewallFilteringNetworkServicesDestUdpPortResult',
@@ -326,24 +409,8 @@ __all__ = [
     'GetFirewallFilteringRuleWorkloadGroupExpressionJsonExpressionContainerTagContainerTagResult',
     'GetFirewallFilteringRuleWorkloadGroupLastModifiedByResult',
     'GetFirewallFilteringRuleZpaAppSegmentResult',
-    'GetFirewallIpsRuleDepartmentResult',
-    'GetFirewallIpsRuleDestIpGroupResult',
-    'GetFirewallIpsRuleDestIpv6GroupResult',
-    'GetFirewallIpsRuleDeviceResult',
-    'GetFirewallIpsRuleDeviceGroupResult',
-    'GetFirewallIpsRuleGroupResult',
-    'GetFirewallIpsRuleLabelResult',
-    'GetFirewallIpsRuleLastModifiedByResult',
-    'GetFirewallIpsRuleLocationResult',
-    'GetFirewallIpsRuleLocationGroupResult',
-    'GetFirewallIpsRuleNwServiceResult',
-    'GetFirewallIpsRuleNwServiceGroupResult',
-    'GetFirewallIpsRuleSrcIpGroupResult',
-    'GetFirewallIpsRuleSrcIpv6GroupResult',
-    'GetFirewallIpsRuleThreatCategoryResult',
-    'GetFirewallIpsRuleTimeWindowResult',
-    'GetFirewallIpsRuleUserResult',
-    'GetFirewallIpsRuleZpaAppSegmentResult',
+    'GetForwardingControlProxiesCertResult',
+    'GetForwardingControlProxiesLastModifiedByResult',
     'GetForwardingControlProxyGatewayLastModifiedByResult',
     'GetForwardingControlProxyGatewayPrimaryProxyResult',
     'GetForwardingControlProxyGatewaySecondaryProxyResult',
@@ -371,6 +438,9 @@ __all__ = [
     'GetForwardingControlZPAGatewayLastModifiedByResult',
     'GetForwardingControlZPAGatewayZpaAppSegmentResult',
     'GetForwardingControlZPAGatewayZpaServerGroupResult',
+    'GetForwardingProxyGatewayLastModifiedByResult',
+    'GetForwardingProxyGatewayPrimaryProxyResult',
+    'GetForwardingProxyGatewaySecondaryProxyResult',
     'GetIPSFirewallRuleDepartmentResult',
     'GetIPSFirewallRuleDestIpGroupResult',
     'GetIPSFirewallRuleDestIpv6GroupResult',
@@ -395,9 +465,30 @@ __all__ = [
     'GetLocationGroupsDynamicLocationGroupCriteriaNameResult',
     'GetLocationGroupsLastModUserResult',
     'GetLocationGroupsLocationResult',
+    'GetLocationManagementExtranetResult',
+    'GetLocationManagementExtranetDnResult',
+    'GetLocationManagementExtranetIpPoolResult',
     'GetLocationManagementVpnCredentialResult',
     'GetLocationManagementVpnCredentialLocationResult',
     'GetLocationManagementVpnCredentialManagedByResult',
+    'GetNatControlRulesDepartmentResult',
+    'GetNatControlRulesDestIpGroupResult',
+    'GetNatControlRulesDestIpv6GroupResult',
+    'GetNatControlRulesDeviceResult',
+    'GetNatControlRulesDeviceGroupResult',
+    'GetNatControlRulesGroupResult',
+    'GetNatControlRulesLabelResult',
+    'GetNatControlRulesLastModifiedByResult',
+    'GetNatControlRulesLocationResult',
+    'GetNatControlRulesLocationGroupResult',
+    'GetNatControlRulesNwServiceResult',
+    'GetNatControlRulesNwServiceGroupResult',
+    'GetNatControlRulesSrcIpGroupResult',
+    'GetNatControlRulesSrcIpv6GroupResult',
+    'GetNatControlRulesTimeWindowResult',
+    'GetNatControlRulesUserResult',
+    'GetRiskProfilesCustomTagResult',
+    'GetRiskProfilesLastModifiedByResult',
     'GetRuleLabelsCreatedByResult',
     'GetRuleLabelsLastModifiedByResult',
     'GetSSLInspectionRulesActionResult',
@@ -480,6 +571,7 @@ __all__ = [
     'GetURLFilteringRulesWorkloadGroupLastModifiedByResult',
     'GetUserManagementDepartmentResult',
     'GetUserManagementGroupResult',
+    'GetVirtualServiceEdgeClusterVirtualZenNodeResult',
     'GetWorkloadGroupsExpressionJsonResult',
     'GetWorkloadGroupsExpressionJsonExpressionContainerResult',
     'GetWorkloadGroupsExpressionJsonExpressionContainerTagContainerResult',
@@ -502,6 +594,796 @@ class AdminUsersAdminScopeEntities(dict):
 
 @pulumi.output_type
 class AdminUsersRole(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BrowserControlPolicySmartIsolationGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class BrowserControlPolicySmartIsolationProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None):
+        """
+        :param builtins.str id: The universally unique identifier (UUID) for the browser isolation profile
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BrowserControlPolicySmartIsolationUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None):
+        """
+        :param builtins.str id: The universally unique identifier (UUID) for the browser isolation profile
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BrowserControlSettingsSmartIsolationUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        """
+        :param Sequence[builtins.int] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleAuditorNotification(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleCriteriaDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleDepartments(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleDlpEngines(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleEmailRecipientProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleEntityGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleExcludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleIncludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleObjectTypes(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleRedactionProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleTag(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRuleWatermarkProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRuleZscalerIncidentReceiver(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesAuditorNotification(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesCriteriaDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesDepartments(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesDlpEngines(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesEmailRecipientProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesEntityGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesExcludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesIncludedDomainProfiles(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesObjectTypes(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesRedactionProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesTag(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbDlpRulesWatermarkProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbDlpRulesZscalerIncidentReceiver(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCloudAppTenantIds(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRuleLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRulesBuckets(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CasbMalwareRulesCasbEmailLabel(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRulesCasbTombstoneTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRulesCloudAppTenantIds(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRulesCloudAppTenants(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CasbMalwareRulesLabels(dict):
     def __init__(__self__, *,
                  id: Optional[builtins.int] = None):
         if id is not None:
@@ -549,14 +1431,28 @@ class CloudAppControlRuleCbiProfile(dict):
 
 
 @pulumi.output_type
-class CloudAppControlRuleCloudAppRiskProfile(dict):
+class CloudAppControlRuleCloudAppInstances(dict):
     def __init__(__self__, *,
-                 id: builtins.int):
-        pulumi.set(__self__, "id", id)
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
 
     @property
     @pulumi.getter
-    def id(self) -> builtins.int:
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CloudAppControlRuleCloudAppRiskProfile(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
         return pulumi.get(self, "id")
 
 
@@ -688,6 +1584,84 @@ class CloudAppControlRuleUsers(dict):
     @pulumi.getter
     def ids(self) -> Optional[Sequence[builtins.int]]:
         return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class CloudApplicationInstanceInstanceIdentifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identifierType":
+            suggest = "identifier_type"
+        elif key == "instanceId":
+            suggest = "instance_id"
+        elif key == "instanceIdentifier":
+            suggest = "instance_identifier"
+        elif key == "instanceIdentifierName":
+            suggest = "instance_identifier_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudApplicationInstanceInstanceIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudApplicationInstanceInstanceIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudApplicationInstanceInstanceIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier_type: Optional[builtins.str] = None,
+                 instance_id: Optional[builtins.int] = None,
+                 instance_identifier: Optional[builtins.str] = None,
+                 instance_identifier_name: Optional[builtins.str] = None):
+        """
+        :param builtins.str identifier_type: Type of the cloud application instance.
+        :param builtins.int instance_id: Unique identifier for the cloud application instance.
+        :param builtins.str instance_identifier: Unique identifying string for the instance.
+        :param builtins.str instance_identifier_name: Unique identifying string for the instance.
+        """
+        if identifier_type is not None:
+            pulumi.set(__self__, "identifier_type", identifier_type)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+        if instance_identifier_name is not None:
+            pulumi.set(__self__, "instance_identifier_name", instance_identifier_name)
+
+    @property
+    @pulumi.getter(name="identifierType")
+    def identifier_type(self) -> Optional[builtins.str]:
+        """
+        Type of the cloud application instance.
+        """
+        return pulumi.get(self, "identifier_type")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[builtins.int]:
+        """
+        Unique identifier for the cloud application instance.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> Optional[builtins.str]:
+        """
+        Unique identifying string for the instance.
+        """
+        return pulumi.get(self, "instance_identifier")
+
+    @property
+    @pulumi.getter(name="instanceIdentifierName")
+    def instance_identifier_name(self) -> Optional[builtins.str]:
+        """
+        Unique identifying string for the instance.
+        """
+        return pulumi.get(self, "instance_identifier_name")
 
 
 @pulumi.output_type
@@ -914,12 +1888,13 @@ class DLPDictionariesPhrase(dict):
 @pulumi.output_type
 class DLPWebRulesAuditor(dict):
     def __init__(__self__, *,
-                 id: builtins.int):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> builtins.int:
+    def id(self) -> Optional[builtins.int]:
         return pulumi.get(self, "id")
 
 
@@ -1017,12 +1992,13 @@ class DLPWebRulesGroups(dict):
 @pulumi.output_type
 class DLPWebRulesIcapServer(dict):
     def __init__(__self__, *,
-                 id: builtins.int):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> builtins.int:
+    def id(self) -> Optional[builtins.int]:
         return pulumi.get(self, "id")
 
 
@@ -1081,12 +2057,13 @@ class DLPWebRulesLocations(dict):
 @pulumi.output_type
 class DLPWebRulesNotificationTemplate(dict):
     def __init__(__self__, *,
-                 id: builtins.int):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> builtins.int:
+    def id(self) -> Optional[builtins.int]:
         return pulumi.get(self, "id")
 
 
@@ -2072,125 +3049,11 @@ class FirewallFilteringServiceGroupsService(dict):
 
 
 @pulumi.output_type
-class FirewallIPSRuleDepartments(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleDestIpGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleDestIpv6Groups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleDeviceGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleDevices(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleLabels(dict):
+class ForwardingControlProxiesCert(dict):
     def __init__(__self__, *,
                  id: Optional[builtins.int] = None):
         """
-        :param builtins.int id: (Integer) Identifier that uniquely identifies an entity
+        :param builtins.int id: (Integer) Identifier that uniquely identifies the certificate
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2199,226 +3062,9 @@ class FirewallIPSRuleLabels(dict):
     @pulumi.getter
     def id(self) -> Optional[builtins.int]:
         """
-        (Integer) Identifier that uniquely identifies an entity
+        (Integer) Identifier that uniquely identifies the certificate
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class FirewallIPSRuleLocationGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleLocations(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleNwServiceGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleNwServices(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleSrcIpGroups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleSrcIpv6Groups(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleThreatCategories(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleTimeWindows(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleUsers(dict):
-    def __init__(__self__, *,
-                 ids: Optional[Sequence[builtins.int]] = None):
-        """
-        :param Sequence[builtins.int] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence[builtins.int]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-
-@pulumi.output_type
-class FirewallIPSRuleZpaAppSegment(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "externalId":
-            suggest = "external_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FirewallIPSRuleZpaAppSegment. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FirewallIPSRuleZpaAppSegment.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FirewallIPSRuleZpaAppSegment.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 external_id: builtins.str,
-                 name: builtins.str):
-        """
-        :param builtins.str external_id: External ID of the application segment.
-        :param builtins.str name: Name of the application segment.
-        """
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="externalId")
-    def external_id(self) -> builtins.str:
-        """
-        External ID of the application segment.
-        """
-        return pulumi.get(self, "external_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the application segment.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -3306,6 +3952,45 @@ class LocationManagementDynamicLocationGroups(dict):
 
 
 @pulumi.output_type
+class LocationManagementExtranet(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class LocationManagementExtranetDn(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class LocationManagementExtranetIpPool(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class LocationManagementStaticLocationGroups(dict):
     def __init__(__self__, *,
                  ids: Optional[Sequence[builtins.int]] = None):
@@ -3388,6 +4073,213 @@ class LocationManagementVpnCredential(dict):
     @pulumi.getter
     def type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NatControlRulesDepartments(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesDestIpGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesDestIpv6Groups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesDeviceGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesDevices(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesLabels(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.int] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class NatControlRulesLocationGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesLocations(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesNwServiceGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesNwServices(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesSrcIpGroups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesSrcIpv6Groups(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesTimeWindows(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class NatControlRulesUsers(dict):
+    def __init__(__self__, *,
+                 ids: Optional[Sequence[builtins.int]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence[builtins.int]]:
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class RiskProfilesCustomTags(dict):
+    def __init__(__self__, *,
+                 ids: Sequence[builtins.int]):
+        pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Sequence[builtins.int]:
+        return pulumi.get(self, "ids")
 
 
 @pulumi.output_type
@@ -4808,6 +5700,24 @@ class UserManagementGroups(dict):
 
 
 @pulumi.output_type
+class VirtualServiceEdgeClusterVirtualZenNodes(dict):
+    def __init__(__self__, *,
+                 ids: Sequence[builtins.int]):
+        """
+        :param Sequence[builtins.int] ids: (Number) Identifier that uniquely identifies an entity
+        """
+        pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Sequence[builtins.int]:
+        """
+        (Number) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
 class GetAdminUsersAdminScopeResult(dict):
     def __init__(__self__, *,
                  scope_entities: Sequence['outputs.GetAdminUsersAdminScopeScopeEntityResult'],
@@ -5057,6 +5967,942 @@ class GetAdminUsersRoleResult(dict):
     def name(self) -> builtins.str:
         """
         (String)
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetBrowserControlPolicySmartIsolationProfileResult(dict):
+    def __init__(__self__, *,
+                 default_profile: builtins.bool,
+                 id: builtins.str,
+                 name: builtins.str,
+                 url: builtins.str):
+        """
+        :param builtins.bool default_profile: Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        :param builtins.str id: (int) A unique identifier for an entity.
+        :param builtins.str name: Name of the browser isolation profile
+        :param builtins.str url: The browser isolation profile URL
+        """
+        pulumi.set(__self__, "default_profile", default_profile)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="defaultProfile")
+    def default_profile(self) -> builtins.bool:
+        """
+        Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        """
+        return pulumi.get(self, "default_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        (int) A unique identifier for an entity.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the browser isolation profile
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> builtins.str:
+        """
+        The browser isolation profile URL
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetBrowserControlSettingsSmartIsolationProfileResult(dict):
+    def __init__(__self__, *,
+                 default_profile: builtins.bool,
+                 id: builtins.str,
+                 name: builtins.str,
+                 url: builtins.str):
+        """
+        :param builtins.bool default_profile: Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        :param builtins.str id: (int) A unique identifier for an entity.
+        :param builtins.str name: Name of the browser isolation profile
+        :param builtins.str url: The browser isolation profile URL
+        """
+        pulumi.set(__self__, "default_profile", default_profile)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="defaultProfile")
+    def default_profile(self) -> builtins.bool:
+        """
+        Indicates whether this is a default browser isolation profile. Zscaler sets this field.
+        """
+        return pulumi.get(self, "default_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        (int) A unique identifier for an entity.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the browser isolation profile
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> builtins.str:
+        """
+        The browser isolation profile URL
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesAuditorNotificationResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesBucketResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesCasbEmailLabelResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesCasbTombstoneTemplateResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesCloudAppTenantResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesCriteriaDomainProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesDepartmentResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesDlpEngineResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String) Optional metadata for the DLP engine.
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String) Optional metadata for the DLP engine.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesEmailRecipientProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesEntityGroupResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesExcludedDomainProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesGroupResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesIncludedDomainProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesLabelResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesObjectTypeResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesRedactionProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesTagResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesUserResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesWatermarkProfileResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbDlpRulesZscalerIncidentReceiverResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesBucketResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesCasbEmailLabelResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesCasbTombstoneTemplateResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesCloudAppTenantResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesCloudAppTenantIdResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesLabelResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbMalwareRulesLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: Additional information about the entity
+        :param builtins.int id: The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        :param builtins.str name: Rule name.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        Additional information about the entity
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The type of SaaS Security Data at Rest Scanning Malware ruleData at Rest Scanning DLP rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Rule name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCasbTenantZscalerAppTenantIdResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Identifier that uniquely identifies an entity
+        :param builtins.str name: The configured name of the entity
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The configured name of the entity
         """
         return pulumi.get(self, "name")
 
@@ -5328,6 +7174,151 @@ class GetCloudAppControlRuleUserResult(dict):
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCloudApplicationInstanceInstanceIdentifierResult(dict):
+    def __init__(__self__, *,
+                 identifier_type: builtins.str,
+                 instance_id: builtins.int,
+                 instance_identifier: builtins.str,
+                 instance_identifier_name: builtins.str,
+                 last_modified_bies: Sequence['outputs.GetCloudApplicationInstanceInstanceIdentifierLastModifiedByResult'],
+                 modified_at: builtins.int):
+        """
+        :param builtins.str identifier_type: Type of the cloud application instance
+        :param builtins.int instance_id: Unique identifier for the cloud application instance
+        :param builtins.str instance_identifier: Unique identifying string for the instance
+        :param builtins.str instance_identifier_name: Unique identifying string for the instance
+        :param Sequence['GetCloudApplicationInstanceInstanceIdentifierLastModifiedByArgs'] last_modified_bies: The admin that modified the instance last.
+        :param builtins.int modified_at: Timestamp of when the instance was last modified.
+        """
+        pulumi.set(__self__, "identifier_type", identifier_type)
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "instance_identifier", instance_identifier)
+        pulumi.set(__self__, "instance_identifier_name", instance_identifier_name)
+        pulumi.set(__self__, "last_modified_bies", last_modified_bies)
+        pulumi.set(__self__, "modified_at", modified_at)
+
+    @property
+    @pulumi.getter(name="identifierType")
+    def identifier_type(self) -> builtins.str:
+        """
+        Type of the cloud application instance
+        """
+        return pulumi.get(self, "identifier_type")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> builtins.int:
+        """
+        Unique identifier for the cloud application instance
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> builtins.str:
+        """
+        Unique identifying string for the instance
+        """
+        return pulumi.get(self, "instance_identifier")
+
+    @property
+    @pulumi.getter(name="instanceIdentifierName")
+    def instance_identifier_name(self) -> builtins.str:
+        """
+        Unique identifying string for the instance
+        """
+        return pulumi.get(self, "instance_identifier_name")
+
+    @property
+    @pulumi.getter(name="lastModifiedBies")
+    def last_modified_bies(self) -> Sequence['outputs.GetCloudApplicationInstanceInstanceIdentifierLastModifiedByResult']:
+        """
+        The admin that modified the instance last.
+        """
+        return pulumi.get(self, "last_modified_bies")
+
+    @property
+    @pulumi.getter(name="modifiedAt")
+    def modified_at(self) -> builtins.int:
+        """
+        Timestamp of when the instance was last modified.
+        """
+        return pulumi.get(self, "modified_at")
+
+
+@pulumi.output_type
+class GetCloudApplicationInstanceInstanceIdentifierLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Identifier that uniquely identifies an entity
+        :param builtins.str name: The configured name of the entity
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The configured name of the entity
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetCloudApplicationInstanceLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Identifier that uniquely identifies an entity
+        :param builtins.str name: The configured name of the entity
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The configured name of the entity
+        """
         return pulumi.get(self, "name")
 
 
@@ -6133,6 +8124,42 @@ class GetDLPWebRulesGroupResult(dict):
     def name(self) -> builtins.str:
         """
         Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDLPWebRulesIncludedDomainProfileResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Identifier that uniquely identifies an entity
+        :param builtins.str name: The name of the workload group
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the workload group
         """
         return pulumi.get(self, "name")
 
@@ -7494,546 +9521,6 @@ class GetFirewallDNSRulesUserResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallDnsRuleApplicationGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleDepartmentResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleDestIpGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleDestIpv6GroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleDeviceResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleDeviceGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleLabelResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleLastModifiedByResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleLocationResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleLocationGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleSrcIpGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleSrcIpv6GroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleTimeWindowResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallDnsRuleUserResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
 class GetFirewallFilteringNetworkServiceGroupsServiceResult(dict):
     def __init__(__self__, *,
                  description: builtins.str,
@@ -9114,637 +10601,32 @@ class GetFirewallFilteringRuleZpaAppSegmentResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallIpsRuleDepartmentResult(dict):
+class GetForwardingControlProxiesCertResult(dict):
     def __init__(__self__, *,
                  extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleDestIpGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleDestIpv6GroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleDeviceResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleDeviceGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleLabelResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleLastModifiedByResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleLocationResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleLocationGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleNwServiceResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleNwServiceGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleSrcIpGroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleSrcIpv6GroupResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleThreatCategoryResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleTimeWindowResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleUserResult(dict):
-    def __init__(__self__, *,
-                 extensions: Mapping[str, builtins.str],
-                 id: builtins.int,
-                 name: builtins.str):
-        """
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Mapping[str, builtins.str]:
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.int:
-        """
-        Unique identifier for the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetFirewallIpsRuleZpaAppSegmentResult(dict):
-    def __init__(__self__, *,
                  external_id: builtins.str,
                  id: builtins.int,
                  name: builtins.str):
         """
-        :param builtins.str external_id: Indicates the external ID. Applicable only when this reference is of an external entity.
-        :param builtins.int id: Unique identifier for the Firewall Filtering policy rule
-        :param builtins.str name: Name of the Firewall Filtering policy rule
+        :param builtins.str external_id: The configured name of the entity
+        :param builtins.int id: Unique identifier for the third-party proxy services
+        :param builtins.str name: Proxy name for the third-party proxy services
         """
+        pulumi.set(__self__, "extensions", extensions)
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
 
     @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> builtins.str:
         """
-        Indicates the external ID. Applicable only when this reference is of an external entity.
+        The configured name of the entity
         """
         return pulumi.get(self, "external_id")
 
@@ -9752,7 +10634,7 @@ class GetFirewallIpsRuleZpaAppSegmentResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        Unique identifier for the Firewall Filtering policy rule
+        Unique identifier for the third-party proxy services
         """
         return pulumi.get(self, "id")
 
@@ -9760,7 +10642,54 @@ class GetFirewallIpsRuleZpaAppSegmentResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of the Firewall Filtering policy rule
+        Proxy name for the third-party proxy services
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingControlProxiesLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 external_id: builtins.str,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.str external_id: The configured name of the entity
+        :param builtins.int id: Unique identifier for the third-party proxy services
+        :param builtins.str name: Proxy name for the third-party proxy services
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> builtins.str:
+        """
+        The configured name of the entity
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the third-party proxy services
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Proxy name for the third-party proxy services
         """
         return pulumi.get(self, "name")
 
@@ -10656,6 +11585,100 @@ class GetForwardingControlZPAGatewayZpaServerGroupResult(dict):
     def name(self) -> builtins.str:
         """
         The name of the forwarding control ZPA Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewayLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewayPrimaryProxyResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetForwardingProxyGatewaySecondaryProxyResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: The ID of the forwarding control Proxy Gateway resource.
+        :param builtins.str name: The name of the forwarding control Proxy Gateway to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the forwarding control Proxy Gateway resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding control Proxy Gateway to be exported.
         """
         return pulumi.get(self, "name")
 
@@ -11627,6 +12650,60 @@ class GetLocationGroupsLocationResult(dict):
 
 
 @pulumi.output_type
+class GetLocationManagementExtranetResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int):
+        """
+        :param builtins.int id: The ID of the location to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the location to be exported.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetLocationManagementExtranetDnResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int):
+        """
+        :param builtins.int id: The ID of the location to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the location to be exported.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetLocationManagementExtranetIpPoolResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int):
+        """
+        :param builtins.int id: The ID of the location to be exported.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        The ID of the location to be exported.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetLocationManagementVpnCredentialResult(dict):
     def __init__(__self__, *,
                  comments: builtins.str,
@@ -11793,13 +12870,718 @@ class GetLocationManagementVpnCredentialManagedByResult(dict):
 
 
 @pulumi.output_type
+class GetNatControlRulesDepartmentResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesDestIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesDestIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesDeviceResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesDeviceGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesLabelResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesLocationResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesLocationGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesNwServiceResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesNwServiceGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesSrcIpGroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesSrcIpv6GroupResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesTimeWindowResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNatControlRulesUserResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.int id: A unique identifier assigned to the forwarding rule.
+        :param builtins.str name: The name of the forwarding rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        A unique identifier assigned to the forwarding rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRiskProfilesCustomTagResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the risk profile.
+        :param builtins.str name: Cloud application risk profile name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the risk profile.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Cloud application risk profile name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRiskProfilesLastModifiedByResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param builtins.int id: Unique identifier for the risk profile.
+        :param builtins.str name: Cloud application risk profile name.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        Unique identifier for the risk profile.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Cloud application risk profile name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetRuleLabelsCreatedByResult(dict):
     def __init__(__self__, *,
                  extensions: Mapping[str, builtins.str],
                  id: builtins.int,
                  name: builtins.str):
         """
-        :param builtins.int id: The unique identifer for the device group.
+        :param builtins.int id: The unique identifer for the rule label.
         :param builtins.str name: The name of the rule label to be exported.
         """
         pulumi.set(__self__, "extensions", extensions)
@@ -11815,7 +13597,7 @@ class GetRuleLabelsCreatedByResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        The unique identifer for the device group.
+        The unique identifer for the rule label.
         """
         return pulumi.get(self, "id")
 
@@ -11835,7 +13617,7 @@ class GetRuleLabelsLastModifiedByResult(dict):
                  id: builtins.int,
                  name: builtins.str):
         """
-        :param builtins.int id: The unique identifer for the device group.
+        :param builtins.int id: The unique identifer for the rule label.
         :param builtins.str name: The name of the rule label to be exported.
         """
         pulumi.set(__self__, "extensions", extensions)
@@ -11851,7 +13633,7 @@ class GetRuleLabelsLastModifiedByResult(dict):
     @pulumi.getter
     def id(self) -> builtins.int:
         """
-        The unique identifer for the device group.
+        The unique identifer for the rule label.
         """
         return pulumi.get(self, "id")
 
@@ -15089,6 +16871,57 @@ class GetUserManagementGroupResult(dict):
     def name(self) -> builtins.str:
         """
         User name. This appears when choosing users for policies.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetVirtualServiceEdgeClusterVirtualZenNodeResult(dict):
+    def __init__(__self__, *,
+                 extensions: Mapping[str, builtins.str],
+                 external_id: builtins.str,
+                 id: builtins.int,
+                 name: builtins.str):
+        """
+        :param Mapping[str, builtins.str] extensions: (Map of String)
+        :param builtins.str external_id: (String) An external identifier used for an entity that is managed outside of ZIA.
+        :param builtins.int id: USystem-generated Virtual Service Edge cluster ID
+        :param builtins.str name: Name of the Virtual Service Edge cluster
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Mapping[str, builtins.str]:
+        """
+        (Map of String)
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> builtins.str:
+        """
+        (String) An external identifier used for an entity that is managed outside of ZIA.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.int:
+        """
+        USystem-generated Virtual Service Edge cluster ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the Virtual Service Edge cluster
         """
         return pulumi.get(self, "name")
 

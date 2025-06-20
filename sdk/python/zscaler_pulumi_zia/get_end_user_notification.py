@@ -322,6 +322,9 @@ class AwaitableGetEndUserNotificationResult(GetEndUserNotificationResult):
 
 def get_end_user_notification(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndUserNotificationResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+    * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+
     Use the **zia_end_user_notification** data source to get information about browser-based end user notification (EUN) configuration details.
 
     ## Example Usage
@@ -364,6 +367,9 @@ def get_end_user_notification(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
         web_dlp_review_text=pulumi.get(__ret__, 'web_dlp_review_text'))
 def get_end_user_notification_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndUserNotificationResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+    * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+
     Use the **zia_end_user_notification** data source to get information about browser-based end user notification (EUN) configuration details.
 
     ## Example Usage

@@ -172,6 +172,9 @@ def get_traffic_forwarding_static_ip(id: Optional[builtins.int] = None,
                                      ip_address: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingStaticIPResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+
     Use the **zia_traffic_forwarding_static_ip** data source to get information about all provisioned static IP addresses. This resource can then be utilized when creating a GRE Tunnel or VPN Credential resource of Type `IP`
 
     ## Example Usage
@@ -202,6 +205,9 @@ def get_traffic_forwarding_static_ip_output(id: Optional[pulumi.Input[Optional[b
                                             ip_address: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingStaticIPResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+
     Use the **zia_traffic_forwarding_static_ip** data source to get information about all provisioned static IP addresses. This resource can then be utilized when creating a GRE Tunnel or VPN Credential resource of Type `IP`
 
     ## Example Usage

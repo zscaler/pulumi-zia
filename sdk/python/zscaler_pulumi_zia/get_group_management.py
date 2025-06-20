@@ -83,6 +83,9 @@ class AwaitableGetGroupManagementResult(GetGroupManagementResult):
 def get_group_management(name: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupManagementResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+    * [API documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+
     Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
 
     ## Example Usage
@@ -103,6 +106,9 @@ def get_group_management(name: Optional[builtins.str] = None,
 def get_group_management_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupManagementResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+    * [API documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+
     Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
 
     ## Example Usage

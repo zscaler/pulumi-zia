@@ -138,6 +138,9 @@ def get_traffic_forwarding_vpn_credentials(fqdn: Optional[builtins.str] = None,
                                            type: Optional[builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficForwardingVPNCredentialsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
+
     Use the **zia_traffic_forwarding_vpn_credentials** data source to get information about VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-Site IPSec VPN credentials can be identified by the cloud through one of the following methods:
 
     * Common Name (CN) of IPSec Certificate
@@ -176,6 +179,9 @@ def get_traffic_forwarding_vpn_credentials_output(fqdn: Optional[pulumi.Input[Op
                                                   type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficForwardingVPNCredentialsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
+    * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
+
     Use the **zia_traffic_forwarding_vpn_credentials** data source to get information about VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-Site IPSec VPN credentials can be identified by the cloud through one of the following methods:
 
     * Common Name (CN) of IPSec Certificate

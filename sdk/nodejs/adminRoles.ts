@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-role-management)
+ * * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminRoles-get)
+ *
  * The **zia_admin_roles** resource allows the creation and management of admin roles in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

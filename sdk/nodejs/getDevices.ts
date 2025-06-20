@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+ * * [API documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+ *
  * Use the **zia_devices** data source to get information about a device in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
  *
  * ## Example Usage
@@ -102,6 +105,9 @@ export interface GetDevicesResult {
     readonly ownerUserId: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+ * * [API documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+ *
  * Use the **zia_devices** data source to get information about a device in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
  *
  * ## Example Usage

@@ -243,6 +243,9 @@ class AwaitableGetDLPIDMProfilesResult(GetDLPIDMProfilesResult):
 def get_dlpidm_profiles(profile_name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPIDMProfilesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+    * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+
     Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -278,6 +281,9 @@ def get_dlpidm_profiles(profile_name: Optional[builtins.str] = None,
 def get_dlpidm_profiles_output(profile_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPIDMProfilesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+    * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+
     Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

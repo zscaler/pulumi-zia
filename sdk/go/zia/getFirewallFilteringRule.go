@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+// * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+//
 // Use the **zia_firewall_filtering_rule** data source to get information about a cloud firewall rule available in the Zscaler Internet Access cloud firewall.
 //
 // ## Example Usage

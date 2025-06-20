@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-icap-communication-between-zscaler-and-dlp-servers)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/icapServers/lite-get)
+//
 // Use the **zia_dlp_engines** data source to get information about a the list of DLP servers using ICAP in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage

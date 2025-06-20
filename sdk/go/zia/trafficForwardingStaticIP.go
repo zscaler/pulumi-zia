@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+//
 // The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static ip addresses in the Zscaler Internet Access cloud. The resource, can then be associated with other resources such as:
 //
 // * VPN Credentials of type `IP`

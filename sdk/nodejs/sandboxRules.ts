@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+ *
  * The **zia_sandbox_rules** resource allows the creation and management of SAndbox rules in the Zscaler Internet Access.
  *
  * ## Example Usage

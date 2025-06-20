@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+// * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+//
 // The **zia_url_filtering_rules** resource creates and manages a URL filtering rules within the Zscaler Internet Access cloud.
 //
 // ## Example Usage
