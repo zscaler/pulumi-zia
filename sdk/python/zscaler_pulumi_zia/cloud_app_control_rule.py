@@ -27,6 +27,7 @@ class CloudAppControlRuleArgs:
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cascading_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]] = None,
+                 cloud_app_instances: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']] = None,
                  cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]] = None,
                  departments: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -58,6 +59,7 @@ class CloudAppControlRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions allowed for the specified type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: List of cloud applications for which rule will be applied
         :param pulumi.Input[builtins.bool] cascading_enabled: nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+        :param pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs'] cloud_app_instances: The cloud application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
         :param pulumi.Input['CloudAppControlRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
         :param pulumi.Input[builtins.str] description: Additional information about the forwarding rule
@@ -97,6 +99,8 @@ class CloudAppControlRuleArgs:
             pulumi.set(__self__, "cascading_enabled", cascading_enabled)
         if cbi_profiles is not None:
             pulumi.set(__self__, "cbi_profiles", cbi_profiles)
+        if cloud_app_instances is not None:
+            pulumi.set(__self__, "cloud_app_instances", cloud_app_instances)
         if cloud_app_risk_profiles is not None:
             pulumi.set(__self__, "cloud_app_risk_profiles", cloud_app_risk_profiles)
         if departments is not None:
@@ -204,6 +208,18 @@ class CloudAppControlRuleArgs:
     @cbi_profiles.setter
     def cbi_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]):
         pulumi.set(self, "cbi_profiles", value)
+
+    @property
+    @pulumi.getter(name="cloudAppInstances")
+    def cloud_app_instances(self) -> Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]:
+        """
+        The cloud application instance ID.
+        """
+        return pulumi.get(self, "cloud_app_instances")
+
+    @cloud_app_instances.setter
+    def cloud_app_instances(self, value: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]):
+        pulumi.set(self, "cloud_app_instances", value)
 
     @property
     @pulumi.getter(name="cloudAppRiskProfiles")
@@ -515,6 +531,7 @@ class _CloudAppControlRuleState:
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cascading_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]] = None,
+                 cloud_app_instances: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']] = None,
                  cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]] = None,
                  departments: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -547,6 +564,7 @@ class _CloudAppControlRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions allowed for the specified type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: List of cloud applications for which rule will be applied
         :param pulumi.Input[builtins.bool] cascading_enabled: nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+        :param pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs'] cloud_app_instances: The cloud application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
         :param pulumi.Input['CloudAppControlRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
         :param pulumi.Input[builtins.str] description: Additional information about the forwarding rule
@@ -587,6 +605,8 @@ class _CloudAppControlRuleState:
             pulumi.set(__self__, "cascading_enabled", cascading_enabled)
         if cbi_profiles is not None:
             pulumi.set(__self__, "cbi_profiles", cbi_profiles)
+        if cloud_app_instances is not None:
+            pulumi.set(__self__, "cloud_app_instances", cloud_app_instances)
         if cloud_app_risk_profiles is not None:
             pulumi.set(__self__, "cloud_app_risk_profiles", cloud_app_risk_profiles)
         if departments is not None:
@@ -686,6 +706,18 @@ class _CloudAppControlRuleState:
     @cbi_profiles.setter
     def cbi_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]):
         pulumi.set(self, "cbi_profiles", value)
+
+    @property
+    @pulumi.getter(name="cloudAppInstances")
+    def cloud_app_instances(self) -> Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]:
+        """
+        The cloud application instance ID.
+        """
+        return pulumi.get(self, "cloud_app_instances")
+
+    @cloud_app_instances.setter
+    def cloud_app_instances(self, value: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]):
+        pulumi.set(self, "cloud_app_instances", value)
 
     @property
     @pulumi.getter(name="cloudAppRiskProfiles")
@@ -1024,6 +1056,7 @@ class CloudAppControlRule(pulumi.CustomResource):
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cascading_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
+                 cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
                  cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
                  departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -1052,6 +1085,9 @@ class CloudAppControlRule(pulumi.CustomResource):
                  validity_time_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+        * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+
         The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
 
         **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
@@ -1251,6 +1287,7 @@ class CloudAppControlRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions allowed for the specified type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: List of cloud applications for which rule will be applied
         :param pulumi.Input[builtins.bool] cascading_enabled: nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+        :param pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']] cloud_app_instances: The cloud application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
         :param pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
         :param pulumi.Input[builtins.str] description: Additional information about the forwarding rule
@@ -1289,6 +1326,9 @@ class CloudAppControlRule(pulumi.CustomResource):
                  args: CloudAppControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+        * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+
         The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
 
         **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
@@ -1502,6 +1542,7 @@ class CloudAppControlRule(pulumi.CustomResource):
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cascading_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
+                 cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
                  cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
                  departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -1541,6 +1582,7 @@ class CloudAppControlRule(pulumi.CustomResource):
             __props__.__dict__["applications"] = applications
             __props__.__dict__["cascading_enabled"] = cascading_enabled
             __props__.__dict__["cbi_profiles"] = cbi_profiles
+            __props__.__dict__["cloud_app_instances"] = cloud_app_instances
             __props__.__dict__["cloud_app_risk_profiles"] = cloud_app_risk_profiles
             __props__.__dict__["departments"] = departments
             __props__.__dict__["description"] = description
@@ -1584,6 +1626,7 @@ class CloudAppControlRule(pulumi.CustomResource):
             applications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             cascading_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
+            cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
             cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
             departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
@@ -1621,6 +1664,7 @@ class CloudAppControlRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions allowed for the specified type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] applications: List of cloud applications for which rule will be applied
         :param pulumi.Input[builtins.bool] cascading_enabled: nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+        :param pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']] cloud_app_instances: The cloud application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
         :param pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
         :param pulumi.Input[builtins.str] description: Additional information about the forwarding rule
@@ -1661,6 +1705,7 @@ class CloudAppControlRule(pulumi.CustomResource):
         __props__.__dict__["applications"] = applications
         __props__.__dict__["cascading_enabled"] = cascading_enabled
         __props__.__dict__["cbi_profiles"] = cbi_profiles
+        __props__.__dict__["cloud_app_instances"] = cloud_app_instances
         __props__.__dict__["cloud_app_risk_profiles"] = cloud_app_risk_profiles
         __props__.__dict__["departments"] = departments
         __props__.__dict__["description"] = description
@@ -1720,8 +1765,16 @@ class CloudAppControlRule(pulumi.CustomResource):
         return pulumi.get(self, "cbi_profiles")
 
     @property
+    @pulumi.getter(name="cloudAppInstances")
+    def cloud_app_instances(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleCloudAppInstances']]:
+        """
+        The cloud application instance ID.
+        """
+        return pulumi.get(self, "cloud_app_instances")
+
+    @property
     @pulumi.getter(name="cloudAppRiskProfiles")
-    def cloud_app_risk_profiles(self) -> pulumi.Output[Sequence['outputs.CloudAppControlRuleCloudAppRiskProfile']]:
+    def cloud_app_risk_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.CloudAppControlRuleCloudAppRiskProfile']]]:
         """
         The DLP server, using ICAP, to which the transaction content is forwarded.
         """

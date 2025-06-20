@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-locations)
+// * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+//
 // Use the **zia_location_groups** data source to get information about a location group option available in the Zscaler Internet Access.
 func GetLocationGroups(ctx *pulumi.Context, args *GetLocationGroupsArgs, opts ...pulumi.InvokeOption) (*GetLocationGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

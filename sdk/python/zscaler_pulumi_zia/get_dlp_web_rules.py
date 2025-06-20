@@ -28,7 +28,7 @@ class GetDLPWebRulesResult:
     """
     A collection of values returned by getDLPWebRules.
     """
-    def __init__(__self__, access_control=None, action=None, cloud_applications=None, departments=None, description=None, dlp_download_scan_enabled=None, dlp_engines=None, excluded_departments=None, excluded_groups=None, excluded_users=None, external_auditor_email=None, file_types=None, groups=None, id=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, match_only=None, min_size=None, name=None, order=None, parent_rule=None, protocols=None, rank=None, severity=None, source_ip_groups=None, state=None, sub_rules=None, time_windows=None, url_categories=None, users=None, without_content_inspection=None, workload_groups=None, zcc_notifications_enabled=None, zscaler_incident_receiver=None):
+    def __init__(__self__, access_control=None, action=None, cloud_applications=None, departments=None, description=None, dlp_download_scan_enabled=None, dlp_engines=None, excluded_departments=None, excluded_groups=None, excluded_users=None, external_auditor_email=None, file_types=None, groups=None, id=None, included_domain_profiles=None, labels=None, last_modified_bies=None, last_modified_time=None, location_groups=None, locations=None, match_only=None, min_size=None, name=None, order=None, parent_rule=None, protocols=None, rank=None, severity=None, source_ip_groups=None, state=None, sub_rules=None, time_windows=None, url_categories=None, users=None, without_content_inspection=None, workload_groups=None, zcc_notifications_enabled=None, zscaler_incident_receiver=None):
         if access_control and not isinstance(access_control, str):
             raise TypeError("Expected argument 'access_control' to be a str")
         pulumi.set(__self__, "access_control", access_control)
@@ -71,6 +71,9 @@ class GetDLPWebRulesResult:
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
+        if included_domain_profiles and not isinstance(included_domain_profiles, list):
+            raise TypeError("Expected argument 'included_domain_profiles' to be a list")
+        pulumi.set(__self__, "included_domain_profiles", included_domain_profiles)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
@@ -212,6 +215,11 @@ class GetDLPWebRulesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="includedDomainProfiles")
+    def included_domain_profiles(self) -> Sequence['outputs.GetDLPWebRulesIncludedDomainProfileResult']:
+        return pulumi.get(self, "included_domain_profiles")
+
+    @property
     @pulumi.getter
     def labels(self) -> Sequence['outputs.GetDLPWebRulesLabelResult']:
         return pulumi.get(self, "labels")
@@ -347,6 +355,7 @@ class AwaitableGetDLPWebRulesResult(GetDLPWebRulesResult):
             file_types=self.file_types,
             groups=self.groups,
             id=self.id,
+            included_domain_profiles=self.included_domain_profiles,
             labels=self.labels,
             last_modified_bies=self.last_modified_bies,
             last_modified_time=self.last_modified_time,
@@ -376,6 +385,9 @@ def get_dlp_web_rules(id: Optional[builtins.int] = None,
                       name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPWebRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+
     Use the **zia_dlp_web_rules** data source to get information about a ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -401,6 +413,7 @@ def get_dlp_web_rules(id: Optional[builtins.int] = None,
         file_types=pulumi.get(__ret__, 'file_types'),
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
+        included_domain_profiles=pulumi.get(__ret__, 'included_domain_profiles'),
         labels=pulumi.get(__ret__, 'labels'),
         last_modified_bies=pulumi.get(__ret__, 'last_modified_bies'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
@@ -428,6 +441,9 @@ def get_dlp_web_rules_output(id: Optional[pulumi.Input[Optional[builtins.int]]] 
                              name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPWebRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+
     Use the **zia_dlp_web_rules** data source to get information about a ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -452,6 +468,7 @@ def get_dlp_web_rules_output(id: Optional[pulumi.Input[Optional[builtins.int]]] 
         file_types=pulumi.get(__response__, 'file_types'),
         groups=pulumi.get(__response__, 'groups'),
         id=pulumi.get(__response__, 'id'),
+        included_domain_profiles=pulumi.get(__response__, 'included_domain_profiles'),
         labels=pulumi.get(__response__, 'labels'),
         last_modified_bies=pulumi.get(__response__, 'last_modified_bies'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),

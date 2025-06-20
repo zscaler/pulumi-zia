@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
+//
 // Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ipUnnumbered` parameter is set to `false`
 //
 // ## Example Usage

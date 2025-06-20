@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+ *
  * Use the **zia_advanced_threat_settings** data source to retrieve the advanced threat configuration settings in the ZIA Admin Portal. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
  *
  * ## Example Usage
@@ -73,6 +76,9 @@ export interface GetAdvancedThreatSettingsResult {
     readonly webSpamCapture: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+ *
  * Use the **zia_advanced_threat_settings** data source to retrieve the advanced threat configuration settings in the ZIA Admin Portal. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
  *
  * ## Example Usage

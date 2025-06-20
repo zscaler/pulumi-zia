@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+//
 // The **zia_dlp_dictionaries** resource allows the creation and management of ZIA DLP dictionaries in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage

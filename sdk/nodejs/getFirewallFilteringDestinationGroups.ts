@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+ *
  * Use the **zia_firewall_filtering_destination_groups** data source to get information about IP destination groups option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage
@@ -61,6 +64,9 @@ export interface GetFirewallFilteringDestinationGroupsResult {
     readonly type: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-post)
+ *
  * Use the **zia_firewall_filtering_destination_groups** data source to get information about IP destination groups option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage

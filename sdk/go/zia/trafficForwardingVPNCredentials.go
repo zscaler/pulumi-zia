@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
+//
 // The **zia_traffic_forwarding_vpn_credentials** creates and manages VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-site IPSec VPN credentials can be identified by the cloud through one of the following methods:
 //
 // * Common Name (CN) of IPSec Certificate

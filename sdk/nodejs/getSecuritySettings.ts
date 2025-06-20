@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+ * * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+ *
  * Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -27,6 +30,9 @@ export interface GetSecuritySettingsResult {
     readonly whitelistUrls: string[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+ * * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+ *
  * Use the **zia_security_settings** data source to get a list of URLs that were added to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

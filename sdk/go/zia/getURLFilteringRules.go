@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+// * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+//
 // Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 func LookupURLFilteringRules(ctx *pulumi.Context, args *LookupURLFilteringRulesArgs, opts ...pulumi.InvokeOption) (*LookupURLFilteringRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

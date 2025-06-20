@@ -320,6 +320,9 @@ class UserManagement(pulumi.CustomResource):
                  temp_auth_email: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+        * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
         The **zia_user_management** resource allows the creation and management of local user account in the Zscaler Internet Access cloud. The user account resource can then be associated with several different types of resource within the ZIA tenant.
 
         ## Example Usage
@@ -373,6 +376,9 @@ class UserManagement(pulumi.CustomResource):
                  args: UserManagementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+        * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
         The **zia_user_management** resource allows the creation and management of local user account in the Zscaler Internet Access cloud. The user account resource can then be associated with several different types of resource within the ZIA tenant.
 
         ## Example Usage

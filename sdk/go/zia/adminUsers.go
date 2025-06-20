@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-administrators)
+// * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
+//
 // The **zia_admin_users** resource allows the creation and management of ZIA admin user account created in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage

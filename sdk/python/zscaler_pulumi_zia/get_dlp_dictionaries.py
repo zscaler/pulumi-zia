@@ -268,6 +268,9 @@ def get_dlp_dictionaries(id: Optional[builtins.int] = None,
                          name: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPDictionariesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+
     Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 
 
@@ -306,6 +309,9 @@ def get_dlp_dictionaries_output(id: Optional[pulumi.Input[Optional[builtins.int]
                                 name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPDictionariesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+
     Use the **zia_dlp_dictionaries** data source to get information about a DLP dictionary option available in the Zscaler Internet Access.
 
 

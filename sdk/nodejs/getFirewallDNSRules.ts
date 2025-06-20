@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+ * * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+ *
  * Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
  *
  * ## Example Usage
@@ -187,6 +190,9 @@ export interface GetFirewallDNSRulesResult {
     readonly users: outputs.GetFirewallDNSRulesUser[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+ * * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+ *
  * Use the **zia_firewall_dns_rule** data source to get information about a cloud firewall DNS rule available in the Zscaler Internet Access.
  *
  * ## Example Usage

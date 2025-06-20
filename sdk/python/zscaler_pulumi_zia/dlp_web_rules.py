@@ -76,7 +76,7 @@ class DLPWebRulesArgs:
         :param pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs'] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
-        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] file_types: The list of file types for which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
@@ -331,7 +331,7 @@ class DLPWebRulesArgs:
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The email address of an external auditor to whom DLP email notifications are sent.
+        The email address of an external auditor to whom DLP email notifications are sent
         """
         return pulumi.get(self, "external_auditor_email")
 
@@ -715,7 +715,7 @@ class _DLPWebRulesState:
         :param pulumi.Input['DLPWebRulesExcludedDomainProfilesArgs'] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesExcludedGroupsArgs'] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesExcludedUsersArgs'] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
-        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] file_types: The list of file types for which the DLP policy rule must be applied.
         :param pulumi.Input['DLPWebRulesGroupsArgs'] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input['DLPWebRulesIcapServerArgs']]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
@@ -962,7 +962,7 @@ class _DLPWebRulesState:
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The email address of an external auditor to whom DLP email notifications are sent.
+        The email address of an external auditor to whom DLP email notifications are sent
         """
         return pulumi.get(self, "external_auditor_email")
 
@@ -1358,6 +1358,9 @@ class DLPWebRules(pulumi.CustomResource):
                  zscaler_incident_receiver: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+
         The **zia_dlp_web_rules** resource allows the creation and management of ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 
         ⚠️ **WARNING:** Zscaler Internet Access DLP supports a maximum of 127 Web DLP Rules to be created via API.
@@ -1409,7 +1412,7 @@ class DLPWebRules(pulumi.CustomResource):
         :param pulumi.Input[Union['DLPWebRulesExcludedDomainProfilesArgs', 'DLPWebRulesExcludedDomainProfilesArgsDict']] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesExcludedGroupsArgs', 'DLPWebRulesExcludedGroupsArgsDict']] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesExcludedUsersArgs', 'DLPWebRulesExcludedUsersArgsDict']] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
-        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] file_types: The list of file types for which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesGroupsArgs', 'DLPWebRulesGroupsArgsDict']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DLPWebRulesIcapServerArgs', 'DLPWebRulesIcapServerArgsDict']]]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
@@ -1444,6 +1447,9 @@ class DLPWebRules(pulumi.CustomResource):
                  args: DLPWebRulesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+
         The **zia_dlp_web_rules** resource allows the creation and management of ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 
         ⚠️ **WARNING:** Zscaler Internet Access DLP supports a maximum of 127 Web DLP Rules to be created via API.
@@ -1658,7 +1664,7 @@ class DLPWebRules(pulumi.CustomResource):
         :param pulumi.Input[Union['DLPWebRulesExcludedDomainProfilesArgs', 'DLPWebRulesExcludedDomainProfilesArgsDict']] excluded_domain_profiles: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesExcludedGroupsArgs', 'DLPWebRulesExcludedGroupsArgsDict']] excluded_groups: The Name-ID pairs of users to which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesExcludedUsersArgs', 'DLPWebRulesExcludedUsersArgsDict']] excluded_users: The Name-ID pairs of users to which the DLP policy rule must be applied.
-        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] file_types: The list of file types for which the DLP policy rule must be applied.
         :param pulumi.Input[Union['DLPWebRulesGroupsArgs', 'DLPWebRulesGroupsArgsDict']] groups: The Name-ID pairs of groups to which the DLP policy rule must be applied.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DLPWebRulesIcapServerArgs', 'DLPWebRulesIcapServerArgsDict']]]] icap_servers: The DLP server, using ICAP, to which the transaction content is forwarded.
@@ -1743,7 +1749,7 @@ class DLPWebRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def auditors(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesAuditor']]:
+    def auditors(self) -> pulumi.Output[Optional[Sequence['outputs.DLPWebRulesAuditor']]]:
         """
         The auditor to which the DLP policy rule must be applied.
         """
@@ -1823,9 +1829,9 @@ class DLPWebRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalAuditorEmail")
-    def external_auditor_email(self) -> pulumi.Output[builtins.str]:
+    def external_auditor_email(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The email address of an external auditor to whom DLP email notifications are sent.
+        The email address of an external auditor to whom DLP email notifications are sent
         """
         return pulumi.get(self, "external_auditor_email")
 
@@ -1847,7 +1853,7 @@ class DLPWebRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="icapServers")
-    def icap_servers(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesIcapServer']]:
+    def icap_servers(self) -> pulumi.Output[Optional[Sequence['outputs.DLPWebRulesIcapServer']]]:
         """
         The DLP server, using ICAP, to which the transaction content is forwarded.
         """
@@ -1916,7 +1922,7 @@ class DLPWebRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationTemplates")
-    def notification_templates(self) -> pulumi.Output[Sequence['outputs.DLPWebRulesNotificationTemplate']]:
+    def notification_templates(self) -> pulumi.Output[Optional[Sequence['outputs.DLPWebRulesNotificationTemplate']]]:
         """
         The template used for DLP notification emails.
         """

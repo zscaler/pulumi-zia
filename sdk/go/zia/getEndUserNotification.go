@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/understanding-browser-based-end-user-notifications)
+// * [API documentation](https://help.zscaler.com/zia/end-user-notifications#/eun-get)
+//
 // Use the **zia_end_user_notification** data source to get information about browser-based end user notification (EUN) configuration details.
 //
 // ## Example Usage

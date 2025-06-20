@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+ *
  * Use the **zia_dlp_web_rules** data source to get information about a ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -46,6 +49,7 @@ export interface GetDLPWebRulesResult {
     readonly fileTypes: string[];
     readonly groups: outputs.GetDLPWebRulesGroup[];
     readonly id?: number;
+    readonly includedDomainProfiles: outputs.GetDLPWebRulesIncludedDomainProfile[];
     readonly labels: outputs.GetDLPWebRulesLabel[];
     readonly lastModifiedBies: outputs.GetDLPWebRulesLastModifiedBy[];
     readonly lastModifiedTime: number;
@@ -71,6 +75,9 @@ export interface GetDLPWebRulesResult {
     readonly zscalerIncidentReceiver: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+ *
  * Use the **zia_dlp_web_rules** data source to get information about a ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

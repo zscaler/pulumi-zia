@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+//
 // Use the **zia_traffic_forwarding_gre_vip_recommended_list** data source to get information about a list of recommended GRE tunnel virtual IP addresses (VIPs), based on source IP address or latitude/longitude coordinates.
 //
 // ## Example Usage

@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-locations)
+ * * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+ *
  * The **zia_location_management** resource allows the creation and management of ZIA locations in the Zscaler Internet Access. This resource can then be associated with a:
  *
  * * Static IP resource
@@ -108,6 +111,14 @@ export class LocationManagement extends pulumi.CustomResource {
      */
     public readonly country!: pulumi.Output<string>;
     /**
+     * Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+     */
+    public readonly defaultExtranetDns!: pulumi.Output<boolean>;
+    /**
+     * Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+     */
+    public readonly defaultExtranetTsPool!: pulumi.Output<boolean>;
+    /**
      * Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -129,6 +140,18 @@ export class LocationManagement extends pulumi.CustomResource {
     public readonly dynamicLocationGroups!: pulumi.Output<outputs.LocationManagementDynamicLocationGroups>;
     public readonly excludeFromDynamicGroups!: pulumi.Output<boolean | undefined>;
     public readonly excludeFromManualGroups!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the DNS server configuration used in the extranet
+     */
+    public readonly extranetDns!: pulumi.Output<outputs.LocationManagementExtranetDn[] | undefined>;
+    /**
+     * The ID of the traffic selector specified in the extranet
+     */
+    public readonly extranetIpPools!: pulumi.Output<outputs.LocationManagementExtranetIpPool[] | undefined>;
+    /**
+     * The ID of the extranet resource that must be assigned to the location
+     */
+    public readonly extranets!: pulumi.Output<outputs.LocationManagementExtranet[] | undefined>;
     /**
      * Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
      */
@@ -266,6 +289,8 @@ export class LocationManagement extends pulumi.CustomResource {
             resourceInputs["cautionEnabled"] = state ? state.cautionEnabled : undefined;
             resourceInputs["cookiesAndProxy"] = state ? state.cookiesAndProxy : undefined;
             resourceInputs["country"] = state ? state.country : undefined;
+            resourceInputs["defaultExtranetDns"] = state ? state.defaultExtranetDns : undefined;
+            resourceInputs["defaultExtranetTsPool"] = state ? state.defaultExtranetTsPool : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["digestAuthEnabled"] = state ? state.digestAuthEnabled : undefined;
             resourceInputs["displayTimeUnit"] = state ? state.displayTimeUnit : undefined;
@@ -273,6 +298,9 @@ export class LocationManagement extends pulumi.CustomResource {
             resourceInputs["dynamicLocationGroups"] = state ? state.dynamicLocationGroups : undefined;
             resourceInputs["excludeFromDynamicGroups"] = state ? state.excludeFromDynamicGroups : undefined;
             resourceInputs["excludeFromManualGroups"] = state ? state.excludeFromManualGroups : undefined;
+            resourceInputs["extranetDns"] = state ? state.extranetDns : undefined;
+            resourceInputs["extranetIpPools"] = state ? state.extranetIpPools : undefined;
+            resourceInputs["extranets"] = state ? state.extranets : undefined;
             resourceInputs["idleTimeInMinutes"] = state ? state.idleTimeInMinutes : undefined;
             resourceInputs["iotDiscoveryEnabled"] = state ? state.iotDiscoveryEnabled : undefined;
             resourceInputs["iotEnforcePolicySet"] = state ? state.iotEnforcePolicySet : undefined;
@@ -312,6 +340,8 @@ export class LocationManagement extends pulumi.CustomResource {
             resourceInputs["cautionEnabled"] = args ? args.cautionEnabled : undefined;
             resourceInputs["cookiesAndProxy"] = args ? args.cookiesAndProxy : undefined;
             resourceInputs["country"] = args ? args.country : undefined;
+            resourceInputs["defaultExtranetDns"] = args ? args.defaultExtranetDns : undefined;
+            resourceInputs["defaultExtranetTsPool"] = args ? args.defaultExtranetTsPool : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["digestAuthEnabled"] = args ? args.digestAuthEnabled : undefined;
             resourceInputs["displayTimeUnit"] = args ? args.displayTimeUnit : undefined;
@@ -319,6 +349,9 @@ export class LocationManagement extends pulumi.CustomResource {
             resourceInputs["dynamicLocationGroups"] = args ? args.dynamicLocationGroups : undefined;
             resourceInputs["excludeFromDynamicGroups"] = args ? args.excludeFromDynamicGroups : undefined;
             resourceInputs["excludeFromManualGroups"] = args ? args.excludeFromManualGroups : undefined;
+            resourceInputs["extranetDns"] = args ? args.extranetDns : undefined;
+            resourceInputs["extranetIpPools"] = args ? args.extranetIpPools : undefined;
+            resourceInputs["extranets"] = args ? args.extranets : undefined;
             resourceInputs["idleTimeInMinutes"] = args ? args.idleTimeInMinutes : undefined;
             resourceInputs["iotDiscoveryEnabled"] = args ? args.iotDiscoveryEnabled : undefined;
             resourceInputs["iotEnforcePolicySet"] = args ? args.iotEnforcePolicySet : undefined;
@@ -393,6 +426,14 @@ export interface LocationManagementState {
      */
     country?: pulumi.Input<string>;
     /**
+     * Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+     */
+    defaultExtranetDns?: pulumi.Input<boolean>;
+    /**
+     * Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+     */
+    defaultExtranetTsPool?: pulumi.Input<boolean>;
+    /**
      * Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
      */
     description?: pulumi.Input<string>;
@@ -414,6 +455,18 @@ export interface LocationManagementState {
     dynamicLocationGroups?: pulumi.Input<inputs.LocationManagementDynamicLocationGroups>;
     excludeFromDynamicGroups?: pulumi.Input<boolean>;
     excludeFromManualGroups?: pulumi.Input<boolean>;
+    /**
+     * The ID of the DNS server configuration used in the extranet
+     */
+    extranetDns?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranetDn>[]>;
+    /**
+     * The ID of the traffic selector specified in the extranet
+     */
+    extranetIpPools?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranetIpPool>[]>;
+    /**
+     * The ID of the extranet resource that must be assigned to the location
+     */
+    extranets?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranet>[]>;
     /**
      * Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
      */
@@ -570,6 +623,14 @@ export interface LocationManagementArgs {
      */
     country?: pulumi.Input<string>;
     /**
+     * Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+     */
+    defaultExtranetDns?: pulumi.Input<boolean>;
+    /**
+     * Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+     */
+    defaultExtranetTsPool?: pulumi.Input<boolean>;
+    /**
      * Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
      */
     description?: pulumi.Input<string>;
@@ -591,6 +652,18 @@ export interface LocationManagementArgs {
     dynamicLocationGroups?: pulumi.Input<inputs.LocationManagementDynamicLocationGroups>;
     excludeFromDynamicGroups?: pulumi.Input<boolean>;
     excludeFromManualGroups?: pulumi.Input<boolean>;
+    /**
+     * The ID of the DNS server configuration used in the extranet
+     */
+    extranetDns?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranetDn>[]>;
+    /**
+     * The ID of the traffic selector specified in the extranet
+     */
+    extranetIpPools?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranetIpPool>[]>;
+    /**
+     * The ID of the extranet resource that must be assigned to the location
+     */
+    extranets?: pulumi.Input<pulumi.Input<inputs.LocationManagementExtranet>[]>;
     /**
      * Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
      */

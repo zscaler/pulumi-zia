@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-locations)
+// * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+//
 // Use the **zia_location_management** data source to get information about a location resource available in the Zscaler Internet Access Location Management. This resource can then be referenced in multiple other resources, such as URL Filtering Rules, Firewall rules etc.
 //
 // ## Example Usage
@@ -50,7 +53,9 @@ type LookupLocationManagementResult struct {
 	// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
 	CautionEnabled bool `pulumi:"cautionEnabled"`
 	// (String) Country
-	Country string `pulumi:"country"`
+	Country               string `pulumi:"country"`
+	DefaultExtranetDns    bool   `pulumi:"defaultExtranetDns"`
+	DefaultExtranetTsPool bool   `pulumi:"defaultExtranetTsPool"`
 	// (String) Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description       string `pulumi:"description"`
 	DigestAuthEnabled bool   `pulumi:"digestAuthEnabled"`
@@ -58,7 +63,13 @@ type LookupLocationManagementResult struct {
 	DisplayTimeUnit string `pulumi:"displayTimeUnit"`
 	// (Number) Download bandwidth in bytes. The value `0` implies no Bandwidth Control enforcement.
 	DnBandwidth int `pulumi:"dnBandwidth"`
-	// (Number) Identifier that uniquely identifies an entity
+	// (Block, Max: 1) The ID of the DNS server configuration used in the extranet
+	ExtranetDns []GetLocationManagementExtranetDn `pulumi:"extranetDns"`
+	// (Block, Max: 1) The ID of the traffic selector specified in the extranet
+	ExtranetIpPools []GetLocationManagementExtranetIpPool `pulumi:"extranetIpPools"`
+	// (Block, Max: 1) The ID of the extranet resource that must be assigned to the location
+	Extranets []GetLocationManagementExtranet `pulumi:"extranets"`
+	// (int) The Identifier that uniquely identifies an entity
 	Id *int `pulumi:"id"`
 	// (Number) Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes   int  `pulumi:"idleTimeInMinutes"`
@@ -177,6 +188,14 @@ func (o LookupLocationManagementResultOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) string { return v.Country }).(pulumi.StringOutput)
 }
 
+func (o LookupLocationManagementResultOutput) DefaultExtranetDns() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.DefaultExtranetDns }).(pulumi.BoolOutput)
+}
+
+func (o LookupLocationManagementResultOutput) DefaultExtranetTsPool() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.DefaultExtranetTsPool }).(pulumi.BoolOutput)
+}
+
 // (String) Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 func (o LookupLocationManagementResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) string { return v.Description }).(pulumi.StringOutput)
@@ -196,7 +215,22 @@ func (o LookupLocationManagementResultOutput) DnBandwidth() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) int { return v.DnBandwidth }).(pulumi.IntOutput)
 }
 
-// (Number) Identifier that uniquely identifies an entity
+// (Block, Max: 1) The ID of the DNS server configuration used in the extranet
+func (o LookupLocationManagementResultOutput) ExtranetDns() GetLocationManagementExtranetDnArrayOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) []GetLocationManagementExtranetDn { return v.ExtranetDns }).(GetLocationManagementExtranetDnArrayOutput)
+}
+
+// (Block, Max: 1) The ID of the traffic selector specified in the extranet
+func (o LookupLocationManagementResultOutput) ExtranetIpPools() GetLocationManagementExtranetIpPoolArrayOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) []GetLocationManagementExtranetIpPool { return v.ExtranetIpPools }).(GetLocationManagementExtranetIpPoolArrayOutput)
+}
+
+// (Block, Max: 1) The ID of the extranet resource that must be assigned to the location
+func (o LookupLocationManagementResultOutput) Extranets() GetLocationManagementExtranetArrayOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) []GetLocationManagementExtranet { return v.Extranets }).(GetLocationManagementExtranetArrayOutput)
+}
+
+// (int) The Identifier that uniquely identifies an entity
 func (o LookupLocationManagementResultOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }

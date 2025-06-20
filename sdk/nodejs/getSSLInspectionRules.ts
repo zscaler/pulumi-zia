@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+ *
  * Use the **zia_ssl_inspection_rules** data source to get information about a ssl inspection rule in the Zscaler Internet Access.
  *
  * ## Example Usage
@@ -161,6 +164,9 @@ export interface GetSSLInspectionRulesResult {
     readonly zpaAppSegments: outputs.GetSSLInspectionRulesZpaAppSegment[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+ *
  * Use the **zia_ssl_inspection_rules** data source to get information about a ssl inspection rule in the Zscaler Internet Access.
  *
  * ## Example Usage

@@ -61,6 +61,9 @@ class AwaitableGetATPMaliciousURLsResult(GetATPMaliciousURLsResult):
 
 def get_atp_malicious_urls(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetATPMaliciousURLsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+    * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
     Use the **zia_atp_malicious_urls** data source to Retrieves the malicious URLs added to the denylist in the Advanced Threat Protection (ATP) policy. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
 
     ## Example Usage
@@ -74,6 +77,9 @@ def get_atp_malicious_urls(opts: Optional[pulumi.InvokeOptions] = None) -> Await
         malicious_urls=pulumi.get(__ret__, 'malicious_urls'))
 def get_atp_malicious_urls_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetATPMaliciousURLsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+    * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
     Use the **zia_atp_malicious_urls** data source to Retrieves the malicious URLs added to the denylist in the Advanced Threat Protection (ATP) policy. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
 
     ## Example Usage

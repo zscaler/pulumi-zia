@@ -98,6 +98,9 @@ def get_cloud_applications(app_classes: Optional[Sequence[builtins.str]] = None,
                            policy_type: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudApplicationsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+    * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+
     Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloud_applications` on supported rules.
 
     ## Cloud Application Category App Class Matrix
@@ -154,6 +157,9 @@ def get_cloud_applications_output(app_classes: Optional[pulumi.Input[Optional[Se
                                   policy_type: Optional[pulumi.Input[builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudApplicationsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+    * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
+
     Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloud_applications` on supported rules.
 
     ## Cloud Application Category App Class Matrix

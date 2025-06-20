@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/ips-control-policy#/firewallIpsRules-get)
+ * * [API documentation](https://help.zscaler.com/zia/configuring-ips-control-policy)
+ *
  * Use the **zia_firewall_ips_rule** data source to get information about a cloud firewall IPS rule available in the Zscaler Internet Access.
  *
  * ## Example Usage
@@ -177,6 +180,9 @@ export interface GetIPSFirewallRuleResult {
     readonly zpaAppSegments: outputs.GetIPSFirewallRuleZpaAppSegment[];
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/ips-control-policy#/firewallIpsRules-get)
+ * * [API documentation](https://help.zscaler.com/zia/configuring-ips-control-policy)
+ *
  * Use the **zia_firewall_ips_rule** data source to get information about a cloud firewall IPS rule available in the Zscaler Internet Access.
  *
  * ## Example Usage

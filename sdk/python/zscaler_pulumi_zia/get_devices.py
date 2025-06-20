@@ -165,6 +165,9 @@ def get_devices(device_group_type: Optional[builtins.str] = None,
                 owner_name: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevicesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+    * [API documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+
     Use the **zia_devices** data source to get information about a device in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
 
     ## Example Usage
@@ -211,6 +214,9 @@ def get_devices_output(device_group_type: Optional[pulumi.Input[Optional[builtin
                        owner_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+    * [API documentation](https://help.zscaler.com/zia/device-groups#/deviceGroups-get)
+
     Use the **zia_devices** data source to get information about a device in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
 
     ## Example Usage

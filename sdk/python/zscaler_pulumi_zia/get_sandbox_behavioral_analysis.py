@@ -61,6 +61,9 @@ class AwaitableGetSandboxBehavioralAnalysisResult(GetSandboxBehavioralAnalysisRe
 
 def get_sandbox_behavioral_analysis(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSandboxBehavioralAnalysisResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+
     Use the **zia_sandbox_behavioral_analysis** data source to get get the custom list of MD5 file hashes that are blocked by Sandbox
 
     ## Example Usage
@@ -74,6 +77,9 @@ def get_sandbox_behavioral_analysis(opts: Optional[pulumi.InvokeOptions] = None)
         id=pulumi.get(__ret__, 'id'))
 def get_sandbox_behavioral_analysis_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxBehavioralAnalysisResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+
     Use the **zia_sandbox_behavioral_analysis** data source to get get the custom list of MD5 file hashes that are blocked by Sandbox
 
     ## Example Usage

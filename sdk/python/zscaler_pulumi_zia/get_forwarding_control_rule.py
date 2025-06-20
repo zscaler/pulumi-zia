@@ -464,6 +464,9 @@ def get_forwarding_control_rule(id: Optional[builtins.int] = None,
                                 type: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetForwardingControlRuleResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
+
     Use the **zia_forwarding_control_rule** data source to get information about a forwarding control rule which is used to forward selective Zscaler traffic to specific destinations based on your needs.For example, if you want to forward specific web traffic to a third-party proxy service or if you want to forward source IP anchored application traffic to a specific Zscaler Private Access (ZPA) App Connector or internal application traffic through ZIA threat and data protection engines, use forwarding control by configuring appropriate rules.
 
     ## Example Usage
@@ -522,6 +525,9 @@ def get_forwarding_control_rule_output(id: Optional[pulumi.Input[Optional[builti
                                        type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetForwardingControlRuleResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
+
     Use the **zia_forwarding_control_rule** data source to get information about a forwarding control rule which is used to forward selective Zscaler traffic to specific destinations based on your needs.For example, if you want to forward specific web traffic to a third-party proxy service or if you want to forward source IP anchored application traffic to a specific Zscaler Private Access (ZPA) App Connector or internal application traffic through ZIA threat and data protection engines, use forwarding control by configuring appropriate rules.
 
     ## Example Usage

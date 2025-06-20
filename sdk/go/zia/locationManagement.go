@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-locations)
+// * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+//
 // The **zia_location_management** resource allows the creation and management of ZIA locations in the Zscaler Internet Access. This resource can then be associated with a:
 //
 // * Static IP resource
@@ -69,6 +72,10 @@ type LocationManagement struct {
 	CookiesAndProxy pulumi.BoolOutput `pulumi:"cookiesAndProxy"`
 	// Supported Countries
 	Country pulumi.StringOutput `pulumi:"country"`
+	// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+	DefaultExtranetDns pulumi.BoolOutput `pulumi:"defaultExtranetDns"`
+	// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+	DefaultExtranetTsPool pulumi.BoolOutput `pulumi:"defaultExtranetTsPool"`
 	// Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable Digest Authentication at the location
@@ -81,6 +88,12 @@ type LocationManagement struct {
 	DynamicLocationGroups    LocationManagementDynamicLocationGroupsOutput `pulumi:"dynamicLocationGroups"`
 	ExcludeFromDynamicGroups pulumi.BoolPtrOutput                          `pulumi:"excludeFromDynamicGroups"`
 	ExcludeFromManualGroups  pulumi.BoolPtrOutput                          `pulumi:"excludeFromManualGroups"`
+	// The ID of the DNS server configuration used in the extranet
+	ExtranetDns LocationManagementExtranetDnArrayOutput `pulumi:"extranetDns"`
+	// The ID of the traffic selector specified in the extranet
+	ExtranetIpPools LocationManagementExtranetIpPoolArrayOutput `pulumi:"extranetIpPools"`
+	// The ID of the extranet resource that must be assigned to the location
+	Extranets LocationManagementExtranetArrayOutput `pulumi:"extranets"`
 	// Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeInMinutes"`
 	// Enable IOT Discovery at the location
@@ -196,6 +209,10 @@ type locationManagementState struct {
 	CookiesAndProxy *bool `pulumi:"cookiesAndProxy"`
 	// Supported Countries
 	Country *string `pulumi:"country"`
+	// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+	DefaultExtranetDns *bool `pulumi:"defaultExtranetDns"`
+	// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+	DefaultExtranetTsPool *bool `pulumi:"defaultExtranetTsPool"`
 	// Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description *string `pulumi:"description"`
 	// Enable Digest Authentication at the location
@@ -208,6 +225,12 @@ type locationManagementState struct {
 	DynamicLocationGroups    *LocationManagementDynamicLocationGroups `pulumi:"dynamicLocationGroups"`
 	ExcludeFromDynamicGroups *bool                                    `pulumi:"excludeFromDynamicGroups"`
 	ExcludeFromManualGroups  *bool                                    `pulumi:"excludeFromManualGroups"`
+	// The ID of the DNS server configuration used in the extranet
+	ExtranetDns []LocationManagementExtranetDn `pulumi:"extranetDns"`
+	// The ID of the traffic selector specified in the extranet
+	ExtranetIpPools []LocationManagementExtranetIpPool `pulumi:"extranetIpPools"`
+	// The ID of the extranet resource that must be assigned to the location
+	Extranets []LocationManagementExtranet `pulumi:"extranets"`
 	// Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes *int `pulumi:"idleTimeInMinutes"`
 	// Enable IOT Discovery at the location
@@ -294,6 +317,10 @@ type LocationManagementState struct {
 	CookiesAndProxy pulumi.BoolPtrInput
 	// Supported Countries
 	Country pulumi.StringPtrInput
+	// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+	DefaultExtranetDns pulumi.BoolPtrInput
+	// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+	DefaultExtranetTsPool pulumi.BoolPtrInput
 	// Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description pulumi.StringPtrInput
 	// Enable Digest Authentication at the location
@@ -306,6 +333,12 @@ type LocationManagementState struct {
 	DynamicLocationGroups    LocationManagementDynamicLocationGroupsPtrInput
 	ExcludeFromDynamicGroups pulumi.BoolPtrInput
 	ExcludeFromManualGroups  pulumi.BoolPtrInput
+	// The ID of the DNS server configuration used in the extranet
+	ExtranetDns LocationManagementExtranetDnArrayInput
+	// The ID of the traffic selector specified in the extranet
+	ExtranetIpPools LocationManagementExtranetIpPoolArrayInput
+	// The ID of the extranet resource that must be assigned to the location
+	Extranets LocationManagementExtranetArrayInput
 	// Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes pulumi.IntPtrInput
 	// Enable IOT Discovery at the location
@@ -396,6 +429,10 @@ type locationManagementArgs struct {
 	CookiesAndProxy *bool `pulumi:"cookiesAndProxy"`
 	// Supported Countries
 	Country *string `pulumi:"country"`
+	// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+	DefaultExtranetDns *bool `pulumi:"defaultExtranetDns"`
+	// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+	DefaultExtranetTsPool *bool `pulumi:"defaultExtranetTsPool"`
 	// Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description *string `pulumi:"description"`
 	// Enable Digest Authentication at the location
@@ -408,6 +445,12 @@ type locationManagementArgs struct {
 	DynamicLocationGroups    *LocationManagementDynamicLocationGroups `pulumi:"dynamicLocationGroups"`
 	ExcludeFromDynamicGroups *bool                                    `pulumi:"excludeFromDynamicGroups"`
 	ExcludeFromManualGroups  *bool                                    `pulumi:"excludeFromManualGroups"`
+	// The ID of the DNS server configuration used in the extranet
+	ExtranetDns []LocationManagementExtranetDn `pulumi:"extranetDns"`
+	// The ID of the traffic selector specified in the extranet
+	ExtranetIpPools []LocationManagementExtranetIpPool `pulumi:"extranetIpPools"`
+	// The ID of the extranet resource that must be assigned to the location
+	Extranets []LocationManagementExtranet `pulumi:"extranets"`
 	// Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes *int `pulumi:"idleTimeInMinutes"`
 	// Enable IOT Discovery at the location
@@ -494,6 +537,10 @@ type LocationManagementArgs struct {
 	CookiesAndProxy pulumi.BoolPtrInput
 	// Supported Countries
 	Country pulumi.StringPtrInput
+	// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+	DefaultExtranetDns pulumi.BoolPtrInput
+	// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+	DefaultExtranetTsPool pulumi.BoolPtrInput
 	// Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 	Description pulumi.StringPtrInput
 	// Enable Digest Authentication at the location
@@ -506,6 +553,12 @@ type LocationManagementArgs struct {
 	DynamicLocationGroups    LocationManagementDynamicLocationGroupsPtrInput
 	ExcludeFromDynamicGroups pulumi.BoolPtrInput
 	ExcludeFromManualGroups  pulumi.BoolPtrInput
+	// The ID of the DNS server configuration used in the extranet
+	ExtranetDns LocationManagementExtranetDnArrayInput
+	// The ID of the traffic selector specified in the extranet
+	ExtranetIpPools LocationManagementExtranetIpPoolArrayInput
+	// The ID of the extranet resource that must be assigned to the location
+	Extranets LocationManagementExtranetArrayInput
 	// Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
 	IdleTimeInMinutes pulumi.IntPtrInput
 	// Enable IOT Discovery at the location
@@ -704,6 +757,16 @@ func (o LocationManagementOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.StringOutput { return v.Country }).(pulumi.StringOutput)
 }
 
+// Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+func (o LocationManagementOutput) DefaultExtranetDns() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.DefaultExtranetDns }).(pulumi.BoolOutput)
+}
+
+// Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+func (o LocationManagementOutput) DefaultExtranetTsPool() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.DefaultExtranetTsPool }).(pulumi.BoolOutput)
+}
+
 // Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
 func (o LocationManagementOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -737,6 +800,21 @@ func (o LocationManagementOutput) ExcludeFromDynamicGroups() pulumi.BoolPtrOutpu
 
 func (o LocationManagementOutput) ExcludeFromManualGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.ExcludeFromManualGroups }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the DNS server configuration used in the extranet
+func (o LocationManagementOutput) ExtranetDns() LocationManagementExtranetDnArrayOutput {
+	return o.ApplyT(func(v *LocationManagement) LocationManagementExtranetDnArrayOutput { return v.ExtranetDns }).(LocationManagementExtranetDnArrayOutput)
+}
+
+// The ID of the traffic selector specified in the extranet
+func (o LocationManagementOutput) ExtranetIpPools() LocationManagementExtranetIpPoolArrayOutput {
+	return o.ApplyT(func(v *LocationManagement) LocationManagementExtranetIpPoolArrayOutput { return v.ExtranetIpPools }).(LocationManagementExtranetIpPoolArrayOutput)
+}
+
+// The ID of the extranet resource that must be assigned to the location
+func (o LocationManagementOutput) Extranets() LocationManagementExtranetArrayOutput {
+	return o.ApplyT(func(v *LocationManagement) LocationManagementExtranetArrayOutput { return v.Extranets }).(LocationManagementExtranetArrayOutput)
 }
 
 // Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.

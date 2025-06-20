@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
+ *
  * Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxyGateway` when creating a Forwarding Control Rule via the resource: `zia.ForwardingControlRule`
  *
  * ## Example Usage
@@ -76,6 +79,9 @@ export interface GetForwardingControlProxyGatewayResult {
     readonly type: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
+ *
  * Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxyGateway` when creating a Forwarding Control Rule via the resource: `zia.ForwardingControlRule`
  *
  * ## Example Usage

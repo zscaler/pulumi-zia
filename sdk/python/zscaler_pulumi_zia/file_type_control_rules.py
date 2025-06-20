@@ -952,6 +952,9 @@ class FileTypeControlRules(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileTypeControlRulesZpaAppSegmentArgs', 'FileTypeControlRulesZpaAppSegmentArgsDict']]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-file-type-control)
+        * [API documentation](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-post)
+
         The **zia_file_type_control_rules** resource allows the creation and management of ZIA file type control rules in the Zscaler Internet Access.
 
         ## Example Usage
@@ -1015,6 +1018,9 @@ class FileTypeControlRules(pulumi.CustomResource):
                  args: FileTypeControlRulesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-file-type-control)
+        * [API documentation](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-post)
+
         The **zia_file_type_control_rules** resource allows the creation and management of ZIA file type control rules in the Zscaler Internet Access.
 
         ## Example Usage

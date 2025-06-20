@@ -31,6 +31,8 @@ class LocationManagementArgs:
                  caution_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cookies_and_proxy: Optional[pulumi.Input[builtins.bool]] = None,
                  country: Optional[pulumi.Input[builtins.str]] = None,
+                 default_extranet_dns: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_extranet_ts_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  digest_auth_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  display_time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -38,6 +40,9 @@ class LocationManagementArgs:
                  dynamic_location_groups: Optional[pulumi.Input['LocationManagementDynamicLocationGroupsArgs']] = None,
                  exclude_from_dynamic_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  exclude_from_manual_groups: Optional[pulumi.Input[builtins.bool]] = None,
+                 extranet_dns: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]] = None,
+                 extranet_ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]] = None,
+                 extranets: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]] = None,
                  idle_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  iot_discovery_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  iot_enforce_policy_set: Optional[pulumi.Input[builtins.bool]] = None,
@@ -77,11 +82,16 @@ class LocationManagementArgs:
         :param pulumi.Input[builtins.bool] basic_auth_enabled: Enable Basic Authentication at the location
         :param pulumi.Input[builtins.bool] caution_enabled: Enable Caution. When set to true, a caution notifcation is enabled for the location.
         :param pulumi.Input[builtins.str] country: Supported Countries
+        :param pulumi.Input[builtins.bool] default_extranet_dns: Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        :param pulumi.Input[builtins.bool] default_extranet_ts_pool: Indicates that the traffic selector specified in the extranet is the designated default traffic selector
         :param pulumi.Input[builtins.str] description: Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
         :param pulumi.Input[builtins.bool] digest_auth_enabled: Enable Digest Authentication at the location
         :param pulumi.Input[builtins.str] display_time_unit: Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
         :param pulumi.Input[builtins.int] dn_bandwidth: Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
         :param pulumi.Input['LocationManagementDynamicLocationGroupsArgs'] dynamic_location_groups: Name-ID pairs of locations for which rule must be applied
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]] extranet_dns: The ID of the DNS server configuration used in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]] extranet_ip_pools: The ID of the traffic selector specified in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]] extranets: The ID of the extranet resource that must be assigned to the location
         :param pulumi.Input[builtins.int] idle_time_in_minutes: Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
         :param pulumi.Input[builtins.bool] iot_discovery_enabled: Enable IOT Discovery at the location
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
@@ -137,6 +147,10 @@ class LocationManagementArgs:
             pulumi.set(__self__, "cookies_and_proxy", cookies_and_proxy)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if default_extranet_dns is not None:
+            pulumi.set(__self__, "default_extranet_dns", default_extranet_dns)
+        if default_extranet_ts_pool is not None:
+            pulumi.set(__self__, "default_extranet_ts_pool", default_extranet_ts_pool)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if digest_auth_enabled is not None:
@@ -151,6 +165,12 @@ class LocationManagementArgs:
             pulumi.set(__self__, "exclude_from_dynamic_groups", exclude_from_dynamic_groups)
         if exclude_from_manual_groups is not None:
             pulumi.set(__self__, "exclude_from_manual_groups", exclude_from_manual_groups)
+        if extranet_dns is not None:
+            pulumi.set(__self__, "extranet_dns", extranet_dns)
+        if extranet_ip_pools is not None:
+            pulumi.set(__self__, "extranet_ip_pools", extranet_ip_pools)
+        if extranets is not None:
+            pulumi.set(__self__, "extranets", extranets)
         if idle_time_in_minutes is not None:
             pulumi.set(__self__, "idle_time_in_minutes", idle_time_in_minutes)
         if iot_discovery_enabled is not None:
@@ -314,6 +334,30 @@ class LocationManagementArgs:
         pulumi.set(self, "country", value)
 
     @property
+    @pulumi.getter(name="defaultExtranetDns")
+    def default_extranet_dns(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        """
+        return pulumi.get(self, "default_extranet_dns")
+
+    @default_extranet_dns.setter
+    def default_extranet_dns(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "default_extranet_dns", value)
+
+    @property
+    @pulumi.getter(name="defaultExtranetTsPool")
+    def default_extranet_ts_pool(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+        """
+        return pulumi.get(self, "default_extranet_ts_pool")
+
+    @default_extranet_ts_pool.setter
+    def default_extranet_ts_pool(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "default_extranet_ts_pool", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -390,6 +434,42 @@ class LocationManagementArgs:
     @exclude_from_manual_groups.setter
     def exclude_from_manual_groups(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "exclude_from_manual_groups", value)
+
+    @property
+    @pulumi.getter(name="extranetDns")
+    def extranet_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]]:
+        """
+        The ID of the DNS server configuration used in the extranet
+        """
+        return pulumi.get(self, "extranet_dns")
+
+    @extranet_dns.setter
+    def extranet_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]]):
+        pulumi.set(self, "extranet_dns", value)
+
+    @property
+    @pulumi.getter(name="extranetIpPools")
+    def extranet_ip_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]]:
+        """
+        The ID of the traffic selector specified in the extranet
+        """
+        return pulumi.get(self, "extranet_ip_pools")
+
+    @extranet_ip_pools.setter
+    def extranet_ip_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]]):
+        pulumi.set(self, "extranet_ip_pools", value)
+
+    @property
+    @pulumi.getter
+    def extranets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]]:
+        """
+        The ID of the extranet resource that must be assigned to the location
+        """
+        return pulumi.get(self, "extranets")
+
+    @extranets.setter
+    def extranets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]]):
+        pulumi.set(self, "extranets", value)
 
     @property
     @pulumi.getter(name="idleTimeInMinutes")
@@ -733,6 +813,8 @@ class _LocationManagementState:
                  caution_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cookies_and_proxy: Optional[pulumi.Input[builtins.bool]] = None,
                  country: Optional[pulumi.Input[builtins.str]] = None,
+                 default_extranet_dns: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_extranet_ts_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  digest_auth_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  display_time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -740,6 +822,9 @@ class _LocationManagementState:
                  dynamic_location_groups: Optional[pulumi.Input['LocationManagementDynamicLocationGroupsArgs']] = None,
                  exclude_from_dynamic_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  exclude_from_manual_groups: Optional[pulumi.Input[builtins.bool]] = None,
+                 extranet_dns: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]] = None,
+                 extranet_ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]] = None,
+                 extranets: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]] = None,
                  idle_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  iot_discovery_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  iot_enforce_policy_set: Optional[pulumi.Input[builtins.bool]] = None,
@@ -780,11 +865,16 @@ class _LocationManagementState:
         :param pulumi.Input[builtins.bool] basic_auth_enabled: Enable Basic Authentication at the location
         :param pulumi.Input[builtins.bool] caution_enabled: Enable Caution. When set to true, a caution notifcation is enabled for the location.
         :param pulumi.Input[builtins.str] country: Supported Countries
+        :param pulumi.Input[builtins.bool] default_extranet_dns: Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        :param pulumi.Input[builtins.bool] default_extranet_ts_pool: Indicates that the traffic selector specified in the extranet is the designated default traffic selector
         :param pulumi.Input[builtins.str] description: Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
         :param pulumi.Input[builtins.bool] digest_auth_enabled: Enable Digest Authentication at the location
         :param pulumi.Input[builtins.str] display_time_unit: Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
         :param pulumi.Input[builtins.int] dn_bandwidth: Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
         :param pulumi.Input['LocationManagementDynamicLocationGroupsArgs'] dynamic_location_groups: Name-ID pairs of locations for which rule must be applied
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]] extranet_dns: The ID of the DNS server configuration used in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]] extranet_ip_pools: The ID of the traffic selector specified in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]] extranets: The ID of the extranet resource that must be assigned to the location
         :param pulumi.Input[builtins.int] idle_time_in_minutes: Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
         :param pulumi.Input[builtins.bool] iot_discovery_enabled: Enable IOT Discovery at the location
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
@@ -840,6 +930,10 @@ class _LocationManagementState:
             pulumi.set(__self__, "cookies_and_proxy", cookies_and_proxy)
         if country is not None:
             pulumi.set(__self__, "country", country)
+        if default_extranet_dns is not None:
+            pulumi.set(__self__, "default_extranet_dns", default_extranet_dns)
+        if default_extranet_ts_pool is not None:
+            pulumi.set(__self__, "default_extranet_ts_pool", default_extranet_ts_pool)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if digest_auth_enabled is not None:
@@ -854,6 +948,12 @@ class _LocationManagementState:
             pulumi.set(__self__, "exclude_from_dynamic_groups", exclude_from_dynamic_groups)
         if exclude_from_manual_groups is not None:
             pulumi.set(__self__, "exclude_from_manual_groups", exclude_from_manual_groups)
+        if extranet_dns is not None:
+            pulumi.set(__self__, "extranet_dns", extranet_dns)
+        if extranet_ip_pools is not None:
+            pulumi.set(__self__, "extranet_ip_pools", extranet_ip_pools)
+        if extranets is not None:
+            pulumi.set(__self__, "extranets", extranets)
         if idle_time_in_minutes is not None:
             pulumi.set(__self__, "idle_time_in_minutes", idle_time_in_minutes)
         if iot_discovery_enabled is not None:
@@ -1019,6 +1119,30 @@ class _LocationManagementState:
         pulumi.set(self, "country", value)
 
     @property
+    @pulumi.getter(name="defaultExtranetDns")
+    def default_extranet_dns(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        """
+        return pulumi.get(self, "default_extranet_dns")
+
+    @default_extranet_dns.setter
+    def default_extranet_dns(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "default_extranet_dns", value)
+
+    @property
+    @pulumi.getter(name="defaultExtranetTsPool")
+    def default_extranet_ts_pool(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+        """
+        return pulumi.get(self, "default_extranet_ts_pool")
+
+    @default_extranet_ts_pool.setter
+    def default_extranet_ts_pool(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "default_extranet_ts_pool", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1095,6 +1219,42 @@ class _LocationManagementState:
     @exclude_from_manual_groups.setter
     def exclude_from_manual_groups(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "exclude_from_manual_groups", value)
+
+    @property
+    @pulumi.getter(name="extranetDns")
+    def extranet_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]]:
+        """
+        The ID of the DNS server configuration used in the extranet
+        """
+        return pulumi.get(self, "extranet_dns")
+
+    @extranet_dns.setter
+    def extranet_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetDnArgs']]]]):
+        pulumi.set(self, "extranet_dns", value)
+
+    @property
+    @pulumi.getter(name="extranetIpPools")
+    def extranet_ip_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]]:
+        """
+        The ID of the traffic selector specified in the extranet
+        """
+        return pulumi.get(self, "extranet_ip_pools")
+
+    @extranet_ip_pools.setter
+    def extranet_ip_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetIpPoolArgs']]]]):
+        pulumi.set(self, "extranet_ip_pools", value)
+
+    @property
+    @pulumi.getter
+    def extranets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]]:
+        """
+        The ID of the extranet resource that must be assigned to the location
+        """
+        return pulumi.get(self, "extranets")
+
+    @extranets.setter
+    def extranets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationManagementExtranetArgs']]]]):
+        pulumi.set(self, "extranets", value)
 
     @property
     @pulumi.getter(name="idleTimeInMinutes")
@@ -1450,6 +1610,8 @@ class LocationManagement(pulumi.CustomResource):
                  caution_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cookies_and_proxy: Optional[pulumi.Input[builtins.bool]] = None,
                  country: Optional[pulumi.Input[builtins.str]] = None,
+                 default_extranet_dns: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_extranet_ts_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  digest_auth_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  display_time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1457,6 +1619,9 @@ class LocationManagement(pulumi.CustomResource):
                  dynamic_location_groups: Optional[pulumi.Input[Union['LocationManagementDynamicLocationGroupsArgs', 'LocationManagementDynamicLocationGroupsArgsDict']]] = None,
                  exclude_from_dynamic_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  exclude_from_manual_groups: Optional[pulumi.Input[builtins.bool]] = None,
+                 extranet_dns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetDnArgs', 'LocationManagementExtranetDnArgsDict']]]]] = None,
+                 extranet_ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetIpPoolArgs', 'LocationManagementExtranetIpPoolArgsDict']]]]] = None,
+                 extranets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetArgs', 'LocationManagementExtranetArgsDict']]]]] = None,
                  idle_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  iot_discovery_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  iot_enforce_policy_set: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1486,6 +1651,9 @@ class LocationManagement(pulumi.CustomResource):
                  zapp_ssl_scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-locations)
+        * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
         The **zia_location_management** resource allows the creation and management of ZIA locations in the Zscaler Internet Access. This resource can then be associated with a:
 
         * Static IP resource
@@ -1535,11 +1703,16 @@ class LocationManagement(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] basic_auth_enabled: Enable Basic Authentication at the location
         :param pulumi.Input[builtins.bool] caution_enabled: Enable Caution. When set to true, a caution notifcation is enabled for the location.
         :param pulumi.Input[builtins.str] country: Supported Countries
+        :param pulumi.Input[builtins.bool] default_extranet_dns: Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        :param pulumi.Input[builtins.bool] default_extranet_ts_pool: Indicates that the traffic selector specified in the extranet is the designated default traffic selector
         :param pulumi.Input[builtins.str] description: Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
         :param pulumi.Input[builtins.bool] digest_auth_enabled: Enable Digest Authentication at the location
         :param pulumi.Input[builtins.str] display_time_unit: Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
         :param pulumi.Input[builtins.int] dn_bandwidth: Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
         :param pulumi.Input[Union['LocationManagementDynamicLocationGroupsArgs', 'LocationManagementDynamicLocationGroupsArgsDict']] dynamic_location_groups: Name-ID pairs of locations for which rule must be applied
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetDnArgs', 'LocationManagementExtranetDnArgsDict']]]] extranet_dns: The ID of the DNS server configuration used in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetIpPoolArgs', 'LocationManagementExtranetIpPoolArgsDict']]]] extranet_ip_pools: The ID of the traffic selector specified in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetArgs', 'LocationManagementExtranetArgsDict']]]] extranets: The ID of the extranet resource that must be assigned to the location
         :param pulumi.Input[builtins.int] idle_time_in_minutes: Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
         :param pulumi.Input[builtins.bool] iot_discovery_enabled: Enable IOT Discovery at the location
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
@@ -1584,6 +1757,9 @@ class LocationManagement(pulumi.CustomResource):
                  args: Optional[LocationManagementArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-locations)
+        * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+
         The **zia_location_management** resource allows the creation and management of ZIA locations in the Zscaler Internet Access. This resource can then be associated with a:
 
         * Static IP resource
@@ -1645,6 +1821,8 @@ class LocationManagement(pulumi.CustomResource):
                  caution_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cookies_and_proxy: Optional[pulumi.Input[builtins.bool]] = None,
                  country: Optional[pulumi.Input[builtins.str]] = None,
+                 default_extranet_dns: Optional[pulumi.Input[builtins.bool]] = None,
+                 default_extranet_ts_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  digest_auth_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  display_time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1652,6 +1830,9 @@ class LocationManagement(pulumi.CustomResource):
                  dynamic_location_groups: Optional[pulumi.Input[Union['LocationManagementDynamicLocationGroupsArgs', 'LocationManagementDynamicLocationGroupsArgsDict']]] = None,
                  exclude_from_dynamic_groups: Optional[pulumi.Input[builtins.bool]] = None,
                  exclude_from_manual_groups: Optional[pulumi.Input[builtins.bool]] = None,
+                 extranet_dns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetDnArgs', 'LocationManagementExtranetDnArgsDict']]]]] = None,
+                 extranet_ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetIpPoolArgs', 'LocationManagementExtranetIpPoolArgsDict']]]]] = None,
+                 extranets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetArgs', 'LocationManagementExtranetArgsDict']]]]] = None,
                  idle_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  iot_discovery_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  iot_enforce_policy_set: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1697,6 +1878,8 @@ class LocationManagement(pulumi.CustomResource):
             __props__.__dict__["caution_enabled"] = caution_enabled
             __props__.__dict__["cookies_and_proxy"] = cookies_and_proxy
             __props__.__dict__["country"] = country
+            __props__.__dict__["default_extranet_dns"] = default_extranet_dns
+            __props__.__dict__["default_extranet_ts_pool"] = default_extranet_ts_pool
             __props__.__dict__["description"] = description
             __props__.__dict__["digest_auth_enabled"] = digest_auth_enabled
             __props__.__dict__["display_time_unit"] = display_time_unit
@@ -1704,6 +1887,9 @@ class LocationManagement(pulumi.CustomResource):
             __props__.__dict__["dynamic_location_groups"] = dynamic_location_groups
             __props__.__dict__["exclude_from_dynamic_groups"] = exclude_from_dynamic_groups
             __props__.__dict__["exclude_from_manual_groups"] = exclude_from_manual_groups
+            __props__.__dict__["extranet_dns"] = extranet_dns
+            __props__.__dict__["extranet_ip_pools"] = extranet_ip_pools
+            __props__.__dict__["extranets"] = extranets
             __props__.__dict__["idle_time_in_minutes"] = idle_time_in_minutes
             __props__.__dict__["iot_discovery_enabled"] = iot_discovery_enabled
             __props__.__dict__["iot_enforce_policy_set"] = iot_enforce_policy_set
@@ -1751,6 +1937,8 @@ class LocationManagement(pulumi.CustomResource):
             caution_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             cookies_and_proxy: Optional[pulumi.Input[builtins.bool]] = None,
             country: Optional[pulumi.Input[builtins.str]] = None,
+            default_extranet_dns: Optional[pulumi.Input[builtins.bool]] = None,
+            default_extranet_ts_pool: Optional[pulumi.Input[builtins.bool]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             digest_auth_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             display_time_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1758,6 +1946,9 @@ class LocationManagement(pulumi.CustomResource):
             dynamic_location_groups: Optional[pulumi.Input[Union['LocationManagementDynamicLocationGroupsArgs', 'LocationManagementDynamicLocationGroupsArgsDict']]] = None,
             exclude_from_dynamic_groups: Optional[pulumi.Input[builtins.bool]] = None,
             exclude_from_manual_groups: Optional[pulumi.Input[builtins.bool]] = None,
+            extranet_dns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetDnArgs', 'LocationManagementExtranetDnArgsDict']]]]] = None,
+            extranet_ip_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetIpPoolArgs', 'LocationManagementExtranetIpPoolArgsDict']]]]] = None,
+            extranets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetArgs', 'LocationManagementExtranetArgsDict']]]]] = None,
             idle_time_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
             iot_discovery_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             iot_enforce_policy_set: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1803,11 +1994,16 @@ class LocationManagement(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] basic_auth_enabled: Enable Basic Authentication at the location
         :param pulumi.Input[builtins.bool] caution_enabled: Enable Caution. When set to true, a caution notifcation is enabled for the location.
         :param pulumi.Input[builtins.str] country: Supported Countries
+        :param pulumi.Input[builtins.bool] default_extranet_dns: Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        :param pulumi.Input[builtins.bool] default_extranet_ts_pool: Indicates that the traffic selector specified in the extranet is the designated default traffic selector
         :param pulumi.Input[builtins.str] description: Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
         :param pulumi.Input[builtins.bool] digest_auth_enabled: Enable Digest Authentication at the location
         :param pulumi.Input[builtins.str] display_time_unit: Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
         :param pulumi.Input[builtins.int] dn_bandwidth: Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
         :param pulumi.Input[Union['LocationManagementDynamicLocationGroupsArgs', 'LocationManagementDynamicLocationGroupsArgsDict']] dynamic_location_groups: Name-ID pairs of locations for which rule must be applied
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetDnArgs', 'LocationManagementExtranetDnArgsDict']]]] extranet_dns: The ID of the DNS server configuration used in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetIpPoolArgs', 'LocationManagementExtranetIpPoolArgsDict']]]] extranet_ip_pools: The ID of the traffic selector specified in the extranet
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocationManagementExtranetArgs', 'LocationManagementExtranetArgsDict']]]] extranets: The ID of the extranet resource that must be assigned to the location
         :param pulumi.Input[builtins.int] idle_time_in_minutes: Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
         :param pulumi.Input[builtins.bool] iot_discovery_enabled: Enable IOT Discovery at the location
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
@@ -1858,6 +2054,8 @@ class LocationManagement(pulumi.CustomResource):
         __props__.__dict__["caution_enabled"] = caution_enabled
         __props__.__dict__["cookies_and_proxy"] = cookies_and_proxy
         __props__.__dict__["country"] = country
+        __props__.__dict__["default_extranet_dns"] = default_extranet_dns
+        __props__.__dict__["default_extranet_ts_pool"] = default_extranet_ts_pool
         __props__.__dict__["description"] = description
         __props__.__dict__["digest_auth_enabled"] = digest_auth_enabled
         __props__.__dict__["display_time_unit"] = display_time_unit
@@ -1865,6 +2063,9 @@ class LocationManagement(pulumi.CustomResource):
         __props__.__dict__["dynamic_location_groups"] = dynamic_location_groups
         __props__.__dict__["exclude_from_dynamic_groups"] = exclude_from_dynamic_groups
         __props__.__dict__["exclude_from_manual_groups"] = exclude_from_manual_groups
+        __props__.__dict__["extranet_dns"] = extranet_dns
+        __props__.__dict__["extranet_ip_pools"] = extranet_ip_pools
+        __props__.__dict__["extranets"] = extranets
         __props__.__dict__["idle_time_in_minutes"] = idle_time_in_minutes
         __props__.__dict__["iot_discovery_enabled"] = iot_discovery_enabled
         __props__.__dict__["iot_enforce_policy_set"] = iot_enforce_policy_set
@@ -1967,6 +2168,22 @@ class LocationManagement(pulumi.CustomResource):
         return pulumi.get(self, "country")
 
     @property
+    @pulumi.getter(name="defaultExtranetDns")
+    def default_extranet_dns(self) -> pulumi.Output[builtins.bool]:
+        """
+        Indicates that the DNS server configuration used in the extranet is the designated default DNS server
+        """
+        return pulumi.get(self, "default_extranet_dns")
+
+    @property
+    @pulumi.getter(name="defaultExtranetTsPool")
+    def default_extranet_ts_pool(self) -> pulumi.Output[builtins.bool]:
+        """
+        Indicates that the traffic selector specified in the extranet is the designated default traffic selector
+        """
+        return pulumi.get(self, "default_extranet_ts_pool")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -2015,6 +2232,30 @@ class LocationManagement(pulumi.CustomResource):
     @pulumi.getter(name="excludeFromManualGroups")
     def exclude_from_manual_groups(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "exclude_from_manual_groups")
+
+    @property
+    @pulumi.getter(name="extranetDns")
+    def extranet_dns(self) -> pulumi.Output[Optional[Sequence['outputs.LocationManagementExtranetDn']]]:
+        """
+        The ID of the DNS server configuration used in the extranet
+        """
+        return pulumi.get(self, "extranet_dns")
+
+    @property
+    @pulumi.getter(name="extranetIpPools")
+    def extranet_ip_pools(self) -> pulumi.Output[Optional[Sequence['outputs.LocationManagementExtranetIpPool']]]:
+        """
+        The ID of the traffic selector specified in the extranet
+        """
+        return pulumi.get(self, "extranet_ip_pools")
+
+    @property
+    @pulumi.getter
+    def extranets(self) -> pulumi.Output[Optional[Sequence['outputs.LocationManagementExtranet']]]:
+        """
+        The ID of the extranet resource that must be assigned to the location
+        """
+        return pulumi.get(self, "extranets")
 
     @property
     @pulumi.getter(name="idleTimeInMinutes")

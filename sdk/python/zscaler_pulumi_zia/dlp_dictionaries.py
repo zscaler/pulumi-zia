@@ -636,6 +636,9 @@ class DLPDictionaries(pulumi.CustomResource):
                  proximity: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+
         The **zia_dlp_dictionaries** resource allows the creation and management of ZIA DLP dictionaries in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage
@@ -696,6 +699,9 @@ class DLPDictionaries(pulumi.CustomResource):
                  args: Optional[DLPDictionariesArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries-post)
+
         The **zia_dlp_dictionaries** resource allows the creation and management of ZIA DLP dictionaries in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage

@@ -469,6 +469,9 @@ def get_url_filtering_rules(id: Optional[builtins.int] = None,
                             name: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetURLFilteringRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+    * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
     Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 
 
@@ -523,6 +526,9 @@ def get_url_filtering_rules_output(id: Optional[pulumi.Input[Optional[builtins.i
                                    name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetURLFilteringRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+    * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
     Use the **zia_url_filtering_rules** data source to get information about a URL filtering rule information for the specified `Name`.
 
 

@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+ * * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+ *
  * Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -57,6 +60,9 @@ export interface GetDLPIDMProfilesResult {
     readonly volumeOfDocuments: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/data-loss-prevention#/idmprofile-get)
+ * * [API documentation](https://help.zscaler.com/zia/about-indexed-document-match)
+ *
  * Use the **zia_dlp_idm_profile** data source to get information about a ZIA DLP IDM Profile in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

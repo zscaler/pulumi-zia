@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules)
+// * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get)
+//
 // Use the **zia_dlp_web_rules** data source to get information about a ZIA DLP Web Rules in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage
@@ -32,43 +35,44 @@ type LookupDLPWebRulesArgs struct {
 
 // A collection of values returned by getDLPWebRules.
 type LookupDLPWebRulesResult struct {
-	AccessControl            string                             `pulumi:"accessControl"`
-	Action                   string                             `pulumi:"action"`
-	CloudApplications        []string                           `pulumi:"cloudApplications"`
-	Departments              []GetDLPWebRulesDepartment         `pulumi:"departments"`
-	Description              string                             `pulumi:"description"`
-	DlpDownloadScanEnabled   bool                               `pulumi:"dlpDownloadScanEnabled"`
-	DlpEngines               []GetDLPWebRulesDlpEngine          `pulumi:"dlpEngines"`
-	ExcludedDepartments      []GetDLPWebRulesExcludedDepartment `pulumi:"excludedDepartments"`
-	ExcludedGroups           []GetDLPWebRulesExcludedGroup      `pulumi:"excludedGroups"`
-	ExcludedUsers            []GetDLPWebRulesExcludedUser       `pulumi:"excludedUsers"`
-	ExternalAuditorEmail     string                             `pulumi:"externalAuditorEmail"`
-	FileTypes                []string                           `pulumi:"fileTypes"`
-	Groups                   []GetDLPWebRulesGroup              `pulumi:"groups"`
-	Id                       *int                               `pulumi:"id"`
-	Labels                   []GetDLPWebRulesLabel              `pulumi:"labels"`
-	LastModifiedBies         []GetDLPWebRulesLastModifiedBy     `pulumi:"lastModifiedBies"`
-	LastModifiedTime         int                                `pulumi:"lastModifiedTime"`
-	LocationGroups           []GetDLPWebRulesLocationGroup      `pulumi:"locationGroups"`
-	Locations                []GetDLPWebRulesLocation           `pulumi:"locations"`
-	MatchOnly                bool                               `pulumi:"matchOnly"`
-	MinSize                  int                                `pulumi:"minSize"`
-	Name                     *string                            `pulumi:"name"`
-	Order                    int                                `pulumi:"order"`
-	ParentRule               int                                `pulumi:"parentRule"`
-	Protocols                []string                           `pulumi:"protocols"`
-	Rank                     int                                `pulumi:"rank"`
-	Severity                 string                             `pulumi:"severity"`
-	SourceIpGroups           []GetDLPWebRulesSourceIpGroup      `pulumi:"sourceIpGroups"`
-	State                    string                             `pulumi:"state"`
-	SubRules                 []string                           `pulumi:"subRules"`
-	TimeWindows              []GetDLPWebRulesTimeWindow         `pulumi:"timeWindows"`
-	UrlCategories            []GetDLPWebRulesUrlCategory        `pulumi:"urlCategories"`
-	Users                    []GetDLPWebRulesUser               `pulumi:"users"`
-	WithoutContentInspection bool                               `pulumi:"withoutContentInspection"`
-	WorkloadGroups           []GetDLPWebRulesWorkloadGroup      `pulumi:"workloadGroups"`
-	ZccNotificationsEnabled  bool                               `pulumi:"zccNotificationsEnabled"`
-	ZscalerIncidentReceiver  bool                               `pulumi:"zscalerIncidentReceiver"`
+	AccessControl            string                                `pulumi:"accessControl"`
+	Action                   string                                `pulumi:"action"`
+	CloudApplications        []string                              `pulumi:"cloudApplications"`
+	Departments              []GetDLPWebRulesDepartment            `pulumi:"departments"`
+	Description              string                                `pulumi:"description"`
+	DlpDownloadScanEnabled   bool                                  `pulumi:"dlpDownloadScanEnabled"`
+	DlpEngines               []GetDLPWebRulesDlpEngine             `pulumi:"dlpEngines"`
+	ExcludedDepartments      []GetDLPWebRulesExcludedDepartment    `pulumi:"excludedDepartments"`
+	ExcludedGroups           []GetDLPWebRulesExcludedGroup         `pulumi:"excludedGroups"`
+	ExcludedUsers            []GetDLPWebRulesExcludedUser          `pulumi:"excludedUsers"`
+	ExternalAuditorEmail     string                                `pulumi:"externalAuditorEmail"`
+	FileTypes                []string                              `pulumi:"fileTypes"`
+	Groups                   []GetDLPWebRulesGroup                 `pulumi:"groups"`
+	Id                       *int                                  `pulumi:"id"`
+	IncludedDomainProfiles   []GetDLPWebRulesIncludedDomainProfile `pulumi:"includedDomainProfiles"`
+	Labels                   []GetDLPWebRulesLabel                 `pulumi:"labels"`
+	LastModifiedBies         []GetDLPWebRulesLastModifiedBy        `pulumi:"lastModifiedBies"`
+	LastModifiedTime         int                                   `pulumi:"lastModifiedTime"`
+	LocationGroups           []GetDLPWebRulesLocationGroup         `pulumi:"locationGroups"`
+	Locations                []GetDLPWebRulesLocation              `pulumi:"locations"`
+	MatchOnly                bool                                  `pulumi:"matchOnly"`
+	MinSize                  int                                   `pulumi:"minSize"`
+	Name                     *string                               `pulumi:"name"`
+	Order                    int                                   `pulumi:"order"`
+	ParentRule               int                                   `pulumi:"parentRule"`
+	Protocols                []string                              `pulumi:"protocols"`
+	Rank                     int                                   `pulumi:"rank"`
+	Severity                 string                                `pulumi:"severity"`
+	SourceIpGroups           []GetDLPWebRulesSourceIpGroup         `pulumi:"sourceIpGroups"`
+	State                    string                                `pulumi:"state"`
+	SubRules                 []string                              `pulumi:"subRules"`
+	TimeWindows              []GetDLPWebRulesTimeWindow            `pulumi:"timeWindows"`
+	UrlCategories            []GetDLPWebRulesUrlCategory           `pulumi:"urlCategories"`
+	Users                    []GetDLPWebRulesUser                  `pulumi:"users"`
+	WithoutContentInspection bool                                  `pulumi:"withoutContentInspection"`
+	WorkloadGroups           []GetDLPWebRulesWorkloadGroup         `pulumi:"workloadGroups"`
+	ZccNotificationsEnabled  bool                                  `pulumi:"zccNotificationsEnabled"`
+	ZscalerIncidentReceiver  bool                                  `pulumi:"zscalerIncidentReceiver"`
 }
 
 func LookupDLPWebRulesOutput(ctx *pulumi.Context, args LookupDLPWebRulesOutputArgs, opts ...pulumi.InvokeOption) LookupDLPWebRulesResultOutput {
@@ -159,6 +163,10 @@ func (o LookupDLPWebRulesResultOutput) Groups() GetDLPWebRulesGroupArrayOutput {
 
 func (o LookupDLPWebRulesResultOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDLPWebRulesResult) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupDLPWebRulesResultOutput) IncludedDomainProfiles() GetDLPWebRulesIncludedDomainProfileArrayOutput {
+	return o.ApplyT(func(v LookupDLPWebRulesResult) []GetDLPWebRulesIncludedDomainProfile { return v.IncludedDomainProfiles }).(GetDLPWebRulesIncludedDomainProfileArrayOutput)
 }
 
 func (o LookupDLPWebRulesResultOutput) Labels() GetDLPWebRulesLabelArrayOutput {

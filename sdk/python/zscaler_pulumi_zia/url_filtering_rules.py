@@ -1204,6 +1204,9 @@ class URLFilteringRules(pulumi.CustomResource):
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['URLFilteringRulesWorkloadGroupArgs', 'URLFilteringRulesWorkloadGroupArgsDict']]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+        * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
         The **zia_url_filtering_rules** resource creates and manages a URL filtering rules within the Zscaler Internet Access cloud.
 
         ## Example Usage
@@ -1285,6 +1288,9 @@ class URLFilteringRules(pulumi.CustomResource):
                  args: URLFilteringRulesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-filtering)
+        * [API documentation](https://help.zscaler.com/zia/url-filtering-policy#/urlFilteringRules-post)
+
         The **zia_url_filtering_rules** resource creates and manages a URL filtering rules within the Zscaler Internet Access cloud.
 
         ## Example Usage

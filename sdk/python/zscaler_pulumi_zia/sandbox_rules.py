@@ -745,6 +745,9 @@ class SandboxRules(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SandboxRulesZpaAppSegmentArgs', 'SandboxRulesZpaAppSegmentArgsDict']]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+        * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+
         The **zia_sandbox_rules** resource allows the creation and management of SAndbox rules in the Zscaler Internet Access.
 
         ## Example Usage
@@ -800,6 +803,9 @@ class SandboxRules(pulumi.CustomResource):
                  args: SandboxRulesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+        * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/sandboxRules-get)
+
         The **zia_sandbox_rules** resource allows the creation and management of SAndbox rules in the Zscaler Internet Access.
 
         ## Example Usage

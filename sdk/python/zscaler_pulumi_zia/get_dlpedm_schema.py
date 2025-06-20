@@ -198,6 +198,9 @@ class AwaitableGetDLPEDMSchemaResult(GetDLPEDMSchemaResult):
 def get_dlpedm_schema(project_name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDLPEDMSchemaResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-exact-data-match)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpExactDataMatchSchemas-get)
+
     Use the **zia_dlp_edm_schema** data source to get information about a the list of DLP Exact Data Match (EDM) templates in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -228,6 +231,9 @@ def get_dlpedm_schema(project_name: Optional[builtins.str] = None,
 def get_dlpedm_schema_output(project_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDLPEDMSchemaResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-exact-data-match)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpExactDataMatchSchemas-get)
+
     Use the **zia_dlp_edm_schema** data source to get information about a the list of DLP Exact Data Match (EDM) templates in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

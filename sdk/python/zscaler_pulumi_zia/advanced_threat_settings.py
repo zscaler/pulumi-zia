@@ -1661,6 +1661,9 @@ class AdvancedThreatSettings(pulumi.CustomResource):
                  web_spam_capture: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+        * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
         The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
         ## Example Usage
@@ -1746,6 +1749,9 @@ class AdvancedThreatSettings(pulumi.CustomResource):
                  args: Optional[AdvancedThreatSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+        * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
         The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
 
         ## Example Usage

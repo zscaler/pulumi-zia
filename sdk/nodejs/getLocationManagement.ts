@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-locations)
+ * * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+ *
  * Use the **zia_location_management** data source to get information about a location resource available in the Zscaler Internet Access Location Management. This resource can then be referenced in multiple other resources, such as URL Filtering Rules, Firewall rules etc.
  *
  * ## Example Usage
@@ -71,6 +74,8 @@ export interface GetLocationManagementResult {
      * (String) Country
      */
     readonly country: string;
+    readonly defaultExtranetDns: boolean;
+    readonly defaultExtranetTsPool: boolean;
     /**
      * (String) Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
      */
@@ -85,7 +90,19 @@ export interface GetLocationManagementResult {
      */
     readonly dnBandwidth: number;
     /**
-     * (Number) Identifier that uniquely identifies an entity
+     * (Block, Max: 1) The ID of the DNS server configuration used in the extranet
+     */
+    readonly extranetDns: outputs.GetLocationManagementExtranetDn[];
+    /**
+     * (Block, Max: 1) The ID of the traffic selector specified in the extranet
+     */
+    readonly extranetIpPools: outputs.GetLocationManagementExtranetIpPool[];
+    /**
+     * (Block, Max: 1) The ID of the extranet resource that must be assigned to the location
+     */
+    readonly extranets: outputs.GetLocationManagementExtranet[];
+    /**
+     * (int) The Identifier that uniquely identifies an entity
      */
     readonly id?: number;
     /**
@@ -162,6 +179,9 @@ export interface GetLocationManagementResult {
     readonly zappSslScanEnabled: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-locations)
+ * * [API documentation](https://help.zscaler.com/zia/location-management#/locations-get)
+ *
  * Use the **zia_location_management** data source to get information about a location resource available in the Zscaler Internet Access Location Management. This resource can then be referenced in multiple other resources, such as URL Filtering Rules, Firewall rules etc.
  *
  * ## Example Usage

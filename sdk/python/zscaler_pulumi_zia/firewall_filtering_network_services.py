@@ -312,6 +312,9 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
         The **zia_firewall_filtering_network_service** resource allows the creation and management of ZIA Cloud Firewall IP network services in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule and network service group resources.
 
         ## Example Usage
@@ -350,6 +353,9 @@ class FirewallFilteringNetworkServices(pulumi.CustomResource):
                  args: Optional[FirewallFilteringNetworkServicesArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
         The **zia_firewall_filtering_network_service** resource allows the creation and management of ZIA Cloud Firewall IP network services in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule and network service group resources.
 
         ## Example Usage

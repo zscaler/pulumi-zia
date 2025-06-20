@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-workload-groups)
+ * * [API documentation](https://help.zscaler.com/zia/workload-groups#/workloadGroups-get)
+ *
  * Use the **zia_workload_groups** data source to get information about Workload Groups in the Zscaler Internet Access cloud or via the API. This data source can then be used as a criterion in ZIA policies such as, Firewall Filtering, URL Filtering, and Data Loss Prevention (DLP) to apply security policies to the workload traffic.
  *
  * ## Example Usage
@@ -60,6 +63,9 @@ export interface GetWorkloadGroupsResult {
     readonly name?: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-workload-groups)
+ * * [API documentation](https://help.zscaler.com/zia/workload-groups#/workloadGroups-get)
+ *
  * Use the **zia_workload_groups** data source to get information about Workload Groups in the Zscaler Internet Access cloud or via the API. This data source can then be used as a criterion in ZIA policies such as, Firewall Filtering, URL Filtering, and Data Loss Prevention (DLP) to apply security policies to the workload traffic.
  *
  * ## Example Usage

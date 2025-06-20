@@ -138,6 +138,9 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringServiceGroupsServiceArgs', 'FirewallFilteringServiceGroupsServiceArgsDict']]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServiceGroups-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServiceGroups-get)
+
         The **zia_firewall_filtering_network_service_groups** resource allows the creation and management of ZIA Cloud Firewall IP network service groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage
@@ -173,6 +176,9 @@ class FirewallFilteringServiceGroups(pulumi.CustomResource):
                  args: Optional[FirewallFilteringServiceGroupsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServiceGroups-get)
+        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServiceGroups-get)
+
         The **zia_firewall_filtering_network_service_groups** resource allows the creation and management of ZIA Cloud Firewall IP network service groups in the Zscaler Internet Access. This resource can then be associated with a ZIA cloud firewall filtering rule.
 
         ## Example Usage

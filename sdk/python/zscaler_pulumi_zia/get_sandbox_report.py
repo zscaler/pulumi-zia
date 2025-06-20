@@ -188,6 +188,9 @@ def get_sandbox_report(details: Optional[builtins.str] = None,
                        stealths: Optional[Sequence[Union['GetSandboxReportStealthArgs', 'GetSandboxReportStealthArgsDict']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSandboxReportResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/sandbox-report-use-cases)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-report#/sandbox/report/{md5Hash}-get)
+
     Use the **zia_sandbox_report** data source gets a full (i.e., complete) or summary detail report for an MD5 hash of a file that was analyzed by Sandbox.
 
     ## Example Usage
@@ -237,6 +240,9 @@ def get_sandbox_report_output(details: Optional[pulumi.Input[Optional[builtins.s
                               stealths: Optional[pulumi.Input[Optional[Sequence[Union['GetSandboxReportStealthArgs', 'GetSandboxReportStealthArgsDict']]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxReportResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/sandbox-report-use-cases)
+    * [API documentation](https://help.zscaler.com/zia/sandbox-report#/sandbox/report/{md5Hash}-get)
+
     Use the **zia_sandbox_report** data source gets a full (i.e., complete) or summary detail report for an MD5 hash of a file that was analyzed by Sandbox.
 
     ## Example Usage

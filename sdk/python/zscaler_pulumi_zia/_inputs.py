@@ -20,8 +20,68 @@ __all__ = [
     'AdminUsersAdminScopeEntitiesArgsDict',
     'AdminUsersRoleArgs',
     'AdminUsersRoleArgsDict',
+    'BrowserControlPolicySmartIsolationGroupsArgs',
+    'BrowserControlPolicySmartIsolationGroupsArgsDict',
+    'BrowserControlPolicySmartIsolationProfileArgs',
+    'BrowserControlPolicySmartIsolationProfileArgsDict',
+    'BrowserControlPolicySmartIsolationUsersArgs',
+    'BrowserControlPolicySmartIsolationUsersArgsDict',
+    'CasbDlpRulesAuditorNotificationArgs',
+    'CasbDlpRulesAuditorNotificationArgsDict',
+    'CasbDlpRulesBucketsArgs',
+    'CasbDlpRulesBucketsArgsDict',
+    'CasbDlpRulesCasbEmailLabelArgs',
+    'CasbDlpRulesCasbEmailLabelArgsDict',
+    'CasbDlpRulesCasbTombstoneTemplateArgs',
+    'CasbDlpRulesCasbTombstoneTemplateArgsDict',
+    'CasbDlpRulesCloudAppTenantsArgs',
+    'CasbDlpRulesCloudAppTenantsArgsDict',
+    'CasbDlpRulesCriteriaDomainProfilesArgs',
+    'CasbDlpRulesCriteriaDomainProfilesArgsDict',
+    'CasbDlpRulesDepartmentsArgs',
+    'CasbDlpRulesDepartmentsArgsDict',
+    'CasbDlpRulesDlpEnginesArgs',
+    'CasbDlpRulesDlpEnginesArgsDict',
+    'CasbDlpRulesEmailRecipientProfilesArgs',
+    'CasbDlpRulesEmailRecipientProfilesArgsDict',
+    'CasbDlpRulesEntityGroupsArgs',
+    'CasbDlpRulesEntityGroupsArgsDict',
+    'CasbDlpRulesExcludedDomainProfilesArgs',
+    'CasbDlpRulesExcludedDomainProfilesArgsDict',
+    'CasbDlpRulesGroupsArgs',
+    'CasbDlpRulesGroupsArgsDict',
+    'CasbDlpRulesIncludedDomainProfilesArgs',
+    'CasbDlpRulesIncludedDomainProfilesArgsDict',
+    'CasbDlpRulesLabelsArgs',
+    'CasbDlpRulesLabelsArgsDict',
+    'CasbDlpRulesObjectTypesArgs',
+    'CasbDlpRulesObjectTypesArgsDict',
+    'CasbDlpRulesRedactionProfileArgs',
+    'CasbDlpRulesRedactionProfileArgsDict',
+    'CasbDlpRulesTagArgs',
+    'CasbDlpRulesTagArgsDict',
+    'CasbDlpRulesUsersArgs',
+    'CasbDlpRulesUsersArgsDict',
+    'CasbDlpRulesWatermarkProfileArgs',
+    'CasbDlpRulesWatermarkProfileArgsDict',
+    'CasbDlpRulesZscalerIncidentReceiverArgs',
+    'CasbDlpRulesZscalerIncidentReceiverArgsDict',
+    'CasbMalwareRulesBucketsArgs',
+    'CasbMalwareRulesBucketsArgsDict',
+    'CasbMalwareRulesCasbEmailLabelArgs',
+    'CasbMalwareRulesCasbEmailLabelArgsDict',
+    'CasbMalwareRulesCasbTombstoneTemplateArgs',
+    'CasbMalwareRulesCasbTombstoneTemplateArgsDict',
+    'CasbMalwareRulesCloudAppTenantIdsArgs',
+    'CasbMalwareRulesCloudAppTenantIdsArgsDict',
+    'CasbMalwareRulesCloudAppTenantsArgs',
+    'CasbMalwareRulesCloudAppTenantsArgsDict',
+    'CasbMalwareRulesLabelsArgs',
+    'CasbMalwareRulesLabelsArgsDict',
     'CloudAppControlRuleCbiProfileArgs',
     'CloudAppControlRuleCbiProfileArgsDict',
+    'CloudAppControlRuleCloudAppInstancesArgs',
+    'CloudAppControlRuleCloudAppInstancesArgsDict',
     'CloudAppControlRuleCloudAppRiskProfileArgs',
     'CloudAppControlRuleCloudAppRiskProfileArgsDict',
     'CloudAppControlRuleDepartmentsArgs',
@@ -44,6 +104,8 @@ __all__ = [
     'CloudAppControlRuleTimeWindowsArgsDict',
     'CloudAppControlRuleUsersArgs',
     'CloudAppControlRuleUsersArgsDict',
+    'CloudApplicationInstanceInstanceIdentifierArgs',
+    'CloudApplicationInstanceInstanceIdentifierArgsDict',
     'DLPDictionariesExactDataMatchDetailArgs',
     'DLPDictionariesExactDataMatchDetailArgsDict',
     'DLPDictionariesIdmProfileMatchAccuracyArgs',
@@ -192,40 +254,8 @@ __all__ = [
     'FirewallFilteringRuleZpaAppSegmentArgsDict',
     'FirewallFilteringServiceGroupsServiceArgs',
     'FirewallFilteringServiceGroupsServiceArgsDict',
-    'FirewallIPSRuleDepartmentsArgs',
-    'FirewallIPSRuleDepartmentsArgsDict',
-    'FirewallIPSRuleDestIpGroupsArgs',
-    'FirewallIPSRuleDestIpGroupsArgsDict',
-    'FirewallIPSRuleDestIpv6GroupsArgs',
-    'FirewallIPSRuleDestIpv6GroupsArgsDict',
-    'FirewallIPSRuleDeviceGroupsArgs',
-    'FirewallIPSRuleDeviceGroupsArgsDict',
-    'FirewallIPSRuleDevicesArgs',
-    'FirewallIPSRuleDevicesArgsDict',
-    'FirewallIPSRuleGroupsArgs',
-    'FirewallIPSRuleGroupsArgsDict',
-    'FirewallIPSRuleLabelsArgs',
-    'FirewallIPSRuleLabelsArgsDict',
-    'FirewallIPSRuleLocationGroupsArgs',
-    'FirewallIPSRuleLocationGroupsArgsDict',
-    'FirewallIPSRuleLocationsArgs',
-    'FirewallIPSRuleLocationsArgsDict',
-    'FirewallIPSRuleNwServiceGroupsArgs',
-    'FirewallIPSRuleNwServiceGroupsArgsDict',
-    'FirewallIPSRuleNwServicesArgs',
-    'FirewallIPSRuleNwServicesArgsDict',
-    'FirewallIPSRuleSrcIpGroupsArgs',
-    'FirewallIPSRuleSrcIpGroupsArgsDict',
-    'FirewallIPSRuleSrcIpv6GroupsArgs',
-    'FirewallIPSRuleSrcIpv6GroupsArgsDict',
-    'FirewallIPSRuleThreatCategoriesArgs',
-    'FirewallIPSRuleThreatCategoriesArgsDict',
-    'FirewallIPSRuleTimeWindowsArgs',
-    'FirewallIPSRuleTimeWindowsArgsDict',
-    'FirewallIPSRuleUsersArgs',
-    'FirewallIPSRuleUsersArgsDict',
-    'FirewallIPSRuleZpaAppSegmentArgs',
-    'FirewallIPSRuleZpaAppSegmentArgsDict',
+    'ForwardingControlProxiesCertArgs',
+    'ForwardingControlProxiesCertArgsDict',
     'ForwardingControlRuleAppServiceGroupsArgs',
     'ForwardingControlRuleAppServiceGroupsArgsDict',
     'ForwardingControlRuleDepartmentsArgs',
@@ -306,10 +336,48 @@ __all__ = [
     'IPSFirewallRuleZpaAppSegmentArgsDict',
     'LocationManagementDynamicLocationGroupsArgs',
     'LocationManagementDynamicLocationGroupsArgsDict',
+    'LocationManagementExtranetArgs',
+    'LocationManagementExtranetArgsDict',
+    'LocationManagementExtranetDnArgs',
+    'LocationManagementExtranetDnArgsDict',
+    'LocationManagementExtranetIpPoolArgs',
+    'LocationManagementExtranetIpPoolArgsDict',
     'LocationManagementStaticLocationGroupsArgs',
     'LocationManagementStaticLocationGroupsArgsDict',
     'LocationManagementVpnCredentialArgs',
     'LocationManagementVpnCredentialArgsDict',
+    'NatControlRulesDepartmentsArgs',
+    'NatControlRulesDepartmentsArgsDict',
+    'NatControlRulesDestIpGroupsArgs',
+    'NatControlRulesDestIpGroupsArgsDict',
+    'NatControlRulesDestIpv6GroupsArgs',
+    'NatControlRulesDestIpv6GroupsArgsDict',
+    'NatControlRulesDeviceGroupsArgs',
+    'NatControlRulesDeviceGroupsArgsDict',
+    'NatControlRulesDevicesArgs',
+    'NatControlRulesDevicesArgsDict',
+    'NatControlRulesGroupsArgs',
+    'NatControlRulesGroupsArgsDict',
+    'NatControlRulesLabelsArgs',
+    'NatControlRulesLabelsArgsDict',
+    'NatControlRulesLocationGroupsArgs',
+    'NatControlRulesLocationGroupsArgsDict',
+    'NatControlRulesLocationsArgs',
+    'NatControlRulesLocationsArgsDict',
+    'NatControlRulesNwServiceGroupsArgs',
+    'NatControlRulesNwServiceGroupsArgsDict',
+    'NatControlRulesNwServicesArgs',
+    'NatControlRulesNwServicesArgsDict',
+    'NatControlRulesSrcIpGroupsArgs',
+    'NatControlRulesSrcIpGroupsArgsDict',
+    'NatControlRulesSrcIpv6GroupsArgs',
+    'NatControlRulesSrcIpv6GroupsArgsDict',
+    'NatControlRulesTimeWindowsArgs',
+    'NatControlRulesTimeWindowsArgsDict',
+    'NatControlRulesUsersArgs',
+    'NatControlRulesUsersArgsDict',
+    'RiskProfilesCustomTagsArgs',
+    'RiskProfilesCustomTagsArgsDict',
     'SSLInspectionRulesActionArgs',
     'SSLInspectionRulesActionArgsDict',
     'SSLInspectionRulesActionDecryptSubActionArgs',
@@ -404,6 +472,8 @@ __all__ = [
     'UserManagementDepartmentArgsDict',
     'UserManagementGroupsArgs',
     'UserManagementGroupsArgsDict',
+    'VirtualServiceEdgeClusterVirtualZenNodesArgs',
+    'VirtualServiceEdgeClusterVirtualZenNodesArgsDict',
     'GetLocationGroupsDynamicLocationGroupCriteriaArgs',
     'GetLocationGroupsDynamicLocationGroupCriteriaArgsDict',
     'GetLocationGroupsDynamicLocationGroupCriteriaCityArgs',
@@ -459,6 +529,700 @@ elif False:
 
 @pulumi.input_type
 class AdminUsersRoleArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class BrowserControlPolicySmartIsolationGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        A unique identifier for an entity.
+        """
+elif False:
+    BrowserControlPolicySmartIsolationGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlPolicySmartIsolationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class BrowserControlPolicySmartIsolationProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+elif False:
+    BrowserControlPolicySmartIsolationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlPolicySmartIsolationProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] id: The universally unique identifier (UUID) for the browser isolation profile
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The universally unique identifier (UUID) for the browser isolation profile
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class BrowserControlPolicySmartIsolationUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+        """
+        A unique identifier for an entity.
+        """
+elif False:
+    BrowserControlPolicySmartIsolationUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserControlPolicySmartIsolationUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: A unique identifier for an entity.
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        """
+        A unique identifier for an entity.
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesAuditorNotificationArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesAuditorNotificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesAuditorNotificationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesBucketsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesBucketsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesBucketsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesCasbEmailLabelArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesCasbEmailLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesCasbEmailLabelArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesCasbTombstoneTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesCasbTombstoneTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesCasbTombstoneTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesCloudAppTenantsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesCloudAppTenantsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesCloudAppTenantsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesCriteriaDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesCriteriaDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesCriteriaDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesDepartmentsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesDepartmentsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesDlpEnginesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesDlpEnginesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesDlpEnginesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesEmailRecipientProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesEmailRecipientProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesEmailRecipientProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesEntityGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesEntityGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesEntityGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesExcludedDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesExcludedDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesExcludedDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesIncludedDomainProfilesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesIncludedDomainProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesIncludedDomainProfilesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesLabelsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesObjectTypesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesObjectTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesObjectTypesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesRedactionProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesRedactionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesRedactionProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesTagArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesTagArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbDlpRulesUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbDlpRulesWatermarkProfileArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesWatermarkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesWatermarkProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbDlpRulesZscalerIncidentReceiverArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbDlpRulesZscalerIncidentReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbDlpRulesZscalerIncidentReceiverArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesBucketsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CasbMalwareRulesBucketsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesBucketsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesCasbEmailLabelArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRulesCasbEmailLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesCasbEmailLabelArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesCasbTombstoneTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRulesCasbTombstoneTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesCasbTombstoneTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesCloudAppTenantIdsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRulesCloudAppTenantIdsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesCloudAppTenantIdsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesCloudAppTenantsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRulesCloudAppTenantsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesCloudAppTenantsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CasbMalwareRulesLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    CasbMalwareRulesLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CasbMalwareRulesLabelsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[builtins.int]] = None):
         if id is not None:
@@ -533,24 +1297,48 @@ class CloudAppControlRuleCbiProfileArgs:
 
 
 if not MYPY:
+    class CloudAppControlRuleCloudAppInstancesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    CloudAppControlRuleCloudAppInstancesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudAppControlRuleCloudAppInstancesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
     class CloudAppControlRuleCloudAppRiskProfileArgsDict(TypedDict):
-        id: pulumi.Input[builtins.int]
+        id: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     CloudAppControlRuleCloudAppRiskProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudAppControlRuleCloudAppRiskProfileArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[builtins.int]):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[builtins.int]:
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[builtins.int]):
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "id", value)
 
 
@@ -782,6 +1570,98 @@ class CloudAppControlRuleUsersArgs:
     @ids.setter
     def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
         pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class CloudApplicationInstanceInstanceIdentifierArgsDict(TypedDict):
+        identifier_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Type of the cloud application instance.
+        """
+        instance_id: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Unique identifier for the cloud application instance.
+        """
+        instance_identifier: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Unique identifying string for the instance.
+        """
+        instance_identifier_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Unique identifying string for the instance.
+        """
+elif False:
+    CloudApplicationInstanceInstanceIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudApplicationInstanceInstanceIdentifierArgs:
+    def __init__(__self__, *,
+                 identifier_type: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_id: Optional[pulumi.Input[builtins.int]] = None,
+                 instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_identifier_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] identifier_type: Type of the cloud application instance.
+        :param pulumi.Input[builtins.int] instance_id: Unique identifier for the cloud application instance.
+        :param pulumi.Input[builtins.str] instance_identifier: Unique identifying string for the instance.
+        :param pulumi.Input[builtins.str] instance_identifier_name: Unique identifying string for the instance.
+        """
+        if identifier_type is not None:
+            pulumi.set(__self__, "identifier_type", identifier_type)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+        if instance_identifier_name is not None:
+            pulumi.set(__self__, "instance_identifier_name", instance_identifier_name)
+
+    @property
+    @pulumi.getter(name="identifierType")
+    def identifier_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Type of the cloud application instance.
+        """
+        return pulumi.get(self, "identifier_type")
+
+    @identifier_type.setter
+    def identifier_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "identifier_type", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Unique identifier for the cloud application instance.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Unique identifying string for the instance.
+        """
+        return pulumi.get(self, "instance_identifier")
+
+    @instance_identifier.setter
+    def instance_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="instanceIdentifierName")
+    def instance_identifier_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Unique identifying string for the instance.
+        """
+        return pulumi.get(self, "instance_identifier_name")
+
+    @instance_identifier_name.setter
+    def instance_identifier_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_identifier_name", value)
 
 
 if not MYPY:
@@ -1083,23 +1963,24 @@ class DLPDictionariesPhraseArgs:
 
 if not MYPY:
     class DLPWebRulesAuditorArgsDict(TypedDict):
-        id: pulumi.Input[builtins.int]
+        id: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DLPWebRulesAuditorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DLPWebRulesAuditorArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[builtins.int]):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[builtins.int]:
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[builtins.int]):
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "id", value)
 
 
@@ -1266,23 +2147,24 @@ class DLPWebRulesGroupsArgs:
 
 if not MYPY:
     class DLPWebRulesIcapServerArgsDict(TypedDict):
-        id: pulumi.Input[builtins.int]
+        id: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DLPWebRulesIcapServerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DLPWebRulesIcapServerArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[builtins.int]):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[builtins.int]:
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[builtins.int]):
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "id", value)
 
 
@@ -1380,23 +2262,24 @@ class DLPWebRulesLocationsArgs:
 
 if not MYPY:
     class DLPWebRulesNotificationTemplateArgsDict(TypedDict):
-        id: pulumi.Input[builtins.int]
+        id: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DLPWebRulesNotificationTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DLPWebRulesNotificationTemplateArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[builtins.int]):
-        pulumi.set(__self__, "id", id)
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[builtins.int]:
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[builtins.int]):
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "id", value)
 
 
@@ -3037,212 +3920,20 @@ class FirewallFilteringServiceGroupsServiceArgs:
 
 
 if not MYPY:
-    class FirewallIPSRuleDepartmentsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleDepartmentsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleDestIpGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleDestIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleDestIpGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleDestIpv6GroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleDestIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleDestIpv6GroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleDeviceGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleDeviceGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleDeviceGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleDevicesArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleDevicesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleDevicesArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleLabelsArgsDict(TypedDict):
+    class ForwardingControlProxiesCertArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[builtins.int]]
         """
-        (Integer) Identifier that uniquely identifies an entity
+        (Integer) Identifier that uniquely identifies the certificate
         """
 elif False:
-    FirewallIPSRuleLabelsArgsDict: TypeAlias = Mapping[str, Any]
+    ForwardingControlProxiesCertArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class FirewallIPSRuleLabelsArgs:
+class ForwardingControlProxiesCertArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] id: (Integer) Identifier that uniquely identifies an entity
+        :param pulumi.Input[builtins.int] id: (Integer) Identifier that uniquely identifies the certificate
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -3251,351 +3942,13 @@ class FirewallIPSRuleLabelsArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Integer) Identifier that uniquely identifies an entity
+        (Integer) Identifier that uniquely identifies the certificate
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleLocationGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleLocationGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleLocationGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleLocationsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleLocationsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleLocationsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleNwServiceGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleNwServiceGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleNwServiceGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleNwServicesArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleNwServicesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleNwServicesArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleSrcIpGroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleSrcIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleSrcIpGroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleSrcIpv6GroupsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleSrcIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleSrcIpv6GroupsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleThreatCategoriesArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleThreatCategoriesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleThreatCategoriesArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleTimeWindowsArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleTimeWindowsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleTimeWindowsArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleUsersArgsDict(TypedDict):
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-elif False:
-    FirewallIPSRuleUsersArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleUsersArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Integer) Identifier that uniquely identifies an entity
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
-        """
-        (Integer) Identifier that uniquely identifies an entity
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
-        pulumi.set(self, "ids", value)
-
-
-if not MYPY:
-    class FirewallIPSRuleZpaAppSegmentArgsDict(TypedDict):
-        external_id: pulumi.Input[builtins.str]
-        """
-        External ID of the application segment.
-        """
-        name: pulumi.Input[builtins.str]
-        """
-        Name of the application segment.
-        """
-elif False:
-    FirewallIPSRuleZpaAppSegmentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class FirewallIPSRuleZpaAppSegmentArgs:
-    def __init__(__self__, *,
-                 external_id: pulumi.Input[builtins.str],
-                 name: pulumi.Input[builtins.str]):
-        """
-        :param pulumi.Input[builtins.str] external_id: External ID of the application segment.
-        :param pulumi.Input[builtins.str] name: Name of the application segment.
-        """
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="externalId")
-    def external_id(self) -> pulumi.Input[builtins.str]:
-        """
-        External ID of the application segment.
-        """
-        return pulumi.get(self, "external_id")
-
-    @external_id.setter
-    def external_id(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "external_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[builtins.str]:
-        """
-        Name of the application segment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "name", value)
 
 
 if not MYPY:
@@ -4980,6 +5333,75 @@ class LocationManagementDynamicLocationGroupsArgs:
 
 
 if not MYPY:
+    class LocationManagementExtranetArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    LocationManagementExtranetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LocationManagementExtranetArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class LocationManagementExtranetDnArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    LocationManagementExtranetDnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LocationManagementExtranetDnArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class LocationManagementExtranetIpPoolArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    LocationManagementExtranetIpPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LocationManagementExtranetIpPoolArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class LocationManagementStaticLocationGroupsArgsDict(TypedDict):
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
 elif False:
@@ -5088,6 +5510,373 @@ class LocationManagementVpnCredentialArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class NatControlRulesDepartmentsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesDepartmentsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesDepartmentsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesDestIpGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesDestIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesDestIpGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesDestIpv6GroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesDestIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesDestIpv6GroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesDeviceGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesDeviceGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesDeviceGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesDevicesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesDevicesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesDevicesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesLabelsArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    NatControlRulesLabelsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesLabelsArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.int]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class NatControlRulesLocationGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesLocationGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesLocationGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesLocationsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesLocationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesLocationsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesNwServiceGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesNwServiceGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesNwServiceGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesNwServicesArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesNwServicesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesNwServicesArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesSrcIpGroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesSrcIpGroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesSrcIpGroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesSrcIpv6GroupsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesSrcIpv6GroupsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesSrcIpv6GroupsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesTimeWindowsArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesTimeWindowsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesTimeWindowsArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class NatControlRulesUsersArgsDict(TypedDict):
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]
+elif False:
+    NatControlRulesUsersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatControlRulesUsersArgs:
+    def __init__(__self__, *,
+                 ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None):
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class RiskProfilesCustomTagsArgsDict(TypedDict):
+        ids: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+elif False:
+    RiskProfilesCustomTagsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RiskProfilesCustomTagsArgs:
+    def __init__(__self__, *,
+                 ids: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "ids", value)
 
 
 if not MYPY:
@@ -7135,6 +7924,37 @@ class UserManagementGroupsArgs:
 
     @ids.setter
     def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]):
+        pulumi.set(self, "ids", value)
+
+
+if not MYPY:
+    class VirtualServiceEdgeClusterVirtualZenNodesArgsDict(TypedDict):
+        ids: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        (Number) Identifier that uniquely identifies an entity
+        """
+elif False:
+    VirtualServiceEdgeClusterVirtualZenNodesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualServiceEdgeClusterVirtualZenNodesArgs:
+    def __init__(__self__, *,
+                 ids: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] ids: (Number) Identifier that uniquely identifies an entity
+        """
+        pulumi.set(__self__, "ids", ids)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        (Number) Identifier that uniquely identifies an entity
+        """
+        return pulumi.get(self, "ids")
+
+    @ids.setter
+    def ids(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
         pulumi.set(self, "ids", value)
 
 

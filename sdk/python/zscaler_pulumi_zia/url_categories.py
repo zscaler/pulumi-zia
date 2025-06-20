@@ -521,6 +521,9 @@ class URLCategories(pulumi.CustomResource):
                  urls_retaining_parent_category_count: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
         The **zia_url_categories** resource creates and manages a new custom URL category. If keywords are included within the request, they will be added to the new category.
 
         ## Example Usage
@@ -559,6 +562,9 @@ class URLCategories(pulumi.CustomResource):
                  args: Optional[URLCategoriesArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
+        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
+
         The **zia_url_categories** resource creates and manages a new custom URL category. If keywords are included within the request, they will be added to the new category.
 
         ## Example Usage

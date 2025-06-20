@@ -107,6 +107,9 @@ class SecuritySettings(pulumi.CustomResource):
                  whitelist_urls: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+        * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+
         The **zia_security_settings** resource alows you to add or remove a URL to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage
@@ -137,6 +140,9 @@ class SecuritySettings(pulumi.CustomResource):
                  args: Optional[SecuritySettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+        * [API documentation](https://help.zscaler.com/zia/security-policy-settings#/security-put)
+
         The **zia_security_settings** resource alows you to add or remove a URL to the allow and denylist under the Advanced Threat Protection policy in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage

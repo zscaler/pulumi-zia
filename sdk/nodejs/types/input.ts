@@ -13,6 +13,131 @@ export interface AdminUsersRole {
     id?: pulumi.Input<number>;
 }
 
+export interface BrowserControlPolicySmartIsolationGroups {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BrowserControlPolicySmartIsolationProfile {
+    /**
+     * The universally unique identifier (UUID) for the browser isolation profile
+     */
+    id?: pulumi.Input<string>;
+}
+
+export interface BrowserControlPolicySmartIsolationUsers {
+    /**
+     * A unique identifier for an entity.
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesAuditorNotification {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesBuckets {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesCasbEmailLabel {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesCasbTombstoneTemplate {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesCloudAppTenants {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesCriteriaDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesDepartments {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesDlpEngines {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesEmailRecipientProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesEntityGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesExcludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesIncludedDomainProfiles {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesLabels {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesObjectTypes {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesRedactionProfile {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesTag {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesUsers {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesWatermarkProfile {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbDlpRulesZscalerIncidentReceiver {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRulesBuckets {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbMalwareRulesCasbEmailLabel {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRulesCasbTombstoneTemplate {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRulesCloudAppTenantIds {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRulesCloudAppTenants {
+    id?: pulumi.Input<number>;
+}
+
+export interface CasbMalwareRulesLabels {
+    id?: pulumi.Input<number>;
+}
+
 export interface CloudAppControlRuleCbiProfile {
     id?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -22,8 +147,12 @@ export interface CloudAppControlRuleCbiProfile {
     url?: pulumi.Input<string>;
 }
 
+export interface CloudAppControlRuleCloudAppInstances {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface CloudAppControlRuleCloudAppRiskProfile {
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface CloudAppControlRuleDepartments {
@@ -64,6 +193,25 @@ export interface CloudAppControlRuleTimeWindows {
 
 export interface CloudAppControlRuleUsers {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudApplicationInstanceInstanceIdentifier {
+    /**
+     * Type of the cloud application instance.
+     */
+    identifierType?: pulumi.Input<string>;
+    /**
+     * Unique identifier for the cloud application instance.
+     */
+    instanceId?: pulumi.Input<number>;
+    /**
+     * Unique identifying string for the instance.
+     */
+    instanceIdentifier?: pulumi.Input<string>;
+    /**
+     * Unique identifying string for the instance.
+     */
+    instanceIdentifierName?: pulumi.Input<string>;
 }
 
 export interface DLPDictionariesExactDataMatchDetail {
@@ -125,7 +273,7 @@ export interface DLPDictionariesPhrase {
 }
 
 export interface DLPWebRulesAuditor {
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface DLPWebRulesDepartments {
@@ -157,7 +305,7 @@ export interface DLPWebRulesGroups {
 }
 
 export interface DLPWebRulesIcapServer {
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface DLPWebRulesIncludedDomainProfiles {
@@ -177,7 +325,7 @@ export interface DLPWebRulesLocations {
 }
 
 export interface DLPWebRulesNotificationTemplate {
-    id: pulumi.Input<number>;
+    id?: pulumi.Input<number>;
 }
 
 export interface DLPWebRulesSourceIpGroups {
@@ -495,127 +643,11 @@ export interface FirewallFilteringServiceGroupsService {
     ids: pulumi.Input<pulumi.Input<number>[]>;
 }
 
-export interface FirewallIPSRuleDepartments {
+export interface ForwardingControlProxiesCert {
     /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleDestIpGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleDestIpv6Groups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleDeviceGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleDevices {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleLabels {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
+     * (Integer) Identifier that uniquely identifies the certificate
      */
     id?: pulumi.Input<number>;
-}
-
-export interface FirewallIPSRuleLocationGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleLocations {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleNwServiceGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleNwServices {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleSrcIpGroups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleSrcIpv6Groups {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleThreatCategories {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleTimeWindows {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleUsers {
-    /**
-     * (Integer) Identifier that uniquely identifies an entity
-     */
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
-export interface FirewallIPSRuleZpaAppSegment {
-    /**
-     * External ID of the application segment.
-     */
-    externalId: pulumi.Input<string>;
-    /**
-     * Name of the application segment.
-     */
-    name: pulumi.Input<string>;
 }
 
 export interface ForwardingControlRuleAppServiceGroups {
@@ -1159,6 +1191,18 @@ export interface LocationManagementDynamicLocationGroups {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface LocationManagementExtranet {
+    id?: pulumi.Input<number>;
+}
+
+export interface LocationManagementExtranetDn {
+    id?: pulumi.Input<number>;
+}
+
+export interface LocationManagementExtranetIpPool {
+    id?: pulumi.Input<number>;
+}
+
 export interface LocationManagementStaticLocationGroups {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
@@ -1170,6 +1214,70 @@ export interface LocationManagementVpnCredential {
     ipAddress?: pulumi.Input<string>;
     preSharedKey?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
+}
+
+export interface NatControlRulesDepartments {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesDestIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesDestIpv6Groups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesDeviceGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesDevices {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesLabels {
+    id?: pulumi.Input<number>;
+}
+
+export interface NatControlRulesLocationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesLocations {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesNwServiceGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesNwServices {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesSrcIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesSrcIpv6Groups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesTimeWindows {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NatControlRulesUsers {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface RiskProfilesCustomTags {
+    ids: pulumi.Input<pulumi.Input<number>[]>;
 }
 
 export interface SSLInspectionRulesAction {
@@ -1587,4 +1695,11 @@ export interface UserManagementGroups {
      * Unique identfier for the group
      */
     ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface VirtualServiceEdgeClusterVirtualZenNodes {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids: pulumi.Input<pulumi.Input<number>[]>;
 }

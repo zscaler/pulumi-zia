@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/defining-time-intervals)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/timeWindows-get)
+ *
  * Use the **zia_firewall_filtering_time_window** data source to get information about a time window option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage
@@ -57,6 +60,9 @@ export interface GetTimeWindowResult {
     readonly startTime: number;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/defining-time-intervals)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/timeWindows-get)
+ *
  * Use the **zia_firewall_filtering_time_window** data source to get information about a time window option available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering rule.
  *
  * ## Example Usage

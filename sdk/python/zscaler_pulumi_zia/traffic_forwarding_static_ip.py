@@ -270,6 +270,9 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
                  routable_ip: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+
         The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static ip addresses in the Zscaler Internet Access cloud. The resource, can then be associated with other resources such as:
 
         * VPN Credentials of type `IP`
@@ -316,6 +319,9 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
                  args: TrafficForwardingStaticIPArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
+        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
+
         The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static ip addresses in the Zscaler Internet Access cloud. The resource, can then be associated with other resources such as:
 
         * VPN Credentials of type `IP`

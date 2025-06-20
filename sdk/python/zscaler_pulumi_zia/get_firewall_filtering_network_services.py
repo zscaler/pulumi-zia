@@ -154,6 +154,9 @@ def get_firewall_filtering_network_services(id: Optional[builtins.int] = None,
                                             name: Optional[builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringNetworkServicesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
     The **zia_firewall_filtering_network_service** data source to get information about a network service available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network service rule.
 
     ## Example Usage
@@ -183,6 +186,9 @@ def get_firewall_filtering_network_services_output(id: Optional[pulumi.Input[Opt
                                                    name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringNetworkServicesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
     The **zia_firewall_filtering_network_service** data source to get information about a network service available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network service rule.
 
     ## Example Usage

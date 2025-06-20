@@ -251,6 +251,9 @@ def get_admin_users(id: Optional[builtins.int] = None,
                     username: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdminUsersResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-administrators)
+    * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
+
     Use the **zia_admin_users** data source to get information about an admin user account created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with a ZIA administrator role.
 
     ## Example Usage
@@ -291,6 +294,9 @@ def get_admin_users_output(id: Optional[pulumi.Input[Optional[builtins.int]]] = 
                            username: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdminUsersResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-administrators)
+    * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
+
     Use the **zia_admin_users** data source to get information about an admin user account created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with a ZIA administrator role.
 
     ## Example Usage

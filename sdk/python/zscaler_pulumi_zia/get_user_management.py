@@ -179,6 +179,9 @@ def get_user_management(auth_methods: Optional[Sequence[builtins.str]] = None,
                         name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserManagementResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+    * [API documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+
     Use the **zia_user_management** data source to get information about a user account that may have been created in the Zscaler Internet Access portal or via API. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
 
     ## Example Usage
@@ -212,6 +215,9 @@ def get_user_management_output(auth_methods: Optional[pulumi.Input[Optional[Sequ
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserManagementResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+    * [API documentation](https://help.zscaler.com/zia/about-url-filteringhttps://help.zscaler.com/zia/user-management#/users-get)
+
     Use the **zia_user_management** data source to get information about a user account that may have been created in the Zscaler Internet Access portal or via API. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
 
     ## Example Usage

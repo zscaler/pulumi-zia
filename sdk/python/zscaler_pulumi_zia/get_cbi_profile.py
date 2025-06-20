@@ -87,6 +87,9 @@ def get_cbi_profile(id: Optional[builtins.str] = None,
                     name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCbiProfileResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-url-filtering-policy#Action)
+    * [API documentation](https://help.zscaler.com/zia/browser-isolation#/browserIsolation/profiles-get)
+
     Use the **zia_cloud_browser_isolation_profile** data source to get information about an isolation profile in the Zscaler Internet Access cloud. This data source is required when configuring URL filtering rule where the action is set to `ISOLATE`
 
     ## Example Usage
@@ -110,6 +113,9 @@ def get_cbi_profile_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = 
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCbiProfileResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-url-filtering-policy#Action)
+    * [API documentation](https://help.zscaler.com/zia/browser-isolation#/browserIsolation/profiles-get)
+
     Use the **zia_cloud_browser_isolation_profile** data source to get information about an isolation profile in the Zscaler Internet Access cloud. This data source is required when configuring URL filtering rule where the action is set to `ISOLATE`
 
     ## Example Usage

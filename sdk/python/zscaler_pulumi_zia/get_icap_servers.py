@@ -77,6 +77,9 @@ class AwaitableGetIcapServersResult(GetIcapServersResult):
 def get_icap_servers(name: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIcapServersResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-icap-communication-between-zscaler-and-dlp-servers)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/icapServers/lite-get)
+
     Use the **zia_dlp_engines** data source to get information about a the list of DLP servers using ICAP in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -94,6 +97,9 @@ def get_icap_servers(name: Optional[builtins.str] = None,
 def get_icap_servers_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIcapServersResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-icap-communication-between-zscaler-and-dlp-servers)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/icapServers/lite-get)
+
     Use the **zia_dlp_engines** data source to get information about a the list of DLP servers using ICAP in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

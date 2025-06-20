@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-administrators)
+ * * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
+ *
  * Use the **zia_admin_users** data source to get information about an admin user account created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with a ZIA administrator role.
  *
  * ## Example Usage
@@ -108,6 +111,9 @@ export interface GetAdminUsersResult {
     readonly username: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-administrators)
+ * * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
+ *
  * Use the **zia_admin_users** data source to get information about an admin user account created in the Zscaler Internet Access cloud or via the API. This data source can then be associated with a ZIA administrator role.
  *
  * ## Example Usage

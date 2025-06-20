@@ -12,6 +12,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-file-type-control)
+// * [API documentation](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-post)
+//
 // The **zia_file_type_control_rules** resource allows the creation and management of ZIA file type control rules in the Zscaler Internet Access.
 //
 // ## Example Usage

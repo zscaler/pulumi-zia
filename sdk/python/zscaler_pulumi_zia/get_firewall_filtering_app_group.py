@@ -71,6 +71,9 @@ class AwaitableGetFirewallFilteringAppGroupResult(GetFirewallFilteringAppGroupRe
 def get_firewall_filtering_app_group(name: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringAppGroupResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+
     Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
 
     ## Example Usage
@@ -90,6 +93,9 @@ def get_firewall_filtering_app_group(name: Optional[builtins.str] = None,
 def get_firewall_filtering_app_group_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringAppGroupResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+
     Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
 
     ## Example Usage

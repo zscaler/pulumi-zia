@@ -68,6 +68,9 @@ class AwaitableGetFirewallFilteringAppServicesResult(GetFirewallFilteringAppServ
 def get_firewall_filtering_app_services(name: Optional[builtins.str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringAppServicesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
     The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
 
     ## Example Usage
@@ -87,6 +90,9 @@ def get_firewall_filtering_app_services(name: Optional[builtins.str] = None,
 def get_firewall_filtering_app_services_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringAppServicesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+
     The **zia_firewall_filtering_application_services** data source to get information about a network application services available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application services rule.
 
     ## Example Usage

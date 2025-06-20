@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+ *
  * The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
  *
  * ## Example Usage

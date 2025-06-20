@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-locations)
+// * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
+//
 // Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: “URLFilteringRules“, “FirewallFilteringRule“ and “DLPWebRules`
 func GetLocationLite(ctx *pulumi.Context, args *GetLocationLiteArgs, opts ...pulumi.InvokeOption) (*GetLocationLiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

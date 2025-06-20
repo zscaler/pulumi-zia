@@ -96,6 +96,9 @@ def get_firewall_filtering_application(id: Optional[builtins.str] = None,
                                        locale: Optional[builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallFilteringApplicationResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+
     Use the **zia_firewall_filtering_network_application** data source to get information about a network application available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
 
     ## Example Usage
@@ -119,6 +122,9 @@ def get_firewall_filtering_application_output(id: Optional[pulumi.Input[Optional
                                               locale: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallFilteringApplicationResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+    * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplications-get)
+
     Use the **zia_firewall_filtering_network_application** data source to get information about a network application available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
 
     ## Example Usage

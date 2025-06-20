@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+ *
  * The **zia_firewall_filtering_network_service** data source to get information about a network service available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network service rule.
  *
  * ## Example Usage
@@ -71,6 +74,9 @@ export interface GetFirewallFilteringNetworkServicesResult {
     readonly type: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkServices-get)
+ *
  * The **zia_firewall_filtering_network_service** data source to get information about a network service available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network service rule.
  *
  * ## Example Usage

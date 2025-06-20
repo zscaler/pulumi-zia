@@ -350,6 +350,9 @@ def get_cloud_app_control_rule(id: Optional[builtins.int] = None,
                                type: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudAppControlRuleResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+    * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+
     Use the **zia_cloud_app_control_rule** data source to get information about a ZIA Cloud Application Control Policy in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage
@@ -556,6 +559,9 @@ def get_cloud_app_control_rule_output(id: Optional[pulumi.Input[Optional[builtin
                                       type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAppControlRuleResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+    * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+
     Use the **zia_cloud_app_control_rule** data source to get information about a ZIA Cloud Application Control Policy in the Zscaler Internet Access cloud or via the API.
 
     ## Example Usage

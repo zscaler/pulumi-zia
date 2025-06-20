@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+ * * [API documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+ *
  * Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
  *
  * ## Example Usage
@@ -43,6 +46,9 @@ export interface GetGroupManagementResult {
     readonly name?: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+ * * [API documentation](https://help.zscaler.com/zia/user-management#/groups-get)
+ *
  * Use the **zia_group_management** data source to get information about a user group that may have been created in the Zscaler Internet Access portal. This data source can then be associated with a ZIA cloud firewall filtering rule, and URL filtering rules.
  *
  * ## Example Usage

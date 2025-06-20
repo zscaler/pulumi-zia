@@ -145,6 +145,9 @@ def get_forwarding_control_zpa_gateway(id: Optional[builtins.int] = None,
                                        name: Optional[builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetForwardingControlZPAGatewayResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+
     Use the **zia_forwarding_control_zpa_gateway** data source to get information about a forwarding control zpa gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This data source can then be associated with a ZIA Forwarding Control Rule.
 
     ## Example Usage
@@ -173,6 +176,9 @@ def get_forwarding_control_zpa_gateway_output(id: Optional[pulumi.Input[Optional
                                               name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetForwardingControlZPAGatewayResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+
     Use the **zia_forwarding_control_zpa_gateway** data source to get information about a forwarding control zpa gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This data source can then be associated with a ZIA Forwarding Control Rule.
 
     ## Example Usage

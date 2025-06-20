@@ -170,7 +170,14 @@
                 }
             },
             "zia_browser_control_policy": {
-                "current": "zia:index/browserControlPolicy:BrowserControlPolicy",
+                "current": "zia:index/browserControlSettings:BrowserControlSettings",
+                "past": [
+                    {
+                        "name": "zia:index/browserControlPolicy:BrowserControlPolicy",
+                        "inCodegen": true,
+                        "majorVersion": 1
+                    }
+                ],
                 "majorVersion": 1,
                 "fields": {
                     "blocked_chrome_versions": {
@@ -220,7 +227,14 @@
                 }
             },
             "zia_casb_dlp_rules": {
-                "current": "zia:index/casbDlpRules:CasbDlpRules",
+                "current": "zia:index/casbDlpRule:CasbDlpRule",
+                "past": [
+                    {
+                        "name": "zia:index/casbDlpRules:CasbDlpRules",
+                        "inCodegen": true,
+                        "majorVersion": 1
+                    }
+                ],
                 "majorVersion": 1,
                 "fields": {
                     "auditor_notification": {
@@ -389,7 +403,14 @@
                 }
             },
             "zia_casb_malware_rules": {
-                "current": "zia:index/casbMalwareRules:CasbMalwareRules",
+                "current": "zia:index/casbMalwareRule:CasbMalwareRule",
+                "past": [
+                    {
+                        "name": "zia:index/casbMalwareRules:CasbMalwareRules",
+                        "inCodegen": true,
+                        "majorVersion": 1
+                    }
+                ],
                 "majorVersion": 1,
                 "fields": {
                     "buckets": {
@@ -2787,7 +2808,14 @@
                 }
             },
             "zia_browser_control_policy": {
-                "current": "zia:index/getBrowserControlPolicy:getBrowserControlPolicy",
+                "current": "zia:index/getBrowserControlSettings:getBrowserControlSettings",
+                "past": [
+                    {
+                        "name": "zia:index/getBrowserControlPolicy:getBrowserControlPolicy",
+                        "inCodegen": true,
+                        "majorVersion": 1
+                    }
+                ],
                 "majorVersion": 1,
                 "fields": {
                     "blocked_chrome_versions": {
@@ -3686,7 +3714,14 @@
                 }
             },
             "zia_forwarding_control_proxy_gateway": {
-                "current": "zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway",
+                "current": "zia:index/getForwardingProxyGateway:getForwardingProxyGateway",
+                "past": [
+                    {
+                        "name": "zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway",
+                        "inCodegen": true,
+                        "majorVersion": 1
+                    }
+                ],
                 "majorVersion": 1,
                 "fields": {
                     "last_modified_by": {
@@ -4584,9 +4619,36 @@
     },
     "auto-settings": {
         "resources": {
+            "zia_browser_control_policy": {
+                "aliases": [
+                    "zia:index/browserControlPolicy:BrowserControlPolicy"
+                ]
+            },
+            "zia_casb_dlp_rules": {
+                "aliases": [
+                    "zia:index/casbDlpRules:CasbDlpRules"
+                ]
+            },
+            "zia_casb_malware_rules": {
+                "aliases": [
+                    "zia:index/casbMalwareRules:CasbMalwareRules"
+                ]
+            },
             "zia_firewall_ips_rule": {
                 "renames": [
                     "zia:index/firewallIPSRule:FirewallIPSRule"
+                ]
+            }
+        },
+        "datasources": {
+            "zia_browser_control_policy": {
+                "renames": [
+                    "zia:index/getBrowserControlPolicy:getBrowserControlPolicy"
+                ]
+            },
+            "zia_forwarding_control_proxy_gateway": {
+                "renames": [
+                    "zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway"
                 ]
             }
         }

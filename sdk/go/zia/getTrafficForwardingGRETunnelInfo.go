@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/orgProvisioning/ipGreTunnelInfo-get)
+//
 // The **zia_traffic_forwarding_gre_tunnel_info** data source to get information about provisioned GRE tunnel information created in the Zscaler Internet Access portal.
 //
 // ## Example Usage

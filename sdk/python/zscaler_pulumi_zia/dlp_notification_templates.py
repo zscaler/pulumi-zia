@@ -252,6 +252,9 @@ class DLPNotificationTemplates(pulumi.CustomResource):
                  tls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+
         The **zia_dlp_notification_templates** resource allows the creation and management of ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage
@@ -292,6 +295,9 @@ class DLPNotificationTemplates(pulumi.CustomResource):
                  args: DLPNotificationTemplatesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/about-dlp-notification-templates)
+        * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpNotificationTemplates-get)
+
         The **zia_dlp_notification_templates** resource allows the creation and management of ZIA DLP Notification Templates in the Zscaler Internet Access cloud or via the API.
 
         ## Example Usage

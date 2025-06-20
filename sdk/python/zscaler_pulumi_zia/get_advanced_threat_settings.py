@@ -484,6 +484,9 @@ class AwaitableGetAdvancedThreatSettingsResult(GetAdvancedThreatSettingsResult):
 
 def get_advanced_threat_settings(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdvancedThreatSettingsResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+    * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
     Use the **zia_advanced_threat_settings** data source to retrieve the advanced threat configuration settings in the ZIA Admin Portal. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
 
     ## Example Usage
@@ -544,6 +547,9 @@ def get_advanced_threat_settings(opts: Optional[pulumi.InvokeOptions] = None) ->
         web_spam_capture=pulumi.get(__ret__, 'web_spam_capture'))
 def get_advanced_threat_settings_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedThreatSettingsResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+    * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+
     Use the **zia_advanced_threat_settings** data source to retrieve the advanced threat configuration settings in the ZIA Admin Portal. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
 
     ## Example Usage

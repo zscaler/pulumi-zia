@@ -392,6 +392,9 @@ def get_ssl_inspection_rules(id: Optional[builtins.int] = None,
                              url_categories: Optional[Sequence[builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSSLInspectionRulesResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+    * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+
     Use the **zia_ssl_inspection_rules** data source to get information about a ssl inspection rule in the Zscaler Internet Access.
 
     ## Example Usage
@@ -443,6 +446,9 @@ def get_ssl_inspection_rules_output(id: Optional[pulumi.Input[Optional[builtins.
                                     url_categories: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSSLInspectionRulesResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+    * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+
     Use the **zia_ssl_inspection_rules** data source to get information about a ssl inspection rule in the Zscaler Internet Access.
 
     ## Example Usage

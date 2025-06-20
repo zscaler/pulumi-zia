@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+ *
  * Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
  *
  * ## Example Usage
@@ -39,6 +42,9 @@ export interface GetFirewallFilteringAppGroupResult {
     readonly nameL10nTag: boolean;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+ * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/networkApplicationGroups-post)
+ *
  * Use the **zia_firewall_filtering_application_services_group** data source to get information about a network application group available in the Zscaler Internet Access cloud firewall. This data source can then be associated with a ZIA firewall filtering network application rule.
  *
  * ## Example Usage

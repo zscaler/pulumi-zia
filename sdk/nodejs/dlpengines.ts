@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+ *
  * Use the **zia_dlp_engines** resource allows the creation and management of ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
  *
  * ⚠️ **WARNING:** "Before using the new ``zia.DLPEngines`` resource contact [Zscaler Support](https://help.zscaler.com/login-tickets)." and request the following API methods ``POST``, ``PUT``, and ``DELETE`` to be enabled for your organization.

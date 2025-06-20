@@ -77,6 +77,9 @@ class AwaitableGetDlpDictionaryPredefinedIdentifiersResult(GetDlpDictionaryPrede
 def get_dlp_dictionary_predefined_identifiers(name: Optional[builtins.str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDlpDictionaryPredefinedIdentifiersResult:
     """
+    * [Official documentation](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries/{dictId}/predefinedIdentifiers-get)
+
     Use the **zia_dlp_dictionary_predefined_identifiers** data source to get information about the list of predefined identifiers that are available for selection in the specified hierarchical DLP dictionary.
 
     ## Example Usage
@@ -96,6 +99,9 @@ def get_dlp_dictionary_predefined_identifiers(name: Optional[builtins.str] = Non
 def get_dlp_dictionary_predefined_identifiers_output(name: Optional[pulumi.Input[builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDlpDictionaryPredefinedIdentifiersResult]:
     """
+    * [Official documentation](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries)
+    * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpDictionaries/{dictId}/predefinedIdentifiers-get)
+
     Use the **zia_dlp_dictionary_predefined_identifiers** data source to get information about the list of predefined identifiers that are available for selection in the specified hierarchical DLP dictionary.
 
     ## Example Usage

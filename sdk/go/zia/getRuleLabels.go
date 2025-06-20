@@ -11,6 +11,9 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-rule-labels)
+// * [API documentation](https://help.zscaler.com/zia/rule-labels#/ruleLabels-get)
+//
 // Use the **zia_rule_labels** data source to get information about a rule label resource in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: Firewall Rules and URL filtering rules
 //
 // ## Example Usage
@@ -26,7 +29,7 @@ func LookupRuleLabels(ctx *pulumi.Context, args *LookupRuleLabelsArgs, opts ...p
 
 // A collection of arguments for invoking getRuleLabels.
 type LookupRuleLabelsArgs struct {
-	// The unique identifer for the device group.
+	// The unique identifer for the rule label.
 	Id *int `pulumi:"id"`
 	// The name of the rule label to be exported.
 	Name *string `pulumi:"name"`
@@ -59,7 +62,7 @@ func LookupRuleLabelsOutput(ctx *pulumi.Context, args LookupRuleLabelsOutputArgs
 
 // A collection of arguments for invoking getRuleLabels.
 type LookupRuleLabelsOutputArgs struct {
-	// The unique identifer for the device group.
+	// The unique identifer for the rule label.
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The name of the rule label to be exported.
 	Name pulumi.StringPtrInput `pulumi:"name"`

@@ -78,6 +78,9 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
                  file_hashes_to_be_blockeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+        * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+
         The **zia_sandbox_behavioral_analysis** resource updates the custom list of MD5 file hashes that are blocked by Sandbox. This overwrites a previously generated blocklist. If you need to completely erase the blocklist, submit an empty list.
 
         **Note**: Only the file types that are supported by Sandbox analysis can be blocked using MD5 hashes.
@@ -114,6 +117,9 @@ class SandboxBehavioralAnalysis(pulumi.CustomResource):
                  args: Optional[SandboxBehavioralAnalysisArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        * [Official documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+        * [API documentation](https://help.zscaler.com/zia/sandbox-policy-settings#/behavioralAnalysisAdvancedSettings-get)
+
         The **zia_sandbox_behavioral_analysis** resource updates the custom list of MD5 file hashes that are blocked by Sandbox. This overwrites a previously generated blocklist. If you need to completely erase the blocklist, submit an empty list.
 
         **Note**: Only the file types that are supported by Sandbox analysis can be blocked using MD5 hashes.

@@ -7,6 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+ * * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+ *
  * Use the **zia_cloud_app_control_rule** data source to get information about a ZIA Cloud Application Control Policy in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -225,6 +228,9 @@ export interface GetCloudAppControlRuleResult {
     readonly validityTimeZoneId: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
+ * * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
+ *
  * Use the **zia_cloud_app_control_rule** data source to get information about a ZIA Cloud Application Control Policy in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage

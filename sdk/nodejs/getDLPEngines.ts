@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+ *
  * Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
@@ -40,6 +43,9 @@ export interface GetDLPEnginesResult {
     readonly predefinedEngineName?: string;
 }
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-dlp-engines)
+ * * [API documentation](https://help.zscaler.com/zia/data-loss-prevention#/dlpEngines-get)
+ *
  * Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
