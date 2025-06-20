@@ -2,10 +2,12 @@
     "auto-aliasing": {
         "resources": {
             "zia_activation_status": {
-                "current": "zia:index/activationStatus:ActivationStatus"
+                "current": "zia:index/activationStatus:ActivationStatus",
+                "majorVersion": 1
             },
             "zia_admin_roles": {
                 "current": "zia:index/adminRoles:AdminRoles",
+                "majorVersion": 1,
                 "fields": {
                     "permissions": {
                         "maxItemsOne": false
@@ -14,6 +16,7 @@
             },
             "zia_admin_users": {
                 "current": "zia:index/adminUsers:AdminUsers",
+                "majorVersion": 1,
                 "fields": {
                     "admin_scope_entities": {
                         "maxItemsOne": true,
@@ -32,6 +35,7 @@
             },
             "zia_advanced_settings": {
                 "current": "zia:index/advancedSettings:AdvancedSettings",
+                "majorVersion": 1,
                 "fields": {
                     "auth_bypass_apps": {
                         "maxItemsOne": false
@@ -115,6 +119,7 @@
             },
             "zia_advanced_threat_settings": {
                 "current": "zia:index/advancedThreatSettings:AdvancedThreatSettings",
+                "majorVersion": 1,
                 "fields": {
                     "blocked_countries": {
                         "maxItemsOne": false
@@ -123,6 +128,7 @@
             },
             "zia_atp_malicious_urls": {
                 "current": "zia:index/aTPMaliciousURLs:ATPMaliciousURLs",
+                "majorVersion": 1,
                 "fields": {
                     "malicious_urls": {
                         "maxItemsOne": false
@@ -130,19 +136,24 @@
                 }
             },
             "zia_atp_malware_inspection": {
-                "current": "zia:index/aTPMalwareInspection:ATPMalwareInspection"
+                "current": "zia:index/aTPMalwareInspection:ATPMalwareInspection",
+                "majorVersion": 1
             },
             "zia_atp_malware_policy": {
-                "current": "zia:index/aTPMalwarePolicy:ATPMalwarePolicy"
+                "current": "zia:index/aTPMalwarePolicy:ATPMalwarePolicy",
+                "majorVersion": 1
             },
             "zia_atp_malware_protocols": {
-                "current": "zia:index/aTPMalwareProtocols:ATPMalwareProtocols"
+                "current": "zia:index/aTPMalwareProtocols:ATPMalwareProtocols",
+                "majorVersion": 1
             },
             "zia_atp_malware_settings": {
-                "current": "zia:index/aTPMalwareSettings:ATPMalwareSettings"
+                "current": "zia:index/aTPMalwareSettings:ATPMalwareSettings",
+                "majorVersion": 1
             },
             "zia_atp_security_exceptions": {
                 "current": "zia:index/aTPSecurityExceptions:ATPSecurityExceptions",
+                "majorVersion": 1,
                 "fields": {
                     "bypass_urls": {
                         "maxItemsOne": false
@@ -151,14 +162,287 @@
             },
             "zia_auth_settings_urls": {
                 "current": "zia:index/authSettingsURLs:AuthSettingsURLs",
+                "majorVersion": 1,
                 "fields": {
                     "urls": {
                         "maxItemsOne": false
                     }
                 }
             },
+            "zia_browser_control_policy": {
+                "current": "zia:index/browserControlPolicy:BrowserControlPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "blocked_chrome_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_firefox_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_internet_explorer_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_opera_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_safari_versions": {
+                        "maxItemsOne": false
+                    },
+                    "bypass_applications": {
+                        "maxItemsOne": false
+                    },
+                    "bypass_plugins": {
+                        "maxItemsOne": false
+                    },
+                    "smart_isolation_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "smart_isolation_profile": {
+                        "maxItemsOne": false
+                    },
+                    "smart_isolation_users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_casb_dlp_rules": {
+                "current": "zia:index/casbDlpRules:CasbDlpRules",
+                "majorVersion": 1,
+                "fields": {
+                    "auditor_notification": {
+                        "maxItemsOne": false
+                    },
+                    "buckets": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "casb_email_label": {
+                        "maxItemsOne": false
+                    },
+                    "casb_tombstone_template": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_app_tenants": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "collaboration_scope": {
+                        "maxItemsOne": false
+                    },
+                    "components": {
+                        "maxItemsOne": false
+                    },
+                    "criteria_domain_profiles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dlp_engines": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "email_recipient_profiles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "entity_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "excluded_domain_profiles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "file_types": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "included_domain_profiles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "object_types": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "redaction_profile": {
+                        "maxItemsOne": false
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "watermark_profile": {
+                        "maxItemsOne": false
+                    },
+                    "zscaler_incident_receiver": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_casb_malware_rules": {
+                "current": "zia:index/casbMalwareRules:CasbMalwareRules",
+                "majorVersion": 1,
+                "fields": {
+                    "buckets": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "casb_email_label": {
+                        "maxItemsOne": false
+                    },
+                    "casb_tombstone_template": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_app_tenant_ids": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "cloud_app_tenants": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "zia_cloud_app_control_rule": {
                 "current": "zia:index/cloudAppControlRule:CloudAppControlRule",
+                "majorVersion": 1,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -168,6 +452,16 @@
                     },
                     "cbi_profile": {
                         "maxItemsOne": false
+                    },
+                    "cloud_app_instances": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "cloud_app_risk_profile": {
                         "maxItemsOne": false
@@ -283,8 +577,18 @@
                     }
                 }
             },
+            "zia_cloud_application_instance": {
+                "current": "zia:index/cloudApplicationInstance:CloudApplicationInstance",
+                "majorVersion": 1,
+                "fields": {
+                    "instance_identifiers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_dlp_dictionaries": {
                 "current": "zia:index/dLPDictionaries:DLPDictionaries",
+                "majorVersion": 1,
                 "fields": {
                     "bin_numbers": {
                         "maxItemsOne": false
@@ -321,13 +625,16 @@
                 }
             },
             "zia_dlp_engines": {
-                "current": "zia:index/dLPEngines:DLPEngines"
+                "current": "zia:index/dLPEngines:DLPEngines",
+                "majorVersion": 1
             },
             "zia_dlp_notification_templates": {
-                "current": "zia:index/dLPNotificationTemplates:DLPNotificationTemplates"
+                "current": "zia:index/dLPNotificationTemplates:DLPNotificationTemplates",
+                "majorVersion": 1
             },
             "zia_dlp_web_rules": {
                 "current": "zia:index/dLPWebRules:DLPWebRules",
+                "majorVersion": 1,
                 "fields": {
                     "auditor": {
                         "maxItemsOne": false
@@ -509,10 +816,12 @@
                 }
             },
             "zia_end_user_notification": {
-                "current": "zia:index/endUserNotification:EndUserNotification"
+                "current": "zia:index/endUserNotification:EndUserNotification",
+                "majorVersion": 1
             },
             "zia_file_type_control_rules": {
                 "current": "zia:index/fileTypeControlRules:FileTypeControlRules",
+                "majorVersion": 1,
                 "fields": {
                     "cloud_applications": {
                         "maxItemsOne": false
@@ -626,6 +935,7 @@
             },
             "zia_firewall_dns_rule": {
                 "current": "zia:index/firewallDNSRule:FirewallDNSRule",
+                "majorVersion": 1,
                 "fields": {
                     "application_groups": {
                         "maxItemsOne": true,
@@ -807,6 +1117,7 @@
             },
             "zia_firewall_filtering_destination_groups": {
                 "current": "zia:index/firewallFilteringDestinationGroups:FirewallFilteringDestinationGroups",
+                "majorVersion": 1,
                 "fields": {
                     "addresses": {
                         "maxItemsOne": false
@@ -821,6 +1132,7 @@
             },
             "zia_firewall_filtering_ip_source_groups": {
                 "current": "zia:index/firewallFilteringSourceGroups:FirewallFilteringSourceGroups",
+                "majorVersion": 1,
                 "fields": {
                     "ip_addresses": {
                         "maxItemsOne": false
@@ -829,6 +1141,7 @@
             },
             "zia_firewall_filtering_network_application_groups": {
                 "current": "zia:index/firewallFilteringApplicationGroups:FirewallFilteringApplicationGroups",
+                "majorVersion": 1,
                 "fields": {
                     "network_applications": {
                         "maxItemsOne": false
@@ -837,6 +1150,7 @@
             },
             "zia_firewall_filtering_network_service": {
                 "current": "zia:index/firewallFilteringNetworkServices:FirewallFilteringNetworkServices",
+                "majorVersion": 1,
                 "fields": {
                     "dest_tcp_ports": {
                         "maxItemsOne": false
@@ -854,6 +1168,7 @@
             },
             "zia_firewall_filtering_network_service_groups": {
                 "current": "zia:index/firewallFilteringServiceGroups:FirewallFilteringServiceGroups",
+                "majorVersion": 1,
                 "fields": {
                     "services": {
                         "maxItemsOne": false,
@@ -869,6 +1184,7 @@
             },
             "zia_firewall_filtering_rule": {
                 "current": "zia:index/firewallFilteringRule:FirewallFilteringRule",
+                "majorVersion": 1,
                 "fields": {
                     "app_service_groups": {
                         "maxItemsOne": true,
@@ -1068,6 +1384,7 @@
                         "majorVersion": 0
                     }
                 ],
+                "majorVersion": 1,
                 "fields": {
                     "departments": {
                         "maxItemsOne": true,
@@ -1252,8 +1569,18 @@
                     }
                 }
             },
+            "zia_forwarding_control_proxies": {
+                "current": "zia:index/forwardingControlProxies:ForwardingControlProxies",
+                "majorVersion": 1,
+                "fields": {
+                    "cert": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_forwarding_control_rule": {
                 "current": "zia:index/forwardingControlRule:ForwardingControlRule",
+                "majorVersion": 1,
                 "fields": {
                     "app_service_groups": {
                         "maxItemsOne": true,
@@ -1453,6 +1780,7 @@
             },
             "zia_forwarding_control_zpa_gateway": {
                 "current": "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway",
+                "majorVersion": 1,
                 "fields": {
                     "zpa_app_segments": {
                         "maxItemsOne": false
@@ -1462,8 +1790,21 @@
                     }
                 }
             },
+            "zia_ftp_control_policy": {
+                "current": "zia:index/ftpControlPolicy:FtpControlPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "url_categories": {
+                        "maxItemsOne": false
+                    },
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_location_management": {
                 "current": "zia:index/locationManagement:LocationManagement",
+                "majorVersion": 1,
                 "fields": {
                     "dynamic_location_groups": {
                         "maxItemsOne": true,
@@ -1474,6 +1815,15 @@
                                 }
                             }
                         }
+                    },
+                    "extranet": {
+                        "maxItemsOne": false
+                    },
+                    "extranet_dns": {
+                        "maxItemsOne": false
+                    },
+                    "extranet_ip_pool": {
+                        "maxItemsOne": false
                     },
                     "ip_addresses": {
                         "maxItemsOne": false
@@ -1496,11 +1846,217 @@
                     }
                 }
             },
+            "zia_mobile_malware_protection_policy": {
+                "current": "zia:index/mobileMalwareProtectionPolicy:MobileMalwareProtectionPolicy",
+                "majorVersion": 1
+            },
+            "zia_nat_control_rules": {
+                "current": "zia:index/natControlRules:NatControlRules",
+                "majorVersion": 1,
+                "fields": {
+                    "departments": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "dest_ipv6_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "device_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "devices": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "location_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "nw_services": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "res_categories": {
+                        "maxItemsOne": false
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "src_ipv6_groups": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "time_windows": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "users": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zia_nss_server": {
+                "current": "zia:index/nssServer:NssServer",
+                "majorVersion": 1
+            },
+            "zia_risk_profiles": {
+                "current": "zia:index/riskProfiles:RiskProfiles",
+                "majorVersion": 1,
+                "fields": {
+                    "certifications": {
+                        "maxItemsOne": false
+                    },
+                    "custom_tags": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "data_encryption_in_transit": {
+                        "maxItemsOne": false
+                    },
+                    "risk_index": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_rule_labels": {
-                "current": "zia:index/ruleLabels:RuleLabels"
+                "current": "zia:index/ruleLabels:RuleLabels",
+                "majorVersion": 1
             },
             "zia_sandbox_behavioral_analysis": {
                 "current": "zia:index/sandboxBehavioralAnalysis:SandboxBehavioralAnalysis",
+                "majorVersion": 1,
                 "fields": {
                     "file_hashes_to_be_blocked": {
                         "maxItemsOne": false
@@ -1508,10 +2064,12 @@
                 }
             },
             "zia_sandbox_file_submission": {
-                "current": "zia:index/sandboxFileSubmission:SandboxFileSubmission"
+                "current": "zia:index/sandboxFileSubmission:SandboxFileSubmission",
+                "majorVersion": 1
             },
             "zia_sandbox_rules": {
                 "current": "zia:index/sandboxRules:SandboxRules",
+                "majorVersion": 1,
                 "fields": {
                     "ba_policy_categories": {
                         "maxItemsOne": false
@@ -1592,6 +2150,7 @@
             },
             "zia_security_settings": {
                 "current": "zia:index/securitySettings:SecuritySettings",
+                "majorVersion": 1,
                 "fields": {
                     "blacklist_urls": {
                         "maxItemsOne": false
@@ -1603,6 +2162,7 @@
             },
             "zia_ssl_inspection_rules": {
                 "current": "zia:index/sSLInspectionRules:SSLInspectionRules",
+                "majorVersion": 1,
                 "fields": {
                     "action": {
                         "maxItemsOne": false,
@@ -1763,8 +2323,30 @@
                     }
                 }
             },
+            "zia_subscription_alert": {
+                "current": "zia:index/subscriptionAlert:SubscriptionAlert",
+                "majorVersion": 1,
+                "fields": {
+                    "comply_severities": {
+                        "maxItemsOne": false
+                    },
+                    "manage_severities": {
+                        "maxItemsOne": false
+                    },
+                    "pt0_severities": {
+                        "maxItemsOne": false
+                    },
+                    "secure_severities": {
+                        "maxItemsOne": false
+                    },
+                    "system_severities": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_traffic_forwarding_gre_tunnel": {
                 "current": "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel",
+                "majorVersion": 1,
                 "fields": {
                     "primary_dest_vip": {
                         "maxItemsOne": false
@@ -1775,13 +2357,16 @@
                 }
             },
             "zia_traffic_forwarding_static_ip": {
-                "current": "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP"
+                "current": "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP",
+                "majorVersion": 1
             },
             "zia_traffic_forwarding_vpn_credentials": {
-                "current": "zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials"
+                "current": "zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials",
+                "majorVersion": 1
             },
             "zia_url_categories": {
                 "current": "zia:index/uRLCategories:URLCategories",
+                "majorVersion": 1,
                 "fields": {
                     "db_categorized_urls": {
                         "maxItemsOne": false
@@ -1834,10 +2419,12 @@
                 }
             },
             "zia_url_filtering_and_cloud_app_settings": {
-                "current": "zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings"
+                "current": "zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings",
+                "majorVersion": 1
             },
             "zia_url_filtering_rules": {
                 "current": "zia:index/uRLFilteringRules:URLFilteringRules",
+                "majorVersion": 1,
                 "fields": {
                     "cbi_profile": {
                         "maxItemsOne": false
@@ -1987,6 +2574,7 @@
             },
             "zia_user_management": {
                 "current": "zia:index/userManagement:UserManagement",
+                "majorVersion": 1,
                 "fields": {
                     "auth_methods": {
                         "maxItemsOne": false
@@ -2005,14 +2593,32 @@
                         }
                     }
                 }
+            },
+            "zia_virtual_service_edge_cluster": {
+                "current": "zia:index/virtualServiceEdgeCluster:VirtualServiceEdgeCluster",
+                "majorVersion": 1,
+                "fields": {
+                    "virtual_zen_nodes": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "id": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "datasources": {
             "zia_activation_status": {
-                "current": "zia:index/getActivationStatus:getActivationStatus"
+                "current": "zia:index/getActivationStatus:getActivationStatus",
+                "majorVersion": 1
             },
             "zia_admin_roles": {
                 "current": "zia:index/getAdminRoles:getAdminRoles",
+                "majorVersion": 1,
                 "fields": {
                     "permissions": {
                         "maxItemsOne": false
@@ -2021,6 +2627,7 @@
             },
             "zia_admin_users": {
                 "current": "zia:index/getAdminUsers:getAdminUsers",
+                "majorVersion": 1,
                 "fields": {
                     "admin_scope": {
                         "maxItemsOne": false,
@@ -2045,6 +2652,7 @@
             },
             "zia_advanced_settings": {
                 "current": "zia:index/getAdvancedSettings:getAdvancedSettings",
+                "majorVersion": 1,
                 "fields": {
                     "auth_bypass_apps": {
                         "maxItemsOne": false
@@ -2128,6 +2736,7 @@
             },
             "zia_advanced_threat_settings": {
                 "current": "zia:index/getAdvancedThreatSettings:getAdvancedThreatSettings",
+                "majorVersion": 1,
                 "fields": {
                     "blocked_countries": {
                         "maxItemsOne": false
@@ -2136,6 +2745,7 @@
             },
             "zia_atp_malicious_urls": {
                 "current": "zia:index/getATPMaliciousURLs:getATPMaliciousURLs",
+                "majorVersion": 1,
                 "fields": {
                     "malicious_urls": {
                         "maxItemsOne": false
@@ -2143,19 +2753,24 @@
                 }
             },
             "zia_atp_malware_inspection": {
-                "current": "zia:index/getMalwareInspection:getMalwareInspection"
+                "current": "zia:index/getMalwareInspection:getMalwareInspection",
+                "majorVersion": 1
             },
             "zia_atp_malware_policy": {
-                "current": "zia:index/getMalwarePolicy:getMalwarePolicy"
+                "current": "zia:index/getMalwarePolicy:getMalwarePolicy",
+                "majorVersion": 1
             },
             "zia_atp_malware_protocols": {
-                "current": "zia:index/getMalwareProtocols:getMalwareProtocols"
+                "current": "zia:index/getMalwareProtocols:getMalwareProtocols",
+                "majorVersion": 1
             },
             "zia_atp_malware_settings": {
-                "current": "zia:index/getMalwareSettings:getMalwareSettings"
+                "current": "zia:index/getMalwareSettings:getMalwareSettings",
+                "majorVersion": 1
             },
             "zia_atp_security_exceptions": {
                 "current": "zia:index/getATPSecurityExceptions:getATPSecurityExceptions",
+                "majorVersion": 1,
                 "fields": {
                     "bypass_urls": {
                         "maxItemsOne": false
@@ -2164,14 +2779,177 @@
             },
             "zia_auth_settings_urls": {
                 "current": "zia:index/getAuthSettingsURLs:getAuthSettingsURLs",
+                "majorVersion": 1,
                 "fields": {
                     "urls": {
                         "maxItemsOne": false
                     }
                 }
             },
+            "zia_browser_control_policy": {
+                "current": "zia:index/getBrowserControlPolicy:getBrowserControlPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "blocked_chrome_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_firefox_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_internet_explorer_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_opera_versions": {
+                        "maxItemsOne": false
+                    },
+                    "blocked_safari_versions": {
+                        "maxItemsOne": false
+                    },
+                    "bypass_applications": {
+                        "maxItemsOne": false
+                    },
+                    "bypass_plugins": {
+                        "maxItemsOne": false
+                    },
+                    "smart_isolation_profile": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_casb_dlp_rules": {
+                "current": "zia:index/getCasbDlpRules:getCasbDlpRules",
+                "majorVersion": 1,
+                "fields": {
+                    "auditor_notification": {
+                        "maxItemsOne": false
+                    },
+                    "buckets": {
+                        "maxItemsOne": false
+                    },
+                    "casb_email_label": {
+                        "maxItemsOne": false
+                    },
+                    "casb_tombstone_template": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_app_tenants": {
+                        "maxItemsOne": false
+                    },
+                    "collaboration_scope": {
+                        "maxItemsOne": false
+                    },
+                    "components": {
+                        "maxItemsOne": false
+                    },
+                    "criteria_domain_profiles": {
+                        "maxItemsOne": false
+                    },
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "dlp_engines": {
+                        "maxItemsOne": false
+                    },
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "email_recipient_profiles": {
+                        "maxItemsOne": false
+                    },
+                    "entity_groups": {
+                        "maxItemsOne": false
+                    },
+                    "excluded_domain_profiles": {
+                        "maxItemsOne": false
+                    },
+                    "file_types": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "included_domain_profiles": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "object_types": {
+                        "maxItemsOne": false
+                    },
+                    "redaction_profile": {
+                        "maxItemsOne": false
+                    },
+                    "tag": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    },
+                    "watermark_profile": {
+                        "maxItemsOne": false
+                    },
+                    "zscaler_incident_receiver": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_casb_email_label": {
+                "current": "zia:index/getCasbEmailLabel:getCasbEmailLabel",
+                "majorVersion": 1
+            },
+            "zia_casb_malware_rules": {
+                "current": "zia:index/getCasbMalwareRules:getCasbMalwareRules",
+                "majorVersion": 1,
+                "fields": {
+                    "buckets": {
+                        "maxItemsOne": false
+                    },
+                    "casb_email_label": {
+                        "maxItemsOne": false
+                    },
+                    "casb_tombstone_template": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_app_tenant_ids": {
+                        "maxItemsOne": false
+                    },
+                    "cloud_app_tenants": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_casb_tenant": {
+                "current": "zia:index/getCasbTenant:getCasbTenant",
+                "majorVersion": 1,
+                "fields": {
+                    "features_supported": {
+                        "maxItemsOne": false
+                    },
+                    "filter_by_feature": {
+                        "maxItemsOne": false
+                    },
+                    "status": {
+                        "maxItemsOne": false
+                    },
+                    "zscaler_app_tenant_id": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_casb_tombstone_template": {
+                "current": "zia:index/getCasbTombstoneTemplate:getCasbTombstoneTemplate",
+                "majorVersion": 1
+            },
             "zia_cloud_app_control_rule": {
                 "current": "zia:index/getCloudAppControlRule:getCloudAppControlRule",
+                "majorVersion": 1,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -2214,8 +2992,28 @@
                     }
                 }
             },
+            "zia_cloud_application_instance": {
+                "current": "zia:index/getCloudApplicationInstance:getCloudApplicationInstance",
+                "majorVersion": 1,
+                "fields": {
+                    "instance_identifiers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "last_modified_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_cloud_applications": {
                 "current": "zia:index/getCloudApplications:getCloudApplications",
+                "majorVersion": 1,
                 "fields": {
                     "app_class": {
                         "maxItemsOne": false
@@ -2226,19 +3024,24 @@
                 }
             },
             "zia_cloud_browser_isolation_profile": {
-                "current": "zia:index/getCbiProfile:getCbiProfile"
+                "current": "zia:index/getCbiProfile:getCbiProfile",
+                "majorVersion": 1
             },
             "zia_department_management": {
-                "current": "zia:index/getDepartmentManagement:getDepartmentManagement"
+                "current": "zia:index/getDepartmentManagement:getDepartmentManagement",
+                "majorVersion": 1
             },
             "zia_device_groups": {
-                "current": "zia:index/getDeviceGroups:getDeviceGroups"
+                "current": "zia:index/getDeviceGroups:getDeviceGroups",
+                "majorVersion": 1
             },
             "zia_devices": {
-                "current": "zia:index/getDevices:getDevices"
+                "current": "zia:index/getDevices:getDevices",
+                "majorVersion": 1
             },
             "zia_dlp_dictionaries": {
                 "current": "zia:index/getDLPDictionaries:getDLPDictionaries",
+                "majorVersion": 1,
                 "fields": {
                     "bin_numbers": {
                         "maxItemsOne": false
@@ -2273,6 +3076,7 @@
             },
             "zia_dlp_dictionary_predefined_identifiers": {
                 "current": "zia:index/getDlpDictionaryPredefinedIdentifiers:getDlpDictionaryPredefinedIdentifiers",
+                "majorVersion": 1,
                 "fields": {
                     "predefined_identifiers": {
                         "maxItemsOne": false
@@ -2281,6 +3085,7 @@
             },
             "zia_dlp_edm_schema": {
                 "current": "zia:index/getDLPEDMSchema:getDLPEDMSchema",
+                "majorVersion": 1,
                 "fields": {
                     "created_by": {
                         "maxItemsOne": false
@@ -2310,13 +3115,16 @@
                 }
             },
             "zia_dlp_engines": {
-                "current": "zia:index/getDLPEngines:getDLPEngines"
+                "current": "zia:index/getDLPEngines:getDLPEngines",
+                "majorVersion": 1
             },
             "zia_dlp_icap_servers": {
-                "current": "zia:index/getIcapServers:getIcapServers"
+                "current": "zia:index/getIcapServers:getIcapServers",
+                "majorVersion": 1
             },
             "zia_dlp_idm_profile_lite": {
                 "current": "zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite",
+                "majorVersion": 1,
                 "fields": {
                     "client_vm": {
                         "maxItemsOne": false
@@ -2328,6 +3136,7 @@
             },
             "zia_dlp_idm_profiles": {
                 "current": "zia:index/getDLPIDMProfiles:getDLPIDMProfiles",
+                "majorVersion": 1,
                 "fields": {
                     "idm_client": {
                         "maxItemsOne": false
@@ -2344,13 +3153,16 @@
                 }
             },
             "zia_dlp_incident_receiver_servers": {
-                "current": "zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers"
+                "current": "zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers",
+                "majorVersion": 1
             },
             "zia_dlp_notification_templates": {
-                "current": "zia:index/getDLPNotificationTemplates:getDLPNotificationTemplates"
+                "current": "zia:index/getDLPNotificationTemplates:getDLPNotificationTemplates",
+                "majorVersion": 1
             },
             "zia_dlp_web_rules": {
                 "current": "zia:index/getDLPWebRules:getDLPWebRules",
+                "majorVersion": 1,
                 "fields": {
                     "cloud_applications": {
                         "maxItemsOne": false
@@ -2374,6 +3186,9 @@
                         "maxItemsOne": false
                     },
                     "groups": {
+                        "maxItemsOne": false
+                    },
+                    "included_domain_profiles": {
                         "maxItemsOne": false
                     },
                     "labels": {
@@ -2418,11 +3233,25 @@
                     }
                 }
             },
+            "zia_domain_profiles": {
+                "current": "zia:index/getDomainProfiles:getDomainProfiles",
+                "majorVersion": 1,
+                "fields": {
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "predefined_email_domains": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_end_user_notification": {
-                "current": "zia:index/getEndUserNotification:getEndUserNotification"
+                "current": "zia:index/getEndUserNotification:getEndUserNotification",
+                "majorVersion": 1
             },
             "zia_file_type_control_rules": {
                 "current": "zia:index/getFileTypeControlRules:getFileTypeControlRules",
+                "majorVersion": 1,
                 "fields": {
                     "cloud_applications": {
                         "maxItemsOne": false
@@ -2483,6 +3312,7 @@
                         "majorVersion": 0
                     }
                 ],
+                "majorVersion": 1,
                 "fields": {
                     "application_groups": {
                         "maxItemsOne": false
@@ -2559,7 +3389,8 @@
                 }
             },
             "zia_firewall_filtering_application_services": {
-                "current": "zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices"
+                "current": "zia:index/getFirewallFilteringAppServices:getFirewallFilteringAppServices",
+                "majorVersion": 1
             },
             "zia_firewall_filtering_application_services_group": {
                 "current": "zia:index/getFirewallFilteringAppGroup:getFirewallFilteringAppGroup",
@@ -2569,10 +3400,12 @@
                         "inCodegen": true,
                         "majorVersion": 0
                     }
-                ]
+                ],
+                "majorVersion": 1
             },
             "zia_firewall_filtering_destination_groups": {
                 "current": "zia:index/getFirewallFilteringDestinationGroups:getFirewallFilteringDestinationGroups",
+                "majorVersion": 1,
                 "fields": {
                     "addresses": {
                         "maxItemsOne": false
@@ -2587,6 +3420,7 @@
             },
             "zia_firewall_filtering_ip_source_groups": {
                 "current": "zia:index/getFirewallFilteringSourceIPGroups:getFirewallFilteringSourceIPGroups",
+                "majorVersion": 1,
                 "fields": {
                     "ip_addresses": {
                         "maxItemsOne": false
@@ -2594,10 +3428,12 @@
                 }
             },
             "zia_firewall_filtering_network_application": {
-                "current": "zia:index/getFirewallFilteringApplication:getFirewallFilteringApplication"
+                "current": "zia:index/getFirewallFilteringApplication:getFirewallFilteringApplication",
+                "majorVersion": 1
             },
             "zia_firewall_filtering_network_application_groups": {
                 "current": "zia:index/getFirewallFilteringApplicationGroups:getFirewallFilteringApplicationGroups",
+                "majorVersion": 1,
                 "fields": {
                     "network_applications": {
                         "maxItemsOne": false
@@ -2606,6 +3442,7 @@
             },
             "zia_firewall_filtering_network_service": {
                 "current": "zia:index/getFirewallFilteringNetworkServices:getFirewallFilteringNetworkServices",
+                "majorVersion": 1,
                 "fields": {
                     "dest_tcp_ports": {
                         "maxItemsOne": false
@@ -2623,6 +3460,7 @@
             },
             "zia_firewall_filtering_network_service_groups": {
                 "current": "zia:index/getFirewallFilteringNetworkServiceGroups:getFirewallFilteringNetworkServiceGroups",
+                "majorVersion": 1,
                 "fields": {
                     "services": {
                         "maxItemsOne": false
@@ -2631,6 +3469,7 @@
             },
             "zia_firewall_filtering_rule": {
                 "current": "zia:index/getFirewallFilteringRule:getFirewallFilteringRule",
+                "majorVersion": 1,
                 "fields": {
                     "app_service_groups": {
                         "maxItemsOne": false
@@ -2742,6 +3581,7 @@
             },
             "zia_firewall_filtering_time_window": {
                 "current": "zia:index/getTimeWindow:getTimeWindow",
+                "majorVersion": 1,
                 "fields": {
                     "day_of_week": {
                         "maxItemsOne": false
@@ -2757,6 +3597,7 @@
                         "majorVersion": 0
                     }
                 ],
+                "majorVersion": 1,
                 "fields": {
                     "departments": {
                         "maxItemsOne": false
@@ -2832,8 +3673,21 @@
                     }
                 }
             },
+            "zia_forwarding_control_proxies": {
+                "current": "zia:index/getForwardingControlProxies:getForwardingControlProxies",
+                "majorVersion": 1,
+                "fields": {
+                    "cert": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_forwarding_control_proxy_gateway": {
                 "current": "zia:index/getForwardingControlProxyGateway:getForwardingControlProxyGateway",
+                "majorVersion": 1,
                 "fields": {
                     "last_modified_by": {
                         "maxItemsOne": false
@@ -2848,6 +3702,7 @@
             },
             "zia_forwarding_control_rule": {
                 "current": "zia:index/getForwardingControlRule:getForwardingControlRule",
+                "majorVersion": 1,
                 "fields": {
                     "departments": {
                         "maxItemsOne": false
@@ -2934,6 +3789,7 @@
             },
             "zia_forwarding_control_zpa_gateway": {
                 "current": "zia:index/getForwardingControlZPAGateway:getForwardingControlZPAGateway",
+                "majorVersion": 1,
                 "fields": {
                     "last_modified_by": {
                         "maxItemsOne": false
@@ -2946,8 +3802,21 @@
                     }
                 }
             },
+            "zia_ftp_control_policy": {
+                "current": "zia:index/getFtpControlPolicy:getFtpControlPolicy",
+                "majorVersion": 1,
+                "fields": {
+                    "url_categories": {
+                        "maxItemsOne": false
+                    },
+                    "urls": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_gre_internal_ip_range_list": {
                 "current": "zia:index/getTrafficForwardingGREInternalIPRange:getTrafficForwardingGREInternalIPRange",
+                "majorVersion": 1,
                 "fields": {
                     "list": {
                         "maxItemsOne": false
@@ -2955,10 +3824,12 @@
                 }
             },
             "zia_group_management": {
-                "current": "zia:index/getGroupManagement:getGroupManagement"
+                "current": "zia:index/getGroupManagement:getGroupManagement",
+                "majorVersion": 1
             },
             "zia_location_groups": {
                 "current": "zia:index/getLocationGroups:getLocationGroups",
+                "majorVersion": 1,
                 "fields": {
                     "dynamic_location_group_criteria": {
                         "maxItemsOne": false,
@@ -2991,11 +3862,22 @@
                 }
             },
             "zia_location_lite": {
-                "current": "zia:index/getLocationLite:getLocationLite"
+                "current": "zia:index/getLocationLite:getLocationLite",
+                "majorVersion": 1
             },
             "zia_location_management": {
                 "current": "zia:index/getLocationManagement:getLocationManagement",
+                "majorVersion": 1,
                 "fields": {
+                    "extranet": {
+                        "maxItemsOne": false
+                    },
+                    "extranet_dns": {
+                        "maxItemsOne": false
+                    },
+                    "extranet_ip_pool": {
+                        "maxItemsOne": false
+                    },
                     "ip_addresses": {
                         "maxItemsOne": false
                     },
@@ -3017,8 +3899,107 @@
                     }
                 }
             },
+            "zia_mobile_malware_protection_policy": {
+                "current": "zia:index/getMobileMalwareProtectionPolicy:getMobileMalwareProtectionPolicy",
+                "majorVersion": 1
+            },
+            "zia_nat_control_rules": {
+                "current": "zia:index/getNatControlRules:getNatControlRules",
+                "majorVersion": 1,
+                "fields": {
+                    "departments": {
+                        "maxItemsOne": false
+                    },
+                    "dest_addresses": {
+                        "maxItemsOne": false
+                    },
+                    "dest_countries": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_categories": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "dest_ipv6_groups": {
+                        "maxItemsOne": false
+                    },
+                    "device_groups": {
+                        "maxItemsOne": false
+                    },
+                    "devices": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "location_groups": {
+                        "maxItemsOne": false
+                    },
+                    "locations": {
+                        "maxItemsOne": false
+                    },
+                    "nw_service_groups": {
+                        "maxItemsOne": false
+                    },
+                    "nw_services": {
+                        "maxItemsOne": false
+                    },
+                    "res_categories": {
+                        "maxItemsOne": false
+                    },
+                    "src_ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "src_ips": {
+                        "maxItemsOne": false
+                    },
+                    "src_ipv6_groups": {
+                        "maxItemsOne": false
+                    },
+                    "time_windows": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_nss_server": {
+                "current": "zia:index/getNssServer:getNssServer",
+                "majorVersion": 1
+            },
+            "zia_risk_profiles": {
+                "current": "zia:index/getRiskProfiles:getRiskProfiles",
+                "majorVersion": 1,
+                "fields": {
+                    "certifications": {
+                        "maxItemsOne": false
+                    },
+                    "custom_tags": {
+                        "maxItemsOne": false
+                    },
+                    "data_encryption_in_transit": {
+                        "maxItemsOne": false
+                    },
+                    "last_modified_by": {
+                        "maxItemsOne": false
+                    },
+                    "risk_index": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_rule_labels": {
                 "current": "zia:index/getRuleLabels:getRuleLabels",
+                "majorVersion": 1,
                 "fields": {
                     "created_by": {
                         "maxItemsOne": false
@@ -3030,6 +4011,7 @@
             },
             "zia_sandbox_behavioral_analysis": {
                 "current": "zia:index/getSandboxBehavioralAnalysis:getSandboxBehavioralAnalysis",
+                "majorVersion": 1,
                 "fields": {
                     "file_hashes_to_be_blocked": {
                         "maxItemsOne": false
@@ -3038,6 +4020,7 @@
             },
             "zia_sandbox_report": {
                 "current": "zia:index/getSandboxReport:getSandboxReport",
+                "majorVersion": 1,
                 "fields": {
                     "classification": {
                         "maxItemsOne": false
@@ -3125,6 +4108,7 @@
             },
             "zia_sandbox_rules": {
                 "current": "zia:index/getSandboxRules:getSandboxRules",
+                "majorVersion": 1,
                 "fields": {
                     "ba_policy_categories": {
                         "maxItemsOne": false
@@ -3166,6 +4150,7 @@
             },
             "zia_security_settings": {
                 "current": "zia:index/getSecuritySettings:getSecuritySettings",
+                "majorVersion": 1,
                 "fields": {
                     "blacklist_urls": {
                         "maxItemsOne": false
@@ -3177,6 +4162,7 @@
             },
             "zia_ssl_inspection_rules": {
                 "current": "zia:index/getSSLInspectionRules:getSSLInspectionRules",
+                "majorVersion": 1,
                 "fields": {
                     "action": {
                         "maxItemsOne": false,
@@ -3287,8 +4273,45 @@
                     }
                 }
             },
+            "zia_subscription_alert": {
+                "current": "zia:index/getSubscriptionAlert:getSubscriptionAlert",
+                "majorVersion": 1,
+                "fields": {
+                    "comply_severities": {
+                        "maxItemsOne": false
+                    },
+                    "manage_severities": {
+                        "maxItemsOne": false
+                    },
+                    "pt0_severities": {
+                        "maxItemsOne": false
+                    },
+                    "secure_severities": {
+                        "maxItemsOne": false
+                    },
+                    "system_severities": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "zia_tenant_restriction_profile": {
+                "current": "zia:index/getTenantRestrictionProfile:getTenantRestrictionProfile",
+                "majorVersion": 1,
+                "fields": {
+                    "item_data_primary": {
+                        "maxItemsOne": false
+                    },
+                    "item_data_secondary": {
+                        "maxItemsOne": false
+                    },
+                    "item_value": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_traffic_forwarding_gre_tunnel": {
                 "current": "zia:index/getTrafficForwardingGRETunnel:getTrafficForwardingGRETunnel",
+                "majorVersion": 1,
                 "fields": {
                     "last_modified_by": {
                         "maxItemsOne": false
@@ -3305,10 +4328,12 @@
                 }
             },
             "zia_traffic_forwarding_gre_tunnel_info": {
-                "current": "zia:index/getTrafficForwardingGRETunnelInfo:getTrafficForwardingGRETunnelInfo"
+                "current": "zia:index/getTrafficForwardingGRETunnelInfo:getTrafficForwardingGRETunnelInfo",
+                "majorVersion": 1
             },
             "zia_traffic_forwarding_gre_vip_recommended_list": {
                 "current": "zia:index/getTrafficForwardingVIPRecommendedList:getTrafficForwardingVIPRecommendedList",
+                "majorVersion": 1,
                 "fields": {
                     "list": {
                         "maxItemsOne": false
@@ -3317,6 +4342,7 @@
             },
             "zia_traffic_forwarding_public_node_vips": {
                 "current": "zia:index/getTrafficForwardingNodeVIPs:getTrafficForwardingNodeVIPs",
+                "majorVersion": 1,
                 "fields": {
                     "gre_ips": {
                         "maxItemsOne": false
@@ -3331,6 +4357,7 @@
             },
             "zia_traffic_forwarding_static_ip": {
                 "current": "zia:index/getTrafficForwardingStaticIP:getTrafficForwardingStaticIP",
+                "majorVersion": 1,
                 "fields": {
                     "city": {
                         "maxItemsOne": false
@@ -3345,6 +4372,7 @@
             },
             "zia_traffic_forwarding_vpn_credentials": {
                 "current": "zia:index/getTrafficForwardingVPNCredentials:getTrafficForwardingVPNCredentials",
+                "majorVersion": 1,
                 "fields": {
                     "location": {
                         "maxItemsOne": false
@@ -3356,6 +4384,7 @@
             },
             "zia_url_categories": {
                 "current": "zia:index/getURLCategories:getURLCategories",
+                "majorVersion": 1,
                 "fields": {
                     "db_categorized_urls": {
                         "maxItemsOne": false
@@ -3394,10 +4423,12 @@
                 }
             },
             "zia_url_filtering_and_cloud_app_settings": {
-                "current": "zia:index/getURLFilteringCloudAppSettings:getURLFilteringCloudAppSettings"
+                "current": "zia:index/getURLFilteringCloudAppSettings:getURLFilteringCloudAppSettings",
+                "majorVersion": 1
             },
             "zia_url_filtering_rules": {
                 "current": "zia:index/getURLFilteringRules:getURLFilteringRules",
+                "majorVersion": 1,
                 "fields": {
                     "cbi_profile": {
                         "maxItemsOne": false
@@ -3494,6 +4525,7 @@
             },
             "zia_user_management": {
                 "current": "zia:index/getUserManagement:getUserManagement",
+                "majorVersion": 1,
                 "fields": {
                     "auth_methods": {
                         "maxItemsOne": false
@@ -3506,8 +4538,18 @@
                     }
                 }
             },
+            "zia_virtual_service_edge_cluster": {
+                "current": "zia:index/getVirtualServiceEdgeCluster:getVirtualServiceEdgeCluster",
+                "majorVersion": 1,
+                "fields": {
+                    "virtual_zen_nodes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "zia_workload_groups": {
                 "current": "zia:index/getWorkloadGroups:getWorkloadGroups",
+                "majorVersion": 1,
                 "fields": {
                     "expression_json": {
                         "maxItemsOne": false,
@@ -3543,25 +4585,8 @@
     "auto-settings": {
         "resources": {
             "zia_firewall_ips_rule": {
-                "aliases": [
+                "renames": [
                     "zia:index/firewallIPSRule:FirewallIPSRule"
-                ]
-            }
-        },
-        "datasources": {
-            "zia_firewall_dns_rule": {
-                "renames": [
-                    "zia:index/getFirewallDnsRule:getFirewallDnsRule"
-                ]
-            },
-            "zia_firewall_filtering_application_services_group": {
-                "renames": [
-                    "zia:index/getFirewallFilteringAppGroups:getFirewallFilteringAppGroups"
-                ]
-            },
-            "zia_firewall_ips_rule": {
-                "renames": [
-                    "zia:index/getFirewallIpsRule:getFirewallIpsRule"
                 ]
             }
         }
