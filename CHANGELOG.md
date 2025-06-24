@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.1 (June, 24 2025)
+
+### Notes
+
+- Release date: **(June, 24 2025)**
+- Supported Terraform version: **v1.x**
+
+### NEW - RESOURCES, DATA SOURCES
+
+- [PR #35](https://github.com/zscaler/pulumi-zia/pull/35) - Upgraded to ZIA Terraform Provider v4.3.2 to address bug related to OneAPI message parsing.
+
 ## 1.1.0 (June, 20 2025)
 
 ### Notes
