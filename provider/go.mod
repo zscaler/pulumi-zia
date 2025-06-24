@@ -9,7 +9,7 @@ replace github.com/olekukonko/tablewriter => github.com/olekukonko/tablewriter v
 require (
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.110.0
 	github.com/pulumi/pulumi/sdk/v3 v3.175.0
-	github.com/zscaler/terraform-provider-zia/v4 v4.3.0
+	github.com/zscaler/terraform-provider-zia/v4 v4.3.2
 )
 
 require (
