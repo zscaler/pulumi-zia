@@ -9,7 +9,7 @@ replace github.com/olekukonko/tablewriter => github.com/olekukonko/tablewriter v
 require (
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.110.0
 	github.com/pulumi/pulumi/sdk/v3 v3.175.0
-	github.com/zscaler/terraform-provider-zia/v4 v4.3.2
+	github.com/zscaler/terraform-provider-zia/v4 v4.3.3
 )
 
 require (
@@ -162,7 +162,7 @@ require (
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
 	github.com/zclconf/go-cty v1.16.2 // indirect
-	github.com/zscaler/zscaler-sdk-go/v3 v3.5.0 // indirect
+	github.com/zscaler/zscaler-sdk-go/v3 v3.5.2 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
