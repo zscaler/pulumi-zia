@@ -8,7 +8,7 @@ replace github.com/olekukonko/tablewriter => github.com/olekukonko/tablewriter v
 
 require (
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.110.0
-	github.com/pulumi/pulumi/sdk/v3 v3.175.0
+	github.com/pulumi/pulumi/sdk/v3 v3.181.0
 	github.com/zscaler/terraform-provider-zia/v4 v4.3.2
 )
 
@@ -130,7 +130,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.14.2 // indirect
+	github.com/pulumi/esc v0.14.3 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.12.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.19.1 // indirect
@@ -162,7 +162,7 @@ require (
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
 	github.com/zclconf/go-cty v1.16.2 // indirect
-	github.com/zscaler/zscaler-sdk-go/v3 v3.5.0 // indirect
+	github.com/zscaler/zscaler-sdk-go/v3 v3.5.1 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
@@ -171,7 +171,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.34.0 // indirect
 	go.opentelemetry.io/otel/trace v1.34.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
-	golang.org/x/crypto v0.38.0 // indirect
+	golang.org/x/crypto v0.39.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
 	golang.org/x/mod v0.25.0 // indirect
 	golang.org/x/net v0.40.0 // indirect

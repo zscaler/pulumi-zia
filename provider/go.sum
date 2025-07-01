@@ -2126,6 +2126,8 @@ github.com/opentracing/opentracing-go v1.2.0/go.mod h1:GxEUsuufX4nBwe+T+Wl9TAgYr
 github.com/orisano/pixelmatch v0.0.0-20220722002657-fb0b55479cde/go.mod h1:nZgzbfBr3hhjoZnS66nKrHmduYNpc34ny7RK4z5/HM0=
 github.com/pgavlin/fx v0.1.6 h1:r9jEg69DhNoCd3Xh0+5mIbdbS3PqWrVWujkY76MFRTU=
 github.com/pgavlin/fx v0.1.6/go.mod h1:KWZJ6fqBBSh8GxHYqwYCf3rYE7Gp2p0N8tJp8xv9u9M=
+github.com/pgavlin/fx/v2 v2.0.3 h1:ZBVklTFjxcWvBVPE+ti5qwnmTIQ0Gq6nuj3J5RKDtKk=
+github.com/pgavlin/fx/v2 v2.0.3/go.mod h1:Cvnwqq0BopdHUJ7CU50h1XPeKrF4ZwdFj1nJLXbAjCE=
 github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 h1:LoCV5cscNVWyK5ChN/uCoIFJz8jZD63VQiGJIRgr6uo=
 github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386/go.mod h1:MRxHTJrf9FhdfNQ8Hdeh9gmHevC9RJE/fu8M3JIGjoE=
 github.com/phpdave11/gofpdf v1.4.2/go.mod h1:zpO6xFn9yxo3YLyMvW8HcKWVdbNqgIfOOp2dXMnm1mY=
@@ -2162,8 +2164,8 @@ github.com/prometheus/client_model v0.6.0/go.mod h1:NTQHnmxFpouOD0DpvP4XujX3CdOA
 github.com/prometheus/client_model v0.6.1/go.mod h1:OrxVMOVHjw3lKMa8+x6HeMGkHMQyHDk9E3jmP2AmGiY=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435cARxCW6q9gc0S/Yxz7Mkd38pOb0=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
-github.com/pulumi/esc v0.14.2 h1:xHpjJXzKs1hk/QPpgwe1Rmif3VWA0QcZ7jDvTFYX/jM=
-github.com/pulumi/esc v0.14.2/go.mod h1:0dNzCWIiRUmdfFrhHdeBzU4GiDPBhSfpeWDNApZwZ08=
+github.com/pulumi/esc v0.14.3 h1:Zli+9LiSDT/W+Fsfr8tITxCo+5wn969tLrE4KLv44G8=
+github.com/pulumi/esc v0.14.3/go.mod h1:XnSxlt5NkmuAj304l/gK4pRErFbtqq6XpfX1tYT9Jbc=
 github.com/pulumi/inflector v0.1.1 h1:dvlxlWtXwOJTUUtcYDvwnl6Mpg33prhK+7mzeF+SobA=
 github.com/pulumi/inflector v0.1.1/go.mod h1:HUFCjcPTz96YtTuUlwG3i3EZG4WlniBvR9bd+iJxCUY=
 github.com/pulumi/providertest v0.3.0 h1:Dv10aoFaNQBDRtK8cRbd2uk9vEhpC/NryN+0y7NX4/o=
@@ -2176,8 +2178,8 @@ github.com/pulumi/pulumi-yaml v1.19.1 h1:Y92eTQv07p5RbbNj6s/54+ibdPgvndLJ2Lb1IjY
 github.com/pulumi/pulumi-yaml v1.19.1/go.mod h1:n1JTtfUXR1IWVJ86HvMvQglK5mrDeDduxsLifGW1WIA=
 github.com/pulumi/pulumi/pkg/v3 v3.175.0 h1:MsL2cnpGWivS/DLZ7MbJr0zMNg4P+pUprCEXvGoKBd4=
 github.com/pulumi/pulumi/pkg/v3 v3.175.0/go.mod h1:neGNOTNMYSGUrh/L8kiAgowHRoB/kMmmutPo8WcLzM4=
-github.com/pulumi/pulumi/sdk/v3 v3.175.0 h1:vANFQOpWjJFCuVBim7AfOM3hHnNHgjJ8NlVwG1qezd4=
-github.com/pulumi/pulumi/sdk/v3 v3.175.0/go.mod h1:AD2BrIxFG4wdCLCFODrOasXhURwrD/8hHrwBcjzyU9Y=
+github.com/pulumi/pulumi/sdk/v3 v3.181.0 h1:6XeYlG/mymtutRXlggcCLtxqBJPGCHNUGgoj4mapZQw=
+github.com/pulumi/pulumi/sdk/v3 v3.181.0/go.mod h1:YS7uQ+eoIV/Fco804Upv3jmz5pwo/MkLYmbGH3VgA9c=
 github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQKpfZo=
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=
@@ -2321,10 +2323,10 @@ github.com/zclconf/go-cty-yaml v1.0.3/go.mod h1:9YLUH4g7lOhVWqUbctnVlZ5KLpg7JApr
 github.com/zeebo/assert v1.3.0/go.mod h1:Pq9JiuJQpG8JLJdtkwrJESF0Foym2/D9XMU5ciN/wJ0=
 github.com/zeebo/errs v1.4.0/go.mod h1:sgbWHsvVuTPHcqJJGQ1WhI5KbWlHYz+2+2C/LSEtCw4=
 github.com/zeebo/xxh3 v1.0.2/go.mod h1:5NWz9Sef7zIDm2JHfFlcQvNekmcEl9ekUZQQKCYaDcA=
-github.com/zscaler/terraform-provider-zia/v4 v4.3.0 h1:GtH9B7RyqBvkd+brTtbbR6G/pipPzg8kcpdw34QzFUw=
-github.com/zscaler/terraform-provider-zia/v4 v4.3.0/go.mod h1:emQmDSOsq+O5oPkQVX4K8qdaXw0KQUSqYVaWTDBGnQg=
-github.com/zscaler/zscaler-sdk-go/v3 v3.5.0 h1:kpnpR/a/cszucfu00+AZ9sxkLaqLB1JTjFE58zP0Wsg=
-github.com/zscaler/zscaler-sdk-go/v3 v3.5.0/go.mod h1:QyWbdooucR7zkSJNz/Yp+PzZa/wrbhQr2xmAJJkUziY=
+github.com/zscaler/terraform-provider-zia/v4 v4.3.2 h1:NLfUXMYDVJRSkems4Ziqciyz2ZH9u7IBLUKfxG9YbX4=
+github.com/zscaler/terraform-provider-zia/v4 v4.3.2/go.mod h1:352c/aDkFh4YzUFVQMn0EUWsKlKyQ0bnYbPkkj0lOjc=
+github.com/zscaler/zscaler-sdk-go/v3 v3.5.1 h1:nGlfRQu2YFJFi/9ibgqfVGz5riX+DhlqRBxQ1ypVkqk=
+github.com/zscaler/zscaler-sdk-go/v3 v3.5.1/go.mod h1:QyWbdooucR7zkSJNz/Yp+PzZa/wrbhQr2xmAJJkUziY=
 go.einride.tech/aip v0.66.0/go.mod h1:qAhMsfT7plxBX+Oy7Huol6YUvZ0ZzdUz26yZsQwfl1M=
 go.opencensus.io v0.21.0/go.mod h1:mSImk1erAIZhrmZN+AvHh14ztQfjbGwt4TtuofqLduU=
 go.opencensus.io v0.22.0/go.mod h1:+kGneAE2xo2IficOXnaByMWTGM9T73dGwxeWcUqIpI8=
@@ -2437,8 +2439,9 @@ golang.org/x/crypto v0.32.0/go.mod h1:ZnnJkOaASj8g0AjIduWNlq2NRxL0PlBrbKVyZ6V/Ug
 golang.org/x/crypto v0.33.0/go.mod h1:bVdXmD7IV/4GdElGPozy6U7lWdRXA4qyRVGJV57uQ5M=
 golang.org/x/crypto v0.35.0/go.mod h1:dy7dXNW32cAb/6/PRuTNsix8T+vJAqvuIy5Bli/x0YQ=
 golang.org/x/crypto v0.37.0/go.mod h1:vg+k43peMZ0pUMhYmVAWysMK35e6ioLh3wB8ZCAfbVc=
-golang.org/x/crypto v0.38.0 h1:jt+WWG8IZlBnVbomuhg2Mdq0+BBQaHbtqHEFEigjUV8=
 golang.org/x/crypto v0.38.0/go.mod h1:MvrbAqul58NNYPKnOra203SB9vpuZW0e+RRZV+Ggqjw=
+golang.org/x/crypto v0.39.0 h1:SHs+kF4LP+f+p14esP5jAoDpHU8Gu/v9lFRK6IT5imM=
+golang.org/x/crypto v0.39.0/go.mod h1:L+Xg3Wf6HoL4Bn4238Z6ft6KfEpN0tJGo53AAPC632U=
 golang.org/x/exp v0.0.0-20180321215751-8460e604b9de/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20180807140117-3d87b88a115f/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
