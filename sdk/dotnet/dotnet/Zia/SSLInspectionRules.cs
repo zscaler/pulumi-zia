@@ -11,6 +11,27 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+    /// * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+    /// 
+    /// The **zia_ssl_inspection_rules** resource allows the creation and management of SSL Inspection rules in the Zscaler Internet Access.
+    /// 
+    /// **NOTE 1** Zscaler SSL Inspection rules contain default and predefined rules which cannot be deleted. The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+    /// - Automatically place new rules at the correct position
+    /// - Handle reordering around predefined rules
+    /// - Avoid configuration drift
+    /// 
+    /// Example: If there are 2 predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+    /// 
+    /// **NOTE 2** Certain attributes on &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules can still be managed or updated via Terraform such as:
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`description`" pulumi-lang-dotnet="`Description`" pulumi-lang-go="`description`" pulumi-lang-python="`description`" pulumi-lang-yaml="`description`" pulumi-lang-java="`description`"&gt;`description`&lt;/span&gt; - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+    /// * &lt;span pulumi-lang-nodejs="`state`" pulumi-lang-dotnet="`State`" pulumi-lang-go="`state`" pulumi-lang-python="`state`" pulumi-lang-yaml="`state`" pulumi-lang-java="`state`"&gt;`state`&lt;/span&gt; - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to
+    /// * &lt;span pulumi-lang-nodejs="`labels`" pulumi-lang-dotnet="`Labels`" pulumi-lang-go="`labels`" pulumi-lang-python="`labels`" pulumi-lang-yaml="`labels`" pulumi-lang-java="`labels`"&gt;`labels`&lt;/span&gt; (list) - Labels that are applicable to the rule.
+    ///       - &lt;span pulumi-lang-nodejs="`id`" pulumi-lang-dotnet="`Id`" pulumi-lang-go="`id`" pulumi-lang-python="`id`" pulumi-lang-yaml="`id`" pulumi-lang-java="`id`"&gt;`id`&lt;/span&gt; - (Integer) Identifier that uniquely identifies an entity
+    /// 
+    /// **NOTE 3** The import of &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Action - DECRYPT
@@ -31,7 +52,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.SSLInspectionRulesAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+        /// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         [Output("cloudApplications")]
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
@@ -154,7 +175,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.SSLInspectionRulesTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
@@ -246,7 +267,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+        /// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -384,7 +405,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -458,7 +479,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+        /// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -599,7 +620,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         public InputList<string> UrlCategories
         {

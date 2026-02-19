@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
         /// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
         /// 
-        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxy_gateway` when creating a Forwarding Control Rule via the resource: `zia.ForwardingControlRule`
+        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute &lt;span pulumi-lang-nodejs="`proxyGateway`" pulumi-lang-dotnet="`ProxyGateway`" pulumi-lang-go="`proxyGateway`" pulumi-lang-python="`proxy_gateway`" pulumi-lang-yaml="`proxyGateway`" pulumi-lang-java="`proxyGateway`"&gt;`proxy_gateway`&lt;/span&gt; when creating a Forwarding Control Rule via the resource: &lt;span pulumi-lang-nodejs="`zia.ForwardingControlRule`" pulumi-lang-dotnet="`zia.ForwardingControlRule`" pulumi-lang-go="`ForwardingControlRule`" pulumi-lang-python="`ForwardingControlRule`" pulumi-lang-yaml="`zia.ForwardingControlRule`" pulumi-lang-java="`zia.ForwardingControlRule`"&gt;`zia.ForwardingControlRule`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -34,7 +34,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
         /// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
         /// 
-        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxy_gateway` when creating a Forwarding Control Rule via the resource: `zia.ForwardingControlRule`
+        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute &lt;span pulumi-lang-nodejs="`proxyGateway`" pulumi-lang-dotnet="`ProxyGateway`" pulumi-lang-go="`proxyGateway`" pulumi-lang-python="`proxy_gateway`" pulumi-lang-yaml="`proxyGateway`" pulumi-lang-java="`proxyGateway`"&gt;`proxy_gateway`&lt;/span&gt; when creating a Forwarding Control Rule via the resource: &lt;span pulumi-lang-nodejs="`zia.ForwardingControlRule`" pulumi-lang-dotnet="`zia.ForwardingControlRule`" pulumi-lang-go="`ForwardingControlRule`" pulumi-lang-python="`ForwardingControlRule`" pulumi-lang-yaml="`zia.ForwardingControlRule`" pulumi-lang-java="`zia.ForwardingControlRule`"&gt;`zia.ForwardingControlRule`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -52,7 +52,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-gateways-proxies)
         /// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/proxyGateways-get)
         /// 
-        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute `proxy_gateway` when creating a Forwarding Control Rule via the resource: `zia.ForwardingControlRule`
+        /// Use the **zia_forwarding_control_proxy_gateway** data source to retrieve the proxy gateway information. This data source can then be associated with the attribute &lt;span pulumi-lang-nodejs="`proxyGateway`" pulumi-lang-dotnet="`ProxyGateway`" pulumi-lang-go="`proxyGateway`" pulumi-lang-python="`proxy_gateway`" pulumi-lang-yaml="`proxyGateway`" pulumi-lang-java="`proxyGateway`"&gt;`proxy_gateway`&lt;/span&gt; when creating a Forwarding Control Rule via the resource: &lt;span pulumi-lang-nodejs="`zia.ForwardingControlRule`" pulumi-lang-dotnet="`zia.ForwardingControlRule`" pulumi-lang-go="`ForwardingControlRule`" pulumi-lang-python="`ForwardingControlRule`" pulumi-lang-yaml="`zia.ForwardingControlRule`" pulumi-lang-java="`zia.ForwardingControlRule`"&gt;`zia.ForwardingControlRule`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 

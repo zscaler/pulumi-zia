@@ -15,6 +15,20 @@ import (
 // * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
 //
 // Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
+//
+// ## Example Usage
+//
+// ### Query A URL Category By Name (Default - All Types)
+//
+// ### Query A URL Category By ID
+//
+// ### Query A URL_CATEGORY Type
+//
+// ### Query A TLD_CATEGORY Type
+//
+// ### Query All Category Types (Explicit)
+//
+// ### Query Predefined URL Categories
 func LookupURLCategories(ctx *pulumi.Context, args *LookupURLCategoriesArgs, opts ...pulumi.InvokeOption) (*LookupURLCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupURLCategoriesResult
@@ -27,20 +41,29 @@ func LookupURLCategories(ctx *pulumi.Context, args *LookupURLCategoriesArgs, opt
 
 // A collection of arguments for invoking getURLCategories.
 type LookupURLCategoriesArgs struct {
+	CategoryGroup *string `pulumi:"categoryGroup"`
 	// (String) Name of the URL category. This is only required for custom URL categories.
 	ConfiguredName *string `pulumi:"configuredName"`
 	// (Boolean) Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
 	CustomCategory *bool `pulumi:"customCategory"`
 	// (Number) The number of custom IP address ranges associated to the URL category.
 	CustomIpRangesCount *int `pulumi:"customIpRangesCount"`
-	// URL category
-	Id *string `pulumi:"id"`
+	// (String) Identifier that uniquely identifies an entity
+	Id                                     *string  `pulumi:"id"`
+	RegexPatterns                          []string `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories []string `pulumi:"regexPatternsRetainingParentCategories"`
 	// (String)
 	SuperCategory *string `pulumi:"superCategory"`
+	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+	Type    *string `pulumi:"type"`
+	UrlType *string `pulumi:"urlType"`
+	// (Number) The unique ID for the URL category.
+	Val *int `pulumi:"val"`
 }
 
 // A collection of values returned by getURLCategories.
 type LookupURLCategoriesResult struct {
+	CategoryGroup string `pulumi:"categoryGroup"`
 	// (String) Name of the URL category. This is only required for custom URL categories.
 	ConfiguredName string `pulumi:"configuredName"`
 	// (Boolean) Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
@@ -62,16 +85,19 @@ type LookupURLCategoriesResult struct {
 	// (Number) The number of custom IP address ranges associated to the URL category, that also need to be retained under the original parent category.
 	IpRangesRetainingParentCategoryCount int `pulumi:"ipRangesRetainingParentCategoryCount"`
 	// (List of String) Custom keywords associated to a URL category. Up to 2048 custom keywords can be added per organization across all categories (including bandwidth classes).
-	Keywords                          []string `pulumi:"keywords"`
-	KeywordsRetainingParentCategories []string `pulumi:"keywordsRetainingParentCategories"`
+	Keywords                               []string `pulumi:"keywords"`
+	KeywordsRetainingParentCategories      []string `pulumi:"keywordsRetainingParentCategories"`
+	RegexPatterns                          []string `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories []string `pulumi:"regexPatternsRetainingParentCategories"`
 	// (List of Object) Scope of the custom categories.
 	Scopes []GetURLCategoriesScope `pulumi:"scopes"`
 	// (String)
 	SuperCategory *string `pulumi:"superCategory"`
 	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// (List of Object) URL and keyword counts for the category.
 	UrlKeywordCounts []GetURLCategoriesUrlKeywordCount `pulumi:"urlKeywordCounts"`
+	UrlType          *string                           `pulumi:"urlType"`
 	// (List of String) Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
 	Urls []string `pulumi:"urls"`
 	// (Number) The number of custom URLs associated to the URL category, that also need to be retained under the original parent category.
@@ -91,16 +117,24 @@ func LookupURLCategoriesOutput(ctx *pulumi.Context, args LookupURLCategoriesOutp
 
 // A collection of arguments for invoking getURLCategories.
 type LookupURLCategoriesOutputArgs struct {
+	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// (String) Name of the URL category. This is only required for custom URL categories.
 	ConfiguredName pulumi.StringPtrInput `pulumi:"configuredName"`
 	// (Boolean) Set to true for custom URL category. Up to 48 custom URL categories can be added per organization.
 	CustomCategory pulumi.BoolPtrInput `pulumi:"customCategory"`
 	// (Number) The number of custom IP address ranges associated to the URL category.
 	CustomIpRangesCount pulumi.IntPtrInput `pulumi:"customIpRangesCount"`
-	// URL category
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	// (String) Identifier that uniquely identifies an entity
+	Id                                     pulumi.StringPtrInput   `pulumi:"id"`
+	RegexPatterns                          pulumi.StringArrayInput `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories pulumi.StringArrayInput `pulumi:"regexPatternsRetainingParentCategories"`
 	// (String)
 	SuperCategory pulumi.StringPtrInput `pulumi:"superCategory"`
+	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	UrlType pulumi.StringPtrInput `pulumi:"urlType"`
+	// (Number) The unique ID for the URL category.
+	Val pulumi.IntPtrInput `pulumi:"val"`
 }
 
 func (LookupURLCategoriesOutputArgs) ElementType() reflect.Type {
@@ -120,6 +154,10 @@ func (o LookupURLCategoriesResultOutput) ToLookupURLCategoriesResultOutput() Loo
 
 func (o LookupURLCategoriesResultOutput) ToLookupURLCategoriesResultOutputWithContext(ctx context.Context) LookupURLCategoriesResultOutput {
 	return o
+}
+
+func (o LookupURLCategoriesResultOutput) CategoryGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupURLCategoriesResult) string { return v.CategoryGroup }).(pulumi.StringOutput)
 }
 
 // (String) Name of the URL category. This is only required for custom URL categories.
@@ -184,6 +222,14 @@ func (o LookupURLCategoriesResultOutput) KeywordsRetainingParentCategories() pul
 	return o.ApplyT(func(v LookupURLCategoriesResult) []string { return v.KeywordsRetainingParentCategories }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupURLCategoriesResultOutput) RegexPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupURLCategoriesResult) []string { return v.RegexPatterns }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupURLCategoriesResultOutput) RegexPatternsRetainingParentCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupURLCategoriesResult) []string { return v.RegexPatternsRetainingParentCategories }).(pulumi.StringArrayOutput)
+}
+
 // (List of Object) Scope of the custom categories.
 func (o LookupURLCategoriesResultOutput) Scopes() GetURLCategoriesScopeArrayOutput {
 	return o.ApplyT(func(v LookupURLCategoriesResult) []GetURLCategoriesScope { return v.Scopes }).(GetURLCategoriesScopeArrayOutput)
@@ -195,13 +241,17 @@ func (o LookupURLCategoriesResultOutput) SuperCategory() pulumi.StringPtrOutput 
 }
 
 // (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-func (o LookupURLCategoriesResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupURLCategoriesResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupURLCategoriesResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupURLCategoriesResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // (List of Object) URL and keyword counts for the category.
 func (o LookupURLCategoriesResultOutput) UrlKeywordCounts() GetURLCategoriesUrlKeywordCountArrayOutput {
 	return o.ApplyT(func(v LookupURLCategoriesResult) []GetURLCategoriesUrlKeywordCount { return v.UrlKeywordCounts }).(GetURLCategoriesUrlKeywordCountArrayOutput)
+}
+
+func (o LookupURLCategoriesResultOutput) UrlType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupURLCategoriesResult) *string { return v.UrlType }).(pulumi.StringPtrOutput)
 }
 
 // (List of String) Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).

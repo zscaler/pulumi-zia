@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_forwarding_control_proxies** can be imported by using `<PROXY_ID>` or `<PROXY_NAME>` as the import ID.
@@ -69,36 +68,36 @@ export class ForwardingControlProxies extends pulumi.CustomResource {
     /**
      * The IP address or the FQDN of the third-party proxy service
      */
-    public readonly address!: pulumi.Output<string | undefined>;
+    declare public readonly address: pulumi.Output<string | undefined>;
     /**
      * (Boolean) Flag indicating whether the added X-Authenticated-User header is Base64 encoded. When enabled, the user ID is encoded using the Base64 encoding method.
      */
-    public readonly base64EncodeXauHeader!: pulumi.Output<boolean | undefined>;
+    declare public readonly base64EncodeXauHeader: pulumi.Output<boolean | undefined>;
     /**
      * (Set of Objects) The root certificate used by the third-party proxy to perform SSL inspection. This root certificate is used by Zscaler to validate the SSL leaf certificates signed by the upstream proxy. The required root certificate appears in this drop-down list only if it is uploaded from the Administration > Root Certificates page.
      */
-    public readonly certs!: pulumi.Output<outputs.ForwardingControlProxiesCert[] | undefined>;
+    declare public readonly certs: pulumi.Output<outputs.ForwardingControlProxiesCert[] | undefined>;
     /**
      * (String) Additional notes or information
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Boolean) Flag indicating whether X-Authenticated-User header is added by the proxy. Enable to automatically insert authenticated user ID to the HTTP header, X-Authenticated-User.
      */
-    public readonly insertXauHeader!: pulumi.Output<boolean | undefined>;
+    declare public readonly insertXauHeader: pulumi.Output<boolean | undefined>;
     /**
      * Proxy name for the third-party proxy services
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The port number on which the third-party proxy service listens to the requests forwarded from Zscaler
      */
-    public readonly port!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly proxyId!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly proxyId: pulumi.Output<number>;
     /**
      * Gateway type. Supported values: `PROXYCHAIN`, `ZIA`, `ECSELF`
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ForwardingControlProxies resource with the given unique name, arguments, and options.
@@ -113,25 +112,25 @@ export class ForwardingControlProxies extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ForwardingControlProxiesState | undefined;
-            resourceInputs["address"] = state ? state.address : undefined;
-            resourceInputs["base64EncodeXauHeader"] = state ? state.base64EncodeXauHeader : undefined;
-            resourceInputs["certs"] = state ? state.certs : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["insertXauHeader"] = state ? state.insertXauHeader : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["proxyId"] = state ? state.proxyId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["address"] = state?.address;
+            resourceInputs["base64EncodeXauHeader"] = state?.base64EncodeXauHeader;
+            resourceInputs["certs"] = state?.certs;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["insertXauHeader"] = state?.insertXauHeader;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["proxyId"] = state?.proxyId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ForwardingControlProxiesArgs | undefined;
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["base64EncodeXauHeader"] = args ? args.base64EncodeXauHeader : undefined;
-            resourceInputs["certs"] = args ? args.certs : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["insertXauHeader"] = args ? args.insertXauHeader : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["address"] = args?.address;
+            resourceInputs["base64EncodeXauHeader"] = args?.base64EncodeXauHeader;
+            resourceInputs["certs"] = args?.certs;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["insertXauHeader"] = args?.insertXauHeader;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["type"] = args?.type;
             resourceInputs["proxyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

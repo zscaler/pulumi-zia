@@ -29,6 +29,8 @@ func GetLocationGroups(ctx *pulumi.Context, args *GetLocationGroupsArgs, opts ..
 type GetLocationGroupsArgs struct {
 	// (Block Set) Dynamic location group information.
 	DynamicLocationGroupCriterias []GetLocationGroupsDynamicLocationGroupCriteria `pulumi:"dynamicLocationGroupCriterias"`
+	// Unique identifier for the location group
+	Id *int `pulumi:"id"`
 	// Location group name
 	Name *string `pulumi:"name"`
 }
@@ -70,6 +72,8 @@ func GetLocationGroupsOutput(ctx *pulumi.Context, args GetLocationGroupsOutputAr
 type GetLocationGroupsOutputArgs struct {
 	// (Block Set) Dynamic location group information.
 	DynamicLocationGroupCriterias GetLocationGroupsDynamicLocationGroupCriteriaArrayInput `pulumi:"dynamicLocationGroupCriterias"`
+	// Unique identifier for the location group
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Location group name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }

@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+ * * [API documentation](https://help.zscaler.com/zia/sandbox-submission-api#/zscsb/submit-post)
+ *
+ * The **zia_sandbox_file_submission** resource submits raw or archive files (e.g., ZIP) to Zscaler's Sandbox for analysis. You can submit up to 100 files per day and it supports all file types that are currently supported by Sandbox. The resource also allows the submissions of raw or archive files to the Zscaler service for out-of-band file inspection to generate real-time verdicts for known and unknown files. It leverages capabilities such as Malware Prevention, Advanced Threat Prevention, Sandbox cloud effect, AI/ML-driven file analysis, and integrated third-party threat intelligence feeds to inspect files and classify them as benign or malicious instantaneously.
+ *
+ * ⚠️ **WARNING 1:**: Zscaler Cloud Sandbox is a subscription service and requires additional license. To learn more, contact Zscaler Support or your local account team.
+ *
+ * ⚠️ **WARNING 2:**: The ZIA Terraform provider requires both the `ZIA_CLOUD` and `ZIA_SANDBOX_TOKEN` in order to authenticate to the Zscaler Cloud Sandbox environment. For details on how obtain the API Token visit the Zscaler help portal [About Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token)
+ *
+ * **Note 1**: After files are sent for analysis, you must use GET /sandbox/report/{md5Hash} in order to retrieve the verdict. You can get the Sandbox report 10 minutes after a file is sent for analysis.
+ *
+ * **Note 2**: All file types that are currently supported by the Malware Protection policy and Advanced Threat Protection policy are supported for inspection, and each file is limited to a size of 400 MB.
+ *
  * ## Example Usage
  *
  * ### Submit Raw Or Archive Files
@@ -39,25 +52,25 @@ export class SandboxFileSubmission extends pulumi.CustomResource {
         return obj['__pulumiType'] === SandboxFileSubmission.__pulumiType;
     }
 
-    public /*out*/ readonly code!: pulumi.Output<number>;
+    declare public /*out*/ readonly code: pulumi.Output<number>;
     /**
      * (Required) The path where the raw or archive files for submission are located.
      */
-    public readonly filePath!: pulumi.Output<string>;
-    public /*out*/ readonly fileType!: pulumi.Output<string>;
+    declare public readonly filePath: pulumi.Output<string>;
+    declare public /*out*/ readonly fileType: pulumi.Output<string>;
     /**
      * (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are `true` or `false`
      */
-    public readonly force!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly md5!: pulumi.Output<string>;
-    public /*out*/ readonly message!: pulumi.Output<string>;
-    public /*out*/ readonly sandboxSubmission!: pulumi.Output<string>;
+    declare public readonly force: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly md5: pulumi.Output<string>;
+    declare public /*out*/ readonly message: pulumi.Output<string>;
+    declare public /*out*/ readonly sandboxSubmission: pulumi.Output<string>;
     /**
      * (Required) The submission method to be used. Supportedd values are: `submit` and `discan`
      */
-    public readonly submissionMethod!: pulumi.Output<string>;
-    public /*out*/ readonly virusName!: pulumi.Output<string>;
-    public /*out*/ readonly virusType!: pulumi.Output<string>;
+    declare public readonly submissionMethod: pulumi.Output<string>;
+    declare public /*out*/ readonly virusName: pulumi.Output<string>;
+    declare public /*out*/ readonly virusType: pulumi.Output<string>;
 
     /**
      * Create a SandboxFileSubmission resource with the given unique name, arguments, and options.
@@ -72,27 +85,27 @@ export class SandboxFileSubmission extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SandboxFileSubmissionState | undefined;
-            resourceInputs["code"] = state ? state.code : undefined;
-            resourceInputs["filePath"] = state ? state.filePath : undefined;
-            resourceInputs["fileType"] = state ? state.fileType : undefined;
-            resourceInputs["force"] = state ? state.force : undefined;
-            resourceInputs["md5"] = state ? state.md5 : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["sandboxSubmission"] = state ? state.sandboxSubmission : undefined;
-            resourceInputs["submissionMethod"] = state ? state.submissionMethod : undefined;
-            resourceInputs["virusName"] = state ? state.virusName : undefined;
-            resourceInputs["virusType"] = state ? state.virusType : undefined;
+            resourceInputs["code"] = state?.code;
+            resourceInputs["filePath"] = state?.filePath;
+            resourceInputs["fileType"] = state?.fileType;
+            resourceInputs["force"] = state?.force;
+            resourceInputs["md5"] = state?.md5;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["sandboxSubmission"] = state?.sandboxSubmission;
+            resourceInputs["submissionMethod"] = state?.submissionMethod;
+            resourceInputs["virusName"] = state?.virusName;
+            resourceInputs["virusType"] = state?.virusType;
         } else {
             const args = argsOrState as SandboxFileSubmissionArgs | undefined;
-            if ((!args || args.filePath === undefined) && !opts.urn) {
+            if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
-            if ((!args || args.submissionMethod === undefined) && !opts.urn) {
+            if (args?.submissionMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'submissionMethod'");
             }
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["submissionMethod"] = args ? args.submissionMethod : undefined;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["submissionMethod"] = args?.submissionMethod;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["fileType"] = undefined /*out*/;
             resourceInputs["md5"] = undefined /*out*/;

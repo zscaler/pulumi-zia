@@ -20,6 +20,8 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### By Name
+        /// 
         /// ```hcl
         /// # ZIA Admin User Data Source
         /// data "zia_device_groups" "ios"{
@@ -30,6 +32,13 @@ namespace zscaler.PulumiPackage.Zia
         /// ```hcl
         /// data "zia_device_groups" "android"{
         ///     name = "Android"
+        /// }
+        /// ```
+        /// 
+        /// ### Return All Groups
+        /// 
+        /// ```hcl
+        /// data "zia_device_groups" "all"{
         /// }
         /// ```
         /// </summary>
@@ -44,6 +53,8 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### By Name
+        /// 
         /// ```hcl
         /// # ZIA Admin User Data Source
         /// data "zia_device_groups" "ios"{
@@ -54,6 +65,13 @@ namespace zscaler.PulumiPackage.Zia
         /// ```hcl
         /// data "zia_device_groups" "android"{
         ///     name = "Android"
+        /// }
+        /// ```
+        /// 
+        /// ### Return All Groups
+        /// 
+        /// ```hcl
+        /// data "zia_device_groups" "all"{
         /// }
         /// ```
         /// </summary>
@@ -68,6 +86,8 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### By Name
+        /// 
         /// ```hcl
         /// # ZIA Admin User Data Source
         /// data "zia_device_groups" "ios"{
@@ -80,6 +100,13 @@ namespace zscaler.PulumiPackage.Zia
         ///     name = "Android"
         /// }
         /// ```
+        /// 
+        /// ### Return All Groups
+        /// 
+        /// ```hcl
+        /// data "zia_device_groups" "all"{
+        /// }
+        /// ```
         /// </summary>
         public static Output<GetDeviceGroupsResult> Invoke(GetDeviceGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupsResult>("zia:index/getDeviceGroups:getDeviceGroups", args ?? new GetDeviceGroupsInvokeArgs(), options.WithDefaults());
@@ -89,7 +116,13 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetDeviceGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the device group to be exported.
+        /// (String) The unique identifer for the device group.
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
+        /// The name of the device group to be exported. If not provided, all device groups will be returned.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -103,7 +136,13 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetDeviceGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the device group to be exported.
+        /// (String) The unique identifer for the device group.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the device group to be exported. If not provided, all device groups will be returned.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -137,7 +176,11 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// (String) The unique identifer for the device group.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
+        /// <summary>
+        /// (List) List of all device groups when no name is specified. Each item in the list contains the same attributes as above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDeviceGroupsListResult> Lists;
         /// <summary>
         /// (String) The device group name.
         /// </summary>
@@ -161,7 +204,9 @@ namespace zscaler.PulumiPackage.Zia
 
             string groupType,
 
-            int id,
+            int? id,
+
+            ImmutableArray<Outputs.GetDeviceGroupsListResult> lists,
 
             string? name,
 
@@ -174,6 +219,7 @@ namespace zscaler.PulumiPackage.Zia
             DeviceNames = deviceNames;
             GroupType = groupType;
             Id = id;
+            Lists = lists;
             Name = name;
             OsType = osType;
             Predefined = predefined;

@@ -8,31 +8,221 @@ import * as utilities from "./utilities";
  * * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
  * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
  *
- * The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static ip addresses in the Zscaler Internet Access cloud. The resource, can then be associated with other resources such as:
+ * The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static IP addresses in the Zscaler Internet Access cloud. The resource can then be associated with other resources such as:
  *
  * * VPN Credentials of type `IP`
  * * Location Management
  * * GRE Tunnel
  *
+ * ## 🎯 Automatic Coordinate Determination (v4.6.2+)
+ *
+ * Starting with **version 4.6.2**, the provider automatically determines latitude and longitude coordinates from the IP address, even when `geoOverride = true`. This means:
+ *
+ * * ✅ **No manual coordinate lookups** - Provider handles it automatically
+ * * ✅ **No drift issues** - State always contains exact API values
+ * * ✅ **Simpler configuration** - Omit `latitude` and `longitude` for automatic determination
+ * * ✅ **Fully backward compatible** - Explicit coordinates still work if provided
+ *
+ * **In short:** You can now use `geoOverride = true` without specifying coordinates! See examples below.
+ *
  * ## Example Usage
+ *
+ * ### Example 1: Auto-Determined Coordinates (Recommended)
+ *
+ * ### Example 2: User-Specified Coordinates (Optional)
+ *
+ * ### Example 3: Automatic Geolocation (geo_override = false)
+ *
+ * ## How Latitude and Longitude Are Determined
+ *
+ * The provider handles coordinates intelligently based on your configuration:
+ *
+ * ### When `geoOverride = false` (or omitted)
+ * * ✅ **Provider behavior**: Latitude and longitude are automatically determined by the ZIA API based on the IP address
+ * * ✅ **State file**: Will contain the API-determined coordinates
+ * * ✅ **User action**: None required - fully automatic
+ *
+ * ### When `geoOverride = true` WITHOUT coordinates
+ * * ✅ **Provider behavior**:
+ *   1. Creates the static IP with `geoOverride = false` first
+ *   2. Retrieves the auto-determined coordinates from the API
+ *   3. Updates the static IP with `geoOverride = true` using those coordinates
+ * * ✅ **State file**: Will contain the auto-determined coordinates
+ * * ✅ **User action**: None required - provider handles it automatically
+ * * ✅ **Result**: You get `geoOverride = true` without manually looking up coordinates
+ *
+ * ### When `geoOverride = true` WITH coordinates
+ * * ✅ **Provider behavior**: Uses your specified coordinates
+ * * ✅ **State file**: Will contain the exact values returned by the API (may have minor precision adjustments)
+ * * ✅ **User action**: Provide `latitude` and `longitude` values
+ * * ✅ **Result**: Your custom coordinates are used
+ *
+ * ### Key Benefits
+ * * 🎯 **No drift issues** - State always contains exact API values
+ * * 🎯 **No manual lookups** - API determines accurate coordinates from IP
+ * * 🎯 **Flexible** - Can override coordinates when needed
+ * * 🎯 **Always accurate** - Coordinates match the IP address geolocation
+ *
+ * ## Common Use Cases
+ *
+ * ### Use Case 1: GRE Tunnel with Auto-Determined Coordinates
+ *
+ * ### Use Case 2: Multiple Static IPs with forEach
+ *
+ * ### Use Case 3: VPN Credentials Integration
+ *
+ * ## Frequently Asked Questions (FAQ)
+ *
+ * ### Q: Do I need to specify latitude and longitude when using geoOverride = true?
+ *
+ * **A:** No! The provider will automatically determine coordinates from the IP address if you don't provide them. This is the **recommended approach** to avoid drift issues.
+ *
+ * ### Q: What if I want to use specific coordinates?
+ *
+ * **A:** You can still provide `latitude` and `longitude` explicitly. The provider will use your values if provided.
+ *
+ * ### Q: Will there be drift if I don't specify coordinates?
+ *
+ * **A:** No! The state file will contain the exact coordinates returned by the ZIA API. Subsequent `pulumi preview` commands will show no changes.
+ *
+ * ### Q: What happens if I provide coordinates that don't match the IP location?
+ *
+ * **A:** The API will accept your coordinates, but they may be adjusted for precision. The state file will always reflect the actual API response values.
+ *
+ * ### Q: Can I change from auto-determined to custom coordinates later?
+ *
+ * **A:** Yes! Simply add `latitude` and `longitude` to your configuration and run `pulumi up`. The provider will update the static IP with your custom coordinates.
+ *
+ * ### Q: What precision does the API use for coordinates?
+ *
+ * **A:** The API typically returns 4-7 decimal places depending on the IP location. The provider stores these exact values without rounding.
+ *
+ * ### Q: Why does my state show geoOverride = true but I didn't set it?
+ *
+ * **A:** The `geoOverride` attribute has `Computed: true`, meaning it's populated from the API response. The API may set it based on other factors.
+ *
+ * ## Troubleshooting
+ *
+ * ### Error: "Missing geo Coordinates"
+ *
+ * This error should no longer occur with the updated provider. If you still see it:
+ *
+ * 1. Ensure you're using provider version 4.6.2 or later
+ * 2. Check if coordinates are being populated: `terraform state show zia_traffic_forwarding_static_ip.<name>`
+ * 3. Enable debug logging: `export TF_LOG=DEBUG` and check for auto-population messages
+ *
+ * ### Unexpected Drift Detected
+ *
+ * If `pulumi preview` shows coordinate changes:
+ *
+ * 1. **Solution**: Remove explicit `latitude` and `longitude` from your configuration
+ * 2. **Reason**: API values may differ slightly from user-provided values due to precision
+ * 3. **After removal**: Run `pulumi up` once - state will sync with API values
+ * 4. **Future plans**: Will show no changes
+ *
+ * ### Coordinates Not in Expected Location
+ *
+ * The coordinates reflect the IP address's actual geolocation as determined by Zscaler's geolocation database. If you need different coordinates:
+ *
+ * 1. Set `geoOverride = true`
+ * 2. Provide your desired `latitude` and `longitude` explicitly
+ * 3. The API will use your values
+ *
+ * ## Best Practices
+ *
+ * ### ✅ Recommended: Let the Provider Auto-Determine Coordinates
+ *
+ * **Why this is recommended:**
+ *
+ * * ✅ No manual coordinate lookups required
+ * * ✅ Zero drift - state always matches API
+ * * ✅ Accurate - API knows the correct geolocation for each IP
+ * * ✅ Maintainable - no hardcoded coordinates to update
+ *
+ * ### ⚠️ Use Custom Coordinates Only When Necessary
+ *
+ * Only provide explicit coordinates if you have a specific requirement:
+ *
+ * **When to use custom coordinates:**
+ *
+ * * Testing with specific geographic locations
+ * * Compliance requirements for specific geo-coordinates
+ * * Override API's geolocation database for special cases
+ *
+ * ## Migration Guide for Existing Users
+ *
+ * If you're upgrading from an older provider version (< 4.6.2), you may have configurations like this:
+ *
+ * ### Old Configuration (Still Works, But Not Recommended)
+ *
+ * ### Migrating to New Approach (Recommended)
+ *
+ * **Step 1:** Remove `latitude` and `longitude` from your configuration
+ *
+ * **Step 2:** Run `pulumi preview`
+ *
+ * You'll see Terraform wants to update the resource (to remove explicitly set coordinates from state).
+ *
+ * **Step 3:** Apply the changes
+ *
+ * The provider will:
+ *
+ * * Keep the same static IP (no destruction)
+ * * Auto-determine coordinates from the IP
+ * * Update state with API values
+ * * No infrastructure change - just cleaner config!
+ *
+ * **Step 4:** Verify no drift
+ *
+ * ### Migration Example: Full Before/After
+ *
+ * **Before Migration:**
+ *
+ * **After Migration:**
+ *
+ * **Migration Impact:**
+ *
+ * * Configuration: 8 lines removed (cleaner)
+ * * API calls: No additional overhead after migration
+ * * Drift: Eliminated
+ * * Maintenance: Easier
  *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * Static IP resources can be imported by using `<STATIC IP ID>` or `<IP ADDRESS>`as the import ID.
+ * Static IP resources can be imported by using `<STATIC IP ID>` or `<IP ADDRESS>` as the import ID.
+ *
+ * ### Import by Static IP ID
  *
  * ```sh
  * $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <static_ip_id>
  * ```
  *
- * or
+ * Example:
+ *
+ * ```sh
+ * $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 3030759
+ * ```
+ *
+ * ### Import by IP Address
  *
  * ```sh
  * $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <ip_address>
  * ```
+ *
+ * Example:
+ *
+ * ```sh
+ * $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 122.164.82.249
+ * ```
+ *
+ * **After Import:**
+ *
+ * * The state will include all attributes including latitude and longitude
+ * * You can omit coordinates from your configuration - state will remain accurate
+ * * Run `pulumi preview` to see what configuration should look like
  */
 export class TrafficForwardingStaticIP extends pulumi.CustomResource {
     /**
@@ -65,35 +255,31 @@ export class TrafficForwardingStaticIP extends pulumi.CustomResource {
     /**
      * Additional information about this static IP address
      */
-    public readonly comment!: pulumi.Output<string>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-     * and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
      */
-    public readonly geoOverride!: pulumi.Output<boolean>;
+    declare public readonly geoOverride: pulumi.Output<boolean>;
     /**
      * The static IP address
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    declare public readonly ipAddress: pulumi.Output<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-     * -90 and 90 degrees.
+     * Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
      */
-    public readonly latitude!: pulumi.Output<number>;
+    declare public readonly latitude: pulumi.Output<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-     * -180 and 180 degrees.
+     * Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
      */
-    public readonly longitude!: pulumi.Output<number>;
+    declare public readonly longitude: pulumi.Output<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-     * Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
      */
-    public readonly routableIp!: pulumi.Output<boolean>;
+    declare public readonly routableIp: pulumi.Output<boolean>;
     /**
      * The ID of the Static IP.
      */
-    public /*out*/ readonly staticIpId!: pulumi.Output<number>;
+    declare public /*out*/ readonly staticIpId: pulumi.Output<number>;
 
     /**
      * Create a TrafficForwardingStaticIP resource with the given unique name, arguments, and options.
@@ -108,24 +294,24 @@ export class TrafficForwardingStaticIP extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficForwardingStaticIPState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["geoOverride"] = state ? state.geoOverride : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["latitude"] = state ? state.latitude : undefined;
-            resourceInputs["longitude"] = state ? state.longitude : undefined;
-            resourceInputs["routableIp"] = state ? state.routableIp : undefined;
-            resourceInputs["staticIpId"] = state ? state.staticIpId : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["geoOverride"] = state?.geoOverride;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["latitude"] = state?.latitude;
+            resourceInputs["longitude"] = state?.longitude;
+            resourceInputs["routableIp"] = state?.routableIp;
+            resourceInputs["staticIpId"] = state?.staticIpId;
         } else {
             const args = argsOrState as TrafficForwardingStaticIPArgs | undefined;
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
+            if (args?.ipAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["geoOverride"] = args ? args.geoOverride : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["latitude"] = args ? args.latitude : undefined;
-            resourceInputs["longitude"] = args ? args.longitude : undefined;
-            resourceInputs["routableIp"] = args ? args.routableIp : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["geoOverride"] = args?.geoOverride;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["latitude"] = args?.latitude;
+            resourceInputs["longitude"] = args?.longitude;
+            resourceInputs["routableIp"] = args?.routableIp;
             resourceInputs["staticIpId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -142,8 +328,7 @@ export interface TrafficForwardingStaticIPState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-     * and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
      */
     geoOverride?: pulumi.Input<boolean>;
     /**
@@ -151,18 +336,15 @@ export interface TrafficForwardingStaticIPState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-     * -90 and 90 degrees.
+     * Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
      */
     latitude?: pulumi.Input<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-     * -180 and 180 degrees.
+     * Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
      */
     longitude?: pulumi.Input<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-     * Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
      */
     routableIp?: pulumi.Input<boolean>;
     /**
@@ -180,8 +362,7 @@ export interface TrafficForwardingStaticIPArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-     * and longitude coordinates must be provided.
+     * If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
      */
     geoOverride?: pulumi.Input<boolean>;
     /**
@@ -189,18 +370,15 @@ export interface TrafficForwardingStaticIPArgs {
      */
     ipAddress: pulumi.Input<string>;
     /**
-     * Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-     * -90 and 90 degrees.
+     * Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
      */
     latitude?: pulumi.Input<number>;
     /**
-     * Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-     * -180 and 180 degrees.
+     * Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
      */
     longitude?: pulumi.Input<number>;
     /**
-     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-     * Service Edge associated to the organization.
+     * Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
      */
     routableIp?: pulumi.Input<boolean>;
 }

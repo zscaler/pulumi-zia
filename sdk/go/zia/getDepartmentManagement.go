@@ -29,6 +29,8 @@ func GetDepartmentManagement(ctx *pulumi.Context, args *GetDepartmentManagementA
 
 // A collection of arguments for invoking getDepartmentManagement.
 type GetDepartmentManagementArgs struct {
+	// ID of the user department
+	Id *int `pulumi:"id"`
 	// Name of the user department
 	Name *string `pulumi:"name"`
 }
@@ -56,6 +58,8 @@ func GetDepartmentManagementOutput(ctx *pulumi.Context, args GetDepartmentManage
 
 // A collection of arguments for invoking getDepartmentManagement.
 type GetDepartmentManagementOutputArgs struct {
+	// ID of the user department
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the user department
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }

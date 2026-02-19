@@ -107,7 +107,8 @@ type LookupCasbDlpRulesResult struct {
 	// (string) Location where all quarantined files are moved for action.
 	QuarantineLocation string `pulumi:"quarantineLocation"`
 	// (int) Rank of the rule.
-	Rank int `pulumi:"rank"`
+	Rank      int                       `pulumi:"rank"`
+	Receivers []GetCasbDlpRulesReceiver `pulumi:"receivers"`
 	// (string) Specifies if the email recipient is internal or external.
 	Recipient         string                            `pulumi:"recipient"`
 	RedactionProfiles []GetCasbDlpRulesRedactionProfile `pulumi:"redactionProfiles"`
@@ -345,6 +346,10 @@ func (o LookupCasbDlpRulesResultOutput) QuarantineLocation() pulumi.StringOutput
 // (int) Rank of the rule.
 func (o LookupCasbDlpRulesResultOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCasbDlpRulesResult) int { return v.Rank }).(pulumi.IntOutput)
+}
+
+func (o LookupCasbDlpRulesResultOutput) Receivers() GetCasbDlpRulesReceiverArrayOutput {
+	return o.ApplyT(func(v LookupCasbDlpRulesResult) []GetCasbDlpRulesReceiver { return v.Receivers }).(GetCasbDlpRulesReceiverArrayOutput)
 }
 
 // (string) Specifies if the email recipient is internal or external.

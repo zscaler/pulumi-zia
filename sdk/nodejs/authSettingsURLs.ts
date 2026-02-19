@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_auth_settings_urls** can be imported by using `all_urls` as the import ID.
+ * **zia_auth_settings_urls** can be imported by using `allUrls` as the import ID.
  *
  * For example:
  *
@@ -54,7 +53,7 @@ export class AuthSettingsURLs extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthSettingsURLs.__pulumiType;
     }
 
-    public readonly urls!: pulumi.Output<string[]>;
+    declare public readonly urls: pulumi.Output<string[]>;
 
     /**
      * Create a AuthSettingsURLs resource with the given unique name, arguments, and options.
@@ -69,10 +68,10 @@ export class AuthSettingsURLs extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthSettingsURLsState | undefined;
-            resourceInputs["urls"] = state ? state.urls : undefined;
+            resourceInputs["urls"] = state?.urls;
         } else {
             const args = argsOrState as AuthSettingsURLsArgs | undefined;
-            resourceInputs["urls"] = args ? args.urls : undefined;
+            resourceInputs["urls"] = args?.urls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthSettingsURLs.__pulumiType, name, resourceInputs, opts);

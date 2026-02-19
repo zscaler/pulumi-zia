@@ -22,13 +22,20 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### NOTIFICATION TYPE - CUSTOM
     /// 
+    /// ## Important Notes
+    /// 
+    /// **Text Attributes and CSS Styling**: When setting attributes such as &lt;span pulumi-lang-nodejs="`customText`" pulumi-lang-dotnet="`CustomText`" pulumi-lang-go="`customText`" pulumi-lang-python="`custom_text`" pulumi-lang-yaml="`customText`" pulumi-lang-java="`customText`"&gt;`custom_text`&lt;/span&gt;, &lt;span pulumi-lang-nodejs="`urlCatReviewText`" pulumi-lang-dotnet="`UrlCatReviewText`" pulumi-lang-go="`urlCatReviewText`" pulumi-lang-python="`url_cat_review_text`" pulumi-lang-yaml="`urlCatReviewText`" pulumi-lang-java="`urlCatReviewText`"&gt;`url_cat_review_text`&lt;/span&gt;, &lt;span pulumi-lang-nodejs="`securityReviewText`" pulumi-lang-dotnet="`SecurityReviewText`" pulumi-lang-go="`securityReviewText`" pulumi-lang-python="`security_review_text`" pulumi-lang-yaml="`securityReviewText`" pulumi-lang-java="`securityReviewText`"&gt;`security_review_text`&lt;/span&gt;, &lt;span pulumi-lang-nodejs="`webDlpReviewText`" pulumi-lang-dotnet="`WebDlpReviewText`" pulumi-lang-go="`webDlpReviewText`" pulumi-lang-python="`web_dlp_review_text`" pulumi-lang-yaml="`webDlpReviewText`" pulumi-lang-java="`webDlpReviewText`"&gt;`web_dlp_review_text`&lt;/span&gt;, &lt;span pulumi-lang-nodejs="`cautionCustomText`" pulumi-lang-dotnet="`CautionCustomText`" pulumi-lang-go="`cautionCustomText`" pulumi-lang-python="`caution_custom_text`" pulumi-lang-yaml="`cautionCustomText`" pulumi-lang-java="`cautionCustomText`"&gt;`caution_custom_text`&lt;/span&gt;, &lt;span pulumi-lang-nodejs="`idpProxyNotificationText`" pulumi-lang-dotnet="`IdpProxyNotificationText`" pulumi-lang-go="`idpProxyNotificationText`" pulumi-lang-python="`idp_proxy_notification_text`" pulumi-lang-yaml="`idpProxyNotificationText`" pulumi-lang-java="`idpProxyNotificationText`"&gt;`idp_proxy_notification_text`&lt;/span&gt;, and &lt;span pulumi-lang-nodejs="`quarantineCustomNotificationText`" pulumi-lang-dotnet="`QuarantineCustomNotificationText`" pulumi-lang-go="`quarantineCustomNotificationText`" pulumi-lang-python="`quarantine_custom_notification_text`" pulumi-lang-yaml="`quarantineCustomNotificationText`" pulumi-lang-java="`quarantineCustomNotificationText`"&gt;`quarantine_custom_notification_text`&lt;/span&gt;, we recommend using heredocs (EOT) especially when including CSS stylesheets. This ensures proper formatting and readability of complex text content.
+    /// 
+    /// **JavaScript Limitation**: The ZIA API currently does not accept JavaScript tags in notification text attributes. Using JavaScript tags will result in an HTTP 406 Rejected error. For more information on customizing EUN CSS styles, see the [Zscaler documentation](https://help.zscaler.com/zia/customizing-euns-css-styles).
+    /// 
+    /// ### Example with Heredoc for CSS Styling
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_end_user_notification** can be imported by using `enduser_notification` as the import ID.
+    /// **zia_end_user_notification** can be imported by using &lt;span pulumi-lang-nodejs="`enduserNotification`" pulumi-lang-dotnet="`EnduserNotification`" pulumi-lang-go="`enduserNotification`" pulumi-lang-python="`enduser_notification`" pulumi-lang-yaml="`enduserNotification`" pulumi-lang-java="`enduserNotification`"&gt;`enduser_notification`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -43,87 +50,85 @@ namespace zscaler.PulumiPackage.Zia
         /// The custom frequency (in days) for showing the AUP to the end users. Valid range is 0 to 180.
         /// </summary>
         [Output("aupCustomFrequency")]
-        public Output<int> AupCustomFrequency { get; private set; } = null!;
+        public Output<int?> AupCustomFrequency { get; private set; } = null!;
 
         /// <summary>
         /// Specifies which day of the week or month the AUP is shown for users when aupFrequency is set. Valid range is 0 to 31.
         /// </summary>
         [Output("aupDayOffset")]
-        public Output<int> AupDayOffset { get; private set; } = null!;
+        public Output<int?> AupDayOffset { get; private set; } = null!;
 
         /// <summary>
         /// The frequency at which the Acceptable Use Policy (AUP) is shown to the end users
         /// </summary>
         [Output("aupFrequency")]
-        public Output<string> AupFrequency { get; private set; } = null!;
+        public Output<string?> AupFrequency { get; private set; } = null!;
 
         /// <summary>
         /// The acceptable use statement that is shown in the AUP
         /// </summary>
         [Output("aupMessage")]
-        public Output<string> AupMessage { get; private set; } = null!;
+        public Output<string?> AupMessage { get; private set; } = null!;
 
         /// <summary>
         /// The time interval at which the caution notification is shown when users continue browsing a restricted site.
         /// </summary>
         [Output("cautionAgainAfter")]
-        public Output<int> CautionAgainAfter { get; private set; } = null!;
+        public Output<int?> CautionAgainAfter { get; private set; } = null!;
 
         /// <summary>
         /// The custom message that appears in the caution notification
         /// </summary>
         [Output("cautionCustomText")]
-        public Output<string> CautionCustomText { get; private set; } = null!;
+        public Output<string?> CautionCustomText { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-        /// Unknown category.
+        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
         /// </summary>
         [Output("cautionPerDomain")]
-        public Output<bool> CautionPerDomain { get; private set; } = null!;
+        public Output<bool?> CautionPerDomain { get; private set; } = null!;
 
         /// <summary>
         /// The custom text shown in the EUN
         /// </summary>
         [Output("customText")]
-        public Output<string> CustomText { get; private set; } = null!;
+        public Output<string?> CustomText { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether your organization's logo appears in the EUN or not
         /// </summary>
-        [Output("displayCompLogo")]
-        public Output<bool> DisplayCompLogo { get; private set; } = null!;
+        [Output("displayCompanyLogo")]
+        public Output<bool?> DisplayCompanyLogo { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether the organization's name appears in the EUN or not
         /// </summary>
-        [Output("displayCompName")]
-        public Output<bool> DisplayCompName { get; private set; } = null!;
+        [Output("displayCompanyName")]
+        public Output<bool?> DisplayCompanyName { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-        /// is shown when the respective notification is triggered
+        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
         /// </summary>
         [Output("displayReason")]
-        public Output<bool> DisplayReason { get; private set; } = null!;
+        public Output<bool?> DisplayReason { get; private set; } = null!;
 
         /// <summary>
         /// The message that appears in the IdP Proxy notification
         /// </summary>
         [Output("idpProxyNotificationText")]
-        public Output<string> IdpProxyNotificationText { get; private set; } = null!;
+        public Output<string?> IdpProxyNotificationText { get; private set; } = null!;
 
         /// <summary>
         /// The type of EUN as default or custom
         /// </summary>
         [Output("notificationType")]
-        public Output<string> NotificationType { get; private set; } = null!;
+        public Output<string?> NotificationType { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the organization's policy page. This field is required for the default notification type.
         /// </summary>
         [Output("orgPolicyLink")]
-        public Output<string> OrgPolicyLink { get; private set; } = null!;
+        public Output<string?> OrgPolicyLink { get; private set; } = null!;
 
         /// <summary>
         /// The message that appears in the quarantine notification
@@ -135,95 +140,91 @@ namespace zscaler.PulumiPackage.Zia
         /// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
         /// </summary>
         [Output("redirectUrl")]
-        public Output<string> RedirectUrl { get; private set; } = null!;
+        public Output<string?> RedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Output("securityReviewCustomLocation")]
-        public Output<string> SecurityReviewCustomLocation { get; private set; } = null!;
+        public Output<string?> SecurityReviewCustomLocation { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether the Security Violation notification is enabled or disabled
         /// </summary>
         [Output("securityReviewEnabled")]
-        public Output<bool> SecurityReviewEnabled { get; private set; } = null!;
+        public Output<bool?> SecurityReviewEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-        /// Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Output("securityReviewSubmitToSecurityCloud")]
-        public Output<bool> SecurityReviewSubmitToSecurityCloud { get; private set; } = null!;
+        public Output<bool?> SecurityReviewSubmitToSecurityCloud { get; private set; } = null!;
 
         /// <summary>
         /// The message that appears in the Security Violation notification
         /// </summary>
         [Output("securityReviewText")]
-        public Output<string> SecurityReviewText { get; private set; } = null!;
+        public Output<string?> SecurityReviewText { get; private set; } = null!;
 
         /// <summary>
         /// The email address for writing to IT Support
         /// </summary>
         [Output("supportEmail")]
-        public Output<string> SupportEmail { get; private set; } = null!;
+        public Output<string?> SupportEmail { get; private set; } = null!;
 
         /// <summary>
         /// The phone number for contacting IT Support
         /// </summary>
         [Output("supportPhone")]
-        public Output<string> SupportPhone { get; private set; } = null!;
+        public Output<string?> SupportPhone { get; private set; } = null!;
 
         /// <summary>
         /// A custom URL location where users' review requests for blocked URLs are sent
         /// </summary>
         [Output("urlCatReviewCustomLocation")]
-        public Output<string> UrlCatReviewCustomLocation { get; private set; } = null!;
+        public Output<string?> UrlCatReviewCustomLocation { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
         /// </summary>
         [Output("urlCatReviewEnabled")]
-        public Output<bool> UrlCatReviewEnabled { get; private set; } = null!;
+        public Output<bool?> UrlCatReviewEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Output("urlCatReviewSubmitToSecurityCloud")]
-        public Output<bool> UrlCatReviewSubmitToSecurityCloud { get; private set; } = null!;
+        public Output<bool?> UrlCatReviewSubmitToSecurityCloud { get; private set; } = null!;
 
         /// <summary>
         /// The message that appears in the URL Categorization notification
         /// </summary>
         [Output("urlCatReviewText")]
-        public Output<string> UrlCatReviewText { get; private set; } = null!;
+        public Output<string?> UrlCatReviewText { get; private set; } = null!;
 
         /// <summary>
         /// A custom URL location where users' review requests for the web DLP policy violation are sent
         /// </summary>
         [Output("webDlpReviewCustomLocation")]
-        public Output<string> WebDlpReviewCustomLocation { get; private set; } = null!;
+        public Output<string?> WebDlpReviewCustomLocation { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
         /// </summary>
         [Output("webDlpReviewEnabled")]
-        public Output<bool> WebDlpReviewEnabled { get; private set; } = null!;
+        public Output<bool?> WebDlpReviewEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Output("webDlpReviewSubmitToSecurityCloud")]
-        public Output<bool> WebDlpReviewSubmitToSecurityCloud { get; private set; } = null!;
+        public Output<bool?> WebDlpReviewSubmitToSecurityCloud { get; private set; } = null!;
 
         /// <summary>
         /// The message that appears in the Web DLP Violation notification
         /// </summary>
         [Output("webDlpReviewText")]
-        public Output<string> WebDlpReviewText { get; private set; } = null!;
+        public Output<string?> WebDlpReviewText { get; private set; } = null!;
 
 
         /// <summary>
@@ -309,8 +310,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? CautionCustomText { get; set; }
 
         /// <summary>
-        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-        /// Unknown category.
+        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
         /// </summary>
         [Input("cautionPerDomain")]
         public Input<bool>? CautionPerDomain { get; set; }
@@ -324,18 +324,17 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// A Boolean value indicating whether your organization's logo appears in the EUN or not
         /// </summary>
-        [Input("displayCompLogo")]
-        public Input<bool>? DisplayCompLogo { get; set; }
+        [Input("displayCompanyLogo")]
+        public Input<bool>? DisplayCompanyLogo { get; set; }
 
         /// <summary>
         /// A Boolean value indicating whether the organization's name appears in the EUN or not
         /// </summary>
-        [Input("displayCompName")]
-        public Input<bool>? DisplayCompName { get; set; }
+        [Input("displayCompanyName")]
+        public Input<bool>? DisplayCompanyName { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-        /// is shown when the respective notification is triggered
+        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
         /// </summary>
         [Input("displayReason")]
         public Input<bool>? DisplayReason { get; set; }
@@ -371,8 +370,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Input("securityReviewCustomLocation")]
         public Input<string>? SecurityReviewCustomLocation { get; set; }
@@ -384,8 +382,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SecurityReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-        /// Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("securityReviewSubmitToSecurityCloud")]
         public Input<bool>? SecurityReviewSubmitToSecurityCloud { get; set; }
@@ -421,8 +418,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? UrlCatReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("urlCatReviewSubmitToSecurityCloud")]
         public Input<bool>? UrlCatReviewSubmitToSecurityCloud { get; set; }
@@ -446,8 +442,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? WebDlpReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("webDlpReviewSubmitToSecurityCloud")]
         public Input<bool>? WebDlpReviewSubmitToSecurityCloud { get; set; }
@@ -503,8 +498,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? CautionCustomText { get; set; }
 
         /// <summary>
-        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-        /// Unknown category.
+        /// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
         /// </summary>
         [Input("cautionPerDomain")]
         public Input<bool>? CautionPerDomain { get; set; }
@@ -518,18 +512,17 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// A Boolean value indicating whether your organization's logo appears in the EUN or not
         /// </summary>
-        [Input("displayCompLogo")]
-        public Input<bool>? DisplayCompLogo { get; set; }
+        [Input("displayCompanyLogo")]
+        public Input<bool>? DisplayCompanyLogo { get; set; }
 
         /// <summary>
         /// A Boolean value indicating whether the organization's name appears in the EUN or not
         /// </summary>
-        [Input("displayCompName")]
-        public Input<bool>? DisplayCompName { get; set; }
+        [Input("displayCompanyName")]
+        public Input<bool>? DisplayCompanyName { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-        /// is shown when the respective notification is triggered
+        /// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
         /// </summary>
         [Input("displayReason")]
         public Input<bool>? DisplayReason { get; set; }
@@ -565,8 +558,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Input("securityReviewCustomLocation")]
         public Input<string>? SecurityReviewCustomLocation { get; set; }
@@ -578,8 +570,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SecurityReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-        /// Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("securityReviewSubmitToSecurityCloud")]
         public Input<bool>? SecurityReviewSubmitToSecurityCloud { get; set; }
@@ -615,8 +606,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? UrlCatReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("urlCatReviewSubmitToSecurityCloud")]
         public Input<bool>? UrlCatReviewSubmitToSecurityCloud { get; set; }
@@ -640,8 +630,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? WebDlpReviewEnabled { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-        /// service (i.e., Security Cloud) or a custom location.
+        /// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
         /// </summary>
         [Input("webDlpReviewSubmitToSecurityCloud")]
         public Input<bool>? WebDlpReviewSubmitToSecurityCloud { get; set; }

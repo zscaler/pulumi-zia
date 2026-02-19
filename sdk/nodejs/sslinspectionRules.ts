@@ -7,6 +7,27 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+ * * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+ *
+ * The **zia_ssl_inspection_rules** resource allows the creation and management of SSL Inspection rules in the Zscaler Internet Access.
+ *
+ * **NOTE 1** Zscaler SSL Inspection rules contain default and predefined rules which cannot be deleted. The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+ * - Automatically place new rules at the correct position
+ * - Handle reordering around predefined rules
+ * - Avoid configuration drift
+ *
+ * Example: If there are 2 predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+ *
+ * **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
+ *
+ * * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+ * * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to
+ * * `labels` (list) - Labels that are applicable to the rule.
+ *       - `id` - (Integer) Identifier that uniquely identifies an entity
+ *
+ * **NOTE 3** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+ *
  * ## Example Usage
  *
  * ### Action - DECRYPT
@@ -48,108 +69,108 @@ export class SSLInspectionRules extends pulumi.CustomResource {
     /**
      * (Block List) - Action taken when the traffic matches policy
      */
-    public readonly actions!: pulumi.Output<outputs.SSLInspectionRulesAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.SSLInspectionRulesAction[] | undefined>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+     * (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`
      */
-    public readonly cloudApplications!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
     /**
      * (Block List) - ID pairs of departments for which the rule is applied.
      */
-    public readonly departments!: pulumi.Output<outputs.SSLInspectionRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.SSLInspectionRulesDepartments | undefined>;
     /**
      * (String) -  Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Block List) - ID pairs of destination IP address groups for which the rule is applied.
      */
-    public readonly destIpGroups!: pulumi.Output<outputs.SSLInspectionRulesDestIpGroups | undefined>;
+    declare public readonly destIpGroups: pulumi.Output<outputs.SSLInspectionRulesDestIpGroups | undefined>;
     /**
      * (Block List) - ID pairs of device groups for which the rule is applied.
      */
-    public readonly deviceGroups!: pulumi.Output<outputs.SSLInspectionRulesDeviceGroups | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<outputs.SSLInspectionRulesDeviceGroups | undefined>;
     /**
      * (Set of String)  - List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation. Supported values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`
      */
-    public readonly deviceTrustLevels!: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
     /**
      * (Block List) - ID pairs of devices for which the rule is applied
      */
-    public readonly devices!: pulumi.Output<outputs.SSLInspectionRulesDevices | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.SSLInspectionRulesDevices | undefined>;
     /**
      * (Block List) - ID pairs of groups for which the rule is applied. If not set, rule is applied for all groups.
      */
-    public readonly groups!: pulumi.Output<outputs.SSLInspectionRulesGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.SSLInspectionRulesGroups | undefined>;
     /**
      * (Block List) - ID pairs of labels associated with the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.SSLInspectionRulesLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.SSLInspectionRulesLabels | undefined>;
     /**
      * (Block List) - ID pairs of location groups to which the rule is applied. When empty, it implies applying to all location groups.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.SSLInspectionRulesLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.SSLInspectionRulesLocationGroups | undefined>;
     /**
      * (Block List) - ID pairs of locations to which the rule is applied. When empty, it implies applying to all locations.
      */
-    public readonly locations!: pulumi.Output<outputs.SSLInspectionRulesLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.SSLInspectionRulesLocations | undefined>;
     /**
      * The name of the SSL Inspection rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (String) -  Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * (Set of String) -  Zscaler Client Connector device platforms for which this rule is applied. Supported Values: `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `NO_CLIENT_CONNECTOR`, `SCAN_LINUX`
      */
-    public readonly platforms!: pulumi.Output<string[] | undefined>;
+    declare public readonly platforms: pulumi.Output<string[] | undefined>;
     /**
      * (Block List) - When using ZPA Gateway forwarding, name-ID pairs of ZPA Application Segments for which the rule is applicable.
      */
-    public readonly proxyGateways!: pulumi.Output<outputs.SSLInspectionRulesProxyGateways | undefined>;
+    declare public readonly proxyGateways: pulumi.Output<outputs.SSLInspectionRulesProxyGateways | undefined>;
     /**
      * (Integer) - The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can be specified for the rule. Admin rank can be configured if it is enabled in the Advanced Settings.
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * (Boolean) - Indicates whether this rule is applied to remote users that use PAC with Kerberos authentication.
      */
-    public readonly roadWarriorForKerberos!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly roadWarriorForKerberos: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * (Block List) - ID pairs of source IP address groups for which the rule is applied.
      */
-    public readonly sourceIpGroups!: pulumi.Output<outputs.SSLInspectionRulesSourceIpGroups | undefined>;
+    declare public readonly sourceIpGroups: pulumi.Output<outputs.SSLInspectionRulesSourceIpGroups | undefined>;
     /**
      * (String) - The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * (Block List) - The time intervals during which the rule applies
      */
-    public readonly timeWindows!: pulumi.Output<outputs.SSLInspectionRulesTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.SSLInspectionRulesTimeWindows | undefined>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
-    public readonly urlCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
     /**
      * (Set of String) -  A list of user agent types the rule applies to.
      */
-    public readonly userAgentTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly userAgentTypes: pulumi.Output<string[] | undefined>;
     /**
      * (Block List) - The list of preconfigured workload groups to which the policy must be applied.
      */
-    public readonly users!: pulumi.Output<outputs.SSLInspectionRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.SSLInspectionRulesUsers | undefined>;
     /**
      * (Block List) - The list of preconfigured workload groups to which the policy must be applied.
      */
-    public readonly workloadGroups!: pulumi.Output<outputs.SSLInspectionRulesWorkloadGroup[]>;
+    declare public readonly workloadGroups: pulumi.Output<outputs.SSLInspectionRulesWorkloadGroup[]>;
     /**
      * (Block List) - The list of ZPA Application Segments for which this rule is applicable (applicable only for ZPA Gateway forwarding).
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.SSLInspectionRulesZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.SSLInspectionRulesZpaAppSegment[]>;
 
     /**
      * Create a SSLInspectionRules resource with the given unique name, arguments, and options.
@@ -164,64 +185,64 @@ export class SSLInspectionRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SSLInspectionRulesState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["cloudApplications"] = state ? state.cloudApplications : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destIpGroups"] = state ? state.destIpGroups : undefined;
-            resourceInputs["deviceGroups"] = state ? state.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = state ? state.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["platforms"] = state ? state.platforms : undefined;
-            resourceInputs["proxyGateways"] = state ? state.proxyGateways : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["roadWarriorForKerberos"] = state ? state.roadWarriorForKerberos : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["sourceIpGroups"] = state ? state.sourceIpGroups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["userAgentTypes"] = state ? state.userAgentTypes : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["workloadGroups"] = state ? state.workloadGroups : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["cloudApplications"] = state?.cloudApplications;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destIpGroups"] = state?.destIpGroups;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = state?.deviceTrustLevels;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["platforms"] = state?.platforms;
+            resourceInputs["proxyGateways"] = state?.proxyGateways;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["roadWarriorForKerberos"] = state?.roadWarriorForKerberos;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["sourceIpGroups"] = state?.sourceIpGroups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["userAgentTypes"] = state?.userAgentTypes;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["workloadGroups"] = state?.workloadGroups;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
         } else {
             const args = argsOrState as SSLInspectionRulesArgs | undefined;
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["cloudApplications"] = args ? args.cloudApplications : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destIpGroups"] = args ? args.destIpGroups : undefined;
-            resourceInputs["deviceGroups"] = args ? args.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = args ? args.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["platforms"] = args ? args.platforms : undefined;
-            resourceInputs["proxyGateways"] = args ? args.proxyGateways : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["roadWarriorForKerberos"] = args ? args.roadWarriorForKerberos : undefined;
-            resourceInputs["sourceIpGroups"] = args ? args.sourceIpGroups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["userAgentTypes"] = args ? args.userAgentTypes : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["workloadGroups"] = args ? args.workloadGroups : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["cloudApplications"] = args?.cloudApplications;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destIpGroups"] = args?.destIpGroups;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = args?.deviceTrustLevels;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["platforms"] = args?.platforms;
+            resourceInputs["proxyGateways"] = args?.proxyGateways;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["roadWarriorForKerberos"] = args?.roadWarriorForKerberos;
+            resourceInputs["sourceIpGroups"] = args?.sourceIpGroups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["userAgentTypes"] = args?.userAgentTypes;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["workloadGroups"] = args?.workloadGroups;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -238,7 +259,7 @@ export interface SSLInspectionRulesState {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.SSLInspectionRulesAction>[]>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+     * (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -319,7 +340,7 @@ export interface SSLInspectionRulesState {
      */
     timeWindows?: pulumi.Input<inputs.SSLInspectionRulesTimeWindows>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -349,7 +370,7 @@ export interface SSLInspectionRulesArgs {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.SSLInspectionRulesAction>[]>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+     * (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `zia.getCloudApplications`
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -429,7 +450,7 @@ export interface SSLInspectionRulesArgs {
      */
     timeWindows?: pulumi.Input<inputs.SSLInspectionRulesTimeWindows>;
     /**
-     * (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**

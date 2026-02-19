@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_admin_users** can be imported by using `<ADMIN ID>` or `<LOGIN NAME>` as the import ID.
@@ -72,43 +71,42 @@ export class AdminUsers extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdminUsers.__pulumiType;
     }
 
-    public /*out*/ readonly adminId!: pulumi.Output<number>;
+    declare public /*out*/ readonly adminId: pulumi.Output<number>;
     /**
      * list of destination ip groups
      */
-    public readonly adminScopeEntities!: pulumi.Output<outputs.AdminUsersAdminScopeEntities | undefined>;
-    public readonly adminScopeType!: pulumi.Output<string>;
+    declare public readonly adminScopeEntities: pulumi.Output<outputs.AdminUsersAdminScopeEntities | undefined>;
+    declare public readonly adminScopeType: pulumi.Output<string>;
     /**
      * Additional information about the admin or auditor.
      */
-    public readonly comments!: pulumi.Output<string | undefined>;
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly comments: pulumi.Output<string | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Admin or auditor's email address.
      */
-    public readonly email!: pulumi.Output<string>;
-    public readonly isAuditor!: pulumi.Output<boolean | undefined>;
-    public readonly isExecMobileAppEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly isNonEditable!: pulumi.Output<boolean | undefined>;
-    public readonly isPasswordExpired!: pulumi.Output<boolean | undefined>;
-    public readonly isPasswordLoginAllowed!: pulumi.Output<boolean | undefined>;
-    public readonly isProductUpdateCommEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly isSecurityReportCommEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly isServiceUpdateCommEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly loginName!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
+    declare public readonly isAuditor: pulumi.Output<boolean | undefined>;
+    declare public readonly isExecMobileAppEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly isNonEditable: pulumi.Output<boolean | undefined>;
+    declare public readonly isPasswordExpired: pulumi.Output<boolean | undefined>;
+    declare public readonly isPasswordLoginAllowed: pulumi.Output<boolean | undefined>;
+    declare public readonly isProductUpdateCommEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly isSecurityReportCommEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly isServiceUpdateCommEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly loginName: pulumi.Output<string>;
     /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-     * information is not provided in a GET response.
+     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Role of the admin. This is not required for an auditor.
      */
-    public readonly roles!: pulumi.Output<outputs.AdminUsersRole[] | undefined>;
+    declare public readonly roles: pulumi.Output<outputs.AdminUsersRole[] | undefined>;
     /**
      * Admin or auditor's username.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a AdminUsers resource with the given unique name, arguments, and options.
@@ -123,52 +121,52 @@ export class AdminUsers extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminUsersState | undefined;
-            resourceInputs["adminId"] = state ? state.adminId : undefined;
-            resourceInputs["adminScopeEntities"] = state ? state.adminScopeEntities : undefined;
-            resourceInputs["adminScopeType"] = state ? state.adminScopeType : undefined;
-            resourceInputs["comments"] = state ? state.comments : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["isAuditor"] = state ? state.isAuditor : undefined;
-            resourceInputs["isExecMobileAppEnabled"] = state ? state.isExecMobileAppEnabled : undefined;
-            resourceInputs["isNonEditable"] = state ? state.isNonEditable : undefined;
-            resourceInputs["isPasswordExpired"] = state ? state.isPasswordExpired : undefined;
-            resourceInputs["isPasswordLoginAllowed"] = state ? state.isPasswordLoginAllowed : undefined;
-            resourceInputs["isProductUpdateCommEnabled"] = state ? state.isProductUpdateCommEnabled : undefined;
-            resourceInputs["isSecurityReportCommEnabled"] = state ? state.isSecurityReportCommEnabled : undefined;
-            resourceInputs["isServiceUpdateCommEnabled"] = state ? state.isServiceUpdateCommEnabled : undefined;
-            resourceInputs["loginName"] = state ? state.loginName : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["roles"] = state ? state.roles : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["adminId"] = state?.adminId;
+            resourceInputs["adminScopeEntities"] = state?.adminScopeEntities;
+            resourceInputs["adminScopeType"] = state?.adminScopeType;
+            resourceInputs["comments"] = state?.comments;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["isAuditor"] = state?.isAuditor;
+            resourceInputs["isExecMobileAppEnabled"] = state?.isExecMobileAppEnabled;
+            resourceInputs["isNonEditable"] = state?.isNonEditable;
+            resourceInputs["isPasswordExpired"] = state?.isPasswordExpired;
+            resourceInputs["isPasswordLoginAllowed"] = state?.isPasswordLoginAllowed;
+            resourceInputs["isProductUpdateCommEnabled"] = state?.isProductUpdateCommEnabled;
+            resourceInputs["isSecurityReportCommEnabled"] = state?.isSecurityReportCommEnabled;
+            resourceInputs["isServiceUpdateCommEnabled"] = state?.isServiceUpdateCommEnabled;
+            resourceInputs["loginName"] = state?.loginName;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["roles"] = state?.roles;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as AdminUsersArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.loginName === undefined) && !opts.urn) {
+            if (args?.loginName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loginName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["adminScopeEntities"] = args ? args.adminScopeEntities : undefined;
-            resourceInputs["adminScopeType"] = args ? args.adminScopeType : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["isAuditor"] = args ? args.isAuditor : undefined;
-            resourceInputs["isExecMobileAppEnabled"] = args ? args.isExecMobileAppEnabled : undefined;
-            resourceInputs["isNonEditable"] = args ? args.isNonEditable : undefined;
-            resourceInputs["isPasswordExpired"] = args ? args.isPasswordExpired : undefined;
-            resourceInputs["isPasswordLoginAllowed"] = args ? args.isPasswordLoginAllowed : undefined;
-            resourceInputs["isProductUpdateCommEnabled"] = args ? args.isProductUpdateCommEnabled : undefined;
-            resourceInputs["isSecurityReportCommEnabled"] = args ? args.isSecurityReportCommEnabled : undefined;
-            resourceInputs["isServiceUpdateCommEnabled"] = args ? args.isServiceUpdateCommEnabled : undefined;
-            resourceInputs["loginName"] = args ? args.loginName : undefined;
+            resourceInputs["adminScopeEntities"] = args?.adminScopeEntities;
+            resourceInputs["adminScopeType"] = args?.adminScopeType;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["isAuditor"] = args?.isAuditor;
+            resourceInputs["isExecMobileAppEnabled"] = args?.isExecMobileAppEnabled;
+            resourceInputs["isNonEditable"] = args?.isNonEditable;
+            resourceInputs["isPasswordExpired"] = args?.isPasswordExpired;
+            resourceInputs["isPasswordLoginAllowed"] = args?.isPasswordLoginAllowed;
+            resourceInputs["isProductUpdateCommEnabled"] = args?.isProductUpdateCommEnabled;
+            resourceInputs["isSecurityReportCommEnabled"] = args?.isSecurityReportCommEnabled;
+            resourceInputs["isServiceUpdateCommEnabled"] = args?.isServiceUpdateCommEnabled;
+            resourceInputs["loginName"] = args?.loginName;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["username"] = args?.username;
             resourceInputs["adminId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -207,8 +205,7 @@ export interface AdminUsersState {
     isServiceUpdateCommEnabled?: pulumi.Input<boolean>;
     loginName?: pulumi.Input<string>;
     /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-     * information is not provided in a GET response.
+     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
      */
     password?: pulumi.Input<string>;
     /**
@@ -249,8 +246,7 @@ export interface AdminUsersArgs {
     isServiceUpdateCommEnabled?: pulumi.Input<boolean>;
     loginName: pulumi.Input<string>;
     /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-     * information is not provided in a GET response.
+     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
      */
     password?: pulumi.Input<string>;
     /**

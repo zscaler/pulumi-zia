@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_url_categories** can be imported by using `&lt;CATEGORY_ID&gt;` or `&lt;CATEGORY_NAME&gt;` as the import ID.
@@ -85,14 +84,20 @@ namespace zscaler.PulumiPackage.Zia
         [Output("keywordsRetainingParentCategories")]
         public Output<ImmutableArray<string>> KeywordsRetainingParentCategories { get; private set; } = null!;
 
+        [Output("regexPatterns")]
+        public Output<ImmutableArray<string>> RegexPatterns { get; private set; } = null!;
+
+        [Output("regexPatternsRetainingParentCategories")]
+        public Output<ImmutableArray<string>> RegexPatternsRetainingParentCategories { get; private set; } = null!;
+
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.URLCategoriesScope>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Super Category of the URL category. This field is required when creating custom URL categories.
+        /// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
         /// </summary>
         [Output("superCategory")]
-        public Output<string?> SuperCategory { get; private set; } = null!;
+        public Output<string> SuperCategory { get; private set; } = null!;
 
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -100,11 +105,20 @@ namespace zscaler.PulumiPackage.Zia
         [Output("urlKeywordCounts")]
         public Output<Outputs.URLCategoriesUrlKeywordCounts> UrlKeywordCounts { get; private set; } = null!;
 
+        [Output("urlType")]
+        public Output<string> UrlType { get; private set; } = null!;
+
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
         [Output("urlsRetainingParentCategoryCount")]
         public Output<int> UrlsRetainingParentCategoryCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique ID for the URL category.
+        /// </summary>
+        [Output("val")]
+        public Output<int> Val { get; private set; } = null!;
 
 
         /// <summary>
@@ -217,6 +231,22 @@ namespace zscaler.PulumiPackage.Zia
             set => _keywordsRetainingParentCategories = value;
         }
 
+        [Input("regexPatterns")]
+        private InputList<string>? _regexPatterns;
+        public InputList<string> RegexPatterns
+        {
+            get => _regexPatterns ?? (_regexPatterns = new InputList<string>());
+            set => _regexPatterns = value;
+        }
+
+        [Input("regexPatternsRetainingParentCategories")]
+        private InputList<string>? _regexPatternsRetainingParentCategories;
+        public InputList<string> RegexPatternsRetainingParentCategories
+        {
+            get => _regexPatternsRetainingParentCategories ?? (_regexPatternsRetainingParentCategories = new InputList<string>());
+            set => _regexPatternsRetainingParentCategories = value;
+        }
+
         [Input("scopes")]
         private InputList<Inputs.URLCategoriesScopeArgs>? _scopes;
         public InputList<Inputs.URLCategoriesScopeArgs> Scopes
@@ -226,7 +256,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Super Category of the URL category. This field is required when creating custom URL categories.
+        /// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
         /// </summary>
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
@@ -236,6 +266,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("urlKeywordCounts")]
         public Input<Inputs.URLCategoriesUrlKeywordCountsArgs>? UrlKeywordCounts { get; set; }
+
+        [Input("urlType")]
+        public Input<string>? UrlType { get; set; }
 
         [Input("urls")]
         private InputList<string>? _urls;
@@ -323,6 +356,22 @@ namespace zscaler.PulumiPackage.Zia
             set => _keywordsRetainingParentCategories = value;
         }
 
+        [Input("regexPatterns")]
+        private InputList<string>? _regexPatterns;
+        public InputList<string> RegexPatterns
+        {
+            get => _regexPatterns ?? (_regexPatterns = new InputList<string>());
+            set => _regexPatterns = value;
+        }
+
+        [Input("regexPatternsRetainingParentCategories")]
+        private InputList<string>? _regexPatternsRetainingParentCategories;
+        public InputList<string> RegexPatternsRetainingParentCategories
+        {
+            get => _regexPatternsRetainingParentCategories ?? (_regexPatternsRetainingParentCategories = new InputList<string>());
+            set => _regexPatternsRetainingParentCategories = value;
+        }
+
         [Input("scopes")]
         private InputList<Inputs.URLCategoriesScopeGetArgs>? _scopes;
         public InputList<Inputs.URLCategoriesScopeGetArgs> Scopes
@@ -332,7 +381,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Super Category of the URL category. This field is required when creating custom URL categories.
+        /// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
         /// </summary>
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
@@ -342,6 +391,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("urlKeywordCounts")]
         public Input<Inputs.URLCategoriesUrlKeywordCountsGetArgs>? UrlKeywordCounts { get; set; }
+
+        [Input("urlType")]
+        public Input<string>? UrlType { get; set; }
 
         [Input("urls")]
         private InputList<string>? _urls;
@@ -353,6 +405,12 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("urlsRetainingParentCategoryCount")]
         public Input<int>? UrlsRetainingParentCategoryCount { get; set; }
+
+        /// <summary>
+        /// The unique ID for the URL category.
+        /// </summary>
+        [Input("val")]
+        public Input<int>? Val { get; set; }
 
         public URLCategoriesState()
         {

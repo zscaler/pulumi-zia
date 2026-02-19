@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_ftp_control_policy** can be imported by using `ftp_control` as the import ID.
+ * **zia_ftp_control_policy** can be imported by using `ftpControl` as the import ID.
  *
  * For example:
  *
@@ -57,19 +56,21 @@ export class FtpControlPolicy extends pulumi.CustomResource {
     /**
      * Indicates whether to enable native FTP. When enabled, users can connect to native FTP sites and download files.
      */
-    public readonly ftpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ftpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether to enable FTP over HTTP.
      */
-    public readonly ftpOverHttpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ftpOverHttpEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * List of URL categories for which rule must be applied
+     * List of URL categories that allow FTP traffic.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
-    public readonly urlCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
     /**
      * Domains or URLs included for the FTP Control settings
      */
-    public readonly urls!: pulumi.Output<string[] | undefined>;
+    declare public readonly urls: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a FtpControlPolicy resource with the given unique name, arguments, and options.
@@ -84,16 +85,16 @@ export class FtpControlPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FtpControlPolicyState | undefined;
-            resourceInputs["ftpEnabled"] = state ? state.ftpEnabled : undefined;
-            resourceInputs["ftpOverHttpEnabled"] = state ? state.ftpOverHttpEnabled : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["urls"] = state ? state.urls : undefined;
+            resourceInputs["ftpEnabled"] = state?.ftpEnabled;
+            resourceInputs["ftpOverHttpEnabled"] = state?.ftpOverHttpEnabled;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["urls"] = state?.urls;
         } else {
             const args = argsOrState as FtpControlPolicyArgs | undefined;
-            resourceInputs["ftpEnabled"] = args ? args.ftpEnabled : undefined;
-            resourceInputs["ftpOverHttpEnabled"] = args ? args.ftpOverHttpEnabled : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["urls"] = args ? args.urls : undefined;
+            resourceInputs["ftpEnabled"] = args?.ftpEnabled;
+            resourceInputs["ftpOverHttpEnabled"] = args?.ftpOverHttpEnabled;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["urls"] = args?.urls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FtpControlPolicy.__pulumiType, name, resourceInputs, opts);
@@ -113,7 +114,9 @@ export interface FtpControlPolicyState {
      */
     ftpOverHttpEnabled?: pulumi.Input<boolean>;
     /**
-     * List of URL categories for which rule must be applied
+     * List of URL categories that allow FTP traffic.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -135,7 +138,9 @@ export interface FtpControlPolicyArgs {
      */
     ftpOverHttpEnabled?: pulumi.Input<boolean>;
     /**
-     * List of URL categories for which rule must be applied
+     * List of URL categories that allow FTP traffic.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**

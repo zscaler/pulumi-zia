@@ -25,8 +25,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_rule_labels** can be imported by using `<LABEL_ID>` or `<LABEL_NAME>` as the import ID.
 //
@@ -56,8 +55,7 @@ type AdminRoles struct {
 	DeviceInfoAccess pulumi.StringOutput `pulumi:"deviceInfoAccess"`
 	// External feature access permission.
 	ExtFeaturePermissions pulumi.StringMapOutput `pulumi:"extFeaturePermissions"`
-	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-	// access, or read-only access.
+	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 	FeaturePermissions pulumi.StringMapOutput `pulumi:"featurePermissions"`
 	// Indicates whether this is an auditor role.
 	IsAuditor pulumi.BoolPtrOutput `pulumi:"isAuditor"`
@@ -71,9 +69,7 @@ type AdminRoles struct {
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// Policy access permission.
 	PolicyAccess pulumi.StringOutput `pulumi:"policyAccess"`
-	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-	// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-	// which rule orders this admin can access.
+	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
 	// Report access permission.
 	ReportAccess pulumi.StringOutput `pulumi:"reportAccess"`
@@ -128,8 +124,7 @@ type adminRolesState struct {
 	DeviceInfoAccess *string `pulumi:"deviceInfoAccess"`
 	// External feature access permission.
 	ExtFeaturePermissions map[string]string `pulumi:"extFeaturePermissions"`
-	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-	// access, or read-only access.
+	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 	FeaturePermissions map[string]string `pulumi:"featurePermissions"`
 	// Indicates whether this is an auditor role.
 	IsAuditor *bool `pulumi:"isAuditor"`
@@ -143,9 +138,7 @@ type adminRolesState struct {
 	Permissions []string `pulumi:"permissions"`
 	// Policy access permission.
 	PolicyAccess *string `pulumi:"policyAccess"`
-	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-	// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-	// which rule orders this admin can access.
+	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 	Rank *int `pulumi:"rank"`
 	// Report access permission.
 	ReportAccess *string `pulumi:"reportAccess"`
@@ -171,8 +164,7 @@ type AdminRolesState struct {
 	DeviceInfoAccess pulumi.StringPtrInput
 	// External feature access permission.
 	ExtFeaturePermissions pulumi.StringMapInput
-	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-	// access, or read-only access.
+	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 	FeaturePermissions pulumi.StringMapInput
 	// Indicates whether this is an auditor role.
 	IsAuditor pulumi.BoolPtrInput
@@ -186,9 +178,7 @@ type AdminRolesState struct {
 	Permissions pulumi.StringArrayInput
 	// Policy access permission.
 	PolicyAccess pulumi.StringPtrInput
-	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-	// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-	// which rule orders this admin can access.
+	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 	Rank pulumi.IntPtrInput
 	// Report access permission.
 	ReportAccess pulumi.StringPtrInput
@@ -218,8 +208,7 @@ type adminRolesArgs struct {
 	DeviceInfoAccess *string `pulumi:"deviceInfoAccess"`
 	// External feature access permission.
 	ExtFeaturePermissions map[string]string `pulumi:"extFeaturePermissions"`
-	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-	// access, or read-only access.
+	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 	FeaturePermissions map[string]string `pulumi:"featurePermissions"`
 	// Indicates whether this is an auditor role.
 	IsAuditor *bool `pulumi:"isAuditor"`
@@ -233,9 +222,7 @@ type adminRolesArgs struct {
 	Permissions []string `pulumi:"permissions"`
 	// Policy access permission.
 	PolicyAccess *string `pulumi:"policyAccess"`
-	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-	// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-	// which rule orders this admin can access.
+	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 	Rank *int `pulumi:"rank"`
 	// Report access permission.
 	ReportAccess *string `pulumi:"reportAccess"`
@@ -261,8 +248,7 @@ type AdminRolesArgs struct {
 	DeviceInfoAccess pulumi.StringPtrInput
 	// External feature access permission.
 	ExtFeaturePermissions pulumi.StringMapInput
-	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-	// access, or read-only access.
+	// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 	FeaturePermissions pulumi.StringMapInput
 	// Indicates whether this is an auditor role.
 	IsAuditor pulumi.BoolPtrInput
@@ -276,9 +262,7 @@ type AdminRolesArgs struct {
 	Permissions pulumi.StringArrayInput
 	// Policy access permission.
 	PolicyAccess pulumi.StringPtrInput
-	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-	// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-	// which rule orders this admin can access.
+	// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 	Rank pulumi.IntPtrInput
 	// Report access permission.
 	ReportAccess pulumi.StringPtrInput
@@ -407,8 +391,7 @@ func (o AdminRolesOutput) ExtFeaturePermissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringMapOutput { return v.ExtFeaturePermissions }).(pulumi.StringMapOutput)
 }
 
-// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-// access, or read-only access.
+// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
 func (o AdminRolesOutput) FeaturePermissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringMapOutput { return v.FeaturePermissions }).(pulumi.StringMapOutput)
 }
@@ -443,9 +426,7 @@ func (o AdminRolesOutput) PolicyAccess() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringOutput { return v.PolicyAccess }).(pulumi.StringOutput)
 }
 
-// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-// which rule orders this admin can access.
+// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
 func (o AdminRolesOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }

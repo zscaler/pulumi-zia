@@ -68,6 +68,12 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetGroupManagementArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Unique identfier for the group.
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
         /// Name of the user group
         /// </summary>
         [Input("name")]
@@ -81,6 +87,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetGroupManagementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Unique identfier for the group.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         /// <summary>
         /// Name of the user group
         /// </summary>

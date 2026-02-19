@@ -108,11 +108,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// (String) When set to true, a `BLOCK` action triggered by the rule could be overridden. If true and both overrideGroup and overrideUsers are not set, the `BLOCK` triggered by this rule could be overridden for any users. If block_override is not set, `BLOCK` action cannot be overridden.
+        /// (String) When set to true, a `BLOCK` action triggered by the rule could be overridden. If true and both overrideGroup and overrideUsers are not set, the `BLOCK` triggered by this rule could be overridden for any users. If&lt;span pulumi-lang-nodejs=" blockOverride " pulumi-lang-dotnet=" BlockOverride " pulumi-lang-go=" blockOverride " pulumi-lang-python=" block_override " pulumi-lang-yaml=" blockOverride " pulumi-lang-java=" blockOverride "&gt; block_override &lt;/span&gt;is not set, `BLOCK` action cannot be overridden.
         /// </summary>
         public readonly bool BlockOverride;
         /// <summary>
-        /// (List) The cloud browser isolation profile to which the ISOLATE action is applied in the URL Filtering Policy rules. This block is required when the attribute `action` is set to `ISOLATE`
+        /// (List) The cloud browser isolation profile to which the ISOLATE action is applied in the URL Filtering Policy rules. This block is required when the attribute &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; is set to `ISOLATE`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetURLFilteringRulesCbiProfileResult> CbiProfiles;
         public readonly bool Ciparule;
@@ -169,11 +169,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int Order;
         /// <summary>
-        /// (List of Object) Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any group.
+        /// (List of Object) Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt;, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any group.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetURLFilteringRulesOverrideGroupResult> OverrideGroups;
         /// <summary>
-        /// (List of Object) Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to `true`, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any user.
+        /// (List of Object) Name-ID pairs of users for which this rule can be overridden. Applicable only if blockOverride is set to &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt;, action is `BLOCK` and overrideGroups is not set.If this overrideUsers is not set, `BLOCK` action can be overridden for any user.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetURLFilteringRulesOverrideUserResult> OverrideUsers;
         /// <summary>

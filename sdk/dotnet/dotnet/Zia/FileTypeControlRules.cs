@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_file_type_control_rules** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -47,6 +46,9 @@ namespace zscaler.PulumiPackage.Zia
         [Output("activeContent")]
         public Output<bool> ActiveContent { get; private set; } = null!;
 
+        [Output("browserEunTemplateId")]
+        public Output<int?> BrowserEunTemplateId { get; private set; } = null!;
+
         /// <summary>
         /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
@@ -54,7 +56,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> CapturePcap { get; private set; } = null!;
 
         /// <summary>
-        /// The list of cloud applications to which the File Type Control rule must be applied.
+        /// The list of cloud applications to which the File Type Control rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         [Output("cloudApplications")]
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
@@ -78,9 +82,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FileTypeControlRulesDeviceGroups?> DeviceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
@@ -92,7 +94,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FileTypeControlRulesDevices?> Devices { get; private set; } = null!;
 
         /// <summary>
-        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+        /// 				See the available file types API in:
+        /// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
         /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
@@ -152,7 +156,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Operation { get; private set; } = null!;
 
         /// <summary>
-        /// The rule order of execution for the File Type Control rule with respect to other rules.
+        /// The rule order of execution for the  File Type Control rule with respect to other rules.
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
@@ -191,7 +195,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> Unscannable { get; private set; } = null!;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the file type control rule rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
@@ -261,6 +267,9 @@ namespace zscaler.PulumiPackage.Zia
         [Input("activeContent")]
         public Input<bool>? ActiveContent { get; set; }
 
+        [Input("browserEunTemplateId")]
+        public Input<int>? BrowserEunTemplateId { get; set; }
+
         /// <summary>
         /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
@@ -271,7 +280,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// The list of cloud applications to which the File Type Control rule must be applied.
+        /// The list of cloud applications to which the File Type Control rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -301,9 +312,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -321,7 +330,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+        /// 				See the available file types API in:
+        /// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -384,7 +395,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Operation { get; set; }
 
         /// <summary>
-        /// The rule order of execution for the File Type Control rule with respect to other rules.
+        /// The rule order of execution for the  File Type Control rule with respect to other rules.
         /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
@@ -429,7 +440,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the file type control rule rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -469,6 +482,9 @@ namespace zscaler.PulumiPackage.Zia
         [Input("activeContent")]
         public Input<bool>? ActiveContent { get; set; }
 
+        [Input("browserEunTemplateId")]
+        public Input<int>? BrowserEunTemplateId { get; set; }
+
         /// <summary>
         /// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
@@ -479,7 +495,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// The list of cloud applications to which the File Type Control rule must be applied.
+        /// The list of cloud applications to which the File Type Control rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -509,9 +527,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -529,7 +545,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+        /// 				See the available file types API in:
+        /// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -592,7 +610,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Operation { get; set; }
 
         /// <summary>
-        /// The rule order of execution for the File Type Control rule with respect to other rules.
+        /// The rule order of execution for the  File Type Control rule with respect to other rules.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -640,7 +658,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the file type control rule rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {

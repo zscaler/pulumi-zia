@@ -29,7 +29,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_admin_users** can be imported by using `&lt;ADMIN ID&gt;` or `&lt;LOGIN NAME&gt;` as the import ID.
@@ -106,8 +105,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> LoginName { get; private set; } = null!;
 
         /// <summary>
-        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-        /// information is not provided in a GET response.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -230,8 +228,7 @@ namespace zscaler.PulumiPackage.Zia
         private Input<string>? _password;
 
         /// <summary>
-        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-        /// information is not provided in a GET response.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
         /// </summary>
         public Input<string>? Password
         {
@@ -327,8 +324,7 @@ namespace zscaler.PulumiPackage.Zia
         private Input<string>? _password;
 
         /// <summary>
-        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-        /// information is not provided in a GET response.
+        /// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
         /// </summary>
         public Input<string>? Password
         {

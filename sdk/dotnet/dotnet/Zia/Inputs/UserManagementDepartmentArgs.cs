@@ -22,6 +22,11 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         [Input("deleted")]
         public Input<bool>? Deleted { get; set; }
 
+        /// <summary>
+        /// Department ID
+        /// 
+        /// !&gt; **WARNING:** The password parameter is considered sensitive information and is omitted in case terraform output is configured.
+        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

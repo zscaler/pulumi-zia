@@ -13,6 +13,41 @@ export interface AdminUsersRole {
     id?: number;
 }
 
+export interface BandwidthControlRuleBandwidthClasses {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface BandwidthControlRuleLabels {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface BandwidthControlRuleLocationGroups {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface BandwidthControlRuleLocations {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
+export interface BandwidthControlRuleTimeWindows {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
 export interface BrowserControlPolicySmartIsolationGroups {
     /**
      * A unique identifier for an entity.
@@ -115,6 +150,36 @@ export interface CasbDlpRuleObjectTypes {
     ids?: number[];
 }
 
+export interface CasbDlpRuleReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: string;
+    /**
+     * Name of the receiver
+     */
+    name?: string;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: outputs.CasbDlpRuleReceiverTenant;
+    /**
+     * Type of the receiver
+     */
+    type?: string;
+}
+
+export interface CasbDlpRuleReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: string;
+    /**
+     * Name of the tenant
+     */
+    name?: string;
+}
+
 export interface CasbDlpRuleRedactionProfile {
     id?: number;
 }
@@ -193,6 +258,36 @@ export interface CasbDlpRulesLabels {
 
 export interface CasbDlpRulesObjectTypes {
     ids?: number[];
+}
+
+export interface CasbDlpRulesReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: string;
+    /**
+     * Name of the receiver
+     */
+    name?: string;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: outputs.CasbDlpRulesReceiverTenant;
+    /**
+     * Type of the receiver
+     */
+    type?: string;
+}
+
+export interface CasbDlpRulesReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: string;
+    /**
+     * Name of the tenant
+     */
+    name?: string;
 }
 
 export interface CasbDlpRulesRedactionProfile {
@@ -339,6 +434,74 @@ export interface CloudApplicationInstanceInstanceIdentifier {
     instanceIdentifierName?: string;
 }
 
+export interface CloudNSSFeedBuckets {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedCasbTenant {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedDepartments {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedDlpDictionaries {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedDlpEngines {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedExternalCollaborators {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedExternalOwners {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedInternalCollaborators {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedItsmObjectType {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedLocationGroups {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedLocations {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedNwServices {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedRules {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedSenderName {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedUrlCategories {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedUsers {
+    ids?: number[];
+}
+
+export interface CloudNSSFeedVpnCredentials {
+    ids?: number[];
+}
+
 export interface DLPDictionariesExactDataMatchDetail {
     /**
      * The unique identifier for the EDM mapping
@@ -347,7 +510,7 @@ export interface DLPDictionariesExactDataMatchDetail {
     /**
      * The EDM template's primary field.
      */
-    primaryField?: number;
+    primaryFields: number[];
     /**
      * The unique identifier for the EDM template (or schema).
      */
@@ -374,7 +537,13 @@ export interface DLPDictionariesIdmProfileMatchAccuracy {
 }
 
 export interface DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile {
+    /**
+     * Extensions map
+     */
     extensions: {[key: string]: string};
+    /**
+     * Identifier that uniquely identifies an entity
+     */
     id: number;
 }
 
@@ -392,7 +561,7 @@ export interface DLPDictionariesPattern {
 export interface DLPDictionariesPhrase {
     action: string;
     /**
-     * DLP dictionary phrase
+     * DLP dictionary phrase (0-128 characters)
      */
     phrase: string;
 }
@@ -425,6 +594,10 @@ export interface DLPWebRulesExcludedUsers {
     ids?: number[];
 }
 
+export interface DLPWebRulesFileTypeCategories {
+    ids?: number[];
+}
+
 export interface DLPWebRulesGroups {
     ids?: number[];
 }
@@ -453,6 +626,36 @@ export interface DLPWebRulesNotificationTemplate {
     id?: number;
 }
 
+export interface DLPWebRulesReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: string;
+    /**
+     * Name of the receiver
+     */
+    name?: string;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: outputs.DLPWebRulesReceiverTenant;
+    /**
+     * Type of the receiver
+     */
+    type?: string;
+}
+
+export interface DLPWebRulesReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: string;
+    /**
+     * Name of the tenant
+     */
+    name?: string;
+}
+
 export interface DLPWebRulesSourceIpGroups {
     ids?: number[];
 }
@@ -478,6 +681,52 @@ export interface DLPWebRulesWorkloadGroup {
      * The name of the resource.
      */
     name?: string;
+}
+
+export interface ExtranetExtranetDnsList {
+    /**
+     * (Integer) The unique identifier for the extranet.
+     */
+    id: number;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: string;
+    /**
+     * (String) The IP address of the primary DNS server.
+     */
+    primaryDnsServer: string;
+    /**
+     * (String) The IP address of the secondary DNS server.
+     */
+    secondaryDnsServer?: string;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault?: boolean;
+}
+
+export interface ExtranetExtranetIpPoolList {
+    /**
+     * (Integer) The unique identifier for the extranet.
+     */
+    id: number;
+    /**
+     * (String) The ending IP address of the pool.
+     */
+    ipEnd: string;
+    /**
+     * (String) The starting IP address of the pool.
+     */
+    ipStart: string;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: string;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault?: boolean;
 }
 
 export interface FileTypeControlRulesDepartments {
@@ -803,6 +1052,13 @@ export interface ForwardingControlRuleDestIpv6Groups {
     ids?: number[];
 }
 
+export interface ForwardingControlRuleDeviceGroups {
+    /**
+     * (int) Identifier that uniquely identifies an entity
+     */
+    ids?: number[];
+}
+
 export interface ForwardingControlRuleEcGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
@@ -1039,6 +1295,78 @@ export interface GetAdminUsersRole {
     name: string;
 }
 
+export interface GetBandwidthControlRuleBandwidthClass {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetBandwidthControlRuleLabel {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetBandwidthControlRuleLastModifiedBy {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetBandwidthControlRuleLocation {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetBandwidthControlRuleLocationGroup {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetBandwidthControlRuleTimeWindow {
+    extensions: {[key: string]: string};
+    /**
+     * System-generated identifier for bandwidth control rule
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
 export interface GetBrowserControlPolicySmartIsolationProfile {
     /**
      * Indicates whether this is a default browser isolation profile. Zscaler sets this field.
@@ -1236,6 +1564,52 @@ export interface GetCasbDlpRulesLabel {
 }
 
 export interface GetCasbDlpRulesObjectType {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+}
+
+export interface GetCasbDlpRulesReceiver {
+    /**
+     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
+     */
+    id: number;
+    /**
+     * Rule name.
+     */
+    name: string;
+    /**
+     * Tenant information for the receiver
+     */
+    tenants: outputs.GetCasbDlpRulesReceiverTenant[];
+    /**
+     * The type of SaaS Security Data at Rest Scanning DLP rule.
+     * * `OFLCASB_DLP_FILE`
+     * * `OFLCASB_DLP_EMAIL`
+     * * `OFLCASB_DLP_CRM`
+     * * `OFLCASB_DLP_ITSM`
+     * * `OFLCASB_DLP_COLLAB`
+     * * `OFLCASB_DLP_REPO`
+     * * `OFLCASB_DLP_STORAGE`
+     * * `OFLCASB_DLP_GENAI`
+     */
+    type: string;
+}
+
+export interface GetCasbDlpRulesReceiverTenant {
+    /**
+     * (Map of String) Optional metadata for the DLP engine.
+     */
+    extensions: {[key: string]: string};
+    /**
+     * External identifier for the tenant
+     */
+    externalId: string;
     /**
      * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule.
      */
@@ -1534,6 +1908,392 @@ export interface GetCloudApplicationsApplication {
     parentName: string;
 }
 
+export interface GetCloudNSSFeedBucket {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedCasbTenant {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedDepartment {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedDlpDictionary {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedDlpEngine {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedExternalCollaborator {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedExternalOwner {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedInternalCollaborator {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedItsmObjectType {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedLocation {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedLocationGroup {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedNwService {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedRule {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedSenderName {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedUrlCategory {
+    /**
+     * (Map of String) Optional metadata for the entity
+     */
+    extensions: {[key: string]: string};
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+}
+
+export interface GetCloudNSSFeedUser {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetCloudNSSFeedVpnCredential {
+    /**
+     * (bool) Indicates if the VPN credential is deleted
+     */
+    deleted: boolean;
+    /**
+     * (string) Description of the VPN credential
+     */
+    description: string;
+    /**
+     * (int) GETL identifier for the VPN credential
+     */
+    getlId: number;
+    /**
+     * The unique identifier for the nss server
+     */
+    id: number;
+    /**
+     * The name of the cloud NSS feed
+     */
+    name: string;
+    /**
+     * (int) Parent identifier for the VPN credential
+     */
+    pid: number;
+}
+
+export interface GetDCExclusionsExclusion {
+    /**
+     * (Integer) Datacenter ID (dcid) for the exclusion.
+     */
+    dcId: number;
+    /**
+     * (String) Datacenter name from the dcName reference.
+     */
+    dcName: string;
+    /**
+     * (Integer) Datacenter ID from the dcName reference.
+     */
+    dcNameId: number;
+    /**
+     * (String) Description of the DC exclusion.
+     */
+    description: string;
+    /**
+     * (Integer) Unix timestamp when the exclusion window ends.
+     */
+    endTime: number;
+    /**
+     * (Boolean) Whether the exclusion has expired.
+     */
+    expired: boolean;
+    /**
+     * (String) The exclusion identifier (datacenter ID as string). Matches the zia.DCExclusions resource id.
+     */
+    id: string;
+    /**
+     * (Integer) Unix timestamp when the exclusion window starts.
+     */
+    startTime: number;
+}
+
 export interface GetDLPDictionariesExactDataMatchDetail {
     /**
      * The unique identifier for the EDM mapping
@@ -1737,6 +2497,9 @@ export interface GetDLPIDMProfilesLastModifiedBy {
 }
 
 export interface GetDLPWebRulesDepartment {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1749,6 +2512,9 @@ export interface GetDLPWebRulesDepartment {
 }
 
 export interface GetDLPWebRulesDlpEngine {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1761,6 +2527,9 @@ export interface GetDLPWebRulesDlpEngine {
 }
 
 export interface GetDLPWebRulesExcludedDepartment {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1769,6 +2538,9 @@ export interface GetDLPWebRulesExcludedDepartment {
 }
 
 export interface GetDLPWebRulesExcludedGroup {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1777,6 +2549,9 @@ export interface GetDLPWebRulesExcludedGroup {
 }
 
 export interface GetDLPWebRulesExcludedUser {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1784,7 +2559,25 @@ export interface GetDLPWebRulesExcludedUser {
     id: number;
 }
 
+export interface GetDLPWebRulesFileTypeCategory {
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    id: number;
+    /**
+     * Identifier that uniquely identifies an entity
+     */
+    name: string;
+    /**
+     * Parent category of the file type
+     */
+    parent: string;
+}
+
 export interface GetDLPWebRulesGroup {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1797,6 +2590,9 @@ export interface GetDLPWebRulesGroup {
 }
 
 export interface GetDLPWebRulesIncludedDomainProfile {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1809,6 +2605,9 @@ export interface GetDLPWebRulesIncludedDomainProfile {
 }
 
 export interface GetDLPWebRulesLabel {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1821,6 +2620,9 @@ export interface GetDLPWebRulesLabel {
 }
 
 export interface GetDLPWebRulesLastModifiedBy {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1833,6 +2635,9 @@ export interface GetDLPWebRulesLastModifiedBy {
 }
 
 export interface GetDLPWebRulesLocation {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1845,6 +2650,9 @@ export interface GetDLPWebRulesLocation {
 }
 
 export interface GetDLPWebRulesLocationGroup {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1856,7 +2664,48 @@ export interface GetDLPWebRulesLocationGroup {
     name: string;
 }
 
+export interface GetDLPWebRulesReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: number;
+    /**
+     * Name of the receiver
+     */
+    name: string;
+    /**
+     * Tenant information for the receiver
+     */
+    tenants: outputs.GetDLPWebRulesReceiverTenant[];
+    /**
+     * Type of the receiver
+     */
+    type: string;
+}
+
+export interface GetDLPWebRulesReceiverTenant {
+    /**
+     * Additional properties for the tenant
+     */
+    extensions: {[key: string]: string};
+    /**
+     * External identifier for the tenant
+     */
+    externalId: string;
+    /**
+     * Unique identifier for the tenant
+     */
+    id: number;
+    /**
+     * Name of the tenant
+     */
+    name: string;
+}
+
 export interface GetDLPWebRulesSourceIpGroup {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1869,6 +2718,9 @@ export interface GetDLPWebRulesSourceIpGroup {
 }
 
 export interface GetDLPWebRulesTimeWindow {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1881,6 +2733,9 @@ export interface GetDLPWebRulesTimeWindow {
 }
 
 export interface GetDLPWebRulesUrlCategory {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1893,6 +2748,9 @@ export interface GetDLPWebRulesUrlCategory {
 }
 
 export interface GetDLPWebRulesUser {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     /**
      * Identifier that uniquely identifies an entity
@@ -1928,9 +2786,479 @@ export interface GetDLPWebRulesWorkloadGroup {
 }
 
 export interface GetDLPWebRulesWorkloadGroupLastModifiedBy {
+    /**
+     * Additional properties for the tenant
+     */
     extensions: {[key: string]: string};
     id: number;
     name: string;
+}
+
+export interface GetDatacentersDatacenter {
+    /**
+     * (String) City where the datacenter is located.
+     */
+    city: string;
+    /**
+     * (Integer) Timestamp when the datacenter was created.
+     */
+    createTime: number;
+    /**
+     * (Boolean) Whether the datacenter should not be provisioned.
+     */
+    dontProvision: boolean;
+    /**
+     * (Boolean) Whether the datacenter should not be published.
+     */
+    dontPublish: boolean;
+    /**
+     * (Integer) Download bandwidth in bytes per second.
+     */
+    downloadBandwidth: number;
+    /**
+     * (Boolean) Whether the datacenter is reserved for future use.
+     */
+    forFutureUse: boolean;
+    /**
+     * (Boolean) Whether this is a government-only datacenter.
+     */
+    govOnly: boolean;
+    /**
+     * (Integer) Unique identifier for the datacenter.
+     */
+    id: number;
+    /**
+     * (Integer) Timestamp when the datacenter was last modified.
+     */
+    lastModifiedTime: number;
+    /**
+     * (Integer) Latitude coordinate (legacy field).
+     */
+    lat: number;
+    /**
+     * (Float) Latitude coordinate.
+     */
+    latitude: number;
+    /**
+     * (Integer) Longitude coordinate (legacy field).
+     */
+    longi: number;
+    /**
+     * (Float) Longitude coordinate.
+     */
+    longitude: number;
+    /**
+     * (Boolean) Whether the datacenter is managed by BCP.
+     */
+    managedBcp: boolean;
+    /**
+     * (String) Zscaler data center name.
+     */
+    name: string;
+    /**
+     * (Boolean) Whether the datacenter is not ready for use.
+     */
+    notReadyForUse: boolean;
+    /**
+     * (Boolean) Whether the datacenter is owned by the customer.
+     */
+    ownedByCustomer: boolean;
+    /**
+     * (String) Provider of the datacenter.
+     */
+    provider: string;
+    /**
+     * (Boolean) Whether there is a regional surcharge for this datacenter.
+     */
+    regionalSurcharge: boolean;
+    /**
+     * (Boolean) Whether this is a third-party cloud datacenter.
+     */
+    thirdPartyCloud: boolean;
+    /**
+     * (String) Timezone of the datacenter.
+     */
+    timezone: string;
+    /**
+     * (Integer) Upload bandwidth in bytes per second.
+     */
+    uploadBandwidth: number;
+    /**
+     * (Boolean) Whether this is a virtual datacenter.
+     */
+    virtual: boolean;
+}
+
+export interface GetDeviceGroupsList {
+    /**
+     * (String) The device group's description.
+     */
+    description: string;
+    /**
+     * (int) The number of devices within the group.
+     */
+    deviceCount: number;
+    /**
+     * (String) The names of devices that belong to the device group. The device names are comma-separated.
+     */
+    deviceNames: string;
+    /**
+     * (String) The device group type. i.e ``ZCC_OS``, ``NON_ZCC``, ``CBI``
+     */
+    groupType: string;
+    /**
+     * (String) The unique identifer for the device group.
+     */
+    id: number;
+    /**
+     * The name of the device group to be exported. If not provided, all device groups will be returned.
+     */
+    name: string;
+    /**
+     * (String) The operating system (OS).
+     */
+    osType: string;
+    /**
+     * (Boolean) Indicates whether this is a predefined device group. If this value is set to true, the group is predefined.
+     */
+    predefined: boolean;
+}
+
+export interface GetDlpCloudToCloudIrLastModifiedBy {
+    /**
+     * (Map) Additional properties for the Zscaler app tenant
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (String) External identifier for the Zscaler app tenant.
+     */
+    externalId: string;
+    /**
+     * (Number) Unique identifier for the Zscaler app tenant.
+     */
+    id: number;
+    /**
+     * (String) Name of the Zscaler app tenant.
+     */
+    name: string;
+}
+
+export interface GetDlpCloudToCloudIrLastValidationMsg {
+    /**
+     * (Number) Error code from validation.
+     */
+    errorCode: number;
+    /**
+     * (String) Error message from validation.
+     */
+    errorMsg: string;
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntity {
+    /**
+     * (String) Application name (e.g., `SLACK`).
+     */
+    application: string;
+    /**
+     * (String) Enterprise tenant ID.
+     */
+    enterpriseTenantId: string;
+    /**
+     * (Number) Unique identifier for the Zscaler app tenant.
+     */
+    id: number;
+    /**
+     * (List) Last validation message for the onboardable entity.
+     */
+    lastValidationMsgs: outputs.GetDlpCloudToCloudIrOnboardableEntityLastValidationMsg[];
+    /**
+     * (String) Name of the Zscaler app tenant.
+     */
+    name: string;
+    /**
+     * (List) Tenant authorization information.
+     */
+    tenantAuthorizationInfos: outputs.GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfo[];
+    /**
+     * (String) Authorization type (e.g., `SLACK_BOT`).
+     */
+    type: string;
+    /**
+     * (List) Zscaler app tenant ID information.
+     */
+    zscalerAppTenantIds: outputs.GetDlpCloudToCloudIrOnboardableEntityZscalerAppTenantId[];
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntityLastValidationMsg {
+    /**
+     * (Number) Error code from validation.
+     */
+    errorCode: number;
+    /**
+     * (String) Error message from validation.
+     */
+    errorMsg: string;
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfo {
+    /**
+     * (String) Access token for authorization.
+     */
+    accessToken: string;
+    /**
+     * (String) API CP configuration.
+     */
+    apicp: string;
+    /**
+     * (String) Bot ID for authorization.
+     */
+    botId: string;
+    /**
+     * (String) Bot token for authorization.
+     */
+    botToken: string;
+    /**
+     * (String) Client ID for authorization.
+     */
+    clientId: string;
+    /**
+     * (String) Client secret for authorization.
+     */
+    clientSecret: string;
+    /**
+     * (String) Cloud trail bucket name.
+     */
+    cloudTrailBucketName: string;
+    /**
+     * (String) Credential JSON.
+     */
+    credJson: string;
+    /**
+     * (String) Credentials for authorization.
+     */
+    credentials: string;
+    /**
+     * (String) DLP quarantine library name.
+     */
+    dlpQtnLibName: string;
+    /**
+     * (String) Enterprise identifier.
+     */
+    enterpriseId: string;
+    /**
+     * (String) Environment (e.g., `SALESFORCE_PRODUCTION`).
+     */
+    env: string;
+    /**
+     * (String) External identifier for the Zscaler app tenant.
+     */
+    externalId: string;
+    /**
+     * (List of String) Supported features (e.g., `CASB`).
+     */
+    featuresSupporteds: string[];
+    /**
+     * (String) Instance URL for the tenant.
+     */
+    instanceUrl: string;
+    /**
+     * (String) Malware quarantine library name.
+     */
+    malQtnLibName: string;
+    /**
+     * (String) Organization API key.
+     */
+    orgApiKey: string;
+    /**
+     * (String) Organization identifier.
+     */
+    organizationId: string;
+    /**
+     * (String) Quarantine channel URL.
+     */
+    qtnChannelUrl: string;
+    /**
+     * (Boolean) Whether quarantine information is cleared.
+     */
+    qtnInfoCleared: boolean;
+    /**
+     * (List) Quarantine information.
+     */
+    qtnInfos: outputs.GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfoQtnInfo[];
+    /**
+     * (String) Quarantine bucket name.
+     */
+    quarantineBucketName: string;
+    /**
+     * (String) Redirect URL for authorization.
+     */
+    redirectUrl: string;
+    /**
+     * (String) REST API endpoint.
+     */
+    restApiEndpoint: string;
+    /**
+     * (String) Role for authorization (e.g., `READ`).
+     */
+    role: string;
+    /**
+     * (String) Role ARN for authorization.
+     */
+    roleArn: string;
+    /**
+     * (String) Secret token for authorization.
+     */
+    secretToken: string;
+    /**
+     * (List) SMIR bucket configuration.
+     */
+    smirBucketConfigs: outputs.GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfoSmirBucketConfig[];
+    /**
+     * (String) Subdomain for the tenant.
+     */
+    subdomain: string;
+    /**
+     * (String) Temporary authorization code.
+     */
+    tempAuthCode: string;
+    /**
+     * (String) Token endpoint for authorization.
+     */
+    tokenEndpoint: string;
+    /**
+     * (String) Authorization type (e.g., `SLACK_BOT`).
+     */
+    type: string;
+    /**
+     * (String) Username for authorization.
+     */
+    userName: string;
+    /**
+     * (String) User password for authorization.
+     */
+    userPwd: string;
+    /**
+     * (String) Workspace identifier.
+     */
+    workspaceId: string;
+    /**
+     * (String) Workspace name.
+     */
+    workspaceName: string;
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfoQtnInfo {
+    /**
+     * (String) Administrator identifier.
+     */
+    adminId: string;
+    /**
+     * (Number) Modification time.
+     */
+    modTime: number;
+    /**
+     * (String) Quarantine folder path.
+     */
+    qtnFolderPath: string;
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntityTenantAuthorizationInfoSmirBucketConfig {
+    /**
+     * (String) Configuration name for the bucket.
+     */
+    configName: string;
+    /**
+     * (String) Data bucket name URL.
+     */
+    dataBucketName: string;
+    /**
+     * (Number) Unique identifier for the Zscaler app tenant.
+     */
+    id: number;
+    /**
+     * (String) Metadata bucket name URL.
+     */
+    metadataBucketName: string;
+}
+
+export interface GetDlpCloudToCloudIrOnboardableEntityZscalerAppTenantId {
+    /**
+     * (Map) Additional properties for the Zscaler app tenant
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (String) External identifier for the Zscaler app tenant.
+     */
+    externalId: string;
+    /**
+     * (Number) Unique identifier for the Zscaler app tenant.
+     */
+    id: number;
+    /**
+     * (String) Name of the Zscaler app tenant.
+     */
+    name: string;
+}
+
+export interface GetExtranetExtranetDnsList {
+    /**
+     * (Integer) The ID generated for the IP pool configuration.
+     */
+    id: number;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: string;
+    /**
+     * (String) The IP address of the primary DNS server.
+     */
+    primaryDnsServer: string;
+    /**
+     * (String) The IP address of the secondary DNS server.
+     */
+    secondaryDnsServer: string;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault: boolean;
+}
+
+export interface GetExtranetExtranetIpPoolList {
+    /**
+     * (Integer) The ID generated for the IP pool configuration.
+     */
+    id: number;
+    /**
+     * (String) The ending IP address of the pool.
+     */
+    ipEnd: string;
+    /**
+     * (String) The starting IP address of the pool.
+     */
+    ipStart: string;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: string;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault: boolean;
+}
+
+export interface GetFileTypeCategoriesCategory {
+    /**
+     * (Integer) File type category ID
+     */
+    id: number;
+    /**
+     * (String) File type category name
+     */
+    name: string;
+    /**
+     * (String) Parent category of the file type
+     */
+    parent: string;
 }
 
 export interface GetFileTypeControlRulesDepartment {
@@ -4329,6 +5657,401 @@ export interface GetSandboxRulesZpaAppSegment {
     name: string;
 }
 
+export interface GetSubCloudDc {
+    /**
+     * (String) Country where the data center is located. Enum with 245 predefined country values.
+     */
+    country: string;
+    /**
+     * (Integer) A unique identifier for an entity
+     */
+    id: number;
+    /**
+     * (String) The configured name of the entity (read-only)
+     */
+    name: string;
+}
+
+export interface GetSubCloudExclusion {
+    /**
+     * (String) Country where the data center is located. Enum with 245 predefined country values.
+     */
+    country: string;
+    /**
+     * (Integer) Timestamp when the data center exclusion was created
+     */
+    createTime: number;
+    /**
+     * (List) The data center associated with the subcloud. An immutable reference to an entity that mainly consists of `id` and `name`.
+     */
+    datacenters: outputs.GetSubCloudExclusionDatacenter[];
+    /**
+     * (Boolean) If set to true, this data center exclusion is disabled by Zscaler CloudOps
+     */
+    disabledByOps: boolean;
+    /**
+     * (Integer) Timestamp when the data center exclusion was stopped
+     */
+    endTime: number;
+    /**
+     * Exclusion end time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+     */
+    endTimeUtc: string;
+    /**
+     * (Boolean) The subcloud data center exclusion is disabled
+     */
+    expired: boolean;
+    /**
+     * (Integer) Timestamp when the data center exclusion entry was last modified
+     */
+    lastModifiedTime: number;
+    /**
+     * (List) Last user that modified the data center. An immutable reference to an entity that mainly consists of `id` and `name`.
+     */
+    lastModifiedUsers: outputs.GetSubCloudExclusionLastModifiedUser[];
+    /**
+     * (Integer) Timestamp when the data center exclusion was started
+     */
+    startTime: number;
+    /**
+     * Exclusion start time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+     */
+    startTimeUtc: string;
+}
+
+export interface GetSubCloudExclusionDatacenter {
+    /**
+     * (Map of String) Extension attributes
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Integer) A unique identifier for an entity
+     */
+    id: number;
+    /**
+     * (String) The configured name of the entity (read-only)
+     */
+    name: string;
+}
+
+export interface GetSubCloudExclusionLastModifiedUser {
+    /**
+     * (Map of String) Extension attributes
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Integer) A unique identifier for an entity
+     */
+    id: number;
+    /**
+     * (String) The configured name of the entity (read-only)
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesAppServiceGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesDepartment {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesDestIpGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesDevice {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesDeviceGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesLabel {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesLastModifiedBy {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesLocation {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesLocationGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesNwApplicationGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesNwService {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesNwServiceGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesSrcIpGroup {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesTimeWindow {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesUser {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroup {
+    /**
+     * (String) Additional information about the rule. Cannot exceed 10,240 characters.
+     */
+    description: string;
+    /**
+     * The description of the workload group
+     */
+    expression: string;
+    expressionJsons: outputs.GetTrafficCaptureRulesWorkloadGroupExpressionJson[];
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (List) User who last modified the rule
+     */
+    lastModifiedBies: outputs.GetTrafficCaptureRulesWorkloadGroupLastModifiedBy[];
+    /**
+     * (Integer) Timestamp when the rule was last modified
+     */
+    lastModifiedTime: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroupExpressionJson {
+    expressionContainers: outputs.GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer[];
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer {
+    operator: string;
+    tagContainers: outputs.GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer[];
+    tagType: string;
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
+    operator: string;
+    tags: outputs.GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag[];
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
+    key: string;
+    value: string;
+}
+
+export interface GetTrafficCaptureRulesWorkloadGroupLastModifiedBy {
+    /**
+     * (Map of String)
+     */
+    extensions: {[key: string]: string};
+    /**
+     * (Number) A unique identifier assigned to the workload group
+     */
+    id: number;
+    /**
+     * (String) The name of the workload group
+     */
+    name: string;
+}
+
 export interface GetTrafficForwardingGREInternalIPRangeList {
     /**
      * (String) Starting IP address in the range
@@ -4512,7 +6235,7 @@ export interface GetURLCategoriesScope {
     /**
      * (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
      */
-    type: string;
+    type?: string;
 }
 
 export interface GetURLCategoriesScopeScopeEntity {
@@ -4521,7 +6244,7 @@ export interface GetURLCategoriesScopeScopeEntity {
      */
     extensions: {[key: string]: string};
     /**
-     * URL category
+     * (String) Identifier that uniquely identifies an entity
      */
     id: number;
     /**
@@ -4536,7 +6259,7 @@ export interface GetURLCategoriesScopeScopeGroupMemberEntity {
      */
     extensions: {[key: string]: string};
     /**
-     * URL category
+     * (String) Identifier that uniquely identifies an entity
      */
     id: number;
     /**
@@ -4573,6 +6296,10 @@ export interface GetURLFilteringRulesCbiProfile {
      * Name of the URL Filtering policy rule
      */
     name: string;
+    /**
+     * The browser isolation profile URL
+     */
+    profileSeq: number;
     /**
      * (String) The browser isolation profile URL
      */
@@ -4877,16 +6604,13 @@ export interface GetUserManagementGroup {
 }
 
 export interface GetVirtualServiceEdgeClusterVirtualZenNode {
-    /**
-     * (Map of String)
-     */
     extensions: {[key: string]: string};
     /**
-     * (String) An external identifier used for an entity that is managed outside of ZIA.
+     * The configured name of the entity
      */
     externalId: string;
     /**
-     * USystem-generated Virtual Service Edge cluster ID
+     * System-generated Virtual Service Edge cluster ID
      */
     id: number;
     /**
@@ -5078,10 +6802,6 @@ export interface IPSFirewallRuleZpaAppSegment {
     name: string;
 }
 
-export interface LocationManagementDynamicLocationGroups {
-    ids?: number[];
-}
-
 export interface LocationManagementExtranet {
     id?: number;
 }
@@ -5099,10 +6819,9 @@ export interface LocationManagementStaticLocationGroups {
 }
 
 export interface LocationManagementVpnCredential {
-    comments: string;
     fqdn: string;
     id: number;
-    ipAddress: string;
+    ipAddress?: string;
     preSharedKey?: string;
     type: string;
 }
@@ -5424,6 +7143,126 @@ export interface SandboxRulesZpaAppSegment {
     name: string;
 }
 
+export interface SubCloudDc {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country: string;
+    /**
+     * (Integer) Unique identifier for the datacenter.
+     */
+    id: number;
+    /**
+     * (String) Datacenter name.
+     */
+    name: string;
+}
+
+export interface SubCloudExclusion {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country: string;
+    /**
+     * (List) The excluded datacenter reference.
+     */
+    datacenter: outputs.SubCloudExclusionDatacenter;
+    /**
+     * (Integer, Optional) Exclusion end time (Unix timestamp). Either `endTime` or `endTimeUtc` must be set.
+     */
+    endTime: number;
+    /**
+     * (String, Optional) Data center disabled until (UTC). Format: `MM/DD/YYYY HH:MM:SS am/pm`. If set, overrides `endTime`.
+     */
+    endTimeUtc: string;
+}
+
+export interface SubCloudExclusionDatacenter {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country?: string;
+    /**
+     * (Integer) Unique identifier for the datacenter.
+     */
+    id: number;
+    /**
+     * (String) Datacenter name.
+     */
+    name?: string;
+}
+
+export interface TrafficCaptureRulesAppServiceGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesDepartments {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesDestIpGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesDeviceGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesDevices {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesLabels {
+    id?: number;
+}
+
+export interface TrafficCaptureRulesLocationGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesLocations {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesNwApplicationGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesNwServiceGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesNwServices {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesSrcIpGroups {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesTimeWindows {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesUsers {
+    ids?: number[];
+}
+
+export interface TrafficCaptureRulesWorkloadGroup {
+    /**
+     * The unique identifier for the resource.
+     */
+    id: number;
+    /**
+     * The name of the resource.
+     */
+    name?: string;
+}
+
 export interface TrafficForwardingGRETunnelPrimaryDestVip {
     /**
      * Data center information
@@ -5452,6 +7291,25 @@ export interface TrafficForwardingGRETunnelSecondaryDestVip {
      * GRE cluster virtual IP address (VIP)
      */
     virtualIp: string;
+}
+
+export interface URLCategoriesPredefinedUrlKeywordCount {
+    /**
+     * Count of total keywords with retain parent category.
+     */
+    retainParentKeywordCount: number;
+    /**
+     * Count of URLs with retain parent category.
+     */
+    retainParentUrlCount: number;
+    /**
+     * Total keyword count for the category.
+     */
+    totalKeywordCount: number;
+    /**
+     * Custom URL count for the category.
+     */
+    totalUrlCount: number;
 }
 
 export interface URLCategoriesScope {
@@ -5499,6 +7357,7 @@ export interface URLFilteringRulesCbiProfile {
      * Name of the Firewall Filtering policy rule
      */
     name?: string;
+    profileSeq: number;
     /**
      * The browser isolation profile URL
      */
@@ -5570,6 +7429,11 @@ export interface UserManagementDepartment {
      */
     comments: string;
     deleted: boolean;
+    /**
+     * Department ID
+     *
+     * !> **WARNING:** The password parameter is considered sensitive information and is omitted in case terraform output is configured.
+     */
     id?: number;
     /**
      * Identity provider (IdP) ID
@@ -5589,9 +7453,50 @@ export interface UserManagementGroups {
 }
 
 export interface VirtualServiceEdgeClusterVirtualZenNodes {
-    /**
-     * (Number) Identifier that uniquely identifies an entity
-     */
     ids: number[];
+}
+
+export interface WorkloadGroupsExpressionJson {
+    /**
+     * (List) Contains one or more tag types (and associated tags) combined using logical operators within a workload group.
+     */
+    expressionContainers?: outputs.WorkloadGroupsExpressionJsonExpressionContainer[];
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainer {
+    /**
+     * (String) The logical operator (either AND or OR) used to combine the tags within a tag type. Returned values are: `AND`, `OR`.
+     */
+    operator?: string;
+    /**
+     * (List) Contains one or more tags and the logical operator used to combine the tags within a tag type.
+     */
+    tagContainers?: outputs.WorkloadGroupsExpressionJsonExpressionContainerTagContainer[];
+    /**
+     * (String) The tag type selected from a predefined list. Returned values are: `ANY`, `VPC`, `SUBNET`, `VM`, `ENI`, `ATTR`.
+     */
+    tagType?: string;
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainerTagContainer {
+    /**
+     * (String) The logical operator (either AND or OR) used to combine the tags within a tag type. Returned values are: `AND`, `OR`.
+     */
+    operator?: string;
+    /**
+     * (List) One or more tags, each consisting of a key-value pair, selected within a tag type. If multiple tags are present within a tag type, they are combined using a logical operator. Note: A maximum of 8 tags can be added to a workload group, irrespective of the number of tag types present.
+     */
+    tags?: outputs.WorkloadGroupsExpressionJsonExpressionContainerTagContainerTag[];
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainerTagContainerTag {
+    /**
+     * (String) The key component present in the key-value pair contained in a tag.
+     */
+    key?: string;
+    /**
+     * (String) The value component present in the key-value pair contained in a tag.
+     */
+    value?: string;
 }
 

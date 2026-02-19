@@ -137,7 +137,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetUserManagementResult
     {
         /// <summary>
-        /// (String) True if this user is an Admin user. readOnly: `true` default: `false`
+        /// (String) True if this user is an Admin user. readOnly: &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt; default: &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// </summary>
         public readonly bool AdminUser;
         /// <summary>

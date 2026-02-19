@@ -12,6 +12,28 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+// * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+//
+// The **zia_firewall_dns_rule** resource allows the creation and management of ZIA Cloud Firewall DNS rules in the Zscaler Internet Access.
+//
+// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+//
+// * Automatically place new rules at the correct position
+// * Handle reordering around predefined rules
+// * Avoid configuration drift
+//
+// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+//
+// **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
+//
+// * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+// * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to
+// * `labels` (list) - Labels that are applicable to the rule.
+//   - `id` - (Integer) Identifier that uniquely identifies an entity
+//
+// **NOTE 3** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+//
 // ## Example Usage
 //
 // ### Create Firewall DNS Rules - Redirect Action
@@ -42,13 +64,15 @@ type FirewallDNSRule struct {
 	Action pulumi.StringPtrOutput `pulumi:"action"`
 	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrOutput `pulumi:"applicationGroups"`
-	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
 	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
 	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrOutput `pulumi:"blockResponseCode"`
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolOutput `pulumi:"capturePcap"`
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed pulumi.BoolPtrOutput `pulumi:"defaultDnsRuleNameUsed"`
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -83,6 +107,8 @@ type FirewallDNSRule struct {
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectOutput `pulumi:"ednsEcsObject"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrOutput `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled pulumi.BoolPtrOutput `pulumi:"isWebEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrOutput `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -97,7 +123,7 @@ type FirewallDNSRule struct {
 	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
 	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
 	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrOutput `pulumi:"redirectIp"`
@@ -113,7 +139,7 @@ type FirewallDNSRule struct {
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrOutput `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrOutput `pulumi:"timeWindows"`
@@ -160,13 +186,15 @@ type firewallDNSRuleState struct {
 	Action *string `pulumi:"action"`
 	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups *FirewallDNSRuleApplicationGroups `pulumi:"applicationGroups"`
-	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	Applications []string `pulumi:"applications"`
 	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
 	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode *string `pulumi:"blockResponseCode"`
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed *bool `pulumi:"defaultDnsRuleNameUsed"`
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule *bool `pulumi:"defaultRule"`
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -201,6 +229,8 @@ type firewallDNSRuleState struct {
 	EdnsEcsObject *FirewallDNSRuleEdnsEcsObject `pulumi:"ednsEcsObject"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *FirewallDNSRuleGroups `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled *bool `pulumi:"isWebEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels *FirewallDNSRuleLabels `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -215,7 +245,7 @@ type firewallDNSRuleState struct {
 	Predefined *bool `pulumi:"predefined"`
 	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols []string `pulumi:"protocols"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank *int `pulumi:"rank"`
 	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp *string `pulumi:"redirectIp"`
@@ -231,7 +261,7 @@ type firewallDNSRuleState struct {
 	SrcIps []string `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *FirewallDNSRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State *string `pulumi:"state"`
 	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows *FirewallDNSRuleTimeWindows `pulumi:"timeWindows"`
@@ -246,13 +276,15 @@ type FirewallDNSRuleState struct {
 	Action pulumi.StringPtrInput
 	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrInput
-	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	Applications pulumi.StringArrayInput
 	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
 	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrInput
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed pulumi.BoolPtrInput
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrInput
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -287,6 +319,8 @@ type FirewallDNSRuleState struct {
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectPtrInput
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrInput
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled pulumi.BoolPtrInput
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrInput
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -301,7 +335,7 @@ type FirewallDNSRuleState struct {
 	Predefined pulumi.BoolPtrInput
 	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayInput
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrInput
 	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrInput
@@ -317,7 +351,7 @@ type FirewallDNSRuleState struct {
 	SrcIps pulumi.StringArrayInput
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrInput
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrInput
 	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrInput
@@ -336,13 +370,15 @@ type firewallDNSRuleArgs struct {
 	Action *string `pulumi:"action"`
 	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups *FirewallDNSRuleApplicationGroups `pulumi:"applicationGroups"`
-	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	Applications []string `pulumi:"applications"`
 	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
 	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode *string `pulumi:"blockResponseCode"`
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed *bool `pulumi:"defaultDnsRuleNameUsed"`
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule *bool `pulumi:"defaultRule"`
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -377,6 +413,8 @@ type firewallDNSRuleArgs struct {
 	EdnsEcsObject *FirewallDNSRuleEdnsEcsObject `pulumi:"ednsEcsObject"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *FirewallDNSRuleGroups `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled *bool `pulumi:"isWebEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels *FirewallDNSRuleLabels `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -391,7 +429,7 @@ type firewallDNSRuleArgs struct {
 	Predefined *bool `pulumi:"predefined"`
 	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols []string `pulumi:"protocols"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank *int `pulumi:"rank"`
 	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp *string `pulumi:"redirectIp"`
@@ -406,7 +444,7 @@ type firewallDNSRuleArgs struct {
 	SrcIps []string `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *FirewallDNSRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State *string `pulumi:"state"`
 	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows *FirewallDNSRuleTimeWindows `pulumi:"timeWindows"`
@@ -422,13 +460,15 @@ type FirewallDNSRuleArgs struct {
 	Action pulumi.StringPtrInput
 	// (List of Objects) DNS application groups to which the rule applies
 	ApplicationGroups FirewallDNSRuleApplicationGroupsPtrInput
-	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+	// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	Applications pulumi.StringArrayInput
 	// (String) Specifies the DNS response code to be sent to the client when the action is configured to block and send response code. Supported values are: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `YXDOMAIN`, `YXRRSET`, `NXRRSET`, `NOTAUTH`, `NOTZONE`, `BADVERS`, `BADKEY`, `BADTIME`, `BADMODE`, `BADNAME`, `BADALG`, `BADTRUNC`, `UNSUPPORTED`, `BYPASS`, `INT_ERROR`, `SRV_TIMEOUT`, `EMPTY_RESP`,
 	// `REQ_BLOCKED`, `ADMIN_DROP`, `WCDN_TIMEOUT`, `IPS_BLOCK`, `FQDN_RESOLV_FAIL`
 	BlockResponseCode pulumi.StringPtrInput
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed pulumi.BoolPtrInput
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule pulumi.BoolPtrInput
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -463,6 +503,8 @@ type FirewallDNSRuleArgs struct {
 	EdnsEcsObject FirewallDNSRuleEdnsEcsObjectPtrInput
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups FirewallDNSRuleGroupsPtrInput
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled pulumi.BoolPtrInput
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels FirewallDNSRuleLabelsPtrInput
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -477,7 +519,7 @@ type FirewallDNSRuleArgs struct {
 	Predefined pulumi.BoolPtrInput
 	// (Set of Strings) The protocols to which the rules applies. Supported Values: `ANY_RULE`, `SMRULEF_CASCADING_ALLOWED`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`
 	Protocols pulumi.StringArrayInput
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrInput
 	// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
 	RedirectIp pulumi.StringPtrInput
@@ -492,7 +534,7 @@ type FirewallDNSRuleArgs struct {
 	SrcIps pulumi.StringArrayInput
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups FirewallDNSRuleSrcIpv6GroupsPtrInput
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrInput
 	// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
 	TimeWindows FirewallDNSRuleTimeWindowsPtrInput
@@ -599,7 +641,7 @@ func (o FirewallDNSRuleOutput) ApplicationGroups() FirewallDNSRuleApplicationGro
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleApplicationGroupsPtrOutput { return v.ApplicationGroups }).(FirewallDNSRuleApplicationGroupsPtrOutput)
 }
 
-// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. See example:
+// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `getCloudApplications` with the `appClass` value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 func (o FirewallDNSRuleOutput) Applications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.Applications }).(pulumi.StringArrayOutput)
 }
@@ -613,6 +655,11 @@ func (o FirewallDNSRuleOutput) BlockResponseCode() pulumi.StringPtrOutput {
 // (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 func (o FirewallDNSRuleOutput) CapturePcap() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolOutput { return v.CapturePcap }).(pulumi.BoolOutput)
+}
+
+// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+func (o FirewallDNSRuleOutput) DefaultDnsRuleNameUsed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolPtrOutput { return v.DefaultDnsRuleNameUsed }).(pulumi.BoolPtrOutput)
 }
 
 // (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
@@ -691,6 +738,11 @@ func (o FirewallDNSRuleOutput) Groups() FirewallDNSRuleGroupsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleGroupsPtrOutput { return v.Groups }).(FirewallDNSRuleGroupsPtrOutput)
 }
 
+// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+func (o FirewallDNSRuleOutput) IsWebEunEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallDNSRule) pulumi.BoolPtrOutput { return v.IsWebEunEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (List of Objects) Labels that are applicable to the rule.
 func (o FirewallDNSRuleOutput) Labels() FirewallDNSRuleLabelsPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleLabelsPtrOutput { return v.Labels }).(FirewallDNSRuleLabelsPtrOutput)
@@ -726,7 +778,7 @@ func (o FirewallDNSRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 func (o FirewallDNSRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
@@ -766,7 +818,7 @@ func (o FirewallDNSRuleOutput) SrcIpv6Groups() FirewallDNSRuleSrcIpv6GroupsPtrOu
 	return o.ApplyT(func(v *FirewallDNSRule) FirewallDNSRuleSrcIpv6GroupsPtrOutput { return v.SrcIpv6Groups }).(FirewallDNSRuleSrcIpv6GroupsPtrOutput)
 }
 
-// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 func (o FirewallDNSRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDNSRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }

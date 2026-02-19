@@ -18,7 +18,9 @@ export function getIPSFirewallRule(args?: GetIPSFirewallRuleArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getIPSFirewallRule:getIPSFirewallRule", {
+        "eunTemplateId": args.eunTemplateId,
         "id": args.id,
+        "isEunEnabled": args.isEunEnabled,
         "name": args.name,
     }, opts);
 }
@@ -28,9 +30,14 @@ export function getIPSFirewallRule(args?: GetIPSFirewallRuleArgs, opts?: pulumi.
  */
 export interface GetIPSFirewallRuleArgs {
     /**
+     * (Integer) The EUN template ID associated with the rule
+     */
+    eunTemplateId?: number;
+    /**
      * Unique identifier for the Firewall Filtering policy rule
      */
     id?: number;
+    isEunEnabled?: boolean;
     /**
      * Name of the Firewall Filtering policy rule
      */
@@ -92,6 +99,10 @@ export interface GetIPSFirewallRuleResult {
      */
     readonly enableFullLogging: boolean;
     /**
+     * (Integer) The EUN template ID associated with the rule
+     */
+    readonly eunTemplateId?: number;
+    /**
      * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     readonly groups: outputs.GetIPSFirewallRuleGroup[];
@@ -99,6 +110,7 @@ export interface GetIPSFirewallRuleResult {
      * (Integer) Identifier that uniquely identifies an entity
      */
     readonly id: number;
+    readonly isEunEnabled?: boolean;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
@@ -191,7 +203,9 @@ export function getIPSFirewallRuleOutput(args?: GetIPSFirewallRuleOutputArgs, op
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getIPSFirewallRule:getIPSFirewallRule", {
+        "eunTemplateId": args.eunTemplateId,
         "id": args.id,
+        "isEunEnabled": args.isEunEnabled,
         "name": args.name,
     }, opts);
 }
@@ -201,9 +215,14 @@ export function getIPSFirewallRuleOutput(args?: GetIPSFirewallRuleOutputArgs, op
  */
 export interface GetIPSFirewallRuleOutputArgs {
     /**
+     * (Integer) The EUN template ID associated with the rule
+     */
+    eunTemplateId?: pulumi.Input<number>;
+    /**
      * Unique identifier for the Firewall Filtering policy rule
      */
     id?: pulumi.Input<number>;
+    isEunEnabled?: pulumi.Input<boolean>;
     /**
      * Name of the Firewall Filtering policy rule
      */

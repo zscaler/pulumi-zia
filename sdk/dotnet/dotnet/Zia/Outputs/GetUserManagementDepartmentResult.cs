@@ -19,7 +19,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string Comments;
         /// <summary>
-        /// (Boolean) default: `false`
+        /// (Boolean) default: &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// </summary>
         public readonly bool Deleted;
         /// <summary>

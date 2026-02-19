@@ -21,10 +21,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_security_settings** can be imported by using `all_urls` as the import ID.
+// **zia_security_settings** can be imported by using `allUrls` as the import ID.
 //
 // For example:
 //
@@ -34,7 +33,7 @@ import (
 type SecuritySettings struct {
 	pulumi.CustomResourceState
 
-	// URLs on the denylist for your organization. Allow up to 25000 URLs.
+	// URLs on the denylist for your organization. Allow up to 275000 URLs.
 	BlacklistUrls pulumi.StringArrayOutput `pulumi:"blacklistUrls"`
 	// Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
 	WhitelistUrls pulumi.StringArrayOutput `pulumi:"whitelistUrls"`
@@ -70,14 +69,14 @@ func GetSecuritySettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecuritySettings resources.
 type securitySettingsState struct {
-	// URLs on the denylist for your organization. Allow up to 25000 URLs.
+	// URLs on the denylist for your organization. Allow up to 275000 URLs.
 	BlacklistUrls []string `pulumi:"blacklistUrls"`
 	// Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
 	WhitelistUrls []string `pulumi:"whitelistUrls"`
 }
 
 type SecuritySettingsState struct {
-	// URLs on the denylist for your organization. Allow up to 25000 URLs.
+	// URLs on the denylist for your organization. Allow up to 275000 URLs.
 	BlacklistUrls pulumi.StringArrayInput
 	// Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
 	WhitelistUrls pulumi.StringArrayInput
@@ -88,7 +87,7 @@ func (SecuritySettingsState) ElementType() reflect.Type {
 }
 
 type securitySettingsArgs struct {
-	// URLs on the denylist for your organization. Allow up to 25000 URLs.
+	// URLs on the denylist for your organization. Allow up to 275000 URLs.
 	BlacklistUrls []string `pulumi:"blacklistUrls"`
 	// Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
 	WhitelistUrls []string `pulumi:"whitelistUrls"`
@@ -96,7 +95,7 @@ type securitySettingsArgs struct {
 
 // The set of arguments for constructing a SecuritySettings resource.
 type SecuritySettingsArgs struct {
-	// URLs on the denylist for your organization. Allow up to 25000 URLs.
+	// URLs on the denylist for your organization. Allow up to 275000 URLs.
 	BlacklistUrls pulumi.StringArrayInput
 	// Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
 	WhitelistUrls pulumi.StringArrayInput
@@ -189,7 +188,7 @@ func (o SecuritySettingsOutput) ToSecuritySettingsOutputWithContext(ctx context.
 	return o
 }
 
-// URLs on the denylist for your organization. Allow up to 25000 URLs.
+// URLs on the denylist for your organization. Allow up to 275000 URLs.
 func (o SecuritySettingsOutput) BlacklistUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecuritySettings) pulumi.StringArrayOutput { return v.BlacklistUrls }).(pulumi.StringArrayOutput)
 }

@@ -21,10 +21,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_url_filtering_and_cloud_app_settings** can be imported by using `app_setting` as the import ID.
+// **zia_url_filtering_and_cloud_app_settings** can be imported by using `appSetting` as the import ID.
 //
 // For example:
 //
@@ -36,56 +35,48 @@ type URLFilteringCloudAppSettings struct {
 
 	// A Boolean value indicating whether access to Skype is blocked or not.
 	BlockSkype pulumi.BoolOutput `pulumi:"blockSkype"`
-	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-	// services or not.
+	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 	ConsiderEmbeddedSites pulumi.BoolOutput `pulumi:"considerEmbeddedSites"`
-	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-	// authentication information
+	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 	EnableBlockOverrideForNonAuthUser pulumi.BoolOutput `pulumi:"enableBlockOverrideForNonAuthUser"`
 	// A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
 	EnableChatgptPrompt pulumi.BoolOutput `pulumi:"enableChatgptPrompt"`
 	// A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
 	EnableCipaCompliance pulumi.BoolOutput `pulumi:"enableCipaCompliance"`
-	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-	// AI/ML tools is enabled or not.
+	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 	EnableDynamicContentCat pulumi.BoolOutput `pulumi:"enableDynamicContentCat"`
-	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 	EnableGeminiPrompt pulumi.BoolOutput `pulumi:"enableGeminiPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
 	EnableMetaPrompt pulumi.BoolOutput `pulumi:"enableMetaPrompt"`
-	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 	EnableMicrosoftCopilotPrompt pulumi.BoolOutput `pulumi:"enableMicrosoftCopilotPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-	// automatically without any manual configuration needed.
-	EnableMsftO365 pulumi.BoolOutput `pulumi:"enableMsftO365"`
-	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-	// are allowed or blocked
+	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
+	EnableMsftO365 pulumi.BoolPtrOutput `pulumi:"enableMsftO365"`
+	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 	EnableNewlyRegisteredDomains pulumi.BoolOutput `pulumi:"enableNewlyRegisteredDomains"`
 	// A Boolean value that enables or disables Microsoft Office 365 configuration.
-	EnableOffice365 pulumi.BoolOutput `pulumi:"enableOffice365"`
+	EnableOffice365 pulumi.BoolPtrOutput `pulumi:"enableOffice365"`
 	// A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
 	EnablePerPlexityPrompt pulumi.BoolOutput `pulumi:"enablePerPlexityPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
 	EnablePoepPrompt pulumi.BoolOutput `pulumi:"enablePoepPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 	EnableUcaasLogmein pulumi.BoolOutput `pulumi:"enableUcaasLogmein"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-	// RingCentral traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 	EnableUcaasRingCentral pulumi.BoolOutput `pulumi:"enableUcaasRingCentral"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-	// traffic, with minimal or no manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 	EnableUcaasTalkdesk pulumi.BoolOutput `pulumi:"enableUcaasTalkdesk"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 	EnableUcaasWebex pulumi.BoolOutput `pulumi:"enableUcaasWebex"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 	EnableUcaasZoom pulumi.BoolOutput `pulumi:"enableUcaasZoom"`
 	// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-	EnforceSafeSearch pulumi.BoolOutput `pulumi:"enforceSafeSearch"`
+	EnforceSafeSearch pulumi.BoolPtrOutput `pulumi:"enforceSafeSearch"`
+	// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+	// 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+	// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+	SafeSearchApps pulumi.StringArrayOutput `pulumi:"safeSearchApps"`
 }
 
 // NewURLFilteringCloudAppSettings registers a new resource with the given unique name, arguments, and options.
@@ -120,32 +111,25 @@ func GetURLFilteringCloudAppSettings(ctx *pulumi.Context,
 type urlfilteringCloudAppSettingsState struct {
 	// A Boolean value indicating whether access to Skype is blocked or not.
 	BlockSkype *bool `pulumi:"blockSkype"`
-	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-	// services or not.
+	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 	ConsiderEmbeddedSites *bool `pulumi:"considerEmbeddedSites"`
-	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-	// authentication information
+	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 	EnableBlockOverrideForNonAuthUser *bool `pulumi:"enableBlockOverrideForNonAuthUser"`
 	// A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
 	EnableChatgptPrompt *bool `pulumi:"enableChatgptPrompt"`
 	// A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
 	EnableCipaCompliance *bool `pulumi:"enableCipaCompliance"`
-	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-	// AI/ML tools is enabled or not.
+	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 	EnableDynamicContentCat *bool `pulumi:"enableDynamicContentCat"`
-	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 	EnableGeminiPrompt *bool `pulumi:"enableGeminiPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
 	EnableMetaPrompt *bool `pulumi:"enableMetaPrompt"`
-	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 	EnableMicrosoftCopilotPrompt *bool `pulumi:"enableMicrosoftCopilotPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-	// automatically without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
 	EnableMsftO365 *bool `pulumi:"enableMsftO365"`
-	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-	// are allowed or blocked
+	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 	EnableNewlyRegisteredDomains *bool `pulumi:"enableNewlyRegisteredDomains"`
 	// A Boolean value that enables or disables Microsoft Office 365 configuration.
 	EnableOffice365 *bool `pulumi:"enableOffice365"`
@@ -153,54 +137,46 @@ type urlfilteringCloudAppSettingsState struct {
 	EnablePerPlexityPrompt *bool `pulumi:"enablePerPlexityPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
 	EnablePoepPrompt *bool `pulumi:"enablePoepPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 	EnableUcaasLogmein *bool `pulumi:"enableUcaasLogmein"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-	// RingCentral traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 	EnableUcaasRingCentral *bool `pulumi:"enableUcaasRingCentral"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-	// traffic, with minimal or no manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 	EnableUcaasTalkdesk *bool `pulumi:"enableUcaasTalkdesk"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 	EnableUcaasWebex *bool `pulumi:"enableUcaasWebex"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 	EnableUcaasZoom *bool `pulumi:"enableUcaasZoom"`
 	// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
 	EnforceSafeSearch *bool `pulumi:"enforceSafeSearch"`
+	// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+	// 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+	// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+	SafeSearchApps []string `pulumi:"safeSearchApps"`
 }
 
 type URLFilteringCloudAppSettingsState struct {
 	// A Boolean value indicating whether access to Skype is blocked or not.
 	BlockSkype pulumi.BoolPtrInput
-	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-	// services or not.
+	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 	ConsiderEmbeddedSites pulumi.BoolPtrInput
-	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-	// authentication information
+	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 	EnableBlockOverrideForNonAuthUser pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
 	EnableChatgptPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
 	EnableCipaCompliance pulumi.BoolPtrInput
-	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-	// AI/ML tools is enabled or not.
+	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 	EnableDynamicContentCat pulumi.BoolPtrInput
-	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 	EnableGeminiPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
 	EnableMetaPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 	EnableMicrosoftCopilotPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-	// automatically without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
 	EnableMsftO365 pulumi.BoolPtrInput
-	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-	// are allowed or blocked
+	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 	EnableNewlyRegisteredDomains pulumi.BoolPtrInput
 	// A Boolean value that enables or disables Microsoft Office 365 configuration.
 	EnableOffice365 pulumi.BoolPtrInput
@@ -208,23 +184,22 @@ type URLFilteringCloudAppSettingsState struct {
 	EnablePerPlexityPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
 	EnablePoepPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 	EnableUcaasLogmein pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-	// RingCentral traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 	EnableUcaasRingCentral pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-	// traffic, with minimal or no manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 	EnableUcaasTalkdesk pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 	EnableUcaasWebex pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 	EnableUcaasZoom pulumi.BoolPtrInput
 	// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
 	EnforceSafeSearch pulumi.BoolPtrInput
+	// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+	// 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+	// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+	SafeSearchApps pulumi.StringArrayInput
 }
 
 func (URLFilteringCloudAppSettingsState) ElementType() reflect.Type {
@@ -234,32 +209,25 @@ func (URLFilteringCloudAppSettingsState) ElementType() reflect.Type {
 type urlfilteringCloudAppSettingsArgs struct {
 	// A Boolean value indicating whether access to Skype is blocked or not.
 	BlockSkype *bool `pulumi:"blockSkype"`
-	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-	// services or not.
+	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 	ConsiderEmbeddedSites *bool `pulumi:"considerEmbeddedSites"`
-	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-	// authentication information
+	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 	EnableBlockOverrideForNonAuthUser *bool `pulumi:"enableBlockOverrideForNonAuthUser"`
 	// A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
 	EnableChatgptPrompt *bool `pulumi:"enableChatgptPrompt"`
 	// A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
 	EnableCipaCompliance *bool `pulumi:"enableCipaCompliance"`
-	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-	// AI/ML tools is enabled or not.
+	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 	EnableDynamicContentCat *bool `pulumi:"enableDynamicContentCat"`
-	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 	EnableGeminiPrompt *bool `pulumi:"enableGeminiPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
 	EnableMetaPrompt *bool `pulumi:"enableMetaPrompt"`
-	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 	EnableMicrosoftCopilotPrompt *bool `pulumi:"enableMicrosoftCopilotPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-	// automatically without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
 	EnableMsftO365 *bool `pulumi:"enableMsftO365"`
-	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-	// are allowed or blocked
+	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 	EnableNewlyRegisteredDomains *bool `pulumi:"enableNewlyRegisteredDomains"`
 	// A Boolean value that enables or disables Microsoft Office 365 configuration.
 	EnableOffice365 *bool `pulumi:"enableOffice365"`
@@ -267,55 +235,47 @@ type urlfilteringCloudAppSettingsArgs struct {
 	EnablePerPlexityPrompt *bool `pulumi:"enablePerPlexityPrompt"`
 	// A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
 	EnablePoepPrompt *bool `pulumi:"enablePoepPrompt"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 	EnableUcaasLogmein *bool `pulumi:"enableUcaasLogmein"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-	// RingCentral traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 	EnableUcaasRingCentral *bool `pulumi:"enableUcaasRingCentral"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-	// traffic, with minimal or no manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 	EnableUcaasTalkdesk *bool `pulumi:"enableUcaasTalkdesk"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 	EnableUcaasWebex *bool `pulumi:"enableUcaasWebex"`
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 	EnableUcaasZoom *bool `pulumi:"enableUcaasZoom"`
 	// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
 	EnforceSafeSearch *bool `pulumi:"enforceSafeSearch"`
+	// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+	// 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+	// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+	SafeSearchApps []string `pulumi:"safeSearchApps"`
 }
 
 // The set of arguments for constructing a URLFilteringCloudAppSettings resource.
 type URLFilteringCloudAppSettingsArgs struct {
 	// A Boolean value indicating whether access to Skype is blocked or not.
 	BlockSkype pulumi.BoolPtrInput
-	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-	// services or not.
+	// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 	ConsiderEmbeddedSites pulumi.BoolPtrInput
-	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-	// authentication information
+	// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 	EnableBlockOverrideForNonAuthUser pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
 	EnableChatgptPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
 	EnableCipaCompliance pulumi.BoolPtrInput
-	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-	// AI/ML tools is enabled or not.
+	// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 	EnableDynamicContentCat pulumi.BoolPtrInput
-	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 	EnableGeminiPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
 	EnableMetaPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-	// logged
+	// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 	EnableMicrosoftCopilotPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-	// automatically without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
 	EnableMsftO365 pulumi.BoolPtrInput
-	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-	// are allowed or blocked
+	// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 	EnableNewlyRegisteredDomains pulumi.BoolPtrInput
 	// A Boolean value that enables or disables Microsoft Office 365 configuration.
 	EnableOffice365 pulumi.BoolPtrInput
@@ -323,23 +283,22 @@ type URLFilteringCloudAppSettingsArgs struct {
 	EnablePerPlexityPrompt pulumi.BoolPtrInput
 	// A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
 	EnablePoepPrompt pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 	EnableUcaasLogmein pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-	// RingCentral traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 	EnableUcaasRingCentral pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-	// traffic, with minimal or no manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 	EnableUcaasTalkdesk pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 	EnableUcaasWebex pulumi.BoolPtrInput
-	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-	// traffic, without any manual configuration needed.
+	// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 	EnableUcaasZoom pulumi.BoolPtrInput
 	// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
 	EnforceSafeSearch pulumi.BoolPtrInput
+	// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+	// 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+	// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+	SafeSearchApps pulumi.StringArrayInput
 }
 
 func (URLFilteringCloudAppSettingsArgs) ElementType() reflect.Type {
@@ -434,14 +393,12 @@ func (o URLFilteringCloudAppSettingsOutput) BlockSkype() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.BlockSkype }).(pulumi.BoolOutput)
 }
 
-// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-// services or not.
+// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
 func (o URLFilteringCloudAppSettingsOutput) ConsiderEmbeddedSites() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.ConsiderEmbeddedSites }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-// authentication information
+// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
 func (o URLFilteringCloudAppSettingsOutput) EnableBlockOverrideForNonAuthUser() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableBlockOverrideForNonAuthUser }).(pulumi.BoolOutput)
 }
@@ -456,14 +413,12 @@ func (o URLFilteringCloudAppSettingsOutput) EnableCipaCompliance() pulumi.BoolOu
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableCipaCompliance }).(pulumi.BoolOutput)
 }
 
-// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-// AI/ML tools is enabled or not.
+// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
 func (o URLFilteringCloudAppSettingsOutput) EnableDynamicContentCat() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableDynamicContentCat }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-// logged
+// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
 func (o URLFilteringCloudAppSettingsOutput) EnableGeminiPrompt() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableGeminiPrompt }).(pulumi.BoolOutput)
 }
@@ -473,27 +428,24 @@ func (o URLFilteringCloudAppSettingsOutput) EnableMetaPrompt() pulumi.BoolOutput
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableMetaPrompt }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-// logged
+// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
 func (o URLFilteringCloudAppSettingsOutput) EnableMicrosoftCopilotPrompt() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableMicrosoftCopilotPrompt }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-// automatically without any manual configuration needed.
-func (o URLFilteringCloudAppSettingsOutput) EnableMsftO365() pulumi.BoolOutput {
-	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableMsftO365 }).(pulumi.BoolOutput)
+// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
+func (o URLFilteringCloudAppSettingsOutput) EnableMsftO365() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMsftO365 }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-// are allowed or blocked
+// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
 func (o URLFilteringCloudAppSettingsOutput) EnableNewlyRegisteredDomains() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableNewlyRegisteredDomains }).(pulumi.BoolOutput)
 }
 
 // A Boolean value that enables or disables Microsoft Office 365 configuration.
-func (o URLFilteringCloudAppSettingsOutput) EnableOffice365() pulumi.BoolOutput {
-	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableOffice365 }).(pulumi.BoolOutput)
+func (o URLFilteringCloudAppSettingsOutput) EnableOffice365() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableOffice365 }).(pulumi.BoolPtrOutput)
 }
 
 // A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
@@ -506,39 +458,42 @@ func (o URLFilteringCloudAppSettingsOutput) EnablePoepPrompt() pulumi.BoolOutput
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnablePoepPrompt }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-// traffic, without any manual configuration needed.
+// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
 func (o URLFilteringCloudAppSettingsOutput) EnableUcaasLogmein() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableUcaasLogmein }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-// RingCentral traffic, without any manual configuration needed.
+// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
 func (o URLFilteringCloudAppSettingsOutput) EnableUcaasRingCentral() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableUcaasRingCentral }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-// traffic, with minimal or no manual configuration needed.
+// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
 func (o URLFilteringCloudAppSettingsOutput) EnableUcaasTalkdesk() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableUcaasTalkdesk }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-// traffic, without any manual configuration needed.
+// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
 func (o URLFilteringCloudAppSettingsOutput) EnableUcaasWebex() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableUcaasWebex }).(pulumi.BoolOutput)
 }
 
-// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-// traffic, without any manual configuration needed.
+// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
 func (o URLFilteringCloudAppSettingsOutput) EnableUcaasZoom() pulumi.BoolOutput {
 	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnableUcaasZoom }).(pulumi.BoolOutput)
 }
 
 // A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-func (o URLFilteringCloudAppSettingsOutput) EnforceSafeSearch() pulumi.BoolOutput {
-	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolOutput { return v.EnforceSafeSearch }).(pulumi.BoolOutput)
+func (o URLFilteringCloudAppSettingsOutput) EnforceSafeSearch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnforceSafeSearch }).(pulumi.BoolPtrOutput)
+}
+
+// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+//
+//	See the URL & Cloud App Control Policy Settings for the list of available apps:
+//	https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+func (o URLFilteringCloudAppSettingsOutput) SafeSearchApps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *URLFilteringCloudAppSettings) pulumi.StringArrayOutput { return v.SafeSearchApps }).(pulumi.StringArrayOutput)
 }
 
 type URLFilteringCloudAppSettingsArrayOutput struct{ *pulumi.OutputState }

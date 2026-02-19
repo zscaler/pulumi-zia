@@ -21,8 +21,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_virtual_service_edge_cluster** can be imported by using `<CLUSTER_ID>` or `<CLUSTER_NAME>` as the import ID.
 //
@@ -41,25 +40,21 @@ type VirtualServiceEdgeCluster struct {
 	pulumi.CustomResourceState
 
 	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway pulumi.StringPtrOutput `pulumi:"defaultGateway"`
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 	IpSecEnabled pulumi.BoolPtrOutput `pulumi:"ipSecEnabled"`
 	// Name of the Virtual Service Edge cluster
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask pulumi.StringPtrOutput `pulumi:"subnetMask"`
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes VirtualServiceEdgeClusterVirtualZenNodesPtrOutput `pulumi:"virtualZenNodes"`
 }
 
@@ -94,49 +89,41 @@ func GetVirtualServiceEdgeCluster(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualServiceEdgeCluster resources.
 type virtualServiceEdgeClusterState struct {
 	ClusterId *int `pulumi:"clusterId"`
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway *string `pulumi:"defaultGateway"`
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress *string `pulumi:"ipAddress"`
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 	IpSecEnabled *bool `pulumi:"ipSecEnabled"`
 	// Name of the Virtual Service Edge cluster
 	Name *string `pulumi:"name"`
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status *string `pulumi:"status"`
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask *string `pulumi:"subnetMask"`
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type *string `pulumi:"type"`
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes *VirtualServiceEdgeClusterVirtualZenNodes `pulumi:"virtualZenNodes"`
 }
 
 type VirtualServiceEdgeClusterState struct {
 	ClusterId pulumi.IntPtrInput
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress pulumi.StringPtrInput
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 	IpSecEnabled pulumi.BoolPtrInput
 	// Name of the Virtual Service Edge cluster
 	Name pulumi.StringPtrInput
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type pulumi.StringPtrInput
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes VirtualServiceEdgeClusterVirtualZenNodesPtrInput
 }
 
@@ -145,49 +132,41 @@ func (VirtualServiceEdgeClusterState) ElementType() reflect.Type {
 }
 
 type virtualServiceEdgeClusterArgs struct {
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway *string `pulumi:"defaultGateway"`
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress *string `pulumi:"ipAddress"`
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 	IpSecEnabled *bool `pulumi:"ipSecEnabled"`
 	// Name of the Virtual Service Edge cluster
 	Name *string `pulumi:"name"`
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status *string `pulumi:"status"`
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask *string `pulumi:"subnetMask"`
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type *string `pulumi:"type"`
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes *VirtualServiceEdgeClusterVirtualZenNodes `pulumi:"virtualZenNodes"`
 }
 
 // The set of arguments for constructing a VirtualServiceEdgeCluster resource.
 type VirtualServiceEdgeClusterArgs struct {
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress pulumi.StringPtrInput
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 	IpSecEnabled pulumi.BoolPtrInput
 	// Name of the Virtual Service Edge cluster
 	Name pulumi.StringPtrInput
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask pulumi.StringPtrInput
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type pulumi.StringPtrInput
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes VirtualServiceEdgeClusterVirtualZenNodesPtrInput
 }
 
@@ -282,17 +261,17 @@ func (o VirtualServiceEdgeClusterOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.IntOutput { return v.ClusterId }).(pulumi.IntOutput)
 }
 
-// (String) The IP address of the default gateway to the internet
+// The IP address of the default gateway to the internet
 func (o VirtualServiceEdgeClusterOutput) DefaultGateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringPtrOutput { return v.DefaultGateway }).(pulumi.StringPtrOutput)
 }
 
-// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+// The Virtual Service Edge cluster IP address
 func (o VirtualServiceEdgeClusterOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 func (o VirtualServiceEdgeClusterOutput) IpSecEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.BoolPtrOutput { return v.IpSecEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -302,26 +281,22 @@ func (o VirtualServiceEdgeClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 func (o VirtualServiceEdgeClusterOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// (String) The Virtual Service Edge cluster subnet mask
+// The Virtual Service Edge cluster subnet mask
 func (o VirtualServiceEdgeClusterOutput) SubnetMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringPtrOutput { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
-// (String) The Virtual Service Edge cluster type
-// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 func (o VirtualServiceEdgeClusterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 func (o VirtualServiceEdgeClusterOutput) VirtualZenNodes() VirtualServiceEdgeClusterVirtualZenNodesPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceEdgeCluster) VirtualServiceEdgeClusterVirtualZenNodesPtrOutput {
 		return v.VirtualZenNodes

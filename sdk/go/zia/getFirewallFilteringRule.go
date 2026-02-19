@@ -51,9 +51,9 @@ type LookupFirewallFilteringRuleResult struct {
 	Departments []GetFirewallFilteringRuleDepartment `pulumi:"departments"`
 	// (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description string `pulumi:"description"`
-	// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+	// ** - (List of String) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 	DestAddresses []string `pulumi:"destAddresses"`
-	// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+	// ** - (List of String) Identify destinations based on the location of a server. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
 	DestCountries []string `pulumi:"destCountries"`
 	// ** - (Optional) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
 	DestIpCategories []string `pulumi:"destIpCategories"`
@@ -181,12 +181,12 @@ func (o LookupFirewallFilteringRuleResultOutput) Description() pulumi.StringOutp
 	return o.ApplyT(func(v LookupFirewallFilteringRuleResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+// ** - (List of String) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
 func (o LookupFirewallFilteringRuleResultOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringRuleResult) []string { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+// ** - (List of String) Identify destinations based on the location of a server. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e “"US"“, “"CA"“
 func (o LookupFirewallFilteringRuleResultOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringRuleResult) []string { return v.DestCountries }).(pulumi.StringArrayOutput)
 }

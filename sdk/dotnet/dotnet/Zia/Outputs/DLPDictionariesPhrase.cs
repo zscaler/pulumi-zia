@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     {
         public readonly string? Action;
         /// <summary>
-        /// DLP dictionary phrase
+        /// DLP dictionary phrase (0-128 characters)
         /// </summary>
         public readonly string? Phrase;
 

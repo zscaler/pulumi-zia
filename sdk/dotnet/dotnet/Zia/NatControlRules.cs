@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_nat_control_rules** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -66,8 +65,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
@@ -196,8 +194,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.NatControlRulesSrcIpGroups?> SrcIpGroups { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         [Output("srcIps")]
         public Output<ImmutableArray<string>> SrcIps { get; private set; } = null!;
@@ -234,7 +231,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NatControlRules(string name, NatControlRulesArgs? args = null, CustomResourceOptions? options = null)
+        public NatControlRules(string name, NatControlRulesArgs args, CustomResourceOptions? options = null)
             : base("zia:index/natControlRules:NatControlRules", name, args ?? new NatControlRulesArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -307,8 +304,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -396,8 +392,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Rule order number. If omitted, the rule will be added to the end of the rule set.
         /// </summary>
-        [Input("order")]
-        public Input<int>? Order { get; set; }
+        [Input("order", required: true)]
+        public Input<int> Order { get; set; } = null!;
 
         /// <summary>
         /// If set to true, a predefined rule is applied
@@ -451,8 +447,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -526,8 +521,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -673,8 +667,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {

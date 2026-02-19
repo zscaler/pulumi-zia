@@ -13,9 +13,6 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class LocationManagementVpnCredentialGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("comments")]
-        public Input<string>? Comments { get; set; }
-
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 

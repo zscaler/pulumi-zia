@@ -19,6 +19,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// Name of the Firewall Filtering policy rule
         /// </summary>
         public readonly string? Name;
+        public readonly int? ProfileSeq;
         /// <summary>
         /// The browser isolation profile URL
         /// </summary>
@@ -30,10 +31,13 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
             string? name,
 
+            int? profileSeq,
+
             string? url)
         {
             Id = id;
             Name = name;
+            ProfileSeq = profileSeq;
             Url = url;
         }
     }

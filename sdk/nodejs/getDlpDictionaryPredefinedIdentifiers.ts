@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
 export function getDlpDictionaryPredefinedIdentifiers(args: GetDlpDictionaryPredefinedIdentifiersArgs, opts?: pulumi.InvokeOptions): Promise<GetDlpDictionaryPredefinedIdentifiersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDlpDictionaryPredefinedIdentifiers:getDlpDictionaryPredefinedIdentifiers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -23,6 +24,10 @@ export function getDlpDictionaryPredefinedIdentifiers(args: GetDlpDictionaryPred
  * A collection of arguments for invoking getDlpDictionaryPredefinedIdentifiers.
  */
 export interface GetDlpDictionaryPredefinedIdentifiersArgs {
+    /**
+     * (String) The ID of the hierarchical DLP dictionary.
+     */
+    id?: string;
     /**
      * The name of the hierarchical DLP dictionary.
      */
@@ -57,6 +62,7 @@ export interface GetDlpDictionaryPredefinedIdentifiersResult {
 export function getDlpDictionaryPredefinedIdentifiersOutput(args: GetDlpDictionaryPredefinedIdentifiersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDlpDictionaryPredefinedIdentifiersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDlpDictionaryPredefinedIdentifiers:getDlpDictionaryPredefinedIdentifiers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -65,6 +71,10 @@ export function getDlpDictionaryPredefinedIdentifiersOutput(args: GetDlpDictiona
  * A collection of arguments for invoking getDlpDictionaryPredefinedIdentifiers.
  */
 export interface GetDlpDictionaryPredefinedIdentifiersOutputArgs {
+    /**
+     * (String) The ID of the hierarchical DLP dictionary.
+     */
+    id?: pulumi.Input<string>;
     /**
      * The name of the hierarchical DLP dictionary.
      */

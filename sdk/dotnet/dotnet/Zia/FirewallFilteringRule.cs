@@ -11,12 +11,42 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+    /// * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+    /// 
+    /// The **zia_firewall_filtering_rule** resource allows the creation and management of ZIA Cloud Firewall filtering rules in the Zscaler Internet Access.
+    /// 
+    /// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+    /// 
+    /// * Automatically place new rules at the correct position
+    /// * Handle reordering around predefined rules
+    /// * Avoid configuration drift
+    /// 
+    /// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+    /// 
+    /// **NOTE 2** Certain attributes on &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules can still be managed or updated via Terraform such as:
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`description`" pulumi-lang-dotnet="`Description`" pulumi-lang-go="`description`" pulumi-lang-python="`description`" pulumi-lang-yaml="`description`" pulumi-lang-java="`description`"&gt;`description`&lt;/span&gt; - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+    /// * &lt;span pulumi-lang-nodejs="`state`" pulumi-lang-dotnet="`State`" pulumi-lang-go="`state`" pulumi-lang-python="`state`" pulumi-lang-yaml="`state`" pulumi-lang-java="`state`"&gt;`state`&lt;/span&gt; - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+    /// * &lt;span pulumi-lang-nodejs="`order`" pulumi-lang-dotnet="`Order`" pulumi-lang-go="`order`" pulumi-lang-python="`order`" pulumi-lang-yaml="`order`" pulumi-lang-java="`order`"&gt;`order`&lt;/span&gt; - (Optional) Rule order number of the Firewall Filtering policy rule
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`labels`" pulumi-lang-dotnet="`Labels`" pulumi-lang-go="`labels`" pulumi-lang-python="`labels`" pulumi-lang-yaml="`labels`" pulumi-lang-java="`labels`"&gt;`labels`&lt;/span&gt; (list) - Labels that are applicable to the rule.
+    ///     * &lt;span pulumi-lang-nodejs="`id`" pulumi-lang-dotnet="`Id`" pulumi-lang-go="`id`" pulumi-lang-python="`id`" pulumi-lang-yaml="`id`" pulumi-lang-java="`id`"&gt;`id`&lt;/span&gt; - (Integer) Identifier that uniquely identifies an entity
+    /// 
+    /// **NOTE 3** The following attributes on &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules **cannot** be updated:
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`name`" pulumi-lang-dotnet="`Name`" pulumi-lang-go="`name`" pulumi-lang-python="`name`" pulumi-lang-yaml="`name`" pulumi-lang-java="`name`"&gt;`name`&lt;/span&gt; - Name of the Firewall Filtering policy rule
+    /// * &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; - The action the Firewall Filtering policy rule takes when packets match the rule. Supported Values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+    /// * &lt;span pulumi-lang-nodejs="`rank`" pulumi-lang-dotnet="`Rank`" pulumi-lang-go="`rank`" pulumi-lang-python="`rank`" pulumi-lang-yaml="`rank`" pulumi-lang-java="`rank`"&gt;`rank`&lt;/span&gt; - (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
+    /// * Most other attributes that define the rule's behavior
+    /// 
+    /// **NOTE 4** The import of &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_firewall_filtering_rule** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -79,8 +109,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
@@ -101,9 +130,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallFilteringRuleDeviceGroups?> DeviceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
@@ -116,6 +143,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Output("enableFullLogging")]
         public Output<bool?> EnableFullLogging { get; private set; } = null!;
+
+        [Output("excludeSrcCountries")]
+        public Output<bool?> ExcludeSrcCountries { get; private set; } = null!;
 
         /// <summary>
         /// list of groups for which rule must be applied
@@ -153,10 +183,6 @@ namespace zscaler.PulumiPackage.Zia
         [Output("nwApplicationGroups")]
         public Output<Outputs.FirewallFilteringRuleNwApplicationGroups?> NwApplicationGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        /// specific network service application.
-        /// </summary>
         [Output("nwApplications")]
         public Output<ImmutableArray<string>> NwApplications { get; private set; } = null!;
 
@@ -194,8 +220,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         [Output("sourceCountries")]
         public Output<ImmutableArray<string>> SourceCountries { get; private set; } = null!;
@@ -207,8 +232,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallFilteringRuleSrcIpGroups?> SrcIpGroups { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         [Output("srcIps")]
         public Output<ImmutableArray<string>> SrcIps { get; private set; } = null!;
@@ -238,8 +262,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.FirewallFilteringRuleWorkloadGroup>> WorkloadGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         /// </summary>
         [Output("zpaAppSegments")]
         public Output<ImmutableArray<Outputs.FirewallFilteringRuleZpaAppSegment>> ZpaAppSegments { get; private set; } = null!;
@@ -252,7 +275,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FirewallFilteringRule(string name, FirewallFilteringRuleArgs? args = null, CustomResourceOptions? options = null)
+        public FirewallFilteringRule(string name, FirewallFilteringRuleArgs args, CustomResourceOptions? options = null)
             : base("zia:index/firewallFilteringRule:FirewallFilteringRule", name, args ?? new FirewallFilteringRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -343,8 +366,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -376,9 +398,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -394,6 +414,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("enableFullLogging")]
         public Input<bool>? EnableFullLogging { get; set; }
+
+        [Input("excludeSrcCountries")]
+        public Input<bool>? ExcludeSrcCountries { get; set; }
 
         /// <summary>
         /// list of groups for which rule must be applied
@@ -433,11 +456,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("nwApplications")]
         private InputList<string>? _nwApplications;
-
-        /// <summary>
-        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        /// specific network service application.
-        /// </summary>
         public InputList<string> NwApplications
         {
             get => _nwApplications ?? (_nwApplications = new InputList<string>());
@@ -459,8 +477,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Rule order number. If omitted, the rule will be added to the end of the rule set.
         /// </summary>
-        [Input("order")]
-        public Input<int>? Order { get; set; }
+        [Input("order", required: true)]
+        public Input<int> Order { get; set; } = null!;
 
         /// <summary>
         /// If set to true, a predefined rule is applied
@@ -478,8 +496,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sourceCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> SourceCountries
         {
@@ -497,8 +514,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -540,8 +556,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringRuleZpaAppSegmentArgs>? _zpaAppSegments;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         /// </summary>
         public InputList<Inputs.FirewallFilteringRuleZpaAppSegmentArgs> ZpaAppSegments
         {
@@ -609,8 +624,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _destCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> DestCountries
         {
@@ -642,9 +656,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -660,6 +672,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("enableFullLogging")]
         public Input<bool>? EnableFullLogging { get; set; }
+
+        [Input("excludeSrcCountries")]
+        public Input<bool>? ExcludeSrcCountries { get; set; }
 
         /// <summary>
         /// list of groups for which rule must be applied
@@ -699,11 +714,6 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("nwApplications")]
         private InputList<string>? _nwApplications;
-
-        /// <summary>
-        /// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-        /// specific network service application.
-        /// </summary>
         public InputList<string> NwApplications
         {
             get => _nwApplications ?? (_nwApplications = new InputList<string>());
@@ -747,8 +757,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sourceCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> SourceCountries
         {
@@ -766,8 +775,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _srcIps;
 
         /// <summary>
-        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-        /// source IP address.
+        /// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
         /// </summary>
         public InputList<string> SrcIps
         {
@@ -809,8 +817,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.FirewallFilteringRuleZpaAppSegmentGetArgs>? _zpaAppSegments;
 
         /// <summary>
-        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-        /// Gateway forwarding method.
+        /// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         /// </summary>
         public InputList<Inputs.FirewallFilteringRuleZpaAppSegmentGetArgs> ZpaAppSegments
         {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
@@ -21,8 +22,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_nat_control_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -48,8 +48,7 @@ type NatControlRules struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayOutput `pulumi:"destCountries"`
 	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
 	// list of destination ip groups
@@ -92,8 +91,7 @@ type NatControlRules struct {
 	RuleId        pulumi.IntOutput         `pulumi:"ruleId"`
 	// list of source ip groups
 	SrcIpGroups NatControlRulesSrcIpGroupsPtrOutput `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
 	// list of source ipv6 groups
 	SrcIpv6Groups NatControlRulesSrcIpv6GroupsPtrOutput `pulumi:"srcIpv6Groups"`
@@ -109,9 +107,12 @@ type NatControlRules struct {
 func NewNatControlRules(ctx *pulumi.Context,
 	name string, args *NatControlRulesArgs, opts ...pulumi.ResourceOption) (*NatControlRules, error) {
 	if args == nil {
-		args = &NatControlRulesArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Order == nil {
+		return nil, errors.New("invalid value for required argument 'Order'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NatControlRules
 	err := ctx.RegisterResource("zia:index/natControlRules:NatControlRules", name, args, &resource, opts...)
@@ -143,8 +144,7 @@ type natControlRulesState struct {
 	Description *string `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
 	// list of destination ip groups
@@ -187,8 +187,7 @@ type natControlRulesState struct {
 	RuleId        *int     `pulumi:"ruleId"`
 	// list of source ip groups
 	SrcIpGroups *NatControlRulesSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps []string `pulumi:"srcIps"`
 	// list of source ipv6 groups
 	SrcIpv6Groups *NatControlRulesSrcIpv6Groups `pulumi:"srcIpv6Groups"`
@@ -209,8 +208,7 @@ type NatControlRulesState struct {
 	Description pulumi.StringPtrInput
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
 	// list of destination ip groups
@@ -253,8 +251,7 @@ type NatControlRulesState struct {
 	RuleId        pulumi.IntPtrInput
 	// list of source ip groups
 	SrcIpGroups NatControlRulesSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayInput
 	// list of source ipv6 groups
 	SrcIpv6Groups NatControlRulesSrcIpv6GroupsPtrInput
@@ -279,8 +276,7 @@ type natControlRulesArgs struct {
 	Description *string `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
 	// list of destination ip groups
@@ -307,7 +303,7 @@ type natControlRulesArgs struct {
 	// list of nw services
 	NwServices *NatControlRulesNwServices `pulumi:"nwServices"`
 	// Rule order number. If omitted, the rule will be added to the end of the rule set.
-	Order *int `pulumi:"order"`
+	Order int `pulumi:"order"`
 	// If set to true, a predefined rule is applied
 	Predefined *bool `pulumi:"predefined"`
 	// Admin rank of the nat control policy rule
@@ -322,8 +318,7 @@ type natControlRulesArgs struct {
 	ResCategories []string `pulumi:"resCategories"`
 	// list of source ip groups
 	SrcIpGroups *NatControlRulesSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps []string `pulumi:"srcIps"`
 	// list of source ipv6 groups
 	SrcIpv6Groups *NatControlRulesSrcIpv6Groups `pulumi:"srcIpv6Groups"`
@@ -345,8 +340,7 @@ type NatControlRulesArgs struct {
 	Description pulumi.StringPtrInput
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
 	// list of destination ip groups
@@ -373,7 +367,7 @@ type NatControlRulesArgs struct {
 	// list of nw services
 	NwServices NatControlRulesNwServicesPtrInput
 	// Rule order number. If omitted, the rule will be added to the end of the rule set.
-	Order pulumi.IntPtrInput
+	Order pulumi.IntInput
 	// If set to true, a predefined rule is applied
 	Predefined pulumi.BoolPtrInput
 	// Admin rank of the nat control policy rule
@@ -388,8 +382,7 @@ type NatControlRulesArgs struct {
 	ResCategories pulumi.StringArrayInput
 	// list of source ip groups
 	SrcIpGroups NatControlRulesSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayInput
 	// list of source ipv6 groups
 	SrcIpv6Groups NatControlRulesSrcIpv6GroupsPtrInput
@@ -508,8 +501,7 @@ func (o NatControlRulesOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatControlRules) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 func (o NatControlRulesOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatControlRules) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
@@ -621,8 +613,7 @@ func (o NatControlRulesOutput) SrcIpGroups() NatControlRulesSrcIpGroupsPtrOutput
 	return o.ApplyT(func(v *NatControlRules) NatControlRulesSrcIpGroupsPtrOutput { return v.SrcIpGroups }).(NatControlRulesSrcIpGroupsPtrOutput)
 }
 
-// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-// source IP address.
+// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 func (o NatControlRulesOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatControlRules) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }

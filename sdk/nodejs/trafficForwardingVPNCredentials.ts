@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_traffic_forwarding_vpn_credentials** can be imported by using one of the following prefixes as the import ID:
@@ -79,21 +78,21 @@ export class TrafficForwardingVPNCredentials extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficForwardingVPNCredentials.__pulumiType;
     }
 
-    public readonly comments!: pulumi.Output<string | undefined>;
+    declare public readonly comments: pulumi.Output<string | undefined>;
     /**
      * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
      */
-    public readonly fqdn!: pulumi.Output<string | undefined>;
-    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    declare public readonly fqdn: pulumi.Output<string | undefined>;
+    declare public readonly ipAddress: pulumi.Output<string | undefined>;
     /**
      * Pre-shared key. This is a required field for UFQDN and IP auth type.
      */
-    public readonly preSharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly preSharedKey: pulumi.Output<string | undefined>;
     /**
      * VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
      */
-    public readonly type!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly vpnId!: pulumi.Output<number>;
+    declare public readonly type: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly vpnId: pulumi.Output<number>;
 
     /**
      * Create a TrafficForwardingVPNCredentials resource with the given unique name, arguments, and options.
@@ -108,19 +107,19 @@ export class TrafficForwardingVPNCredentials extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficForwardingVPNCredentialsState | undefined;
-            resourceInputs["comments"] = state ? state.comments : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["preSharedKey"] = state ? state.preSharedKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vpnId"] = state ? state.vpnId : undefined;
+            resourceInputs["comments"] = state?.comments;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["preSharedKey"] = state?.preSharedKey;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vpnId"] = state?.vpnId;
         } else {
             const args = argsOrState as TrafficForwardingVPNCredentialsArgs | undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["ipAddress"] = args?.ipAddress;
             resourceInputs["preSharedKey"] = args?.preSharedKey ? pulumi.secret(args.preSharedKey) : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["type"] = args?.type;
             resourceInputs["vpnId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

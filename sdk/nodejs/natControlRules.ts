@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_nat_control_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
@@ -65,124 +64,122 @@ export class NatControlRules extends pulumi.CustomResource {
     /**
      * If set to true, the default rule is applied
      */
-    public readonly defaultRule!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
     /**
      * list of departments for which rule must be applied
      */
-    public readonly departments!: pulumi.Output<outputs.NatControlRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.NatControlRulesDepartments | undefined>;
     /**
      * Additional information about the rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
      */
-    public readonly destAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
-    public readonly destCountries!: pulumi.Output<string[]>;
-    public readonly destIpCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly destCountries: pulumi.Output<string[]>;
+    declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
     /**
      * list of destination ip groups
      */
-    public readonly destIpGroups!: pulumi.Output<outputs.NatControlRulesDestIpGroups | undefined>;
+    declare public readonly destIpGroups: pulumi.Output<outputs.NatControlRulesDestIpGroups | undefined>;
     /**
      * list of destination ipv6 groups
      */
-    public readonly destIpv6Groups!: pulumi.Output<outputs.NatControlRulesDestIpv6Groups | undefined>;
+    declare public readonly destIpv6Groups: pulumi.Output<outputs.NatControlRulesDestIpv6Groups | undefined>;
     /**
      * This field is applicable for devices that are managed using Zscaler Client Connector.
      */
-    public readonly deviceGroups!: pulumi.Output<outputs.NatControlRulesDeviceGroups | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<outputs.NatControlRulesDeviceGroups | undefined>;
     /**
      * Name-ID pairs of devices for which rule must be applied.
      */
-    public readonly devices!: pulumi.Output<outputs.NatControlRulesDevices | undefined>;
-    public readonly enableFullLogging!: pulumi.Output<boolean | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.NatControlRulesDevices | undefined>;
+    declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
     /**
      * list of groups for which rule must be applied
      */
-    public readonly groups!: pulumi.Output<outputs.NatControlRulesGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.NatControlRulesGroups | undefined>;
     /**
      * list of Labels that are applicable to the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.NatControlRulesLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.NatControlRulesLabels | undefined>;
     /**
      * list of locations groups
      */
-    public readonly locationGroups!: pulumi.Output<outputs.NatControlRulesLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.NatControlRulesLocationGroups | undefined>;
     /**
      * list of locations for which rule must be applied
      */
-    public readonly locations!: pulumi.Output<outputs.NatControlRulesLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.NatControlRulesLocations | undefined>;
     /**
      * Name of the nat control policy rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * list of nw service groups
      */
-    public readonly nwServiceGroups!: pulumi.Output<outputs.NatControlRulesNwServiceGroups | undefined>;
+    declare public readonly nwServiceGroups: pulumi.Output<outputs.NatControlRulesNwServiceGroups | undefined>;
     /**
      * list of nw services
      */
-    public readonly nwServices!: pulumi.Output<outputs.NatControlRulesNwServices | undefined>;
+    declare public readonly nwServices: pulumi.Output<outputs.NatControlRulesNwServices | undefined>;
     /**
      * Rule order number. If omitted, the rule will be added to the end of the rule set.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * If set to true, a predefined rule is applied
      */
-    public readonly predefined!: pulumi.Output<boolean | undefined>;
+    declare public readonly predefined: pulumi.Output<boolean | undefined>;
     /**
      * Admin rank of the nat control policy rule
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * The action the nat control policy rule takes when packets match the rule
      */
-    public readonly redirectFqdn!: pulumi.Output<string | undefined>;
+    declare public readonly redirectFqdn: pulumi.Output<string | undefined>;
     /**
      * The action the nat control policy rule takes when packets match the rule
      */
-    public readonly redirectIp!: pulumi.Output<string | undefined>;
+    declare public readonly redirectIp: pulumi.Output<string | undefined>;
     /**
      * The action the nat control policy rule takes when packets match the rule
      */
-    public readonly redirectPort!: pulumi.Output<number | undefined>;
+    declare public readonly redirectPort: pulumi.Output<number | undefined>;
     /**
      * List of destination domain categories to which the rule applies
      */
-    public readonly resCategories!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly resCategories: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * list of source ip groups
      */
-    public readonly srcIpGroups!: pulumi.Output<outputs.NatControlRulesSrcIpGroups | undefined>;
+    declare public readonly srcIpGroups: pulumi.Output<outputs.NatControlRulesSrcIpGroups | undefined>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
      */
-    public readonly srcIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly srcIps: pulumi.Output<string[] | undefined>;
     /**
      * list of source ipv6 groups
      */
-    public readonly srcIpv6Groups!: pulumi.Output<outputs.NatControlRulesSrcIpv6Groups | undefined>;
+    declare public readonly srcIpv6Groups: pulumi.Output<outputs.NatControlRulesSrcIpv6Groups | undefined>;
     /**
      * Determines whether the nat control policy rule is enabled or disabled
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The time interval in which the nat control policy rule applies
      */
-    public readonly timeWindows!: pulumi.Output<outputs.NatControlRulesTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.NatControlRulesTimeWindows | undefined>;
     /**
      * list of users for which rule must be applied
      */
-    public readonly users!: pulumi.Output<outputs.NatControlRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.NatControlRulesUsers | undefined>;
 
     /**
      * Create a NatControlRules resource with the given unique name, arguments, and options.
@@ -191,77 +188,80 @@ export class NatControlRules extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NatControlRulesArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NatControlRulesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatControlRulesArgs | NatControlRulesState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatControlRulesState | undefined;
-            resourceInputs["defaultRule"] = state ? state.defaultRule : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destAddresses"] = state ? state.destAddresses : undefined;
-            resourceInputs["destCountries"] = state ? state.destCountries : undefined;
-            resourceInputs["destIpCategories"] = state ? state.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = state ? state.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = state ? state.destIpv6Groups : undefined;
-            resourceInputs["deviceGroups"] = state ? state.deviceGroups : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["enableFullLogging"] = state ? state.enableFullLogging : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nwServiceGroups"] = state ? state.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = state ? state.nwServices : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["predefined"] = state ? state.predefined : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["redirectFqdn"] = state ? state.redirectFqdn : undefined;
-            resourceInputs["redirectIp"] = state ? state.redirectIp : undefined;
-            resourceInputs["redirectPort"] = state ? state.redirectPort : undefined;
-            resourceInputs["resCategories"] = state ? state.resCategories : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["srcIpGroups"] = state ? state.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = state ? state.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = state ? state.srcIpv6Groups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["defaultRule"] = state?.defaultRule;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destAddresses"] = state?.destAddresses;
+            resourceInputs["destCountries"] = state?.destCountries;
+            resourceInputs["destIpCategories"] = state?.destIpCategories;
+            resourceInputs["destIpGroups"] = state?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = state?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["enableFullLogging"] = state?.enableFullLogging;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nwServiceGroups"] = state?.nwServiceGroups;
+            resourceInputs["nwServices"] = state?.nwServices;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["predefined"] = state?.predefined;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["redirectFqdn"] = state?.redirectFqdn;
+            resourceInputs["redirectIp"] = state?.redirectIp;
+            resourceInputs["redirectPort"] = state?.redirectPort;
+            resourceInputs["resCategories"] = state?.resCategories;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["srcIpGroups"] = state?.srcIpGroups;
+            resourceInputs["srcIps"] = state?.srcIps;
+            resourceInputs["srcIpv6Groups"] = state?.srcIpv6Groups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as NatControlRulesArgs | undefined;
-            resourceInputs["defaultRule"] = args ? args.defaultRule : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destAddresses"] = args ? args.destAddresses : undefined;
-            resourceInputs["destCountries"] = args ? args.destCountries : undefined;
-            resourceInputs["destIpCategories"] = args ? args.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = args ? args.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = args ? args.destIpv6Groups : undefined;
-            resourceInputs["deviceGroups"] = args ? args.deviceGroups : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["enableFullLogging"] = args ? args.enableFullLogging : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nwServiceGroups"] = args ? args.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = args ? args.nwServices : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["predefined"] = args ? args.predefined : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["redirectFqdn"] = args ? args.redirectFqdn : undefined;
-            resourceInputs["redirectIp"] = args ? args.redirectIp : undefined;
-            resourceInputs["redirectPort"] = args ? args.redirectPort : undefined;
-            resourceInputs["resCategories"] = args ? args.resCategories : undefined;
-            resourceInputs["srcIpGroups"] = args ? args.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = args ? args.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = args ? args.srcIpv6Groups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            if (args?.order === undefined && !opts.urn) {
+                throw new Error("Missing required property 'order'");
+            }
+            resourceInputs["defaultRule"] = args?.defaultRule;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destAddresses"] = args?.destAddresses;
+            resourceInputs["destCountries"] = args?.destCountries;
+            resourceInputs["destIpCategories"] = args?.destIpCategories;
+            resourceInputs["destIpGroups"] = args?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = args?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["enableFullLogging"] = args?.enableFullLogging;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nwServiceGroups"] = args?.nwServiceGroups;
+            resourceInputs["nwServices"] = args?.nwServices;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["predefined"] = args?.predefined;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["redirectFqdn"] = args?.redirectFqdn;
+            resourceInputs["redirectIp"] = args?.redirectIp;
+            resourceInputs["redirectPort"] = args?.redirectPort;
+            resourceInputs["resCategories"] = args?.resCategories;
+            resourceInputs["srcIpGroups"] = args?.srcIpGroups;
+            resourceInputs["srcIps"] = args?.srcIps;
+            resourceInputs["srcIpv6Groups"] = args?.srcIpv6Groups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["users"] = args?.users;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -290,8 +290,7 @@ export interface NatControlRulesState {
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
@@ -374,8 +373,7 @@ export interface NatControlRulesState {
      */
     srcIpGroups?: pulumi.Input<inputs.NatControlRulesSrcIpGroups>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
      */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -417,8 +415,7 @@ export interface NatControlRulesArgs {
      */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
@@ -470,7 +467,7 @@ export interface NatControlRulesArgs {
     /**
      * Rule order number. If omitted, the rule will be added to the end of the rule set.
      */
-    order?: pulumi.Input<number>;
+    order: pulumi.Input<number>;
     /**
      * If set to true, a predefined rule is applied
      */
@@ -500,8 +497,7 @@ export interface NatControlRulesArgs {
      */
     srcIpGroups?: pulumi.Input<inputs.NatControlRulesSrcIpGroups>;
     /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-     * source IP address.
+     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
      */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**

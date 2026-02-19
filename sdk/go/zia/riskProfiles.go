@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
@@ -24,8 +25,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_risk_profiles** can be imported by using `<PROFILE_ID>` or `<PROFILE_NAME>` as the import ID.
 //
@@ -71,14 +71,14 @@ type RiskProfiles struct {
 	MalwareScanningForContent pulumi.StringPtrOutput `pulumi:"malwareScanningForContent"`
 	// (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	MfaSupport pulumi.StringPtrOutput `pulumi:"mfaSupport"`
-	// Cloud application risk profile name.
-	Name pulumi.StringOutput `pulumi:"name"`
 	// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 	PasswordStrength pulumi.StringPtrOutput `pulumi:"passwordStrength"`
 	// (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	PoorItemsOfService pulumi.StringPtrOutput `pulumi:"poorItemsOfService"`
 	// Unique identifier for the risk profile.
 	ProfileId pulumi.IntOutput `pulumi:"profileId"`
+	// Cloud application risk profile name.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
 	ProfileType pulumi.StringPtrOutput `pulumi:"profileType"`
 	// (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
@@ -117,9 +117,12 @@ type RiskProfiles struct {
 func NewRiskProfiles(ctx *pulumi.Context,
 	name string, args *RiskProfilesArgs, opts ...pulumi.ResourceOption) (*RiskProfiles, error) {
 	if args == nil {
-		args = &RiskProfilesArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RiskProfiles
 	err := ctx.RegisterResource("zia:index/riskProfiles:RiskProfiles", name, args, &resource, opts...)
@@ -171,14 +174,14 @@ type riskProfilesState struct {
 	MalwareScanningForContent *string `pulumi:"malwareScanningForContent"`
 	// (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	MfaSupport *string `pulumi:"mfaSupport"`
-	// Cloud application risk profile name.
-	Name *string `pulumi:"name"`
 	// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 	PasswordStrength *string `pulumi:"passwordStrength"`
 	// (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	PoorItemsOfService *string `pulumi:"poorItemsOfService"`
 	// Unique identifier for the risk profile.
 	ProfileId *int `pulumi:"profileId"`
+	// Cloud application risk profile name.
+	ProfileName *string `pulumi:"profileName"`
 	// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
 	ProfileType *string `pulumi:"profileType"`
 	// (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
@@ -242,14 +245,14 @@ type RiskProfilesState struct {
 	MalwareScanningForContent pulumi.StringPtrInput
 	// (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	MfaSupport pulumi.StringPtrInput
-	// Cloud application risk profile name.
-	Name pulumi.StringPtrInput
 	// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 	PasswordStrength pulumi.StringPtrInput
 	// (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	PoorItemsOfService pulumi.StringPtrInput
 	// Unique identifier for the risk profile.
 	ProfileId pulumi.IntPtrInput
+	// Cloud application risk profile name.
+	ProfileName pulumi.StringPtrInput
 	// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
 	ProfileType pulumi.StringPtrInput
 	// (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
@@ -317,12 +320,12 @@ type riskProfilesArgs struct {
 	MalwareScanningForContent *string `pulumi:"malwareScanningForContent"`
 	// (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	MfaSupport *string `pulumi:"mfaSupport"`
-	// Cloud application risk profile name.
-	Name *string `pulumi:"name"`
 	// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 	PasswordStrength *string `pulumi:"passwordStrength"`
 	// (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	PoorItemsOfService *string `pulumi:"poorItemsOfService"`
+	// Cloud application risk profile name.
+	ProfileName string `pulumi:"profileName"`
 	// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
 	ProfileType *string `pulumi:"profileType"`
 	// (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
@@ -387,12 +390,12 @@ type RiskProfilesArgs struct {
 	MalwareScanningForContent pulumi.StringPtrInput
 	// (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	MfaSupport pulumi.StringPtrInput
-	// Cloud application risk profile name.
-	Name pulumi.StringPtrInput
 	// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 	PasswordStrength pulumi.StringPtrInput
 	// (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
 	PoorItemsOfService pulumi.StringPtrInput
+	// Cloud application risk profile name.
+	ProfileName pulumi.StringInput
 	// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
 	ProfileType pulumi.StringPtrInput
 	// (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
@@ -584,11 +587,6 @@ func (o RiskProfilesOutput) MfaSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskProfiles) pulumi.StringPtrOutput { return v.MfaSupport }).(pulumi.StringPtrOutput)
 }
 
-// Cloud application risk profile name.
-func (o RiskProfilesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *RiskProfiles) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
 // (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
 func (o RiskProfilesOutput) PasswordStrength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskProfiles) pulumi.StringPtrOutput { return v.PasswordStrength }).(pulumi.StringPtrOutput)
@@ -602,6 +600,11 @@ func (o RiskProfilesOutput) PoorItemsOfService() pulumi.StringPtrOutput {
 // Unique identifier for the risk profile.
 func (o RiskProfilesOutput) ProfileId() pulumi.IntOutput {
 	return o.ApplyT(func(v *RiskProfiles) pulumi.IntOutput { return v.ProfileId }).(pulumi.IntOutput)
+}
+
+// Cloud application risk profile name.
+func (o RiskProfilesOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RiskProfiles) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.

@@ -22,6 +22,9 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("profileSeq")]
+        public Input<int>? ProfileSeq { get; set; }
+
         /// <summary>
         /// The browser isolation profile URL
         /// </summary>

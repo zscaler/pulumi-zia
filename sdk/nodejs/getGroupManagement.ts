@@ -16,6 +16,7 @@ export function getGroupManagement(args?: GetGroupManagementArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getGroupManagement:getGroupManagement", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -24,6 +25,10 @@ export function getGroupManagement(args?: GetGroupManagementArgs, opts?: pulumi.
  * A collection of arguments for invoking getGroupManagement.
  */
 export interface GetGroupManagementArgs {
+    /**
+     * Unique identfier for the group.
+     */
+    id?: number;
     /**
      * Name of the user group
      */
@@ -57,6 +62,7 @@ export function getGroupManagementOutput(args?: GetGroupManagementOutputArgs, op
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getGroupManagement:getGroupManagement", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -65,6 +71,10 @@ export function getGroupManagementOutput(args?: GetGroupManagementOutputArgs, op
  * A collection of arguments for invoking getGroupManagement.
  */
 export interface GetGroupManagementOutputArgs {
+    /**
+     * Unique identfier for the group.
+     */
+    id?: pulumi.Input<number>;
     /**
      * Name of the user group
      */

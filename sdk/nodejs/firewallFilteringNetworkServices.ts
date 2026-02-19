@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_firewall_filtering_network_service** can be imported by using `<SERVICE_ID>` or `<SERVICE_NAME>` as the import ID.
@@ -62,28 +61,28 @@ export class FirewallFilteringNetworkServices extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringNetworkServices.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * dest tcp ports
      */
-    public readonly destTcpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestTcpPort[] | undefined>;
+    declare public readonly destTcpPorts: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestTcpPort[] | undefined>;
     /**
      * dest udp ports
      */
-    public readonly destUdpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestUdpPort[] | undefined>;
-    public readonly isNameL10nTag!: pulumi.Output<boolean | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly networkServiceId!: pulumi.Output<number>;
+    declare public readonly destUdpPorts: pulumi.Output<outputs.FirewallFilteringNetworkServicesDestUdpPort[] | undefined>;
+    declare public readonly isNameL10nTag: pulumi.Output<boolean | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly networkServiceId: pulumi.Output<number>;
     /**
      * src tcp ports
      */
-    public readonly srcTcpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcTcpPort[] | undefined>;
+    declare public readonly srcTcpPorts: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcTcpPort[] | undefined>;
     /**
      * src udp ports
      */
-    public readonly srcUdpPorts!: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcUdpPort[] | undefined>;
-    public readonly tag!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly srcUdpPorts: pulumi.Output<outputs.FirewallFilteringNetworkServicesSrcUdpPort[] | undefined>;
+    declare public readonly tag: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a FirewallFilteringNetworkServices resource with the given unique name, arguments, and options.
@@ -98,27 +97,27 @@ export class FirewallFilteringNetworkServices extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallFilteringNetworkServicesState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destTcpPorts"] = state ? state.destTcpPorts : undefined;
-            resourceInputs["destUdpPorts"] = state ? state.destUdpPorts : undefined;
-            resourceInputs["isNameL10nTag"] = state ? state.isNameL10nTag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkServiceId"] = state ? state.networkServiceId : undefined;
-            resourceInputs["srcTcpPorts"] = state ? state.srcTcpPorts : undefined;
-            resourceInputs["srcUdpPorts"] = state ? state.srcUdpPorts : undefined;
-            resourceInputs["tag"] = state ? state.tag : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destTcpPorts"] = state?.destTcpPorts;
+            resourceInputs["destUdpPorts"] = state?.destUdpPorts;
+            resourceInputs["isNameL10nTag"] = state?.isNameL10nTag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkServiceId"] = state?.networkServiceId;
+            resourceInputs["srcTcpPorts"] = state?.srcTcpPorts;
+            resourceInputs["srcUdpPorts"] = state?.srcUdpPorts;
+            resourceInputs["tag"] = state?.tag;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as FirewallFilteringNetworkServicesArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destTcpPorts"] = args ? args.destTcpPorts : undefined;
-            resourceInputs["destUdpPorts"] = args ? args.destUdpPorts : undefined;
-            resourceInputs["isNameL10nTag"] = args ? args.isNameL10nTag : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["srcTcpPorts"] = args ? args.srcTcpPorts : undefined;
-            resourceInputs["srcUdpPorts"] = args ? args.srcUdpPorts : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destTcpPorts"] = args?.destTcpPorts;
+            resourceInputs["destUdpPorts"] = args?.destUdpPorts;
+            resourceInputs["isNameL10nTag"] = args?.isNameL10nTag;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["srcTcpPorts"] = args?.srcTcpPorts;
+            resourceInputs["srcUdpPorts"] = args?.srcUdpPorts;
+            resourceInputs["tag"] = args?.tag;
+            resourceInputs["type"] = args?.type;
             resourceInputs["networkServiceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

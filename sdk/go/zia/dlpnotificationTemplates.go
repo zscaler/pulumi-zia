@@ -22,8 +22,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_dlp_notification_templates** can be imported by using `<TEMPLATE ID>` or `<TEMPLATE NAME>` as the import ID.
 //

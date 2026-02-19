@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_firewall_filtering_destination_groups** can be imported by using `&lt;GROUP_ID&gt;` or `&lt;GROUP_NAME&gt;` as the import ID.
@@ -48,8 +47,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> Addresses { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         [Output("countries")]
         public Output<ImmutableArray<string>> Countries { get; private set; } = null!;
@@ -147,8 +145,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _countries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> Countries
         {
@@ -210,8 +207,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _countries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> Countries
         {

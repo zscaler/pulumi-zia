@@ -91,6 +91,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIDMProfilesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("profileId")]
+        public int? ProfileId { get; set; }
+
         [Input("profileName")]
         public string? ProfileName { get; set; }
 
@@ -102,6 +105,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIDMProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("profileId")]
+        public Input<int>? ProfileId { get; set; }
+
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
 

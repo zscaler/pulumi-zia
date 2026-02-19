@@ -7,12 +7,18 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+ *
+ * Use the **forwarding_control_zpa_gateway** resource allows the creation and management of ZIA forwarding control ZPA Gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This resource can then be associated with a ZIA Forwarding Control Rule.
+ *
+ * ⚠️ **IMPORTANT:**: To configure a ZPA Gateway you **MUST** use the ZPA Terraform Provider to configure a Server Group and Application Segment with the Source IP Anchoring feature enabled at the Application Segment resource. Please refer to the ZPA Terraform Provider documentation here
+ *
  * ## Example Usage
  *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **forwarding_control_zpa_gateway** can be imported by using `<GATEWAY_ID>` or `<GATEWAY_NAME>` as the import ID.
@@ -60,24 +66,24 @@ export class ForwardingControlZPAGateway extends pulumi.CustomResource {
     /**
      * (string) - Additional details about the ZPA gateway
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly gatewayId!: pulumi.Output<number>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly gatewayId: pulumi.Output<number>;
     /**
      * The name of the forwarding control ZPA Gateway to be exported.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (string) - Indicates whether the ZPA gateway is configured for Zscaler Internet Access (using option ZPA) or Zscaler Cloud Connector (using option ECZPA). Supported values: ``ZPA`` and ``ECZPA``
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The ZPA Server Group that is configured for Source IP Anchoring
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.ForwardingControlZPAGatewayZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.ForwardingControlZPAGatewayZpaAppSegment[] | undefined>;
     /**
      * The ZPA Server Group that is configured for Source IP Anchoring
      */
-    public readonly zpaServerGroup!: pulumi.Output<outputs.ForwardingControlZPAGatewayZpaServerGroup>;
+    declare public readonly zpaServerGroup: pulumi.Output<outputs.ForwardingControlZPAGatewayZpaServerGroup>;
 
     /**
      * Create a ForwardingControlZPAGateway resource with the given unique name, arguments, and options.
@@ -92,25 +98,22 @@ export class ForwardingControlZPAGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ForwardingControlZPAGatewayState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
-            resourceInputs["zpaServerGroup"] = state ? state.zpaServerGroup : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["gatewayId"] = state?.gatewayId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
+            resourceInputs["zpaServerGroup"] = state?.zpaServerGroup;
         } else {
             const args = argsOrState as ForwardingControlZPAGatewayArgs | undefined;
-            if ((!args || args.zpaAppSegments === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'zpaAppSegments'");
-            }
-            if ((!args || args.zpaServerGroup === undefined) && !opts.urn) {
+            if (args?.zpaServerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zpaServerGroup'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
-            resourceInputs["zpaServerGroup"] = args ? args.zpaServerGroup : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
+            resourceInputs["zpaServerGroup"] = args?.zpaServerGroup;
             resourceInputs["gatewayId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -164,7 +167,7 @@ export interface ForwardingControlZPAGatewayArgs {
     /**
      * The ZPA Server Group that is configured for Source IP Anchoring
      */
-    zpaAppSegments: pulumi.Input<pulumi.Input<inputs.ForwardingControlZPAGatewayZpaAppSegment>[]>;
+    zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ForwardingControlZPAGatewayZpaAppSegment>[]>;
     /**
      * The ZPA Server Group that is configured for Source IP Anchoring
      */

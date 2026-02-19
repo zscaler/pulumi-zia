@@ -14,9 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class VirtualServiceEdgeClusterVirtualZenNodes
     {
-        /// <summary>
-        /// (Number) Identifier that uniquely identifies an entity
-        /// </summary>
         public readonly ImmutableArray<int> Ids;
 
         [OutputConstructor]

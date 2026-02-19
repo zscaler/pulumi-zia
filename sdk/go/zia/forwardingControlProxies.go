@@ -25,8 +25,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_forwarding_control_proxies** can be imported by using `<PROXY_ID>` or `<PROXY_NAME>` as the import ID.
 //

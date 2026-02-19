@@ -30,8 +30,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_user_management** can be imported by using `<USER_ID>` or `<USERNAME>` as the import ID.
 //
@@ -65,8 +64,7 @@ type UserManagement struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-	// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail pulumi.StringPtrOutput `pulumi:"tempAuthEmail"`
 	UserId        pulumi.IntOutput       `pulumi:"userId"`
 }
@@ -131,8 +129,7 @@ type userManagementState struct {
 	Name *string `pulumi:"name"`
 	// User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
 	Password *string `pulumi:"password"`
-	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-	// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail *string `pulumi:"tempAuthEmail"`
 	UserId        *int    `pulumi:"userId"`
 }
@@ -152,8 +149,7 @@ type UserManagementState struct {
 	Name pulumi.StringPtrInput
 	// User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
 	Password pulumi.StringPtrInput
-	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-	// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail pulumi.StringPtrInput
 	UserId        pulumi.IntPtrInput
 }
@@ -177,8 +173,7 @@ type userManagementArgs struct {
 	Name *string `pulumi:"name"`
 	// User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
 	Password string `pulumi:"password"`
-	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-	// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail *string `pulumi:"tempAuthEmail"`
 }
 
@@ -198,8 +193,7 @@ type UserManagementArgs struct {
 	Name pulumi.StringPtrInput
 	// User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
 	Password pulumi.StringInput
-	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-	// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+	// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 	TempAuthEmail pulumi.StringPtrInput
 }
 
@@ -325,8 +319,7 @@ func (o UserManagementOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserManagement) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
 func (o UserManagementOutput) TempAuthEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserManagement) pulumi.StringPtrOutput { return v.TempAuthEmail }).(pulumi.StringPtrOutput)
 }

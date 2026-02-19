@@ -138,11 +138,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficForwardingStaticIPLastModifiedByResult> LastModifiedBies;
         /// <summary>
-        /// (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and `90` degrees.
+        /// (Number) Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between `-90` and &lt;span pulumi-lang-nodejs="`90`" pulumi-lang-dotnet="`90`" pulumi-lang-go="`90`" pulumi-lang-python="`90`" pulumi-lang-yaml="`90`" pulumi-lang-java="`90`"&gt;`90`&lt;/span&gt; degrees.
         /// </summary>
         public readonly double Latitude;
         /// <summary>
-        /// (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and `180` degrees.
+        /// (Number) Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between `-180` and &lt;span pulumi-lang-nodejs="`180`" pulumi-lang-dotnet="`180`" pulumi-lang-go="`180`" pulumi-lang-python="`180`" pulumi-lang-yaml="`180`" pulumi-lang-java="`180`"&gt;`180`&lt;/span&gt; degrees.
         /// </summary>
         public readonly double Longitude;
         /// <summary>

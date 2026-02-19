@@ -16,6 +16,7 @@ export function getDLPIncidentReceiverServers(args?: GetDLPIncidentReceiverServe
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -24,6 +25,7 @@ export function getDLPIncidentReceiverServers(args?: GetDLPIncidentReceiverServe
  * A collection of arguments for invoking getDLPIncidentReceiverServers.
  */
 export interface GetDLPIncidentReceiverServersArgs {
+    id?: number;
     name?: string;
 }
 
@@ -49,6 +51,7 @@ export function getDLPIncidentReceiverServersOutput(args?: GetDLPIncidentReceive
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDLPIncidentReceiverServers:getDLPIncidentReceiverServers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -57,5 +60,6 @@ export function getDLPIncidentReceiverServersOutput(args?: GetDLPIncidentReceive
  * A collection of arguments for invoking getDLPIncidentReceiverServers.
  */
 export interface GetDLPIncidentReceiverServersOutputArgs {
+    id?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
 }

@@ -11,10 +11,30 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    /// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
+    /// 
+    /// The **zia_forwarding_control_rule** resource allows the creation and management of ZIA Forwarding Control rules in the Zscaler Internet Access.
+    /// 
+    /// ⚠️ **WARNING:**  - PR #373 - The resource &lt;span pulumi-lang-nodejs="`zia.ForwardingControlRule`" pulumi-lang-dotnet="`zia.ForwardingControlRule`" pulumi-lang-go="`ForwardingControlRule`" pulumi-lang-python="`ForwardingControlRule`" pulumi-lang-yaml="`zia.ForwardingControlRule`" pulumi-lang-java="`zia.ForwardingControlRule`"&gt;`zia.ForwardingControlRule`&lt;/span&gt; now pauses for 60 seconds before proceeding with the create or update process whenever the &lt;span pulumi-lang-nodejs="`forwardMethod`" pulumi-lang-dotnet="`ForwardMethod`" pulumi-lang-go="`forwardMethod`" pulumi-lang-python="`forward_method`" pulumi-lang-yaml="`forwardMethod`" pulumi-lang-java="`forwardMethod`"&gt;`forward_method`&lt;/span&gt; attribute is set to `ZPA`. In case of a failure related to resource synchronization, the provider will retry the resource creation or update up to 3 times, waiting 30 seconds between each retry. This behavior ensures that ZIA and ZPA have sufficient time to synchronize and replicate the necessary resource IDs, reducing the risk of transient errors during provisioning.
+    /// 
+    ///   **NOTE**: This retry mechanism helps to automatically overcome temporary latency without manual intervention. This behavior does not affect forwarding rules configured with other&lt;span pulumi-lang-nodejs=" forwardMethods " pulumi-lang-dotnet=" ForwardMethods " pulumi-lang-go=" forwardMethods " pulumi-lang-python=" forward_methods " pulumi-lang-yaml=" forwardMethods " pulumi-lang-java=" forwardMethods "&gt; forward_methods &lt;/span&gt;such as `DIRECT`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### DIRECT Forwarding Method
+    /// 
+    /// ### ZPA Forwarding Method
+    /// 
+    ///   ⚠️ **WARNING:**: You must use the ZPA provider in combination with the ZIA Terraform Provider to successfully configure a Forwarding control rule where the &lt;span pulumi-lang-nodejs="`forwardMethod`" pulumi-lang-dotnet="`ForwardMethod`" pulumi-lang-go="`forwardMethod`" pulumi-lang-python="`forward_method`" pulumi-lang-yaml="`forwardMethod`" pulumi-lang-java="`forwardMethod`"&gt;`forward_method`&lt;/span&gt; is `ZPA`
+    /// 
+    /// ### PROXYCHAIN Forwarding Method
+    /// 
+    ///   ⚠️ **WARNING:**: Creating or retrieving a Proxy Gateway via API is not currently supported; hence, the &lt;span pulumi-lang-nodejs="`id`" pulumi-lang-dotnet="`Id`" pulumi-lang-go="`id`" pulumi-lang-python="`id`" pulumi-lang-yaml="`id`" pulumi-lang-java="`id`"&gt;`id`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`name`" pulumi-lang-dotnet="`Name`" pulumi-lang-go="`name`" pulumi-lang-python="`name`" pulumi-lang-yaml="`name`" pulumi-lang-java="`name`"&gt;`name`&lt;/span&gt; for the &lt;span pulumi-lang-nodejs="`proxyGateway`" pulumi-lang-dotnet="`ProxyGateway`" pulumi-lang-go="`proxyGateway`" pulumi-lang-python="`proxy_gateway`" pulumi-lang-yaml="`proxyGateway`" pulumi-lang-java="`proxyGateway`"&gt;`proxy_gateway`&lt;/span&gt; must be passed manually to the &lt;span pulumi-lang-nodejs="`proxyGateway`" pulumi-lang-dotnet="`ProxyGateway`" pulumi-lang-go="`proxyGateway`" pulumi-lang-python="`proxy_gateway`" pulumi-lang-yaml="`proxyGateway`" pulumi-lang-java="`proxyGateway`"&gt;`proxy_gateway`&lt;/span&gt; block in the below configuration.
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_forwarding_control_rule** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -83,6 +103,12 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.ForwardingControlRuleDestIpv6Groups?> DestIpv6Groups { get; private set; } = null!;
 
         /// <summary>
+        /// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        /// </summary>
+        [Output("deviceGroups")]
+        public Output<Outputs.ForwardingControlRuleDeviceGroups?> DeviceGroups { get; private set; } = null!;
+
+        /// <summary>
         /// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
         /// </summary>
         [Output("ecGroups")]
@@ -95,7 +121,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> ForwardMethod { get; private set; } = null!;
 
         /// <summary>
-        /// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.ForwardingControlRuleGroups?> Groups { get; private set; } = null!;
@@ -107,13 +133,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.ForwardingControlRuleLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.ForwardingControlRuleLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.ForwardingControlRuleLocations?> Locations { get; private set; } = null!;
@@ -203,7 +229,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Output("users")]
         public Output<Outputs.ForwardingControlRuleUsers?> Users { get; private set; } = null!;
@@ -346,6 +372,12 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleDestIpv6GroupsArgs>? DestIpv6Groups { get; set; }
 
         /// <summary>
+        /// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        /// </summary>
+        [Input("deviceGroups")]
+        public Input<Inputs.ForwardingControlRuleDeviceGroupsArgs>? DeviceGroups { get; set; }
+
+        /// <summary>
         /// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
         /// </summary>
         [Input("ecGroups")]
@@ -358,7 +390,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string> ForwardMethod { get; set; } = null!;
 
         /// <summary>
-        /// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.ForwardingControlRuleGroupsArgs>? Groups { get; set; }
@@ -370,13 +402,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.ForwardingControlRuleLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.ForwardingControlRuleLocationsArgs>? Locations { get; set; }
@@ -472,7 +504,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.ForwardingControlRuleUsersArgs>? Users { get; set; }
@@ -582,6 +614,12 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleDestIpv6GroupsGetArgs>? DestIpv6Groups { get; set; }
 
         /// <summary>
+        /// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+        /// </summary>
+        [Input("deviceGroups")]
+        public Input<Inputs.ForwardingControlRuleDeviceGroupsGetArgs>? DeviceGroups { get; set; }
+
+        /// <summary>
         /// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
         /// </summary>
         [Input("ecGroups")]
@@ -594,7 +632,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? ForwardMethod { get; set; }
 
         /// <summary>
-        /// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.ForwardingControlRuleGroupsGetArgs>? Groups { get; set; }
@@ -606,13 +644,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.ForwardingControlRuleLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.ForwardingControlRuleLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.ForwardingControlRuleLocationsGetArgs>? Locations { get; set; }
@@ -714,7 +752,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.ForwardingControlRuleUsersGetArgs>? Users { get; set; }

@@ -12,19 +12,18 @@ import (
 )
 
 // * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
-// * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+// * [API documentation](https://help.zscaler.com/legacy-apis/advanced-threat-protection-policy#/cyberThreatProtection/advancedThreatSettings-put)
 //
-// The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
+// The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Threat Protection Settings](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
 //
 // ## Example Usage
 //
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_advanced_threat_settings** can be imported by using `advanced_threat_settings` as the import ID.
+// **zia_advanced_threat_settings** can be imported by using `advancedThreatSettings` as the import ID.
 //
 // For example:
 //
@@ -34,20 +33,17 @@ import (
 type AdvancedThreatSettings struct {
 	pulumi.CustomResourceState
 
-	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-	// known to have been exploited.
+	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 	ActivexBlocked pulumi.BoolPtrOutput `pulumi:"activexBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
 	ActivexCapture pulumi.BoolPtrOutput `pulumi:"activexCapture"`
-	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-	// advertisements that can collect users' information without their knowledge
+	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 	AdSpywareSitesBlocked pulumi.BoolPtrOutput `pulumi:"adSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
 	AdSpywareSitesCapture pulumi.BoolPtrOutput `pulumi:"adSpywareSitesCapture"`
 	// A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
 	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrOutput `pulumi:"alertForUnknownSuspiciousC2Traffic"`
-	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-	// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 	AnonymizerBlocked pulumi.BoolPtrOutput `pulumi:"anonymizerBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
 	AnonymizerCapture pulumi.BoolPtrOutput `pulumi:"anonymizerCapture"`
@@ -57,8 +53,7 @@ type AdvancedThreatSettings struct {
 	BitTorrentCapture pulumi.BoolPtrOutput `pulumi:"bitTorrentCapture"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
 	BlockCountriesCapture pulumi.BoolPtrOutput `pulumi:"blockCountriesCapture"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	BlockedCountries pulumi.StringArrayOutput `pulumi:"blockedCountries"`
 	// A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
 	BrowserExploitsBlocked pulumi.BoolPtrOutput `pulumi:"browserExploitsBlocked"`
@@ -80,13 +75,11 @@ type AdvancedThreatSettings struct {
 	CryptoMiningBlocked pulumi.BoolPtrOutput `pulumi:"cryptoMiningBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
 	CryptoMiningCapture pulumi.BoolPtrOutput `pulumi:"cryptoMiningCapture"`
-	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-	// algorithms (DGA)
+	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 	DgaDomainsBlocked pulumi.BoolPtrOutput `pulumi:"dgaDomainsBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
 	DgaDomainsCapture pulumi.BoolPtrOutput `pulumi:"dgaDomainsCapture"`
-	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-	// Office or PDF documents are allowed or blocked
+	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 	FileFormatVunerabilitesBlocked pulumi.BoolPtrOutput `pulumi:"fileFormatVunerabilitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
 	FileFormatVunerabilitesCapture pulumi.BoolPtrOutput `pulumi:"fileFormatVunerabilitesCapture"`
@@ -120,8 +113,7 @@ type AdvancedThreatSettings struct {
 	SshTunnellingBlocked pulumi.BoolPtrOutput `pulumi:"sshTunnellingBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
 	SshTunnellingCapture pulumi.BoolPtrOutput `pulumi:"sshTunnellingCapture"`
-	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-	// with spyware agents and data transmission
+	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 	SuspectAdwareSpywareSitesBlocked pulumi.BoolPtrOutput `pulumi:"suspectAdwareSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
 	SuspectAdwareSpywareSitesCapture pulumi.BoolPtrOutput `pulumi:"suspectAdwareSpywareSitesCapture"`
@@ -129,13 +121,11 @@ type AdvancedThreatSettings struct {
 	SuspectedPhishingSitesBlocked pulumi.BoolPtrOutput `pulumi:"suspectedPhishingSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
 	SuspectedPhishingSitesCapture pulumi.BoolPtrOutput `pulumi:"suspectedPhishingSitesCapture"`
-	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-	// for encryption.
+	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 	TorBlocked pulumi.BoolPtrOutput `pulumi:"torBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
 	TorCapture pulumi.BoolPtrOutput `pulumi:"torCapture"`
-	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-	// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 	WebSpamBlocked pulumi.BoolPtrOutput `pulumi:"webSpamBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
 	WebSpamCapture pulumi.BoolPtrOutput `pulumi:"webSpamCapture"`
@@ -171,20 +161,17 @@ func GetAdvancedThreatSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdvancedThreatSettings resources.
 type advancedThreatSettingsState struct {
-	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-	// known to have been exploited.
+	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 	ActivexBlocked *bool `pulumi:"activexBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
 	ActivexCapture *bool `pulumi:"activexCapture"`
-	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-	// advertisements that can collect users' information without their knowledge
+	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 	AdSpywareSitesBlocked *bool `pulumi:"adSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
 	AdSpywareSitesCapture *bool `pulumi:"adSpywareSitesCapture"`
 	// A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
 	AlertForUnknownSuspiciousC2Traffic *bool `pulumi:"alertForUnknownSuspiciousC2Traffic"`
-	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-	// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 	AnonymizerBlocked *bool `pulumi:"anonymizerBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
 	AnonymizerCapture *bool `pulumi:"anonymizerCapture"`
@@ -194,8 +181,7 @@ type advancedThreatSettingsState struct {
 	BitTorrentCapture *bool `pulumi:"bitTorrentCapture"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
 	BlockCountriesCapture *bool `pulumi:"blockCountriesCapture"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	BlockedCountries []string `pulumi:"blockedCountries"`
 	// A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
 	BrowserExploitsBlocked *bool `pulumi:"browserExploitsBlocked"`
@@ -217,13 +203,11 @@ type advancedThreatSettingsState struct {
 	CryptoMiningBlocked *bool `pulumi:"cryptoMiningBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
 	CryptoMiningCapture *bool `pulumi:"cryptoMiningCapture"`
-	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-	// algorithms (DGA)
+	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 	DgaDomainsBlocked *bool `pulumi:"dgaDomainsBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
 	DgaDomainsCapture *bool `pulumi:"dgaDomainsCapture"`
-	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-	// Office or PDF documents are allowed or blocked
+	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 	FileFormatVunerabilitesBlocked *bool `pulumi:"fileFormatVunerabilitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
 	FileFormatVunerabilitesCapture *bool `pulumi:"fileFormatVunerabilitesCapture"`
@@ -257,8 +241,7 @@ type advancedThreatSettingsState struct {
 	SshTunnellingBlocked *bool `pulumi:"sshTunnellingBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
 	SshTunnellingCapture *bool `pulumi:"sshTunnellingCapture"`
-	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-	// with spyware agents and data transmission
+	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 	SuspectAdwareSpywareSitesBlocked *bool `pulumi:"suspectAdwareSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
 	SuspectAdwareSpywareSitesCapture *bool `pulumi:"suspectAdwareSpywareSitesCapture"`
@@ -266,33 +249,28 @@ type advancedThreatSettingsState struct {
 	SuspectedPhishingSitesBlocked *bool `pulumi:"suspectedPhishingSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
 	SuspectedPhishingSitesCapture *bool `pulumi:"suspectedPhishingSitesCapture"`
-	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-	// for encryption.
+	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 	TorBlocked *bool `pulumi:"torBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
 	TorCapture *bool `pulumi:"torCapture"`
-	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-	// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 	WebSpamBlocked *bool `pulumi:"webSpamBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
 	WebSpamCapture *bool `pulumi:"webSpamCapture"`
 }
 
 type AdvancedThreatSettingsState struct {
-	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-	// known to have been exploited.
+	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 	ActivexBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
 	ActivexCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-	// advertisements that can collect users' information without their knowledge
+	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 	AdSpywareSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
 	AdSpywareSitesCapture pulumi.BoolPtrInput
 	// A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
 	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-	// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 	AnonymizerBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
 	AnonymizerCapture pulumi.BoolPtrInput
@@ -302,8 +280,7 @@ type AdvancedThreatSettingsState struct {
 	BitTorrentCapture pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
 	BlockCountriesCapture pulumi.BoolPtrInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	BlockedCountries pulumi.StringArrayInput
 	// A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
 	BrowserExploitsBlocked pulumi.BoolPtrInput
@@ -325,13 +302,11 @@ type AdvancedThreatSettingsState struct {
 	CryptoMiningBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
 	CryptoMiningCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-	// algorithms (DGA)
+	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 	DgaDomainsBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
 	DgaDomainsCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-	// Office or PDF documents are allowed or blocked
+	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 	FileFormatVunerabilitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
 	FileFormatVunerabilitesCapture pulumi.BoolPtrInput
@@ -365,8 +340,7 @@ type AdvancedThreatSettingsState struct {
 	SshTunnellingBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
 	SshTunnellingCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-	// with spyware agents and data transmission
+	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 	SuspectAdwareSpywareSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
 	SuspectAdwareSpywareSitesCapture pulumi.BoolPtrInput
@@ -374,13 +348,11 @@ type AdvancedThreatSettingsState struct {
 	SuspectedPhishingSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
 	SuspectedPhishingSitesCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-	// for encryption.
+	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 	TorBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
 	TorCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-	// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 	WebSpamBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
 	WebSpamCapture pulumi.BoolPtrInput
@@ -391,20 +363,17 @@ func (AdvancedThreatSettingsState) ElementType() reflect.Type {
 }
 
 type advancedThreatSettingsArgs struct {
-	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-	// known to have been exploited.
+	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 	ActivexBlocked *bool `pulumi:"activexBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
 	ActivexCapture *bool `pulumi:"activexCapture"`
-	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-	// advertisements that can collect users' information without their knowledge
+	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 	AdSpywareSitesBlocked *bool `pulumi:"adSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
 	AdSpywareSitesCapture *bool `pulumi:"adSpywareSitesCapture"`
 	// A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
 	AlertForUnknownSuspiciousC2Traffic *bool `pulumi:"alertForUnknownSuspiciousC2Traffic"`
-	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-	// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 	AnonymizerBlocked *bool `pulumi:"anonymizerBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
 	AnonymizerCapture *bool `pulumi:"anonymizerCapture"`
@@ -414,8 +383,7 @@ type advancedThreatSettingsArgs struct {
 	BitTorrentCapture *bool `pulumi:"bitTorrentCapture"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
 	BlockCountriesCapture *bool `pulumi:"blockCountriesCapture"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	BlockedCountries []string `pulumi:"blockedCountries"`
 	// A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
 	BrowserExploitsBlocked *bool `pulumi:"browserExploitsBlocked"`
@@ -437,13 +405,11 @@ type advancedThreatSettingsArgs struct {
 	CryptoMiningBlocked *bool `pulumi:"cryptoMiningBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
 	CryptoMiningCapture *bool `pulumi:"cryptoMiningCapture"`
-	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-	// algorithms (DGA)
+	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 	DgaDomainsBlocked *bool `pulumi:"dgaDomainsBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
 	DgaDomainsCapture *bool `pulumi:"dgaDomainsCapture"`
-	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-	// Office or PDF documents are allowed or blocked
+	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 	FileFormatVunerabilitesBlocked *bool `pulumi:"fileFormatVunerabilitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
 	FileFormatVunerabilitesCapture *bool `pulumi:"fileFormatVunerabilitesCapture"`
@@ -477,8 +443,7 @@ type advancedThreatSettingsArgs struct {
 	SshTunnellingBlocked *bool `pulumi:"sshTunnellingBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
 	SshTunnellingCapture *bool `pulumi:"sshTunnellingCapture"`
-	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-	// with spyware agents and data transmission
+	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 	SuspectAdwareSpywareSitesBlocked *bool `pulumi:"suspectAdwareSpywareSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
 	SuspectAdwareSpywareSitesCapture *bool `pulumi:"suspectAdwareSpywareSitesCapture"`
@@ -486,13 +451,11 @@ type advancedThreatSettingsArgs struct {
 	SuspectedPhishingSitesBlocked *bool `pulumi:"suspectedPhishingSitesBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
 	SuspectedPhishingSitesCapture *bool `pulumi:"suspectedPhishingSitesCapture"`
-	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-	// for encryption.
+	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 	TorBlocked *bool `pulumi:"torBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
 	TorCapture *bool `pulumi:"torCapture"`
-	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-	// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 	WebSpamBlocked *bool `pulumi:"webSpamBlocked"`
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
 	WebSpamCapture *bool `pulumi:"webSpamCapture"`
@@ -500,20 +463,17 @@ type advancedThreatSettingsArgs struct {
 
 // The set of arguments for constructing a AdvancedThreatSettings resource.
 type AdvancedThreatSettingsArgs struct {
-	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-	// known to have been exploited.
+	// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 	ActivexBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
 	ActivexCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-	// advertisements that can collect users' information without their knowledge
+	// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 	AdSpywareSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
 	AdSpywareSitesCapture pulumi.BoolPtrInput
 	// A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
 	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-	// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+	// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 	AnonymizerBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
 	AnonymizerCapture pulumi.BoolPtrInput
@@ -523,8 +483,7 @@ type AdvancedThreatSettingsArgs struct {
 	BitTorrentCapture pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
 	BlockCountriesCapture pulumi.BoolPtrInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	BlockedCountries pulumi.StringArrayInput
 	// A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
 	BrowserExploitsBlocked pulumi.BoolPtrInput
@@ -546,13 +505,11 @@ type AdvancedThreatSettingsArgs struct {
 	CryptoMiningBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
 	CryptoMiningCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-	// algorithms (DGA)
+	// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 	DgaDomainsBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
 	DgaDomainsCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-	// Office or PDF documents are allowed or blocked
+	// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 	FileFormatVunerabilitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
 	FileFormatVunerabilitesCapture pulumi.BoolPtrInput
@@ -586,8 +543,7 @@ type AdvancedThreatSettingsArgs struct {
 	SshTunnellingBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
 	SshTunnellingCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-	// with spyware agents and data transmission
+	// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 	SuspectAdwareSpywareSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
 	SuspectAdwareSpywareSitesCapture pulumi.BoolPtrInput
@@ -595,13 +551,11 @@ type AdvancedThreatSettingsArgs struct {
 	SuspectedPhishingSitesBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
 	SuspectedPhishingSitesCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-	// for encryption.
+	// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 	TorBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
 	TorCapture pulumi.BoolPtrInput
-	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-	// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+	// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 	WebSpamBlocked pulumi.BoolPtrInput
 	// A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
 	WebSpamCapture pulumi.BoolPtrInput
@@ -694,8 +648,7 @@ func (o AdvancedThreatSettingsOutput) ToAdvancedThreatSettingsOutputWithContext(
 	return o
 }
 
-// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-// known to have been exploited.
+// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
 func (o AdvancedThreatSettingsOutput) ActivexBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.ActivexBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -705,8 +658,7 @@ func (o AdvancedThreatSettingsOutput) ActivexCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.ActivexCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-// advertisements that can collect users' information without their knowledge
+// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
 func (o AdvancedThreatSettingsOutput) AdSpywareSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.AdSpywareSitesBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -721,8 +673,7 @@ func (o AdvancedThreatSettingsOutput) AlertForUnknownSuspiciousC2Traffic() pulum
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.AlertForUnknownSuspiciousC2Traffic }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
 func (o AdvancedThreatSettingsOutput) AnonymizerBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.AnonymizerBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -747,8 +698,7 @@ func (o AdvancedThreatSettingsOutput) BlockCountriesCapture() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.BlockCountriesCapture }).(pulumi.BoolPtrOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 func (o AdvancedThreatSettingsOutput) BlockedCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.StringArrayOutput { return v.BlockedCountries }).(pulumi.StringArrayOutput)
 }
@@ -803,8 +753,7 @@ func (o AdvancedThreatSettingsOutput) CryptoMiningCapture() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.CryptoMiningCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-// algorithms (DGA)
+// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
 func (o AdvancedThreatSettingsOutput) DgaDomainsBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.DgaDomainsBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -814,8 +763,7 @@ func (o AdvancedThreatSettingsOutput) DgaDomainsCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.DgaDomainsCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-// Office or PDF documents are allowed or blocked
+// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
 func (o AdvancedThreatSettingsOutput) FileFormatVunerabilitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.FileFormatVunerabilitesBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -900,8 +848,7 @@ func (o AdvancedThreatSettingsOutput) SshTunnellingCapture() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.SshTunnellingCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-// with spyware agents and data transmission
+// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
 func (o AdvancedThreatSettingsOutput) SuspectAdwareSpywareSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.SuspectAdwareSpywareSitesBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -921,8 +868,7 @@ func (o AdvancedThreatSettingsOutput) SuspectedPhishingSitesCapture() pulumi.Boo
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.SuspectedPhishingSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-// for encryption.
+// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
 func (o AdvancedThreatSettingsOutput) TorBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.TorBlocked }).(pulumi.BoolPtrOutput)
 }
@@ -932,8 +878,7 @@ func (o AdvancedThreatSettingsOutput) TorCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.TorCapture }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
 func (o AdvancedThreatSettingsOutput) WebSpamBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdvancedThreatSettings) pulumi.BoolPtrOutput { return v.WebSpamBlocked }).(pulumi.BoolPtrOutput)
 }

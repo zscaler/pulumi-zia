@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_file_type_control_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
@@ -65,114 +64,119 @@ export class FileTypeControlRules extends pulumi.CustomResource {
     /**
      * Flag to check whether a file has active content or not
      */
-    public readonly activeContent!: pulumi.Output<boolean>;
+    declare public readonly activeContent: pulumi.Output<boolean>;
+    declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
     /**
      * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
      */
-    public readonly capturePcap!: pulumi.Output<boolean>;
+    declare public readonly capturePcap: pulumi.Output<boolean>;
     /**
-     * The list of cloud applications to which the File Type Control rule must be applied.
+     * The list of cloud applications to which the File Type Control rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
-    public readonly cloudApplications!: pulumi.Output<string[]>;
+    declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
     /**
      * The Name-ID pairs of departments to which the File Type Control rule must be applied.
      */
-    public readonly departments!: pulumi.Output<outputs.FileTypeControlRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.FileTypeControlRulesDepartments | undefined>;
     /**
      * The description of the File Type Control rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * This field is applicable for devices that are managed using Zscaler Client Connector.
      */
-    public readonly deviceGroups!: pulumi.Output<outputs.FileTypeControlRulesDeviceGroups | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<outputs.FileTypeControlRulesDeviceGroups | undefined>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
-    public readonly deviceTrustLevels!: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
     /**
      * Name-ID pairs of devices for which rule must be applied.
      */
-    public readonly devices!: pulumi.Output<outputs.FileTypeControlRulesDevices | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.FileTypeControlRulesDevices | undefined>;
     /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * File type categories for which the policy is applied. If not set, the rule is applied across all file types
+     * 				See the available file types API in:
+     * 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
      */
-    public readonly fileTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly fileTypes: pulumi.Output<string[]>;
     /**
      * Action taken when traffic matches policy. This field is not applicable to the Lite API.
      */
-    public readonly filteringAction!: pulumi.Output<string>;
+    declare public readonly filteringAction: pulumi.Output<string>;
     /**
      * The Name-ID pairs of groups to which the File Type Control rule must be applied.
      */
-    public readonly groups!: pulumi.Output<outputs.FileTypeControlRulesGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.FileTypeControlRulesGroups | undefined>;
     /**
      * list of Labels that are applicable to the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.FileTypeControlRulesLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.FileTypeControlRulesLabels | undefined>;
     /**
      * Name-ID pairs of locations groups for which rule must be applied.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.FileTypeControlRulesLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.FileTypeControlRulesLocationGroups | undefined>;
     /**
      * Name-ID pairs of locations for the which policy must be applied. If not set, policy is applied for all locations.
      */
-    public readonly locations!: pulumi.Output<outputs.FileTypeControlRulesLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.FileTypeControlRulesLocations | undefined>;
     /**
      * Maximum file size (in KB) used for evaluation of the FTP rule
      */
-    public readonly maxSize!: pulumi.Output<number>;
+    declare public readonly maxSize: pulumi.Output<number>;
     /**
      * Minimum file size (in KB) used for evaluation of the FTP rule
      */
-    public readonly minSize!: pulumi.Output<number>;
+    declare public readonly minSize: pulumi.Output<number>;
     /**
      * The File Type Control policy rule name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * File operation performed. This field is not applicable to the Lite API.
      */
-    public readonly operation!: pulumi.Output<string>;
+    declare public readonly operation: pulumi.Output<string>;
     /**
-     * The rule order of execution for the File Type Control rule with respect to other rules.
+     * The rule order of execution for the  File Type Control rule with respect to other rules.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Protocol for the given rule. This field is not applicable to the Lite API.
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * Admin rank of the admin who creates this rule
      */
-    public readonly rank!: pulumi.Output<number>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly rank: pulumi.Output<number>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * Enables or disables the File Type Control rule.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * list of time interval during which rule must be enforced.
      */
-    public readonly timeWindows!: pulumi.Output<outputs.FileTypeControlRulesTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.FileTypeControlRulesTimeWindows | undefined>;
     /**
      * Flag to check whether a file has active content or not
      */
-    public readonly unscannable!: pulumi.Output<boolean>;
+    declare public readonly unscannable: pulumi.Output<boolean>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the file type control rule rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
-    public readonly urlCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
     /**
      * The Name-ID pairs of users to which the File Type Control rule must be applied.
      */
-    public readonly users!: pulumi.Output<outputs.FileTypeControlRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.FileTypeControlRulesUsers | undefined>;
     /**
      * List of Source IP Anchoring-enabled ZPA Application Segments for which this rule is applicable
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.FileTypeControlRulesZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.FileTypeControlRulesZpaAppSegment[]>;
 
     /**
      * Create a FileTypeControlRules resource with the given unique name, arguments, and options.
@@ -187,69 +191,71 @@ export class FileTypeControlRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileTypeControlRulesState | undefined;
-            resourceInputs["activeContent"] = state ? state.activeContent : undefined;
-            resourceInputs["capturePcap"] = state ? state.capturePcap : undefined;
-            resourceInputs["cloudApplications"] = state ? state.cloudApplications : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["deviceGroups"] = state ? state.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = state ? state.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
-            resourceInputs["filteringAction"] = state ? state.filteringAction : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
-            resourceInputs["minSize"] = state ? state.minSize : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["operation"] = state ? state.operation : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["unscannable"] = state ? state.unscannable : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
+            resourceInputs["activeContent"] = state?.activeContent;
+            resourceInputs["browserEunTemplateId"] = state?.browserEunTemplateId;
+            resourceInputs["capturePcap"] = state?.capturePcap;
+            resourceInputs["cloudApplications"] = state?.cloudApplications;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = state?.deviceTrustLevels;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["fileTypes"] = state?.fileTypes;
+            resourceInputs["filteringAction"] = state?.filteringAction;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["maxSize"] = state?.maxSize;
+            resourceInputs["minSize"] = state?.minSize;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["operation"] = state?.operation;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["unscannable"] = state?.unscannable;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
         } else {
             const args = argsOrState as FileTypeControlRulesArgs | undefined;
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.protocols === undefined) && !opts.urn) {
+            if (args?.protocols === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocols'");
             }
-            resourceInputs["activeContent"] = args ? args.activeContent : undefined;
-            resourceInputs["capturePcap"] = args ? args.capturePcap : undefined;
-            resourceInputs["cloudApplications"] = args ? args.cloudApplications : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceGroups"] = args ? args.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = args ? args.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
-            resourceInputs["filteringAction"] = args ? args.filteringAction : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operation"] = args ? args.operation : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["unscannable"] = args ? args.unscannable : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
+            resourceInputs["activeContent"] = args?.activeContent;
+            resourceInputs["browserEunTemplateId"] = args?.browserEunTemplateId;
+            resourceInputs["capturePcap"] = args?.capturePcap;
+            resourceInputs["cloudApplications"] = args?.cloudApplications;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = args?.deviceTrustLevels;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["fileTypes"] = args?.fileTypes;
+            resourceInputs["filteringAction"] = args?.filteringAction;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operation"] = args?.operation;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["unscannable"] = args?.unscannable;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -265,12 +271,15 @@ export interface FileTypeControlRulesState {
      * Flag to check whether a file has active content or not
      */
     activeContent?: pulumi.Input<boolean>;
+    browserEunTemplateId?: pulumi.Input<number>;
     /**
      * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
      */
     capturePcap?: pulumi.Input<boolean>;
     /**
-     * The list of cloud applications to which the File Type Control rule must be applied.
+     * The list of cloud applications to which the File Type Control rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -286,9 +295,7 @@ export interface FileTypeControlRulesState {
      */
     deviceGroups?: pulumi.Input<inputs.FileTypeControlRulesDeviceGroups>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -296,7 +303,9 @@ export interface FileTypeControlRulesState {
      */
     devices?: pulumi.Input<inputs.FileTypeControlRulesDevices>;
     /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * File type categories for which the policy is applied. If not set, the rule is applied across all file types
+     * 				See the available file types API in:
+     * 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -336,7 +345,7 @@ export interface FileTypeControlRulesState {
      */
     operation?: pulumi.Input<string>;
     /**
-     * The rule order of execution for the File Type Control rule with respect to other rules.
+     * The rule order of execution for the  File Type Control rule with respect to other rules.
      */
     order?: pulumi.Input<number>;
     /**
@@ -361,7 +370,9 @@ export interface FileTypeControlRulesState {
      */
     unscannable?: pulumi.Input<boolean>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the file type control rule rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -382,12 +393,15 @@ export interface FileTypeControlRulesArgs {
      * Flag to check whether a file has active content or not
      */
     activeContent?: pulumi.Input<boolean>;
+    browserEunTemplateId?: pulumi.Input<number>;
     /**
      * A Boolean value that indicates whether packet capture (PCAP) is enabled or not
      */
     capturePcap?: pulumi.Input<boolean>;
     /**
-     * The list of cloud applications to which the File Type Control rule must be applied.
+     * The list of cloud applications to which the File Type Control rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -403,9 +417,7 @@ export interface FileTypeControlRulesArgs {
      */
     deviceGroups?: pulumi.Input<inputs.FileTypeControlRulesDeviceGroups>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -413,7 +425,9 @@ export interface FileTypeControlRulesArgs {
      */
     devices?: pulumi.Input<inputs.FileTypeControlRulesDevices>;
     /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * File type categories for which the policy is applied. If not set, the rule is applied across all file types
+     * 				See the available file types API in:
+     * 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -453,7 +467,7 @@ export interface FileTypeControlRulesArgs {
      */
     operation?: pulumi.Input<string>;
     /**
-     * The rule order of execution for the File Type Control rule with respect to other rules.
+     * The rule order of execution for the  File Type Control rule with respect to other rules.
      */
     order: pulumi.Input<number>;
     /**
@@ -477,7 +491,9 @@ export interface FileTypeControlRulesArgs {
      */
     unscannable?: pulumi.Input<boolean>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the file type control rule rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**

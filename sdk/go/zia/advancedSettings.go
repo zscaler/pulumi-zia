@@ -21,10 +21,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_advanced_settings** can be imported by using `advanced_settings` as the import ID.
+// **zia_advanced_settings** can be imported by using `advancedSettings` as the import ID.
 //
 // For example:
 //
@@ -44,30 +43,25 @@ type AdvancedSettings struct {
 	BasicBypassApps pulumi.StringArrayOutput `pulumi:"basicBypassApps"`
 	// URL categories that are exempted from Basic authentication
 	BasicBypassUrlCategories pulumi.StringArrayOutput `pulumi:"basicBypassUrlCategories"`
-	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-	// is blocked or not
+	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 	BlockConnectHostSniMismatch pulumi.BoolOutput `pulumi:"blockConnectHostSniMismatch"`
 	// Applications which are subjected to Domain Fronting
 	BlockDomainFrontingApps pulumi.StringArrayOutput `pulumi:"blockDomainFrontingApps"`
-	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-	// the FQDN of the request's host header
+	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 	BlockDomainFrontingOnHostHeader pulumi.BoolOutput `pulumi:"blockDomainFrontingOnHostHeader"`
-	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-	// to ports other than the standard HTTP/S ports 80 and 443)
+	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 	BlockHttpTunnelOnNonHttpPorts pulumi.BoolOutput `pulumi:"blockHttpTunnelOnNonHttpPorts"`
 	// Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
 	BlockNonCompliantHttpRequestOnHttpPorts pulumi.BoolOutput `pulumi:"blockNonCompliantHttpRequestOnHttpPorts"`
 	// Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
 	BlockNonHttpOnHttpPortEnabled pulumi.BoolOutput `pulumi:"blockNonHttpOnHttpPortEnabled"`
-	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-	// transaction explicitly
+	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 	CascadeUrlFiltering pulumi.BoolOutput `pulumi:"cascadeUrlFiltering"`
 	// Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassApps pulumi.StringArrayOutput `pulumi:"digestAuthBypassApps"`
 	// URL categories that are exempted from Digest authentication
 	DigestAuthBypassUrlCategories pulumi.StringArrayOutput `pulumi:"digestAuthBypassUrlCategories"`
-	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-	// authentication
+	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassUrls pulumi.StringArrayOutput `pulumi:"digestAuthBypassUrls"`
 	// Cloud applications to which DNS optimization on transparent proxy mode applies
 	DnsResolutionOnTransparentProxyApps pulumi.StringArrayOutput `pulumi:"dnsResolutionOnTransparentProxyApps"`
@@ -91,31 +85,25 @@ type AdvancedSettings struct {
 	DomainFrontingBypassUrlCategories pulumi.StringArrayOutput `pulumi:"domainFrontingBypassUrlCategories"`
 	// Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
 	DynamicUserRiskEnabled pulumi.BoolOutput `pulumi:"dynamicUserRiskEnabled"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	EcsForAllEnabled pulumi.BoolOutput `pulumi:"ecsForAllEnabled"`
 	// Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
 	EnableAdminRankAccess pulumi.BoolOutput `pulumi:"enableAdminRankAccess"`
-	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-	// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableDnsResolutionOnTransparentProxy pulumi.BoolOutput `pulumi:"enableDnsResolutionOnTransparentProxy"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableEvaluatePolicyOnGlobalSslBypass pulumi.BoolOutput `pulumi:"enableEvaluatePolicyOnGlobalSslBypass"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableIpv6DnsOptimizationOnAllTransparentProxy pulumi.BoolOutput `pulumi:"enableIpv6DnsOptimizationOnAllTransparentProxy"`
-	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-	// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-	// PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableIpv6DnsResolutionOnTransparentProxy pulumi.BoolOutput `pulumi:"enableIpv6DnsResolutionOnTransparentProxy"`
 	// Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
 	EnableOffice365 pulumi.BoolOutput `pulumi:"enableOffice365"`
-	// Value indicating whether policies that include user and department criteria can be configured and applied for
-	// unauthenticated traffic
+	// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 	EnablePolicyForUnauthenticatedTraffic pulumi.BoolOutput `pulumi:"enablePolicyForUnauthenticatedTraffic"`
 	// Enforce Surrogate IP authentication for Windows app traffic
 	EnforceSurrogateIpForWindowsApp pulumi.BoolOutput `pulumi:"enforceSurrogateIpForWindowsApp"`
-	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-	// organizational level
+	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 	Http2NonbrowserTrafficEnabled pulumi.BoolOutput `pulumi:"http2NonbrowserTrafficEnabled"`
 	// URL categories for which HTTP range headers must be removed
 	HttpRangeHeaderRemoveUrlCategories pulumi.StringArrayOutput `pulumi:"httpRangeHeaderRemoveUrlCategories"`
@@ -127,25 +115,19 @@ type AdvancedSettings struct {
 	KerberosBypassUrls pulumi.StringArrayOutput `pulumi:"kerberosBypassUrls"`
 	// Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
 	LogInternalIp pulumi.BoolOutput `pulumi:"logInternalIp"`
-	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-	// forward proxy connections
+	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 	PreferSniOverConnHost pulumi.BoolOutput `pulumi:"preferSniOverConnHost"`
-	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	PreferSniOverConnHostApps pulumi.StringArrayOutput `pulumi:"preferSniOverConnHostApps"`
-	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-	// IP-anchored and ZIA-inspected ZPA application traffic.
+	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 	SipaXffHeaderEnabled pulumi.BoolOutput `pulumi:"sipaXffHeaderEnabled"`
-	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	SniDnsOptimizationBypassUrlCategories pulumi.StringArrayOutput `pulumi:"sniDnsOptimizationBypassUrlCategories"`
-	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-	// 80
+	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 	TrackHttpTunnelOnHttpPorts pulumi.BoolOutput `pulumi:"trackHttpTunnelOnHttpPorts"`
 	// Specifies the login session timeout for admins accessing the ZIA Admin Portal
 	UiSessionTimeout pulumi.IntOutput `pulumi:"uiSessionTimeout"`
-	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-	// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 	ZscalerClientConnector1AndPacRoadWarriorInFirewall pulumi.BoolOutput `pulumi:"zscalerClientConnector1AndPacRoadWarriorInFirewall"`
 }
 
@@ -189,30 +171,25 @@ type advancedSettingsState struct {
 	BasicBypassApps []string `pulumi:"basicBypassApps"`
 	// URL categories that are exempted from Basic authentication
 	BasicBypassUrlCategories []string `pulumi:"basicBypassUrlCategories"`
-	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-	// is blocked or not
+	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 	BlockConnectHostSniMismatch *bool `pulumi:"blockConnectHostSniMismatch"`
 	// Applications which are subjected to Domain Fronting
 	BlockDomainFrontingApps []string `pulumi:"blockDomainFrontingApps"`
-	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-	// the FQDN of the request's host header
+	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 	BlockDomainFrontingOnHostHeader *bool `pulumi:"blockDomainFrontingOnHostHeader"`
-	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-	// to ports other than the standard HTTP/S ports 80 and 443)
+	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 	BlockHttpTunnelOnNonHttpPorts *bool `pulumi:"blockHttpTunnelOnNonHttpPorts"`
 	// Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
 	BlockNonCompliantHttpRequestOnHttpPorts *bool `pulumi:"blockNonCompliantHttpRequestOnHttpPorts"`
 	// Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
 	BlockNonHttpOnHttpPortEnabled *bool `pulumi:"blockNonHttpOnHttpPortEnabled"`
-	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-	// transaction explicitly
+	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 	CascadeUrlFiltering *bool `pulumi:"cascadeUrlFiltering"`
 	// Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassApps []string `pulumi:"digestAuthBypassApps"`
 	// URL categories that are exempted from Digest authentication
 	DigestAuthBypassUrlCategories []string `pulumi:"digestAuthBypassUrlCategories"`
-	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-	// authentication
+	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassUrls []string `pulumi:"digestAuthBypassUrls"`
 	// Cloud applications to which DNS optimization on transparent proxy mode applies
 	DnsResolutionOnTransparentProxyApps []string `pulumi:"dnsResolutionOnTransparentProxyApps"`
@@ -236,31 +213,25 @@ type advancedSettingsState struct {
 	DomainFrontingBypassUrlCategories []string `pulumi:"domainFrontingBypassUrlCategories"`
 	// Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
 	DynamicUserRiskEnabled *bool `pulumi:"dynamicUserRiskEnabled"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	EcsForAllEnabled *bool `pulumi:"ecsForAllEnabled"`
 	// Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
 	EnableAdminRankAccess *bool `pulumi:"enableAdminRankAccess"`
-	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-	// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableDnsResolutionOnTransparentProxy *bool `pulumi:"enableDnsResolutionOnTransparentProxy"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableEvaluatePolicyOnGlobalSslBypass *bool `pulumi:"enableEvaluatePolicyOnGlobalSslBypass"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableIpv6DnsOptimizationOnAllTransparentProxy *bool `pulumi:"enableIpv6DnsOptimizationOnAllTransparentProxy"`
-	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-	// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-	// PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableIpv6DnsResolutionOnTransparentProxy *bool `pulumi:"enableIpv6DnsResolutionOnTransparentProxy"`
 	// Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
 	EnableOffice365 *bool `pulumi:"enableOffice365"`
-	// Value indicating whether policies that include user and department criteria can be configured and applied for
-	// unauthenticated traffic
+	// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 	EnablePolicyForUnauthenticatedTraffic *bool `pulumi:"enablePolicyForUnauthenticatedTraffic"`
 	// Enforce Surrogate IP authentication for Windows app traffic
 	EnforceSurrogateIpForWindowsApp *bool `pulumi:"enforceSurrogateIpForWindowsApp"`
-	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-	// organizational level
+	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 	Http2NonbrowserTrafficEnabled *bool `pulumi:"http2NonbrowserTrafficEnabled"`
 	// URL categories for which HTTP range headers must be removed
 	HttpRangeHeaderRemoveUrlCategories []string `pulumi:"httpRangeHeaderRemoveUrlCategories"`
@@ -272,25 +243,19 @@ type advancedSettingsState struct {
 	KerberosBypassUrls []string `pulumi:"kerberosBypassUrls"`
 	// Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
 	LogInternalIp *bool `pulumi:"logInternalIp"`
-	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-	// forward proxy connections
+	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 	PreferSniOverConnHost *bool `pulumi:"preferSniOverConnHost"`
-	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	PreferSniOverConnHostApps []string `pulumi:"preferSniOverConnHostApps"`
-	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-	// IP-anchored and ZIA-inspected ZPA application traffic.
+	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 	SipaXffHeaderEnabled *bool `pulumi:"sipaXffHeaderEnabled"`
-	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	SniDnsOptimizationBypassUrlCategories []string `pulumi:"sniDnsOptimizationBypassUrlCategories"`
-	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-	// 80
+	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 	TrackHttpTunnelOnHttpPorts *bool `pulumi:"trackHttpTunnelOnHttpPorts"`
 	// Specifies the login session timeout for admins accessing the ZIA Admin Portal
 	UiSessionTimeout *int `pulumi:"uiSessionTimeout"`
-	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-	// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 	ZscalerClientConnector1AndPacRoadWarriorInFirewall *bool `pulumi:"zscalerClientConnector1AndPacRoadWarriorInFirewall"`
 }
 
@@ -305,30 +270,25 @@ type AdvancedSettingsState struct {
 	BasicBypassApps pulumi.StringArrayInput
 	// URL categories that are exempted from Basic authentication
 	BasicBypassUrlCategories pulumi.StringArrayInput
-	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-	// is blocked or not
+	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 	BlockConnectHostSniMismatch pulumi.BoolPtrInput
 	// Applications which are subjected to Domain Fronting
 	BlockDomainFrontingApps pulumi.StringArrayInput
-	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-	// the FQDN of the request's host header
+	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 	BlockDomainFrontingOnHostHeader pulumi.BoolPtrInput
-	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-	// to ports other than the standard HTTP/S ports 80 and 443)
+	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 	BlockHttpTunnelOnNonHttpPorts pulumi.BoolPtrInput
 	// Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
 	BlockNonCompliantHttpRequestOnHttpPorts pulumi.BoolPtrInput
 	// Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
 	BlockNonHttpOnHttpPortEnabled pulumi.BoolPtrInput
-	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-	// transaction explicitly
+	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 	CascadeUrlFiltering pulumi.BoolPtrInput
 	// Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassApps pulumi.StringArrayInput
 	// URL categories that are exempted from Digest authentication
 	DigestAuthBypassUrlCategories pulumi.StringArrayInput
-	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-	// authentication
+	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassUrls pulumi.StringArrayInput
 	// Cloud applications to which DNS optimization on transparent proxy mode applies
 	DnsResolutionOnTransparentProxyApps pulumi.StringArrayInput
@@ -352,31 +312,25 @@ type AdvancedSettingsState struct {
 	DomainFrontingBypassUrlCategories pulumi.StringArrayInput
 	// Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
 	DynamicUserRiskEnabled pulumi.BoolPtrInput
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	EcsForAllEnabled pulumi.BoolPtrInput
 	// Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
 	EnableAdminRankAccess pulumi.BoolPtrInput
-	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-	// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableDnsResolutionOnTransparentProxy pulumi.BoolPtrInput
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableEvaluatePolicyOnGlobalSslBypass pulumi.BoolPtrInput
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableIpv6DnsOptimizationOnAllTransparentProxy pulumi.BoolPtrInput
-	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-	// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-	// PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableIpv6DnsResolutionOnTransparentProxy pulumi.BoolPtrInput
 	// Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
 	EnableOffice365 pulumi.BoolPtrInput
-	// Value indicating whether policies that include user and department criteria can be configured and applied for
-	// unauthenticated traffic
+	// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 	EnablePolicyForUnauthenticatedTraffic pulumi.BoolPtrInput
 	// Enforce Surrogate IP authentication for Windows app traffic
 	EnforceSurrogateIpForWindowsApp pulumi.BoolPtrInput
-	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-	// organizational level
+	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 	Http2NonbrowserTrafficEnabled pulumi.BoolPtrInput
 	// URL categories for which HTTP range headers must be removed
 	HttpRangeHeaderRemoveUrlCategories pulumi.StringArrayInput
@@ -388,25 +342,19 @@ type AdvancedSettingsState struct {
 	KerberosBypassUrls pulumi.StringArrayInput
 	// Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
 	LogInternalIp pulumi.BoolPtrInput
-	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-	// forward proxy connections
+	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 	PreferSniOverConnHost pulumi.BoolPtrInput
-	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	PreferSniOverConnHostApps pulumi.StringArrayInput
-	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-	// IP-anchored and ZIA-inspected ZPA application traffic.
+	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 	SipaXffHeaderEnabled pulumi.BoolPtrInput
-	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	SniDnsOptimizationBypassUrlCategories pulumi.StringArrayInput
-	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-	// 80
+	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 	TrackHttpTunnelOnHttpPorts pulumi.BoolPtrInput
 	// Specifies the login session timeout for admins accessing the ZIA Admin Portal
 	UiSessionTimeout pulumi.IntPtrInput
-	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-	// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 	ZscalerClientConnector1AndPacRoadWarriorInFirewall pulumi.BoolPtrInput
 }
 
@@ -425,30 +373,25 @@ type advancedSettingsArgs struct {
 	BasicBypassApps []string `pulumi:"basicBypassApps"`
 	// URL categories that are exempted from Basic authentication
 	BasicBypassUrlCategories []string `pulumi:"basicBypassUrlCategories"`
-	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-	// is blocked or not
+	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 	BlockConnectHostSniMismatch *bool `pulumi:"blockConnectHostSniMismatch"`
 	// Applications which are subjected to Domain Fronting
 	BlockDomainFrontingApps []string `pulumi:"blockDomainFrontingApps"`
-	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-	// the FQDN of the request's host header
+	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 	BlockDomainFrontingOnHostHeader *bool `pulumi:"blockDomainFrontingOnHostHeader"`
-	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-	// to ports other than the standard HTTP/S ports 80 and 443)
+	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 	BlockHttpTunnelOnNonHttpPorts *bool `pulumi:"blockHttpTunnelOnNonHttpPorts"`
 	// Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
 	BlockNonCompliantHttpRequestOnHttpPorts *bool `pulumi:"blockNonCompliantHttpRequestOnHttpPorts"`
 	// Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
 	BlockNonHttpOnHttpPortEnabled *bool `pulumi:"blockNonHttpOnHttpPortEnabled"`
-	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-	// transaction explicitly
+	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 	CascadeUrlFiltering *bool `pulumi:"cascadeUrlFiltering"`
 	// Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassApps []string `pulumi:"digestAuthBypassApps"`
 	// URL categories that are exempted from Digest authentication
 	DigestAuthBypassUrlCategories []string `pulumi:"digestAuthBypassUrlCategories"`
-	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-	// authentication
+	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassUrls []string `pulumi:"digestAuthBypassUrls"`
 	// Cloud applications to which DNS optimization on transparent proxy mode applies
 	DnsResolutionOnTransparentProxyApps []string `pulumi:"dnsResolutionOnTransparentProxyApps"`
@@ -472,31 +415,25 @@ type advancedSettingsArgs struct {
 	DomainFrontingBypassUrlCategories []string `pulumi:"domainFrontingBypassUrlCategories"`
 	// Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
 	DynamicUserRiskEnabled *bool `pulumi:"dynamicUserRiskEnabled"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	EcsForAllEnabled *bool `pulumi:"ecsForAllEnabled"`
 	// Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
 	EnableAdminRankAccess *bool `pulumi:"enableAdminRankAccess"`
-	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-	// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableDnsResolutionOnTransparentProxy *bool `pulumi:"enableDnsResolutionOnTransparentProxy"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableEvaluatePolicyOnGlobalSslBypass *bool `pulumi:"enableEvaluatePolicyOnGlobalSslBypass"`
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableIpv6DnsOptimizationOnAllTransparentProxy *bool `pulumi:"enableIpv6DnsOptimizationOnAllTransparentProxy"`
-	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-	// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-	// PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableIpv6DnsResolutionOnTransparentProxy *bool `pulumi:"enableIpv6DnsResolutionOnTransparentProxy"`
 	// Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
 	EnableOffice365 *bool `pulumi:"enableOffice365"`
-	// Value indicating whether policies that include user and department criteria can be configured and applied for
-	// unauthenticated traffic
+	// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 	EnablePolicyForUnauthenticatedTraffic *bool `pulumi:"enablePolicyForUnauthenticatedTraffic"`
 	// Enforce Surrogate IP authentication for Windows app traffic
 	EnforceSurrogateIpForWindowsApp *bool `pulumi:"enforceSurrogateIpForWindowsApp"`
-	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-	// organizational level
+	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 	Http2NonbrowserTrafficEnabled *bool `pulumi:"http2NonbrowserTrafficEnabled"`
 	// URL categories for which HTTP range headers must be removed
 	HttpRangeHeaderRemoveUrlCategories []string `pulumi:"httpRangeHeaderRemoveUrlCategories"`
@@ -508,25 +445,19 @@ type advancedSettingsArgs struct {
 	KerberosBypassUrls []string `pulumi:"kerberosBypassUrls"`
 	// Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
 	LogInternalIp *bool `pulumi:"logInternalIp"`
-	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-	// forward proxy connections
+	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 	PreferSniOverConnHost *bool `pulumi:"preferSniOverConnHost"`
-	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	PreferSniOverConnHostApps []string `pulumi:"preferSniOverConnHostApps"`
-	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-	// IP-anchored and ZIA-inspected ZPA application traffic.
+	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 	SipaXffHeaderEnabled *bool `pulumi:"sipaXffHeaderEnabled"`
-	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	SniDnsOptimizationBypassUrlCategories []string `pulumi:"sniDnsOptimizationBypassUrlCategories"`
-	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-	// 80
+	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 	TrackHttpTunnelOnHttpPorts *bool `pulumi:"trackHttpTunnelOnHttpPorts"`
 	// Specifies the login session timeout for admins accessing the ZIA Admin Portal
 	UiSessionTimeout *int `pulumi:"uiSessionTimeout"`
-	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-	// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 	ZscalerClientConnector1AndPacRoadWarriorInFirewall *bool `pulumi:"zscalerClientConnector1AndPacRoadWarriorInFirewall"`
 }
 
@@ -542,30 +473,25 @@ type AdvancedSettingsArgs struct {
 	BasicBypassApps pulumi.StringArrayInput
 	// URL categories that are exempted from Basic authentication
 	BasicBypassUrlCategories pulumi.StringArrayInput
-	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-	// is blocked or not
+	// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 	BlockConnectHostSniMismatch pulumi.BoolPtrInput
 	// Applications which are subjected to Domain Fronting
 	BlockDomainFrontingApps pulumi.StringArrayInput
-	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-	// the FQDN of the request's host header
+	// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 	BlockDomainFrontingOnHostHeader pulumi.BoolPtrInput
-	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-	// to ports other than the standard HTTP/S ports 80 and 443)
+	// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 	BlockHttpTunnelOnNonHttpPorts pulumi.BoolPtrInput
 	// Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
 	BlockNonCompliantHttpRequestOnHttpPorts pulumi.BoolPtrInput
 	// Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
 	BlockNonHttpOnHttpPortEnabled pulumi.BoolPtrInput
-	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-	// transaction explicitly
+	// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 	CascadeUrlFiltering pulumi.BoolPtrInput
 	// Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassApps pulumi.StringArrayInput
 	// URL categories that are exempted from Digest authentication
 	DigestAuthBypassUrlCategories pulumi.StringArrayInput
-	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-	// authentication
+	// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 	DigestAuthBypassUrls pulumi.StringArrayInput
 	// Cloud applications to which DNS optimization on transparent proxy mode applies
 	DnsResolutionOnTransparentProxyApps pulumi.StringArrayInput
@@ -589,31 +515,25 @@ type AdvancedSettingsArgs struct {
 	DomainFrontingBypassUrlCategories pulumi.StringArrayInput
 	// Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
 	DynamicUserRiskEnabled pulumi.BoolPtrInput
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	EcsForAllEnabled pulumi.BoolPtrInput
 	// Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
 	EnableAdminRankAccess pulumi.BoolPtrInput
-	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-	// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableDnsResolutionOnTransparentProxy pulumi.BoolPtrInput
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableEvaluatePolicyOnGlobalSslBypass pulumi.BoolPtrInput
 	// Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
 	EnableIpv6DnsOptimizationOnAllTransparentProxy pulumi.BoolPtrInput
-	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-	// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-	// PAC file).
+	// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 	EnableIpv6DnsResolutionOnTransparentProxy pulumi.BoolPtrInput
 	// Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
 	EnableOffice365 pulumi.BoolPtrInput
-	// Value indicating whether policies that include user and department criteria can be configured and applied for
-	// unauthenticated traffic
+	// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 	EnablePolicyForUnauthenticatedTraffic pulumi.BoolPtrInput
 	// Enforce Surrogate IP authentication for Windows app traffic
 	EnforceSurrogateIpForWindowsApp pulumi.BoolPtrInput
-	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-	// organizational level
+	// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 	Http2NonbrowserTrafficEnabled pulumi.BoolPtrInput
 	// URL categories for which HTTP range headers must be removed
 	HttpRangeHeaderRemoveUrlCategories pulumi.StringArrayInput
@@ -625,25 +545,19 @@ type AdvancedSettingsArgs struct {
 	KerberosBypassUrls pulumi.StringArrayInput
 	// Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
 	LogInternalIp pulumi.BoolPtrInput
-	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-	// forward proxy connections
+	// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 	PreferSniOverConnHost pulumi.BoolPtrInput
-	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	PreferSniOverConnHostApps pulumi.StringArrayInput
-	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-	// IP-anchored and ZIA-inspected ZPA application traffic.
+	// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 	SipaXffHeaderEnabled pulumi.BoolPtrInput
-	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-	// resolution instead of the CONNECT host for forward proxy connections)
+	// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 	SniDnsOptimizationBypassUrlCategories pulumi.StringArrayInput
-	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-	// 80
+	// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 	TrackHttpTunnelOnHttpPorts pulumi.BoolPtrInput
 	// Specifies the login session timeout for admins accessing the ZIA Admin Portal
 	UiSessionTimeout pulumi.IntPtrInput
-	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-	// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+	// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 	ZscalerClientConnector1AndPacRoadWarriorInFirewall pulumi.BoolPtrInput
 }
 
@@ -759,8 +673,7 @@ func (o AdvancedSettingsOutput) BasicBypassUrlCategories() pulumi.StringArrayOut
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.BasicBypassUrlCategories }).(pulumi.StringArrayOutput)
 }
 
-// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-// is blocked or not
+// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
 func (o AdvancedSettingsOutput) BlockConnectHostSniMismatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.BlockConnectHostSniMismatch }).(pulumi.BoolOutput)
 }
@@ -770,14 +683,12 @@ func (o AdvancedSettingsOutput) BlockDomainFrontingApps() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.BlockDomainFrontingApps }).(pulumi.StringArrayOutput)
 }
 
-// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-// the FQDN of the request's host header
+// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
 func (o AdvancedSettingsOutput) BlockDomainFrontingOnHostHeader() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.BlockDomainFrontingOnHostHeader }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-// to ports other than the standard HTTP/S ports 80 and 443)
+// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
 func (o AdvancedSettingsOutput) BlockHttpTunnelOnNonHttpPorts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.BlockHttpTunnelOnNonHttpPorts }).(pulumi.BoolOutput)
 }
@@ -792,8 +703,7 @@ func (o AdvancedSettingsOutput) BlockNonHttpOnHttpPortEnabled() pulumi.BoolOutpu
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.BlockNonHttpOnHttpPortEnabled }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-// transaction explicitly
+// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
 func (o AdvancedSettingsOutput) CascadeUrlFiltering() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.CascadeUrlFiltering }).(pulumi.BoolOutput)
 }
@@ -808,8 +718,7 @@ func (o AdvancedSettingsOutput) DigestAuthBypassUrlCategories() pulumi.StringArr
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.DigestAuthBypassUrlCategories }).(pulumi.StringArrayOutput)
 }
 
-// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-// authentication
+// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
 func (o AdvancedSettingsOutput) DigestAuthBypassUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.DigestAuthBypassUrls }).(pulumi.StringArrayOutput)
 }
@@ -882,8 +791,7 @@ func (o AdvancedSettingsOutput) DynamicUserRiskEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.DynamicUserRiskEnabled }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-// users.
+// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 func (o AdvancedSettingsOutput) EcsForAllEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EcsForAllEnabled }).(pulumi.BoolOutput)
 }
@@ -893,8 +801,7 @@ func (o AdvancedSettingsOutput) EnableAdminRankAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnableAdminRankAccess }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 func (o AdvancedSettingsOutput) EnableDnsResolutionOnTransparentProxy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnableDnsResolutionOnTransparentProxy }).(pulumi.BoolOutput)
 }
@@ -909,9 +816,7 @@ func (o AdvancedSettingsOutput) EnableIpv6DnsOptimizationOnAllTransparentProxy()
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnableIpv6DnsOptimizationOnAllTransparentProxy }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-// PAC file).
+// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
 func (o AdvancedSettingsOutput) EnableIpv6DnsResolutionOnTransparentProxy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnableIpv6DnsResolutionOnTransparentProxy }).(pulumi.BoolOutput)
 }
@@ -921,8 +826,7 @@ func (o AdvancedSettingsOutput) EnableOffice365() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnableOffice365 }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether policies that include user and department criteria can be configured and applied for
-// unauthenticated traffic
+// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
 func (o AdvancedSettingsOutput) EnablePolicyForUnauthenticatedTraffic() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnablePolicyForUnauthenticatedTraffic }).(pulumi.BoolOutput)
 }
@@ -932,8 +836,7 @@ func (o AdvancedSettingsOutput) EnforceSurrogateIpForWindowsApp() pulumi.BoolOut
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.EnforceSurrogateIpForWindowsApp }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-// organizational level
+// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
 func (o AdvancedSettingsOutput) Http2NonbrowserTrafficEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.Http2NonbrowserTrafficEnabled }).(pulumi.BoolOutput)
 }
@@ -963,32 +866,27 @@ func (o AdvancedSettingsOutput) LogInternalIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.LogInternalIp }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-// forward proxy connections
+// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
 func (o AdvancedSettingsOutput) PreferSniOverConnHost() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.PreferSniOverConnHost }).(pulumi.BoolOutput)
 }
 
-// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-// resolution instead of the CONNECT host for forward proxy connections)
+// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 func (o AdvancedSettingsOutput) PreferSniOverConnHostApps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.PreferSniOverConnHostApps }).(pulumi.StringArrayOutput)
 }
 
-// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-// IP-anchored and ZIA-inspected ZPA application traffic.
+// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
 func (o AdvancedSettingsOutput) SipaXffHeaderEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.SipaXffHeaderEnabled }).(pulumi.BoolOutput)
 }
 
-// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-// resolution instead of the CONNECT host for forward proxy connections)
+// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
 func (o AdvancedSettingsOutput) SniDnsOptimizationBypassUrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.StringArrayOutput { return v.SniDnsOptimizationBypassUrlCategories }).(pulumi.StringArrayOutput)
 }
 
-// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-// 80
+// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
 func (o AdvancedSettingsOutput) TrackHttpTunnelOnHttpPorts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput { return v.TrackHttpTunnelOnHttpPorts }).(pulumi.BoolOutput)
 }
@@ -998,8 +896,7 @@ func (o AdvancedSettingsOutput) UiSessionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.IntOutput { return v.UiSessionTimeout }).(pulumi.IntOutput)
 }
 
-// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
 func (o AdvancedSettingsOutput) ZscalerClientConnector1AndPacRoadWarriorInFirewall() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AdvancedSettings) pulumi.BoolOutput {
 		return v.ZscalerClientConnector1AndPacRoadWarriorInFirewall

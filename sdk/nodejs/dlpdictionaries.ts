@@ -14,12 +14,13 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### With Hierarchical Identifiers
+ * ### With Hierarchical Identifiers (Clone Predefined Dictionary)
+ *
+ * ### With Exact Data Match (EDM)
  *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_dlp_dictionaries** can be imported by using `<DICTIONARY ID>` or `<DICTIONARY_NAME>` as the import ID.
@@ -65,77 +66,72 @@ export class DLPDictionaries extends pulumi.CustomResource {
     }
 
     /**
-     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-     * values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-     * in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
-    public readonly binNumbers!: pulumi.Output<number[] | undefined>;
+    declare public readonly binNumbers: pulumi.Output<number[] | undefined>;
     /**
      * The DLP confidence threshold for predefined dictionaries
      */
-    public readonly confidenceLevelForPredefinedDict!: pulumi.Output<string | undefined>;
+    declare public readonly confidenceLevelForPredefinedDict: pulumi.Output<string | undefined>;
     /**
      * The DLP confidence threshold
      */
-    public readonly confidenceThreshold!: pulumi.Output<string | undefined>;
+    declare public readonly confidenceThreshold: pulumi.Output<string | undefined>;
     /**
      * The DLP dictionary proximity length.
      */
-    public readonly custom!: pulumi.Output<boolean>;
-    public readonly customPhraseMatchType!: pulumi.Output<string>;
+    declare public readonly custom: pulumi.Output<boolean>;
+    declare public readonly customPhraseMatchType: pulumi.Output<string | undefined>;
     /**
      * The desciption of the DLP dictionary
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-     * cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-     * Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-     * dictionary.
+     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
      */
-    public readonly dictTemplateId!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly dictionaryId!: pulumi.Output<number>;
+    declare public readonly dictTemplateId: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly dictionaryId: pulumi.Output<number>;
     /**
      * The DLP dictionary type.
      */
-    public readonly dictionaryType!: pulumi.Output<string | undefined>;
+    declare public readonly dictionaryType: pulumi.Output<string | undefined>;
     /**
      * Exact Data Match (EDM) related information for custom DLP dictionaries.
      */
-    public readonly exactDataMatchDetails!: pulumi.Output<outputs.DLPDictionariesExactDataMatchDetail[] | undefined>;
+    declare public readonly exactDataMatchDetails: pulumi.Output<outputs.DLPDictionariesExactDataMatchDetail[] | undefined>;
     /**
      * List of hierarchical identifiers for the DLP dictionary.
      */
-    public readonly hierarchicalIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly hierarchicalIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
      */
-    public readonly idmProfileMatchAccuracies!: pulumi.Output<outputs.DLPDictionariesIdmProfileMatchAccuracy[]>;
+    declare public readonly idmProfileMatchAccuracies: pulumi.Output<outputs.DLPDictionariesIdmProfileMatchAccuracy[]>;
     /**
-     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-     * Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
-    public readonly ignoreExactMatchIdmDict!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreExactMatchIdmDict: pulumi.Output<boolean | undefined>;
     /**
-     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-     * dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-     * field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
-    public readonly includeBinNumbers!: pulumi.Output<boolean>;
+    declare public readonly includeBinNumbers: pulumi.Output<boolean>;
     /**
      * The DLP dictionary's name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-     * dictionaries
+     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
      */
-    public readonly patterns!: pulumi.Output<outputs.DLPDictionariesPattern[]>;
-    public readonly phrases!: pulumi.Output<outputs.DLPDictionariesPhrase[]>;
+    declare public readonly patterns: pulumi.Output<outputs.DLPDictionariesPattern[]>;
+    declare public readonly phrases: pulumi.Output<outputs.DLPDictionariesPhrase[]>;
     /**
-     * The DLP dictionary proximity length.
+     * The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
      */
-    public readonly proximity!: pulumi.Output<number | undefined>;
+    declare public readonly proximity: pulumi.Output<number | undefined>;
+    /**
+     * A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+     */
+    declare public readonly proximityEnabledForCustomDictionary: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DLPDictionaries resource with the given unique name, arguments, and options.
@@ -150,43 +146,45 @@ export class DLPDictionaries extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DLPDictionariesState | undefined;
-            resourceInputs["binNumbers"] = state ? state.binNumbers : undefined;
-            resourceInputs["confidenceLevelForPredefinedDict"] = state ? state.confidenceLevelForPredefinedDict : undefined;
-            resourceInputs["confidenceThreshold"] = state ? state.confidenceThreshold : undefined;
-            resourceInputs["custom"] = state ? state.custom : undefined;
-            resourceInputs["customPhraseMatchType"] = state ? state.customPhraseMatchType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dictTemplateId"] = state ? state.dictTemplateId : undefined;
-            resourceInputs["dictionaryId"] = state ? state.dictionaryId : undefined;
-            resourceInputs["dictionaryType"] = state ? state.dictionaryType : undefined;
-            resourceInputs["exactDataMatchDetails"] = state ? state.exactDataMatchDetails : undefined;
-            resourceInputs["hierarchicalIdentifiers"] = state ? state.hierarchicalIdentifiers : undefined;
-            resourceInputs["idmProfileMatchAccuracies"] = state ? state.idmProfileMatchAccuracies : undefined;
-            resourceInputs["ignoreExactMatchIdmDict"] = state ? state.ignoreExactMatchIdmDict : undefined;
-            resourceInputs["includeBinNumbers"] = state ? state.includeBinNumbers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["patterns"] = state ? state.patterns : undefined;
-            resourceInputs["phrases"] = state ? state.phrases : undefined;
-            resourceInputs["proximity"] = state ? state.proximity : undefined;
+            resourceInputs["binNumbers"] = state?.binNumbers;
+            resourceInputs["confidenceLevelForPredefinedDict"] = state?.confidenceLevelForPredefinedDict;
+            resourceInputs["confidenceThreshold"] = state?.confidenceThreshold;
+            resourceInputs["custom"] = state?.custom;
+            resourceInputs["customPhraseMatchType"] = state?.customPhraseMatchType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dictTemplateId"] = state?.dictTemplateId;
+            resourceInputs["dictionaryId"] = state?.dictionaryId;
+            resourceInputs["dictionaryType"] = state?.dictionaryType;
+            resourceInputs["exactDataMatchDetails"] = state?.exactDataMatchDetails;
+            resourceInputs["hierarchicalIdentifiers"] = state?.hierarchicalIdentifiers;
+            resourceInputs["idmProfileMatchAccuracies"] = state?.idmProfileMatchAccuracies;
+            resourceInputs["ignoreExactMatchIdmDict"] = state?.ignoreExactMatchIdmDict;
+            resourceInputs["includeBinNumbers"] = state?.includeBinNumbers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["patterns"] = state?.patterns;
+            resourceInputs["phrases"] = state?.phrases;
+            resourceInputs["proximity"] = state?.proximity;
+            resourceInputs["proximityEnabledForCustomDictionary"] = state?.proximityEnabledForCustomDictionary;
         } else {
             const args = argsOrState as DLPDictionariesArgs | undefined;
-            resourceInputs["binNumbers"] = args ? args.binNumbers : undefined;
-            resourceInputs["confidenceLevelForPredefinedDict"] = args ? args.confidenceLevelForPredefinedDict : undefined;
-            resourceInputs["confidenceThreshold"] = args ? args.confidenceThreshold : undefined;
-            resourceInputs["custom"] = args ? args.custom : undefined;
-            resourceInputs["customPhraseMatchType"] = args ? args.customPhraseMatchType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dictTemplateId"] = args ? args.dictTemplateId : undefined;
-            resourceInputs["dictionaryType"] = args ? args.dictionaryType : undefined;
-            resourceInputs["exactDataMatchDetails"] = args ? args.exactDataMatchDetails : undefined;
-            resourceInputs["hierarchicalIdentifiers"] = args ? args.hierarchicalIdentifiers : undefined;
-            resourceInputs["idmProfileMatchAccuracies"] = args ? args.idmProfileMatchAccuracies : undefined;
-            resourceInputs["ignoreExactMatchIdmDict"] = args ? args.ignoreExactMatchIdmDict : undefined;
-            resourceInputs["includeBinNumbers"] = args ? args.includeBinNumbers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["patterns"] = args ? args.patterns : undefined;
-            resourceInputs["phrases"] = args ? args.phrases : undefined;
-            resourceInputs["proximity"] = args ? args.proximity : undefined;
+            resourceInputs["binNumbers"] = args?.binNumbers;
+            resourceInputs["confidenceLevelForPredefinedDict"] = args?.confidenceLevelForPredefinedDict;
+            resourceInputs["confidenceThreshold"] = args?.confidenceThreshold;
+            resourceInputs["custom"] = args?.custom;
+            resourceInputs["customPhraseMatchType"] = args?.customPhraseMatchType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dictTemplateId"] = args?.dictTemplateId;
+            resourceInputs["dictionaryType"] = args?.dictionaryType;
+            resourceInputs["exactDataMatchDetails"] = args?.exactDataMatchDetails;
+            resourceInputs["hierarchicalIdentifiers"] = args?.hierarchicalIdentifiers;
+            resourceInputs["idmProfileMatchAccuracies"] = args?.idmProfileMatchAccuracies;
+            resourceInputs["ignoreExactMatchIdmDict"] = args?.ignoreExactMatchIdmDict;
+            resourceInputs["includeBinNumbers"] = args?.includeBinNumbers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["patterns"] = args?.patterns;
+            resourceInputs["phrases"] = args?.phrases;
+            resourceInputs["proximity"] = args?.proximity;
+            resourceInputs["proximityEnabledForCustomDictionary"] = args?.proximityEnabledForCustomDictionary;
             resourceInputs["dictionaryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -199,9 +197,7 @@ export class DLPDictionaries extends pulumi.CustomResource {
  */
 export interface DLPDictionariesState {
     /**
-     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-     * values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-     * in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
     binNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -222,10 +218,7 @@ export interface DLPDictionariesState {
      */
     description?: pulumi.Input<string>;
     /**
-     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-     * cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-     * Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-     * dictionary.
+     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
      */
     dictTemplateId?: pulumi.Input<number>;
     dictionaryId?: pulumi.Input<number>;
@@ -246,14 +239,11 @@ export interface DLPDictionariesState {
      */
     idmProfileMatchAccuracies?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesIdmProfileMatchAccuracy>[]>;
     /**
-     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-     * Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     ignoreExactMatchIdmDict?: pulumi.Input<boolean>;
     /**
-     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-     * dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-     * field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
     includeBinNumbers?: pulumi.Input<boolean>;
     /**
@@ -261,15 +251,18 @@ export interface DLPDictionariesState {
      */
     name?: pulumi.Input<string>;
     /**
-     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-     * dictionaries
+     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
      */
     patterns?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesPattern>[]>;
     phrases?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesPhrase>[]>;
     /**
-     * The DLP dictionary proximity length.
+     * The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
      */
     proximity?: pulumi.Input<number>;
+    /**
+     * A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+     */
+    proximityEnabledForCustomDictionary?: pulumi.Input<boolean>;
 }
 
 /**
@@ -277,9 +270,7 @@ export interface DLPDictionariesState {
  */
 export interface DLPDictionariesArgs {
     /**
-     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-     * values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-     * in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
     binNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -300,10 +291,7 @@ export interface DLPDictionariesArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-     * cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-     * Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-     * dictionary.
+     * ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
      */
     dictTemplateId?: pulumi.Input<number>;
     /**
@@ -323,14 +311,11 @@ export interface DLPDictionariesArgs {
      */
     idmProfileMatchAccuracies?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesIdmProfileMatchAccuracy>[]>;
     /**
-     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-     * Document Match (IDM) Dictionary.
+     * Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
      */
     ignoreExactMatchIdmDict?: pulumi.Input<boolean>;
     /**
-     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-     * dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-     * field is applicable only to the predefined Credit Cards dictionary and its clones.
+     * A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
      */
     includeBinNumbers?: pulumi.Input<boolean>;
     /**
@@ -338,13 +323,16 @@ export interface DLPDictionariesArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-     * dictionaries
+     * List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
      */
     patterns?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesPattern>[]>;
     phrases?: pulumi.Input<pulumi.Input<inputs.DLPDictionariesPhrase>[]>;
     /**
-     * The DLP dictionary proximity length.
+     * The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
      */
     proximity?: pulumi.Input<number>;
+    /**
+     * A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+     */
+    proximityEnabledForCustomDictionary?: pulumi.Input<boolean>;
 }

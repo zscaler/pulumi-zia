@@ -17,9 +17,9 @@ import (
 // Use the **zia_workload_groups** data source to get information about Workload Groups in the Zscaler Internet Access cloud or via the API. This data source can then be used as a criterion in ZIA policies such as, Firewall Filtering, URL Filtering, and Data Loss Prevention (DLP) to apply security policies to the workload traffic.
 //
 // ## Example Usage
-func GetWorkloadGroups(ctx *pulumi.Context, args *GetWorkloadGroupsArgs, opts ...pulumi.InvokeOption) (*GetWorkloadGroupsResult, error) {
+func LookupWorkloadGroups(ctx *pulumi.Context, args *LookupWorkloadGroupsArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetWorkloadGroupsResult
+	var rv LookupWorkloadGroupsResult
 	err := ctx.Invoke("zia:index/getWorkloadGroups:getWorkloadGroups", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -28,13 +28,15 @@ func GetWorkloadGroups(ctx *pulumi.Context, args *GetWorkloadGroupsArgs, opts ..
 }
 
 // A collection of arguments for invoking getWorkloadGroups.
-type GetWorkloadGroupsArgs struct {
+type LookupWorkloadGroupsArgs struct {
+	// The unique identifer for the workload group.
+	Id *int `pulumi:"id"`
 	// The name of the workload group to be exported.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getWorkloadGroups.
-type GetWorkloadGroupsResult struct {
+type LookupWorkloadGroupsResult struct {
 	// (String) The description of the workload group.
 	Description string `pulumi:"description"`
 	// (String) The workload group expression containing tag types, tags, and their relationships.
@@ -50,74 +52,76 @@ type GetWorkloadGroupsResult struct {
 	Name *string `pulumi:"name"`
 }
 
-func GetWorkloadGroupsOutput(ctx *pulumi.Context, args GetWorkloadGroupsOutputArgs, opts ...pulumi.InvokeOption) GetWorkloadGroupsResultOutput {
+func LookupWorkloadGroupsOutput(ctx *pulumi.Context, args LookupWorkloadGroupsOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadGroupsResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWorkloadGroupsResultOutput, error) {
-			args := v.(GetWorkloadGroupsArgs)
+		ApplyT(func(v interface{}) (LookupWorkloadGroupsResultOutput, error) {
+			args := v.(LookupWorkloadGroupsArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index/getWorkloadGroups:getWorkloadGroups", args, GetWorkloadGroupsResultOutput{}, options).(GetWorkloadGroupsResultOutput), nil
-		}).(GetWorkloadGroupsResultOutput)
+			return ctx.InvokeOutput("zia:index/getWorkloadGroups:getWorkloadGroups", args, LookupWorkloadGroupsResultOutput{}, options).(LookupWorkloadGroupsResultOutput), nil
+		}).(LookupWorkloadGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getWorkloadGroups.
-type GetWorkloadGroupsOutputArgs struct {
+type LookupWorkloadGroupsOutputArgs struct {
+	// The unique identifer for the workload group.
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The name of the workload group to be exported.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (GetWorkloadGroupsOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetWorkloadGroupsArgs)(nil)).Elem()
+func (LookupWorkloadGroupsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadGroupsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getWorkloadGroups.
-type GetWorkloadGroupsResultOutput struct{ *pulumi.OutputState }
+type LookupWorkloadGroupsResultOutput struct{ *pulumi.OutputState }
 
-func (GetWorkloadGroupsResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetWorkloadGroupsResult)(nil)).Elem()
+func (LookupWorkloadGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupWorkloadGroupsResult)(nil)).Elem()
 }
 
-func (o GetWorkloadGroupsResultOutput) ToGetWorkloadGroupsResultOutput() GetWorkloadGroupsResultOutput {
+func (o LookupWorkloadGroupsResultOutput) ToLookupWorkloadGroupsResultOutput() LookupWorkloadGroupsResultOutput {
 	return o
 }
 
-func (o GetWorkloadGroupsResultOutput) ToGetWorkloadGroupsResultOutputWithContext(ctx context.Context) GetWorkloadGroupsResultOutput {
+func (o LookupWorkloadGroupsResultOutput) ToLookupWorkloadGroupsResultOutputWithContext(ctx context.Context) LookupWorkloadGroupsResultOutput {
 	return o
 }
 
 // (String) The description of the workload group.
-func (o GetWorkloadGroupsResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupWorkloadGroupsResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // (String) The workload group expression containing tag types, tags, and their relationships.
-func (o GetWorkloadGroupsResultOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) string { return v.Expression }).(pulumi.StringOutput)
+func (o LookupWorkloadGroupsResultOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) string { return v.Expression }).(pulumi.StringOutput)
 }
 
 // (List) The workload group expression containing tag types, tags, and their relationships represented in a JSON format.
-func (o GetWorkloadGroupsResultOutput) ExpressionJsons() GetWorkloadGroupsExpressionJsonArrayOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) []GetWorkloadGroupsExpressionJson { return v.ExpressionJsons }).(GetWorkloadGroupsExpressionJsonArrayOutput)
+func (o LookupWorkloadGroupsResultOutput) ExpressionJsons() GetWorkloadGroupsExpressionJsonArrayOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) []GetWorkloadGroupsExpressionJson { return v.ExpressionJsons }).(GetWorkloadGroupsExpressionJsonArrayOutput)
 }
 
 // (Number) Identifier that uniquely identifies an entity
-func (o GetWorkloadGroupsResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) int { return v.Id }).(pulumi.IntOutput)
+func (o LookupWorkloadGroupsResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetWorkloadGroupsResultOutput) LastModifiedBies() GetWorkloadGroupsLastModifiedByArrayOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) []GetWorkloadGroupsLastModifiedBy { return v.LastModifiedBies }).(GetWorkloadGroupsLastModifiedByArrayOutput)
+func (o LookupWorkloadGroupsResultOutput) LastModifiedBies() GetWorkloadGroupsLastModifiedByArrayOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) []GetWorkloadGroupsLastModifiedBy { return v.LastModifiedBies }).(GetWorkloadGroupsLastModifiedByArrayOutput)
 }
 
 // (Number) When the rule was last modified
-func (o GetWorkloadGroupsResultOutput) LastModifiedTime() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+func (o LookupWorkloadGroupsResultOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
 }
 
 // (String) The configured name of the entity
-func (o GetWorkloadGroupsResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetWorkloadGroupsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupWorkloadGroupsResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkloadGroupsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetWorkloadGroupsResultOutput{})
+	pulumi.RegisterOutputType(LookupWorkloadGroupsResultOutput{})
 }

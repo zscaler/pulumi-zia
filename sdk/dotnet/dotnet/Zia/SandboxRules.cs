@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_sandbox_rules** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -73,6 +72,7 @@ namespace zscaler.PulumiPackage.Zia
 
         /// <summary>
         /// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
         /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> FirstTimeOperation { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.SandboxRulesGroups?> Groups { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.SandboxRulesLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.SandboxRulesLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.SandboxRulesLocations?> Locations { get; private set; } = null!;
@@ -153,13 +153,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Output("users")]
         public Output<Outputs.SandboxRulesUsers?> Users { get; private set; } = null!;
@@ -258,6 +258,7 @@ namespace zscaler.PulumiPackage.Zia
 
         /// <summary>
         /// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -278,7 +279,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? FirstTimeOperation { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.SandboxRulesGroupsArgs>? Groups { get; set; }
@@ -290,13 +291,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.SandboxRulesLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.SandboxRulesLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.SandboxRulesLocationsArgs>? Locations { get; set; }
@@ -347,7 +348,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -356,7 +357,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.SandboxRulesUsersArgs>? Users { get; set; }
@@ -422,6 +423,7 @@ namespace zscaler.PulumiPackage.Zia
 
         /// <summary>
         /// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+        /// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -442,7 +444,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? FirstTimeOperation { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.SandboxRulesGroupsGetArgs>? Groups { get; set; }
@@ -454,13 +456,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.SandboxRulesLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.SandboxRulesLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.SandboxRulesLocationsGetArgs>? Locations { get; set; }
@@ -514,7 +516,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+        /// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source &lt;span pulumi-lang-nodejs="`zia.URLCategories`" pulumi-lang-dotnet="`zia.URLCategories`" pulumi-lang-go="`URLCategories`" pulumi-lang-python="`URLCategories`" pulumi-lang-yaml="`zia.URLCategories`" pulumi-lang-java="`zia.URLCategories`"&gt;`zia.URLCategories`&lt;/span&gt; to retrieve the list of URL categories.
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -523,7 +525,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.SandboxRulesUsersGetArgs>? Users { get; set; }

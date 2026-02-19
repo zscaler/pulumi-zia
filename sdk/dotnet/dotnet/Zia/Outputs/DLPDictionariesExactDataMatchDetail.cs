@@ -21,7 +21,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// <summary>
         /// The EDM template's primary field.
         /// </summary>
-        public readonly int? PrimaryField;
+        public readonly ImmutableArray<int> PrimaryFields;
         /// <summary>
         /// The unique identifier for the EDM template (or schema).
         /// </summary>
@@ -39,7 +39,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         private DLPDictionariesExactDataMatchDetail(
             int? dictionaryEdmMappingId,
 
-            int? primaryField,
+            ImmutableArray<int> primaryFields,
 
             int? schemaId,
 
@@ -48,7 +48,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
             ImmutableArray<int> secondaryFields)
         {
             DictionaryEdmMappingId = dictionaryEdmMappingId;
-            PrimaryField = primaryField;
+            PrimaryFields = primaryFields;
             SchemaId = schemaId;
             SecondaryFieldMatchOn = secondaryFieldMatchOn;
             SecondaryFields = secondaryFields;

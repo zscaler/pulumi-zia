@@ -17,6 +17,12 @@ import (
 // Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
 //
 // ## Example Usage
+//
+// ### Retrieve Custom DLP Engine By Name
+//
+// ### Retrieve Custom DLP Engine By ID
+//
+// ### Retrieve Predefined DLP Engine By Name
 func LookupDLPEngines(ctx *pulumi.Context, args *LookupDLPEnginesArgs, opts ...pulumi.InvokeOption) (*LookupDLPEnginesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDLPEnginesResult

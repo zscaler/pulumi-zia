@@ -24,7 +24,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_risk_profiles** can be imported by using `&lt;PROFILE_ID&gt;` or `&lt;PROFILE_NAME&gt;` as the import ID.
@@ -129,12 +128,6 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> MfaSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud application risk profile name.
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
         /// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
         /// </summary>
         [Output("passwordStrength")]
@@ -151,6 +144,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("profileId")]
         public Output<int> ProfileId { get; private set; } = null!;
+
+        /// <summary>
+        /// Cloud application risk profile name.
+        /// </summary>
+        [Output("profileName")]
+        public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
         /// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
@@ -256,7 +255,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RiskProfiles(string name, RiskProfilesArgs? args = null, CustomResourceOptions? options = null)
+        public RiskProfiles(string name, RiskProfilesArgs args, CustomResourceOptions? options = null)
             : base("zia:index/riskProfiles:RiskProfiles", name, args ?? new RiskProfilesArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -392,12 +391,6 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? MfaSupport { get; set; }
 
         /// <summary>
-        /// Cloud application risk profile name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
         /// </summary>
         [Input("passwordStrength")]
@@ -408,6 +401,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("poorItemsOfService")]
         public Input<string>? PoorItemsOfService { get; set; }
+
+        /// <summary>
+        /// Cloud application risk profile name.
+        /// </summary>
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
@@ -616,12 +615,6 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? MfaSupport { get; set; }
 
         /// <summary>
-        /// Cloud application risk profile name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
         /// </summary>
         [Input("passwordStrength")]
@@ -638,6 +631,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("profileId")]
         public Input<int>? ProfileId { get; set; }
+
+        /// <summary>
+        /// Cloud application risk profile name.
+        /// </summary>
+        [Input("profileName")]
+        public Input<string>? ProfileName { get; set; }
 
         /// <summary>
         /// (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.

@@ -19,10 +19,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_browser_control_policy** can be imported by using `browser_settings` as the import ID.
+ * **zia_browser_control_policy** can be imported by using `browserSettings` as the import ID.
  *
  * For example:
  *
@@ -59,69 +58,65 @@ export class BrowserControlSettings extends pulumi.CustomResource {
     }
 
     /**
-     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-     * internet
+     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
      */
-    public readonly allowAllBrowsers!: pulumi.Output<boolean>;
+    declare public readonly allowAllBrowsers: pulumi.Output<boolean>;
     /**
      * Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
      */
-    public readonly blockedChromeVersions!: pulumi.Output<string[]>;
+    declare public readonly blockedChromeVersions: pulumi.Output<string[]>;
     /**
      * Versions of Mozilla Firefox browser that need to be blocked. If not set, all Mozilla Firefox versions are allowed.
      */
-    public readonly blockedFirefoxVersions!: pulumi.Output<string[]>;
+    declare public readonly blockedFirefoxVersions: pulumi.Output<string[]>;
     /**
      * Versions of Microsoft browser that need to be blocked. If not set, all Microsoft browser versions are allowed.
      */
-    public readonly blockedInternetExplorerVersions!: pulumi.Output<string[]>;
+    declare public readonly blockedInternetExplorerVersions: pulumi.Output<string[]>;
     /**
      * Versions of Opera browser that need to be blocked. If not set, all Opera versions are allowed
      */
-    public readonly blockedOperaVersions!: pulumi.Output<string[]>;
+    declare public readonly blockedOperaVersions: pulumi.Output<string[]>;
     /**
      * Versions of Apple Safari browser that need to be blocked. If not set, all Apple Safari versions are allowed
      */
-    public readonly blockedSafariVersions!: pulumi.Output<string[]>;
+    declare public readonly blockedSafariVersions: pulumi.Output<string[]>;
     /**
      * If set to true, all the browsers are bypassed for warnings
      */
-    public readonly bypassAllBrowsers!: pulumi.Output<boolean>;
+    declare public readonly bypassAllBrowsers: pulumi.Output<boolean>;
     /**
-     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-     * attribute is set to true. If not set, all vulnerable applications are warned
+     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
      */
-    public readonly bypassApplications!: pulumi.Output<string[]>;
+    declare public readonly bypassApplications: pulumi.Output<string[]>;
     /**
-     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-     * is set to true. If not set, all vulnerable plugins are warned
+     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
      */
-    public readonly bypassPlugins!: pulumi.Output<string[]>;
+    declare public readonly bypassPlugins: pulumi.Output<string[]>;
     /**
      * A Boolean value that specifies if Smart Browser Isolation is enabled
      */
-    public readonly enableSmartBrowserIsolation!: pulumi.Output<boolean>;
+    declare public readonly enableSmartBrowserIsolation: pulumi.Output<boolean>;
     /**
      * A Boolean value that specifies if the warnings are enabled
      */
-    public readonly enableWarnings!: pulumi.Output<boolean>;
+    declare public readonly enableWarnings: pulumi.Output<boolean>;
     /**
-     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-     * vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
      */
-    public readonly pluginCheckFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly pluginCheckFrequency: pulumi.Output<string | undefined>;
     /**
      * Name-ID pairs of groups for which the rule is applied
      */
-    public readonly smartIsolationGroups!: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationGroups | undefined>;
+    declare public readonly smartIsolationGroups: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationGroups | undefined>;
     /**
      * The isolation profile
      */
-    public readonly smartIsolationProfiles!: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationProfile[]>;
+    declare public readonly smartIsolationProfiles: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationProfile[]>;
     /**
      * Name-ID pairs of users for which the rule is applied
      */
-    public readonly smartIsolationUsers!: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationUsers | undefined>;
+    declare public readonly smartIsolationUsers: pulumi.Output<outputs.BrowserControlSettingsSmartIsolationUsers | undefined>;
 
     /**
      * Create a BrowserControlSettings resource with the given unique name, arguments, and options.
@@ -136,38 +131,38 @@ export class BrowserControlSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrowserControlSettingsState | undefined;
-            resourceInputs["allowAllBrowsers"] = state ? state.allowAllBrowsers : undefined;
-            resourceInputs["blockedChromeVersions"] = state ? state.blockedChromeVersions : undefined;
-            resourceInputs["blockedFirefoxVersions"] = state ? state.blockedFirefoxVersions : undefined;
-            resourceInputs["blockedInternetExplorerVersions"] = state ? state.blockedInternetExplorerVersions : undefined;
-            resourceInputs["blockedOperaVersions"] = state ? state.blockedOperaVersions : undefined;
-            resourceInputs["blockedSafariVersions"] = state ? state.blockedSafariVersions : undefined;
-            resourceInputs["bypassAllBrowsers"] = state ? state.bypassAllBrowsers : undefined;
-            resourceInputs["bypassApplications"] = state ? state.bypassApplications : undefined;
-            resourceInputs["bypassPlugins"] = state ? state.bypassPlugins : undefined;
-            resourceInputs["enableSmartBrowserIsolation"] = state ? state.enableSmartBrowserIsolation : undefined;
-            resourceInputs["enableWarnings"] = state ? state.enableWarnings : undefined;
-            resourceInputs["pluginCheckFrequency"] = state ? state.pluginCheckFrequency : undefined;
-            resourceInputs["smartIsolationGroups"] = state ? state.smartIsolationGroups : undefined;
-            resourceInputs["smartIsolationProfiles"] = state ? state.smartIsolationProfiles : undefined;
-            resourceInputs["smartIsolationUsers"] = state ? state.smartIsolationUsers : undefined;
+            resourceInputs["allowAllBrowsers"] = state?.allowAllBrowsers;
+            resourceInputs["blockedChromeVersions"] = state?.blockedChromeVersions;
+            resourceInputs["blockedFirefoxVersions"] = state?.blockedFirefoxVersions;
+            resourceInputs["blockedInternetExplorerVersions"] = state?.blockedInternetExplorerVersions;
+            resourceInputs["blockedOperaVersions"] = state?.blockedOperaVersions;
+            resourceInputs["blockedSafariVersions"] = state?.blockedSafariVersions;
+            resourceInputs["bypassAllBrowsers"] = state?.bypassAllBrowsers;
+            resourceInputs["bypassApplications"] = state?.bypassApplications;
+            resourceInputs["bypassPlugins"] = state?.bypassPlugins;
+            resourceInputs["enableSmartBrowserIsolation"] = state?.enableSmartBrowserIsolation;
+            resourceInputs["enableWarnings"] = state?.enableWarnings;
+            resourceInputs["pluginCheckFrequency"] = state?.pluginCheckFrequency;
+            resourceInputs["smartIsolationGroups"] = state?.smartIsolationGroups;
+            resourceInputs["smartIsolationProfiles"] = state?.smartIsolationProfiles;
+            resourceInputs["smartIsolationUsers"] = state?.smartIsolationUsers;
         } else {
             const args = argsOrState as BrowserControlSettingsArgs | undefined;
-            resourceInputs["allowAllBrowsers"] = args ? args.allowAllBrowsers : undefined;
-            resourceInputs["blockedChromeVersions"] = args ? args.blockedChromeVersions : undefined;
-            resourceInputs["blockedFirefoxVersions"] = args ? args.blockedFirefoxVersions : undefined;
-            resourceInputs["blockedInternetExplorerVersions"] = args ? args.blockedInternetExplorerVersions : undefined;
-            resourceInputs["blockedOperaVersions"] = args ? args.blockedOperaVersions : undefined;
-            resourceInputs["blockedSafariVersions"] = args ? args.blockedSafariVersions : undefined;
-            resourceInputs["bypassAllBrowsers"] = args ? args.bypassAllBrowsers : undefined;
-            resourceInputs["bypassApplications"] = args ? args.bypassApplications : undefined;
-            resourceInputs["bypassPlugins"] = args ? args.bypassPlugins : undefined;
-            resourceInputs["enableSmartBrowserIsolation"] = args ? args.enableSmartBrowserIsolation : undefined;
-            resourceInputs["enableWarnings"] = args ? args.enableWarnings : undefined;
-            resourceInputs["pluginCheckFrequency"] = args ? args.pluginCheckFrequency : undefined;
-            resourceInputs["smartIsolationGroups"] = args ? args.smartIsolationGroups : undefined;
-            resourceInputs["smartIsolationProfiles"] = args ? args.smartIsolationProfiles : undefined;
-            resourceInputs["smartIsolationUsers"] = args ? args.smartIsolationUsers : undefined;
+            resourceInputs["allowAllBrowsers"] = args?.allowAllBrowsers;
+            resourceInputs["blockedChromeVersions"] = args?.blockedChromeVersions;
+            resourceInputs["blockedFirefoxVersions"] = args?.blockedFirefoxVersions;
+            resourceInputs["blockedInternetExplorerVersions"] = args?.blockedInternetExplorerVersions;
+            resourceInputs["blockedOperaVersions"] = args?.blockedOperaVersions;
+            resourceInputs["blockedSafariVersions"] = args?.blockedSafariVersions;
+            resourceInputs["bypassAllBrowsers"] = args?.bypassAllBrowsers;
+            resourceInputs["bypassApplications"] = args?.bypassApplications;
+            resourceInputs["bypassPlugins"] = args?.bypassPlugins;
+            resourceInputs["enableSmartBrowserIsolation"] = args?.enableSmartBrowserIsolation;
+            resourceInputs["enableWarnings"] = args?.enableWarnings;
+            resourceInputs["pluginCheckFrequency"] = args?.pluginCheckFrequency;
+            resourceInputs["smartIsolationGroups"] = args?.smartIsolationGroups;
+            resourceInputs["smartIsolationProfiles"] = args?.smartIsolationProfiles;
+            resourceInputs["smartIsolationUsers"] = args?.smartIsolationUsers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "zia:index/browserControlPolicy:BrowserControlPolicy" }] };
@@ -181,8 +176,7 @@ export class BrowserControlSettings extends pulumi.CustomResource {
  */
 export interface BrowserControlSettingsState {
     /**
-     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-     * internet
+     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
      */
     allowAllBrowsers?: pulumi.Input<boolean>;
     /**
@@ -210,13 +204,11 @@ export interface BrowserControlSettingsState {
      */
     bypassAllBrowsers?: pulumi.Input<boolean>;
     /**
-     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-     * attribute is set to true. If not set, all vulnerable applications are warned
+     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
      */
     bypassApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-     * is set to true. If not set, all vulnerable plugins are warned
+     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
      */
     bypassPlugins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -228,8 +220,7 @@ export interface BrowserControlSettingsState {
      */
     enableWarnings?: pulumi.Input<boolean>;
     /**
-     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-     * vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
      */
     pluginCheckFrequency?: pulumi.Input<string>;
     /**
@@ -251,8 +242,7 @@ export interface BrowserControlSettingsState {
  */
 export interface BrowserControlSettingsArgs {
     /**
-     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-     * internet
+     * A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
      */
     allowAllBrowsers?: pulumi.Input<boolean>;
     /**
@@ -280,13 +270,11 @@ export interface BrowserControlSettingsArgs {
      */
     bypassAllBrowsers?: pulumi.Input<boolean>;
     /**
-     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-     * attribute is set to true. If not set, all vulnerable applications are warned
+     * List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
      */
     bypassApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-     * is set to true. If not set, all vulnerable plugins are warned
+     * List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
      */
     bypassPlugins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -298,8 +286,7 @@ export interface BrowserControlSettingsArgs {
      */
     enableWarnings?: pulumi.Input<boolean>;
     /**
-     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-     * vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+     * Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
      */
     pluginCheckFrequency?: pulumi.Input<string>;
     /**

@@ -31,11 +31,12 @@ import (
 //
 // ### Location Management With Excluded Manual And Dynamic Location Groups
 //
+// # ZIA SubLocation Management with UFQDN VPN Credential
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_location_management** can be imported by using `<LOCATION_ID>` or `<LOCATION_NAME>` as the import ID.
 //
@@ -53,13 +54,11 @@ import (
 type LocationManagement struct {
 	pulumi.CustomResourceState
 
-	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-	// disabled until the user accepts the AUP.
+	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 	AupBlockInternetUntilAccepted pulumi.BoolOutput `pulumi:"aupBlockInternetUntilAccepted"`
 	// Enable AUP. When set to true, AUP is enabled for the location.
 	AupEnabled pulumi.BoolOutput `pulumi:"aupEnabled"`
-	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-	// for HTTPS traffic.
+	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 	AupForceSslInspection pulumi.BoolOutput `pulumi:"aupForceSslInspection"`
 	// Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
 	AupTimeoutInDays pulumi.IntPtrOutput `pulumi:"aupTimeoutInDays"`
@@ -83,11 +82,9 @@ type LocationManagement struct {
 	// Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
 	DisplayTimeUnit pulumi.StringPtrOutput `pulumi:"displayTimeUnit"`
 	// Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
-	DnBandwidth pulumi.IntPtrOutput `pulumi:"dnBandwidth"`
-	// Name-ID pairs of locations for which rule must be applied
-	DynamicLocationGroups    LocationManagementDynamicLocationGroupsOutput `pulumi:"dynamicLocationGroups"`
-	ExcludeFromDynamicGroups pulumi.BoolPtrOutput                          `pulumi:"excludeFromDynamicGroups"`
-	ExcludeFromManualGroups  pulumi.BoolPtrOutput                          `pulumi:"excludeFromManualGroups"`
+	DnBandwidth              pulumi.IntPtrOutput  `pulumi:"dnBandwidth"`
+	ExcludeFromDynamicGroups pulumi.BoolPtrOutput `pulumi:"excludeFromDynamicGroups"`
+	ExcludeFromManualGroups  pulumi.BoolPtrOutput `pulumi:"excludeFromManualGroups"`
 	// The ID of the DNS server configuration used in the extranet
 	ExtranetDns LocationManagementExtranetDnArrayOutput `pulumi:"extranetDns"`
 	// The ID of the traffic selector specified in the extranet
@@ -99,47 +96,41 @@ type LocationManagement struct {
 	// Enable IOT Discovery at the location
 	IotDiscoveryEnabled pulumi.BoolOutput `pulumi:"iotDiscoveryEnabled"`
 	IotEnforcePolicySet pulumi.BoolOutput `pulumi:"iotEnforcePolicySet"`
-	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-	// address (e.g., 238.10.33.9).
+	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
 	// Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl pulumi.BoolOutput `pulumi:"ipsControl"`
-	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-	// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-	// supported prefixes.
+	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 	Ipv6Dns64prefix pulumi.BoolPtrOutput `pulumi:"ipv6Dns64prefix"`
-	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-	// service to enforce security policies.
+	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 	Ipv6Enabled pulumi.BoolPtrOutput `pulumi:"ipv6Enabled"`
 	// Enable Kerberos Authentication at the location
-	KerberosAuthEnabled pulumi.BoolOutput `pulumi:"kerberosAuthEnabled"`
-	LocationId          pulumi.IntOutput  `pulumi:"locationId"`
+	KerberosAuth pulumi.BoolPtrOutput `pulumi:"kerberosAuth"`
+	LocationId   pulumi.IntOutput     `pulumi:"locationId"`
 	// Location Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled pulumi.BoolOutput `pulumi:"ofwEnabled"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-	// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-	Other6Sublocation pulumi.BoolOutput `pulumi:"other6Sublocation"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-	// and it can be renamed, if required.
-	OtherSublocation pulumi.BoolOutput `pulumi:"otherSublocation"`
-	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-	// sub-location whose parent has this ID. x-applicableTo: SUB
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+	Other6SubLocation pulumi.BoolPtrOutput `pulumi:"other6SubLocation"`
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+	OtherSubLocation pulumi.BoolPtrOutput `pulumi:"otherSubLocation"`
+	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 	ParentId pulumi.IntPtrOutput `pulumi:"parentId"`
 	// IP ports that are associated with the location.
 	Ports pulumi.IntArrayOutput `pulumi:"ports"`
 	// Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
 	Profile pulumi.StringOutput `pulumi:"profile"`
-	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-	// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 	SslScanEnabled pulumi.BoolOutput `pulumi:"sslScanEnabled"`
 	// IP ports that are associated with the location.
-	State pulumi.StringPtrOutput `pulumi:"state"`
+	State pulumi.StringOutput `pulumi:"state"`
 	// Name-ID pairs of locations for which rule must be applied
-	StaticLocationGroups LocationManagementStaticLocationGroupsOutput `pulumi:"staticLocationGroups"`
+	StaticLocationGroups LocationManagementStaticLocationGroupsPtrOutput `pulumi:"staticLocationGroups"`
+	SubLocAccIds         pulumi.StringArrayOutput                        `pulumi:"subLocAccIds"`
+	// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+	SubLocScope       pulumi.StringPtrOutput   `pulumi:"subLocScope"`
+	SubLocScopeValues pulumi.StringArrayOutput `pulumi:"subLocScopeValues"`
 	// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp pulumi.BoolOutput `pulumi:"surrogateIp"`
 	// Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -155,8 +146,7 @@ type LocationManagement struct {
 	VpnCredentials LocationManagementVpnCredentialArrayOutput `pulumi:"vpnCredentials"`
 	// Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
 	XffForwardEnabled pulumi.BoolOutput `pulumi:"xffForwardEnabled"`
-	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-	// SSL policy that is configured for the location.
+	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 	ZappSslScanEnabled pulumi.BoolOutput `pulumi:"zappSslScanEnabled"`
 }
 
@@ -190,13 +180,11 @@ func GetLocationManagement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocationManagement resources.
 type locationManagementState struct {
-	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-	// disabled until the user accepts the AUP.
+	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 	AupBlockInternetUntilAccepted *bool `pulumi:"aupBlockInternetUntilAccepted"`
 	// Enable AUP. When set to true, AUP is enabled for the location.
 	AupEnabled *bool `pulumi:"aupEnabled"`
-	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-	// for HTTPS traffic.
+	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 	AupForceSslInspection *bool `pulumi:"aupForceSslInspection"`
 	// Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
 	AupTimeoutInDays *int `pulumi:"aupTimeoutInDays"`
@@ -220,11 +208,9 @@ type locationManagementState struct {
 	// Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
 	DisplayTimeUnit *string `pulumi:"displayTimeUnit"`
 	// Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
-	DnBandwidth *int `pulumi:"dnBandwidth"`
-	// Name-ID pairs of locations for which rule must be applied
-	DynamicLocationGroups    *LocationManagementDynamicLocationGroups `pulumi:"dynamicLocationGroups"`
-	ExcludeFromDynamicGroups *bool                                    `pulumi:"excludeFromDynamicGroups"`
-	ExcludeFromManualGroups  *bool                                    `pulumi:"excludeFromManualGroups"`
+	DnBandwidth              *int  `pulumi:"dnBandwidth"`
+	ExcludeFromDynamicGroups *bool `pulumi:"excludeFromDynamicGroups"`
+	ExcludeFromManualGroups  *bool `pulumi:"excludeFromManualGroups"`
 	// The ID of the DNS server configuration used in the extranet
 	ExtranetDns []LocationManagementExtranetDn `pulumi:"extranetDns"`
 	// The ID of the traffic selector specified in the extranet
@@ -236,47 +222,41 @@ type locationManagementState struct {
 	// Enable IOT Discovery at the location
 	IotDiscoveryEnabled *bool `pulumi:"iotDiscoveryEnabled"`
 	IotEnforcePolicySet *bool `pulumi:"iotEnforcePolicySet"`
-	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-	// address (e.g., 238.10.33.9).
+	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl *bool `pulumi:"ipsControl"`
-	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-	// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-	// supported prefixes.
+	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 	Ipv6Dns64prefix *bool `pulumi:"ipv6Dns64prefix"`
-	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-	// service to enforce security policies.
+	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
 	// Enable Kerberos Authentication at the location
-	KerberosAuthEnabled *bool `pulumi:"kerberosAuthEnabled"`
-	LocationId          *int  `pulumi:"locationId"`
+	KerberosAuth *bool `pulumi:"kerberosAuth"`
+	LocationId   *int  `pulumi:"locationId"`
 	// Location Name.
 	Name *string `pulumi:"name"`
 	// Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled *bool `pulumi:"ofwEnabled"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-	// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-	Other6Sublocation *bool `pulumi:"other6Sublocation"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-	// and it can be renamed, if required.
-	OtherSublocation *bool `pulumi:"otherSublocation"`
-	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-	// sub-location whose parent has this ID. x-applicableTo: SUB
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+	Other6SubLocation *bool `pulumi:"other6SubLocation"`
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+	OtherSubLocation *bool `pulumi:"otherSubLocation"`
+	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 	ParentId *int `pulumi:"parentId"`
 	// IP ports that are associated with the location.
 	Ports []int `pulumi:"ports"`
 	// Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
 	Profile *string `pulumi:"profile"`
-	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-	// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 	SslScanEnabled *bool `pulumi:"sslScanEnabled"`
 	// IP ports that are associated with the location.
 	State *string `pulumi:"state"`
 	// Name-ID pairs of locations for which rule must be applied
 	StaticLocationGroups *LocationManagementStaticLocationGroups `pulumi:"staticLocationGroups"`
+	SubLocAccIds         []string                                `pulumi:"subLocAccIds"`
+	// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+	SubLocScope       *string  `pulumi:"subLocScope"`
+	SubLocScopeValues []string `pulumi:"subLocScopeValues"`
 	// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp *bool `pulumi:"surrogateIp"`
 	// Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -292,19 +272,16 @@ type locationManagementState struct {
 	VpnCredentials []LocationManagementVpnCredential `pulumi:"vpnCredentials"`
 	// Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
 	XffForwardEnabled *bool `pulumi:"xffForwardEnabled"`
-	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-	// SSL policy that is configured for the location.
+	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 	ZappSslScanEnabled *bool `pulumi:"zappSslScanEnabled"`
 }
 
 type LocationManagementState struct {
-	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-	// disabled until the user accepts the AUP.
+	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 	AupBlockInternetUntilAccepted pulumi.BoolPtrInput
 	// Enable AUP. When set to true, AUP is enabled for the location.
 	AupEnabled pulumi.BoolPtrInput
-	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-	// for HTTPS traffic.
+	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 	AupForceSslInspection pulumi.BoolPtrInput
 	// Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
 	AupTimeoutInDays pulumi.IntPtrInput
@@ -328,9 +305,7 @@ type LocationManagementState struct {
 	// Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
 	DisplayTimeUnit pulumi.StringPtrInput
 	// Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
-	DnBandwidth pulumi.IntPtrInput
-	// Name-ID pairs of locations for which rule must be applied
-	DynamicLocationGroups    LocationManagementDynamicLocationGroupsPtrInput
+	DnBandwidth              pulumi.IntPtrInput
 	ExcludeFromDynamicGroups pulumi.BoolPtrInput
 	ExcludeFromManualGroups  pulumi.BoolPtrInput
 	// The ID of the DNS server configuration used in the extranet
@@ -344,47 +319,41 @@ type LocationManagementState struct {
 	// Enable IOT Discovery at the location
 	IotDiscoveryEnabled pulumi.BoolPtrInput
 	IotEnforcePolicySet pulumi.BoolPtrInput
-	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-	// address (e.g., 238.10.33.9).
+	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 	IpAddresses pulumi.StringArrayInput
 	// Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl pulumi.BoolPtrInput
-	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-	// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-	// supported prefixes.
+	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 	Ipv6Dns64prefix pulumi.BoolPtrInput
-	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-	// service to enforce security policies.
+	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 	Ipv6Enabled pulumi.BoolPtrInput
 	// Enable Kerberos Authentication at the location
-	KerberosAuthEnabled pulumi.BoolPtrInput
-	LocationId          pulumi.IntPtrInput
+	KerberosAuth pulumi.BoolPtrInput
+	LocationId   pulumi.IntPtrInput
 	// Location Name.
 	Name pulumi.StringPtrInput
 	// Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled pulumi.BoolPtrInput
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-	// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-	Other6Sublocation pulumi.BoolPtrInput
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-	// and it can be renamed, if required.
-	OtherSublocation pulumi.BoolPtrInput
-	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-	// sub-location whose parent has this ID. x-applicableTo: SUB
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+	Other6SubLocation pulumi.BoolPtrInput
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+	OtherSubLocation pulumi.BoolPtrInput
+	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 	ParentId pulumi.IntPtrInput
 	// IP ports that are associated with the location.
 	Ports pulumi.IntArrayInput
 	// Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
 	Profile pulumi.StringPtrInput
-	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-	// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 	SslScanEnabled pulumi.BoolPtrInput
 	// IP ports that are associated with the location.
 	State pulumi.StringPtrInput
 	// Name-ID pairs of locations for which rule must be applied
 	StaticLocationGroups LocationManagementStaticLocationGroupsPtrInput
+	SubLocAccIds         pulumi.StringArrayInput
+	// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+	SubLocScope       pulumi.StringPtrInput
+	SubLocScopeValues pulumi.StringArrayInput
 	// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp pulumi.BoolPtrInput
 	// Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -400,8 +369,7 @@ type LocationManagementState struct {
 	VpnCredentials LocationManagementVpnCredentialArrayInput
 	// Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
 	XffForwardEnabled pulumi.BoolPtrInput
-	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-	// SSL policy that is configured for the location.
+	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 	ZappSslScanEnabled pulumi.BoolPtrInput
 }
 
@@ -410,13 +378,11 @@ func (LocationManagementState) ElementType() reflect.Type {
 }
 
 type locationManagementArgs struct {
-	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-	// disabled until the user accepts the AUP.
+	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 	AupBlockInternetUntilAccepted *bool `pulumi:"aupBlockInternetUntilAccepted"`
 	// Enable AUP. When set to true, AUP is enabled for the location.
 	AupEnabled *bool `pulumi:"aupEnabled"`
-	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-	// for HTTPS traffic.
+	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 	AupForceSslInspection *bool `pulumi:"aupForceSslInspection"`
 	// Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
 	AupTimeoutInDays *int `pulumi:"aupTimeoutInDays"`
@@ -440,11 +406,9 @@ type locationManagementArgs struct {
 	// Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
 	DisplayTimeUnit *string `pulumi:"displayTimeUnit"`
 	// Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
-	DnBandwidth *int `pulumi:"dnBandwidth"`
-	// Name-ID pairs of locations for which rule must be applied
-	DynamicLocationGroups    *LocationManagementDynamicLocationGroups `pulumi:"dynamicLocationGroups"`
-	ExcludeFromDynamicGroups *bool                                    `pulumi:"excludeFromDynamicGroups"`
-	ExcludeFromManualGroups  *bool                                    `pulumi:"excludeFromManualGroups"`
+	DnBandwidth              *int  `pulumi:"dnBandwidth"`
+	ExcludeFromDynamicGroups *bool `pulumi:"excludeFromDynamicGroups"`
+	ExcludeFromManualGroups  *bool `pulumi:"excludeFromManualGroups"`
 	// The ID of the DNS server configuration used in the extranet
 	ExtranetDns []LocationManagementExtranetDn `pulumi:"extranetDns"`
 	// The ID of the traffic selector specified in the extranet
@@ -456,46 +420,40 @@ type locationManagementArgs struct {
 	// Enable IOT Discovery at the location
 	IotDiscoveryEnabled *bool `pulumi:"iotDiscoveryEnabled"`
 	IotEnforcePolicySet *bool `pulumi:"iotEnforcePolicySet"`
-	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-	// address (e.g., 238.10.33.9).
+	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl *bool `pulumi:"ipsControl"`
-	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-	// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-	// supported prefixes.
+	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 	Ipv6Dns64prefix *bool `pulumi:"ipv6Dns64prefix"`
-	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-	// service to enforce security policies.
+	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 	Ipv6Enabled *bool `pulumi:"ipv6Enabled"`
 	// Enable Kerberos Authentication at the location
-	KerberosAuthEnabled *bool `pulumi:"kerberosAuthEnabled"`
+	KerberosAuth *bool `pulumi:"kerberosAuth"`
 	// Location Name.
 	Name *string `pulumi:"name"`
 	// Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled *bool `pulumi:"ofwEnabled"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-	// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-	Other6Sublocation *bool `pulumi:"other6Sublocation"`
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-	// and it can be renamed, if required.
-	OtherSublocation *bool `pulumi:"otherSublocation"`
-	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-	// sub-location whose parent has this ID. x-applicableTo: SUB
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+	Other6SubLocation *bool `pulumi:"other6SubLocation"`
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+	OtherSubLocation *bool `pulumi:"otherSubLocation"`
+	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 	ParentId *int `pulumi:"parentId"`
 	// IP ports that are associated with the location.
 	Ports []int `pulumi:"ports"`
 	// Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
 	Profile *string `pulumi:"profile"`
-	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-	// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 	SslScanEnabled *bool `pulumi:"sslScanEnabled"`
 	// IP ports that are associated with the location.
 	State *string `pulumi:"state"`
 	// Name-ID pairs of locations for which rule must be applied
 	StaticLocationGroups *LocationManagementStaticLocationGroups `pulumi:"staticLocationGroups"`
+	SubLocAccIds         []string                                `pulumi:"subLocAccIds"`
+	// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+	SubLocScope       *string  `pulumi:"subLocScope"`
+	SubLocScopeValues []string `pulumi:"subLocScopeValues"`
 	// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp *bool `pulumi:"surrogateIp"`
 	// Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -511,20 +469,17 @@ type locationManagementArgs struct {
 	VpnCredentials []LocationManagementVpnCredential `pulumi:"vpnCredentials"`
 	// Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
 	XffForwardEnabled *bool `pulumi:"xffForwardEnabled"`
-	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-	// SSL policy that is configured for the location.
+	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 	ZappSslScanEnabled *bool `pulumi:"zappSslScanEnabled"`
 }
 
 // The set of arguments for constructing a LocationManagement resource.
 type LocationManagementArgs struct {
-	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-	// disabled until the user accepts the AUP.
+	// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 	AupBlockInternetUntilAccepted pulumi.BoolPtrInput
 	// Enable AUP. When set to true, AUP is enabled for the location.
 	AupEnabled pulumi.BoolPtrInput
-	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-	// for HTTPS traffic.
+	// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 	AupForceSslInspection pulumi.BoolPtrInput
 	// Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
 	AupTimeoutInDays pulumi.IntPtrInput
@@ -548,9 +503,7 @@ type LocationManagementArgs struct {
 	// Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
 	DisplayTimeUnit pulumi.StringPtrInput
 	// Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
-	DnBandwidth pulumi.IntPtrInput
-	// Name-ID pairs of locations for which rule must be applied
-	DynamicLocationGroups    LocationManagementDynamicLocationGroupsPtrInput
+	DnBandwidth              pulumi.IntPtrInput
 	ExcludeFromDynamicGroups pulumi.BoolPtrInput
 	ExcludeFromManualGroups  pulumi.BoolPtrInput
 	// The ID of the DNS server configuration used in the extranet
@@ -564,46 +517,40 @@ type LocationManagementArgs struct {
 	// Enable IOT Discovery at the location
 	IotDiscoveryEnabled pulumi.BoolPtrInput
 	IotEnforcePolicySet pulumi.BoolPtrInput
-	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-	// address (e.g., 238.10.33.9).
+	// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 	IpAddresses pulumi.StringArrayInput
 	// Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl pulumi.BoolPtrInput
-	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-	// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-	// supported prefixes.
+	// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 	Ipv6Dns64prefix pulumi.BoolPtrInput
-	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-	// service to enforce security policies.
+	// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 	Ipv6Enabled pulumi.BoolPtrInput
 	// Enable Kerberos Authentication at the location
-	KerberosAuthEnabled pulumi.BoolPtrInput
+	KerberosAuth pulumi.BoolPtrInput
 	// Location Name.
 	Name pulumi.StringPtrInput
 	// Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled pulumi.BoolPtrInput
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-	// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-	Other6Sublocation pulumi.BoolPtrInput
-	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-	// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-	// and it can be renamed, if required.
-	OtherSublocation pulumi.BoolPtrInput
-	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-	// sub-location whose parent has this ID. x-applicableTo: SUB
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+	Other6SubLocation pulumi.BoolPtrInput
+	// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+	OtherSubLocation pulumi.BoolPtrInput
+	// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 	ParentId pulumi.IntPtrInput
 	// IP ports that are associated with the location.
 	Ports pulumi.IntArrayInput
 	// Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
 	Profile pulumi.StringPtrInput
-	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-	// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+	// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 	SslScanEnabled pulumi.BoolPtrInput
 	// IP ports that are associated with the location.
 	State pulumi.StringPtrInput
 	// Name-ID pairs of locations for which rule must be applied
 	StaticLocationGroups LocationManagementStaticLocationGroupsPtrInput
+	SubLocAccIds         pulumi.StringArrayInput
+	// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+	SubLocScope       pulumi.StringPtrInput
+	SubLocScopeValues pulumi.StringArrayInput
 	// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp pulumi.BoolPtrInput
 	// Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -619,8 +566,7 @@ type LocationManagementArgs struct {
 	VpnCredentials LocationManagementVpnCredentialArrayInput
 	// Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
 	XffForwardEnabled pulumi.BoolPtrInput
-	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-	// SSL policy that is configured for the location.
+	// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 	ZappSslScanEnabled pulumi.BoolPtrInput
 }
 
@@ -711,8 +657,7 @@ func (o LocationManagementOutput) ToLocationManagementOutputWithContext(ctx cont
 	return o
 }
 
-// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-// disabled until the user accepts the AUP.
+// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
 func (o LocationManagementOutput) AupBlockInternetUntilAccepted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.AupBlockInternetUntilAccepted }).(pulumi.BoolOutput)
 }
@@ -722,8 +667,7 @@ func (o LocationManagementOutput) AupEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.AupEnabled }).(pulumi.BoolOutput)
 }
 
-// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-// for HTTPS traffic.
+// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
 func (o LocationManagementOutput) AupForceSslInspection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.AupForceSslInspection }).(pulumi.BoolOutput)
 }
@@ -787,13 +731,6 @@ func (o LocationManagementOutput) DnBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.IntPtrOutput { return v.DnBandwidth }).(pulumi.IntPtrOutput)
 }
 
-// Name-ID pairs of locations for which rule must be applied
-func (o LocationManagementOutput) DynamicLocationGroups() LocationManagementDynamicLocationGroupsOutput {
-	return o.ApplyT(func(v *LocationManagement) LocationManagementDynamicLocationGroupsOutput {
-		return v.DynamicLocationGroups
-	}).(LocationManagementDynamicLocationGroupsOutput)
-}
-
 func (o LocationManagementOutput) ExcludeFromDynamicGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.ExcludeFromDynamicGroups }).(pulumi.BoolPtrOutput)
 }
@@ -831,8 +768,7 @@ func (o LocationManagementOutput) IotEnforcePolicySet() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.IotEnforcePolicySet }).(pulumi.BoolOutput)
 }
 
-// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-// address (e.g., 238.10.33.9).
+// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
 func (o LocationManagementOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -842,22 +778,19 @@ func (o LocationManagementOutput) IpsControl() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.IpsControl }).(pulumi.BoolOutput)
 }
 
-// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-// supported prefixes.
+// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
 func (o LocationManagementOutput) Ipv6Dns64prefix() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.Ipv6Dns64prefix }).(pulumi.BoolPtrOutput)
 }
 
-// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-// service to enforce security policies.
+// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 func (o LocationManagementOutput) Ipv6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.Ipv6Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Enable Kerberos Authentication at the location
-func (o LocationManagementOutput) KerberosAuthEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.KerberosAuthEnabled }).(pulumi.BoolOutput)
+func (o LocationManagementOutput) KerberosAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.KerberosAuth }).(pulumi.BoolPtrOutput)
 }
 
 func (o LocationManagementOutput) LocationId() pulumi.IntOutput {
@@ -874,22 +807,17 @@ func (o LocationManagementOutput) OfwEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.OfwEnabled }).(pulumi.BoolOutput)
 }
 
-// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
-func (o LocationManagementOutput) Other6Sublocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.Other6Sublocation }).(pulumi.BoolOutput)
+// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+func (o LocationManagementOutput) Other6SubLocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.Other6SubLocation }).(pulumi.BoolPtrOutput)
 }
 
-// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-// and it can be renamed, if required.
-func (o LocationManagementOutput) OtherSublocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.OtherSublocation }).(pulumi.BoolOutput)
+// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
+func (o LocationManagementOutput) OtherSubLocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.BoolPtrOutput { return v.OtherSubLocation }).(pulumi.BoolPtrOutput)
 }
 
-// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-// sub-location whose parent has this ID. x-applicableTo: SUB
+// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
 func (o LocationManagementOutput) ParentId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.IntPtrOutput { return v.ParentId }).(pulumi.IntPtrOutput)
 }
@@ -904,22 +832,34 @@ func (o LocationManagementOutput) Profile() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.StringOutput { return v.Profile }).(pulumi.StringOutput)
 }
 
-// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
 func (o LocationManagementOutput) SslScanEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.SslScanEnabled }).(pulumi.BoolOutput)
 }
 
 // IP ports that are associated with the location.
-func (o LocationManagementOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationManagement) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+func (o LocationManagementOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // Name-ID pairs of locations for which rule must be applied
-func (o LocationManagementOutput) StaticLocationGroups() LocationManagementStaticLocationGroupsOutput {
-	return o.ApplyT(func(v *LocationManagement) LocationManagementStaticLocationGroupsOutput {
+func (o LocationManagementOutput) StaticLocationGroups() LocationManagementStaticLocationGroupsPtrOutput {
+	return o.ApplyT(func(v *LocationManagement) LocationManagementStaticLocationGroupsPtrOutput {
 		return v.StaticLocationGroups
-	}).(LocationManagementStaticLocationGroupsOutput)
+	}).(LocationManagementStaticLocationGroupsPtrOutput)
+}
+
+func (o LocationManagementOutput) SubLocAccIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.StringArrayOutput { return v.SubLocAccIds }).(pulumi.StringArrayOutput)
+}
+
+// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+func (o LocationManagementOutput) SubLocScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.StringPtrOutput { return v.SubLocScope }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationManagementOutput) SubLocScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LocationManagement) pulumi.StringArrayOutput { return v.SubLocScopeValues }).(pulumi.StringArrayOutput)
 }
 
 // Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
@@ -961,8 +901,7 @@ func (o LocationManagementOutput) XffForwardEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.XffForwardEnabled }).(pulumi.BoolOutput)
 }
 
-// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-// SSL policy that is configured for the location.
+// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
 func (o LocationManagementOutput) ZappSslScanEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocationManagement) pulumi.BoolOutput { return v.ZappSslScanEnabled }).(pulumi.BoolOutput)
 }

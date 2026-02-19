@@ -22,8 +22,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_file_type_control_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -42,10 +41,13 @@ type FileTypeControlRules struct {
 	pulumi.CustomResourceState
 
 	// Flag to check whether a file has active content or not
-	ActiveContent pulumi.BoolOutput `pulumi:"activeContent"`
+	ActiveContent        pulumi.BoolOutput   `pulumi:"activeContent"`
+	BrowserEunTemplateId pulumi.IntPtrOutput `pulumi:"browserEunTemplateId"`
 	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolOutput `pulumi:"capturePcap"`
-	// The list of cloud applications to which the File Type Control rule must be applied.
+	// The list of cloud applications to which the File Type Control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
 	// The Name-ID pairs of departments to which the File Type Control rule must be applied.
 	Departments FileTypeControlRulesDepartmentsPtrOutput `pulumi:"departments"`
@@ -53,13 +55,13 @@ type FileTypeControlRules struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FileTypeControlRulesDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices FileTypeControlRulesDevicesPtrOutput `pulumi:"devices"`
-	// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+	// 				See the available file types API in:
+	// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
 	// Action taken when traffic matches policy. This field is not applicable to the Lite API.
 	FilteringAction pulumi.StringOutput `pulumi:"filteringAction"`
@@ -79,7 +81,7 @@ type FileTypeControlRules struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// File operation performed. This field is not applicable to the Lite API.
 	Operation pulumi.StringOutput `pulumi:"operation"`
-	// The rule order of execution for the File Type Control rule with respect to other rules.
+	// The rule order of execution for the  File Type Control rule with respect to other rules.
 	Order pulumi.IntOutput `pulumi:"order"`
 	// Protocol for the given rule. This field is not applicable to the Lite API.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
@@ -92,7 +94,9 @@ type FileTypeControlRules struct {
 	TimeWindows FileTypeControlRulesTimeWindowsPtrOutput `pulumi:"timeWindows"`
 	// Flag to check whether a file has active content or not
 	Unscannable pulumi.BoolOutput `pulumi:"unscannable"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the file type control rule rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
 	// The Name-ID pairs of users to which the File Type Control rule must be applied.
 	Users FileTypeControlRulesUsersPtrOutput `pulumi:"users"`
@@ -137,10 +141,13 @@ func GetFileTypeControlRules(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FileTypeControlRules resources.
 type fileTypeControlRulesState struct {
 	// Flag to check whether a file has active content or not
-	ActiveContent *bool `pulumi:"activeContent"`
+	ActiveContent        *bool `pulumi:"activeContent"`
+	BrowserEunTemplateId *int  `pulumi:"browserEunTemplateId"`
 	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
-	// The list of cloud applications to which the File Type Control rule must be applied.
+	// The list of cloud applications to which the File Type Control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications []string `pulumi:"cloudApplications"`
 	// The Name-ID pairs of departments to which the File Type Control rule must be applied.
 	Departments *FileTypeControlRulesDepartments `pulumi:"departments"`
@@ -148,13 +155,13 @@ type fileTypeControlRulesState struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FileTypeControlRulesDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *FileTypeControlRulesDevices `pulumi:"devices"`
-	// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+	// 				See the available file types API in:
+	// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 	FileTypes []string `pulumi:"fileTypes"`
 	// Action taken when traffic matches policy. This field is not applicable to the Lite API.
 	FilteringAction *string `pulumi:"filteringAction"`
@@ -174,7 +181,7 @@ type fileTypeControlRulesState struct {
 	Name *string `pulumi:"name"`
 	// File operation performed. This field is not applicable to the Lite API.
 	Operation *string `pulumi:"operation"`
-	// The rule order of execution for the File Type Control rule with respect to other rules.
+	// The rule order of execution for the  File Type Control rule with respect to other rules.
 	Order *int `pulumi:"order"`
 	// Protocol for the given rule. This field is not applicable to the Lite API.
 	Protocols []string `pulumi:"protocols"`
@@ -187,7 +194,9 @@ type fileTypeControlRulesState struct {
 	TimeWindows *FileTypeControlRulesTimeWindows `pulumi:"timeWindows"`
 	// Flag to check whether a file has active content or not
 	Unscannable *bool `pulumi:"unscannable"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the file type control rule rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// The Name-ID pairs of users to which the File Type Control rule must be applied.
 	Users *FileTypeControlRulesUsers `pulumi:"users"`
@@ -197,10 +206,13 @@ type fileTypeControlRulesState struct {
 
 type FileTypeControlRulesState struct {
 	// Flag to check whether a file has active content or not
-	ActiveContent pulumi.BoolPtrInput
+	ActiveContent        pulumi.BoolPtrInput
+	BrowserEunTemplateId pulumi.IntPtrInput
 	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
-	// The list of cloud applications to which the File Type Control rule must be applied.
+	// The list of cloud applications to which the File Type Control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayInput
 	// The Name-ID pairs of departments to which the File Type Control rule must be applied.
 	Departments FileTypeControlRulesDepartmentsPtrInput
@@ -208,13 +220,13 @@ type FileTypeControlRulesState struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FileTypeControlRulesDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices FileTypeControlRulesDevicesPtrInput
-	// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+	// 				See the available file types API in:
+	// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 	FileTypes pulumi.StringArrayInput
 	// Action taken when traffic matches policy. This field is not applicable to the Lite API.
 	FilteringAction pulumi.StringPtrInput
@@ -234,7 +246,7 @@ type FileTypeControlRulesState struct {
 	Name pulumi.StringPtrInput
 	// File operation performed. This field is not applicable to the Lite API.
 	Operation pulumi.StringPtrInput
-	// The rule order of execution for the File Type Control rule with respect to other rules.
+	// The rule order of execution for the  File Type Control rule with respect to other rules.
 	Order pulumi.IntPtrInput
 	// Protocol for the given rule. This field is not applicable to the Lite API.
 	Protocols pulumi.StringArrayInput
@@ -247,7 +259,9 @@ type FileTypeControlRulesState struct {
 	TimeWindows FileTypeControlRulesTimeWindowsPtrInput
 	// Flag to check whether a file has active content or not
 	Unscannable pulumi.BoolPtrInput
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the file type control rule rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// The Name-ID pairs of users to which the File Type Control rule must be applied.
 	Users FileTypeControlRulesUsersPtrInput
@@ -261,10 +275,13 @@ func (FileTypeControlRulesState) ElementType() reflect.Type {
 
 type fileTypeControlRulesArgs struct {
 	// Flag to check whether a file has active content or not
-	ActiveContent *bool `pulumi:"activeContent"`
+	ActiveContent        *bool `pulumi:"activeContent"`
+	BrowserEunTemplateId *int  `pulumi:"browserEunTemplateId"`
 	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap *bool `pulumi:"capturePcap"`
-	// The list of cloud applications to which the File Type Control rule must be applied.
+	// The list of cloud applications to which the File Type Control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications []string `pulumi:"cloudApplications"`
 	// The Name-ID pairs of departments to which the File Type Control rule must be applied.
 	Departments *FileTypeControlRulesDepartments `pulumi:"departments"`
@@ -272,13 +289,13 @@ type fileTypeControlRulesArgs struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FileTypeControlRulesDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *FileTypeControlRulesDevices `pulumi:"devices"`
-	// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+	// 				See the available file types API in:
+	// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 	FileTypes []string `pulumi:"fileTypes"`
 	// Action taken when traffic matches policy. This field is not applicable to the Lite API.
 	FilteringAction *string `pulumi:"filteringAction"`
@@ -298,7 +315,7 @@ type fileTypeControlRulesArgs struct {
 	Name *string `pulumi:"name"`
 	// File operation performed. This field is not applicable to the Lite API.
 	Operation *string `pulumi:"operation"`
-	// The rule order of execution for the File Type Control rule with respect to other rules.
+	// The rule order of execution for the  File Type Control rule with respect to other rules.
 	Order int `pulumi:"order"`
 	// Protocol for the given rule. This field is not applicable to the Lite API.
 	Protocols []string `pulumi:"protocols"`
@@ -310,7 +327,9 @@ type fileTypeControlRulesArgs struct {
 	TimeWindows *FileTypeControlRulesTimeWindows `pulumi:"timeWindows"`
 	// Flag to check whether a file has active content or not
 	Unscannable *bool `pulumi:"unscannable"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the file type control rule rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// The Name-ID pairs of users to which the File Type Control rule must be applied.
 	Users *FileTypeControlRulesUsers `pulumi:"users"`
@@ -321,10 +340,13 @@ type fileTypeControlRulesArgs struct {
 // The set of arguments for constructing a FileTypeControlRules resource.
 type FileTypeControlRulesArgs struct {
 	// Flag to check whether a file has active content or not
-	ActiveContent pulumi.BoolPtrInput
+	ActiveContent        pulumi.BoolPtrInput
+	BrowserEunTemplateId pulumi.IntPtrInput
 	// A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap pulumi.BoolPtrInput
-	// The list of cloud applications to which the File Type Control rule must be applied.
+	// The list of cloud applications to which the File Type Control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayInput
 	// The Name-ID pairs of departments to which the File Type Control rule must be applied.
 	Departments FileTypeControlRulesDepartmentsPtrInput
@@ -332,13 +354,13 @@ type FileTypeControlRulesArgs struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FileTypeControlRulesDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices FileTypeControlRulesDevicesPtrInput
-	// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+	// 				See the available file types API in:
+	// 				https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 	FileTypes pulumi.StringArrayInput
 	// Action taken when traffic matches policy. This field is not applicable to the Lite API.
 	FilteringAction pulumi.StringPtrInput
@@ -358,7 +380,7 @@ type FileTypeControlRulesArgs struct {
 	Name pulumi.StringPtrInput
 	// File operation performed. This field is not applicable to the Lite API.
 	Operation pulumi.StringPtrInput
-	// The rule order of execution for the File Type Control rule with respect to other rules.
+	// The rule order of execution for the  File Type Control rule with respect to other rules.
 	Order pulumi.IntInput
 	// Protocol for the given rule. This field is not applicable to the Lite API.
 	Protocols pulumi.StringArrayInput
@@ -370,7 +392,9 @@ type FileTypeControlRulesArgs struct {
 	TimeWindows FileTypeControlRulesTimeWindowsPtrInput
 	// Flag to check whether a file has active content or not
 	Unscannable pulumi.BoolPtrInput
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the file type control rule rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// The Name-ID pairs of users to which the File Type Control rule must be applied.
 	Users FileTypeControlRulesUsersPtrInput
@@ -470,12 +494,19 @@ func (o FileTypeControlRulesOutput) ActiveContent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.BoolOutput { return v.ActiveContent }).(pulumi.BoolOutput)
 }
 
+func (o FileTypeControlRulesOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileTypeControlRules) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
+}
+
 // A Boolean value that indicates whether packet capture (PCAP) is enabled or not
 func (o FileTypeControlRulesOutput) CapturePcap() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.BoolOutput { return v.CapturePcap }).(pulumi.BoolOutput)
 }
 
-// The list of cloud applications to which the File Type Control rule must be applied.
+// The list of cloud applications to which the File Type Control rule must be applied
+//
+//	Use the data source getCloudApplications to get the list of available cloud applications:
+//	https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 func (o FileTypeControlRulesOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
@@ -495,9 +526,7 @@ func (o FileTypeControlRulesOutput) DeviceGroups() FileTypeControlRulesDeviceGro
 	return o.ApplyT(func(v *FileTypeControlRules) FileTypeControlRulesDeviceGroupsPtrOutput { return v.DeviceGroups }).(FileTypeControlRulesDeviceGroupsPtrOutput)
 }
 
-// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 func (o FileTypeControlRulesOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
@@ -507,7 +536,10 @@ func (o FileTypeControlRulesOutput) Devices() FileTypeControlRulesDevicesPtrOutp
 	return o.ApplyT(func(v *FileTypeControlRules) FileTypeControlRulesDevicesPtrOutput { return v.Devices }).(FileTypeControlRulesDevicesPtrOutput)
 }
 
-// File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+// File type categories for which the policy is applied. If not set, the rule is applied across all file types
+//
+//	See the available file types API in:
+//	https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get
 func (o FileTypeControlRulesOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
@@ -557,7 +589,7 @@ func (o FileTypeControlRulesOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.StringOutput { return v.Operation }).(pulumi.StringOutput)
 }
 
-// The rule order of execution for the File Type Control rule with respect to other rules.
+// The rule order of execution for the  File Type Control rule with respect to other rules.
 func (o FileTypeControlRulesOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
@@ -591,7 +623,10 @@ func (o FileTypeControlRulesOutput) Unscannable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.BoolOutput { return v.Unscannable }).(pulumi.BoolOutput)
 }
 
-// List of URL categories for which rule must be applied
+// The list of URL Categories to which the file type control rule rule must be applied.
+//
+//	See the URL Categories API for the list of available categories:
+//	https://help.zscaler.com/zia/url-categories#/urlCategories-get
 func (o FileTypeControlRulesOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRules) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }

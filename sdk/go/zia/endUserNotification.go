@@ -22,13 +22,20 @@ import (
 //
 // ### NOTIFICATION TYPE - CUSTOM
 //
+// ## Important Notes
+//
+// **Text Attributes and CSS Styling**: When setting attributes such as `customText`, `urlCatReviewText`, `securityReviewText`, `webDlpReviewText`, `cautionCustomText`, `idpProxyNotificationText`, and `quarantineCustomNotificationText`, we recommend using heredocs (EOT) especially when including CSS stylesheets. This ensures proper formatting and readability of complex text content.
+//
+// **JavaScript Limitation**: The ZIA API currently does not accept JavaScript tags in notification text attributes. Using JavaScript tags will result in an HTTP 406 Rejected error. For more information on customizing EUN CSS styles, see the [Zscaler documentation](https://help.zscaler.com/zia/customizing-euns-css-styles).
+//
+// ### Example with Heredoc for CSS Styling
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_end_user_notification** can be imported by using `enduser_notification` as the import ID.
+// **zia_end_user_notification** can be imported by using `enduserNotification` as the import ID.
 //
 // For example:
 //
@@ -39,71 +46,65 @@ type EndUserNotification struct {
 	pulumi.CustomResourceState
 
 	// The custom frequency (in days) for showing the AUP to the end users. Valid range is 0 to 180.
-	AupCustomFrequency pulumi.IntOutput `pulumi:"aupCustomFrequency"`
+	AupCustomFrequency pulumi.IntPtrOutput `pulumi:"aupCustomFrequency"`
 	// Specifies which day of the week or month the AUP is shown for users when aupFrequency is set. Valid range is 0 to 31.
-	AupDayOffset pulumi.IntOutput `pulumi:"aupDayOffset"`
+	AupDayOffset pulumi.IntPtrOutput `pulumi:"aupDayOffset"`
 	// The frequency at which the Acceptable Use Policy (AUP) is shown to the end users
-	AupFrequency pulumi.StringOutput `pulumi:"aupFrequency"`
+	AupFrequency pulumi.StringPtrOutput `pulumi:"aupFrequency"`
 	// The acceptable use statement that is shown in the AUP
-	AupMessage pulumi.StringOutput `pulumi:"aupMessage"`
+	AupMessage pulumi.StringPtrOutput `pulumi:"aupMessage"`
 	// The time interval at which the caution notification is shown when users continue browsing a restricted site.
-	CautionAgainAfter pulumi.IntOutput `pulumi:"cautionAgainAfter"`
+	CautionAgainAfter pulumi.IntPtrOutput `pulumi:"cautionAgainAfter"`
 	// The custom message that appears in the caution notification
-	CautionCustomText pulumi.StringOutput `pulumi:"cautionCustomText"`
-	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-	// Unknown category.
-	CautionPerDomain pulumi.BoolOutput `pulumi:"cautionPerDomain"`
+	CautionCustomText pulumi.StringPtrOutput `pulumi:"cautionCustomText"`
+	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
+	CautionPerDomain pulumi.BoolPtrOutput `pulumi:"cautionPerDomain"`
 	// The custom text shown in the EUN
-	CustomText pulumi.StringOutput `pulumi:"customText"`
+	CustomText pulumi.StringPtrOutput `pulumi:"customText"`
 	// A Boolean value indicating whether your organization's logo appears in the EUN or not
-	DisplayCompLogo pulumi.BoolOutput `pulumi:"displayCompLogo"`
+	DisplayCompanyLogo pulumi.BoolPtrOutput `pulumi:"displayCompanyLogo"`
 	// A Boolean value indicating whether the organization's name appears in the EUN or not
-	DisplayCompName pulumi.BoolOutput `pulumi:"displayCompName"`
-	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-	// is shown when the respective notification is triggered
-	DisplayReason pulumi.BoolOutput `pulumi:"displayReason"`
+	DisplayCompanyName pulumi.BoolPtrOutput `pulumi:"displayCompanyName"`
+	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
+	DisplayReason pulumi.BoolPtrOutput `pulumi:"displayReason"`
 	// The message that appears in the IdP Proxy notification
-	IdpProxyNotificationText pulumi.StringOutput `pulumi:"idpProxyNotificationText"`
+	IdpProxyNotificationText pulumi.StringPtrOutput `pulumi:"idpProxyNotificationText"`
 	// The type of EUN as default or custom
-	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+	NotificationType pulumi.StringPtrOutput `pulumi:"notificationType"`
 	// The URL of the organization's policy page. This field is required for the default notification type.
-	OrgPolicyLink pulumi.StringOutput `pulumi:"orgPolicyLink"`
+	OrgPolicyLink pulumi.StringPtrOutput `pulumi:"orgPolicyLink"`
 	// The message that appears in the quarantine notification
 	QuarantineCustomNotificationText pulumi.StringPtrOutput `pulumi:"quarantineCustomNotificationText"`
 	// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
-	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
-	SecurityReviewCustomLocation pulumi.StringOutput `pulumi:"securityReviewCustomLocation"`
+	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
+	SecurityReviewCustomLocation pulumi.StringPtrOutput `pulumi:"securityReviewCustomLocation"`
 	// A Boolean value indicating whether the Security Violation notification is enabled or disabled
-	SecurityReviewEnabled pulumi.BoolOutput `pulumi:"securityReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-	// Security Cloud) or a custom location.
-	SecurityReviewSubmitToSecurityCloud pulumi.BoolOutput `pulumi:"securityReviewSubmitToSecurityCloud"`
+	SecurityReviewEnabled pulumi.BoolPtrOutput `pulumi:"securityReviewEnabled"`
+	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+	SecurityReviewSubmitToSecurityCloud pulumi.BoolPtrOutput `pulumi:"securityReviewSubmitToSecurityCloud"`
 	// The message that appears in the Security Violation notification
-	SecurityReviewText pulumi.StringOutput `pulumi:"securityReviewText"`
+	SecurityReviewText pulumi.StringPtrOutput `pulumi:"securityReviewText"`
 	// The email address for writing to IT Support
-	SupportEmail pulumi.StringOutput `pulumi:"supportEmail"`
+	SupportEmail pulumi.StringPtrOutput `pulumi:"supportEmail"`
 	// The phone number for contacting IT Support
-	SupportPhone pulumi.StringOutput `pulumi:"supportPhone"`
+	SupportPhone pulumi.StringPtrOutput `pulumi:"supportPhone"`
 	// A custom URL location where users' review requests for blocked URLs are sent
-	UrlCatReviewCustomLocation pulumi.StringOutput `pulumi:"urlCatReviewCustomLocation"`
+	UrlCatReviewCustomLocation pulumi.StringPtrOutput `pulumi:"urlCatReviewCustomLocation"`
 	// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
-	UrlCatReviewEnabled pulumi.BoolOutput `pulumi:"urlCatReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
-	UrlCatReviewSubmitToSecurityCloud pulumi.BoolOutput `pulumi:"urlCatReviewSubmitToSecurityCloud"`
+	UrlCatReviewEnabled pulumi.BoolPtrOutput `pulumi:"urlCatReviewEnabled"`
+	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+	UrlCatReviewSubmitToSecurityCloud pulumi.BoolPtrOutput `pulumi:"urlCatReviewSubmitToSecurityCloud"`
 	// The message that appears in the URL Categorization notification
-	UrlCatReviewText pulumi.StringOutput `pulumi:"urlCatReviewText"`
+	UrlCatReviewText pulumi.StringPtrOutput `pulumi:"urlCatReviewText"`
 	// A custom URL location where users' review requests for the web DLP policy violation are sent
-	WebDlpReviewCustomLocation pulumi.StringOutput `pulumi:"webDlpReviewCustomLocation"`
+	WebDlpReviewCustomLocation pulumi.StringPtrOutput `pulumi:"webDlpReviewCustomLocation"`
 	// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
-	WebDlpReviewEnabled pulumi.BoolOutput `pulumi:"webDlpReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
-	WebDlpReviewSubmitToSecurityCloud pulumi.BoolOutput `pulumi:"webDlpReviewSubmitToSecurityCloud"`
+	WebDlpReviewEnabled pulumi.BoolPtrOutput `pulumi:"webDlpReviewEnabled"`
+	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+	WebDlpReviewSubmitToSecurityCloud pulumi.BoolPtrOutput `pulumi:"webDlpReviewSubmitToSecurityCloud"`
 	// The message that appears in the Web DLP Violation notification
-	WebDlpReviewText pulumi.StringOutput `pulumi:"webDlpReviewText"`
+	WebDlpReviewText pulumi.StringPtrOutput `pulumi:"webDlpReviewText"`
 }
 
 // NewEndUserNotification registers a new resource with the given unique name, arguments, and options.
@@ -148,17 +149,15 @@ type endUserNotificationState struct {
 	CautionAgainAfter *int `pulumi:"cautionAgainAfter"`
 	// The custom message that appears in the caution notification
 	CautionCustomText *string `pulumi:"cautionCustomText"`
-	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-	// Unknown category.
+	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
 	CautionPerDomain *bool `pulumi:"cautionPerDomain"`
 	// The custom text shown in the EUN
 	CustomText *string `pulumi:"customText"`
 	// A Boolean value indicating whether your organization's logo appears in the EUN or not
-	DisplayCompLogo *bool `pulumi:"displayCompLogo"`
+	DisplayCompanyLogo *bool `pulumi:"displayCompanyLogo"`
 	// A Boolean value indicating whether the organization's name appears in the EUN or not
-	DisplayCompName *bool `pulumi:"displayCompName"`
-	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-	// is shown when the respective notification is triggered
+	DisplayCompanyName *bool `pulumi:"displayCompanyName"`
+	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
 	DisplayReason *bool `pulumi:"displayReason"`
 	// The message that appears in the IdP Proxy notification
 	IdpProxyNotificationText *string `pulumi:"idpProxyNotificationText"`
@@ -170,13 +169,11 @@ type endUserNotificationState struct {
 	QuarantineCustomNotificationText *string `pulumi:"quarantineCustomNotificationText"`
 	// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	SecurityReviewCustomLocation *string `pulumi:"securityReviewCustomLocation"`
 	// A Boolean value indicating whether the Security Violation notification is enabled or disabled
 	SecurityReviewEnabled *bool `pulumi:"securityReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-	// Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	SecurityReviewSubmitToSecurityCloud *bool `pulumi:"securityReviewSubmitToSecurityCloud"`
 	// The message that appears in the Security Violation notification
 	SecurityReviewText *string `pulumi:"securityReviewText"`
@@ -188,8 +185,7 @@ type endUserNotificationState struct {
 	UrlCatReviewCustomLocation *string `pulumi:"urlCatReviewCustomLocation"`
 	// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
 	UrlCatReviewEnabled *bool `pulumi:"urlCatReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	UrlCatReviewSubmitToSecurityCloud *bool `pulumi:"urlCatReviewSubmitToSecurityCloud"`
 	// The message that appears in the URL Categorization notification
 	UrlCatReviewText *string `pulumi:"urlCatReviewText"`
@@ -197,8 +193,7 @@ type endUserNotificationState struct {
 	WebDlpReviewCustomLocation *string `pulumi:"webDlpReviewCustomLocation"`
 	// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
 	WebDlpReviewEnabled *bool `pulumi:"webDlpReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	WebDlpReviewSubmitToSecurityCloud *bool `pulumi:"webDlpReviewSubmitToSecurityCloud"`
 	// The message that appears in the Web DLP Violation notification
 	WebDlpReviewText *string `pulumi:"webDlpReviewText"`
@@ -217,17 +212,15 @@ type EndUserNotificationState struct {
 	CautionAgainAfter pulumi.IntPtrInput
 	// The custom message that appears in the caution notification
 	CautionCustomText pulumi.StringPtrInput
-	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-	// Unknown category.
+	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
 	CautionPerDomain pulumi.BoolPtrInput
 	// The custom text shown in the EUN
 	CustomText pulumi.StringPtrInput
 	// A Boolean value indicating whether your organization's logo appears in the EUN or not
-	DisplayCompLogo pulumi.BoolPtrInput
+	DisplayCompanyLogo pulumi.BoolPtrInput
 	// A Boolean value indicating whether the organization's name appears in the EUN or not
-	DisplayCompName pulumi.BoolPtrInput
-	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-	// is shown when the respective notification is triggered
+	DisplayCompanyName pulumi.BoolPtrInput
+	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
 	DisplayReason pulumi.BoolPtrInput
 	// The message that appears in the IdP Proxy notification
 	IdpProxyNotificationText pulumi.StringPtrInput
@@ -239,13 +232,11 @@ type EndUserNotificationState struct {
 	QuarantineCustomNotificationText pulumi.StringPtrInput
 	// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
 	RedirectUrl pulumi.StringPtrInput
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	SecurityReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the Security Violation notification is enabled or disabled
 	SecurityReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-	// Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	SecurityReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the Security Violation notification
 	SecurityReviewText pulumi.StringPtrInput
@@ -257,8 +248,7 @@ type EndUserNotificationState struct {
 	UrlCatReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
 	UrlCatReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	UrlCatReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the URL Categorization notification
 	UrlCatReviewText pulumi.StringPtrInput
@@ -266,8 +256,7 @@ type EndUserNotificationState struct {
 	WebDlpReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
 	WebDlpReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	WebDlpReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the Web DLP Violation notification
 	WebDlpReviewText pulumi.StringPtrInput
@@ -290,17 +279,15 @@ type endUserNotificationArgs struct {
 	CautionAgainAfter *int `pulumi:"cautionAgainAfter"`
 	// The custom message that appears in the caution notification
 	CautionCustomText *string `pulumi:"cautionCustomText"`
-	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-	// Unknown category.
+	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
 	CautionPerDomain *bool `pulumi:"cautionPerDomain"`
 	// The custom text shown in the EUN
 	CustomText *string `pulumi:"customText"`
 	// A Boolean value indicating whether your organization's logo appears in the EUN or not
-	DisplayCompLogo *bool `pulumi:"displayCompLogo"`
+	DisplayCompanyLogo *bool `pulumi:"displayCompanyLogo"`
 	// A Boolean value indicating whether the organization's name appears in the EUN or not
-	DisplayCompName *bool `pulumi:"displayCompName"`
-	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-	// is shown when the respective notification is triggered
+	DisplayCompanyName *bool `pulumi:"displayCompanyName"`
+	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
 	DisplayReason *bool `pulumi:"displayReason"`
 	// The message that appears in the IdP Proxy notification
 	IdpProxyNotificationText *string `pulumi:"idpProxyNotificationText"`
@@ -312,13 +299,11 @@ type endUserNotificationArgs struct {
 	QuarantineCustomNotificationText *string `pulumi:"quarantineCustomNotificationText"`
 	// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	SecurityReviewCustomLocation *string `pulumi:"securityReviewCustomLocation"`
 	// A Boolean value indicating whether the Security Violation notification is enabled or disabled
 	SecurityReviewEnabled *bool `pulumi:"securityReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-	// Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	SecurityReviewSubmitToSecurityCloud *bool `pulumi:"securityReviewSubmitToSecurityCloud"`
 	// The message that appears in the Security Violation notification
 	SecurityReviewText *string `pulumi:"securityReviewText"`
@@ -330,8 +315,7 @@ type endUserNotificationArgs struct {
 	UrlCatReviewCustomLocation *string `pulumi:"urlCatReviewCustomLocation"`
 	// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
 	UrlCatReviewEnabled *bool `pulumi:"urlCatReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	UrlCatReviewSubmitToSecurityCloud *bool `pulumi:"urlCatReviewSubmitToSecurityCloud"`
 	// The message that appears in the URL Categorization notification
 	UrlCatReviewText *string `pulumi:"urlCatReviewText"`
@@ -339,8 +323,7 @@ type endUserNotificationArgs struct {
 	WebDlpReviewCustomLocation *string `pulumi:"webDlpReviewCustomLocation"`
 	// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
 	WebDlpReviewEnabled *bool `pulumi:"webDlpReviewEnabled"`
-	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	WebDlpReviewSubmitToSecurityCloud *bool `pulumi:"webDlpReviewSubmitToSecurityCloud"`
 	// The message that appears in the Web DLP Violation notification
 	WebDlpReviewText *string `pulumi:"webDlpReviewText"`
@@ -360,17 +343,15 @@ type EndUserNotificationArgs struct {
 	CautionAgainAfter pulumi.IntPtrInput
 	// The custom message that appears in the caution notification
 	CautionCustomText pulumi.StringPtrInput
-	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-	// Unknown category.
+	// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
 	CautionPerDomain pulumi.BoolPtrInput
 	// The custom text shown in the EUN
 	CustomText pulumi.StringPtrInput
 	// A Boolean value indicating whether your organization's logo appears in the EUN or not
-	DisplayCompLogo pulumi.BoolPtrInput
+	DisplayCompanyLogo pulumi.BoolPtrInput
 	// A Boolean value indicating whether the organization's name appears in the EUN or not
-	DisplayCompName pulumi.BoolPtrInput
-	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-	// is shown when the respective notification is triggered
+	DisplayCompanyName pulumi.BoolPtrInput
+	// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
 	DisplayReason pulumi.BoolPtrInput
 	// The message that appears in the IdP Proxy notification
 	IdpProxyNotificationText pulumi.StringPtrInput
@@ -382,13 +363,11 @@ type EndUserNotificationArgs struct {
 	QuarantineCustomNotificationText pulumi.StringPtrInput
 	// The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
 	RedirectUrl pulumi.StringPtrInput
-	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-	// users.
+	// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
 	SecurityReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the Security Violation notification is enabled or disabled
 	SecurityReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-	// Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	SecurityReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the Security Violation notification
 	SecurityReviewText pulumi.StringPtrInput
@@ -400,8 +379,7 @@ type EndUserNotificationArgs struct {
 	UrlCatReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the URL Categorization notification is enabled or disabled
 	UrlCatReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	UrlCatReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the URL Categorization notification
 	UrlCatReviewText pulumi.StringPtrInput
@@ -409,8 +387,7 @@ type EndUserNotificationArgs struct {
 	WebDlpReviewCustomLocation pulumi.StringPtrInput
 	// A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
 	WebDlpReviewEnabled pulumi.BoolPtrInput
-	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-	// service (i.e., Security Cloud) or a custom location.
+	// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
 	WebDlpReviewSubmitToSecurityCloud pulumi.BoolPtrInput
 	// The message that appears in the Web DLP Violation notification
 	WebDlpReviewText pulumi.StringPtrInput
@@ -504,75 +481,73 @@ func (o EndUserNotificationOutput) ToEndUserNotificationOutputWithContext(ctx co
 }
 
 // The custom frequency (in days) for showing the AUP to the end users. Valid range is 0 to 180.
-func (o EndUserNotificationOutput) AupCustomFrequency() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.IntOutput { return v.AupCustomFrequency }).(pulumi.IntOutput)
+func (o EndUserNotificationOutput) AupCustomFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.IntPtrOutput { return v.AupCustomFrequency }).(pulumi.IntPtrOutput)
 }
 
 // Specifies which day of the week or month the AUP is shown for users when aupFrequency is set. Valid range is 0 to 31.
-func (o EndUserNotificationOutput) AupDayOffset() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.IntOutput { return v.AupDayOffset }).(pulumi.IntOutput)
+func (o EndUserNotificationOutput) AupDayOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.IntPtrOutput { return v.AupDayOffset }).(pulumi.IntPtrOutput)
 }
 
 // The frequency at which the Acceptable Use Policy (AUP) is shown to the end users
-func (o EndUserNotificationOutput) AupFrequency() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.AupFrequency }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) AupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.AupFrequency }).(pulumi.StringPtrOutput)
 }
 
 // The acceptable use statement that is shown in the AUP
-func (o EndUserNotificationOutput) AupMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.AupMessage }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) AupMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.AupMessage }).(pulumi.StringPtrOutput)
 }
 
 // The time interval at which the caution notification is shown when users continue browsing a restricted site.
-func (o EndUserNotificationOutput) CautionAgainAfter() pulumi.IntOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.IntOutput { return v.CautionAgainAfter }).(pulumi.IntOutput)
+func (o EndUserNotificationOutput) CautionAgainAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.IntPtrOutput { return v.CautionAgainAfter }).(pulumi.IntPtrOutput)
 }
 
 // The custom message that appears in the caution notification
-func (o EndUserNotificationOutput) CautionCustomText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.CautionCustomText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) CautionCustomText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.CautionCustomText }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-// Unknown category.
-func (o EndUserNotificationOutput) CautionPerDomain() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.CautionPerDomain }).(pulumi.BoolOutput)
+// Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
+func (o EndUserNotificationOutput) CautionPerDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.CautionPerDomain }).(pulumi.BoolPtrOutput)
 }
 
 // The custom text shown in the EUN
-func (o EndUserNotificationOutput) CustomText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.CustomText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) CustomText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.CustomText }).(pulumi.StringPtrOutput)
 }
 
 // A Boolean value indicating whether your organization's logo appears in the EUN or not
-func (o EndUserNotificationOutput) DisplayCompLogo() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.DisplayCompLogo }).(pulumi.BoolOutput)
+func (o EndUserNotificationOutput) DisplayCompanyLogo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.DisplayCompanyLogo }).(pulumi.BoolPtrOutput)
 }
 
 // A Boolean value indicating whether the organization's name appears in the EUN or not
-func (o EndUserNotificationOutput) DisplayCompName() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.DisplayCompName }).(pulumi.BoolOutput)
+func (o EndUserNotificationOutput) DisplayCompanyName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.DisplayCompanyName }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-// is shown when the respective notification is triggered
-func (o EndUserNotificationOutput) DisplayReason() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.DisplayReason }).(pulumi.BoolOutput)
+// A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
+func (o EndUserNotificationOutput) DisplayReason() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.DisplayReason }).(pulumi.BoolPtrOutput)
 }
 
 // The message that appears in the IdP Proxy notification
-func (o EndUserNotificationOutput) IdpProxyNotificationText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.IdpProxyNotificationText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) IdpProxyNotificationText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.IdpProxyNotificationText }).(pulumi.StringPtrOutput)
 }
 
 // The type of EUN as default or custom
-func (o EndUserNotificationOutput) NotificationType() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.NotificationType }).(pulumi.StringPtrOutput)
 }
 
 // The URL of the organization's policy page. This field is required for the default notification type.
-func (o EndUserNotificationOutput) OrgPolicyLink() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.OrgPolicyLink }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) OrgPolicyLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.OrgPolicyLink }).(pulumi.StringPtrOutput)
 }
 
 // The message that appears in the quarantine notification
@@ -581,82 +556,78 @@ func (o EndUserNotificationOutput) QuarantineCustomNotificationText() pulumi.Str
 }
 
 // The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
-func (o EndUserNotificationOutput) RedirectUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-// users.
-func (o EndUserNotificationOutput) SecurityReviewCustomLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.SecurityReviewCustomLocation }).(pulumi.StringOutput)
+// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
+func (o EndUserNotificationOutput) SecurityReviewCustomLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.SecurityReviewCustomLocation }).(pulumi.StringPtrOutput)
 }
 
 // A Boolean value indicating whether the Security Violation notification is enabled or disabled
-func (o EndUserNotificationOutput) SecurityReviewEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.SecurityReviewEnabled }).(pulumi.BoolOutput)
+func (o EndUserNotificationOutput) SecurityReviewEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.SecurityReviewEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-// Security Cloud) or a custom location.
-func (o EndUserNotificationOutput) SecurityReviewSubmitToSecurityCloud() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.SecurityReviewSubmitToSecurityCloud }).(pulumi.BoolOutput)
+// A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+func (o EndUserNotificationOutput) SecurityReviewSubmitToSecurityCloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.SecurityReviewSubmitToSecurityCloud }).(pulumi.BoolPtrOutput)
 }
 
 // The message that appears in the Security Violation notification
-func (o EndUserNotificationOutput) SecurityReviewText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.SecurityReviewText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) SecurityReviewText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.SecurityReviewText }).(pulumi.StringPtrOutput)
 }
 
 // The email address for writing to IT Support
-func (o EndUserNotificationOutput) SupportEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.SupportEmail }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) SupportEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.SupportEmail }).(pulumi.StringPtrOutput)
 }
 
 // The phone number for contacting IT Support
-func (o EndUserNotificationOutput) SupportPhone() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.SupportPhone }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) SupportPhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.SupportPhone }).(pulumi.StringPtrOutput)
 }
 
 // A custom URL location where users' review requests for blocked URLs are sent
-func (o EndUserNotificationOutput) UrlCatReviewCustomLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.UrlCatReviewCustomLocation }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) UrlCatReviewCustomLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.UrlCatReviewCustomLocation }).(pulumi.StringPtrOutput)
 }
 
 // A Boolean value indicating whether the URL Categorization notification is enabled or disabled
-func (o EndUserNotificationOutput) UrlCatReviewEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.UrlCatReviewEnabled }).(pulumi.BoolOutput)
+func (o EndUserNotificationOutput) UrlCatReviewEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.UrlCatReviewEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-// service (i.e., Security Cloud) or a custom location.
-func (o EndUserNotificationOutput) UrlCatReviewSubmitToSecurityCloud() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.UrlCatReviewSubmitToSecurityCloud }).(pulumi.BoolOutput)
+// A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+func (o EndUserNotificationOutput) UrlCatReviewSubmitToSecurityCloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.UrlCatReviewSubmitToSecurityCloud }).(pulumi.BoolPtrOutput)
 }
 
 // The message that appears in the URL Categorization notification
-func (o EndUserNotificationOutput) UrlCatReviewText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.UrlCatReviewText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) UrlCatReviewText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.UrlCatReviewText }).(pulumi.StringPtrOutput)
 }
 
 // A custom URL location where users' review requests for the web DLP policy violation are sent
-func (o EndUserNotificationOutput) WebDlpReviewCustomLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.WebDlpReviewCustomLocation }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) WebDlpReviewCustomLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.WebDlpReviewCustomLocation }).(pulumi.StringPtrOutput)
 }
 
 // A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
-func (o EndUserNotificationOutput) WebDlpReviewEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.WebDlpReviewEnabled }).(pulumi.BoolOutput)
+func (o EndUserNotificationOutput) WebDlpReviewEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.WebDlpReviewEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-// service (i.e., Security Cloud) or a custom location.
-func (o EndUserNotificationOutput) WebDlpReviewSubmitToSecurityCloud() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolOutput { return v.WebDlpReviewSubmitToSecurityCloud }).(pulumi.BoolOutput)
+// A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
+func (o EndUserNotificationOutput) WebDlpReviewSubmitToSecurityCloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.BoolPtrOutput { return v.WebDlpReviewSubmitToSecurityCloud }).(pulumi.BoolPtrOutput)
 }
 
 // The message that appears in the Web DLP Violation notification
-func (o EndUserNotificationOutput) WebDlpReviewText() pulumi.StringOutput {
-	return o.ApplyT(func(v *EndUserNotification) pulumi.StringOutput { return v.WebDlpReviewText }).(pulumi.StringOutput)
+func (o EndUserNotificationOutput) WebDlpReviewText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndUserNotification) pulumi.StringPtrOutput { return v.WebDlpReviewText }).(pulumi.StringPtrOutput)
 }
 
 type EndUserNotificationArrayOutput struct{ *pulumi.OutputState }

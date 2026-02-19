@@ -27,10 +27,11 @@ import * as utilities from "./utilities";
  *
  * ### Location Management With Excluded Manual And Dynamic Location Groups
  *
+ * # ZIA SubLocation Management with UFQDN VPN Credential
+ *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_location_management** can be imported by using `<LOCATION_ID>` or `<LOCATION_NAME>` as the import ID.
@@ -76,196 +77,185 @@ export class LocationManagement extends pulumi.CustomResource {
     }
 
     /**
-     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-     * disabled until the user accepts the AUP.
+     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
      */
-    public readonly aupBlockInternetUntilAccepted!: pulumi.Output<boolean>;
+    declare public readonly aupBlockInternetUntilAccepted: pulumi.Output<boolean>;
     /**
      * Enable AUP. When set to true, AUP is enabled for the location.
      */
-    public readonly aupEnabled!: pulumi.Output<boolean>;
+    declare public readonly aupEnabled: pulumi.Output<boolean>;
     /**
-     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-     * for HTTPS traffic.
+     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
      */
-    public readonly aupForceSslInspection!: pulumi.Output<boolean>;
+    declare public readonly aupForceSslInspection: pulumi.Output<boolean>;
     /**
      * Custom AUP Frequency. Refresh time (in days) to re-validate the AUP.
      */
-    public readonly aupTimeoutInDays!: pulumi.Output<number | undefined>;
+    declare public readonly aupTimeoutInDays: pulumi.Output<number | undefined>;
     /**
      * Enforce Authentication. Required when ports are enabled, IP Surrogate is enabled, or Kerberos Authentication is enabled.
      */
-    public readonly authRequired!: pulumi.Output<boolean>;
+    declare public readonly authRequired: pulumi.Output<boolean>;
     /**
      * Enable Basic Authentication at the location
      */
-    public readonly basicAuthEnabled!: pulumi.Output<boolean>;
+    declare public readonly basicAuthEnabled: pulumi.Output<boolean>;
     /**
      * Enable Caution. When set to true, a caution notifcation is enabled for the location.
      */
-    public readonly cautionEnabled!: pulumi.Output<boolean>;
-    public readonly cookiesAndProxy!: pulumi.Output<boolean>;
+    declare public readonly cautionEnabled: pulumi.Output<boolean>;
+    declare public readonly cookiesAndProxy: pulumi.Output<boolean>;
     /**
      * Supported Countries
      */
-    public readonly country!: pulumi.Output<string>;
+    declare public readonly country: pulumi.Output<string>;
     /**
      * Indicates that the DNS server configuration used in the extranet is the designated default DNS server
      */
-    public readonly defaultExtranetDns!: pulumi.Output<boolean>;
+    declare public readonly defaultExtranetDns: pulumi.Output<boolean>;
     /**
      * Indicates that the traffic selector specified in the extranet is the designated default traffic selector
      */
-    public readonly defaultExtranetTsPool!: pulumi.Output<boolean>;
+    declare public readonly defaultExtranetTsPool: pulumi.Output<boolean>;
     /**
      * Additional notes or information regarding the location or sub-location. The description cannot exceed 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Enable Digest Authentication at the location
      */
-    public readonly digestAuthEnabled!: pulumi.Output<boolean>;
+    declare public readonly digestAuthEnabled: pulumi.Output<boolean>;
     /**
      * Display Time Unit. The time unit to display for IP Surrogate idle time to disassociation.
      */
-    public readonly displayTimeUnit!: pulumi.Output<string | undefined>;
+    declare public readonly displayTimeUnit: pulumi.Output<string | undefined>;
     /**
      * Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
      */
-    public readonly dnBandwidth!: pulumi.Output<number | undefined>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    public readonly dynamicLocationGroups!: pulumi.Output<outputs.LocationManagementDynamicLocationGroups>;
-    public readonly excludeFromDynamicGroups!: pulumi.Output<boolean | undefined>;
-    public readonly excludeFromManualGroups!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnBandwidth: pulumi.Output<number | undefined>;
+    declare public readonly excludeFromDynamicGroups: pulumi.Output<boolean | undefined>;
+    declare public readonly excludeFromManualGroups: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the DNS server configuration used in the extranet
      */
-    public readonly extranetDns!: pulumi.Output<outputs.LocationManagementExtranetDn[] | undefined>;
+    declare public readonly extranetDns: pulumi.Output<outputs.LocationManagementExtranetDn[] | undefined>;
     /**
      * The ID of the traffic selector specified in the extranet
      */
-    public readonly extranetIpPools!: pulumi.Output<outputs.LocationManagementExtranetIpPool[] | undefined>;
+    declare public readonly extranetIpPools: pulumi.Output<outputs.LocationManagementExtranetIpPool[] | undefined>;
     /**
      * The ID of the extranet resource that must be assigned to the location
      */
-    public readonly extranets!: pulumi.Output<outputs.LocationManagementExtranet[] | undefined>;
+    declare public readonly extranets: pulumi.Output<outputs.LocationManagementExtranet[] | undefined>;
     /**
      * Idle Time to Disassociation. The user mapping idle time (in minutes) is required if a Surrogate IP is enabled.
      */
-    public readonly idleTimeInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeInMinutes: pulumi.Output<number | undefined>;
     /**
      * Enable IOT Discovery at the location
      */
-    public readonly iotDiscoveryEnabled!: pulumi.Output<boolean>;
-    public readonly iotEnforcePolicySet!: pulumi.Output<boolean>;
+    declare public readonly iotDiscoveryEnabled: pulumi.Output<boolean>;
+    declare public readonly iotEnforcePolicySet: pulumi.Output<boolean>;
     /**
-     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-     * address (e.g., 238.10.33.9).
+     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
      */
-    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
      */
-    public readonly ipsControl!: pulumi.Output<boolean>;
+    declare public readonly ipsControl: pulumi.Output<boolean>;
     /**
-     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-     * prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-     * supported prefixes.
+     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
      */
-    public readonly ipv6Dns64prefix!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6Dns64prefix: pulumi.Output<boolean | undefined>;
     /**
-     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-     * service to enforce security policies.
+     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
      */
-    public readonly ipv6Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6Enabled: pulumi.Output<boolean | undefined>;
     /**
      * Enable Kerberos Authentication at the location
      */
-    public readonly kerberosAuthEnabled!: pulumi.Output<boolean>;
-    public /*out*/ readonly locationId!: pulumi.Output<number>;
+    declare public readonly kerberosAuth: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly locationId: pulumi.Output<number>;
     /**
      * Location Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enable Firewall. When set to true, Firewall is enabled for the location.
      */
-    public readonly ofwEnabled!: pulumi.Output<boolean>;
+    declare public readonly ofwEnabled: pulumi.Output<boolean>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-     * and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
      */
-    public readonly other6Sublocation!: pulumi.Output<boolean>;
+    declare public readonly other6SubLocation: pulumi.Output<boolean | undefined>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-     * and it can be renamed, if required.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
      */
-    public readonly otherSublocation!: pulumi.Output<boolean>;
+    declare public readonly otherSubLocation: pulumi.Output<boolean | undefined>;
     /**
-     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-     * sub-location whose parent has this ID. x-applicableTo: SUB
+     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
      */
-    public readonly parentId!: pulumi.Output<number | undefined>;
+    declare public readonly parentId: pulumi.Output<number | undefined>;
     /**
      * IP ports that are associated with the location.
      */
-    public readonly ports!: pulumi.Output<number[] | undefined>;
+    declare public readonly ports: pulumi.Output<number[] | undefined>;
     /**
      * Profile tag that specifies the location traffic type. If not specified, this tag defaults to `Unassigned`.
      */
-    public readonly profile!: pulumi.Output<string>;
+    declare public readonly profile: pulumi.Output<string>;
     /**
-     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-     * inspect HTTPS transactions for data leakage, malicious content, and viruses.
+     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
      */
-    public readonly sslScanEnabled!: pulumi.Output<boolean>;
+    declare public readonly sslScanEnabled: pulumi.Output<boolean>;
     /**
      * IP ports that are associated with the location.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Name-ID pairs of locations for which rule must be applied
      */
-    public readonly staticLocationGroups!: pulumi.Output<outputs.LocationManagementStaticLocationGroups>;
+    declare public readonly staticLocationGroups: pulumi.Output<outputs.LocationManagementStaticLocationGroups | undefined>;
+    declare public readonly subLocAccIds: pulumi.Output<string[] | undefined>;
+    /**
+     * Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+     */
+    declare public readonly subLocScope: pulumi.Output<string | undefined>;
+    declare public readonly subLocScopeValues: pulumi.Output<string[] | undefined>;
     /**
      * Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
      */
-    public readonly surrogateIp!: pulumi.Output<boolean>;
+    declare public readonly surrogateIp: pulumi.Output<boolean>;
     /**
      * Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
      */
-    public readonly surrogateIpEnforcedForKnownBrowsers!: pulumi.Output<boolean>;
+    declare public readonly surrogateIpEnforcedForKnownBrowsers: pulumi.Output<boolean>;
     /**
      * Refresh Time for re-validation of Surrogacy. The surrogate refresh time (in minutes) to re-validate the IP surrogates.
      */
-    public readonly surrogateRefreshTimeInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly surrogateRefreshTimeInMinutes: pulumi.Output<number | undefined>;
     /**
      * Display Refresh Time Unit. The time unit to display for refresh time for re-validation of surrogacy.
      */
-    public readonly surrogateRefreshTimeUnit!: pulumi.Output<string | undefined>;
+    declare public readonly surrogateRefreshTimeUnit: pulumi.Output<string | undefined>;
     /**
      * Timezone of the location. If not specified, it defaults to GMT.
      */
-    public readonly tz!: pulumi.Output<string>;
+    declare public readonly tz: pulumi.Output<string>;
     /**
      * Upload bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
      */
-    public readonly upBandwidth!: pulumi.Output<number | undefined>;
-    public readonly vpnCredentials!: pulumi.Output<outputs.LocationManagementVpnCredential[] | undefined>;
+    declare public readonly upBandwidth: pulumi.Output<number | undefined>;
+    declare public readonly vpnCredentials: pulumi.Output<outputs.LocationManagementVpnCredential[] | undefined>;
     /**
      * Enable XFF Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
      */
-    public readonly xffForwardEnabled!: pulumi.Output<boolean>;
+    declare public readonly xffForwardEnabled: pulumi.Output<boolean>;
     /**
-     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-     * SSL policy that is configured for the location.
+     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
      */
-    public readonly zappSslScanEnabled!: pulumi.Output<boolean>;
+    declare public readonly zappSslScanEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a LocationManagement resource with the given unique name, arguments, and options.
@@ -280,105 +270,109 @@ export class LocationManagement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocationManagementState | undefined;
-            resourceInputs["aupBlockInternetUntilAccepted"] = state ? state.aupBlockInternetUntilAccepted : undefined;
-            resourceInputs["aupEnabled"] = state ? state.aupEnabled : undefined;
-            resourceInputs["aupForceSslInspection"] = state ? state.aupForceSslInspection : undefined;
-            resourceInputs["aupTimeoutInDays"] = state ? state.aupTimeoutInDays : undefined;
-            resourceInputs["authRequired"] = state ? state.authRequired : undefined;
-            resourceInputs["basicAuthEnabled"] = state ? state.basicAuthEnabled : undefined;
-            resourceInputs["cautionEnabled"] = state ? state.cautionEnabled : undefined;
-            resourceInputs["cookiesAndProxy"] = state ? state.cookiesAndProxy : undefined;
-            resourceInputs["country"] = state ? state.country : undefined;
-            resourceInputs["defaultExtranetDns"] = state ? state.defaultExtranetDns : undefined;
-            resourceInputs["defaultExtranetTsPool"] = state ? state.defaultExtranetTsPool : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["digestAuthEnabled"] = state ? state.digestAuthEnabled : undefined;
-            resourceInputs["displayTimeUnit"] = state ? state.displayTimeUnit : undefined;
-            resourceInputs["dnBandwidth"] = state ? state.dnBandwidth : undefined;
-            resourceInputs["dynamicLocationGroups"] = state ? state.dynamicLocationGroups : undefined;
-            resourceInputs["excludeFromDynamicGroups"] = state ? state.excludeFromDynamicGroups : undefined;
-            resourceInputs["excludeFromManualGroups"] = state ? state.excludeFromManualGroups : undefined;
-            resourceInputs["extranetDns"] = state ? state.extranetDns : undefined;
-            resourceInputs["extranetIpPools"] = state ? state.extranetIpPools : undefined;
-            resourceInputs["extranets"] = state ? state.extranets : undefined;
-            resourceInputs["idleTimeInMinutes"] = state ? state.idleTimeInMinutes : undefined;
-            resourceInputs["iotDiscoveryEnabled"] = state ? state.iotDiscoveryEnabled : undefined;
-            resourceInputs["iotEnforcePolicySet"] = state ? state.iotEnforcePolicySet : undefined;
-            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
-            resourceInputs["ipsControl"] = state ? state.ipsControl : undefined;
-            resourceInputs["ipv6Dns64prefix"] = state ? state.ipv6Dns64prefix : undefined;
-            resourceInputs["ipv6Enabled"] = state ? state.ipv6Enabled : undefined;
-            resourceInputs["kerberosAuthEnabled"] = state ? state.kerberosAuthEnabled : undefined;
-            resourceInputs["locationId"] = state ? state.locationId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ofwEnabled"] = state ? state.ofwEnabled : undefined;
-            resourceInputs["other6Sublocation"] = state ? state.other6Sublocation : undefined;
-            resourceInputs["otherSublocation"] = state ? state.otherSublocation : undefined;
-            resourceInputs["parentId"] = state ? state.parentId : undefined;
-            resourceInputs["ports"] = state ? state.ports : undefined;
-            resourceInputs["profile"] = state ? state.profile : undefined;
-            resourceInputs["sslScanEnabled"] = state ? state.sslScanEnabled : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["staticLocationGroups"] = state ? state.staticLocationGroups : undefined;
-            resourceInputs["surrogateIp"] = state ? state.surrogateIp : undefined;
-            resourceInputs["surrogateIpEnforcedForKnownBrowsers"] = state ? state.surrogateIpEnforcedForKnownBrowsers : undefined;
-            resourceInputs["surrogateRefreshTimeInMinutes"] = state ? state.surrogateRefreshTimeInMinutes : undefined;
-            resourceInputs["surrogateRefreshTimeUnit"] = state ? state.surrogateRefreshTimeUnit : undefined;
-            resourceInputs["tz"] = state ? state.tz : undefined;
-            resourceInputs["upBandwidth"] = state ? state.upBandwidth : undefined;
-            resourceInputs["vpnCredentials"] = state ? state.vpnCredentials : undefined;
-            resourceInputs["xffForwardEnabled"] = state ? state.xffForwardEnabled : undefined;
-            resourceInputs["zappSslScanEnabled"] = state ? state.zappSslScanEnabled : undefined;
+            resourceInputs["aupBlockInternetUntilAccepted"] = state?.aupBlockInternetUntilAccepted;
+            resourceInputs["aupEnabled"] = state?.aupEnabled;
+            resourceInputs["aupForceSslInspection"] = state?.aupForceSslInspection;
+            resourceInputs["aupTimeoutInDays"] = state?.aupTimeoutInDays;
+            resourceInputs["authRequired"] = state?.authRequired;
+            resourceInputs["basicAuthEnabled"] = state?.basicAuthEnabled;
+            resourceInputs["cautionEnabled"] = state?.cautionEnabled;
+            resourceInputs["cookiesAndProxy"] = state?.cookiesAndProxy;
+            resourceInputs["country"] = state?.country;
+            resourceInputs["defaultExtranetDns"] = state?.defaultExtranetDns;
+            resourceInputs["defaultExtranetTsPool"] = state?.defaultExtranetTsPool;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["digestAuthEnabled"] = state?.digestAuthEnabled;
+            resourceInputs["displayTimeUnit"] = state?.displayTimeUnit;
+            resourceInputs["dnBandwidth"] = state?.dnBandwidth;
+            resourceInputs["excludeFromDynamicGroups"] = state?.excludeFromDynamicGroups;
+            resourceInputs["excludeFromManualGroups"] = state?.excludeFromManualGroups;
+            resourceInputs["extranetDns"] = state?.extranetDns;
+            resourceInputs["extranetIpPools"] = state?.extranetIpPools;
+            resourceInputs["extranets"] = state?.extranets;
+            resourceInputs["idleTimeInMinutes"] = state?.idleTimeInMinutes;
+            resourceInputs["iotDiscoveryEnabled"] = state?.iotDiscoveryEnabled;
+            resourceInputs["iotEnforcePolicySet"] = state?.iotEnforcePolicySet;
+            resourceInputs["ipAddresses"] = state?.ipAddresses;
+            resourceInputs["ipsControl"] = state?.ipsControl;
+            resourceInputs["ipv6Dns64prefix"] = state?.ipv6Dns64prefix;
+            resourceInputs["ipv6Enabled"] = state?.ipv6Enabled;
+            resourceInputs["kerberosAuth"] = state?.kerberosAuth;
+            resourceInputs["locationId"] = state?.locationId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ofwEnabled"] = state?.ofwEnabled;
+            resourceInputs["other6SubLocation"] = state?.other6SubLocation;
+            resourceInputs["otherSubLocation"] = state?.otherSubLocation;
+            resourceInputs["parentId"] = state?.parentId;
+            resourceInputs["ports"] = state?.ports;
+            resourceInputs["profile"] = state?.profile;
+            resourceInputs["sslScanEnabled"] = state?.sslScanEnabled;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["staticLocationGroups"] = state?.staticLocationGroups;
+            resourceInputs["subLocAccIds"] = state?.subLocAccIds;
+            resourceInputs["subLocScope"] = state?.subLocScope;
+            resourceInputs["subLocScopeValues"] = state?.subLocScopeValues;
+            resourceInputs["surrogateIp"] = state?.surrogateIp;
+            resourceInputs["surrogateIpEnforcedForKnownBrowsers"] = state?.surrogateIpEnforcedForKnownBrowsers;
+            resourceInputs["surrogateRefreshTimeInMinutes"] = state?.surrogateRefreshTimeInMinutes;
+            resourceInputs["surrogateRefreshTimeUnit"] = state?.surrogateRefreshTimeUnit;
+            resourceInputs["tz"] = state?.tz;
+            resourceInputs["upBandwidth"] = state?.upBandwidth;
+            resourceInputs["vpnCredentials"] = state?.vpnCredentials;
+            resourceInputs["xffForwardEnabled"] = state?.xffForwardEnabled;
+            resourceInputs["zappSslScanEnabled"] = state?.zappSslScanEnabled;
         } else {
             const args = argsOrState as LocationManagementArgs | undefined;
-            resourceInputs["aupBlockInternetUntilAccepted"] = args ? args.aupBlockInternetUntilAccepted : undefined;
-            resourceInputs["aupEnabled"] = args ? args.aupEnabled : undefined;
-            resourceInputs["aupForceSslInspection"] = args ? args.aupForceSslInspection : undefined;
-            resourceInputs["aupTimeoutInDays"] = args ? args.aupTimeoutInDays : undefined;
-            resourceInputs["authRequired"] = args ? args.authRequired : undefined;
-            resourceInputs["basicAuthEnabled"] = args ? args.basicAuthEnabled : undefined;
-            resourceInputs["cautionEnabled"] = args ? args.cautionEnabled : undefined;
-            resourceInputs["cookiesAndProxy"] = args ? args.cookiesAndProxy : undefined;
-            resourceInputs["country"] = args ? args.country : undefined;
-            resourceInputs["defaultExtranetDns"] = args ? args.defaultExtranetDns : undefined;
-            resourceInputs["defaultExtranetTsPool"] = args ? args.defaultExtranetTsPool : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["digestAuthEnabled"] = args ? args.digestAuthEnabled : undefined;
-            resourceInputs["displayTimeUnit"] = args ? args.displayTimeUnit : undefined;
-            resourceInputs["dnBandwidth"] = args ? args.dnBandwidth : undefined;
-            resourceInputs["dynamicLocationGroups"] = args ? args.dynamicLocationGroups : undefined;
-            resourceInputs["excludeFromDynamicGroups"] = args ? args.excludeFromDynamicGroups : undefined;
-            resourceInputs["excludeFromManualGroups"] = args ? args.excludeFromManualGroups : undefined;
-            resourceInputs["extranetDns"] = args ? args.extranetDns : undefined;
-            resourceInputs["extranetIpPools"] = args ? args.extranetIpPools : undefined;
-            resourceInputs["extranets"] = args ? args.extranets : undefined;
-            resourceInputs["idleTimeInMinutes"] = args ? args.idleTimeInMinutes : undefined;
-            resourceInputs["iotDiscoveryEnabled"] = args ? args.iotDiscoveryEnabled : undefined;
-            resourceInputs["iotEnforcePolicySet"] = args ? args.iotEnforcePolicySet : undefined;
-            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            resourceInputs["ipsControl"] = args ? args.ipsControl : undefined;
-            resourceInputs["ipv6Dns64prefix"] = args ? args.ipv6Dns64prefix : undefined;
-            resourceInputs["ipv6Enabled"] = args ? args.ipv6Enabled : undefined;
-            resourceInputs["kerberosAuthEnabled"] = args ? args.kerberosAuthEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ofwEnabled"] = args ? args.ofwEnabled : undefined;
-            resourceInputs["other6Sublocation"] = args ? args.other6Sublocation : undefined;
-            resourceInputs["otherSublocation"] = args ? args.otherSublocation : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["ports"] = args ? args.ports : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["sslScanEnabled"] = args ? args.sslScanEnabled : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["staticLocationGroups"] = args ? args.staticLocationGroups : undefined;
-            resourceInputs["surrogateIp"] = args ? args.surrogateIp : undefined;
-            resourceInputs["surrogateIpEnforcedForKnownBrowsers"] = args ? args.surrogateIpEnforcedForKnownBrowsers : undefined;
-            resourceInputs["surrogateRefreshTimeInMinutes"] = args ? args.surrogateRefreshTimeInMinutes : undefined;
-            resourceInputs["surrogateRefreshTimeUnit"] = args ? args.surrogateRefreshTimeUnit : undefined;
-            resourceInputs["tz"] = args ? args.tz : undefined;
-            resourceInputs["upBandwidth"] = args ? args.upBandwidth : undefined;
-            resourceInputs["vpnCredentials"] = args ? args.vpnCredentials : undefined;
-            resourceInputs["xffForwardEnabled"] = args ? args.xffForwardEnabled : undefined;
-            resourceInputs["zappSslScanEnabled"] = args ? args.zappSslScanEnabled : undefined;
+            resourceInputs["aupBlockInternetUntilAccepted"] = args?.aupBlockInternetUntilAccepted;
+            resourceInputs["aupEnabled"] = args?.aupEnabled;
+            resourceInputs["aupForceSslInspection"] = args?.aupForceSslInspection;
+            resourceInputs["aupTimeoutInDays"] = args?.aupTimeoutInDays;
+            resourceInputs["authRequired"] = args?.authRequired;
+            resourceInputs["basicAuthEnabled"] = args?.basicAuthEnabled;
+            resourceInputs["cautionEnabled"] = args?.cautionEnabled;
+            resourceInputs["cookiesAndProxy"] = args?.cookiesAndProxy;
+            resourceInputs["country"] = args?.country;
+            resourceInputs["defaultExtranetDns"] = args?.defaultExtranetDns;
+            resourceInputs["defaultExtranetTsPool"] = args?.defaultExtranetTsPool;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["digestAuthEnabled"] = args?.digestAuthEnabled;
+            resourceInputs["displayTimeUnit"] = args?.displayTimeUnit;
+            resourceInputs["dnBandwidth"] = args?.dnBandwidth;
+            resourceInputs["excludeFromDynamicGroups"] = args?.excludeFromDynamicGroups;
+            resourceInputs["excludeFromManualGroups"] = args?.excludeFromManualGroups;
+            resourceInputs["extranetDns"] = args?.extranetDns;
+            resourceInputs["extranetIpPools"] = args?.extranetIpPools;
+            resourceInputs["extranets"] = args?.extranets;
+            resourceInputs["idleTimeInMinutes"] = args?.idleTimeInMinutes;
+            resourceInputs["iotDiscoveryEnabled"] = args?.iotDiscoveryEnabled;
+            resourceInputs["iotEnforcePolicySet"] = args?.iotEnforcePolicySet;
+            resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["ipsControl"] = args?.ipsControl;
+            resourceInputs["ipv6Dns64prefix"] = args?.ipv6Dns64prefix;
+            resourceInputs["ipv6Enabled"] = args?.ipv6Enabled;
+            resourceInputs["kerberosAuth"] = args?.kerberosAuth;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ofwEnabled"] = args?.ofwEnabled;
+            resourceInputs["other6SubLocation"] = args?.other6SubLocation;
+            resourceInputs["otherSubLocation"] = args?.otherSubLocation;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["ports"] = args?.ports;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["sslScanEnabled"] = args?.sslScanEnabled;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["staticLocationGroups"] = args?.staticLocationGroups;
+            resourceInputs["subLocAccIds"] = args?.subLocAccIds;
+            resourceInputs["subLocScope"] = args?.subLocScope;
+            resourceInputs["subLocScopeValues"] = args?.subLocScopeValues;
+            resourceInputs["surrogateIp"] = args?.surrogateIp;
+            resourceInputs["surrogateIpEnforcedForKnownBrowsers"] = args?.surrogateIpEnforcedForKnownBrowsers;
+            resourceInputs["surrogateRefreshTimeInMinutes"] = args?.surrogateRefreshTimeInMinutes;
+            resourceInputs["surrogateRefreshTimeUnit"] = args?.surrogateRefreshTimeUnit;
+            resourceInputs["tz"] = args?.tz;
+            resourceInputs["upBandwidth"] = args?.upBandwidth;
+            resourceInputs["vpnCredentials"] = args?.vpnCredentials;
+            resourceInputs["xffForwardEnabled"] = args?.xffForwardEnabled;
+            resourceInputs["zappSslScanEnabled"] = args?.zappSslScanEnabled;
             resourceInputs["locationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -391,8 +385,7 @@ export class LocationManagement extends pulumi.CustomResource {
  */
 export interface LocationManagementState {
     /**
-     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-     * disabled until the user accepts the AUP.
+     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
      */
     aupBlockInternetUntilAccepted?: pulumi.Input<boolean>;
     /**
@@ -400,8 +393,7 @@ export interface LocationManagementState {
      */
     aupEnabled?: pulumi.Input<boolean>;
     /**
-     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-     * for HTTPS traffic.
+     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
      */
     aupForceSslInspection?: pulumi.Input<boolean>;
     /**
@@ -449,10 +441,6 @@ export interface LocationManagementState {
      * Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
      */
     dnBandwidth?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    dynamicLocationGroups?: pulumi.Input<inputs.LocationManagementDynamicLocationGroups>;
     excludeFromDynamicGroups?: pulumi.Input<boolean>;
     excludeFromManualGroups?: pulumi.Input<boolean>;
     /**
@@ -477,8 +465,7 @@ export interface LocationManagementState {
     iotDiscoveryEnabled?: pulumi.Input<boolean>;
     iotEnforcePolicySet?: pulumi.Input<boolean>;
     /**
-     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-     * address (e.g., 238.10.33.9).
+     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
      */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -486,20 +473,17 @@ export interface LocationManagementState {
      */
     ipsControl?: pulumi.Input<boolean>;
     /**
-     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-     * prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-     * supported prefixes.
+     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
      */
     ipv6Dns64prefix?: pulumi.Input<boolean>;
     /**
-     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-     * service to enforce security policies.
+     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
      */
     ipv6Enabled?: pulumi.Input<boolean>;
     /**
      * Enable Kerberos Authentication at the location
      */
-    kerberosAuthEnabled?: pulumi.Input<boolean>;
+    kerberosAuth?: pulumi.Input<boolean>;
     locationId?: pulumi.Input<number>;
     /**
      * Location Name.
@@ -510,20 +494,15 @@ export interface LocationManagementState {
      */
     ofwEnabled?: pulumi.Input<boolean>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-     * and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
      */
-    other6Sublocation?: pulumi.Input<boolean>;
+    other6SubLocation?: pulumi.Input<boolean>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-     * and it can be renamed, if required.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
      */
-    otherSublocation?: pulumi.Input<boolean>;
+    otherSubLocation?: pulumi.Input<boolean>;
     /**
-     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-     * sub-location whose parent has this ID. x-applicableTo: SUB
+     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
      */
     parentId?: pulumi.Input<number>;
     /**
@@ -535,8 +514,7 @@ export interface LocationManagementState {
      */
     profile?: pulumi.Input<string>;
     /**
-     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-     * inspect HTTPS transactions for data leakage, malicious content, and viruses.
+     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
      */
     sslScanEnabled?: pulumi.Input<boolean>;
     /**
@@ -547,6 +525,12 @@ export interface LocationManagementState {
      * Name-ID pairs of locations for which rule must be applied
      */
     staticLocationGroups?: pulumi.Input<inputs.LocationManagementStaticLocationGroups>;
+    subLocAccIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+     */
+    subLocScope?: pulumi.Input<string>;
+    subLocScopeValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
      */
@@ -577,8 +561,7 @@ export interface LocationManagementState {
      */
     xffForwardEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-     * SSL policy that is configured for the location.
+     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
      */
     zappSslScanEnabled?: pulumi.Input<boolean>;
 }
@@ -588,8 +571,7 @@ export interface LocationManagementState {
  */
 export interface LocationManagementArgs {
     /**
-     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-     * disabled until the user accepts the AUP.
+     * For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
      */
     aupBlockInternetUntilAccepted?: pulumi.Input<boolean>;
     /**
@@ -597,8 +579,7 @@ export interface LocationManagementArgs {
      */
     aupEnabled?: pulumi.Input<boolean>;
     /**
-     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-     * for HTTPS traffic.
+     * For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
      */
     aupForceSslInspection?: pulumi.Input<boolean>;
     /**
@@ -646,10 +627,6 @@ export interface LocationManagementArgs {
      * Download bandwidth in bytes. The value 0 implies no Bandwidth Control enforcement.
      */
     dnBandwidth?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    dynamicLocationGroups?: pulumi.Input<inputs.LocationManagementDynamicLocationGroups>;
     excludeFromDynamicGroups?: pulumi.Input<boolean>;
     excludeFromManualGroups?: pulumi.Input<boolean>;
     /**
@@ -674,8 +651,7 @@ export interface LocationManagementArgs {
     iotDiscoveryEnabled?: pulumi.Input<boolean>;
     iotEnforcePolicySet?: pulumi.Input<boolean>;
     /**
-     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-     * address (e.g., 238.10.33.9).
+     * For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
      */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -683,20 +659,17 @@ export interface LocationManagementArgs {
      */
     ipsControl?: pulumi.Input<boolean>;
     /**
-     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-     * prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-     * supported prefixes.
+     * (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
      */
     ipv6Dns64prefix?: pulumi.Input<boolean>;
     /**
-     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-     * service to enforce security policies.
+     * If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
      */
     ipv6Enabled?: pulumi.Input<boolean>;
     /**
      * Enable Kerberos Authentication at the location
      */
-    kerberosAuthEnabled?: pulumi.Input<boolean>;
+    kerberosAuth?: pulumi.Input<boolean>;
     /**
      * Location Name.
      */
@@ -706,20 +679,15 @@ export interface LocationManagementArgs {
      */
     ofwEnabled?: pulumi.Input<boolean>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-     * and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
      */
-    other6Sublocation?: pulumi.Input<boolean>;
+    other6SubLocation?: pulumi.Input<boolean>;
     /**
-     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-     * addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-     * and it can be renamed, if required.
+     * If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
      */
-    otherSublocation?: pulumi.Input<boolean>;
+    otherSubLocation?: pulumi.Input<boolean>;
     /**
-     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-     * sub-location whose parent has this ID. x-applicableTo: SUB
+     * Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
      */
     parentId?: pulumi.Input<number>;
     /**
@@ -731,8 +699,7 @@ export interface LocationManagementArgs {
      */
     profile?: pulumi.Input<string>;
     /**
-     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-     * inspect HTTPS transactions for data leakage, malicious content, and viruses.
+     * Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
      */
     sslScanEnabled?: pulumi.Input<boolean>;
     /**
@@ -743,6 +710,12 @@ export interface LocationManagementArgs {
      * Name-ID pairs of locations for which rule must be applied
      */
     staticLocationGroups?: pulumi.Input<inputs.LocationManagementStaticLocationGroups>;
+    subLocAccIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+     */
+    subLocScope?: pulumi.Input<string>;
+    subLocScopeValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
      */
@@ -773,8 +746,7 @@ export interface LocationManagementArgs {
      */
     xffForwardEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-     * SSL policy that is configured for the location.
+     * Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
      */
     zappSslScanEnabled?: pulumi.Input<boolean>;
 }

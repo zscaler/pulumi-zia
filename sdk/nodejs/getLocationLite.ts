@@ -14,8 +14,7 @@ export function getLocationLite(args?: GetLocationLiteArgs, opts?: pulumi.Invoke
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getLocationLite:getLocationLite", {
-        "digestAuthEnabled": args.digestAuthEnabled,
-        "kerberosAuth": args.kerberosAuth,
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -25,13 +24,9 @@ export function getLocationLite(args?: GetLocationLiteArgs, opts?: pulumi.Invoke
  */
 export interface GetLocationLiteArgs {
     /**
-     * (Boolean)
+     * Unique identifier for the location group
      */
-    digestAuthEnabled?: boolean;
-    /**
-     * (Boolean)
-     */
-    kerberosAuth?: boolean;
+    id?: number;
     /**
      * Location group name
      */
@@ -58,14 +53,6 @@ export interface GetLocationLiteResult {
      * (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
      */
     readonly cautionEnabled: boolean;
-    /**
-     * (Boolean)
-     */
-    readonly digestAuthEnabled?: boolean;
-    /**
-     * (Boolean)
-     */
-    readonly ecLocation: boolean;
     readonly id: number;
     /**
      * (Boolean) Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
@@ -75,10 +62,6 @@ export interface GetLocationLiteResult {
      * (Number) If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
      */
     readonly ipv6Enabled: boolean;
-    /**
-     * (Boolean)
-     */
-    readonly kerberosAuth?: boolean;
     readonly name?: string;
     /**
      * (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
@@ -96,6 +79,10 @@ export interface GetLocationLiteResult {
      * (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
      */
     readonly parentId: number;
+    readonly subLocAccIds: string[];
+    readonly subLocScope: string;
+    readonly subLocScopeEnabled: boolean;
+    readonly subLocScopeValues: string[];
     /**
      * (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
      */
@@ -127,8 +114,7 @@ export function getLocationLiteOutput(args?: GetLocationLiteOutputArgs, opts?: p
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getLocationLite:getLocationLite", {
-        "digestAuthEnabled": args.digestAuthEnabled,
-        "kerberosAuth": args.kerberosAuth,
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -138,13 +124,9 @@ export function getLocationLiteOutput(args?: GetLocationLiteOutputArgs, opts?: p
  */
 export interface GetLocationLiteOutputArgs {
     /**
-     * (Boolean)
+     * Unique identifier for the location group
      */
-    digestAuthEnabled?: pulumi.Input<boolean>;
-    /**
-     * (Boolean)
-     */
-    kerberosAuth?: pulumi.Input<boolean>;
+    id?: pulumi.Input<number>;
     /**
      * Location group name
      */

@@ -23,7 +23,7 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### Type NSS_FOR_WEB
     /// 
-    /// resource "zia.NssServer" "this" {
+    /// resource &lt;span pulumi-lang-nodejs=""zia.NssServer"" pulumi-lang-dotnet=""zia.NssServer"" pulumi-lang-go=""NssServer"" pulumi-lang-python=""NssServer"" pulumi-lang-yaml=""zia.NssServer"" pulumi-lang-java=""zia.NssServer""&gt;"zia.NssServer"&lt;/span&gt; "this" {
     ///     name = "NSSServer01"
     ///     status = "ENABLED"
     ///     type = "NSS_FOR_WEB"
@@ -32,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_nss_server** can be imported by using `&lt;NSS_ID&gt;` or `&lt;NSS_NAME&gt;` as the import ID.

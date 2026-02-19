@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -11,11 +13,16 @@ import * as utilities from "./utilities";
  * Use the **zia_device_groups** data source to get information about a device group in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
  *
  * ## Example Usage
+ *
+ * ### By Name
+ *
+ * ### Return All Groups
  */
 export function getDeviceGroups(args?: GetDeviceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDeviceGroups:getDeviceGroups", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -25,7 +32,11 @@ export function getDeviceGroups(args?: GetDeviceGroupsArgs, opts?: pulumi.Invoke
  */
 export interface GetDeviceGroupsArgs {
     /**
-     * The name of the device group to be exported.
+     * (String) The unique identifer for the device group.
+     */
+    id?: number;
+    /**
+     * The name of the device group to be exported. If not provided, all device groups will be returned.
      */
     name?: string;
 }
@@ -53,7 +64,11 @@ export interface GetDeviceGroupsResult {
     /**
      * (String) The unique identifer for the device group.
      */
-    readonly id: number;
+    readonly id?: number;
+    /**
+     * (List) List of all device groups when no name is specified. Each item in the list contains the same attributes as above.
+     */
+    readonly lists: outputs.GetDeviceGroupsList[];
     /**
      * (String) The device group name.
      */
@@ -74,11 +89,16 @@ export interface GetDeviceGroupsResult {
  * Use the **zia_device_groups** data source to get information about a device group in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
  *
  * ## Example Usage
+ *
+ * ### By Name
+ *
+ * ### Return All Groups
  */
 export function getDeviceGroupsOutput(args?: GetDeviceGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDeviceGroups:getDeviceGroups", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -88,7 +108,11 @@ export function getDeviceGroupsOutput(args?: GetDeviceGroupsOutputArgs, opts?: p
  */
 export interface GetDeviceGroupsOutputArgs {
     /**
-     * The name of the device group to be exported.
+     * (String) The unique identifer for the device group.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * The name of the device group to be exported. If not provided, all device groups will be returned.
      */
     name?: pulumi.Input<string>;
 }

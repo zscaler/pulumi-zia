@@ -18,6 +18,7 @@ export function getWorkloadGroups(args?: GetWorkloadGroupsArgs, opts?: pulumi.In
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getWorkloadGroups:getWorkloadGroups", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -26,6 +27,10 @@ export function getWorkloadGroups(args?: GetWorkloadGroupsArgs, opts?: pulumi.In
  * A collection of arguments for invoking getWorkloadGroups.
  */
 export interface GetWorkloadGroupsArgs {
+    /**
+     * The unique identifer for the workload group.
+     */
+    id?: number;
     /**
      * The name of the workload group to be exported.
      */
@@ -74,6 +79,7 @@ export function getWorkloadGroupsOutput(args?: GetWorkloadGroupsOutputArgs, opts
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getWorkloadGroups:getWorkloadGroups", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -82,6 +88,10 @@ export function getWorkloadGroupsOutput(args?: GetWorkloadGroupsOutputArgs, opts
  * A collection of arguments for invoking getWorkloadGroups.
  */
 export interface GetWorkloadGroupsOutputArgs {
+    /**
+     * The unique identifer for the workload group.
+     */
+    id?: pulumi.Input<number>;
     /**
      * The name of the workload group to be exported.
      */

@@ -11,6 +11,19 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/about-sandbox)
+    /// * [API documentation](https://help.zscaler.com/zia/sandbox-submission-api#/zscsb/submit-post)
+    /// 
+    /// The **zia_sandbox_file_submission** resource submits raw or archive files (e.g., ZIP) to Zscaler's Sandbox for analysis. You can submit up to 100 files per day and it supports all file types that are currently supported by Sandbox. The resource also allows the submissions of raw or archive files to the Zscaler service for out-of-band file inspection to generate real-time verdicts for known and unknown files. It leverages capabilities such as Malware Prevention, Advanced Threat Prevention, Sandbox cloud effect, AI/ML-driven file analysis, and integrated third-party threat intelligence feeds to inspect files and classify them as benign or malicious instantaneously.
+    /// 
+    /// ⚠️ **WARNING 1:**: Zscaler Cloud Sandbox is a subscription service and requires additional license. To learn more, contact Zscaler Support or your local account team.
+    /// 
+    /// ⚠️ **WARNING 2:**: The ZIA Terraform provider requires both the `ZIA_CLOUD` and `ZIA_SANDBOX_TOKEN` in order to authenticate to the Zscaler Cloud Sandbox environment. For details on how obtain the API Token visit the Zscaler help portal [About Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token)
+    /// 
+    /// **Note 1**: After files are sent for analysis, you must use GET /sandbox/report/{md5Hash} in order to retrieve the verdict. You can get the Sandbox report 10 minutes after a file is sent for analysis.
+    /// 
+    /// **Note 2**: All file types that are currently supported by the Malware Protection policy and Advanced Threat Protection policy are supported for inspection, and each file is limited to a size of 400 MB.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Submit Raw Or Archive Files
@@ -33,7 +46,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> FileType { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are `true` or `false`
+        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt; or &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// </summary>
         [Output("force")]
         public Output<bool?> Force { get; private set; } = null!;
@@ -48,7 +61,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> SandboxSubmission { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The submission method to be used. Supportedd values are: `submit` and `discan`
+        /// (Required) The submission method to be used. Supportedd values are: &lt;span pulumi-lang-nodejs="`submit`" pulumi-lang-dotnet="`Submit`" pulumi-lang-go="`submit`" pulumi-lang-python="`submit`" pulumi-lang-yaml="`submit`" pulumi-lang-java="`submit`"&gt;`submit`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`discan`" pulumi-lang-dotnet="`Discan`" pulumi-lang-go="`discan`" pulumi-lang-python="`discan`" pulumi-lang-yaml="`discan`" pulumi-lang-java="`discan`"&gt;`discan`&lt;/span&gt;
         /// </summary>
         [Output("submissionMethod")]
         public Output<string> SubmissionMethod { get; private set; } = null!;
@@ -113,13 +126,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string> FilePath { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are `true` or `false`
+        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt; or &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
 
         /// <summary>
-        /// (Required) The submission method to be used. Supportedd values are: `submit` and `discan`
+        /// (Required) The submission method to be used. Supportedd values are: &lt;span pulumi-lang-nodejs="`submit`" pulumi-lang-dotnet="`Submit`" pulumi-lang-go="`submit`" pulumi-lang-python="`submit`" pulumi-lang-yaml="`submit`" pulumi-lang-java="`submit`"&gt;`submit`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`discan`" pulumi-lang-dotnet="`Discan`" pulumi-lang-go="`discan`" pulumi-lang-python="`discan`" pulumi-lang-yaml="`discan`" pulumi-lang-java="`discan`"&gt;`discan`&lt;/span&gt;
         /// </summary>
         [Input("submissionMethod", required: true)]
         public Input<string> SubmissionMethod { get; set; } = null!;
@@ -145,7 +158,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? FileType { get; set; }
 
         /// <summary>
-        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are `true` or `false`
+        /// (Optional) Submit file to sandbox even if found malicious during AV scan and a verdict already exists. Supported values are &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt; or &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
@@ -160,7 +173,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? SandboxSubmission { get; set; }
 
         /// <summary>
-        /// (Required) The submission method to be used. Supportedd values are: `submit` and `discan`
+        /// (Required) The submission method to be used. Supportedd values are: &lt;span pulumi-lang-nodejs="`submit`" pulumi-lang-dotnet="`Submit`" pulumi-lang-go="`submit`" pulumi-lang-python="`submit`" pulumi-lang-yaml="`submit`" pulumi-lang-java="`submit`"&gt;`submit`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`discan`" pulumi-lang-dotnet="`Discan`" pulumi-lang-go="`discan`" pulumi-lang-python="`discan`" pulumi-lang-yaml="`discan`" pulumi-lang-java="`discan`"&gt;`discan`&lt;/span&gt;
         /// </summary>
         [Input("submissionMethod")]
         public Input<string>? SubmissionMethod { get; set; }

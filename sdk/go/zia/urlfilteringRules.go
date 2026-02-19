@@ -32,8 +32,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_url_filtering_rules** can be imported by using `<RULE_ID>` or `<RULE_NAME>` as the import ID.
 //
@@ -52,9 +51,10 @@ type URLFilteringRules struct {
 	pulumi.CustomResourceState
 
 	// Action taken when traffic matches rule criteria
-	Action        pulumi.StringPtrOutput                 `pulumi:"action"`
-	BlockOverride pulumi.BoolPtrOutput                   `pulumi:"blockOverride"`
-	CbiProfiles   URLFilteringRulesCbiProfileArrayOutput `pulumi:"cbiProfiles"`
+	Action               pulumi.StringPtrOutput                 `pulumi:"action"`
+	BlockOverride        pulumi.BoolPtrOutput                   `pulumi:"blockOverride"`
+	BrowserEunTemplateId pulumi.IntPtrOutput                    `pulumi:"browserEunTemplateId"`
+	CbiProfiles          URLFilteringRulesCbiProfileArrayOutput `pulumi:"cbiProfiles"`
 	// If set to true, the CIPA Compliance rule is enabled
 	Ciparule pulumi.BoolPtrOutput `pulumi:"ciparule"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -63,14 +63,11 @@ type URLFilteringRules struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups URLFilteringRulesDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices URLFilteringRulesDevicesPtrOutput `pulumi:"devices"`
-	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-	// 'overrideGroups' is specified.
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl pulumi.StringPtrOutput `pulumi:"endUserNotificationUrl"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrOutput `pulumi:"enforceTimeValidity"`
@@ -98,18 +95,20 @@ type URLFilteringRules struct {
 	RequestMethods pulumi.StringArrayOutput `pulumi:"requestMethods"`
 	// URL Filtering Rule ID
 	RuleId pulumi.IntOutput `pulumi:"ruleId"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrOutput `pulumi:"sizeQuota"`
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SourceIpGroups URLFilteringRulesSourceIpGroupsPtrOutput `pulumi:"sourceIpGroups"`
 	State          pulumi.StringPtrOutput                   `pulumi:"state"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrOutput `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows URLFilteringRulesTimeWindowsPtrOutput `pulumi:"timeWindows"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the SSL inspection rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
 	// Supported User Agent Types
 	UserAgentTypes      pulumi.StringArrayOutput `pulumi:"userAgentTypes"`
@@ -120,8 +119,8 @@ type URLFilteringRules struct {
 	ValidityEndTime pulumi.StringPtrOutput `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrOutput `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+	// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 	ValidityTimeZoneId pulumi.StringPtrOutput `pulumi:"validityTimeZoneId"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups URLFilteringRulesWorkloadGroupArrayOutput `pulumi:"workloadGroups"`
@@ -164,9 +163,10 @@ func GetURLFilteringRules(ctx *pulumi.Context,
 // Input properties used for looking up and filtering URLFilteringRules resources.
 type urlfilteringRulesState struct {
 	// Action taken when traffic matches rule criteria
-	Action        *string                       `pulumi:"action"`
-	BlockOverride *bool                         `pulumi:"blockOverride"`
-	CbiProfiles   []URLFilteringRulesCbiProfile `pulumi:"cbiProfiles"`
+	Action               *string                       `pulumi:"action"`
+	BlockOverride        *bool                         `pulumi:"blockOverride"`
+	BrowserEunTemplateId *int                          `pulumi:"browserEunTemplateId"`
+	CbiProfiles          []URLFilteringRulesCbiProfile `pulumi:"cbiProfiles"`
 	// If set to true, the CIPA Compliance rule is enabled
 	Ciparule *bool `pulumi:"ciparule"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -175,14 +175,11 @@ type urlfilteringRulesState struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *URLFilteringRulesDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *URLFilteringRulesDevices `pulumi:"devices"`
-	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-	// 'overrideGroups' is specified.
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl *string `pulumi:"endUserNotificationUrl"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
@@ -210,18 +207,20 @@ type urlfilteringRulesState struct {
 	RequestMethods []string `pulumi:"requestMethods"`
 	// URL Filtering Rule ID
 	RuleId *int `pulumi:"ruleId"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota *int `pulumi:"sizeQuota"`
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+	SourceCountries []string `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SourceIpGroups *URLFilteringRulesSourceIpGroups `pulumi:"sourceIpGroups"`
 	State          *string                          `pulumi:"state"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota *int `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows *URLFilteringRulesTimeWindows `pulumi:"timeWindows"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the SSL inspection rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// Supported User Agent Types
 	UserAgentTypes      []string `pulumi:"userAgentTypes"`
@@ -232,8 +231,8 @@ type urlfilteringRulesState struct {
 	ValidityEndTime *string `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime *string `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+	// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 	ValidityTimeZoneId *string `pulumi:"validityTimeZoneId"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []URLFilteringRulesWorkloadGroup `pulumi:"workloadGroups"`
@@ -241,9 +240,10 @@ type urlfilteringRulesState struct {
 
 type URLFilteringRulesState struct {
 	// Action taken when traffic matches rule criteria
-	Action        pulumi.StringPtrInput
-	BlockOverride pulumi.BoolPtrInput
-	CbiProfiles   URLFilteringRulesCbiProfileArrayInput
+	Action               pulumi.StringPtrInput
+	BlockOverride        pulumi.BoolPtrInput
+	BrowserEunTemplateId pulumi.IntPtrInput
+	CbiProfiles          URLFilteringRulesCbiProfileArrayInput
 	// If set to true, the CIPA Compliance rule is enabled
 	Ciparule pulumi.BoolPtrInput
 	// Name-ID pairs of departments for which rule must be applied
@@ -252,14 +252,11 @@ type URLFilteringRulesState struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups URLFilteringRulesDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices URLFilteringRulesDevicesPtrInput
-	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-	// 'overrideGroups' is specified.
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl pulumi.StringPtrInput
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrInput
@@ -287,18 +284,20 @@ type URLFilteringRulesState struct {
 	RequestMethods pulumi.StringArrayInput
 	// URL Filtering Rule ID
 	RuleId pulumi.IntPtrInput
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrInput
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+	SourceCountries pulumi.StringArrayInput
 	// list of source ip groups
 	SourceIpGroups URLFilteringRulesSourceIpGroupsPtrInput
 	State          pulumi.StringPtrInput
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrInput
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows URLFilteringRulesTimeWindowsPtrInput
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the SSL inspection rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// Supported User Agent Types
 	UserAgentTypes      pulumi.StringArrayInput
@@ -309,8 +308,8 @@ type URLFilteringRulesState struct {
 	ValidityEndTime pulumi.StringPtrInput
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrInput
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+	// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 	ValidityTimeZoneId pulumi.StringPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups URLFilteringRulesWorkloadGroupArrayInput
@@ -322,9 +321,10 @@ func (URLFilteringRulesState) ElementType() reflect.Type {
 
 type urlfilteringRulesArgs struct {
 	// Action taken when traffic matches rule criteria
-	Action        *string                       `pulumi:"action"`
-	BlockOverride *bool                         `pulumi:"blockOverride"`
-	CbiProfiles   []URLFilteringRulesCbiProfile `pulumi:"cbiProfiles"`
+	Action               *string                       `pulumi:"action"`
+	BlockOverride        *bool                         `pulumi:"blockOverride"`
+	BrowserEunTemplateId *int                          `pulumi:"browserEunTemplateId"`
+	CbiProfiles          []URLFilteringRulesCbiProfile `pulumi:"cbiProfiles"`
 	// If set to true, the CIPA Compliance rule is enabled
 	Ciparule *bool `pulumi:"ciparule"`
 	// Name-ID pairs of departments for which rule must be applied
@@ -333,14 +333,11 @@ type urlfilteringRulesArgs struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *URLFilteringRulesDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *URLFilteringRulesDevices `pulumi:"devices"`
-	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-	// 'overrideGroups' is specified.
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl *string `pulumi:"endUserNotificationUrl"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
@@ -366,18 +363,20 @@ type urlfilteringRulesArgs struct {
 	Rank *int `pulumi:"rank"`
 	// Request method for which the rule must be applied. If not set, rule will be applied to all methods
 	RequestMethods []string `pulumi:"requestMethods"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota *int `pulumi:"sizeQuota"`
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+	SourceCountries []string `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SourceIpGroups *URLFilteringRulesSourceIpGroups `pulumi:"sourceIpGroups"`
 	State          *string                          `pulumi:"state"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota *int `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows *URLFilteringRulesTimeWindows `pulumi:"timeWindows"`
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the SSL inspection rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// Supported User Agent Types
 	UserAgentTypes      []string `pulumi:"userAgentTypes"`
@@ -388,8 +387,8 @@ type urlfilteringRulesArgs struct {
 	ValidityEndTime *string `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime *string `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+	// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 	ValidityTimeZoneId *string `pulumi:"validityTimeZoneId"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []URLFilteringRulesWorkloadGroup `pulumi:"workloadGroups"`
@@ -398,9 +397,10 @@ type urlfilteringRulesArgs struct {
 // The set of arguments for constructing a URLFilteringRules resource.
 type URLFilteringRulesArgs struct {
 	// Action taken when traffic matches rule criteria
-	Action        pulumi.StringPtrInput
-	BlockOverride pulumi.BoolPtrInput
-	CbiProfiles   URLFilteringRulesCbiProfileArrayInput
+	Action               pulumi.StringPtrInput
+	BlockOverride        pulumi.BoolPtrInput
+	BrowserEunTemplateId pulumi.IntPtrInput
+	CbiProfiles          URLFilteringRulesCbiProfileArrayInput
 	// If set to true, the CIPA Compliance rule is enabled
 	Ciparule pulumi.BoolPtrInput
 	// Name-ID pairs of departments for which rule must be applied
@@ -409,14 +409,11 @@ type URLFilteringRulesArgs struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups URLFilteringRulesDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices URLFilteringRulesDevicesPtrInput
-	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-	// 'overrideGroups' is specified.
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl pulumi.StringPtrInput
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrInput
@@ -442,18 +439,20 @@ type URLFilteringRulesArgs struct {
 	Rank pulumi.IntPtrInput
 	// Request method for which the rule must be applied. If not set, rule will be applied to all methods
 	RequestMethods pulumi.StringArrayInput
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrInput
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+	SourceCountries pulumi.StringArrayInput
 	// list of source ip groups
 	SourceIpGroups URLFilteringRulesSourceIpGroupsPtrInput
 	State          pulumi.StringPtrInput
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrInput
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows URLFilteringRulesTimeWindowsPtrInput
-	// List of URL categories for which rule must be applied
+	// The list of URL Categories to which the SSL inspection rule must be applied.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// Supported User Agent Types
 	UserAgentTypes      pulumi.StringArrayInput
@@ -464,8 +463,8 @@ type URLFilteringRulesArgs struct {
 	ValidityEndTime pulumi.StringPtrInput
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrInput
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+	// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 	ValidityTimeZoneId pulumi.StringPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups URLFilteringRulesWorkloadGroupArrayInput
@@ -567,6 +566,10 @@ func (o URLFilteringRulesOutput) BlockOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.BoolPtrOutput { return v.BlockOverride }).(pulumi.BoolPtrOutput)
 }
 
+func (o URLFilteringRulesOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *URLFilteringRules) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
+}
+
 func (o URLFilteringRulesOutput) CbiProfiles() URLFilteringRulesCbiProfileArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRules) URLFilteringRulesCbiProfileArrayOutput { return v.CbiProfiles }).(URLFilteringRulesCbiProfileArrayOutput)
 }
@@ -591,9 +594,7 @@ func (o URLFilteringRulesOutput) DeviceGroups() URLFilteringRulesDeviceGroupsPtr
 	return o.ApplyT(func(v *URLFilteringRules) URLFilteringRulesDeviceGroupsPtrOutput { return v.DeviceGroups }).(URLFilteringRulesDeviceGroupsPtrOutput)
 }
 
-// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 func (o URLFilteringRulesOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
@@ -603,8 +604,7 @@ func (o URLFilteringRulesOutput) Devices() URLFilteringRulesDevicesPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) URLFilteringRulesDevicesPtrOutput { return v.Devices }).(URLFilteringRulesDevicesPtrOutput)
 }
 
-// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-// 'overrideGroups' is specified.
+// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 func (o URLFilteringRulesOutput) EndUserNotificationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringPtrOutput { return v.EndUserNotificationUrl }).(pulumi.StringPtrOutput)
 }
@@ -674,10 +674,14 @@ func (o URLFilteringRulesOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-// action is set to 'BLOCK', this field is not applicable.
+// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 func (o URLFilteringRulesOutput) SizeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.IntPtrOutput { return v.SizeQuota }).(pulumi.IntPtrOutput)
+}
+
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+func (o URLFilteringRulesOutput) SourceCountries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
 // list of source ip groups
@@ -689,8 +693,7 @@ func (o URLFilteringRulesOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-// action is set to 'BLOCK', this field is not applicable.
+// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 func (o URLFilteringRulesOutput) TimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.IntPtrOutput { return v.TimeQuota }).(pulumi.IntPtrOutput)
 }
@@ -700,7 +703,10 @@ func (o URLFilteringRulesOutput) TimeWindows() URLFilteringRulesTimeWindowsPtrOu
 	return o.ApplyT(func(v *URLFilteringRules) URLFilteringRulesTimeWindowsPtrOutput { return v.TimeWindows }).(URLFilteringRulesTimeWindowsPtrOutput)
 }
 
-// List of URL categories for which rule must be applied
+// The list of URL Categories to which the SSL inspection rule must be applied.
+//
+//	See the URL Categories API for the list of available categories:
+//	https://help.zscaler.com/zia/url-categories#/urlCategories-get
 func (o URLFilteringRulesOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }
@@ -729,8 +735,9 @@ func (o URLFilteringRulesOutput) ValidityStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringPtrOutput { return v.ValidityStartTime }).(pulumi.StringPtrOutput)
 }
 
-// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-// IANA Format TimeZone.
+// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+//
+//	Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
 func (o URLFilteringRulesOutput) ValidityTimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRules) pulumi.StringPtrOutput { return v.ValidityTimeZoneId }).(pulumi.StringPtrOutput)
 }

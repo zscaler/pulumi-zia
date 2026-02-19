@@ -21,10 +21,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_security_settings** can be imported by using `all_urls` as the import ID.
+    /// **zia_security_settings** can be imported by using &lt;span pulumi-lang-nodejs="`allUrls`" pulumi-lang-dotnet="`AllUrls`" pulumi-lang-go="`allUrls`" pulumi-lang-python="`all_urls`" pulumi-lang-yaml="`allUrls`" pulumi-lang-java="`allUrls`"&gt;`all_urls`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -36,7 +35,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class SecuritySettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// URLs on the denylist for your organization. Allow up to 25000 URLs.
+        /// URLs on the denylist for your organization. Allow up to 275000 URLs.
         /// </summary>
         [Output("blacklistUrls")]
         public Output<ImmutableArray<string>> BlacklistUrls { get; private set; } = null!;
@@ -98,7 +97,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _blacklistUrls;
 
         /// <summary>
-        /// URLs on the denylist for your organization. Allow up to 25000 URLs.
+        /// URLs on the denylist for your organization. Allow up to 275000 URLs.
         /// </summary>
         public InputList<string> BlacklistUrls
         {
@@ -130,7 +129,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _blacklistUrls;
 
         /// <summary>
-        /// URLs on the denylist for your organization. Allow up to 25000 URLs.
+        /// URLs on the denylist for your organization. Allow up to 275000 URLs.
         /// </summary>
         public InputList<string> BlacklistUrls
         {

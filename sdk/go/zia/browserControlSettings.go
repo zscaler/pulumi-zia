@@ -23,10 +23,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_browser_control_policy** can be imported by using `browser_settings` as the import ID.
+// **zia_browser_control_policy** can be imported by using `browserSettings` as the import ID.
 //
 // For example:
 //
@@ -36,8 +35,7 @@ import (
 type BrowserControlSettings struct {
 	pulumi.CustomResourceState
 
-	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-	// internet
+	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 	AllowAllBrowsers pulumi.BoolOutput `pulumi:"allowAllBrowsers"`
 	// Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
 	BlockedChromeVersions pulumi.StringArrayOutput `pulumi:"blockedChromeVersions"`
@@ -51,18 +49,15 @@ type BrowserControlSettings struct {
 	BlockedSafariVersions pulumi.StringArrayOutput `pulumi:"blockedSafariVersions"`
 	// If set to true, all the browsers are bypassed for warnings
 	BypassAllBrowsers pulumi.BoolOutput `pulumi:"bypassAllBrowsers"`
-	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-	// attribute is set to true. If not set, all vulnerable applications are warned
+	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 	BypassApplications pulumi.StringArrayOutput `pulumi:"bypassApplications"`
-	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-	// is set to true. If not set, all vulnerable plugins are warned
+	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 	BypassPlugins pulumi.StringArrayOutput `pulumi:"bypassPlugins"`
 	// A Boolean value that specifies if Smart Browser Isolation is enabled
 	EnableSmartBrowserIsolation pulumi.BoolOutput `pulumi:"enableSmartBrowserIsolation"`
 	// A Boolean value that specifies if the warnings are enabled
 	EnableWarnings pulumi.BoolOutput `pulumi:"enableWarnings"`
-	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-	// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 	PluginCheckFrequency pulumi.StringPtrOutput `pulumi:"pluginCheckFrequency"`
 	// Name-ID pairs of groups for which the rule is applied
 	SmartIsolationGroups BrowserControlSettingsSmartIsolationGroupsPtrOutput `pulumi:"smartIsolationGroups"`
@@ -108,8 +103,7 @@ func GetBrowserControlSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BrowserControlSettings resources.
 type browserControlSettingsState struct {
-	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-	// internet
+	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 	AllowAllBrowsers *bool `pulumi:"allowAllBrowsers"`
 	// Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
 	BlockedChromeVersions []string `pulumi:"blockedChromeVersions"`
@@ -123,18 +117,15 @@ type browserControlSettingsState struct {
 	BlockedSafariVersions []string `pulumi:"blockedSafariVersions"`
 	// If set to true, all the browsers are bypassed for warnings
 	BypassAllBrowsers *bool `pulumi:"bypassAllBrowsers"`
-	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-	// attribute is set to true. If not set, all vulnerable applications are warned
+	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 	BypassApplications []string `pulumi:"bypassApplications"`
-	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-	// is set to true. If not set, all vulnerable plugins are warned
+	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 	BypassPlugins []string `pulumi:"bypassPlugins"`
 	// A Boolean value that specifies if Smart Browser Isolation is enabled
 	EnableSmartBrowserIsolation *bool `pulumi:"enableSmartBrowserIsolation"`
 	// A Boolean value that specifies if the warnings are enabled
 	EnableWarnings *bool `pulumi:"enableWarnings"`
-	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-	// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 	PluginCheckFrequency *string `pulumi:"pluginCheckFrequency"`
 	// Name-ID pairs of groups for which the rule is applied
 	SmartIsolationGroups *BrowserControlSettingsSmartIsolationGroups `pulumi:"smartIsolationGroups"`
@@ -145,8 +136,7 @@ type browserControlSettingsState struct {
 }
 
 type BrowserControlSettingsState struct {
-	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-	// internet
+	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 	AllowAllBrowsers pulumi.BoolPtrInput
 	// Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
 	BlockedChromeVersions pulumi.StringArrayInput
@@ -160,18 +150,15 @@ type BrowserControlSettingsState struct {
 	BlockedSafariVersions pulumi.StringArrayInput
 	// If set to true, all the browsers are bypassed for warnings
 	BypassAllBrowsers pulumi.BoolPtrInput
-	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-	// attribute is set to true. If not set, all vulnerable applications are warned
+	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 	BypassApplications pulumi.StringArrayInput
-	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-	// is set to true. If not set, all vulnerable plugins are warned
+	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 	BypassPlugins pulumi.StringArrayInput
 	// A Boolean value that specifies if Smart Browser Isolation is enabled
 	EnableSmartBrowserIsolation pulumi.BoolPtrInput
 	// A Boolean value that specifies if the warnings are enabled
 	EnableWarnings pulumi.BoolPtrInput
-	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-	// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 	PluginCheckFrequency pulumi.StringPtrInput
 	// Name-ID pairs of groups for which the rule is applied
 	SmartIsolationGroups BrowserControlSettingsSmartIsolationGroupsPtrInput
@@ -186,8 +173,7 @@ func (BrowserControlSettingsState) ElementType() reflect.Type {
 }
 
 type browserControlSettingsArgs struct {
-	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-	// internet
+	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 	AllowAllBrowsers *bool `pulumi:"allowAllBrowsers"`
 	// Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
 	BlockedChromeVersions []string `pulumi:"blockedChromeVersions"`
@@ -201,18 +187,15 @@ type browserControlSettingsArgs struct {
 	BlockedSafariVersions []string `pulumi:"blockedSafariVersions"`
 	// If set to true, all the browsers are bypassed for warnings
 	BypassAllBrowsers *bool `pulumi:"bypassAllBrowsers"`
-	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-	// attribute is set to true. If not set, all vulnerable applications are warned
+	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 	BypassApplications []string `pulumi:"bypassApplications"`
-	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-	// is set to true. If not set, all vulnerable plugins are warned
+	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 	BypassPlugins []string `pulumi:"bypassPlugins"`
 	// A Boolean value that specifies if Smart Browser Isolation is enabled
 	EnableSmartBrowserIsolation *bool `pulumi:"enableSmartBrowserIsolation"`
 	// A Boolean value that specifies if the warnings are enabled
 	EnableWarnings *bool `pulumi:"enableWarnings"`
-	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-	// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 	PluginCheckFrequency *string `pulumi:"pluginCheckFrequency"`
 	// Name-ID pairs of groups for which the rule is applied
 	SmartIsolationGroups *BrowserControlSettingsSmartIsolationGroups `pulumi:"smartIsolationGroups"`
@@ -224,8 +207,7 @@ type browserControlSettingsArgs struct {
 
 // The set of arguments for constructing a BrowserControlSettings resource.
 type BrowserControlSettingsArgs struct {
-	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-	// internet
+	// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 	AllowAllBrowsers pulumi.BoolPtrInput
 	// Versions of Google Chrome browser that need to be blocked. If not set, all Google Chrome versions are allowed.
 	BlockedChromeVersions pulumi.StringArrayInput
@@ -239,18 +221,15 @@ type BrowserControlSettingsArgs struct {
 	BlockedSafariVersions pulumi.StringArrayInput
 	// If set to true, all the browsers are bypassed for warnings
 	BypassAllBrowsers pulumi.BoolPtrInput
-	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-	// attribute is set to true. If not set, all vulnerable applications are warned
+	// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 	BypassApplications pulumi.StringArrayInput
-	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-	// is set to true. If not set, all vulnerable plugins are warned
+	// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 	BypassPlugins pulumi.StringArrayInput
 	// A Boolean value that specifies if Smart Browser Isolation is enabled
 	EnableSmartBrowserIsolation pulumi.BoolPtrInput
 	// A Boolean value that specifies if the warnings are enabled
 	EnableWarnings pulumi.BoolPtrInput
-	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-	// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+	// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 	PluginCheckFrequency pulumi.StringPtrInput
 	// Name-ID pairs of groups for which the rule is applied
 	SmartIsolationGroups BrowserControlSettingsSmartIsolationGroupsPtrInput
@@ -347,8 +326,7 @@ func (o BrowserControlSettingsOutput) ToBrowserControlSettingsOutputWithContext(
 	return o
 }
 
-// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-// internet
+// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
 func (o BrowserControlSettingsOutput) AllowAllBrowsers() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.BoolOutput { return v.AllowAllBrowsers }).(pulumi.BoolOutput)
 }
@@ -383,14 +361,12 @@ func (o BrowserControlSettingsOutput) BypassAllBrowsers() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.BoolOutput { return v.BypassAllBrowsers }).(pulumi.BoolOutput)
 }
 
-// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-// attribute is set to true. If not set, all vulnerable applications are warned
+// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
 func (o BrowserControlSettingsOutput) BypassApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.StringArrayOutput { return v.BypassApplications }).(pulumi.StringArrayOutput)
 }
 
-// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-// is set to true. If not set, all vulnerable plugins are warned
+// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
 func (o BrowserControlSettingsOutput) BypassPlugins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.StringArrayOutput { return v.BypassPlugins }).(pulumi.StringArrayOutput)
 }
@@ -405,8 +381,7 @@ func (o BrowserControlSettingsOutput) EnableWarnings() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.BoolOutput { return v.EnableWarnings }).(pulumi.BoolOutput)
 }
 
-// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
 func (o BrowserControlSettingsOutput) PluginCheckFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserControlSettings) pulumi.StringPtrOutput { return v.PluginCheckFrequency }).(pulumi.StringPtrOutput)
 }

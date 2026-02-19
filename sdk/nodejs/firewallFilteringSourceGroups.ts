@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_firewall_filtering_ip_source_groups** can be imported by using `<GROUP_ID>` or `<GROUP_NAME>` as the import ID.
@@ -60,10 +59,10 @@ export class FirewallFilteringSourceGroups extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringSourceGroups.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly groupId!: pulumi.Output<number>;
-    public readonly ipAddresses!: pulumi.Output<string[]>;
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly groupId: pulumi.Output<number>;
+    declare public readonly ipAddresses: pulumi.Output<string[]>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a FirewallFilteringSourceGroups resource with the given unique name, arguments, and options.
@@ -78,18 +77,18 @@ export class FirewallFilteringSourceGroups extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallFilteringSourceGroupsState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["ipAddresses"] = state?.ipAddresses;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as FirewallFilteringSourceGroupsArgs | undefined;
-            if ((!args || args.ipAddresses === undefined) && !opts.urn) {
+            if (args?.ipAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["name"] = args?.name;
             resourceInputs["groupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

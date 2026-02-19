@@ -25,7 +25,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// <summary>
         /// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetURLCategoriesScopeResult(
@@ -33,7 +33,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
             ImmutableArray<Outputs.GetURLCategoriesScopeScopeGroupMemberEntityResult> scopeGroupMemberEntities,
 
-            string type)
+            string? type)
         {
             ScopeEntities = scopeEntities;
             ScopeGroupMemberEntities = scopeGroupMemberEntities;

@@ -25,7 +25,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_rule_labels** can be imported by using `&lt;LABEL_ID&gt;` or `&lt;LABEL_NAME&gt;` as the import ID.
@@ -82,8 +81,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableDictionary<string, string>?> ExtFeaturePermissions { get; private set; } = null!;
 
         /// <summary>
-        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-        /// access, or read-only access.
+        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
         /// </summary>
         [Output("featurePermissions")]
         public Output<ImmutableDictionary<string, string>?> FeaturePermissions { get; private set; } = null!;
@@ -125,9 +123,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> PolicyAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-        /// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-        /// which rule orders this admin can access.
+        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
@@ -252,8 +248,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputMap<string>? _featurePermissions;
 
         /// <summary>
-        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-        /// access, or read-only access.
+        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
         /// </summary>
         public InputMap<string> FeaturePermissions
         {
@@ -304,9 +299,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? PolicyAccess { get; set; }
 
         /// <summary>
-        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-        /// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-        /// which rule orders this admin can access.
+        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -389,8 +382,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputMap<string>? _featurePermissions;
 
         /// <summary>
-        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-        /// access, or read-only access.
+        /// Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
         /// </summary>
         public InputMap<string> FeaturePermissions
         {
@@ -441,9 +433,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? PolicyAccess { get; set; }
 
         /// <summary>
-        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-        /// value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-        /// which rule orders this admin can access.
+        /// Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }

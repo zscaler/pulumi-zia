@@ -29,6 +29,8 @@ func GetGroupManagement(ctx *pulumi.Context, args *GetGroupManagementArgs, opts 
 
 // A collection of arguments for invoking getGroupManagement.
 type GetGroupManagementArgs struct {
+	// Unique identfier for the group.
+	Id *int `pulumi:"id"`
 	// Name of the user group
 	Name *string `pulumi:"name"`
 }
@@ -54,6 +56,8 @@ func GetGroupManagementOutput(ctx *pulumi.Context, args GetGroupManagementOutput
 
 // A collection of arguments for invoking getGroupManagement.
 type GetGroupManagementOutputArgs struct {
+	// Unique identfier for the group.
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the user group
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }

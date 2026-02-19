@@ -31,10 +31,11 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### Location Management With Excluded Manual And Dynamic Location Groups
     /// 
+    /// # ZIA SubLocation Management with UFQDN VPN Credential
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_location_management** can be imported by using `&lt;LOCATION_ID&gt;` or `&lt;LOCATION_NAME&gt;` as the import ID.
@@ -55,8 +56,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class LocationManagement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-        /// disabled until the user accepts the AUP.
+        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
         /// </summary>
         [Output("aupBlockInternetUntilAccepted")]
         public Output<bool> AupBlockInternetUntilAccepted { get; private set; } = null!;
@@ -68,8 +68,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> AupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-        /// for HTTPS traffic.
+        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
         /// </summary>
         [Output("aupForceSslInspection")]
         public Output<bool> AupForceSslInspection { get; private set; } = null!;
@@ -143,12 +142,6 @@ namespace zscaler.PulumiPackage.Zia
         [Output("dnBandwidth")]
         public Output<int?> DnBandwidth { get; private set; } = null!;
 
-        /// <summary>
-        /// Name-ID pairs of locations for which rule must be applied
-        /// </summary>
-        [Output("dynamicLocationGroups")]
-        public Output<Outputs.LocationManagementDynamicLocationGroups> DynamicLocationGroups { get; private set; } = null!;
-
         [Output("excludeFromDynamicGroups")]
         public Output<bool?> ExcludeFromDynamicGroups { get; private set; } = null!;
 
@@ -189,8 +182,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> IotEnforcePolicySet { get; private set; } = null!;
 
         /// <summary>
-        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-        /// address (e.g., 238.10.33.9).
+        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
         /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
@@ -202,16 +194,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> IpsControl { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-        /// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-        /// supported prefixes.
+        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
         /// </summary>
         [Output("ipv6Dns64prefix")]
         public Output<bool?> Ipv6Dns64prefix { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-        /// service to enforce security policies.
+        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
         /// </summary>
         [Output("ipv6Enabled")]
         public Output<bool?> Ipv6Enabled { get; private set; } = null!;
@@ -219,8 +208,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Enable Kerberos Authentication at the location
         /// </summary>
-        [Output("kerberosAuthEnabled")]
-        public Output<bool> KerberosAuthEnabled { get; private set; } = null!;
+        [Output("kerberosAuth")]
+        public Output<bool?> KerberosAuth { get; private set; } = null!;
 
         [Output("locationId")]
         public Output<int> LocationId { get; private set; } = null!;
@@ -238,24 +227,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> OfwEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-        /// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
         /// </summary>
-        [Output("other6Sublocation")]
-        public Output<bool> Other6Sublocation { get; private set; } = null!;
+        [Output("other6SubLocation")]
+        public Output<bool?> Other6SubLocation { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-        /// and it can be renamed, if required.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
         /// </summary>
-        [Output("otherSublocation")]
-        public Output<bool> OtherSublocation { get; private set; } = null!;
+        [Output("otherSubLocation")]
+        public Output<bool?> OtherSubLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-        /// sub-location whose parent has this ID. x-applicableTo: SUB
+        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
         /// </summary>
         [Output("parentId")]
         public Output<int?> ParentId { get; private set; } = null!;
@@ -273,8 +257,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-        /// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
         /// </summary>
         [Output("sslScanEnabled")]
         public Output<bool> SslScanEnabled { get; private set; } = null!;
@@ -283,13 +266,25 @@ namespace zscaler.PulumiPackage.Zia
         /// IP ports that are associated with the location.
         /// </summary>
         [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Name-ID pairs of locations for which rule must be applied
         /// </summary>
         [Output("staticLocationGroups")]
-        public Output<Outputs.LocationManagementStaticLocationGroups> StaticLocationGroups { get; private set; } = null!;
+        public Output<Outputs.LocationManagementStaticLocationGroups?> StaticLocationGroups { get; private set; } = null!;
+
+        [Output("subLocAccIds")]
+        public Output<ImmutableArray<string>> SubLocAccIds { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+        /// </summary>
+        [Output("subLocScope")]
+        public Output<string?> SubLocScope { get; private set; } = null!;
+
+        [Output("subLocScopeValues")]
+        public Output<ImmutableArray<string>> SubLocScopeValues { get; private set; } = null!;
 
         /// <summary>
         /// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
@@ -337,8 +332,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> XffForwardEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-        /// SSL policy that is configured for the location.
+        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
         /// </summary>
         [Output("zappSslScanEnabled")]
         public Output<bool> ZappSslScanEnabled { get; private set; } = null!;
@@ -391,8 +385,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class LocationManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-        /// disabled until the user accepts the AUP.
+        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
         /// </summary>
         [Input("aupBlockInternetUntilAccepted")]
         public Input<bool>? AupBlockInternetUntilAccepted { get; set; }
@@ -404,8 +397,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? AupEnabled { get; set; }
 
         /// <summary>
-        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-        /// for HTTPS traffic.
+        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
         /// </summary>
         [Input("aupForceSslInspection")]
         public Input<bool>? AupForceSslInspection { get; set; }
@@ -478,12 +470,6 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("dnBandwidth")]
         public Input<int>? DnBandwidth { get; set; }
-
-        /// <summary>
-        /// Name-ID pairs of locations for which rule must be applied
-        /// </summary>
-        [Input("dynamicLocationGroups")]
-        public Input<Inputs.LocationManagementDynamicLocationGroupsArgs>? DynamicLocationGroups { get; set; }
 
         [Input("excludeFromDynamicGroups")]
         public Input<bool>? ExcludeFromDynamicGroups { get; set; }
@@ -546,8 +532,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-        /// address (e.g., 238.10.33.9).
+        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
         /// </summary>
         public InputList<string> IpAddresses
         {
@@ -562,16 +547,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? IpsControl { get; set; }
 
         /// <summary>
-        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-        /// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-        /// supported prefixes.
+        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
         /// </summary>
         [Input("ipv6Dns64prefix")]
         public Input<bool>? Ipv6Dns64prefix { get; set; }
 
         /// <summary>
-        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-        /// service to enforce security policies.
+        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
         /// </summary>
         [Input("ipv6Enabled")]
         public Input<bool>? Ipv6Enabled { get; set; }
@@ -579,8 +561,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Enable Kerberos Authentication at the location
         /// </summary>
-        [Input("kerberosAuthEnabled")]
-        public Input<bool>? KerberosAuthEnabled { get; set; }
+        [Input("kerberosAuth")]
+        public Input<bool>? KerberosAuth { get; set; }
 
         /// <summary>
         /// Location Name.
@@ -595,24 +577,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? OfwEnabled { get; set; }
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-        /// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
         /// </summary>
-        [Input("other6Sublocation")]
-        public Input<bool>? Other6Sublocation { get; set; }
+        [Input("other6SubLocation")]
+        public Input<bool>? Other6SubLocation { get; set; }
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-        /// and it can be renamed, if required.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
         /// </summary>
-        [Input("otherSublocation")]
-        public Input<bool>? OtherSublocation { get; set; }
+        [Input("otherSubLocation")]
+        public Input<bool>? OtherSubLocation { get; set; }
 
         /// <summary>
-        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-        /// sub-location whose parent has this ID. x-applicableTo: SUB
+        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
         /// </summary>
         [Input("parentId")]
         public Input<int>? ParentId { get; set; }
@@ -636,8 +613,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-        /// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
         /// </summary>
         [Input("sslScanEnabled")]
         public Input<bool>? SslScanEnabled { get; set; }
@@ -653,6 +629,28 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("staticLocationGroups")]
         public Input<Inputs.LocationManagementStaticLocationGroupsArgs>? StaticLocationGroups { get; set; }
+
+        [Input("subLocAccIds")]
+        private InputList<string>? _subLocAccIds;
+        public InputList<string> SubLocAccIds
+        {
+            get => _subLocAccIds ?? (_subLocAccIds = new InputList<string>());
+            set => _subLocAccIds = value;
+        }
+
+        /// <summary>
+        /// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+        /// </summary>
+        [Input("subLocScope")]
+        public Input<string>? SubLocScope { get; set; }
+
+        [Input("subLocScopeValues")]
+        private InputList<string>? _subLocScopeValues;
+        public InputList<string> SubLocScopeValues
+        {
+            get => _subLocScopeValues ?? (_subLocScopeValues = new InputList<string>());
+            set => _subLocScopeValues = value;
+        }
 
         /// <summary>
         /// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
@@ -705,8 +703,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? XffForwardEnabled { get; set; }
 
         /// <summary>
-        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-        /// SSL policy that is configured for the location.
+        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
         /// </summary>
         [Input("zappSslScanEnabled")]
         public Input<bool>? ZappSslScanEnabled { get; set; }
@@ -720,8 +717,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class LocationManagementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is
-        /// disabled until the user accepts the AUP.
+        /// For First Time AUP Behavior, Block Internet Access. When set, all internet access (including non-HTTP traffic) is disabled until the user accepts the AUP.
         /// </summary>
         [Input("aupBlockInternetUntilAccepted")]
         public Input<bool>? AupBlockInternetUntilAccepted { get; set; }
@@ -733,8 +729,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? AupEnabled { get; set; }
 
         /// <summary>
-        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP
-        /// for HTTPS traffic.
+        /// For First Time AUP Behavior, Force SSL Inspection. When set, Zscaler will force SSL Inspection in order to enforce AUP for HTTPS traffic.
         /// </summary>
         [Input("aupForceSslInspection")]
         public Input<bool>? AupForceSslInspection { get; set; }
@@ -808,12 +803,6 @@ namespace zscaler.PulumiPackage.Zia
         [Input("dnBandwidth")]
         public Input<int>? DnBandwidth { get; set; }
 
-        /// <summary>
-        /// Name-ID pairs of locations for which rule must be applied
-        /// </summary>
-        [Input("dynamicLocationGroups")]
-        public Input<Inputs.LocationManagementDynamicLocationGroupsGetArgs>? DynamicLocationGroups { get; set; }
-
         [Input("excludeFromDynamicGroups")]
         public Input<bool>? ExcludeFromDynamicGroups { get; set; }
 
@@ -875,8 +864,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP
-        /// address (e.g., 238.10.33.9).
+        /// For locations: IP addresses of the egress points that are provisioned in the Zscaler Cloud. Each entry is a single IP address (e.g., 238.10.33.9).
         /// </summary>
         public InputList<string> IpAddresses
         {
@@ -891,16 +879,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? IpsControl { get; set; }
 
         /// <summary>
-        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64
-        /// prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of
-        /// supported prefixes.
+        /// (Optional) Name-ID pair of the NAT64 prefix configured as the DNS64 prefix for the location. If specified, the DNS64 prefix is used for the IP addresses that reside in this location. If not specified, a prefix is selected from the set of supported prefixes.
         /// </summary>
         [Input("ipv6Dns64prefix")]
         public Input<bool>? Ipv6Dns64prefix { get; set; }
 
         /// <summary>
-        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler
-        /// service to enforce security policies.
+        /// If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
         /// </summary>
         [Input("ipv6Enabled")]
         public Input<bool>? Ipv6Enabled { get; set; }
@@ -908,8 +893,8 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Enable Kerberos Authentication at the location
         /// </summary>
-        [Input("kerberosAuthEnabled")]
-        public Input<bool>? KerberosAuthEnabled { get; set; }
+        [Input("kerberosAuth")]
+        public Input<bool>? KerberosAuth { get; set; }
 
         [Input("locationId")]
         public Input<int>? LocationId { get; set; }
@@ -927,24 +912,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? OfwEnabled { get; set; }
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6
-        /// and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true.
         /// </summary>
-        [Input("other6Sublocation")]
-        public Input<bool>? Other6Sublocation { get; set; }
+        [Input("other6SubLocation")]
+        public Input<bool>? Other6SubLocation { get; set; }
 
         /// <summary>
-        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4
-        /// addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other
-        /// and it can be renamed, if required.
+        /// If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
         /// </summary>
-        [Input("otherSublocation")]
-        public Input<bool>? OtherSublocation { get; set; }
+        [Input("otherSubLocation")]
+        public Input<bool>? OtherSubLocation { get; set; }
 
         /// <summary>
-        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a
-        /// sub-location whose parent has this ID. x-applicableTo: SUB
+        /// Parent Location ID. If this ID does not exist or is 0, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: SUB
         /// </summary>
         [Input("parentId")]
         public Input<int>? ParentId { get; set; }
@@ -968,8 +948,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and
-        /// inspect HTTPS transactions for data leakage, malicious content, and viruses.
+        /// Enable SSL Inspection. Set to true in order to apply your SSL Inspection policy to HTTPS traffic in the location and inspect HTTPS transactions for data leakage, malicious content, and viruses.
         /// </summary>
         [Input("sslScanEnabled")]
         public Input<bool>? SslScanEnabled { get; set; }
@@ -985,6 +964,28 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("staticLocationGroups")]
         public Input<Inputs.LocationManagementStaticLocationGroupsGetArgs>? StaticLocationGroups { get; set; }
+
+        [Input("subLocAccIds")]
+        private InputList<string>? _subLocAccIds;
+        public InputList<string> SubLocAccIds
+        {
+            get => _subLocAccIds ?? (_subLocAccIds = new InputList<string>());
+            set => _subLocAccIds = value;
+        }
+
+        /// <summary>
+        /// Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies.
+        /// </summary>
+        [Input("subLocScope")]
+        public Input<string>? SubLocScope { get; set; }
+
+        [Input("subLocScopeValues")]
+        private InputList<string>? _subLocScopeValues;
+        public InputList<string> SubLocScopeValues
+        {
+            get => _subLocScopeValues ?? (_subLocScopeValues = new InputList<string>());
+            set => _subLocScopeValues = value;
+        }
 
         /// <summary>
         /// Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
@@ -1037,8 +1038,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? XffForwardEnabled { get; set; }
 
         /// <summary>
-        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the
-        /// SSL policy that is configured for the location.
+        /// Enable Zscaler App SSL Setting. When set to true, the Zscaler App SSL Scan Setting will take effect, irrespective of the SSL policy that is configured for the location.
         /// </summary>
         [Input("zappSslScanEnabled")]
         public Input<bool>? ZappSslScanEnabled { get; set; }

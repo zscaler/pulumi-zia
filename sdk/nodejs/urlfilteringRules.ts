@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_url_filtering_rules** can be imported by using `<RULE_ID>` or `<RULE_NAME>` as the import ID.
@@ -75,141 +74,143 @@ export class URLFilteringRules extends pulumi.CustomResource {
     /**
      * Action taken when traffic matches rule criteria
      */
-    public readonly action!: pulumi.Output<string | undefined>;
-    public readonly blockOverride!: pulumi.Output<boolean | undefined>;
-    public readonly cbiProfiles!: pulumi.Output<outputs.URLFilteringRulesCbiProfile[] | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
+    declare public readonly blockOverride: pulumi.Output<boolean | undefined>;
+    declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
+    declare public readonly cbiProfiles: pulumi.Output<outputs.URLFilteringRulesCbiProfile[]>;
     /**
      * If set to true, the CIPA Compliance rule is enabled
      */
-    public readonly ciparule!: pulumi.Output<boolean | undefined>;
+    declare public readonly ciparule: pulumi.Output<boolean | undefined>;
     /**
      * Name-ID pairs of departments for which rule must be applied
      */
-    public readonly departments!: pulumi.Output<outputs.URLFilteringRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.URLFilteringRulesDepartments | undefined>;
     /**
      * Additional information about the URL Filtering rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * This field is applicable for devices that are managed using Zscaler Client Connector.
      */
-    public readonly deviceGroups!: pulumi.Output<outputs.URLFilteringRulesDeviceGroups | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<outputs.URLFilteringRulesDeviceGroups | undefined>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
-    public readonly deviceTrustLevels!: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
     /**
      * Name-ID pairs of devices for which rule must be applied.
      */
-    public readonly devices!: pulumi.Output<outputs.URLFilteringRulesDevices | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.URLFilteringRulesDevices | undefined>;
     /**
-     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-     * 'overrideGroups' is specified.
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
      */
-    public readonly endUserNotificationUrl!: pulumi.Output<string | undefined>;
+    declare public readonly endUserNotificationUrl: pulumi.Output<string | undefined>;
     /**
      * Enforce a set a validity time period for the URL Filtering rule.
      */
-    public readonly enforceTimeValidity!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforceTimeValidity: pulumi.Output<boolean | undefined>;
     /**
      * Name-ID pairs of groups for which rule must be applied
      */
-    public readonly groups!: pulumi.Output<outputs.URLFilteringRulesGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.URLFilteringRulesGroups | undefined>;
     /**
      * The URL Filtering rule's label.
      */
-    public readonly labels!: pulumi.Output<outputs.URLFilteringRulesLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.URLFilteringRulesLabels | undefined>;
     /**
      * Name-ID pairs of the location groups to which the rule must be applied.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.URLFilteringRulesLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.URLFilteringRulesLocationGroups | undefined>;
     /**
      * Name-ID pairs of locations for which rule must be applied
      */
-    public readonly locations!: pulumi.Output<outputs.URLFilteringRulesLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.URLFilteringRulesLocations | undefined>;
     /**
      * Name of the Firewall Filtering policy rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Order of execution of rule with respect to other URL Filtering rules
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Name-ID pairs of groups for which this rule can be overridden.
      */
-    public readonly overrideGroups!: pulumi.Output<outputs.URLFilteringRulesOverrideGroups | undefined>;
+    declare public readonly overrideGroups: pulumi.Output<outputs.URLFilteringRulesOverrideGroups | undefined>;
     /**
      * Name-ID pairs of users for which this rule can be overridden.
      */
-    public readonly overrideUsers!: pulumi.Output<outputs.URLFilteringRulesOverrideUsers | undefined>;
+    declare public readonly overrideUsers: pulumi.Output<outputs.URLFilteringRulesOverrideUsers | undefined>;
     /**
      * Protocol criteria. Supported values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`, `SSL_RULE`, `TUNNEL_RULE`, `WEBSOCKETSSL_RULE`, `WEBSOCKET_RULE`,
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * Admin rank of the Firewall Filtering policy rule
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * Request method for which the rule must be applied. If not set, rule will be applied to all methods
      */
-    public readonly requestMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly requestMethods: pulumi.Output<string[] | undefined>;
     /**
      * URL Filtering Rule ID
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
-    public readonly sizeQuota!: pulumi.Output<number | undefined>;
+    declare public readonly sizeQuota: pulumi.Output<number | undefined>;
+    /**
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+     */
+    declare public readonly sourceCountries: pulumi.Output<string[]>;
     /**
      * list of source ip groups
      */
-    public readonly sourceIpGroups!: pulumi.Output<outputs.URLFilteringRulesSourceIpGroups | undefined>;
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly sourceIpGroups: pulumi.Output<outputs.URLFilteringRulesSourceIpGroups | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
-    public readonly timeQuota!: pulumi.Output<number | undefined>;
+    declare public readonly timeQuota: pulumi.Output<number | undefined>;
     /**
      * Name-ID pairs of time interval during which rule must be enforced.
      */
-    public readonly timeWindows!: pulumi.Output<outputs.URLFilteringRulesTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.URLFilteringRulesTimeWindows | undefined>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the SSL inspection rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
-    public readonly urlCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
     /**
      * Supported User Agent Types
      */
-    public readonly userAgentTypes!: pulumi.Output<string[] | undefined>;
-    public readonly userRiskScoreLevels!: pulumi.Output<string[] | undefined>;
+    declare public readonly userAgentTypes: pulumi.Output<string[] | undefined>;
+    declare public readonly userRiskScoreLevels: pulumi.Output<string[] | undefined>;
     /**
      * Name-ID pairs of users for which rule must be applied
      */
-    public readonly users!: pulumi.Output<outputs.URLFilteringRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.URLFilteringRulesUsers | undefined>;
     /**
      * If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
      */
-    public readonly validityEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly validityEndTime: pulumi.Output<string | undefined>;
     /**
      * If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
      */
-    public readonly validityStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly validityStartTime: pulumi.Output<string | undefined>;
     /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-     * IANA Format TimeZone.
+     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+     * 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
      */
-    public readonly validityTimeZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly validityTimeZoneId: pulumi.Output<string | undefined>;
     /**
      * The list of preconfigured workload groups to which the policy must be applied
      */
-    public readonly workloadGroups!: pulumi.Output<outputs.URLFilteringRulesWorkloadGroup[]>;
+    declare public readonly workloadGroups: pulumi.Output<outputs.URLFilteringRulesWorkloadGroup[]>;
 
     /**
      * Create a URLFilteringRules resource with the given unique name, arguments, and options.
@@ -224,85 +225,89 @@ export class URLFilteringRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as URLFilteringRulesState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["blockOverride"] = state ? state.blockOverride : undefined;
-            resourceInputs["cbiProfiles"] = state ? state.cbiProfiles : undefined;
-            resourceInputs["ciparule"] = state ? state.ciparule : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["deviceGroups"] = state ? state.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = state ? state.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["endUserNotificationUrl"] = state ? state.endUserNotificationUrl : undefined;
-            resourceInputs["enforceTimeValidity"] = state ? state.enforceTimeValidity : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["overrideGroups"] = state ? state.overrideGroups : undefined;
-            resourceInputs["overrideUsers"] = state ? state.overrideUsers : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["requestMethods"] = state ? state.requestMethods : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["sizeQuota"] = state ? state.sizeQuota : undefined;
-            resourceInputs["sourceIpGroups"] = state ? state.sourceIpGroups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["timeQuota"] = state ? state.timeQuota : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["userAgentTypes"] = state ? state.userAgentTypes : undefined;
-            resourceInputs["userRiskScoreLevels"] = state ? state.userRiskScoreLevels : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["validityEndTime"] = state ? state.validityEndTime : undefined;
-            resourceInputs["validityStartTime"] = state ? state.validityStartTime : undefined;
-            resourceInputs["validityTimeZoneId"] = state ? state.validityTimeZoneId : undefined;
-            resourceInputs["workloadGroups"] = state ? state.workloadGroups : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["blockOverride"] = state?.blockOverride;
+            resourceInputs["browserEunTemplateId"] = state?.browserEunTemplateId;
+            resourceInputs["cbiProfiles"] = state?.cbiProfiles;
+            resourceInputs["ciparule"] = state?.ciparule;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = state?.deviceTrustLevels;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["endUserNotificationUrl"] = state?.endUserNotificationUrl;
+            resourceInputs["enforceTimeValidity"] = state?.enforceTimeValidity;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["overrideGroups"] = state?.overrideGroups;
+            resourceInputs["overrideUsers"] = state?.overrideUsers;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["requestMethods"] = state?.requestMethods;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["sizeQuota"] = state?.sizeQuota;
+            resourceInputs["sourceCountries"] = state?.sourceCountries;
+            resourceInputs["sourceIpGroups"] = state?.sourceIpGroups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["timeQuota"] = state?.timeQuota;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["userAgentTypes"] = state?.userAgentTypes;
+            resourceInputs["userRiskScoreLevels"] = state?.userRiskScoreLevels;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["validityEndTime"] = state?.validityEndTime;
+            resourceInputs["validityStartTime"] = state?.validityStartTime;
+            resourceInputs["validityTimeZoneId"] = state?.validityTimeZoneId;
+            resourceInputs["workloadGroups"] = state?.workloadGroups;
         } else {
             const args = argsOrState as URLFilteringRulesArgs | undefined;
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.protocols === undefined) && !opts.urn) {
+            if (args?.protocols === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocols'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["blockOverride"] = args ? args.blockOverride : undefined;
-            resourceInputs["cbiProfiles"] = args ? args.cbiProfiles : undefined;
-            resourceInputs["ciparule"] = args ? args.ciparule : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceGroups"] = args ? args.deviceGroups : undefined;
-            resourceInputs["deviceTrustLevels"] = args ? args.deviceTrustLevels : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["endUserNotificationUrl"] = args ? args.endUserNotificationUrl : undefined;
-            resourceInputs["enforceTimeValidity"] = args ? args.enforceTimeValidity : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["overrideGroups"] = args ? args.overrideGroups : undefined;
-            resourceInputs["overrideUsers"] = args ? args.overrideUsers : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["requestMethods"] = args ? args.requestMethods : undefined;
-            resourceInputs["sizeQuota"] = args ? args.sizeQuota : undefined;
-            resourceInputs["sourceIpGroups"] = args ? args.sourceIpGroups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["timeQuota"] = args ? args.timeQuota : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["userAgentTypes"] = args ? args.userAgentTypes : undefined;
-            resourceInputs["userRiskScoreLevels"] = args ? args.userRiskScoreLevels : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["validityEndTime"] = args ? args.validityEndTime : undefined;
-            resourceInputs["validityStartTime"] = args ? args.validityStartTime : undefined;
-            resourceInputs["validityTimeZoneId"] = args ? args.validityTimeZoneId : undefined;
-            resourceInputs["workloadGroups"] = args ? args.workloadGroups : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["blockOverride"] = args?.blockOverride;
+            resourceInputs["browserEunTemplateId"] = args?.browserEunTemplateId;
+            resourceInputs["cbiProfiles"] = args?.cbiProfiles;
+            resourceInputs["ciparule"] = args?.ciparule;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["deviceTrustLevels"] = args?.deviceTrustLevels;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["endUserNotificationUrl"] = args?.endUserNotificationUrl;
+            resourceInputs["enforceTimeValidity"] = args?.enforceTimeValidity;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["overrideGroups"] = args?.overrideGroups;
+            resourceInputs["overrideUsers"] = args?.overrideUsers;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["requestMethods"] = args?.requestMethods;
+            resourceInputs["sizeQuota"] = args?.sizeQuota;
+            resourceInputs["sourceCountries"] = args?.sourceCountries;
+            resourceInputs["sourceIpGroups"] = args?.sourceIpGroups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["timeQuota"] = args?.timeQuota;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["userAgentTypes"] = args?.userAgentTypes;
+            resourceInputs["userRiskScoreLevels"] = args?.userRiskScoreLevels;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["validityEndTime"] = args?.validityEndTime;
+            resourceInputs["validityStartTime"] = args?.validityStartTime;
+            resourceInputs["validityTimeZoneId"] = args?.validityTimeZoneId;
+            resourceInputs["workloadGroups"] = args?.workloadGroups;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -319,6 +324,7 @@ export interface URLFilteringRulesState {
      */
     action?: pulumi.Input<string>;
     blockOverride?: pulumi.Input<boolean>;
+    browserEunTemplateId?: pulumi.Input<number>;
     cbiProfiles?: pulumi.Input<pulumi.Input<inputs.URLFilteringRulesCbiProfile>[]>;
     /**
      * If set to true, the CIPA Compliance rule is enabled
@@ -337,9 +343,7 @@ export interface URLFilteringRulesState {
      */
     deviceGroups?: pulumi.Input<inputs.URLFilteringRulesDeviceGroups>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -347,8 +351,7 @@ export interface URLFilteringRulesState {
      */
     devices?: pulumi.Input<inputs.URLFilteringRulesDevices>;
     /**
-     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-     * 'overrideGroups' is specified.
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
      */
     endUserNotificationUrl?: pulumi.Input<string>;
     /**
@@ -404,18 +407,20 @@ export interface URLFilteringRulesState {
      */
     ruleId?: pulumi.Input<number>;
     /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
     sizeQuota?: pulumi.Input<number>;
+    /**
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+     */
+    sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * list of source ip groups
      */
     sourceIpGroups?: pulumi.Input<inputs.URLFilteringRulesSourceIpGroups>;
     state?: pulumi.Input<string>;
     /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
     timeQuota?: pulumi.Input<number>;
     /**
@@ -423,7 +428,9 @@ export interface URLFilteringRulesState {
      */
     timeWindows?: pulumi.Input<inputs.URLFilteringRulesTimeWindows>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the SSL inspection rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -444,8 +451,8 @@ export interface URLFilteringRulesState {
      */
     validityStartTime?: pulumi.Input<string>;
     /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-     * IANA Format TimeZone.
+     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+     * 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
      */
     validityTimeZoneId?: pulumi.Input<string>;
     /**
@@ -463,6 +470,7 @@ export interface URLFilteringRulesArgs {
      */
     action?: pulumi.Input<string>;
     blockOverride?: pulumi.Input<boolean>;
+    browserEunTemplateId?: pulumi.Input<number>;
     cbiProfiles?: pulumi.Input<pulumi.Input<inputs.URLFilteringRulesCbiProfile>[]>;
     /**
      * If set to true, the CIPA Compliance rule is enabled
@@ -481,9 +489,7 @@ export interface URLFilteringRulesArgs {
      */
     deviceGroups?: pulumi.Input<inputs.URLFilteringRulesDeviceGroups>;
     /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-     * using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-     * Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
      */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -491,8 +497,7 @@ export interface URLFilteringRulesArgs {
      */
     devices?: pulumi.Input<inputs.URLFilteringRulesDevices>;
     /**
-     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-     * 'overrideGroups' is specified.
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
      */
     endUserNotificationUrl?: pulumi.Input<string>;
     /**
@@ -544,18 +549,20 @@ export interface URLFilteringRulesArgs {
      */
     requestMethods?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
     sizeQuota?: pulumi.Input<number>;
+    /**
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+     */
+    sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * list of source ip groups
      */
     sourceIpGroups?: pulumi.Input<inputs.URLFilteringRulesSourceIpGroups>;
     state?: pulumi.Input<string>;
     /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-     * action is set to 'BLOCK', this field is not applicable.
+     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
      */
     timeQuota?: pulumi.Input<number>;
     /**
@@ -563,7 +570,9 @@ export interface URLFilteringRulesArgs {
      */
     timeWindows?: pulumi.Input<inputs.URLFilteringRulesTimeWindows>;
     /**
-     * List of URL categories for which rule must be applied
+     * The list of URL Categories to which the SSL inspection rule must be applied.
+     * 				See the URL Categories API for the list of available categories:
+     * 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -584,8 +593,8 @@ export interface URLFilteringRulesArgs {
      */
     validityStartTime?: pulumi.Input<string>;
     /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-     * IANA Format TimeZone.
+     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+     * 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
      */
     validityTimeZoneId?: pulumi.Input<string>;
     /**

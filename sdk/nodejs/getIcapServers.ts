@@ -16,6 +16,7 @@ export function getIcapServers(args?: GetIcapServersArgs, opts?: pulumi.InvokeOp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getIcapServers:getIcapServers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -24,6 +25,7 @@ export function getIcapServers(args?: GetIcapServersArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getIcapServers.
  */
 export interface GetIcapServersArgs {
+    id?: number;
     name?: string;
 }
 
@@ -48,6 +50,7 @@ export function getIcapServersOutput(args?: GetIcapServersOutputArgs, opts?: pul
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getIcapServers:getIcapServers", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -56,5 +59,6 @@ export function getIcapServersOutput(args?: GetIcapServersOutputArgs, opts?: pul
  * A collection of arguments for invoking getIcapServers.
  */
 export interface GetIcapServersOutputArgs {
+    id?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
 }

@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     {
         public readonly string City;
         /// <summary>
-        /// (String) When within_country is enabled, you must set this to the country code.
+        /// (String) When&lt;span pulumi-lang-nodejs=" withinCountry " pulumi-lang-dotnet=" WithinCountry " pulumi-lang-go=" withinCountry " pulumi-lang-python=" within_country " pulumi-lang-yaml=" withinCountry " pulumi-lang-java=" withinCountry "&gt; within_country &lt;/span&gt;is enabled, you must set this to the country code.
         /// </summary>
         public readonly string CountryCode;
         public readonly string Datacenter;

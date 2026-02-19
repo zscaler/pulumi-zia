@@ -11,16 +11,36 @@ import * as utilities from "./utilities";
  * * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
  *
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
+ *
+ * ## Example Usage
+ *
+ * ### Query A URL Category By Name (Default - All Types)
+ *
+ * ### Query A URL Category By ID
+ *
+ * ### Query A URL_CATEGORY Type
+ *
+ * ### Query A TLD_CATEGORY Type
+ *
+ * ### Query All Category Types (Explicit)
+ *
+ * ### Query Predefined URL Categories
  */
 export function getURLCategories(args?: GetURLCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetURLCategoriesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getURLCategories:getURLCategories", {
+        "categoryGroup": args.categoryGroup,
         "configuredName": args.configuredName,
         "customCategory": args.customCategory,
         "customIpRangesCount": args.customIpRangesCount,
         "id": args.id,
+        "regexPatterns": args.regexPatterns,
+        "regexPatternsRetainingParentCategories": args.regexPatternsRetainingParentCategories,
         "superCategory": args.superCategory,
+        "type": args.type,
+        "urlType": args.urlType,
+        "val": args.val,
     }, opts);
 }
 
@@ -28,6 +48,7 @@ export function getURLCategories(args?: GetURLCategoriesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getURLCategories.
  */
 export interface GetURLCategoriesArgs {
+    categoryGroup?: string;
     /**
      * (String) Name of the URL category. This is only required for custom URL categories.
      */
@@ -41,19 +62,31 @@ export interface GetURLCategoriesArgs {
      */
     customIpRangesCount?: number;
     /**
-     * URL category
+     * (String) Identifier that uniquely identifies an entity
      */
     id?: string;
+    regexPatterns?: string[];
+    regexPatternsRetainingParentCategories?: string[];
     /**
      * (String)
      */
     superCategory?: string;
+    /**
+     * (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+     */
+    type?: string;
+    urlType?: string;
+    /**
+     * (Number) The unique ID for the URL category.
+     */
+    val?: number;
 }
 
 /**
  * A collection of values returned by getURLCategories.
  */
 export interface GetURLCategoriesResult {
+    readonly categoryGroup: string;
     /**
      * (String) Name of the URL category. This is only required for custom URL categories.
      */
@@ -97,6 +130,8 @@ export interface GetURLCategoriesResult {
      */
     readonly keywords: string[];
     readonly keywordsRetainingParentCategories: string[];
+    readonly regexPatterns?: string[];
+    readonly regexPatternsRetainingParentCategories?: string[];
     /**
      * (List of Object) Scope of the custom categories.
      */
@@ -108,11 +143,12 @@ export interface GetURLCategoriesResult {
     /**
      * (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
      */
-    readonly type: string;
+    readonly type?: string;
     /**
      * (List of Object) URL and keyword counts for the category.
      */
     readonly urlKeywordCounts: outputs.GetURLCategoriesUrlKeywordCount[];
+    readonly urlType?: string;
     /**
      * (List of String) Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
      */
@@ -131,16 +167,36 @@ export interface GetURLCategoriesResult {
  * * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
  *
  * Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
+ *
+ * ## Example Usage
+ *
+ * ### Query A URL Category By Name (Default - All Types)
+ *
+ * ### Query A URL Category By ID
+ *
+ * ### Query A URL_CATEGORY Type
+ *
+ * ### Query A TLD_CATEGORY Type
+ *
+ * ### Query All Category Types (Explicit)
+ *
+ * ### Query Predefined URL Categories
  */
 export function getURLCategoriesOutput(args?: GetURLCategoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetURLCategoriesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getURLCategories:getURLCategories", {
+        "categoryGroup": args.categoryGroup,
         "configuredName": args.configuredName,
         "customCategory": args.customCategory,
         "customIpRangesCount": args.customIpRangesCount,
         "id": args.id,
+        "regexPatterns": args.regexPatterns,
+        "regexPatternsRetainingParentCategories": args.regexPatternsRetainingParentCategories,
         "superCategory": args.superCategory,
+        "type": args.type,
+        "urlType": args.urlType,
+        "val": args.val,
     }, opts);
 }
 
@@ -148,6 +204,7 @@ export function getURLCategoriesOutput(args?: GetURLCategoriesOutputArgs, opts?:
  * A collection of arguments for invoking getURLCategories.
  */
 export interface GetURLCategoriesOutputArgs {
+    categoryGroup?: pulumi.Input<string>;
     /**
      * (String) Name of the URL category. This is only required for custom URL categories.
      */
@@ -161,11 +218,22 @@ export interface GetURLCategoriesOutputArgs {
      */
     customIpRangesCount?: pulumi.Input<number>;
     /**
-     * URL category
+     * (String) Identifier that uniquely identifies an entity
      */
     id?: pulumi.Input<string>;
+    regexPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatternsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (String)
      */
     superCategory?: pulumi.Input<string>;
+    /**
+     * (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+     */
+    type?: pulumi.Input<string>;
+    urlType?: pulumi.Input<string>;
+    /**
+     * (Number) The unique ID for the URL category.
+     */
+    val?: pulumi.Input<number>;
 }

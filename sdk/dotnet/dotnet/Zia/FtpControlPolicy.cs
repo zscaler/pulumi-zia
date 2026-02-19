@@ -21,10 +21,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_ftp_control_policy** can be imported by using `ftp_control` as the import ID.
+    /// **zia_ftp_control_policy** can be imported by using &lt;span pulumi-lang-nodejs="`ftpControl`" pulumi-lang-dotnet="`FtpControl`" pulumi-lang-go="`ftpControl`" pulumi-lang-python="`ftp_control`" pulumi-lang-yaml="`ftpControl`" pulumi-lang-java="`ftpControl`"&gt;`ftp_control`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -48,7 +47,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> FtpOverHttpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// List of URL categories that allow FTP traffic.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
@@ -122,7 +123,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// List of URL categories that allow FTP traffic.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -166,7 +169,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// List of URL categories that allow FTP traffic.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {

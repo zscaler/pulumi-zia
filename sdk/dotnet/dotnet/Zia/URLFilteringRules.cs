@@ -31,7 +31,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_url_filtering_rules** can be imported by using `&lt;RULE_ID&gt;` or `&lt;RULE_NAME&gt;` as the import ID.
@@ -59,6 +58,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Output("blockOverride")]
         public Output<bool?> BlockOverride { get; private set; } = null!;
+
+        [Output("browserEunTemplateId")]
+        public Output<int?> BrowserEunTemplateId { get; private set; } = null!;
 
         [Output("cbiProfiles")]
         public Output<ImmutableArray<Outputs.URLFilteringRulesCbiProfile>> CbiProfiles { get; private set; } = null!;
@@ -88,9 +90,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesDeviceGroups?> DeviceGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
@@ -102,8 +102,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesDevices?> Devices { get; private set; } = null!;
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-        /// 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
         /// </summary>
         [Output("endUserNotificationUrl")]
         public Output<string?> EndUserNotificationUrl { get; private set; } = null!;
@@ -187,11 +186,16 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Output("sizeQuota")]
         public Output<int?> SizeQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+        /// </summary>
+        [Output("sourceCountries")]
+        public Output<ImmutableArray<string>> SourceCountries { get; private set; } = null!;
 
         /// <summary>
         /// list of source ip groups
@@ -203,8 +207,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Output("timeQuota")]
         public Output<int?> TimeQuota { get; private set; } = null!;
@@ -216,7 +219,9 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.URLFilteringRulesTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the SSL inspection rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
@@ -249,8 +254,8 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> ValidityStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-        /// IANA Format TimeZone.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+        /// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
         /// </summary>
         [Output("validityTimeZoneId")]
         public Output<string?> ValidityTimeZoneId { get; private set; } = null!;
@@ -317,6 +322,9 @@ namespace zscaler.PulumiPackage.Zia
         [Input("blockOverride")]
         public Input<bool>? BlockOverride { get; set; }
 
+        [Input("browserEunTemplateId")]
+        public Input<int>? BrowserEunTemplateId { get; set; }
+
         [Input("cbiProfiles")]
         private InputList<Inputs.URLFilteringRulesCbiProfileArgs>? _cbiProfiles;
         public InputList<Inputs.URLFilteringRulesCbiProfileArgs> CbiProfiles
@@ -353,9 +361,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -370,8 +376,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesDevicesArgs>? Devices { get; set; }
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-        /// 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
         /// </summary>
         [Input("endUserNotificationUrl")]
         public Input<string>? EndUserNotificationUrl { get; set; }
@@ -461,11 +466,22 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
+
+        [Input("sourceCountries")]
+        private InputList<string>? _sourceCountries;
+
+        /// <summary>
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+        /// </summary>
+        public InputList<string> SourceCountries
+        {
+            get => _sourceCountries ?? (_sourceCountries = new InputList<string>());
+            set => _sourceCountries = value;
+        }
 
         /// <summary>
         /// list of source ip groups
@@ -477,8 +493,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
@@ -493,7 +508,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the SSL inspection rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -540,8 +557,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? ValidityStartTime { get; set; }
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-        /// IANA Format TimeZone.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+        /// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
         /// </summary>
         [Input("validityTimeZoneId")]
         public Input<string>? ValidityTimeZoneId { get; set; }
@@ -574,6 +591,9 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("blockOverride")]
         public Input<bool>? BlockOverride { get; set; }
+
+        [Input("browserEunTemplateId")]
+        public Input<int>? BrowserEunTemplateId { get; set; }
 
         [Input("cbiProfiles")]
         private InputList<Inputs.URLFilteringRulesCbiProfileGetArgs>? _cbiProfiles;
@@ -611,9 +631,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _deviceTrustLevels;
 
         /// <summary>
-        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-        /// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-        /// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+        /// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
         /// </summary>
         public InputList<string> DeviceTrustLevels
         {
@@ -628,8 +646,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.URLFilteringRulesDevicesGetArgs>? Devices { get; set; }
 
         /// <summary>
-        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or
-        /// 'overrideGroups' is specified.
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
         /// </summary>
         [Input("endUserNotificationUrl")]
         public Input<string>? EndUserNotificationUrl { get; set; }
@@ -725,11 +742,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? RuleId { get; set; }
 
         /// <summary>
-        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
+
+        [Input("sourceCountries")]
+        private InputList<string>? _sourceCountries;
+
+        /// <summary>
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
+        /// </summary>
+        public InputList<string> SourceCountries
+        {
+            get => _sourceCountries ?? (_sourceCountries = new InputList<string>());
+            set => _sourceCountries = value;
+        }
 
         /// <summary>
         /// list of source ip groups
@@ -741,8 +769,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-        /// action is set to 'BLOCK', this field is not applicable.
+        /// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
         /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
@@ -757,7 +784,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _urlCategories;
 
         /// <summary>
-        /// List of URL categories for which rule must be applied
+        /// The list of URL Categories to which the SSL inspection rule must be applied.
+        /// 				See the URL Categories API for the list of available categories:
+        /// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
         /// </summary>
         public InputList<string> UrlCategories
         {
@@ -804,8 +833,8 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? ValidityStartTime { get; set; }
 
         /// <summary>
-        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-        /// IANA Format TimeZone.
+        /// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID.
+        /// 				Use IANA Format TimeZone. Visit https://nodatime.org/TimeZones for the complete IANA timezone list
         /// </summary>
         [Input("validityTimeZoneId")]
         public Input<string>? ValidityTimeZoneId { get; set; }

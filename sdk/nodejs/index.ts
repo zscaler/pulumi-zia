@@ -65,6 +65,26 @@ export type AuthSettingsURLs = import("./authSettingsURLs").AuthSettingsURLs;
 export const AuthSettingsURLs: typeof import("./authSettingsURLs").AuthSettingsURLs = null as any;
 utilities.lazyLoad(exports, ["AuthSettingsURLs"], () => require("./authSettingsURLs"));
 
+export { BandwidthControlClassesArgs, BandwidthControlClassesState } from "./bandwidthControlClasses";
+export type BandwidthControlClasses = import("./bandwidthControlClasses").BandwidthControlClasses;
+export const BandwidthControlClasses: typeof import("./bandwidthControlClasses").BandwidthControlClasses = null as any;
+utilities.lazyLoad(exports, ["BandwidthControlClasses"], () => require("./bandwidthControlClasses"));
+
+export { BandwidthControlClassesFileSizeArgs, BandwidthControlClassesFileSizeState } from "./bandwidthControlClassesFileSize";
+export type BandwidthControlClassesFileSize = import("./bandwidthControlClassesFileSize").BandwidthControlClassesFileSize;
+export const BandwidthControlClassesFileSize: typeof import("./bandwidthControlClassesFileSize").BandwidthControlClassesFileSize = null as any;
+utilities.lazyLoad(exports, ["BandwidthControlClassesFileSize"], () => require("./bandwidthControlClassesFileSize"));
+
+export { BandwidthControlClassesWebConferencingArgs, BandwidthControlClassesWebConferencingState } from "./bandwidthControlClassesWebConferencing";
+export type BandwidthControlClassesWebConferencing = import("./bandwidthControlClassesWebConferencing").BandwidthControlClassesWebConferencing;
+export const BandwidthControlClassesWebConferencing: typeof import("./bandwidthControlClassesWebConferencing").BandwidthControlClassesWebConferencing = null as any;
+utilities.lazyLoad(exports, ["BandwidthControlClassesWebConferencing"], () => require("./bandwidthControlClassesWebConferencing"));
+
+export { BandwidthControlRuleArgs, BandwidthControlRuleState } from "./bandwidthControlRule";
+export type BandwidthControlRule = import("./bandwidthControlRule").BandwidthControlRule;
+export const BandwidthControlRule: typeof import("./bandwidthControlRule").BandwidthControlRule = null as any;
+utilities.lazyLoad(exports, ["BandwidthControlRule"], () => require("./bandwidthControlRule"));
+
 export { BrowserControlPolicyArgs, BrowserControlPolicyState } from "./browserControlPolicy";
 export type BrowserControlPolicy = import("./browserControlPolicy").BrowserControlPolicy;
 export const BrowserControlPolicy: typeof import("./browserControlPolicy").BrowserControlPolicy = null as any;
@@ -105,6 +125,21 @@ export type CloudApplicationInstance = import("./cloudApplicationInstance").Clou
 export const CloudApplicationInstance: typeof import("./cloudApplicationInstance").CloudApplicationInstance = null as any;
 utilities.lazyLoad(exports, ["CloudApplicationInstance"], () => require("./cloudApplicationInstance"));
 
+export { CloudNSSFeedArgs, CloudNSSFeedState } from "./cloudNSSFeed";
+export type CloudNSSFeed = import("./cloudNSSFeed").CloudNSSFeed;
+export const CloudNSSFeed: typeof import("./cloudNSSFeed").CloudNSSFeed = null as any;
+utilities.lazyLoad(exports, ["CloudNSSFeed"], () => require("./cloudNSSFeed"));
+
+export { CustomFileTypesArgs, CustomFileTypesState } from "./customFileTypes";
+export type CustomFileTypes = import("./customFileTypes").CustomFileTypes;
+export const CustomFileTypes: typeof import("./customFileTypes").CustomFileTypes = null as any;
+utilities.lazyLoad(exports, ["CustomFileTypes"], () => require("./customFileTypes"));
+
+export { DCExclusionsArgs, DCExclusionsState } from "./dcexclusions";
+export type DCExclusions = import("./dcexclusions").DCExclusions;
+export const DCExclusions: typeof import("./dcexclusions").DCExclusions = null as any;
+utilities.lazyLoad(exports, ["DCExclusions"], () => require("./dcexclusions"));
+
 export { DLPDictionariesArgs, DLPDictionariesState } from "./dlpdictionaries";
 export type DLPDictionaries = import("./dlpdictionaries").DLPDictionaries;
 export const DLPDictionaries: typeof import("./dlpdictionaries").DLPDictionaries = null as any;
@@ -129,6 +164,11 @@ export { EndUserNotificationArgs, EndUserNotificationState } from "./endUserNoti
 export type EndUserNotification = import("./endUserNotification").EndUserNotification;
 export const EndUserNotification: typeof import("./endUserNotification").EndUserNotification = null as any;
 utilities.lazyLoad(exports, ["EndUserNotification"], () => require("./endUserNotification"));
+
+export { ExtranetArgs, ExtranetState } from "./extranet";
+export type Extranet = import("./extranet").Extranet;
+export const Extranet: typeof import("./extranet").Extranet = null as any;
+utilities.lazyLoad(exports, ["Extranet"], () => require("./extranet"));
 
 export { FileTypeControlRulesArgs, FileTypeControlRulesState } from "./fileTypeControlRules";
 export type FileTypeControlRules = import("./fileTypeControlRules").FileTypeControlRules;
@@ -230,6 +270,16 @@ export const getAuthSettingsURLs: typeof import("./getAuthSettingsURLs").getAuth
 export const getAuthSettingsURLsOutput: typeof import("./getAuthSettingsURLs").getAuthSettingsURLsOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthSettingsURLs","getAuthSettingsURLsOutput"], () => require("./getAuthSettingsURLs"));
 
+export { GetBandwidthClassesArgs, GetBandwidthClassesResult, GetBandwidthClassesOutputArgs } from "./getBandwidthClasses";
+export const getBandwidthClasses: typeof import("./getBandwidthClasses").getBandwidthClasses = null as any;
+export const getBandwidthClassesOutput: typeof import("./getBandwidthClasses").getBandwidthClassesOutput = null as any;
+utilities.lazyLoad(exports, ["getBandwidthClasses","getBandwidthClassesOutput"], () => require("./getBandwidthClasses"));
+
+export { GetBandwidthControlRuleArgs, GetBandwidthControlRuleResult, GetBandwidthControlRuleOutputArgs } from "./getBandwidthControlRule";
+export const getBandwidthControlRule: typeof import("./getBandwidthControlRule").getBandwidthControlRule = null as any;
+export const getBandwidthControlRuleOutput: typeof import("./getBandwidthControlRule").getBandwidthControlRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getBandwidthControlRule","getBandwidthControlRuleOutput"], () => require("./getBandwidthControlRule"));
+
 export { GetBrowserControlPolicyResult } from "./getBrowserControlPolicy";
 export const getBrowserControlPolicy: typeof import("./getBrowserControlPolicy").getBrowserControlPolicy = null as any;
 export const getBrowserControlPolicyOutput: typeof import("./getBrowserControlPolicy").getBrowserControlPolicyOutput = null as any;
@@ -275,6 +325,11 @@ export const getCloudAppControlRule: typeof import("./getCloudAppControlRule").g
 export const getCloudAppControlRuleOutput: typeof import("./getCloudAppControlRule").getCloudAppControlRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudAppControlRule","getCloudAppControlRuleOutput"], () => require("./getCloudAppControlRule"));
 
+export { GetCloudAppControlRuleActionsArgs, GetCloudAppControlRuleActionsResult, GetCloudAppControlRuleActionsOutputArgs } from "./getCloudAppControlRuleActions";
+export const getCloudAppControlRuleActions: typeof import("./getCloudAppControlRuleActions").getCloudAppControlRuleActions = null as any;
+export const getCloudAppControlRuleActionsOutput: typeof import("./getCloudAppControlRuleActions").getCloudAppControlRuleActionsOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudAppControlRuleActions","getCloudAppControlRuleActionsOutput"], () => require("./getCloudAppControlRuleActions"));
+
 export { GetCloudApplicationInstanceArgs, GetCloudApplicationInstanceResult, GetCloudApplicationInstanceOutputArgs } from "./getCloudApplicationInstance";
 export const getCloudApplicationInstance: typeof import("./getCloudApplicationInstance").getCloudApplicationInstance = null as any;
 export const getCloudApplicationInstanceOutput: typeof import("./getCloudApplicationInstance").getCloudApplicationInstanceOutput = null as any;
@@ -284,6 +339,21 @@ export { GetCloudApplicationsArgs, GetCloudApplicationsResult, GetCloudApplicati
 export const getCloudApplications: typeof import("./getCloudApplications").getCloudApplications = null as any;
 export const getCloudApplicationsOutput: typeof import("./getCloudApplications").getCloudApplicationsOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudApplications","getCloudApplicationsOutput"], () => require("./getCloudApplications"));
+
+export { GetCloudNSSFeedArgs, GetCloudNSSFeedResult, GetCloudNSSFeedOutputArgs } from "./getCloudNSSFeed";
+export const getCloudNSSFeed: typeof import("./getCloudNSSFeed").getCloudNSSFeed = null as any;
+export const getCloudNSSFeedOutput: typeof import("./getCloudNSSFeed").getCloudNSSFeedOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudNSSFeed","getCloudNSSFeedOutput"], () => require("./getCloudNSSFeed"));
+
+export { GetCustomFileTypesArgs, GetCustomFileTypesResult, GetCustomFileTypesOutputArgs } from "./getCustomFileTypes";
+export const getCustomFileTypes: typeof import("./getCustomFileTypes").getCustomFileTypes = null as any;
+export const getCustomFileTypesOutput: typeof import("./getCustomFileTypes").getCustomFileTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomFileTypes","getCustomFileTypesOutput"], () => require("./getCustomFileTypes"));
+
+export { GetDCExclusionsArgs, GetDCExclusionsResult, GetDCExclusionsOutputArgs } from "./getDCExclusions";
+export const getDCExclusions: typeof import("./getDCExclusions").getDCExclusions = null as any;
+export const getDCExclusionsOutput: typeof import("./getDCExclusions").getDCExclusionsOutput = null as any;
+utilities.lazyLoad(exports, ["getDCExclusions","getDCExclusionsOutput"], () => require("./getDCExclusions"));
 
 export { GetDLPDictionariesArgs, GetDLPDictionariesResult, GetDLPDictionariesOutputArgs } from "./getDLPDictionaries";
 export const getDLPDictionaries: typeof import("./getDLPDictionaries").getDLPDictionaries = null as any;
@@ -325,6 +395,11 @@ export const getDLPWebRules: typeof import("./getDLPWebRules").getDLPWebRules = 
 export const getDLPWebRulesOutput: typeof import("./getDLPWebRules").getDLPWebRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getDLPWebRules","getDLPWebRulesOutput"], () => require("./getDLPWebRules"));
 
+export { GetDatacentersArgs, GetDatacentersResult, GetDatacentersOutputArgs } from "./getDatacenters";
+export const getDatacenters: typeof import("./getDatacenters").getDatacenters = null as any;
+export const getDatacentersOutput: typeof import("./getDatacenters").getDatacentersOutput = null as any;
+utilities.lazyLoad(exports, ["getDatacenters","getDatacentersOutput"], () => require("./getDatacenters"));
+
 export { GetDepartmentManagementArgs, GetDepartmentManagementResult, GetDepartmentManagementOutputArgs } from "./getDepartmentManagement";
 export const getDepartmentManagement: typeof import("./getDepartmentManagement").getDepartmentManagement = null as any;
 export const getDepartmentManagementOutput: typeof import("./getDepartmentManagement").getDepartmentManagementOutput = null as any;
@@ -340,6 +415,11 @@ export const getDevices: typeof import("./getDevices").getDevices = null as any;
 export const getDevicesOutput: typeof import("./getDevices").getDevicesOutput = null as any;
 utilities.lazyLoad(exports, ["getDevices","getDevicesOutput"], () => require("./getDevices"));
 
+export { GetDlpCloudToCloudIrArgs, GetDlpCloudToCloudIrResult, GetDlpCloudToCloudIrOutputArgs } from "./getDlpCloudToCloudIr";
+export const getDlpCloudToCloudIr: typeof import("./getDlpCloudToCloudIr").getDlpCloudToCloudIr = null as any;
+export const getDlpCloudToCloudIrOutput: typeof import("./getDlpCloudToCloudIr").getDlpCloudToCloudIrOutput = null as any;
+utilities.lazyLoad(exports, ["getDlpCloudToCloudIr","getDlpCloudToCloudIrOutput"], () => require("./getDlpCloudToCloudIr"));
+
 export { GetDlpDictionaryPredefinedIdentifiersArgs, GetDlpDictionaryPredefinedIdentifiersResult, GetDlpDictionaryPredefinedIdentifiersOutputArgs } from "./getDlpDictionaryPredefinedIdentifiers";
 export const getDlpDictionaryPredefinedIdentifiers: typeof import("./getDlpDictionaryPredefinedIdentifiers").getDlpDictionaryPredefinedIdentifiers = null as any;
 export const getDlpDictionaryPredefinedIdentifiersOutput: typeof import("./getDlpDictionaryPredefinedIdentifiers").getDlpDictionaryPredefinedIdentifiersOutput = null as any;
@@ -354,6 +434,16 @@ export { GetEndUserNotificationResult } from "./getEndUserNotification";
 export const getEndUserNotification: typeof import("./getEndUserNotification").getEndUserNotification = null as any;
 export const getEndUserNotificationOutput: typeof import("./getEndUserNotification").getEndUserNotificationOutput = null as any;
 utilities.lazyLoad(exports, ["getEndUserNotification","getEndUserNotificationOutput"], () => require("./getEndUserNotification"));
+
+export { GetExtranetArgs, GetExtranetResult, GetExtranetOutputArgs } from "./getExtranet";
+export const getExtranet: typeof import("./getExtranet").getExtranet = null as any;
+export const getExtranetOutput: typeof import("./getExtranet").getExtranetOutput = null as any;
+utilities.lazyLoad(exports, ["getExtranet","getExtranetOutput"], () => require("./getExtranet"));
+
+export { GetFileTypeCategoriesArgs, GetFileTypeCategoriesResult, GetFileTypeCategoriesOutputArgs } from "./getFileTypeCategories";
+export const getFileTypeCategories: typeof import("./getFileTypeCategories").getFileTypeCategories = null as any;
+export const getFileTypeCategoriesOutput: typeof import("./getFileTypeCategories").getFileTypeCategoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getFileTypeCategories","getFileTypeCategoriesOutput"], () => require("./getFileTypeCategories"));
 
 export { GetFileTypeControlRulesArgs, GetFileTypeControlRulesResult, GetFileTypeControlRulesOutputArgs } from "./getFileTypeControlRules";
 export const getFileTypeControlRules: typeof import("./getFileTypeControlRules").getFileTypeControlRules = null as any;
@@ -540,6 +630,11 @@ export const getSecuritySettings: typeof import("./getSecuritySettings").getSecu
 export const getSecuritySettingsOutput: typeof import("./getSecuritySettings").getSecuritySettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getSecuritySettings","getSecuritySettingsOutput"], () => require("./getSecuritySettings"));
 
+export { GetSubCloudArgs, GetSubCloudResult, GetSubCloudOutputArgs } from "./getSubCloud";
+export const getSubCloud: typeof import("./getSubCloud").getSubCloud = null as any;
+export const getSubCloudOutput: typeof import("./getSubCloud").getSubCloudOutput = null as any;
+utilities.lazyLoad(exports, ["getSubCloud","getSubCloudOutput"], () => require("./getSubCloud"));
+
 export { GetSubscriptionAlertArgs, GetSubscriptionAlertResult, GetSubscriptionAlertOutputArgs } from "./getSubscriptionAlert";
 export const getSubscriptionAlert: typeof import("./getSubscriptionAlert").getSubscriptionAlert = null as any;
 export const getSubscriptionAlertOutput: typeof import("./getSubscriptionAlert").getSubscriptionAlertOutput = null as any;
@@ -554,6 +649,11 @@ export { GetTimeWindowArgs, GetTimeWindowResult, GetTimeWindowOutputArgs } from 
 export const getTimeWindow: typeof import("./getTimeWindow").getTimeWindow = null as any;
 export const getTimeWindowOutput: typeof import("./getTimeWindow").getTimeWindowOutput = null as any;
 utilities.lazyLoad(exports, ["getTimeWindow","getTimeWindowOutput"], () => require("./getTimeWindow"));
+
+export { GetTrafficCaptureRulesArgs, GetTrafficCaptureRulesResult, GetTrafficCaptureRulesOutputArgs } from "./getTrafficCaptureRules";
+export const getTrafficCaptureRules: typeof import("./getTrafficCaptureRules").getTrafficCaptureRules = null as any;
+export const getTrafficCaptureRulesOutput: typeof import("./getTrafficCaptureRules").getTrafficCaptureRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficCaptureRules","getTrafficCaptureRulesOutput"], () => require("./getTrafficCaptureRules"));
 
 export { GetTrafficForwardingGREInternalIPRangeArgs, GetTrafficForwardingGREInternalIPRangeResult, GetTrafficForwardingGREInternalIPRangeOutputArgs } from "./getTrafficForwardingGREInternalIPRange";
 export const getTrafficForwardingGREInternalIPRange: typeof import("./getTrafficForwardingGREInternalIPRange").getTrafficForwardingGREInternalIPRange = null as any;
@@ -614,6 +714,11 @@ export { GetVirtualServiceEdgeClusterArgs, GetVirtualServiceEdgeClusterResult, G
 export const getVirtualServiceEdgeCluster: typeof import("./getVirtualServiceEdgeCluster").getVirtualServiceEdgeCluster = null as any;
 export const getVirtualServiceEdgeClusterOutput: typeof import("./getVirtualServiceEdgeCluster").getVirtualServiceEdgeClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualServiceEdgeCluster","getVirtualServiceEdgeClusterOutput"], () => require("./getVirtualServiceEdgeCluster"));
+
+export { GetVirtualServiceEdgeNodeArgs, GetVirtualServiceEdgeNodeResult, GetVirtualServiceEdgeNodeOutputArgs } from "./getVirtualServiceEdgeNode";
+export const getVirtualServiceEdgeNode: typeof import("./getVirtualServiceEdgeNode").getVirtualServiceEdgeNode = null as any;
+export const getVirtualServiceEdgeNodeOutput: typeof import("./getVirtualServiceEdgeNode").getVirtualServiceEdgeNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualServiceEdgeNode","getVirtualServiceEdgeNodeOutput"], () => require("./getVirtualServiceEdgeNode"));
 
 export { GetWorkloadGroupsArgs, GetWorkloadGroupsResult, GetWorkloadGroupsOutputArgs } from "./getWorkloadGroups";
 export const getWorkloadGroups: typeof import("./getWorkloadGroups").getWorkloadGroups = null as any;
@@ -683,10 +788,25 @@ export type SSLInspectionRules = import("./sslinspectionRules").SSLInspectionRul
 export const SSLInspectionRules: typeof import("./sslinspectionRules").SSLInspectionRules = null as any;
 utilities.lazyLoad(exports, ["SSLInspectionRules"], () => require("./sslinspectionRules"));
 
+export { SubCloudArgs, SubCloudState } from "./subCloud";
+export type SubCloud = import("./subCloud").SubCloud;
+export const SubCloud: typeof import("./subCloud").SubCloud = null as any;
+utilities.lazyLoad(exports, ["SubCloud"], () => require("./subCloud"));
+
 export { SubscriptionAlertArgs, SubscriptionAlertState } from "./subscriptionAlert";
 export type SubscriptionAlert = import("./subscriptionAlert").SubscriptionAlert;
 export const SubscriptionAlert: typeof import("./subscriptionAlert").SubscriptionAlert = null as any;
 utilities.lazyLoad(exports, ["SubscriptionAlert"], () => require("./subscriptionAlert"));
+
+export { TenantRestrictionProfileArgs, TenantRestrictionProfileState } from "./tenantRestrictionProfile";
+export type TenantRestrictionProfile = import("./tenantRestrictionProfile").TenantRestrictionProfile;
+export const TenantRestrictionProfile: typeof import("./tenantRestrictionProfile").TenantRestrictionProfile = null as any;
+utilities.lazyLoad(exports, ["TenantRestrictionProfile"], () => require("./tenantRestrictionProfile"));
+
+export { TrafficCaptureRulesArgs, TrafficCaptureRulesState } from "./trafficCaptureRules";
+export type TrafficCaptureRules = import("./trafficCaptureRules").TrafficCaptureRules;
+export const TrafficCaptureRules: typeof import("./trafficCaptureRules").TrafficCaptureRules = null as any;
+utilities.lazyLoad(exports, ["TrafficCaptureRules"], () => require("./trafficCaptureRules"));
 
 export { TrafficForwardingGRETunnelArgs, TrafficForwardingGRETunnelState } from "./trafficForwardingGRETunnel";
 export type TrafficForwardingGRETunnel = import("./trafficForwardingGRETunnel").TrafficForwardingGRETunnel;
@@ -708,6 +828,11 @@ export type URLCategories = import("./urlcategories").URLCategories;
 export const URLCategories: typeof import("./urlcategories").URLCategories = null as any;
 utilities.lazyLoad(exports, ["URLCategories"], () => require("./urlcategories"));
 
+export { URLCategoriesPredefinedArgs, URLCategoriesPredefinedState } from "./urlcategoriesPredefined";
+export type URLCategoriesPredefined = import("./urlcategoriesPredefined").URLCategoriesPredefined;
+export const URLCategoriesPredefined: typeof import("./urlcategoriesPredefined").URLCategoriesPredefined = null as any;
+utilities.lazyLoad(exports, ["URLCategoriesPredefined"], () => require("./urlcategoriesPredefined"));
+
 export { URLFilteringCloudAppSettingsArgs, URLFilteringCloudAppSettingsState } from "./urlfilteringCloudAppSettings";
 export type URLFilteringCloudAppSettings = import("./urlfilteringCloudAppSettings").URLFilteringCloudAppSettings;
 export const URLFilteringCloudAppSettings: typeof import("./urlfilteringCloudAppSettings").URLFilteringCloudAppSettings = null as any;
@@ -727,6 +852,16 @@ export { VirtualServiceEdgeClusterArgs, VirtualServiceEdgeClusterState } from ".
 export type VirtualServiceEdgeCluster = import("./virtualServiceEdgeCluster").VirtualServiceEdgeCluster;
 export const VirtualServiceEdgeCluster: typeof import("./virtualServiceEdgeCluster").VirtualServiceEdgeCluster = null as any;
 utilities.lazyLoad(exports, ["VirtualServiceEdgeCluster"], () => require("./virtualServiceEdgeCluster"));
+
+export { VirtualServiceEdgeNodeArgs, VirtualServiceEdgeNodeState } from "./virtualServiceEdgeNode";
+export type VirtualServiceEdgeNode = import("./virtualServiceEdgeNode").VirtualServiceEdgeNode;
+export const VirtualServiceEdgeNode: typeof import("./virtualServiceEdgeNode").VirtualServiceEdgeNode = null as any;
+utilities.lazyLoad(exports, ["VirtualServiceEdgeNode"], () => require("./virtualServiceEdgeNode"));
+
+export { WorkloadGroupsArgs, WorkloadGroupsState } from "./workloadGroups";
+export type WorkloadGroups = import("./workloadGroups").WorkloadGroups;
+export const WorkloadGroups: typeof import("./workloadGroups").WorkloadGroups = null as any;
+utilities.lazyLoad(exports, ["WorkloadGroups"], () => require("./workloadGroups"));
 
 
 // Export sub-modules:
@@ -766,6 +901,14 @@ const _module = {
                 return new AdvancedThreatSettings(name, <any>undefined, { urn })
             case "zia:index/authSettingsURLs:AuthSettingsURLs":
                 return new AuthSettingsURLs(name, <any>undefined, { urn })
+            case "zia:index/bandwidthControlClasses:BandwidthControlClasses":
+                return new BandwidthControlClasses(name, <any>undefined, { urn })
+            case "zia:index/bandwidthControlClassesFileSize:BandwidthControlClassesFileSize":
+                return new BandwidthControlClassesFileSize(name, <any>undefined, { urn })
+            case "zia:index/bandwidthControlClassesWebConferencing:BandwidthControlClassesWebConferencing":
+                return new BandwidthControlClassesWebConferencing(name, <any>undefined, { urn })
+            case "zia:index/bandwidthControlRule:BandwidthControlRule":
+                return new BandwidthControlRule(name, <any>undefined, { urn })
             case "zia:index/browserControlPolicy:BrowserControlPolicy":
                 return new BrowserControlPolicy(name, <any>undefined, { urn })
             case "zia:index/browserControlSettings:BrowserControlSettings":
@@ -782,6 +925,12 @@ const _module = {
                 return new CloudAppControlRule(name, <any>undefined, { urn })
             case "zia:index/cloudApplicationInstance:CloudApplicationInstance":
                 return new CloudApplicationInstance(name, <any>undefined, { urn })
+            case "zia:index/cloudNSSFeed:CloudNSSFeed":
+                return new CloudNSSFeed(name, <any>undefined, { urn })
+            case "zia:index/customFileTypes:CustomFileTypes":
+                return new CustomFileTypes(name, <any>undefined, { urn })
+            case "zia:index/dCExclusions:DCExclusions":
+                return new DCExclusions(name, <any>undefined, { urn })
             case "zia:index/dLPDictionaries:DLPDictionaries":
                 return new DLPDictionaries(name, <any>undefined, { urn })
             case "zia:index/dLPEngines:DLPEngines":
@@ -792,6 +941,8 @@ const _module = {
                 return new DLPWebRules(name, <any>undefined, { urn })
             case "zia:index/endUserNotification:EndUserNotification":
                 return new EndUserNotification(name, <any>undefined, { urn })
+            case "zia:index/extranet:Extranet":
+                return new Extranet(name, <any>undefined, { urn })
             case "zia:index/fileTypeControlRules:FileTypeControlRules":
                 return new FileTypeControlRules(name, <any>undefined, { urn })
             case "zia:index/firewallDNSRule:FirewallDNSRule":
@@ -840,8 +991,14 @@ const _module = {
                 return new SandboxRules(name, <any>undefined, { urn })
             case "zia:index/securitySettings:SecuritySettings":
                 return new SecuritySettings(name, <any>undefined, { urn })
+            case "zia:index/subCloud:SubCloud":
+                return new SubCloud(name, <any>undefined, { urn })
             case "zia:index/subscriptionAlert:SubscriptionAlert":
                 return new SubscriptionAlert(name, <any>undefined, { urn })
+            case "zia:index/tenantRestrictionProfile:TenantRestrictionProfile":
+                return new TenantRestrictionProfile(name, <any>undefined, { urn })
+            case "zia:index/trafficCaptureRules:TrafficCaptureRules":
+                return new TrafficCaptureRules(name, <any>undefined, { urn })
             case "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel":
                 return new TrafficForwardingGRETunnel(name, <any>undefined, { urn })
             case "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP":
@@ -850,6 +1007,8 @@ const _module = {
                 return new TrafficForwardingVPNCredentials(name, <any>undefined, { urn })
             case "zia:index/uRLCategories:URLCategories":
                 return new URLCategories(name, <any>undefined, { urn })
+            case "zia:index/uRLCategoriesPredefined:URLCategoriesPredefined":
+                return new URLCategoriesPredefined(name, <any>undefined, { urn })
             case "zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings":
                 return new URLFilteringCloudAppSettings(name, <any>undefined, { urn })
             case "zia:index/uRLFilteringRules:URLFilteringRules":
@@ -858,6 +1017,10 @@ const _module = {
                 return new UserManagement(name, <any>undefined, { urn })
             case "zia:index/virtualServiceEdgeCluster:VirtualServiceEdgeCluster":
                 return new VirtualServiceEdgeCluster(name, <any>undefined, { urn })
+            case "zia:index/virtualServiceEdgeNode:VirtualServiceEdgeNode":
+                return new VirtualServiceEdgeNode(name, <any>undefined, { urn })
+            case "zia:index/workloadGroups:WorkloadGroups":
+                return new WorkloadGroups(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -875,6 +1038,10 @@ pulumi.runtime.registerResourceModule("zia", "index/adminUsers", _module)
 pulumi.runtime.registerResourceModule("zia", "index/advancedSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/advancedThreatSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/authSettingsURLs", _module)
+pulumi.runtime.registerResourceModule("zia", "index/bandwidthControlClasses", _module)
+pulumi.runtime.registerResourceModule("zia", "index/bandwidthControlClassesFileSize", _module)
+pulumi.runtime.registerResourceModule("zia", "index/bandwidthControlClassesWebConferencing", _module)
+pulumi.runtime.registerResourceModule("zia", "index/bandwidthControlRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/browserControlPolicy", _module)
 pulumi.runtime.registerResourceModule("zia", "index/browserControlSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/casbDlpRule", _module)
@@ -883,11 +1050,15 @@ pulumi.runtime.registerResourceModule("zia", "index/casbMalwareRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/casbMalwareRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/cloudAppControlRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/cloudApplicationInstance", _module)
+pulumi.runtime.registerResourceModule("zia", "index/cloudNSSFeed", _module)
+pulumi.runtime.registerResourceModule("zia", "index/customFileTypes", _module)
+pulumi.runtime.registerResourceModule("zia", "index/dCExclusions", _module)
 pulumi.runtime.registerResourceModule("zia", "index/dLPDictionaries", _module)
 pulumi.runtime.registerResourceModule("zia", "index/dLPEngines", _module)
 pulumi.runtime.registerResourceModule("zia", "index/dLPNotificationTemplates", _module)
 pulumi.runtime.registerResourceModule("zia", "index/dLPWebRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/endUserNotification", _module)
+pulumi.runtime.registerResourceModule("zia", "index/extranet", _module)
 pulumi.runtime.registerResourceModule("zia", "index/fileTypeControlRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/firewallDNSRule", _module)
 pulumi.runtime.registerResourceModule("zia", "index/firewallFilteringApplicationGroups", _module)
@@ -912,15 +1083,21 @@ pulumi.runtime.registerResourceModule("zia", "index/sandboxBehavioralAnalysis", 
 pulumi.runtime.registerResourceModule("zia", "index/sandboxFileSubmission", _module)
 pulumi.runtime.registerResourceModule("zia", "index/sandboxRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/securitySettings", _module)
+pulumi.runtime.registerResourceModule("zia", "index/subCloud", _module)
 pulumi.runtime.registerResourceModule("zia", "index/subscriptionAlert", _module)
+pulumi.runtime.registerResourceModule("zia", "index/tenantRestrictionProfile", _module)
+pulumi.runtime.registerResourceModule("zia", "index/trafficCaptureRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/trafficForwardingGRETunnel", _module)
 pulumi.runtime.registerResourceModule("zia", "index/trafficForwardingStaticIP", _module)
 pulumi.runtime.registerResourceModule("zia", "index/trafficForwardingVPNCredentials", _module)
 pulumi.runtime.registerResourceModule("zia", "index/uRLCategories", _module)
+pulumi.runtime.registerResourceModule("zia", "index/uRLCategoriesPredefined", _module)
 pulumi.runtime.registerResourceModule("zia", "index/uRLFilteringCloudAppSettings", _module)
 pulumi.runtime.registerResourceModule("zia", "index/uRLFilteringRules", _module)
 pulumi.runtime.registerResourceModule("zia", "index/userManagement", _module)
 pulumi.runtime.registerResourceModule("zia", "index/virtualServiceEdgeCluster", _module)
+pulumi.runtime.registerResourceModule("zia", "index/virtualServiceEdgeNode", _module)
+pulumi.runtime.registerResourceModule("zia", "index/workloadGroups", _module)
 pulumi.runtime.registerResourcePackage("zia", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

@@ -18,10 +18,11 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
+    /// ### Configure Cloud To Cloud Forwarding
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_casb_dlp_rules** can be imported by using `&lt;RULE_TYPE:RULE_ID&gt;` or `&lt;RULE_TYPE:RULE_NAME&gt;` as the import ID.
@@ -52,8 +53,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.CasbDlpRuleAuditorNotification>> AuditorNotifications { get; private set; } = null!;
 
         /// <summary>
-        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-        /// field
+        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
         /// </summary>
         [Output("bucketOwner")]
         public Output<string?> BucketOwner { get; private set; } = null!;
@@ -212,11 +212,10 @@ namespace zscaler.PulumiPackage.Zia
         /// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
         /// </summary>
         [Output("order")]
-        public Output<int?> Order { get; private set; } = null!;
+        public Output<int> Order { get; private set; } = null!;
 
         /// <summary>
-        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-        /// data
+        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
         /// </summary>
         [Output("quarantineLocation")]
         public Output<string?> QuarantineLocation { get; private set; } = null!;
@@ -226,6 +225,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
+
+        /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Output("receiver")]
+        public Output<Outputs.CasbDlpRuleReceiver?> Receiver { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the email recipient is internal or external
@@ -307,7 +312,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CasbDlpRule(string name, CasbDlpRuleArgs? args = null, CustomResourceOptions? options = null)
+        public CasbDlpRule(string name, CasbDlpRuleArgs args, CustomResourceOptions? options = null)
             : base("zia:index/casbDlpRule:CasbDlpRule", name, args ?? new CasbDlpRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -369,8 +374,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-        /// field
+        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
         /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
@@ -564,12 +568,11 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
         /// </summary>
-        [Input("order")]
-        public Input<int>? Order { get; set; }
+        [Input("order", required: true)]
+        public Input<int> Order { get; set; } = null!;
 
         /// <summary>
-        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-        /// data
+        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
         /// </summary>
         [Input("quarantineLocation")]
         public Input<string>? QuarantineLocation { get; set; }
@@ -579,6 +582,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
+
+        /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Input("receiver")]
+        public Input<Inputs.CasbDlpRuleReceiverArgs>? Receiver { get; set; }
 
         /// <summary>
         /// Specifies if the email recipient is internal or external
@@ -697,8 +706,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-        /// field
+        /// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
         /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
@@ -896,8 +904,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-        /// data
+        /// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
         /// </summary>
         [Input("quarantineLocation")]
         public Input<string>? QuarantineLocation { get; set; }
@@ -907,6 +914,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
+
+        /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Input("receiver")]
+        public Input<Inputs.CasbDlpRuleReceiverGetArgs>? Receiver { get; set; }
 
         /// <summary>
         /// Specifies if the email recipient is internal or external

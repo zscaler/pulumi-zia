@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// 
-        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the &lt;span pulumi-lang-nodejs="`ipUnnumbered`" pulumi-lang-dotnet="`IpUnnumbered`" pulumi-lang-go="`ipUnnumbered`" pulumi-lang-python="`ip_unnumbered`" pulumi-lang-yaml="`ipUnnumbered`" pulumi-lang-java="`ipUnnumbered`"&gt;`ip_unnumbered`&lt;/span&gt; parameter is set to &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -42,7 +42,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// 
-        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the &lt;span pulumi-lang-nodejs="`ipUnnumbered`" pulumi-lang-dotnet="`IpUnnumbered`" pulumi-lang-go="`ipUnnumbered`" pulumi-lang-python="`ip_unnumbered`" pulumi-lang-yaml="`ipUnnumbered`" pulumi-lang-java="`ipUnnumbered`"&gt;`ip_unnumbered`&lt;/span&gt; parameter is set to &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -68,7 +68,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels/availableInternalIpRanges-get)
         /// 
-        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the `ip_unnumbered` parameter is set to `false`
+        /// Use the **zia_gre_internal_ip_range_list** data source to get information about the next available GRE tunnel internal ip ranges for the purposes of GRE tunnel creation in the Zscaler Internet Access when the &lt;span pulumi-lang-nodejs="`ipUnnumbered`" pulumi-lang-dotnet="`IpUnnumbered`" pulumi-lang-go="`ipUnnumbered`" pulumi-lang-python="`ip_unnumbered`" pulumi-lang-yaml="`ipUnnumbered`" pulumi-lang-java="`ipUnnumbered`"&gt;`ip_unnumbered`&lt;/span&gt; parameter is set to &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 

@@ -12,6 +12,14 @@ import * as utilities from "./utilities";
  *
  * The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
  *
+ * **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+ *
+ * * Automatically place new rules at the correct position
+ * * Handle reordering around predefined rules
+ * * Avoid configuration drift
+ *
+ * Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+ *
  * ## Example Usage
  */
 export class IPSFirewallRule extends pulumi.CustomResource {
@@ -45,138 +53,146 @@ export class IPSFirewallRule extends pulumi.CustomResource {
     /**
      * (String) The action configured for the rule that must take place if the traffic matches the rule criteria, such as allowing or blocking the traffic or bypassing the rule. The following actions are accepted: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BYPASS_IPS`
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
     /**
      * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
      */
-    public readonly capturePcap!: pulumi.Output<boolean>;
+    declare public readonly capturePcap: pulumi.Output<boolean>;
     /**
      * (Boolean) Value that indicates whether the rule is the Default Cloud IPS Rule or not
      */
-    public readonly defaultRule!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
     /**
      * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
-    public readonly departments!: pulumi.Output<outputs.IPSFirewallRuleDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.IPSFirewallRuleDepartments | undefined>;
     /**
      * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Set of String) Destination IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific destination IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
-    public readonly destAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
     /**
      * (Set of String) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
      * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
-    public readonly destCountries!: pulumi.Output<string[]>;
+    declare public readonly destCountries: pulumi.Output<string[]>;
     /**
      * (Set of String)  identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
      */
-    public readonly destIpCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
     /**
      * ** - (List of Objects) Any number of destination IP address groups that you want to control with this rule.
      */
-    public readonly destIpGroups!: pulumi.Output<outputs.IPSFirewallRuleDestIpGroups | undefined>;
+    declare public readonly destIpGroups: pulumi.Output<outputs.IPSFirewallRuleDestIpGroups | undefined>;
     /**
      * list of destination ip groups
      */
-    public readonly destIpv6Groups!: pulumi.Output<outputs.IPSFirewallRuleDestIpv6Groups | undefined>;
+    declare public readonly destIpv6Groups: pulumi.Output<outputs.IPSFirewallRuleDestIpv6Groups | undefined>;
     /**
      * (List of Objects) Device groups to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
-    public readonly deviceGroups!: pulumi.Output<outputs.IPSFirewallRuleDeviceGroups | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<outputs.IPSFirewallRuleDeviceGroups | undefined>;
     /**
      * (List of Objects) Devices to which the rule applies. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
      */
-    public readonly devices!: pulumi.Output<outputs.IPSFirewallRuleDevices | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.IPSFirewallRuleDevices | undefined>;
     /**
      * (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
      */
-    public readonly enableFullLogging!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
+    /**
+     * (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+     */
+    declare public readonly eunTemplateId: pulumi.Output<number | undefined>;
     /**
      * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly groups!: pulumi.Output<outputs.IPSFirewallRuleGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.IPSFirewallRuleGroups | undefined>;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    declare public readonly isEunEnabled: pulumi.Output<boolean | undefined>;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.IPSFirewallRuleLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.IPSFirewallRuleLabels | undefined>;
     /**
      * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.IPSFirewallRuleLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.IPSFirewallRuleLocationGroups | undefined>;
     /**
      * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly locations!: pulumi.Output<outputs.IPSFirewallRuleLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.IPSFirewallRuleLocations | undefined>;
     /**
      * The name of the IPS Control rule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (List of Objects) Any number of predefined or custom network service groups to which the rule applies.
      */
-    public readonly nwServiceGroups!: pulumi.Output<outputs.IPSFirewallRuleNwServiceGroups | undefined>;
+    declare public readonly nwServiceGroups: pulumi.Output<outputs.IPSFirewallRuleNwServiceGroups | undefined>;
     /**
      * (List of Objects) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
      */
-    public readonly nwServices!: pulumi.Output<outputs.IPSFirewallRuleNwServices | undefined>;
+    declare public readonly nwServices: pulumi.Output<outputs.IPSFirewallRuleNwServices | undefined>;
     /**
      * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
      */
-    public readonly predefined!: pulumi.Output<boolean | undefined>;
+    declare public readonly predefined: pulumi.Output<boolean | undefined>;
     /**
-     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
      */
-    public readonly resCategories!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly resCategories: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * (Set of String) The countries of origin of traffic for which the rule is applicable. If not set, the rule is not restricted to specific source countries.
      * **NOTE**: Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
      */
-    public readonly sourceCountries!: pulumi.Output<string[]>;
+    declare public readonly sourceCountries: pulumi.Output<string[]>;
     /**
      * (List of Objects)Source IP address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address group.
      */
-    public readonly srcIpGroups!: pulumi.Output<outputs.IPSFirewallRuleSrcIpGroups | undefined>;
+    declare public readonly srcIpGroups: pulumi.Output<outputs.IPSFirewallRuleSrcIpGroups | undefined>;
     /**
      * (Set of String) Source IP addresses or FQDNs to which the rule applies. If not set, the rule is not restricted to a specific source IP address. Each IP entry can be a single IP address, CIDR (e.g., 10.10.33.0/24), or an IP range (e.g., 10.10.33.1-10.10.33.10).
      */
-    public readonly srcIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly srcIps: pulumi.Output<string[] | undefined>;
     /**
      * (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
-    public readonly srcIpv6Groups!: pulumi.Output<outputs.IPSFirewallRuleSrcIpv6Groups | undefined>;
+    declare public readonly srcIpv6Groups: pulumi.Output<outputs.IPSFirewallRuleSrcIpv6Groups | undefined>;
     /**
-     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+     * (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * (List of Objects) Advanced threat categories to which the rule applies
      */
-    public readonly threatCategories!: pulumi.Output<outputs.IPSFirewallRuleThreatCategories | undefined>;
+    declare public readonly threatCategories: pulumi.Output<outputs.IPSFirewallRuleThreatCategories | undefined>;
     /**
      * (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
      */
-    public readonly timeWindows!: pulumi.Output<outputs.IPSFirewallRuleTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.IPSFirewallRuleTimeWindows | undefined>;
     /**
      * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
-    public readonly users!: pulumi.Output<outputs.IPSFirewallRuleUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.IPSFirewallRuleUsers | undefined>;
     /**
      * (List of Objects) The ZPA application segments to which the rule applies
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.IPSFirewallRuleZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.IPSFirewallRuleZpaAppSegment[]>;
 
     /**
      * Create a IPSFirewallRule resource with the given unique name, arguments, and options.
@@ -191,78 +207,82 @@ export class IPSFirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IPSFirewallRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["capturePcap"] = state ? state.capturePcap : undefined;
-            resourceInputs["defaultRule"] = state ? state.defaultRule : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destAddresses"] = state ? state.destAddresses : undefined;
-            resourceInputs["destCountries"] = state ? state.destCountries : undefined;
-            resourceInputs["destIpCategories"] = state ? state.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = state ? state.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = state ? state.destIpv6Groups : undefined;
-            resourceInputs["deviceGroups"] = state ? state.deviceGroups : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["enableFullLogging"] = state ? state.enableFullLogging : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nwServiceGroups"] = state ? state.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = state ? state.nwServices : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["predefined"] = state ? state.predefined : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["resCategories"] = state ? state.resCategories : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["sourceCountries"] = state ? state.sourceCountries : undefined;
-            resourceInputs["srcIpGroups"] = state ? state.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = state ? state.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = state ? state.srcIpv6Groups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["threatCategories"] = state ? state.threatCategories : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["capturePcap"] = state?.capturePcap;
+            resourceInputs["defaultRule"] = state?.defaultRule;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destAddresses"] = state?.destAddresses;
+            resourceInputs["destCountries"] = state?.destCountries;
+            resourceInputs["destIpCategories"] = state?.destIpCategories;
+            resourceInputs["destIpGroups"] = state?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = state?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["enableFullLogging"] = state?.enableFullLogging;
+            resourceInputs["eunTemplateId"] = state?.eunTemplateId;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["isEunEnabled"] = state?.isEunEnabled;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nwServiceGroups"] = state?.nwServiceGroups;
+            resourceInputs["nwServices"] = state?.nwServices;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["predefined"] = state?.predefined;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["resCategories"] = state?.resCategories;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["sourceCountries"] = state?.sourceCountries;
+            resourceInputs["srcIpGroups"] = state?.srcIpGroups;
+            resourceInputs["srcIps"] = state?.srcIps;
+            resourceInputs["srcIpv6Groups"] = state?.srcIpv6Groups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["threatCategories"] = state?.threatCategories;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
         } else {
             const args = argsOrState as IPSFirewallRuleArgs | undefined;
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["capturePcap"] = args ? args.capturePcap : undefined;
-            resourceInputs["defaultRule"] = args ? args.defaultRule : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destAddresses"] = args ? args.destAddresses : undefined;
-            resourceInputs["destCountries"] = args ? args.destCountries : undefined;
-            resourceInputs["destIpCategories"] = args ? args.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = args ? args.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = args ? args.destIpv6Groups : undefined;
-            resourceInputs["deviceGroups"] = args ? args.deviceGroups : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["enableFullLogging"] = args ? args.enableFullLogging : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nwServiceGroups"] = args ? args.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = args ? args.nwServices : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["predefined"] = args ? args.predefined : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["resCategories"] = args ? args.resCategories : undefined;
-            resourceInputs["sourceCountries"] = args ? args.sourceCountries : undefined;
-            resourceInputs["srcIpGroups"] = args ? args.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = args ? args.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = args ? args.srcIpv6Groups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["threatCategories"] = args ? args.threatCategories : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["capturePcap"] = args?.capturePcap;
+            resourceInputs["defaultRule"] = args?.defaultRule;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destAddresses"] = args?.destAddresses;
+            resourceInputs["destCountries"] = args?.destCountries;
+            resourceInputs["destIpCategories"] = args?.destIpCategories;
+            resourceInputs["destIpGroups"] = args?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = args?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["enableFullLogging"] = args?.enableFullLogging;
+            resourceInputs["eunTemplateId"] = args?.eunTemplateId;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["isEunEnabled"] = args?.isEunEnabled;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nwServiceGroups"] = args?.nwServiceGroups;
+            resourceInputs["nwServices"] = args?.nwServices;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["predefined"] = args?.predefined;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["resCategories"] = args?.resCategories;
+            resourceInputs["sourceCountries"] = args?.sourceCountries;
+            resourceInputs["srcIpGroups"] = args?.srcIpGroups;
+            resourceInputs["srcIps"] = args?.srcIps;
+            resourceInputs["srcIpv6Groups"] = args?.srcIpv6Groups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["threatCategories"] = args?.threatCategories;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -330,9 +350,17 @@ export interface IPSFirewallRuleState {
      */
     enableFullLogging?: pulumi.Input<boolean>;
     /**
+     * (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+     */
+    eunTemplateId?: pulumi.Input<number>;
+    /**
      * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     groups?: pulumi.Input<inputs.IPSFirewallRuleGroups>;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    isEunEnabled?: pulumi.Input<boolean>;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
@@ -366,7 +394,7 @@ export interface IPSFirewallRuleState {
      */
     predefined?: pulumi.Input<boolean>;
     /**
-     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
      */
     rank?: pulumi.Input<number>;
     /**
@@ -392,7 +420,7 @@ export interface IPSFirewallRuleState {
      */
     srcIpv6Groups?: pulumi.Input<inputs.IPSFirewallRuleSrcIpv6Groups>;
     /**
-     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+     * (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
      */
     state?: pulumi.Input<string>;
     /**
@@ -471,9 +499,17 @@ export interface IPSFirewallRuleArgs {
      */
     enableFullLogging?: pulumi.Input<boolean>;
     /**
+     * (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+     */
+    eunTemplateId?: pulumi.Input<number>;
+    /**
      * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
     groups?: pulumi.Input<inputs.IPSFirewallRuleGroups>;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    isEunEnabled?: pulumi.Input<boolean>;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
@@ -507,7 +543,7 @@ export interface IPSFirewallRuleArgs {
      */
     predefined?: pulumi.Input<boolean>;
     /**
-     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+     * (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
      */
     rank?: pulumi.Input<number>;
     /**
@@ -532,7 +568,7 @@ export interface IPSFirewallRuleArgs {
      */
     srcIpv6Groups?: pulumi.Input<inputs.IPSFirewallRuleSrcIpv6Groups>;
     /**
-     * (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+     * (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
      */
     state?: pulumi.Input<string>;
     /**

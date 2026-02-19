@@ -19,7 +19,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
-        /// URL category
+        /// (String) Identifier that uniquely identifies an entity
         /// </summary>
         public readonly int Id;
         /// <summary>

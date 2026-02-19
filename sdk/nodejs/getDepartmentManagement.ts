@@ -16,6 +16,7 @@ export function getDepartmentManagement(args?: GetDepartmentManagementArgs, opts
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDepartmentManagement:getDepartmentManagement", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -24,6 +25,10 @@ export function getDepartmentManagement(args?: GetDepartmentManagementArgs, opts
  * A collection of arguments for invoking getDepartmentManagement.
  */
 export interface GetDepartmentManagementArgs {
+    /**
+     * ID of the user department
+     */
+    id?: number;
     /**
      * Name of the user department
      */
@@ -61,6 +66,7 @@ export function getDepartmentManagementOutput(args?: GetDepartmentManagementOutp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDepartmentManagement:getDepartmentManagement", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -69,6 +75,10 @@ export function getDepartmentManagementOutput(args?: GetDepartmentManagementOutp
  * A collection of arguments for invoking getDepartmentManagement.
  */
 export interface GetDepartmentManagementOutputArgs {
+    /**
+     * ID of the user department
+     */
+    id?: pulumi.Input<number>;
     /**
      * Name of the user department
      */

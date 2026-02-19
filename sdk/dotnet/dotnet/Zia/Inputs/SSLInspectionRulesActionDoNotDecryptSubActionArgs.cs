@@ -27,7 +27,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
         /// <summary>
         /// (String) -  The minimum TLS version allowed on the server side: Supported Values are: `SERVER_TLS_1_0`, `SERVER_TLS_1_1`, `SERVER_TLS_1_2`,  `SERVER_TLS_1_3`.
-        /// **NOTE** `min_tls_version` and `server_certificates` CANNOT be set if `bypass_other_policies` is `true`
+        /// **NOTE** &lt;span pulumi-lang-nodejs="`minTlsVersion`" pulumi-lang-dotnet="`MinTlsVersion`" pulumi-lang-go="`minTlsVersion`" pulumi-lang-python="`min_tls_version`" pulumi-lang-yaml="`minTlsVersion`" pulumi-lang-java="`minTlsVersion`"&gt;`min_tls_version`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`serverCertificates`" pulumi-lang-dotnet="`ServerCertificates`" pulumi-lang-go="`serverCertificates`" pulumi-lang-python="`server_certificates`" pulumi-lang-yaml="`serverCertificates`" pulumi-lang-java="`serverCertificates`"&gt;`server_certificates`&lt;/span&gt; CANNOT be set if &lt;span pulumi-lang-nodejs="`bypassOtherPolicies`" pulumi-lang-dotnet="`BypassOtherPolicies`" pulumi-lang-go="`bypassOtherPolicies`" pulumi-lang-python="`bypass_other_policies`" pulumi-lang-yaml="`bypassOtherPolicies`" pulumi-lang-java="`bypassOtherPolicies`"&gt;`bypass_other_policies`&lt;/span&gt; is &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt;
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }

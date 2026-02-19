@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
@@ -18,11 +19,12 @@ import (
 //
 // ## Example Usage
 //
+// ### Configure Cloud To Cloud Forwarding
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_casb_dlp_rules** can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
 //
@@ -44,8 +46,7 @@ type CasbDlpRules struct {
 	Action pulumi.StringPtrOutput `pulumi:"action"`
 	// Notification template used for DLP email alerts sent to the auditor
 	AuditorNotifications CasbDlpRulesAuditorNotificationArrayOutput `pulumi:"auditorNotifications"`
-	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-	// field
+	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 	BucketOwner pulumi.StringPtrOutput `pulumi:"bucketOwner"`
 	// The buckets for the Zscaler service to inspect for sensitive data
 	Buckets CasbDlpRulesBucketsPtrOutput `pulumi:"buckets"`
@@ -98,12 +99,13 @@ type CasbDlpRules struct {
 	// List of object types for which the rule is applied
 	ObjectTypes CasbDlpRulesObjectTypesPtrOutput `pulumi:"objectTypes"`
 	// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-	Order pulumi.IntPtrOutput `pulumi:"order"`
-	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-	// data
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 	QuarantineLocation pulumi.StringPtrOutput `pulumi:"quarantineLocation"`
 	// Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver CasbDlpRulesReceiverPtrOutput `pulumi:"receiver"`
 	// Specifies if the email recipient is internal or external
 	Recipient pulumi.StringPtrOutput `pulumi:"recipient"`
 	// Name-ID of the redaction profile in the criteria
@@ -134,9 +136,12 @@ type CasbDlpRules struct {
 func NewCasbDlpRules(ctx *pulumi.Context,
 	name string, args *CasbDlpRulesArgs, opts ...pulumi.ResourceOption) (*CasbDlpRules, error) {
 	if args == nil {
-		args = &CasbDlpRulesArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Order == nil {
+		return nil, errors.New("invalid value for required argument 'Order'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CasbDlpRules
 	err := ctx.RegisterResource("zia:index/casbDlpRules:CasbDlpRules", name, args, &resource, opts...)
@@ -164,8 +169,7 @@ type casbDlpRulesState struct {
 	Action *string `pulumi:"action"`
 	// Notification template used for DLP email alerts sent to the auditor
 	AuditorNotifications []CasbDlpRulesAuditorNotification `pulumi:"auditorNotifications"`
-	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-	// field
+	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 	BucketOwner *string `pulumi:"bucketOwner"`
 	// The buckets for the Zscaler service to inspect for sensitive data
 	Buckets *CasbDlpRulesBuckets `pulumi:"buckets"`
@@ -219,11 +223,12 @@ type casbDlpRulesState struct {
 	ObjectTypes *CasbDlpRulesObjectTypes `pulumi:"objectTypes"`
 	// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
 	Order *int `pulumi:"order"`
-	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-	// data
+	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 	QuarantineLocation *string `pulumi:"quarantineLocation"`
 	// Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 	Rank *int `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver *CasbDlpRulesReceiver `pulumi:"receiver"`
 	// Specifies if the email recipient is internal or external
 	Recipient *string `pulumi:"recipient"`
 	// Name-ID of the redaction profile in the criteria
@@ -255,8 +260,7 @@ type CasbDlpRulesState struct {
 	Action pulumi.StringPtrInput
 	// Notification template used for DLP email alerts sent to the auditor
 	AuditorNotifications CasbDlpRulesAuditorNotificationArrayInput
-	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-	// field
+	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 	BucketOwner pulumi.StringPtrInput
 	// The buckets for the Zscaler service to inspect for sensitive data
 	Buckets CasbDlpRulesBucketsPtrInput
@@ -310,11 +314,12 @@ type CasbDlpRulesState struct {
 	ObjectTypes CasbDlpRulesObjectTypesPtrInput
 	// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
 	Order pulumi.IntPtrInput
-	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-	// data
+	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 	QuarantineLocation pulumi.StringPtrInput
 	// Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 	Rank pulumi.IntPtrInput
+	// The receiver information for the DLP policy rule
+	Receiver CasbDlpRulesReceiverPtrInput
 	// Specifies if the email recipient is internal or external
 	Recipient pulumi.StringPtrInput
 	// Name-ID of the redaction profile in the criteria
@@ -350,8 +355,7 @@ type casbDlpRulesArgs struct {
 	Action *string `pulumi:"action"`
 	// Notification template used for DLP email alerts sent to the auditor
 	AuditorNotifications []CasbDlpRulesAuditorNotification `pulumi:"auditorNotifications"`
-	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-	// field
+	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 	BucketOwner *string `pulumi:"bucketOwner"`
 	// The buckets for the Zscaler service to inspect for sensitive data
 	Buckets *CasbDlpRulesBuckets `pulumi:"buckets"`
@@ -404,12 +408,13 @@ type casbDlpRulesArgs struct {
 	// List of object types for which the rule is applied
 	ObjectTypes *CasbDlpRulesObjectTypes `pulumi:"objectTypes"`
 	// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-	Order *int `pulumi:"order"`
-	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-	// data
+	Order int `pulumi:"order"`
+	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 	QuarantineLocation *string `pulumi:"quarantineLocation"`
 	// Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 	Rank *int `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver *CasbDlpRulesReceiver `pulumi:"receiver"`
 	// Specifies if the email recipient is internal or external
 	Recipient *string `pulumi:"recipient"`
 	// Name-ID of the redaction profile in the criteria
@@ -440,8 +445,7 @@ type CasbDlpRulesArgs struct {
 	Action pulumi.StringPtrInput
 	// Notification template used for DLP email alerts sent to the auditor
 	AuditorNotifications CasbDlpRulesAuditorNotificationArrayInput
-	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-	// field
+	// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 	BucketOwner pulumi.StringPtrInput
 	// The buckets for the Zscaler service to inspect for sensitive data
 	Buckets CasbDlpRulesBucketsPtrInput
@@ -494,12 +498,13 @@ type CasbDlpRulesArgs struct {
 	// List of object types for which the rule is applied
 	ObjectTypes CasbDlpRulesObjectTypesPtrInput
 	// Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-	Order pulumi.IntPtrInput
-	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-	// data
+	Order pulumi.IntInput
+	// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 	QuarantineLocation pulumi.StringPtrInput
 	// Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 	Rank pulumi.IntPtrInput
+	// The receiver information for the DLP policy rule
+	Receiver CasbDlpRulesReceiverPtrInput
 	// Specifies if the email recipient is internal or external
 	Recipient pulumi.StringPtrInput
 	// Name-ID of the redaction profile in the criteria
@@ -621,8 +626,7 @@ func (o CasbDlpRulesOutput) AuditorNotifications() CasbDlpRulesAuditorNotificati
 	return o.ApplyT(func(v *CasbDlpRules) CasbDlpRulesAuditorNotificationArrayOutput { return v.AuditorNotifications }).(CasbDlpRulesAuditorNotificationArrayOutput)
 }
 
-// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets
-// field
+// A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
 func (o CasbDlpRulesOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRules) pulumi.StringPtrOutput { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
@@ -753,12 +757,11 @@ func (o CasbDlpRulesOutput) ObjectTypes() CasbDlpRulesObjectTypesPtrOutput {
 }
 
 // Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-func (o CasbDlpRulesOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CasbDlpRules) pulumi.IntPtrOutput { return v.Order }).(pulumi.IntPtrOutput)
+func (o CasbDlpRulesOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *CasbDlpRules) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
-// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the
-// data
+// Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
 func (o CasbDlpRulesOutput) QuarantineLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRules) pulumi.StringPtrOutput { return v.QuarantineLocation }).(pulumi.StringPtrOutput)
 }
@@ -766,6 +769,11 @@ func (o CasbDlpRulesOutput) QuarantineLocation() pulumi.StringPtrOutput {
 // Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
 func (o CasbDlpRulesOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRules) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
+}
+
+// The receiver information for the DLP policy rule
+func (o CasbDlpRulesOutput) Receiver() CasbDlpRulesReceiverPtrOutput {
+	return o.ApplyT(func(v *CasbDlpRules) CasbDlpRulesReceiverPtrOutput { return v.Receiver }).(CasbDlpRulesReceiverPtrOutput)
 }
 
 // Specifies if the email recipient is internal or external

@@ -127,6 +127,8 @@ export interface GetLocationManagementResult {
      * (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
      */
     readonly ofwEnabled: boolean;
+    readonly other6SubLocation: boolean;
+    readonly otherSubLocation: boolean;
     /**
      * (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
      */
@@ -144,6 +146,22 @@ export interface GetLocationManagementResult {
      * (Boolean) This parameter was deprecated and no longer has an effect on SSL policy. It remains supported in the API payload in order to maintain backwards compatibility with existing scripts, but it will be removed in future.
      */
     readonly sslScanEnabled: boolean;
+    /**
+     * (List of Strings) Specifies one or more Amazon Web Services (AWS) account IDs. These AWS accounts are associated with the parent location of this sublocation created in the Zscaler Cloud & Branch Connector Admin Portal.
+     */
+    readonly subLocAccIds: string[];
+    /**
+     * (Strings) Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies. This field is only available for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups. The supported options are: `VPC_ENDPOINT`, `VPC`, `NAMESPACE`, `ACCOUNT`
+     */
+    readonly subLocScope: string;
+    /**
+     * (Boolean) Indicates whether defining scopes is allowed for this sublocation. Sublocation scopes are available only for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups.
+     */
+    readonly subLocScopeEnabled: boolean;
+    /**
+     * (List of Strings) Specifies values for the selected sublocation scope type
+     */
+    readonly subLocScopeValues: string[];
     /**
      * (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
      */

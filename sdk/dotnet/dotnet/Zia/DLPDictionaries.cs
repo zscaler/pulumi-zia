@@ -18,12 +18,13 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Hierarchical Identifiers
+    /// ### With Hierarchical Identifiers (Clone Predefined Dictionary)
+    /// 
+    /// ### With Exact Data Match (EDM)
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_dlp_dictionaries** can be imported by using `&lt;DICTIONARY ID&gt;` or `&lt;DICTIONARY_NAME&gt;` as the import ID.
@@ -44,9 +45,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class DLPDictionaries : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-        /// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-        /// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         [Output("binNumbers")]
         public Output<ImmutableArray<int>> BinNumbers { get; private set; } = null!;
@@ -70,7 +69,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> Custom { get; private set; } = null!;
 
         [Output("customPhraseMatchType")]
-        public Output<string> CustomPhraseMatchType { get; private set; } = null!;
+        public Output<string?> CustomPhraseMatchType { get; private set; } = null!;
 
         /// <summary>
         /// The desciption of the DLP dictionary
@@ -79,10 +78,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-        /// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-        /// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-        /// dictionary.
+        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
         /// </summary>
         [Output("dictTemplateId")]
         public Output<int?> DictTemplateId { get; private set; } = null!;
@@ -115,16 +111,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.DLPDictionariesIdmProfileMatchAccuracy>> IdmProfileMatchAccuracies { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-        /// Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Output("ignoreExactMatchIdmDict")]
         public Output<bool?> IgnoreExactMatchIdmDict { get; private set; } = null!;
 
         /// <summary>
-        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-        /// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-        /// field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         [Output("includeBinNumbers")]
         public Output<bool> IncludeBinNumbers { get; private set; } = null!;
@@ -136,8 +129,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-        /// dictionaries
+        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
         /// </summary>
         [Output("patterns")]
         public Output<ImmutableArray<Outputs.DLPDictionariesPattern>> Patterns { get; private set; } = null!;
@@ -146,10 +138,16 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<Outputs.DLPDictionariesPhrase>> Phrases { get; private set; } = null!;
 
         /// <summary>
-        /// The DLP dictionary proximity length.
+        /// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
         /// </summary>
         [Output("proximity")]
         public Output<int?> Proximity { get; private set; } = null!;
+
+        /// <summary>
+        /// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+        /// </summary>
+        [Output("proximityEnabledForCustomDictionary")]
+        public Output<bool?> ProximityEnabledForCustomDictionary { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,9 +200,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<int>? _binNumbers;
 
         /// <summary>
-        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-        /// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-        /// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         public InputList<int> BinNumbers
         {
@@ -240,10 +236,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-        /// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-        /// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-        /// dictionary.
+        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
         /// </summary>
         [Input("dictTemplateId")]
         public Input<int>? DictTemplateId { get; set; }
@@ -291,16 +284,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-        /// Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Input("ignoreExactMatchIdmDict")]
         public Input<bool>? IgnoreExactMatchIdmDict { get; set; }
 
         /// <summary>
-        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-        /// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-        /// field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         [Input("includeBinNumbers")]
         public Input<bool>? IncludeBinNumbers { get; set; }
@@ -315,8 +305,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPDictionariesPatternArgs>? _patterns;
 
         /// <summary>
-        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-        /// dictionaries
+        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
         /// </summary>
         public InputList<Inputs.DLPDictionariesPatternArgs> Patterns
         {
@@ -333,10 +322,16 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The DLP dictionary proximity length.
+        /// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
         /// </summary>
         [Input("proximity")]
         public Input<int>? Proximity { get; set; }
+
+        /// <summary>
+        /// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+        /// </summary>
+        [Input("proximityEnabledForCustomDictionary")]
+        public Input<bool>? ProximityEnabledForCustomDictionary { get; set; }
 
         public DLPDictionariesArgs()
         {
@@ -350,9 +345,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<int>? _binNumbers;
 
         /// <summary>
-        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-        /// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-        /// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         public InputList<int> BinNumbers
         {
@@ -388,10 +381,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-        /// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-        /// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-        /// dictionary.
+        /// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
         /// </summary>
         [Input("dictTemplateId")]
         public Input<int>? DictTemplateId { get; set; }
@@ -442,16 +432,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-        /// Document Match (IDM) Dictionary.
+        /// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
         /// </summary>
         [Input("ignoreExactMatchIdmDict")]
         public Input<bool>? IgnoreExactMatchIdmDict { get; set; }
 
         /// <summary>
-        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-        /// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-        /// field is applicable only to the predefined Credit Cards dictionary and its clones.
+        /// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
         /// </summary>
         [Input("includeBinNumbers")]
         public Input<bool>? IncludeBinNumbers { get; set; }
@@ -466,8 +453,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPDictionariesPatternGetArgs>? _patterns;
 
         /// <summary>
-        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-        /// dictionaries
+        /// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
         /// </summary>
         public InputList<Inputs.DLPDictionariesPatternGetArgs> Patterns
         {
@@ -484,10 +470,16 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The DLP dictionary proximity length.
+        /// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
         /// </summary>
         [Input("proximity")]
         public Input<int>? Proximity { get; set; }
+
+        /// <summary>
+        /// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+        /// </summary>
+        [Input("proximityEnabledForCustomDictionary")]
+        public Input<bool>? ProximityEnabledForCustomDictionary { get; set; }
 
         public DLPDictionariesState()
         {

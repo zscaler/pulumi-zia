@@ -29,8 +29,12 @@ func GetFirewallDNSRules(ctx *pulumi.Context, args *GetFirewallDNSRulesArgs, opt
 
 // A collection of arguments for invoking getFirewallDNSRules.
 type GetFirewallDNSRulesArgs struct {
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed *bool `pulumi:"defaultDnsRuleNameUsed"`
 	// Unique identifier for the Firewall Filtering policy rule
 	Id *int `pulumi:"id"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled *bool `pulumi:"isWebEunEnabled"`
 	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
 }
@@ -48,6 +52,8 @@ type GetFirewallDNSRulesResult struct {
 	BlockResponseCode string `pulumi:"blockResponseCode"`
 	// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 	CapturePcap bool `pulumi:"capturePcap"`
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed *bool `pulumi:"defaultDnsRuleNameUsed"`
 	// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
 	DefaultRule bool `pulumi:"defaultRule"`
 	// (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
@@ -79,6 +85,8 @@ type GetFirewallDNSRulesResult struct {
 	Groups []GetFirewallDNSRulesGroup `pulumi:"groups"`
 	// (Integer) Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled *bool `pulumi:"isWebEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels           []GetFirewallDNSRulesLabel          `pulumi:"labels"`
 	LastModifiedBies []GetFirewallDNSRulesLastModifiedBy `pulumi:"lastModifiedBies"`
@@ -129,8 +137,12 @@ func GetFirewallDNSRulesOutput(ctx *pulumi.Context, args GetFirewallDNSRulesOutp
 
 // A collection of arguments for invoking getFirewallDNSRules.
 type GetFirewallDNSRulesOutputArgs struct {
+	// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+	DefaultDnsRuleNameUsed pulumi.BoolPtrInput `pulumi:"defaultDnsRuleNameUsed"`
 	// Unique identifier for the Firewall Filtering policy rule
 	Id pulumi.IntPtrInput `pulumi:"id"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsWebEunEnabled pulumi.BoolPtrInput `pulumi:"isWebEunEnabled"`
 	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -178,6 +190,11 @@ func (o GetFirewallDNSRulesResultOutput) BlockResponseCode() pulumi.StringOutput
 // (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
 func (o GetFirewallDNSRulesResultOutput) CapturePcap() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFirewallDNSRulesResult) bool { return v.CapturePcap }).(pulumi.BoolOutput)
+}
+
+// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+func (o GetFirewallDNSRulesResultOutput) DefaultDnsRuleNameUsed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesResult) *bool { return v.DefaultDnsRuleNameUsed }).(pulumi.BoolPtrOutput)
 }
 
 // (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
@@ -248,6 +265,11 @@ func (o GetFirewallDNSRulesResultOutput) Groups() GetFirewallDNSRulesGroupArrayO
 // (Integer) Identifier that uniquely identifies an entity
 func (o GetFirewallDNSRulesResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallDNSRulesResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+func (o GetFirewallDNSRulesResultOutput) IsWebEunEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFirewallDNSRulesResult) *bool { return v.IsWebEunEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // (List of Objects) Labels that are applicable to the rule.

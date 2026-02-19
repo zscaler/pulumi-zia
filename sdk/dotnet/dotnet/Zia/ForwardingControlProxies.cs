@@ -25,7 +25,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_forwarding_control_proxies** can be imported by using `&lt;PROXY_ID&gt;` or `&lt;PROXY_NAME&gt;` as the import ID.

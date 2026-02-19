@@ -11,6 +11,28 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/configuring-dns-control-policy)
+    /// * [API documentation](https://help.zscaler.com/zia/dns-control-policy#/firewallDnsRules-post)
+    /// 
+    /// The **zia_firewall_dns_rule** resource allows the creation and management of ZIA Cloud Firewall DNS rules in the Zscaler Internet Access.
+    /// 
+    /// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+    /// 
+    /// * Automatically place new rules at the correct position
+    /// * Handle reordering around predefined rules
+    /// * Avoid configuration drift
+    /// 
+    /// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+    /// 
+    /// **NOTE 2** Certain attributes on &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules can still be managed or updated via Terraform such as:
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`description`" pulumi-lang-dotnet="`Description`" pulumi-lang-go="`description`" pulumi-lang-python="`description`" pulumi-lang-yaml="`description`" pulumi-lang-java="`description`"&gt;`description`&lt;/span&gt; - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+    /// * &lt;span pulumi-lang-nodejs="`state`" pulumi-lang-dotnet="`State`" pulumi-lang-go="`state`" pulumi-lang-python="`state`" pulumi-lang-yaml="`state`" pulumi-lang-java="`state`"&gt;`state`&lt;/span&gt; - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to
+    /// * &lt;span pulumi-lang-nodejs="`labels`" pulumi-lang-dotnet="`Labels`" pulumi-lang-go="`labels`" pulumi-lang-python="`labels`" pulumi-lang-yaml="`labels`" pulumi-lang-java="`labels`"&gt;`labels`&lt;/span&gt; (list) - Labels that are applicable to the rule.
+    ///       - &lt;span pulumi-lang-nodejs="`id`" pulumi-lang-dotnet="`Id`" pulumi-lang-go="`id`" pulumi-lang-python="`id`" pulumi-lang-yaml="`id`" pulumi-lang-java="`id`"&gt;`id`&lt;/span&gt; - (Integer) Identifier that uniquely identifies an entity
+    /// 
+    /// **NOTE 3** The import of &lt;span pulumi-lang-nodejs="`predefined`" pulumi-lang-dotnet="`Predefined`" pulumi-lang-go="`predefined`" pulumi-lang-python="`predefined`" pulumi-lang-yaml="`predefined`" pulumi-lang-java="`predefined`"&gt;`predefined`&lt;/span&gt; rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Create Firewall DNS Rules - Redirect Action
@@ -19,17 +41,17 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### Create Firewall DNS Rules - Redirect TCP Request
     /// 
-    /// resource "zia.FirewallDNSRule" "this3" {
+    /// resource &lt;span pulumi-lang-nodejs=""zia.FirewallDNSRule"" pulumi-lang-dotnet=""zia.FirewallDNSRule"" pulumi-lang-go=""FirewallDNSRule"" pulumi-lang-python=""FirewallDNSRule"" pulumi-lang-yaml=""zia.FirewallDNSRule"" pulumi-lang-java=""zia.FirewallDNSRule""&gt;"zia.FirewallDNSRule"&lt;/span&gt; "this3" {
     ///     name = "Example_DNS_Rule03"
     ///     description = "Example_DNS_Rule03"
     ///     action = "REDIR_REQ_TCP"
     ///     state = "ENABLED"
     ///     order = 13
     ///     rank = 7
-    ///     dest_countries = ["CA", "US"]
-    ///     source_countries = ["CA", "US"]
+    ///    &lt;span pulumi-lang-nodejs=" destCountries " pulumi-lang-dotnet=" DestCountries " pulumi-lang-go=" destCountries " pulumi-lang-python=" dest_countries " pulumi-lang-yaml=" destCountries " pulumi-lang-java=" destCountries "&gt; dest_countries &lt;/span&gt;= ["CA", "US"]
+    ///    &lt;span pulumi-lang-nodejs=" sourceCountries " pulumi-lang-dotnet=" SourceCountries " pulumi-lang-go=" sourceCountries " pulumi-lang-python=" source_countries " pulumi-lang-yaml=" sourceCountries " pulumi-lang-java=" sourceCountries "&gt; source_countries &lt;/span&gt;= ["CA", "US"]
     ///     protocols = ["ANY_RULE"]
-    ///     dns_gateway {
+    ///    &lt;span pulumi-lang-nodejs=" dnsGateway " pulumi-lang-dotnet=" DnsGateway " pulumi-lang-go=" dnsGateway " pulumi-lang-python=" dns_gateway " pulumi-lang-yaml=" dnsGateway " pulumi-lang-java=" dnsGateway "&gt; dns_gateway &lt;/span&gt;{
     ///       id = 18207342
     ///       name = "DNS_GW01"
     ///     }
@@ -51,7 +73,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallDNSRuleApplicationGroups?> ApplicationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `zia.getCloudApplications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt; with the &lt;span pulumi-lang-nodejs="`appClass`" pulumi-lang-dotnet="`AppClass`" pulumi-lang-go="`appClass`" pulumi-lang-python="`app_class`" pulumi-lang-yaml="`appClass`" pulumi-lang-java="`appClass`"&gt;`app_class`&lt;/span&gt; value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         [Output("applications")]
         public Output<ImmutableArray<string>> Applications { get; private set; } = null!;
@@ -68,6 +90,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("capturePcap")]
         public Output<bool> CapturePcap { get; private set; } = null!;
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        [Output("defaultDnsRuleNameUsed")]
+        public Output<bool?> DefaultDnsRuleNameUsed { get; private set; } = null!;
 
         /// <summary>
         /// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
@@ -154,10 +182,16 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallDNSRuleEdnsEcsObject> EdnsEcsObject { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.FirewallDNSRuleGroups?> Groups { get; private set; } = null!;
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Output("isWebEunEnabled")]
+        public Output<bool?> IsWebEunEnabled { get; private set; } = null!;
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -166,13 +200,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallDNSRuleLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.FirewallDNSRuleLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.FirewallDNSRuleLocations?> Locations { get; private set; } = null!;
@@ -202,13 +236,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
         /// <summary>
-        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; is `REDIR_REQ`
         /// </summary>
         [Output("redirectIp")]
         public Output<string?> RedirectIp { get; private set; } = null!;
@@ -248,19 +282,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.FirewallDNSRuleSrcIpv6Groups?> SrcIpv6Groups { get; private set; } = null!;
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.FirewallDNSRuleTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Output("users")]
         public Output<Outputs.FirewallDNSRuleUsers?> Users { get; private set; } = null!;
@@ -334,7 +368,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _applications;
 
         /// <summary>
-        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `zia.getCloudApplications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt; with the &lt;span pulumi-lang-nodejs="`appClass`" pulumi-lang-dotnet="`AppClass`" pulumi-lang-go="`appClass`" pulumi-lang-python="`app_class`" pulumi-lang-yaml="`appClass`" pulumi-lang-java="`appClass`"&gt;`app_class`&lt;/span&gt; value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         public InputList<string> Applications
         {
@@ -354,6 +388,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        [Input("defaultDnsRuleNameUsed")]
+        public Input<bool>? DefaultDnsRuleNameUsed { get; set; }
 
         /// <summary>
         /// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
@@ -464,10 +504,16 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleEdnsEcsObjectArgs>? EdnsEcsObject { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallDNSRuleGroupsArgs>? Groups { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isWebEunEnabled")]
+        public Input<bool>? IsWebEunEnabled { get; set; }
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -476,13 +522,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallDNSRuleLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallDNSRuleLocationsArgs>? Locations { get; set; }
@@ -518,13 +564,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         /// <summary>
-        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; is `REDIR_REQ`
         /// </summary>
         [Input("redirectIp")]
         public Input<string>? RedirectIp { get; set; }
@@ -579,19 +625,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleSrcIpv6GroupsArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallDNSRuleTimeWindowsArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallDNSRuleUsersArgs>? Users { get; set; }
@@ -626,7 +672,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _applications;
 
         /// <summary>
-        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `zia.getCloudApplications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt; with the &lt;span pulumi-lang-nodejs="`appClass`" pulumi-lang-dotnet="`AppClass`" pulumi-lang-go="`appClass`" pulumi-lang-python="`app_class`" pulumi-lang-yaml="`appClass`" pulumi-lang-java="`appClass`"&gt;`app_class`&lt;/span&gt; value `DNS_OVER_HTTPS`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt;
         /// </summary>
         public InputList<string> Applications
         {
@@ -646,6 +692,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        [Input("defaultDnsRuleNameUsed")]
+        public Input<bool>? DefaultDnsRuleNameUsed { get; set; }
 
         /// <summary>
         /// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
@@ -756,10 +808,16 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleEdnsEcsObjectGetArgs>? EdnsEcsObject { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.FirewallDNSRuleGroupsGetArgs>? Groups { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isWebEunEnabled")]
+        public Input<bool>? IsWebEunEnabled { get; set; }
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -768,13 +826,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.FirewallDNSRuleLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.FirewallDNSRuleLocationsGetArgs>? Locations { get; set; }
@@ -810,13 +868,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         /// <summary>
-        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; is `REDIR_REQ`
         /// </summary>
         [Input("redirectIp")]
         public Input<string>? RedirectIp { get; set; }
@@ -874,19 +932,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.FirewallDNSRuleSrcIpv6GroupsGetArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.FirewallDNSRuleTimeWindowsGetArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.FirewallDNSRuleUsersGetArgs>? Users { get; set; }

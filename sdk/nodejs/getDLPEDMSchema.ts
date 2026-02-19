@@ -19,6 +19,7 @@ export function getDLPEDMSchema(args?: GetDLPEDMSchemaArgs, opts?: pulumi.Invoke
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDLPEDMSchema:getDLPEDMSchema", {
         "projectName": args.projectName,
+        "schemaId": args.schemaId,
     }, opts);
 }
 
@@ -27,6 +28,7 @@ export function getDLPEDMSchema(args?: GetDLPEDMSchemaArgs, opts?: pulumi.Invoke
  */
 export interface GetDLPEDMSchemaArgs {
     projectName?: string;
+    schemaId?: number;
 }
 
 /**
@@ -67,6 +69,7 @@ export function getDLPEDMSchemaOutput(args?: GetDLPEDMSchemaOutputArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDLPEDMSchema:getDLPEDMSchema", {
         "projectName": args.projectName,
+        "schemaId": args.schemaId,
     }, opts);
 }
 
@@ -75,4 +78,5 @@ export function getDLPEDMSchemaOutput(args?: GetDLPEDMSchemaOutputArgs, opts?: p
  */
 export interface GetDLPEDMSchemaOutputArgs {
     projectName?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<number>;
 }

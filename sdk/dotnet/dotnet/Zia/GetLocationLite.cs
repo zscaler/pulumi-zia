@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-locations)
         /// * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
         /// 
-        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
+        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: `&lt;span pulumi-lang-nodejs="`zia.URLFilteringRules`" pulumi-lang-dotnet="`zia.URLFilteringRules`" pulumi-lang-go="`URLFilteringRules`" pulumi-lang-python="`URLFilteringRules`" pulumi-lang-yaml="`zia.URLFilteringRules`" pulumi-lang-java="`zia.URLFilteringRules`"&gt;`zia.URLFilteringRules`&lt;/span&gt;`, `&lt;span pulumi-lang-nodejs="`zia.FirewallFilteringRule`" pulumi-lang-dotnet="`zia.FirewallFilteringRule`" pulumi-lang-go="`FirewallFilteringRule`" pulumi-lang-python="`FirewallFilteringRule`" pulumi-lang-yaml="`zia.FirewallFilteringRule`" pulumi-lang-java="`zia.FirewallFilteringRule`"&gt;`zia.FirewallFilteringRule`&lt;/span&gt;` and `&lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ```hcl
         /// data "zia_location_lite" "this" {
@@ -31,7 +31,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-locations)
         /// * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
         /// 
-        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
+        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: `&lt;span pulumi-lang-nodejs="`zia.URLFilteringRules`" pulumi-lang-dotnet="`zia.URLFilteringRules`" pulumi-lang-go="`URLFilteringRules`" pulumi-lang-python="`URLFilteringRules`" pulumi-lang-yaml="`zia.URLFilteringRules`" pulumi-lang-java="`zia.URLFilteringRules`"&gt;`zia.URLFilteringRules`&lt;/span&gt;`, `&lt;span pulumi-lang-nodejs="`zia.FirewallFilteringRule`" pulumi-lang-dotnet="`zia.FirewallFilteringRule`" pulumi-lang-go="`FirewallFilteringRule`" pulumi-lang-python="`FirewallFilteringRule`" pulumi-lang-yaml="`zia.FirewallFilteringRule`" pulumi-lang-java="`zia.FirewallFilteringRule`"&gt;`zia.FirewallFilteringRule`&lt;/span&gt;` and `&lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ```hcl
         /// data "zia_location_lite" "this" {
@@ -46,7 +46,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-locations)
         /// * [API documentation](https://help.zscaler.com/zia/location-management#/locations/lite-get)
         /// 
-        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: ``zia.URLFilteringRules``, ``zia.FirewallFilteringRule`` and ``zia.DLPWebRules`
+        /// Use the **zia_location_lite** data source to get information about a location in lite mode option available in the Zscaler Internet Access. This data source can be used to retrieve the Road Warrior location to then associated with one of the following resources: `&lt;span pulumi-lang-nodejs="`zia.URLFilteringRules`" pulumi-lang-dotnet="`zia.URLFilteringRules`" pulumi-lang-go="`URLFilteringRules`" pulumi-lang-python="`URLFilteringRules`" pulumi-lang-yaml="`zia.URLFilteringRules`" pulumi-lang-java="`zia.URLFilteringRules`"&gt;`zia.URLFilteringRules`&lt;/span&gt;`, `&lt;span pulumi-lang-nodejs="`zia.FirewallFilteringRule`" pulumi-lang-dotnet="`zia.FirewallFilteringRule`" pulumi-lang-go="`FirewallFilteringRule`" pulumi-lang-python="`FirewallFilteringRule`" pulumi-lang-yaml="`zia.FirewallFilteringRule`" pulumi-lang-java="`zia.FirewallFilteringRule`"&gt;`zia.FirewallFilteringRule`&lt;/span&gt;` and `&lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ```hcl
         /// data "zia_location_lite" "this" {
@@ -62,16 +62,10 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetLocationLiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Boolean)
+        /// Unique identifier for the location group
         /// </summary>
-        [Input("digestAuthEnabled")]
-        public bool? DigestAuthEnabled { get; set; }
-
-        /// <summary>
-        /// (Boolean)
-        /// </summary>
-        [Input("kerberosAuth")]
-        public bool? KerberosAuth { get; set; }
+        [Input("id")]
+        public int? Id { get; set; }
 
         /// <summary>
         /// Location group name
@@ -88,16 +82,10 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetLocationLiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Boolean)
+        /// Unique identifier for the location group
         /// </summary>
-        [Input("digestAuthEnabled")]
-        public Input<bool>? DigestAuthEnabled { get; set; }
-
-        /// <summary>
-        /// (Boolean)
-        /// </summary>
-        [Input("kerberosAuth")]
-        public Input<bool>? KerberosAuth { get; set; }
+        [Input("id")]
+        public Input<int>? Id { get; set; }
 
         /// <summary>
         /// Location group name
@@ -131,14 +119,6 @@ namespace zscaler.PulumiPackage.Zia
         /// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
         /// </summary>
         public readonly bool CautionEnabled;
-        /// <summary>
-        /// (Boolean)
-        /// </summary>
-        public readonly bool? DigestAuthEnabled;
-        /// <summary>
-        /// (Boolean)
-        /// </summary>
-        public readonly bool EcLocation;
         public readonly int Id;
         /// <summary>
         /// (Boolean) Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
@@ -148,10 +128,6 @@ namespace zscaler.PulumiPackage.Zia
         /// (Number) If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
         /// </summary>
         public readonly bool Ipv6Enabled;
-        /// <summary>
-        /// (Boolean)
-        /// </summary>
-        public readonly bool? KerberosAuth;
         public readonly string? Name;
         /// <summary>
         /// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
@@ -166,9 +142,13 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool OtherSubLocation;
         /// <summary>
-        /// (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
+        /// (Number) - Parent Location ID. If this ID does not exist or is &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt;, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
         /// </summary>
         public readonly int ParentId;
+        public readonly ImmutableArray<string> SubLocAccIds;
+        public readonly string SubLocScope;
+        public readonly bool SubLocScopeEnabled;
+        public readonly ImmutableArray<string> SubLocScopeValues;
         /// <summary>
         /// (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
         /// </summary>
@@ -200,17 +180,11 @@ namespace zscaler.PulumiPackage.Zia
 
             bool cautionEnabled,
 
-            bool? digestAuthEnabled,
-
-            bool ecLocation,
-
             int id,
 
             bool ipsControl,
 
             bool ipv6Enabled,
-
-            bool? kerberosAuth,
 
             string? name,
 
@@ -221,6 +195,14 @@ namespace zscaler.PulumiPackage.Zia
             bool otherSubLocation,
 
             int parentId,
+
+            ImmutableArray<string> subLocAccIds,
+
+            string subLocScope,
+
+            bool subLocScopeEnabled,
+
+            ImmutableArray<string> subLocScopeValues,
 
             bool surrogateIp,
 
@@ -236,17 +218,18 @@ namespace zscaler.PulumiPackage.Zia
             AupEnabled = aupEnabled;
             AupForceSslInspection = aupForceSslInspection;
             CautionEnabled = cautionEnabled;
-            DigestAuthEnabled = digestAuthEnabled;
-            EcLocation = ecLocation;
             Id = id;
             IpsControl = ipsControl;
             Ipv6Enabled = ipv6Enabled;
-            KerberosAuth = kerberosAuth;
             Name = name;
             OfwEnabled = ofwEnabled;
             Other6SubLocation = other6SubLocation;
             OtherSubLocation = otherSubLocation;
             ParentId = parentId;
+            SubLocAccIds = subLocAccIds;
+            SubLocScope = subLocScope;
+            SubLocScopeEnabled = subLocScopeEnabled;
+            SubLocScopeValues = subLocScopeValues;
             SurrogateIp = surrogateIp;
             SurrogateIpEnforcedForKnownBrowsers = surrogateIpEnforcedForKnownBrowsers;
             Tz = tz;

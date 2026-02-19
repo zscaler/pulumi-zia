@@ -165,7 +165,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string DisplayTimeUnit;
         /// <summary>
-        /// (Number) Download bandwidth in bytes. The value `0` implies no Bandwidth Control enforcement.
+        /// (Number) Download bandwidth in bytes. The value &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt; implies no Bandwidth Control enforcement.
         /// </summary>
         public readonly int DnBandwidth;
         /// <summary>
@@ -206,8 +206,10 @@ namespace zscaler.PulumiPackage.Zia
         /// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
         /// </summary>
         public readonly bool OfwEnabled;
+        public readonly bool Other6SubLocation;
+        public readonly bool OtherSubLocation;
         /// <summary>
-        /// (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
+        /// (Number) - Parent Location ID. If this ID does not exist or is &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt;, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
         /// </summary>
         public readonly int ParentId;
         public readonly string? ParentName;
@@ -223,6 +225,22 @@ namespace zscaler.PulumiPackage.Zia
         /// (Boolean) This parameter was deprecated and no longer has an effect on SSL policy. It remains supported in the API payload in order to maintain backwards compatibility with existing scripts, but it will be removed in future.
         /// </summary>
         public readonly bool SslScanEnabled;
+        /// <summary>
+        /// (List of Strings) Specifies one or more Amazon Web Services (AWS) account IDs. These AWS accounts are associated with the parent location of this sublocation created in the Zscaler Cloud &amp; Branch Connector Admin Portal.
+        /// </summary>
+        public readonly ImmutableArray<string> SubLocAccIds;
+        /// <summary>
+        /// (Strings) Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies. This field is only available for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups. The supported options are: `VPC_ENDPOINT`, `VPC`, `NAMESPACE`, `ACCOUNT`
+        /// </summary>
+        public readonly string SubLocScope;
+        /// <summary>
+        /// (Boolean) Indicates whether defining scopes is allowed for this sublocation. Sublocation scopes are available only for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups.
+        /// </summary>
+        public readonly bool SubLocScopeEnabled;
+        /// <summary>
+        /// (List of Strings) Specifies values for the selected sublocation scope type
+        /// </summary>
+        public readonly ImmutableArray<string> SubLocScopeValues;
         /// <summary>
         /// (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
         /// </summary>
@@ -244,7 +262,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string Tz;
         /// <summary>
-        /// (Number) Upload bandwidth in bytes. The value `0` implies no Bandwidth Control enforcement.
+        /// (Number) Upload bandwidth in bytes. The value &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt; implies no Bandwidth Control enforcement.
         /// </summary>
         public readonly int UpBandwidth;
         public readonly ImmutableArray<Outputs.GetLocationManagementVpnCredentialResult> VpnCredentials;
@@ -309,6 +327,10 @@ namespace zscaler.PulumiPackage.Zia
 
             bool ofwEnabled,
 
+            bool other6SubLocation,
+
+            bool otherSubLocation,
+
             int parentId,
 
             string? parentName,
@@ -318,6 +340,14 @@ namespace zscaler.PulumiPackage.Zia
             string profile,
 
             bool sslScanEnabled,
+
+            ImmutableArray<string> subLocAccIds,
+
+            string subLocScope,
+
+            bool subLocScopeEnabled,
+
+            ImmutableArray<string> subLocScopeValues,
 
             bool surrogateIp,
 
@@ -362,11 +392,17 @@ namespace zscaler.PulumiPackage.Zia
             KerberosAuthEnabled = kerberosAuthEnabled;
             Name = name;
             OfwEnabled = ofwEnabled;
+            Other6SubLocation = other6SubLocation;
+            OtherSubLocation = otherSubLocation;
             ParentId = parentId;
             ParentName = parentName;
             Ports = ports;
             Profile = profile;
             SslScanEnabled = sslScanEnabled;
+            SubLocAccIds = subLocAccIds;
+            SubLocScope = subLocScope;
+            SubLocScopeEnabled = subLocScopeEnabled;
+            SubLocScopeValues = subLocScopeValues;
             SurrogateIp = surrogateIp;
             SurrogateIpEnforcedForKnownBrowsers = surrogateIpEnforcedForKnownBrowsers;
             SurrogateRefreshTimeInMinutes = surrogateRefreshTimeInMinutes;

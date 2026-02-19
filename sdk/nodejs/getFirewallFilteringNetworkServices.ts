@@ -19,7 +19,9 @@ export function getFirewallFilteringNetworkServices(args?: GetFirewallFilteringN
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getFirewallFilteringNetworkServices:getFirewallFilteringNetworkServices", {
         "id": args.id,
+        "locale": args.locale,
         "name": args.name,
+        "protocol": args.protocol,
     }, opts);
 }
 
@@ -32,9 +34,18 @@ export interface GetFirewallFilteringNetworkServicesArgs {
      */
     id?: number;
     /**
+     * (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+     */
+    locale?: string;
+    /**
      * Name of the application layer service that you want to control. It can include any character and spaces.
+     * See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
      */
     name?: string;
+    /**
+     * (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+     */
+    protocol?: string;
 }
 
 /**
@@ -42,7 +53,7 @@ export interface GetFirewallFilteringNetworkServicesArgs {
  */
 export interface GetFirewallFilteringNetworkServicesResult {
     /**
-     * (String) (Optional) Enter additional notes or information. The description cannot exceed 10240 characters.
+     * (String) Enter additional notes or information. The description cannot exceed 10240 characters.
      */
     readonly description: string;
     /**
@@ -58,7 +69,15 @@ export interface GetFirewallFilteringNetworkServicesResult {
      * (Bool) - Default: false
      */
     readonly isNameL10nTag: boolean;
+    /**
+     * (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+     */
+    readonly locale?: string;
     readonly name: string;
+    /**
+     * (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+     */
+    readonly protocol: string;
     /**
      * (Optional) The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
      */
@@ -67,6 +86,9 @@ export interface GetFirewallFilteringNetworkServicesResult {
      * The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
      */
     readonly srcUdpPorts: outputs.GetFirewallFilteringNetworkServicesSrcUdpPort[];
+    /**
+     * (string) - Supported network services names returned by the API. See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
+     */
     readonly tag: string;
     /**
      * (String) - Supported values are: `STANDARD`, `PREDEFINED` and `CUSTOM`
@@ -86,7 +108,9 @@ export function getFirewallFilteringNetworkServicesOutput(args?: GetFirewallFilt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getFirewallFilteringNetworkServices:getFirewallFilteringNetworkServices", {
         "id": args.id,
+        "locale": args.locale,
         "name": args.name,
+        "protocol": args.protocol,
     }, opts);
 }
 
@@ -99,7 +123,16 @@ export interface GetFirewallFilteringNetworkServicesOutputArgs {
      */
     id?: pulumi.Input<number>;
     /**
+     * (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+     */
+    locale?: pulumi.Input<string>;
+    /**
      * Name of the application layer service that you want to control. It can include any character and spaces.
+     * See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
      */
     name?: pulumi.Input<string>;
+    /**
+     * (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+     */
+    protocol?: pulumi.Input<string>;
 }

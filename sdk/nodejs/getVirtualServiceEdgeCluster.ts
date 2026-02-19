@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  * * [API documentation](https://help.zscaler.com/zia/service-edges#/virtualZenClusters-get)
  *
  * Use the **zia_virtual_service_edge_cluster** data source to get information about a Virtual Service Edge Cluster information for the specified `Name` or `ID`
+ *
+ * ## Example Usage
  */
 export function getVirtualServiceEdgeCluster(args?: GetVirtualServiceEdgeClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceEdgeClusterResult> {
     args = args || {};
@@ -26,7 +28,7 @@ export function getVirtualServiceEdgeCluster(args?: GetVirtualServiceEdgeCluster
  */
 export interface GetVirtualServiceEdgeClusterArgs {
     /**
-     * USystem-generated Virtual Service Edge cluster ID
+     * System-generated Virtual Service Edge cluster ID
      */
     id?: number;
     /**
@@ -40,49 +42,40 @@ export interface GetVirtualServiceEdgeClusterArgs {
  */
 export interface GetVirtualServiceEdgeClusterResult {
     /**
-     * (String) The IP address of the default gateway to the internet
+     * The IP address of the default gateway to the internet
      */
     readonly defaultGateway: string;
     /**
-     * (Number) Identifier that uniquely identifies an entity
+     * System-generated Virtual Service Edge cluster ID
      */
     readonly id: number;
     /**
-     * (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+     * The Virtual Service Edge cluster IP address
      */
     readonly ipAddress: string;
     /**
-     * (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+     * A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
      */
     readonly ipSecEnabled: boolean;
-    /**
-     * (Number) When the cluster was last modified
-     */
     readonly lastModifiedTime: number;
     /**
-     * (String) The configured name of the entity
+     * Name of the Virtual Service Edge cluster
      */
     readonly name: string;
     /**
-     * (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+     * Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
      */
     readonly status: string;
     /**
-     * (String) The Virtual Service Edge cluster subnet mask
+     * The Virtual Service Edge cluster subnet mask
      */
     readonly subnetMask: string;
     /**
-     * (String) The Virtual Service Edge cluster type
-     * `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-     * `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-     * `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-     * `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`,
-     * `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,
-     * `SMBAM`, `ZWACLT`
+     * The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
      */
     readonly type: string;
     /**
-     * (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+     * List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
      */
     readonly virtualZenNodes: outputs.GetVirtualServiceEdgeClusterVirtualZenNode[];
 }
@@ -91,6 +84,8 @@ export interface GetVirtualServiceEdgeClusterResult {
  * * [API documentation](https://help.zscaler.com/zia/service-edges#/virtualZenClusters-get)
  *
  * Use the **zia_virtual_service_edge_cluster** data source to get information about a Virtual Service Edge Cluster information for the specified `Name` or `ID`
+ *
+ * ## Example Usage
  */
 export function getVirtualServiceEdgeClusterOutput(args?: GetVirtualServiceEdgeClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualServiceEdgeClusterResult> {
     args = args || {};
@@ -106,7 +101,7 @@ export function getVirtualServiceEdgeClusterOutput(args?: GetVirtualServiceEdgeC
  */
 export interface GetVirtualServiceEdgeClusterOutputArgs {
     /**
-     * USystem-generated Virtual Service Edge cluster ID
+     * System-generated Virtual Service Edge cluster ID
      */
     id?: pulumi.Input<number>;
     /**

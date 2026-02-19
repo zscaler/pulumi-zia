@@ -21,10 +21,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_sandbox_behavioral_analysis** can be imported by using `sandbox_settings` as the import ID.
+ * **zia_sandbox_behavioral_analysis** can be imported by using `sandboxSettings` as the import ID.
  *
  * For example:
  *
@@ -61,10 +60,9 @@ export class SandboxBehavioralAnalysis extends pulumi.CustomResource {
     }
 
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-     * blocked
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
      */
-    public readonly fileHashesToBeBlockeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly fileHashesToBeBlockeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SandboxBehavioralAnalysis resource with the given unique name, arguments, and options.
@@ -79,10 +77,10 @@ export class SandboxBehavioralAnalysis extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SandboxBehavioralAnalysisState | undefined;
-            resourceInputs["fileHashesToBeBlockeds"] = state ? state.fileHashesToBeBlockeds : undefined;
+            resourceInputs["fileHashesToBeBlockeds"] = state?.fileHashesToBeBlockeds;
         } else {
             const args = argsOrState as SandboxBehavioralAnalysisArgs | undefined;
-            resourceInputs["fileHashesToBeBlockeds"] = args ? args.fileHashesToBeBlockeds : undefined;
+            resourceInputs["fileHashesToBeBlockeds"] = args?.fileHashesToBeBlockeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SandboxBehavioralAnalysis.__pulumiType, name, resourceInputs, opts);
@@ -94,8 +92,7 @@ export class SandboxBehavioralAnalysis extends pulumi.CustomResource {
  */
 export interface SandboxBehavioralAnalysisState {
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-     * blocked
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
      */
     fileHashesToBeBlockeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -105,8 +102,7 @@ export interface SandboxBehavioralAnalysisState {
  */
 export interface SandboxBehavioralAnalysisArgs {
     /**
-     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-     * blocked
+     * A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
      */
     fileHashesToBeBlockeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

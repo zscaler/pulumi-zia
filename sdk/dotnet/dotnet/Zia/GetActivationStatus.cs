@@ -13,6 +13,13 @@ namespace zscaler.PulumiPackage.Zia
     public static class GetActivationStatus
     {
         /// <summary>
+        /// * [Official documentation](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal)
+        /// * [API documentation](https://help.zscaler.com/zia/activation#/status-get)
+        /// 
+        /// The **zia_activation_status** data source allows to get information about the activation status of ZIA configurations.
+        /// 
+        /// &gt; As of right now, Terraform does not provide native support for commits or post-activation configuration, so configuration and policy activations are handled out-of-band. In order to handle the activation as part of the provider, a separate source code have been developed to generate a CLI binary.
+        /// 
         /// ## Example Usage
         /// 
         /// ```hcl
@@ -24,6 +31,13 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivationStatusResult>("zia:index/getActivationStatus:getActivationStatus", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
+        /// * [Official documentation](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal)
+        /// * [API documentation](https://help.zscaler.com/zia/activation#/status-get)
+        /// 
+        /// The **zia_activation_status** data source allows to get information about the activation status of ZIA configurations.
+        /// 
+        /// &gt; As of right now, Terraform does not provide native support for commits or post-activation configuration, so configuration and policy activations are handled out-of-band. In order to handle the activation as part of the provider, a separate source code have been developed to generate a CLI binary.
+        /// 
         /// ## Example Usage
         /// 
         /// ```hcl
@@ -35,6 +49,13 @@ namespace zscaler.PulumiPackage.Zia
             => global::Pulumi.Deployment.Instance.Invoke<GetActivationStatusResult>("zia:index/getActivationStatus:getActivationStatus", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
+        /// * [Official documentation](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal)
+        /// * [API documentation](https://help.zscaler.com/zia/activation#/status-get)
+        /// 
+        /// The **zia_activation_status** data source allows to get information about the activation status of ZIA configurations.
+        /// 
+        /// &gt; As of right now, Terraform does not provide native support for commits or post-activation configuration, so configuration and policy activations are handled out-of-band. In order to handle the activation as part of the provider, a separate source code have been developed to generate a CLI binary.
+        /// 
         /// ## Example Usage
         /// 
         /// ```hcl
