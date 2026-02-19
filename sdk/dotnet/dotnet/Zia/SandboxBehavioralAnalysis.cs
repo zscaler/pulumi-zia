@@ -27,10 +27,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_sandbox_behavioral_analysis** can be imported by using `sandbox_settings` as the import ID.
+    /// **zia_sandbox_behavioral_analysis** can be imported by using &lt;span pulumi-lang-nodejs="`sandboxSettings`" pulumi-lang-dotnet="`SandboxSettings`" pulumi-lang-go="`sandboxSettings`" pulumi-lang-python="`sandbox_settings`" pulumi-lang-yaml="`sandboxSettings`" pulumi-lang-java="`sandboxSettings`"&gt;`sandbox_settings`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -42,8 +41,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class SandboxBehavioralAnalysis : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-        /// blocked
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
         /// </summary>
         [Output("fileHashesToBeBlockeds")]
         public Output<ImmutableArray<string>> FileHashesToBeBlockeds { get; private set; } = null!;
@@ -99,8 +97,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileHashesToBeBlockeds;
 
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-        /// blocked
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
         /// </summary>
         public InputList<string> FileHashesToBeBlockeds
         {
@@ -120,8 +117,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _fileHashesToBeBlockeds;
 
         /// <summary>
-        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-        /// blocked
+        /// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
         /// </summary>
         public InputList<string> FileHashesToBeBlockeds
         {

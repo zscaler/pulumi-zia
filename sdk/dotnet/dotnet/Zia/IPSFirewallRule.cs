@@ -16,6 +16,14 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
     /// 
+    /// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+    /// 
+    /// * Automatically place new rules at the correct position
+    /// * Handle reordering around predefined rules
+    /// * Avoid configuration drift
+    /// 
+    /// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+    /// 
     /// ## Example Usage
     /// </summary>
     [ZiaResourceType("zia:index/iPSFirewallRule:IPSFirewallRule")]
@@ -101,10 +109,22 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnableFullLogging { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+        /// </summary>
+        [Output("eunTemplateId")]
+        public Output<int?> EunTemplateId { get; private set; } = null!;
+
+        /// <summary>
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("groups")]
         public Output<Outputs.IPSFirewallRuleGroups?> Groups { get; private set; } = null!;
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Output("isEunEnabled")]
+        public Output<bool?> IsEunEnabled { get; private set; } = null!;
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -113,13 +133,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.IPSFirewallRuleLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.IPSFirewallRuleLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Output("locations")]
         public Output<Outputs.IPSFirewallRuleLocations?> Locations { get; private set; } = null!;
@@ -155,7 +175,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> Predefined { get; private set; } = null!;
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
@@ -195,7 +215,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.IPSFirewallRuleSrcIpv6Groups?> SrcIpv6Groups { get; private set; } = null!;
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -207,13 +227,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<Outputs.IPSFirewallRuleThreatCategories?> ThreatCategories { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.IPSFirewallRuleTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Output("users")]
         public Output<Outputs.IPSFirewallRuleUsers?> Users { get; private set; } = null!;
@@ -373,10 +393,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+        /// </summary>
+        [Input("eunTemplateId")]
+        public Input<int>? EunTemplateId { get; set; }
+
+        /// <summary>
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.IPSFirewallRuleGroupsArgs>? Groups { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isEunEnabled")]
+        public Input<bool>? IsEunEnabled { get; set; }
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -385,13 +417,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.IPSFirewallRuleLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.IPSFirewallRuleLocationsArgs>? Locations { get; set; }
@@ -427,7 +459,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -482,7 +514,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleSrcIpv6GroupsArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -494,13 +526,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleThreatCategoriesArgs>? ThreatCategories { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.IPSFirewallRuleTimeWindowsArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.IPSFirewallRuleUsersArgs>? Users { get; set; }
@@ -623,10 +655,22 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableFullLogging { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+        /// </summary>
+        [Input("eunTemplateId")]
+        public Input<int>? EunTemplateId { get; set; }
+
+        /// <summary>
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("groups")]
         public Input<Inputs.IPSFirewallRuleGroupsGetArgs>? Groups { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isEunEnabled")]
+        public Input<bool>? IsEunEnabled { get; set; }
 
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
@@ -635,13 +679,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.IPSFirewallRuleLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         [Input("locations")]
         public Input<Inputs.IPSFirewallRuleLocationsGetArgs>? Locations { get; set; }
@@ -677,7 +721,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? Predefined { get; set; }
 
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -735,7 +779,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleSrcIpv6GroupsGetArgs>? SrcIpv6Groups { get; set; }
 
         /// <summary>
-        /// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+        /// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -747,13 +791,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<Inputs.IPSFirewallRuleThreatCategoriesGetArgs>? ThreatCategories { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.IPSFirewallRuleTimeWindowsGetArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         [Input("users")]
         public Input<Inputs.IPSFirewallRuleUsersGetArgs>? Users { get; set; }

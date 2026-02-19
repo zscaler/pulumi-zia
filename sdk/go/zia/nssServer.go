@@ -32,8 +32,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_nss_server** can be imported by using `<NSS_ID>` or `<NSS_NAME>` as the import ID.
 //

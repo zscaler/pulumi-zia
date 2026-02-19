@@ -27,10 +27,8 @@ func GetLocationLite(ctx *pulumi.Context, args *GetLocationLiteArgs, opts ...pul
 
 // A collection of arguments for invoking getLocationLite.
 type GetLocationLiteArgs struct {
-	// (Boolean)
-	DigestAuthEnabled *bool `pulumi:"digestAuthEnabled"`
-	// (Boolean)
-	KerberosAuth *bool `pulumi:"kerberosAuth"`
+	// Unique identifier for the location group
+	Id *int `pulumi:"id"`
 	// Location group name
 	Name *string `pulumi:"name"`
 }
@@ -45,18 +43,12 @@ type GetLocationLiteResult struct {
 	AupForceSslInspection bool `pulumi:"aupForceSslInspection"`
 	// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
 	CautionEnabled bool `pulumi:"cautionEnabled"`
-	// (Boolean)
-	DigestAuthEnabled *bool `pulumi:"digestAuthEnabled"`
-	// (Boolean)
-	EcLocation bool `pulumi:"ecLocation"`
-	Id         int  `pulumi:"id"`
+	Id             int  `pulumi:"id"`
 	// (Boolean) Enable IPS Control. When set to true, IPS Control is enabled for the location if Firewall is enabled.
 	IpsControl bool `pulumi:"ipsControl"`
 	// (Number) If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
-	Ipv6Enabled bool `pulumi:"ipv6Enabled"`
-	// (Boolean)
-	KerberosAuth *bool   `pulumi:"kerberosAuth"`
-	Name         *string `pulumi:"name"`
+	Ipv6Enabled bool    `pulumi:"ipv6Enabled"`
+	Name        *string `pulumi:"name"`
 	// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
 	OfwEnabled bool `pulumi:"ofwEnabled"`
 	// (Boolean) If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv6 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other6 and it can be renamed, if required. This field is applicable only if ipv6Enabled is set is true
@@ -64,7 +56,11 @@ type GetLocationLiteResult struct {
 	// (Boolean) If set to true, indicates that this is a default sub-location created by the Zscaler service to accommodate IPv4 addresses that are not part of any user-defined sub-locations. The default sub-location is created with the name Other and it can be renamed, if required.
 	OtherSubLocation bool `pulumi:"otherSubLocation"`
 	// (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
-	ParentId int `pulumi:"parentId"`
+	ParentId           int      `pulumi:"parentId"`
+	SubLocAccIds       []string `pulumi:"subLocAccIds"`
+	SubLocScope        string   `pulumi:"subLocScope"`
+	SubLocScopeEnabled bool     `pulumi:"subLocScopeEnabled"`
+	SubLocScopeValues  []string `pulumi:"subLocScopeValues"`
 	// (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp bool `pulumi:"surrogateIp"`
 	// (Boolean) Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -88,10 +84,8 @@ func GetLocationLiteOutput(ctx *pulumi.Context, args GetLocationLiteOutputArgs, 
 
 // A collection of arguments for invoking getLocationLite.
 type GetLocationLiteOutputArgs struct {
-	// (Boolean)
-	DigestAuthEnabled pulumi.BoolPtrInput `pulumi:"digestAuthEnabled"`
-	// (Boolean)
-	KerberosAuth pulumi.BoolPtrInput `pulumi:"kerberosAuth"`
+	// Unique identifier for the location group
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Location group name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -135,16 +129,6 @@ func (o GetLocationLiteResultOutput) CautionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLocationLiteResult) bool { return v.CautionEnabled }).(pulumi.BoolOutput)
 }
 
-// (Boolean)
-func (o GetLocationLiteResultOutput) DigestAuthEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetLocationLiteResult) *bool { return v.DigestAuthEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// (Boolean)
-func (o GetLocationLiteResultOutput) EcLocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLocationLiteResult) bool { return v.EcLocation }).(pulumi.BoolOutput)
-}
-
 func (o GetLocationLiteResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLocationLiteResult) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -157,11 +141,6 @@ func (o GetLocationLiteResultOutput) IpsControl() pulumi.BoolOutput {
 // (Number) If set to true, IPv6 is enabled for the location and IPv6 traffic from the location can be forwarded to the Zscaler service to enforce security policies.
 func (o GetLocationLiteResultOutput) Ipv6Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLocationLiteResult) bool { return v.Ipv6Enabled }).(pulumi.BoolOutput)
-}
-
-// (Boolean)
-func (o GetLocationLiteResultOutput) KerberosAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetLocationLiteResult) *bool { return v.KerberosAuth }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetLocationLiteResultOutput) Name() pulumi.StringPtrOutput {
@@ -186,6 +165,22 @@ func (o GetLocationLiteResultOutput) OtherSubLocation() pulumi.BoolOutput {
 // (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
 func (o GetLocationLiteResultOutput) ParentId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLocationLiteResult) int { return v.ParentId }).(pulumi.IntOutput)
+}
+
+func (o GetLocationLiteResultOutput) SubLocAccIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationLiteResult) []string { return v.SubLocAccIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLocationLiteResultOutput) SubLocScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationLiteResult) string { return v.SubLocScope }).(pulumi.StringOutput)
+}
+
+func (o GetLocationLiteResultOutput) SubLocScopeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationLiteResult) bool { return v.SubLocScopeEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetLocationLiteResultOutput) SubLocScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationLiteResult) []string { return v.SubLocScopeValues }).(pulumi.StringArrayOutput)
 }
 
 // (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.

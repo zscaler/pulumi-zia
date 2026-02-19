@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_firewall_filtering_destination_groups** can be imported by using `<GROUP_ID>` or `<GROUP_NAME>` as the import ID.
@@ -63,32 +62,31 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
     /**
      * Destination IP addresses within the group
      */
-    public readonly addresses!: pulumi.Output<string[]>;
+    declare public readonly addresses: pulumi.Output<string[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
-    public readonly countries!: pulumi.Output<string[]>;
+    declare public readonly countries: pulumi.Output<string[]>;
     /**
      * Additional information about the destination IP group
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Unique identifer for the destination IP group
      */
-    public /*out*/ readonly groupId!: pulumi.Output<number>;
+    declare public /*out*/ readonly groupId: pulumi.Output<number>;
     /**
      * List of URL categories for which rule must be applied
      */
-    public readonly ipCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipCategories: pulumi.Output<string[] | undefined>;
     /**
      * Destination IP group name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Destination IP group type (i.e., the group can contain destination IP addresses or FQDNs)
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a FirewallFilteringDestinationGroups resource with the given unique name, arguments, and options.
@@ -103,21 +101,21 @@ export class FirewallFilteringDestinationGroups extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallFilteringDestinationGroupsState | undefined;
-            resourceInputs["addresses"] = state ? state.addresses : undefined;
-            resourceInputs["countries"] = state ? state.countries : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["ipCategories"] = state ? state.ipCategories : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["addresses"] = state?.addresses;
+            resourceInputs["countries"] = state?.countries;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["ipCategories"] = state?.ipCategories;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as FirewallFilteringDestinationGroupsArgs | undefined;
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["countries"] = args ? args.countries : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipCategories"] = args ? args.ipCategories : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["countries"] = args?.countries;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipCategories"] = args?.ipCategories;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
             resourceInputs["groupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,8 +132,7 @@ export interface FirewallFilteringDestinationGroupsState {
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     countries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -169,8 +166,7 @@ export interface FirewallFilteringDestinationGroupsArgs {
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     countries?: pulumi.Input<pulumi.Input<string>[]>;
     /**

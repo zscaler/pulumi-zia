@@ -18,7 +18,9 @@ export function getFirewallDNSRules(args?: GetFirewallDNSRulesArgs, opts?: pulum
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getFirewallDNSRules:getFirewallDNSRules", {
+        "defaultDnsRuleNameUsed": args.defaultDnsRuleNameUsed,
         "id": args.id,
+        "isWebEunEnabled": args.isWebEunEnabled,
         "name": args.name,
     }, opts);
 }
@@ -28,9 +30,17 @@ export function getFirewallDNSRules(args?: GetFirewallDNSRulesArgs, opts?: pulum
  */
 export interface GetFirewallDNSRulesArgs {
     /**
+     * (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+     */
+    defaultDnsRuleNameUsed?: boolean;
+    /**
      * Unique identifier for the Firewall Filtering policy rule
      */
     id?: number;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    isWebEunEnabled?: boolean;
     /**
      * Name of the Firewall Filtering policy rule
      */
@@ -62,6 +72,10 @@ export interface GetFirewallDNSRulesResult {
      * (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
      */
     readonly capturePcap: boolean;
+    /**
+     * (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+     */
+    readonly defaultDnsRuleNameUsed?: boolean;
     /**
      * (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
      */
@@ -117,6 +131,10 @@ export interface GetFirewallDNSRulesResult {
      * (Integer) Identifier that uniquely identifies an entity
      */
     readonly id: number;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    readonly isWebEunEnabled?: boolean;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
@@ -201,7 +219,9 @@ export function getFirewallDNSRulesOutput(args?: GetFirewallDNSRulesOutputArgs, 
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getFirewallDNSRules:getFirewallDNSRules", {
+        "defaultDnsRuleNameUsed": args.defaultDnsRuleNameUsed,
         "id": args.id,
+        "isWebEunEnabled": args.isWebEunEnabled,
         "name": args.name,
     }, opts);
 }
@@ -211,9 +231,17 @@ export function getFirewallDNSRulesOutput(args?: GetFirewallDNSRulesOutputArgs, 
  */
 export interface GetFirewallDNSRulesOutputArgs {
     /**
+     * (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+     */
+    defaultDnsRuleNameUsed?: pulumi.Input<boolean>;
+    /**
      * Unique identifier for the Firewall Filtering policy rule
      */
     id?: pulumi.Input<number>;
+    /**
+     * (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+     */
+    isWebEunEnabled?: pulumi.Input<boolean>;
     /**
      * Name of the Firewall Filtering policy rule
      */

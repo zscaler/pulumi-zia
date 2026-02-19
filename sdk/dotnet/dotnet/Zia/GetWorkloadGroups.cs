@@ -71,6 +71,12 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetWorkloadGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The unique identifer for the workload group.
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
         /// The name of the workload group to be exported.
         /// </summary>
         [Input("name")]
@@ -84,6 +90,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetWorkloadGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifer for the workload group.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         /// <summary>
         /// The name of the workload group to be exported.
         /// </summary>

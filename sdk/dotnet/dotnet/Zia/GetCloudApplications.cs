@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// 
-        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloud_applications` on supported rules.
+        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute &lt;span pulumi-lang-nodejs="`cloudApplications`" pulumi-lang-dotnet="`CloudApplications`" pulumi-lang-go="`cloudApplications`" pulumi-lang-python="`cloud_applications`" pulumi-lang-yaml="`cloudApplications`" pulumi-lang-java="`cloudApplications`"&gt;`cloud_applications`&lt;/span&gt; on supported rules.
         /// 
         /// ```hcl
         /// data "zia_cloud_applications" "this" {
@@ -115,7 +115,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// 
-        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloud_applications` on supported rules.
+        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute &lt;span pulumi-lang-nodejs="`cloudApplications`" pulumi-lang-dotnet="`CloudApplications`" pulumi-lang-go="`cloudApplications`" pulumi-lang-python="`cloud_applications`" pulumi-lang-yaml="`cloudApplications`" pulumi-lang-java="`cloudApplications`"&gt;`cloud_applications`&lt;/span&gt; on supported rules.
         /// 
         /// ```hcl
         /// data "zia_cloud_applications" "this" {
@@ -214,7 +214,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// * [API documentation](https://help.zscaler.com/zia/cloud-applications#/cloudApplications/sslPolicy-get)
         /// 
-        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute `cloud_applications` on supported rules.
+        /// Use the **zia_cloud_applications** data source to Retrieves a list of Predefined and User Defined Cloud Applications associated with the DLP rules, Cloud App Control rules, Advanced Settings, Bandwidth Classes, File Type Control and SSL Inspection rules. The returned information can be associated with the attribute &lt;span pulumi-lang-nodejs="`cloudApplications`" pulumi-lang-dotnet="`CloudApplications`" pulumi-lang-go="`cloudApplications`" pulumi-lang-python="`cloud_applications`" pulumi-lang-yaml="`cloudApplications`" pulumi-lang-java="`cloudApplications`"&gt;`cloud_applications`&lt;/span&gt; on supported rules.
         /// 
         /// ```hcl
         /// data "zia_cloud_applications" "this" {

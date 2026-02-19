@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **firewall_filtering_network_service_groups** can be imported by using `&lt;GROUP_ID&gt;` or `&lt;GROUP_NAME&gt;` as the import ID.

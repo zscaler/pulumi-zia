@@ -18,13 +18,14 @@ import (
 //
 // ## Example Usage
 //
-// ### With Hierarchical Identifiers
+// ### With Hierarchical Identifiers (Clone Predefined Dictionary)
+//
+// ### With Exact Data Match (EDM)
 //
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_dlp_dictionaries** can be imported by using `<DICTIONARY ID>` or `<DICTIONARY_NAME>` as the import ID.
 //
@@ -42,23 +43,18 @@ import (
 type DLPDictionaries struct {
 	pulumi.CustomResourceState
 
-	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-	// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-	// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	BinNumbers pulumi.IntArrayOutput `pulumi:"binNumbers"`
 	// The DLP confidence threshold for predefined dictionaries
 	ConfidenceLevelForPredefinedDict pulumi.StringPtrOutput `pulumi:"confidenceLevelForPredefinedDict"`
 	// The DLP confidence threshold
 	ConfidenceThreshold pulumi.StringPtrOutput `pulumi:"confidenceThreshold"`
 	// The DLP dictionary proximity length.
-	Custom                pulumi.BoolOutput   `pulumi:"custom"`
-	CustomPhraseMatchType pulumi.StringOutput `pulumi:"customPhraseMatchType"`
+	Custom                pulumi.BoolOutput      `pulumi:"custom"`
+	CustomPhraseMatchType pulumi.StringPtrOutput `pulumi:"customPhraseMatchType"`
 	// The desciption of the DLP dictionary
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-	// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-	// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-	// dictionary.
+	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 	DictTemplateId pulumi.IntPtrOutput `pulumi:"dictTemplateId"`
 	DictionaryId   pulumi.IntOutput    `pulumi:"dictionaryId"`
 	// The DLP dictionary type.
@@ -69,21 +65,19 @@ type DLPDictionaries struct {
 	HierarchicalIdentifiers pulumi.StringArrayOutput `pulumi:"hierarchicalIdentifiers"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayOutput `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-	// Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrOutput `pulumi:"ignoreExactMatchIdmDict"`
-	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-	// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-	// field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolOutput `pulumi:"includeBinNumbers"`
 	// The DLP dictionary's name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-	// dictionaries
+	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 	Patterns DLPDictionariesPatternArrayOutput `pulumi:"patterns"`
 	Phrases  DLPDictionariesPhraseArrayOutput  `pulumi:"phrases"`
-	// The DLP dictionary proximity length.
+	// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 	Proximity pulumi.IntPtrOutput `pulumi:"proximity"`
+	// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+	ProximityEnabledForCustomDictionary pulumi.BoolPtrOutput `pulumi:"proximityEnabledForCustomDictionary"`
 }
 
 // NewDLPDictionaries registers a new resource with the given unique name, arguments, and options.
@@ -116,9 +110,7 @@ func GetDLPDictionaries(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DLPDictionaries resources.
 type dlpdictionariesState struct {
-	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-	// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-	// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	BinNumbers []int `pulumi:"binNumbers"`
 	// The DLP confidence threshold for predefined dictionaries
 	ConfidenceLevelForPredefinedDict *string `pulumi:"confidenceLevelForPredefinedDict"`
@@ -129,10 +121,7 @@ type dlpdictionariesState struct {
 	CustomPhraseMatchType *string `pulumi:"customPhraseMatchType"`
 	// The desciption of the DLP dictionary
 	Description *string `pulumi:"description"`
-	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-	// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-	// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-	// dictionary.
+	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 	DictTemplateId *int `pulumi:"dictTemplateId"`
 	DictionaryId   *int `pulumi:"dictionaryId"`
 	// The DLP dictionary type.
@@ -143,27 +132,23 @@ type dlpdictionariesState struct {
 	HierarchicalIdentifiers []string `pulumi:"hierarchicalIdentifiers"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies []DLPDictionariesIdmProfileMatchAccuracy `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-	// Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict *bool `pulumi:"ignoreExactMatchIdmDict"`
-	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-	// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-	// field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers *bool `pulumi:"includeBinNumbers"`
 	// The DLP dictionary's name
 	Name *string `pulumi:"name"`
-	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-	// dictionaries
+	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 	Patterns []DLPDictionariesPattern `pulumi:"patterns"`
 	Phrases  []DLPDictionariesPhrase  `pulumi:"phrases"`
-	// The DLP dictionary proximity length.
+	// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 	Proximity *int `pulumi:"proximity"`
+	// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+	ProximityEnabledForCustomDictionary *bool `pulumi:"proximityEnabledForCustomDictionary"`
 }
 
 type DLPDictionariesState struct {
-	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-	// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-	// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	BinNumbers pulumi.IntArrayInput
 	// The DLP confidence threshold for predefined dictionaries
 	ConfidenceLevelForPredefinedDict pulumi.StringPtrInput
@@ -174,10 +159,7 @@ type DLPDictionariesState struct {
 	CustomPhraseMatchType pulumi.StringPtrInput
 	// The desciption of the DLP dictionary
 	Description pulumi.StringPtrInput
-	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-	// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-	// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-	// dictionary.
+	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 	DictTemplateId pulumi.IntPtrInput
 	DictionaryId   pulumi.IntPtrInput
 	// The DLP dictionary type.
@@ -188,21 +170,19 @@ type DLPDictionariesState struct {
 	HierarchicalIdentifiers pulumi.StringArrayInput
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayInput
-	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-	// Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrInput
-	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-	// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-	// field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolPtrInput
 	// The DLP dictionary's name
 	Name pulumi.StringPtrInput
-	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-	// dictionaries
+	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 	Patterns DLPDictionariesPatternArrayInput
 	Phrases  DLPDictionariesPhraseArrayInput
-	// The DLP dictionary proximity length.
+	// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 	Proximity pulumi.IntPtrInput
+	// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+	ProximityEnabledForCustomDictionary pulumi.BoolPtrInput
 }
 
 func (DLPDictionariesState) ElementType() reflect.Type {
@@ -210,9 +190,7 @@ func (DLPDictionariesState) ElementType() reflect.Type {
 }
 
 type dlpdictionariesArgs struct {
-	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-	// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-	// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	BinNumbers []int `pulumi:"binNumbers"`
 	// The DLP confidence threshold for predefined dictionaries
 	ConfidenceLevelForPredefinedDict *string `pulumi:"confidenceLevelForPredefinedDict"`
@@ -223,10 +201,7 @@ type dlpdictionariesArgs struct {
 	CustomPhraseMatchType *string `pulumi:"customPhraseMatchType"`
 	// The desciption of the DLP dictionary
 	Description *string `pulumi:"description"`
-	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-	// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-	// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-	// dictionary.
+	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 	DictTemplateId *int `pulumi:"dictTemplateId"`
 	// The DLP dictionary type.
 	DictionaryType *string `pulumi:"dictionaryType"`
@@ -236,28 +211,24 @@ type dlpdictionariesArgs struct {
 	HierarchicalIdentifiers []string `pulumi:"hierarchicalIdentifiers"`
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies []DLPDictionariesIdmProfileMatchAccuracy `pulumi:"idmProfileMatchAccuracies"`
-	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-	// Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict *bool `pulumi:"ignoreExactMatchIdmDict"`
-	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-	// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-	// field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers *bool `pulumi:"includeBinNumbers"`
 	// The DLP dictionary's name
 	Name *string `pulumi:"name"`
-	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-	// dictionaries
+	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 	Patterns []DLPDictionariesPattern `pulumi:"patterns"`
 	Phrases  []DLPDictionariesPhrase  `pulumi:"phrases"`
-	// The DLP dictionary proximity length.
+	// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 	Proximity *int `pulumi:"proximity"`
+	// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+	ProximityEnabledForCustomDictionary *bool `pulumi:"proximityEnabledForCustomDictionary"`
 }
 
 // The set of arguments for constructing a DLPDictionaries resource.
 type DLPDictionariesArgs struct {
-	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-	// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-	// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	BinNumbers pulumi.IntArrayInput
 	// The DLP confidence threshold for predefined dictionaries
 	ConfidenceLevelForPredefinedDict pulumi.StringPtrInput
@@ -268,10 +239,7 @@ type DLPDictionariesArgs struct {
 	CustomPhraseMatchType pulumi.StringPtrInput
 	// The desciption of the DLP dictionary
 	Description pulumi.StringPtrInput
-	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-	// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-	// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-	// dictionary.
+	// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 	DictTemplateId pulumi.IntPtrInput
 	// The DLP dictionary type.
 	DictionaryType pulumi.StringPtrInput
@@ -281,21 +249,19 @@ type DLPDictionariesArgs struct {
 	HierarchicalIdentifiers pulumi.StringArrayInput
 	// List of Indexed Document Match (IDM) profiles and their corresponding match accuracy for custom DLP dictionaries.
 	IdmProfileMatchAccuracies DLPDictionariesIdmProfileMatchAccuracyArrayInput
-	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-	// Document Match (IDM) Dictionary.
+	// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 	IgnoreExactMatchIdmDict pulumi.BoolPtrInput
-	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-	// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-	// field is applicable only to the predefined Credit Cards dictionary and its clones.
+	// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 	IncludeBinNumbers pulumi.BoolPtrInput
 	// The DLP dictionary's name
 	Name pulumi.StringPtrInput
-	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-	// dictionaries
+	// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 	Patterns DLPDictionariesPatternArrayInput
 	Phrases  DLPDictionariesPhraseArrayInput
-	// The DLP dictionary proximity length.
+	// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 	Proximity pulumi.IntPtrInput
+	// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+	ProximityEnabledForCustomDictionary pulumi.BoolPtrInput
 }
 
 func (DLPDictionariesArgs) ElementType() reflect.Type {
@@ -385,9 +351,7 @@ func (o DLPDictionariesOutput) ToDLPDictionariesOutputWithContext(ctx context.Co
 	return o
 }
 
-// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN
-// values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured
-// in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
+// The list of Bank Identification Number (BIN) values that are included or excluded from the Credit Cards dictionary. BIN values can be specified only for Diners Club, Mastercard, RuPay, and Visa cards. Up to 512 BIN values can be configured in a dictionary. Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 func (o DLPDictionariesOutput) BinNumbers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.IntArrayOutput { return v.BinNumbers }).(pulumi.IntArrayOutput)
 }
@@ -407,8 +371,8 @@ func (o DLPDictionariesOutput) Custom() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.BoolOutput { return v.Custom }).(pulumi.BoolOutput)
 }
 
-func (o DLPDictionariesOutput) CustomPhraseMatchType() pulumi.StringOutput {
-	return o.ApplyT(func(v *DLPDictionaries) pulumi.StringOutput { return v.CustomPhraseMatchType }).(pulumi.StringOutput)
+func (o DLPDictionariesOutput) CustomPhraseMatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DLPDictionaries) pulumi.StringPtrOutput { return v.CustomPhraseMatchType }).(pulumi.StringPtrOutput)
 }
 
 // The desciption of the DLP dictionary
@@ -416,10 +380,7 @@ func (o DLPDictionariesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to
-// cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social
-// Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined
-// dictionary.
+// ID of the predefined dictionary (original source dictionary) that is used for cloning. This field is applicable only to cloned dictionaries. Only a limited set of identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers, etc.) can be cloned. Up to 4 clones can be created from a predefined dictionary.
 func (o DLPDictionariesOutput) DictTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.IntPtrOutput { return v.DictTemplateId }).(pulumi.IntPtrOutput)
 }
@@ -452,15 +413,12 @@ func (o DLPDictionariesOutput) IdmProfileMatchAccuracies() DLPDictionariesIdmPro
 	}).(DLPDictionariesIdmProfileMatchAccuracyArrayOutput)
 }
 
-// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed
-// Document Match (IDM) Dictionary.
+// Indicates whether to exclude documents that are a 100% match to already-indexed documents from triggering an Indexed Document Match (IDM) Dictionary.
 func (o DLPDictionariesOutput) IgnoreExactMatchIdmDict() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.BoolPtrOutput { return v.IgnoreExactMatchIdmDict }).(pulumi.BoolPtrOutput)
 }
 
-// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards
-// dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This
-// field is applicable only to the predefined Credit Cards dictionary and its clones.
+// A true value denotes that the specified Bank Identification Number (BIN) values are included in the Credit Cards dictionary. A false value denotes that the specified BIN values are excluded from the Credit Cards dictionary.Note: This field is applicable only to the predefined Credit Cards dictionary and its clones.
 func (o DLPDictionariesOutput) IncludeBinNumbers() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.BoolOutput { return v.IncludeBinNumbers }).(pulumi.BoolOutput)
 }
@@ -470,8 +428,7 @@ func (o DLPDictionariesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP
-// dictionaries
+// List containing the patterns used within a custom DLP dictionary. This attribute is not applicable to predefined DLP dictionaries
 func (o DLPDictionariesOutput) Patterns() DLPDictionariesPatternArrayOutput {
 	return o.ApplyT(func(v *DLPDictionaries) DLPDictionariesPatternArrayOutput { return v.Patterns }).(DLPDictionariesPatternArrayOutput)
 }
@@ -480,9 +437,14 @@ func (o DLPDictionariesOutput) Phrases() DLPDictionariesPhraseArrayOutput {
 	return o.ApplyT(func(v *DLPDictionaries) DLPDictionariesPhraseArrayOutput { return v.Phrases }).(DLPDictionariesPhraseArrayOutput)
 }
 
-// The DLP dictionary proximity length.
+// The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match.
 func (o DLPDictionariesOutput) Proximity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DLPDictionaries) pulumi.IntPtrOutput { return v.Proximity }).(pulumi.IntPtrOutput)
+}
+
+// A Boolean constant that indicates if proximity length is enabled or disabled for a custom DLP dictionary.
+func (o DLPDictionariesOutput) ProximityEnabledForCustomDictionary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DLPDictionaries) pulumi.BoolPtrOutput { return v.ProximityEnabledForCustomDictionary }).(pulumi.BoolPtrOutput)
 }
 
 type DLPDictionariesArrayOutput struct{ *pulumi.OutputState }

@@ -17,6 +17,7 @@ export function getLocationGroups(args?: GetLocationGroupsArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getLocationGroups:getLocationGroups", {
         "dynamicLocationGroupCriterias": args.dynamicLocationGroupCriterias,
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -29,6 +30,10 @@ export interface GetLocationGroupsArgs {
      * (Block Set) Dynamic location group information.
      */
     dynamicLocationGroupCriterias?: inputs.GetLocationGroupsDynamicLocationGroupCriteria[];
+    /**
+     * Unique identifier for the location group
+     */
+    id?: number;
     /**
      * Location group name
      */
@@ -91,6 +96,7 @@ export function getLocationGroupsOutput(args?: GetLocationGroupsOutputArgs, opts
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getLocationGroups:getLocationGroups", {
         "dynamicLocationGroupCriterias": args.dynamicLocationGroupCriterias,
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -103,6 +109,10 @@ export interface GetLocationGroupsOutputArgs {
      * (Block Set) Dynamic location group information.
      */
     dynamicLocationGroupCriterias?: pulumi.Input<pulumi.Input<inputs.GetLocationGroupsDynamicLocationGroupCriteriaArgs>[]>;
+    /**
+     * Unique identifier for the location group
+     */
+    id?: pulumi.Input<number>;
     /**
      * Location group name
      */

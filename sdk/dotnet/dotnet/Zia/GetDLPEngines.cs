@@ -20,24 +20,32 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### Retrieve Custom DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by name
+        /// #
         /// data "zia_dlp_engines" "this"{
         ///     name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Retrieve Custom DLP Engine By ID
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by ID
         /// data "zia_dlp_engines" "this"{
         ///     id = 1234567890
         /// }
         /// ```
         /// 
+        /// ### Retrieve Predefined DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a Predefined DLP Engine
         /// data "zia_dlp_engines" "this"{
-        ///     predefined = "EXTERNAL"
+        ///     predefined_engine_name = "PCI"
+        /// }
+        /// 
+        /// data "zia_dlp_engines" "this"{
+        ///     predefined_engine_name = "EXTERNAL"
         /// }
         /// ```
         /// </summary>
@@ -52,24 +60,32 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### Retrieve Custom DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by name
+        /// #
         /// data "zia_dlp_engines" "this"{
         ///     name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Retrieve Custom DLP Engine By ID
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by ID
         /// data "zia_dlp_engines" "this"{
         ///     id = 1234567890
         /// }
         /// ```
         /// 
+        /// ### Retrieve Predefined DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a Predefined DLP Engine
         /// data "zia_dlp_engines" "this"{
-        ///     predefined = "EXTERNAL"
+        ///     predefined_engine_name = "PCI"
+        /// }
+        /// 
+        /// data "zia_dlp_engines" "this"{
+        ///     predefined_engine_name = "EXTERNAL"
         /// }
         /// ```
         /// </summary>
@@ -84,24 +100,32 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// ## Example Usage
         /// 
+        /// ### Retrieve Custom DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by name
+        /// #
         /// data "zia_dlp_engines" "this"{
         ///     name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Retrieve Custom DLP Engine By ID
+        /// 
         /// ```hcl
-        /// # Retrieve a DLP Engine by ID
         /// data "zia_dlp_engines" "this"{
         ///     id = 1234567890
         /// }
         /// ```
         /// 
+        /// ### Retrieve Predefined DLP Engine By Name
+        /// 
         /// ```hcl
-        /// # Retrieve a Predefined DLP Engine
         /// data "zia_dlp_engines" "this"{
-        ///     predefined = "EXTERNAL"
+        ///     predefined_engine_name = "PCI"
+        /// }
+        /// 
+        /// data "zia_dlp_engines" "this"{
+        ///     predefined_engine_name = "EXTERNAL"
         /// }
         /// ```
         /// </summary>

@@ -19,6 +19,7 @@ export function getDLPIDMProfileLite(args?: GetDLPIDMProfileLiteArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite", {
         "activeOnly": args.activeOnly,
+        "profileId": args.profileId,
         "templateName": args.templateName,
     }, opts);
 }
@@ -28,6 +29,7 @@ export function getDLPIDMProfileLite(args?: GetDLPIDMProfileLiteArgs, opts?: pul
  */
 export interface GetDLPIDMProfileLiteArgs {
     activeOnly?: boolean;
+    profileId?: number;
     templateName?: string;
 }
 
@@ -60,6 +62,7 @@ export function getDLPIDMProfileLiteOutput(args?: GetDLPIDMProfileLiteOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDLPIDMProfileLite:getDLPIDMProfileLite", {
         "activeOnly": args.activeOnly,
+        "profileId": args.profileId,
         "templateName": args.templateName,
     }, opts);
 }
@@ -69,5 +72,6 @@ export function getDLPIDMProfileLiteOutput(args?: GetDLPIDMProfileLiteOutputArgs
  */
 export interface GetDLPIDMProfileLiteOutputArgs {
     activeOnly?: pulumi.Input<boolean>;
+    profileId?: pulumi.Input<number>;
     templateName?: pulumi.Input<string>;
 }

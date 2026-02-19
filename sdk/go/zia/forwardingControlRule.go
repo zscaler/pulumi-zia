@@ -12,11 +12,31 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
+//
+// The **zia_forwarding_control_rule** resource allows the creation and management of ZIA Forwarding Control rules in the Zscaler Internet Access.
+//
+// ⚠️ **WARNING:**  - PR #373 - The resource `ForwardingControlRule` now pauses for 60 seconds before proceeding with the create or update process whenever the `forwardMethod` attribute is set to `ZPA`. In case of a failure related to resource synchronization, the provider will retry the resource creation or update up to 3 times, waiting 30 seconds between each retry. This behavior ensures that ZIA and ZPA have sufficient time to synchronize and replicate the necessary resource IDs, reducing the risk of transient errors during provisioning.
+//
+//	**NOTE**: This retry mechanism helps to automatically overcome temporary latency without manual intervention. This behavior does not affect forwarding rules configured with other forwardMethods such as `DIRECT`.
+//
+// ## Example Usage
+//
+// ### DIRECT Forwarding Method
+//
+// ### ZPA Forwarding Method
+//
+//	⚠️ **WARNING:**: You must use the ZPA provider in combination with the ZIA Terraform Provider to successfully configure a Forwarding control rule where the `forwardMethod` is `ZPA`
+//
+// ### PROXYCHAIN Forwarding Method
+//
+//	⚠️ **WARNING:**: Creating or retrieving a Proxy Gateway via API is not currently supported; hence, the `id` and `name` for the `proxyGateway` must be passed manually to the `proxyGateway` block in the below configuration.
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_forwarding_control_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -50,6 +70,8 @@ type ForwardingControlRule struct {
 	DestIpGroups ForwardingControlRuleDestIpGroupsPtrOutput `pulumi:"destIpGroups"`
 	// ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsPtrOutput `pulumi:"destIpv6Groups"`
+	// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+	DeviceGroups ForwardingControlRuleDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsPtrOutput `pulumi:"ecGroups"`
 	// The type of traffic forwarding method selected from the available options
@@ -154,6 +176,8 @@ type forwardingControlRuleState struct {
 	DestIpGroups *ForwardingControlRuleDestIpGroups `pulumi:"destIpGroups"`
 	// ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	DestIpv6Groups *ForwardingControlRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
+	// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+	DeviceGroups *ForwardingControlRuleDeviceGroups `pulumi:"deviceGroups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups *ForwardingControlRuleEcGroups `pulumi:"ecGroups"`
 	// The type of traffic forwarding method selected from the available options
@@ -223,6 +247,8 @@ type ForwardingControlRuleState struct {
 	DestIpGroups ForwardingControlRuleDestIpGroupsPtrInput
 	// ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsPtrInput
+	// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+	DeviceGroups ForwardingControlRuleDeviceGroupsPtrInput
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsPtrInput
 	// The type of traffic forwarding method selected from the available options
@@ -296,6 +322,8 @@ type forwardingControlRuleArgs struct {
 	DestIpGroups *ForwardingControlRuleDestIpGroups `pulumi:"destIpGroups"`
 	// ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	DestIpv6Groups *ForwardingControlRuleDestIpv6Groups `pulumi:"destIpv6Groups"`
+	// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+	DeviceGroups *ForwardingControlRuleDeviceGroups `pulumi:"deviceGroups"`
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups *ForwardingControlRuleEcGroups `pulumi:"ecGroups"`
 	// The type of traffic forwarding method selected from the available options
@@ -364,6 +392,8 @@ type ForwardingControlRuleArgs struct {
 	DestIpGroups ForwardingControlRuleDestIpGroupsPtrInput
 	// ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	DestIpv6Groups ForwardingControlRuleDestIpv6GroupsPtrInput
+	// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+	DeviceGroups ForwardingControlRuleDeviceGroupsPtrInput
 	// (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
 	EcGroups ForwardingControlRuleEcGroupsPtrInput
 	// The type of traffic forwarding method selected from the available options
@@ -541,6 +571,11 @@ func (o ForwardingControlRuleOutput) DestIpGroups() ForwardingControlRuleDestIpG
 // ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 func (o ForwardingControlRuleOutput) DestIpv6Groups() ForwardingControlRuleDestIpv6GroupsPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) ForwardingControlRuleDestIpv6GroupsPtrOutput { return v.DestIpv6Groups }).(ForwardingControlRuleDestIpv6GroupsPtrOutput)
+}
+
+// (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+func (o ForwardingControlRuleOutput) DeviceGroups() ForwardingControlRuleDeviceGroupsPtrOutput {
+	return o.ApplyT(func(v *ForwardingControlRule) ForwardingControlRuleDeviceGroupsPtrOutput { return v.DeviceGroups }).(ForwardingControlRuleDeviceGroupsPtrOutput)
 }
 
 // (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies

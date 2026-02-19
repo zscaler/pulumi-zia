@@ -16,13 +16,20 @@ import * as utilities from "./utilities";
  *
  * ### NOTIFICATION TYPE - CUSTOM
  *
+ * ## Important Notes
+ *
+ * **Text Attributes and CSS Styling**: When setting attributes such as `customText`, `urlCatReviewText`, `securityReviewText`, `webDlpReviewText`, `cautionCustomText`, `idpProxyNotificationText`, and `quarantineCustomNotificationText`, we recommend using heredocs (EOT) especially when including CSS stylesheets. This ensures proper formatting and readability of complex text content.
+ *
+ * **JavaScript Limitation**: The ZIA API currently does not accept JavaScript tags in notification text attributes. Using JavaScript tags will result in an HTTP 406 Rejected error. For more information on customizing EUN CSS styles, see the [Zscaler documentation](https://help.zscaler.com/zia/customizing-euns-css-styles).
+ *
+ * ### Example with Heredoc for CSS Styling
+ *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_end_user_notification** can be imported by using `enduser_notification` as the import ID.
+ * **zia_end_user_notification** can be imported by using `enduserNotification` as the import ID.
  *
  * For example:
  *
@@ -61,129 +68,123 @@ export class EndUserNotification extends pulumi.CustomResource {
     /**
      * The custom frequency (in days) for showing the AUP to the end users. Valid range is 0 to 180.
      */
-    public readonly aupCustomFrequency!: pulumi.Output<number>;
+    declare public readonly aupCustomFrequency: pulumi.Output<number | undefined>;
     /**
      * Specifies which day of the week or month the AUP is shown for users when aupFrequency is set. Valid range is 0 to 31.
      */
-    public readonly aupDayOffset!: pulumi.Output<number>;
+    declare public readonly aupDayOffset: pulumi.Output<number | undefined>;
     /**
      * The frequency at which the Acceptable Use Policy (AUP) is shown to the end users
      */
-    public readonly aupFrequency!: pulumi.Output<string>;
+    declare public readonly aupFrequency: pulumi.Output<string | undefined>;
     /**
      * The acceptable use statement that is shown in the AUP
      */
-    public readonly aupMessage!: pulumi.Output<string>;
+    declare public readonly aupMessage: pulumi.Output<string | undefined>;
     /**
      * The time interval at which the caution notification is shown when users continue browsing a restricted site.
      */
-    public readonly cautionAgainAfter!: pulumi.Output<number>;
+    declare public readonly cautionAgainAfter: pulumi.Output<number | undefined>;
     /**
      * The custom message that appears in the caution notification
      */
-    public readonly cautionCustomText!: pulumi.Output<string>;
+    declare public readonly cautionCustomText: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-     * Unknown category.
+     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
      */
-    public readonly cautionPerDomain!: pulumi.Output<boolean>;
+    declare public readonly cautionPerDomain: pulumi.Output<boolean | undefined>;
     /**
      * The custom text shown in the EUN
      */
-    public readonly customText!: pulumi.Output<string>;
+    declare public readonly customText: pulumi.Output<string | undefined>;
     /**
      * A Boolean value indicating whether your organization's logo appears in the EUN or not
      */
-    public readonly displayCompLogo!: pulumi.Output<boolean>;
+    declare public readonly displayCompanyLogo: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value indicating whether the organization's name appears in the EUN or not
      */
-    public readonly displayCompName!: pulumi.Output<boolean>;
+    declare public readonly displayCompanyName: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-     * is shown when the respective notification is triggered
+     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
      */
-    public readonly displayReason!: pulumi.Output<boolean>;
+    declare public readonly displayReason: pulumi.Output<boolean | undefined>;
     /**
      * The message that appears in the IdP Proxy notification
      */
-    public readonly idpProxyNotificationText!: pulumi.Output<string>;
+    declare public readonly idpProxyNotificationText: pulumi.Output<string | undefined>;
     /**
      * The type of EUN as default or custom
      */
-    public readonly notificationType!: pulumi.Output<string>;
+    declare public readonly notificationType: pulumi.Output<string | undefined>;
     /**
      * The URL of the organization's policy page. This field is required for the default notification type.
      */
-    public readonly orgPolicyLink!: pulumi.Output<string>;
+    declare public readonly orgPolicyLink: pulumi.Output<string | undefined>;
     /**
      * The message that appears in the quarantine notification
      */
-    public readonly quarantineCustomNotificationText!: pulumi.Output<string | undefined>;
+    declare public readonly quarantineCustomNotificationText: pulumi.Output<string | undefined>;
     /**
      * The redirect URL for the external site hosting the EUN specified when the custom notification type is selected
      */
-    public readonly redirectUrl!: pulumi.Output<string>;
+    declare public readonly redirectUrl: pulumi.Output<string | undefined>;
     /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-     * users.
+     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
      */
-    public readonly securityReviewCustomLocation!: pulumi.Output<string>;
+    declare public readonly securityReviewCustomLocation: pulumi.Output<string | undefined>;
     /**
      * A Boolean value indicating whether the Security Violation notification is enabled or disabled
      */
-    public readonly securityReviewEnabled!: pulumi.Output<boolean>;
+    declare public readonly securityReviewEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-     * Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
-    public readonly securityReviewSubmitToSecurityCloud!: pulumi.Output<boolean>;
+    declare public readonly securityReviewSubmitToSecurityCloud: pulumi.Output<boolean | undefined>;
     /**
      * The message that appears in the Security Violation notification
      */
-    public readonly securityReviewText!: pulumi.Output<string>;
+    declare public readonly securityReviewText: pulumi.Output<string | undefined>;
     /**
      * The email address for writing to IT Support
      */
-    public readonly supportEmail!: pulumi.Output<string>;
+    declare public readonly supportEmail: pulumi.Output<string | undefined>;
     /**
      * The phone number for contacting IT Support
      */
-    public readonly supportPhone!: pulumi.Output<string>;
+    declare public readonly supportPhone: pulumi.Output<string | undefined>;
     /**
      * A custom URL location where users' review requests for blocked URLs are sent
      */
-    public readonly urlCatReviewCustomLocation!: pulumi.Output<string>;
+    declare public readonly urlCatReviewCustomLocation: pulumi.Output<string | undefined>;
     /**
      * A Boolean value indicating whether the URL Categorization notification is enabled or disabled
      */
-    public readonly urlCatReviewEnabled!: pulumi.Output<boolean>;
+    declare public readonly urlCatReviewEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
-    public readonly urlCatReviewSubmitToSecurityCloud!: pulumi.Output<boolean>;
+    declare public readonly urlCatReviewSubmitToSecurityCloud: pulumi.Output<boolean | undefined>;
     /**
      * The message that appears in the URL Categorization notification
      */
-    public readonly urlCatReviewText!: pulumi.Output<string>;
+    declare public readonly urlCatReviewText: pulumi.Output<string | undefined>;
     /**
      * A custom URL location where users' review requests for the web DLP policy violation are sent
      */
-    public readonly webDlpReviewCustomLocation!: pulumi.Output<string>;
+    declare public readonly webDlpReviewCustomLocation: pulumi.Output<string | undefined>;
     /**
      * A Boolean value indicating whether the Web DLP Violation notification is enabled or disabled
      */
-    public readonly webDlpReviewEnabled!: pulumi.Output<boolean>;
+    declare public readonly webDlpReviewEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
-    public readonly webDlpReviewSubmitToSecurityCloud!: pulumi.Output<boolean>;
+    declare public readonly webDlpReviewSubmitToSecurityCloud: pulumi.Output<boolean | undefined>;
     /**
      * The message that appears in the Web DLP Violation notification
      */
-    public readonly webDlpReviewText!: pulumi.Output<string>;
+    declare public readonly webDlpReviewText: pulumi.Output<string | undefined>;
 
     /**
      * Create a EndUserNotification resource with the given unique name, arguments, and options.
@@ -198,68 +199,68 @@ export class EndUserNotification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndUserNotificationState | undefined;
-            resourceInputs["aupCustomFrequency"] = state ? state.aupCustomFrequency : undefined;
-            resourceInputs["aupDayOffset"] = state ? state.aupDayOffset : undefined;
-            resourceInputs["aupFrequency"] = state ? state.aupFrequency : undefined;
-            resourceInputs["aupMessage"] = state ? state.aupMessage : undefined;
-            resourceInputs["cautionAgainAfter"] = state ? state.cautionAgainAfter : undefined;
-            resourceInputs["cautionCustomText"] = state ? state.cautionCustomText : undefined;
-            resourceInputs["cautionPerDomain"] = state ? state.cautionPerDomain : undefined;
-            resourceInputs["customText"] = state ? state.customText : undefined;
-            resourceInputs["displayCompLogo"] = state ? state.displayCompLogo : undefined;
-            resourceInputs["displayCompName"] = state ? state.displayCompName : undefined;
-            resourceInputs["displayReason"] = state ? state.displayReason : undefined;
-            resourceInputs["idpProxyNotificationText"] = state ? state.idpProxyNotificationText : undefined;
-            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
-            resourceInputs["orgPolicyLink"] = state ? state.orgPolicyLink : undefined;
-            resourceInputs["quarantineCustomNotificationText"] = state ? state.quarantineCustomNotificationText : undefined;
-            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            resourceInputs["securityReviewCustomLocation"] = state ? state.securityReviewCustomLocation : undefined;
-            resourceInputs["securityReviewEnabled"] = state ? state.securityReviewEnabled : undefined;
-            resourceInputs["securityReviewSubmitToSecurityCloud"] = state ? state.securityReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["securityReviewText"] = state ? state.securityReviewText : undefined;
-            resourceInputs["supportEmail"] = state ? state.supportEmail : undefined;
-            resourceInputs["supportPhone"] = state ? state.supportPhone : undefined;
-            resourceInputs["urlCatReviewCustomLocation"] = state ? state.urlCatReviewCustomLocation : undefined;
-            resourceInputs["urlCatReviewEnabled"] = state ? state.urlCatReviewEnabled : undefined;
-            resourceInputs["urlCatReviewSubmitToSecurityCloud"] = state ? state.urlCatReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["urlCatReviewText"] = state ? state.urlCatReviewText : undefined;
-            resourceInputs["webDlpReviewCustomLocation"] = state ? state.webDlpReviewCustomLocation : undefined;
-            resourceInputs["webDlpReviewEnabled"] = state ? state.webDlpReviewEnabled : undefined;
-            resourceInputs["webDlpReviewSubmitToSecurityCloud"] = state ? state.webDlpReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["webDlpReviewText"] = state ? state.webDlpReviewText : undefined;
+            resourceInputs["aupCustomFrequency"] = state?.aupCustomFrequency;
+            resourceInputs["aupDayOffset"] = state?.aupDayOffset;
+            resourceInputs["aupFrequency"] = state?.aupFrequency;
+            resourceInputs["aupMessage"] = state?.aupMessage;
+            resourceInputs["cautionAgainAfter"] = state?.cautionAgainAfter;
+            resourceInputs["cautionCustomText"] = state?.cautionCustomText;
+            resourceInputs["cautionPerDomain"] = state?.cautionPerDomain;
+            resourceInputs["customText"] = state?.customText;
+            resourceInputs["displayCompanyLogo"] = state?.displayCompanyLogo;
+            resourceInputs["displayCompanyName"] = state?.displayCompanyName;
+            resourceInputs["displayReason"] = state?.displayReason;
+            resourceInputs["idpProxyNotificationText"] = state?.idpProxyNotificationText;
+            resourceInputs["notificationType"] = state?.notificationType;
+            resourceInputs["orgPolicyLink"] = state?.orgPolicyLink;
+            resourceInputs["quarantineCustomNotificationText"] = state?.quarantineCustomNotificationText;
+            resourceInputs["redirectUrl"] = state?.redirectUrl;
+            resourceInputs["securityReviewCustomLocation"] = state?.securityReviewCustomLocation;
+            resourceInputs["securityReviewEnabled"] = state?.securityReviewEnabled;
+            resourceInputs["securityReviewSubmitToSecurityCloud"] = state?.securityReviewSubmitToSecurityCloud;
+            resourceInputs["securityReviewText"] = state?.securityReviewText;
+            resourceInputs["supportEmail"] = state?.supportEmail;
+            resourceInputs["supportPhone"] = state?.supportPhone;
+            resourceInputs["urlCatReviewCustomLocation"] = state?.urlCatReviewCustomLocation;
+            resourceInputs["urlCatReviewEnabled"] = state?.urlCatReviewEnabled;
+            resourceInputs["urlCatReviewSubmitToSecurityCloud"] = state?.urlCatReviewSubmitToSecurityCloud;
+            resourceInputs["urlCatReviewText"] = state?.urlCatReviewText;
+            resourceInputs["webDlpReviewCustomLocation"] = state?.webDlpReviewCustomLocation;
+            resourceInputs["webDlpReviewEnabled"] = state?.webDlpReviewEnabled;
+            resourceInputs["webDlpReviewSubmitToSecurityCloud"] = state?.webDlpReviewSubmitToSecurityCloud;
+            resourceInputs["webDlpReviewText"] = state?.webDlpReviewText;
         } else {
             const args = argsOrState as EndUserNotificationArgs | undefined;
-            resourceInputs["aupCustomFrequency"] = args ? args.aupCustomFrequency : undefined;
-            resourceInputs["aupDayOffset"] = args ? args.aupDayOffset : undefined;
-            resourceInputs["aupFrequency"] = args ? args.aupFrequency : undefined;
-            resourceInputs["aupMessage"] = args ? args.aupMessage : undefined;
-            resourceInputs["cautionAgainAfter"] = args ? args.cautionAgainAfter : undefined;
-            resourceInputs["cautionCustomText"] = args ? args.cautionCustomText : undefined;
-            resourceInputs["cautionPerDomain"] = args ? args.cautionPerDomain : undefined;
-            resourceInputs["customText"] = args ? args.customText : undefined;
-            resourceInputs["displayCompLogo"] = args ? args.displayCompLogo : undefined;
-            resourceInputs["displayCompName"] = args ? args.displayCompName : undefined;
-            resourceInputs["displayReason"] = args ? args.displayReason : undefined;
-            resourceInputs["idpProxyNotificationText"] = args ? args.idpProxyNotificationText : undefined;
-            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
-            resourceInputs["orgPolicyLink"] = args ? args.orgPolicyLink : undefined;
-            resourceInputs["quarantineCustomNotificationText"] = args ? args.quarantineCustomNotificationText : undefined;
-            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            resourceInputs["securityReviewCustomLocation"] = args ? args.securityReviewCustomLocation : undefined;
-            resourceInputs["securityReviewEnabled"] = args ? args.securityReviewEnabled : undefined;
-            resourceInputs["securityReviewSubmitToSecurityCloud"] = args ? args.securityReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["securityReviewText"] = args ? args.securityReviewText : undefined;
-            resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
-            resourceInputs["supportPhone"] = args ? args.supportPhone : undefined;
-            resourceInputs["urlCatReviewCustomLocation"] = args ? args.urlCatReviewCustomLocation : undefined;
-            resourceInputs["urlCatReviewEnabled"] = args ? args.urlCatReviewEnabled : undefined;
-            resourceInputs["urlCatReviewSubmitToSecurityCloud"] = args ? args.urlCatReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["urlCatReviewText"] = args ? args.urlCatReviewText : undefined;
-            resourceInputs["webDlpReviewCustomLocation"] = args ? args.webDlpReviewCustomLocation : undefined;
-            resourceInputs["webDlpReviewEnabled"] = args ? args.webDlpReviewEnabled : undefined;
-            resourceInputs["webDlpReviewSubmitToSecurityCloud"] = args ? args.webDlpReviewSubmitToSecurityCloud : undefined;
-            resourceInputs["webDlpReviewText"] = args ? args.webDlpReviewText : undefined;
+            resourceInputs["aupCustomFrequency"] = args?.aupCustomFrequency;
+            resourceInputs["aupDayOffset"] = args?.aupDayOffset;
+            resourceInputs["aupFrequency"] = args?.aupFrequency;
+            resourceInputs["aupMessage"] = args?.aupMessage;
+            resourceInputs["cautionAgainAfter"] = args?.cautionAgainAfter;
+            resourceInputs["cautionCustomText"] = args?.cautionCustomText;
+            resourceInputs["cautionPerDomain"] = args?.cautionPerDomain;
+            resourceInputs["customText"] = args?.customText;
+            resourceInputs["displayCompanyLogo"] = args?.displayCompanyLogo;
+            resourceInputs["displayCompanyName"] = args?.displayCompanyName;
+            resourceInputs["displayReason"] = args?.displayReason;
+            resourceInputs["idpProxyNotificationText"] = args?.idpProxyNotificationText;
+            resourceInputs["notificationType"] = args?.notificationType;
+            resourceInputs["orgPolicyLink"] = args?.orgPolicyLink;
+            resourceInputs["quarantineCustomNotificationText"] = args?.quarantineCustomNotificationText;
+            resourceInputs["redirectUrl"] = args?.redirectUrl;
+            resourceInputs["securityReviewCustomLocation"] = args?.securityReviewCustomLocation;
+            resourceInputs["securityReviewEnabled"] = args?.securityReviewEnabled;
+            resourceInputs["securityReviewSubmitToSecurityCloud"] = args?.securityReviewSubmitToSecurityCloud;
+            resourceInputs["securityReviewText"] = args?.securityReviewText;
+            resourceInputs["supportEmail"] = args?.supportEmail;
+            resourceInputs["supportPhone"] = args?.supportPhone;
+            resourceInputs["urlCatReviewCustomLocation"] = args?.urlCatReviewCustomLocation;
+            resourceInputs["urlCatReviewEnabled"] = args?.urlCatReviewEnabled;
+            resourceInputs["urlCatReviewSubmitToSecurityCloud"] = args?.urlCatReviewSubmitToSecurityCloud;
+            resourceInputs["urlCatReviewText"] = args?.urlCatReviewText;
+            resourceInputs["webDlpReviewCustomLocation"] = args?.webDlpReviewCustomLocation;
+            resourceInputs["webDlpReviewEnabled"] = args?.webDlpReviewEnabled;
+            resourceInputs["webDlpReviewSubmitToSecurityCloud"] = args?.webDlpReviewSubmitToSecurityCloud;
+            resourceInputs["webDlpReviewText"] = args?.webDlpReviewText;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndUserNotification.__pulumiType, name, resourceInputs, opts);
@@ -295,8 +296,7 @@ export interface EndUserNotificationState {
      */
     cautionCustomText?: pulumi.Input<string>;
     /**
-     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-     * Unknown category.
+     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
      */
     cautionPerDomain?: pulumi.Input<boolean>;
     /**
@@ -306,14 +306,13 @@ export interface EndUserNotificationState {
     /**
      * A Boolean value indicating whether your organization's logo appears in the EUN or not
      */
-    displayCompLogo?: pulumi.Input<boolean>;
+    displayCompanyLogo?: pulumi.Input<boolean>;
     /**
      * A Boolean value indicating whether the organization's name appears in the EUN or not
      */
-    displayCompName?: pulumi.Input<boolean>;
+    displayCompanyName?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-     * is shown when the respective notification is triggered
+     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
      */
     displayReason?: pulumi.Input<boolean>;
     /**
@@ -337,8 +336,7 @@ export interface EndUserNotificationState {
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-     * users.
+     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
      */
     securityReviewCustomLocation?: pulumi.Input<string>;
     /**
@@ -346,8 +344,7 @@ export interface EndUserNotificationState {
      */
     securityReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-     * Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     securityReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**
@@ -371,8 +368,7 @@ export interface EndUserNotificationState {
      */
     urlCatReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     urlCatReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**
@@ -388,8 +384,7 @@ export interface EndUserNotificationState {
      */
     webDlpReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     webDlpReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**
@@ -427,8 +422,7 @@ export interface EndUserNotificationArgs {
      */
     cautionCustomText?: pulumi.Input<string>;
     /**
-     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or
-     * Unknown category.
+     * Specifies whether to display the caution notification at a specific time interval for URLs in the Miscellaneous or Unknown category.
      */
     cautionPerDomain?: pulumi.Input<boolean>;
     /**
@@ -438,14 +432,13 @@ export interface EndUserNotificationArgs {
     /**
      * A Boolean value indicating whether your organization's logo appears in the EUN or not
      */
-    displayCompLogo?: pulumi.Input<boolean>;
+    displayCompanyLogo?: pulumi.Input<boolean>;
     /**
      * A Boolean value indicating whether the organization's name appears in the EUN or not
      */
-    displayCompName?: pulumi.Input<boolean>;
+    displayCompanyName?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application
-     * is shown when the respective notification is triggered
+     * A Boolean value indicating whether or not the reason for cautioning or blocking access to a site, file, or application is shown when the respective notification is triggered
      */
     displayReason?: pulumi.Input<boolean>;
     /**
@@ -469,8 +462,7 @@ export interface EndUserNotificationArgs {
      */
     redirectUrl?: pulumi.Input<string>;
     /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-     * users.
+     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
      */
     securityReviewCustomLocation?: pulumi.Input<string>;
     /**
@@ -478,8 +470,7 @@ export interface EndUserNotificationArgs {
      */
     securityReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e.,
-     * Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for blocked URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     securityReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**
@@ -503,8 +494,7 @@ export interface EndUserNotificationArgs {
      */
     urlCatReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for possibly misclassified URLs are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     urlCatReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**
@@ -520,8 +510,7 @@ export interface EndUserNotificationArgs {
      */
     webDlpReviewEnabled?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler
-     * service (i.e., Security Cloud) or a custom location.
+     * A Boolean value indicating whether users' review requests for web DLP policy violation are submitted to the Zscaler service (i.e., Security Cloud) or a custom location.
      */
     webDlpReviewSubmitToSecurityCloud?: pulumi.Input<boolean>;
     /**

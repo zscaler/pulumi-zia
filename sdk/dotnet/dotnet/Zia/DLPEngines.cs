@@ -16,14 +16,13 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// Use the **zia_dlp_engines** resource allows the creation and management of ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
     /// 
-    /// ⚠️ **WARNING:** "Before using the new ``zia.DLPEngines`` resource contact [Zscaler Support](https://help.zscaler.com/login-tickets)." and request the following API methods ``POST``, ``PUT``, and ``DELETE`` to be enabled for your organization.
+    /// ⚠️ **WARNING:** "Before using the new `&lt;span pulumi-lang-nodejs="`zia.DLPEngines`" pulumi-lang-dotnet="`zia.DLPEngines`" pulumi-lang-go="`DLPEngines`" pulumi-lang-python="`DLPEngines`" pulumi-lang-yaml="`zia.DLPEngines`" pulumi-lang-java="`zia.DLPEngines`"&gt;`zia.DLPEngines`&lt;/span&gt;` resource contact [Zscaler Support](https://help.zscaler.com/login-tickets)." and request the following API methods ``POST``, ``PUT``, and ``DELETE`` to be enabled for your organization.
     /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_dlp_engines** can be imported by using `&lt;ENGINE_ID&gt;` or `&lt;ENGINE_NAME&gt;` as the import ID.

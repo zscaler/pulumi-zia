@@ -22,14 +22,13 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// The following attributes are supported:
     /// 
-    /// * `comments` - (Optional) Additional information about this user.
-    /// * `temp_auth_email` - (Optional) Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
-    /// * `auth_methods` - (Optional) Type of authentication method to be enabled. Supported values is: ``BASIC``
+    /// * &lt;span pulumi-lang-nodejs="`comments`" pulumi-lang-dotnet="`Comments`" pulumi-lang-go="`comments`" pulumi-lang-python="`comments`" pulumi-lang-yaml="`comments`" pulumi-lang-java="`comments`"&gt;`comments`&lt;/span&gt; - (Optional) Additional information about this user.
+    /// * &lt;span pulumi-lang-nodejs="`tempAuthEmail`" pulumi-lang-dotnet="`TempAuthEmail`" pulumi-lang-go="`tempAuthEmail`" pulumi-lang-python="`temp_auth_email`" pulumi-lang-yaml="`tempAuthEmail`" pulumi-lang-java="`tempAuthEmail`"&gt;`temp_auth_email`&lt;/span&gt; - (Optional) Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
+    /// * &lt;span pulumi-lang-nodejs="`authMethods`" pulumi-lang-dotnet="`AuthMethods`" pulumi-lang-go="`authMethods`" pulumi-lang-python="`auth_methods`" pulumi-lang-yaml="`authMethods`" pulumi-lang-java="`authMethods`"&gt;`auth_methods`&lt;/span&gt; - (Optional) Type of authentication method to be enabled. Supported values is: ``BASIC``
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_user_management** can be imported by using `&lt;USER_ID&gt;` or `&lt;USERNAME&gt;` as the import ID.
@@ -94,8 +93,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-        /// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
         /// </summary>
         [Output("tempAuthEmail")]
         public Output<string?> TempAuthEmail { get; private set; } = null!;
@@ -213,8 +211,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-        /// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
         /// </summary>
         [Input("tempAuthEmail")]
         public Input<string>? TempAuthEmail { get; set; }
@@ -286,8 +283,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-        /// service sends the tokens or links. If this is empty, the service will send the email to the User email.
+        /// Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
         /// </summary>
         [Input("tempAuthEmail")]
         public Input<string>? TempAuthEmail { get; set; }

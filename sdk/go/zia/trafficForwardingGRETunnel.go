@@ -12,11 +12,31 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+//
+// The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
+//
+// > **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The attribute can be overriden if needed by setting the parameters: `primaryDestVip` and `secondaryDestVip`.
+//
+// ## Example Usage
+//
+// ### Unnumbered
+//
+// > **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the primaryDestVip and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the available VIP.
+//
+// > **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
+//
+// > **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
+//
+// ### Numbered
+//
+// > **Note:** When configuring a numbered GRE Tunnel where the attribute `internalIpRange` is defined, we must set the lifecycle block to ignore changes to the “internalIpRange“ attribute unless it is explicitly changed in the Terraform configuration.
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_traffic_forwarding_gre_tunnel** can be imported by using `<TUNNEL_ID>` as the import ID.
 //
@@ -40,8 +60,7 @@ type TrafficForwardingGRETunnel struct {
 	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
 	// The start of the internal IP address in /29 CIDR range
 	InternalIpRange pulumi.StringPtrOutput `pulumi:"internalIpRange"`
-	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-	// set to null
+	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 	IpUnnumbered pulumi.BoolOutput `pulumi:"ipUnnumbered"`
 	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel
 	PrimaryDestVips TrafficForwardingGRETunnelPrimaryDestVipArrayOutput `pulumi:"primaryDestVips"`
@@ -94,8 +113,7 @@ type trafficForwardingGRETunnelState struct {
 	CountryCode *string `pulumi:"countryCode"`
 	// The start of the internal IP address in /29 CIDR range
 	InternalIpRange *string `pulumi:"internalIpRange"`
-	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-	// set to null
+	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 	IpUnnumbered *bool `pulumi:"ipUnnumbered"`
 	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel
 	PrimaryDestVips []TrafficForwardingGRETunnelPrimaryDestVip `pulumi:"primaryDestVips"`
@@ -116,8 +134,7 @@ type TrafficForwardingGRETunnelState struct {
 	CountryCode pulumi.StringPtrInput
 	// The start of the internal IP address in /29 CIDR range
 	InternalIpRange pulumi.StringPtrInput
-	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-	// set to null
+	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 	IpUnnumbered pulumi.BoolPtrInput
 	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel
 	PrimaryDestVips TrafficForwardingGRETunnelPrimaryDestVipArrayInput
@@ -142,8 +159,7 @@ type trafficForwardingGRETunnelArgs struct {
 	CountryCode *string `pulumi:"countryCode"`
 	// The start of the internal IP address in /29 CIDR range
 	InternalIpRange *string `pulumi:"internalIpRange"`
-	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-	// set to null
+	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 	IpUnnumbered *bool `pulumi:"ipUnnumbered"`
 	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel
 	PrimaryDestVips []TrafficForwardingGRETunnelPrimaryDestVip `pulumi:"primaryDestVips"`
@@ -163,8 +179,7 @@ type TrafficForwardingGRETunnelArgs struct {
 	CountryCode pulumi.StringPtrInput
 	// The start of the internal IP address in /29 CIDR range
 	InternalIpRange pulumi.StringPtrInput
-	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-	// set to null
+	// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 	IpUnnumbered pulumi.BoolPtrInput
 	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel
 	PrimaryDestVips TrafficForwardingGRETunnelPrimaryDestVipArrayInput
@@ -278,8 +293,7 @@ func (o TrafficForwardingGRETunnelOutput) InternalIpRange() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *TrafficForwardingGRETunnel) pulumi.StringPtrOutput { return v.InternalIpRange }).(pulumi.StringPtrOutput)
 }
 
-// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are
-// set to null
+// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
 func (o TrafficForwardingGRETunnelOutput) IpUnnumbered() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TrafficForwardingGRETunnel) pulumi.BoolOutput { return v.IpUnnumbered }).(pulumi.BoolOutput)
 }

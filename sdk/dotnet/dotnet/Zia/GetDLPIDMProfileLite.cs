@@ -94,6 +94,9 @@ namespace zscaler.PulumiPackage.Zia
         [Input("activeOnly")]
         public bool? ActiveOnly { get; set; }
 
+        [Input("profileId")]
+        public int? ProfileId { get; set; }
+
         [Input("templateName")]
         public string? TemplateName { get; set; }
 
@@ -107,6 +110,9 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("activeOnly")]
         public Input<bool>? ActiveOnly { get; set; }
+
+        [Input("profileId")]
+        public Input<int>? ProfileId { get; set; }
 
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }

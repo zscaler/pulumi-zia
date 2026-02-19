@@ -36,7 +36,7 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         public readonly bool? ShowEunatp;
         /// <summary>
         /// has the following attributes:
-        /// **NOTE** This block can only be set when `override_default_certificate` is `true`
+        /// **NOTE** This block can only be set when &lt;span pulumi-lang-nodejs="`overrideDefaultCertificate`" pulumi-lang-dotnet="`OverrideDefaultCertificate`" pulumi-lang-go="`overrideDefaultCertificate`" pulumi-lang-python="`override_default_certificate`" pulumi-lang-yaml="`overrideDefaultCertificate`" pulumi-lang-java="`overrideDefaultCertificate`"&gt;`override_default_certificate`&lt;/span&gt; is &lt;span pulumi-lang-nodejs="`true`" pulumi-lang-dotnet="`True`" pulumi-lang-go="`true`" pulumi-lang-python="`true`" pulumi-lang-yaml="`true`" pulumi-lang-java="`true`"&gt;`true`&lt;/span&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.SSLInspectionRulesActionSslInterceptionCert> SslInterceptionCerts;
         /// <summary>

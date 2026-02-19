@@ -28,8 +28,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_traffic_forwarding_vpn_credentials** can be imported by using one of the following prefixes as the import ID:
 //

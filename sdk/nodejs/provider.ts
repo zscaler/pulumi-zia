@@ -25,42 +25,42 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * zpa client id
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * zpa client secret
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
      */
-    public readonly httpProxy!: pulumi.Output<string | undefined>;
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly httpProxy: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * zpa private key
      */
-    public readonly privateKey!: pulumi.Output<string | undefined>;
+    declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
      * Zscaler Sandbox Cloud
      */
-    public readonly sandboxCloud!: pulumi.Output<string | undefined>;
+    declare public readonly sandboxCloud: pulumi.Output<string | undefined>;
     /**
      * Zscaler Sandbox Token
      */
-    public readonly sandboxToken!: pulumi.Output<string | undefined>;
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly sandboxToken: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
     /**
      * Zscaler Vanity Domain
      */
-    public readonly vanityDomain!: pulumi.Output<string | undefined>;
-    public readonly ziaCloud!: pulumi.Output<string | undefined>;
+    declare public readonly vanityDomain: pulumi.Output<string | undefined>;
+    declare public readonly ziaCloud: pulumi.Output<string | undefined>;
     /**
      * Zscaler Cloud Name
      */
-    public readonly zscalerCloud!: pulumi.Output<string | undefined>;
+    declare public readonly zscalerCloud: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -74,20 +74,20 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["apiKey"] = (args?.apiKey ? pulumi.secret(args.apiKey) : undefined) ?? utilities.getEnv("ZIA_API_KEY");
-            resourceInputs["clientId"] = (args ? args.clientId : undefined) ?? utilities.getEnv("ZSCALER_CLIENT_ID");
+            resourceInputs["clientId"] = (args?.clientId) ?? utilities.getEnv("ZSCALER_CLIENT_ID");
             resourceInputs["clientSecret"] = (args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined) ?? utilities.getEnv("ZSCALER_CLIENT_SECRET");
-            resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
+            resourceInputs["httpProxy"] = args?.httpProxy;
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["parallelism"] = pulumi.output(args?.parallelism).apply(JSON.stringify);
             resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("ZIA_PASSWORD");
             resourceInputs["privateKey"] = (args?.privateKey ? pulumi.secret(args.privateKey) : undefined) ?? utilities.getEnv("ZSCALER_PRIVATE_KEY");
-            resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
+            resourceInputs["requestTimeout"] = pulumi.output(args?.requestTimeout).apply(JSON.stringify);
             resourceInputs["sandboxCloud"] = (args?.sandboxCloud ? pulumi.secret(args.sandboxCloud) : undefined) ?? utilities.getEnv("ZSCALER_SANDBOX_CLOUD");
             resourceInputs["sandboxToken"] = (args?.sandboxToken ? pulumi.secret(args.sandboxToken) : undefined) ?? utilities.getEnv("ZSCALER_SANDBOX_TOKEN");
-            resourceInputs["useLegacyClient"] = pulumi.output((args ? args.useLegacyClient : undefined) ?? utilities.getEnvBoolean("ZSCALER_USE_LEGACY_CLIENT")).apply(JSON.stringify);
-            resourceInputs["username"] = (args ? args.username : undefined) ?? utilities.getEnv("ZIA_USERNAME");
+            resourceInputs["useLegacyClient"] = pulumi.output((args?.useLegacyClient) ?? utilities.getEnvBoolean("ZSCALER_USE_LEGACY_CLIENT")).apply(JSON.stringify);
+            resourceInputs["username"] = (args?.username) ?? utilities.getEnv("ZIA_USERNAME");
             resourceInputs["vanityDomain"] = (args?.vanityDomain ? pulumi.secret(args.vanityDomain) : undefined) ?? utilities.getEnv("ZSCALER_VANITY_DOMAIN");
-            resourceInputs["ziaCloud"] = (args ? args.ziaCloud : undefined) ?? utilities.getEnv("ZIA_CLOUD");
+            resourceInputs["ziaCloud"] = (args?.ziaCloud) ?? utilities.getEnv("ZIA_CLOUD");
             resourceInputs["zscalerCloud"] = (args?.zscalerCloud ? pulumi.secret(args.zscalerCloud) : undefined) ?? utilities.getEnv("ZSCALER_CLOUD");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -128,8 +128,7 @@ export interface ProviderArgs {
      */
     maxRetries?: pulumi.Input<number>;
     /**
-     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-     * https://help.zscaler.com/oneapi/understanding-rate-limiting.
+     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
      */
     parallelism?: pulumi.Input<number>;
     password?: pulumi.Input<string>;
@@ -138,8 +137,7 @@ export interface ProviderArgs {
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The
-     * maximum value can be `300`.
+     * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
      */
     requestTimeout?: pulumi.Input<number>;
     /**

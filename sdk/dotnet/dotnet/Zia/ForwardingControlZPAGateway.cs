@@ -11,12 +11,18 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+    /// * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/zpaGateways-post)
+    /// 
+    /// Use the **forwarding_control_zpa_gateway** resource allows the creation and management of ZIA forwarding control ZPA Gateway used in IP Source Anchoring integration between Zscaler Internet Access and Zscaler Private Access. This resource can then be associated with a ZIA Forwarding Control Rule.
+    /// 
+    /// ⚠️ **IMPORTANT:**: To configure a ZPA Gateway you **MUST** use the ZPA Terraform Provider to configure a Server Group and Application Segment with the Source IP Anchoring feature enabled at the Application Segment resource. Please refer to the ZPA Terraform Provider documentation here
+    /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **forwarding_control_zpa_gateway** can be imported by using `&lt;GATEWAY_ID&gt;` or `&lt;GATEWAY_NAME&gt;` as the import ID.
@@ -134,7 +140,7 @@ namespace zscaler.PulumiPackage.Zia
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("zpaAppSegments", required: true)]
+        [Input("zpaAppSegments")]
         private InputList<Inputs.ForwardingControlZPAGatewayZpaAppSegmentArgs>? _zpaAppSegments;
 
         /// <summary>

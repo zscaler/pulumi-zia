@@ -30,6 +30,7 @@ func GetDLPIDMProfileLite(ctx *pulumi.Context, args *GetDLPIDMProfileLiteArgs, o
 // A collection of arguments for invoking getDLPIDMProfileLite.
 type GetDLPIDMProfileLiteArgs struct {
 	ActiveOnly   *bool   `pulumi:"activeOnly"`
+	ProfileId    *int    `pulumi:"profileId"`
 	TemplateName *string `pulumi:"templateName"`
 }
 
@@ -58,6 +59,7 @@ func GetDLPIDMProfileLiteOutput(ctx *pulumi.Context, args GetDLPIDMProfileLiteOu
 // A collection of arguments for invoking getDLPIDMProfileLite.
 type GetDLPIDMProfileLiteOutputArgs struct {
 	ActiveOnly   pulumi.BoolPtrInput   `pulumi:"activeOnly"`
+	ProfileId    pulumi.IntPtrInput    `pulumi:"profileId"`
 	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
 }
 

@@ -29,6 +29,8 @@ func GetTimeWindow(ctx *pulumi.Context, args *GetTimeWindowArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getTimeWindow.
 type GetTimeWindowArgs struct {
+	// The ID of the time window resource.
+	Id *int `pulumi:"id"`
 	// The name of the time window to be exported.
 	Name *string `pulumi:"name"`
 }
@@ -66,6 +68,8 @@ func GetTimeWindowOutput(ctx *pulumi.Context, args GetTimeWindowOutputArgs, opts
 
 // A collection of arguments for invoking getTimeWindow.
 type GetTimeWindowOutputArgs struct {
+	// The ID of the time window resource.
+	Id pulumi.IntPtrInput `pulumi:"id"`
 	// The name of the time window to be exported.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }

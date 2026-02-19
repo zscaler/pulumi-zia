@@ -60,8 +60,7 @@ Object.defineProperty(exports, "maxRetries", {
 });
 
 /**
- * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
- * https://help.zscaler.com/oneapi/understanding-rate-limiting.
+ * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
  */
 export declare const parallelism: number | undefined;
 Object.defineProperty(exports, "parallelism", {
@@ -91,8 +90,7 @@ Object.defineProperty(exports, "privateKey", {
 });
 
 /**
- * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The
- * maximum value can be `300`.
+ * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
  */
 export declare const requestTimeout: number | undefined;
 Object.defineProperty(exports, "requestTimeout", {

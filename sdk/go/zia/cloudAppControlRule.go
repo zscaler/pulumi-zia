@@ -21,181 +21,58 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Rule Configuration
+// ### Using Data Source For Actions (Recommended)
 //
-// ### With Cloud Risk Profile Configuration
+// ### AI/ML Application Control
 //
-// ### With Tenant Profile Configuration
+// ### File Sharing Controls
 //
-// **NOTE** Tenant profile is supported only for specific applications depending on the type
+// ### Cloud Browser Isolation (ISOLATE Actions)
 //
-// ### With ISOLATE ACTION
+// ISOLATE actions require Cloud Browser Isolation subscription and must be used alone (cannot mix with other actions):
 //
-// ⚠️ **WARNING 1:**: Creating a Cloud Application Control Rule with the actions containing `ISOLATE_` Cloud Browser Isolation subscription is required. See the "Cloud Application Control - Rule Types vs Actions Matrix" below. To learn more, contact Zscaler Support or your local account team.
+// ### Filtered Actions (ALLOW Only)
 //
-// ## Cloud Application Control - Rule Types vs Actions Matrix
+// ### With Time Validity
 //
-// **Note**: Refer to this matrix when configuring types vs actions for each specific rules
+// ## Important Notes
 //
-// |              Types                   |                    Actions                                                |
-// |:------------------------------------:|:-------------------------------------------------------------------------:|
-// |---------------|--------------------------------------------------|
-// |               `AI_ML`                | `DENY_AI_ML_WEB_USE`, `ALLOW_AI_ML_WEB_USE`, `ISOLATE_AI_ML_WEB_USE`,     |
-// |               `AI_ML`                | `CAUTION_AI_ML_WEB_USE`, `DENY_AI_ML_UPLOAD`, `ALLOW_AI_ML_UPLOAD`,       |
-// |               `AI_ML`                | `DENY_AI_ML_SHARE`, `ALLOW_AI_ML_SHARE`, `DENY_AI_ML_DOWNLOAD`,           |
-// |               `AI_ML`                | `ALLOW_AI_ML_DOWNLOAD`, `DENY_AI_ML_DELETE`,`ALLOW_AI_ML_DELETE`,         |
-// |               `AI_ML`                | `DENY_AI_ML_INVITE`, `ALLOW_AI_ML_INVITE`, `DENY_AI_ML_CHAT`,             |
-// |               `AI_ML`                | `ALLOW_AI_ML_CHAT`, `DENY_AI_ML_CREATE`, `ALLOW_AI_ML_CREATE`,            |
-// |               `AI_ML`                | `DENY_AI_ML_RENAME`, `ALLOW_AI_ML_RENAME`                                 |
-// |-------------------------|--------------------------------------------------------|
-// |       `BUSINESS_PRODUCTIVITY`        | `ALLOW_BUSINESS_PRODUCTIVITY_APPS`, `BLOCK_BUSINESS_PRODUCTIVITY_APPS`    |
-// |       `BUSINESS_PRODUCTIVITY`        | `CAUTION_BUSINESS_PRODUCTIVITY_APPS`, `ISOLATE_BUSINESS_PRODUCTIVITY_APPS`|
-// |------------------------|---------------------------------------------------------|
-// |           `CONSUMER`                 | `ALLOW_CONSUMER_APPS`, `BLOCK_CONSUMER_APPS`                         |
-// |           `CONSUMER`                 | `CAUTION_CONSUMER_APPS`, `ISOLATE_CONSUMER_APPS`                                   |
-// |--------------------------|---------------------------------------------------------|
-// |          `CUSTOM_CAPP`               |     `BLOCK_CUSTOM_CAPP_USE`, `ALLOW_CUSTOM_CAPP_USE`    |
-// |          `CUSTOM_CAPP`               |     `ISOLATE_CUSTOM_CAPP_USE`, `CAUTION_CUSTOM_CAPP_USE`|
-// |--------------------------|---------------------------------------------------------|
-// |     `DNS_OVER_HTTPS`                 |            `ALLOW_DNS_OVER_HTTPS_USE`                   |
-// |     `DNS_OVER_HTTPS`                 |             `DENY_DNS_OVER_HTTPS_USE`                   |
-// |-------------------------|---------------------------------------------------------|
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_APPS`, `ALLOW_ENTERPRISE_COLLABORATION_CHAT`, |
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_UPLOAD`, `ALLOW_ENTERPRISE_COLLABORATION_SHARE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_APPS`, `ALLOW_ENTERPRISE_COLLABORATION_EDIT`, |
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_RENAME`, `ALLOW_ENTERPRISE_COLLABORATION_CREATE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_DOWNLOAD`, `ALLOW_ENTERPRISE_COLLABORATION_HUDDLE`,|
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_INVITE`, `ALLOW_ENTERPRISE_COLLABORATION_MEETING`, |
-// |        `ENTERPRISE_COLLABORATION`    | `ALLOW_ENTERPRISE_COLLABORATION_DELETE`, `ALLOW_ENTERPRISE_COLLABORATION_SCREEN_SHARE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_CHAT`, `BLOCK_ENTERPRISE_COLLABORATION_UPLOAD`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_SHARE`, `BLOCK_ENTERPRISE_COLLABORATION_EDIT`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_RENAME`,  `BLOCK_ENTERPRISE_COLLABORATION_CREATE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_DO       WNLOAD`, `BLOCK_ENTERPRISE_COLLABORATION_DELETE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_HUDDLE`, `BLOCK_ENTERPRISE_COLLABORATION_INVITE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `BLOCK_ENTERPRISE_COLLABORATION_MEETING`, `BLOCK_ENTERPRISE_COLLABORATION_SCREEN_SHARE`, |
-// |        `ENTERPRISE_COLLABORATION`    | `ISOLATE_ENTERPRISE_COLLABORATION_APPS`, `CAUTION_ENTERPRISE_COLLABORATION_APPS`,       |
-// |--------------------------|-------------------------------------------------|
-// |     `FILE_SHARE`                     | `DENY_FILE_SHARE_VIEW`, `ALLOW_FILE_SHARE_VIEW`, `CAUTION_FILE_SHARE_VIEW`,                 |
-// |     `FILE_SHARE`                     | `DENY_FILE_SHARE_UPLOAD`, `ALLOW_FILE_SHARE_UPLOAD`, `ISOLATE_FILE_SHARE_VIEW`,              |
-// |     `FILE_SHARE`                     | `DENY_FILE_SHARE_SHARE`, `ALLOW_FILE_SHARE_SHARE`, `DENY_FILE_SHARE_EDIT`,               |
-// |     `FILE_SHARE`                     | `ALLOW_FILE_SHARE_EDIT`, `DENY_FILE_SHARE_RENAME`, `ALLOW_FILE_SHARE_RENAME`,                 |
-// |     `FILE_SHARE`                     | `DENY_FILE_SHARE_CREATE`, `ALLOW_FILE_SHARE_CREATE`, `DENY_FILE_SHARE_DOWNLOAD`,               |
-// |     `FILE_SHARE`                     | `ALLOW_FILE_SHARE_DOWNLOAD`, `DENY_FILE_SHARE_DELETE`, `ALLOW_FILE_SHARE_DELETE`, |
-// |     `FILE_SHARE`                     | `DENY_FILE_SHARE_FORM_SHARE`, `ALLOW_FILE_SHARE_FORM_SHARE`, `DENY_FILE_SHARE_INVITE`, |
-// |     `FILE_SHARE`                     | `ALLOW_FILE_SHARE_INVITE` |
-// |-------------------------|-------------------------------------------------|
-// |     `FINANCE`                        | `ALLOW_FINANCE_USE`, `CAUTION_FINANCE_USE`      |
-// |     `FINANCE`                        | `DENY_FINANCE_USE`, `ISOLATE_FINANCE_USE`       |
-// |--------------------------|-------------------------------------------------|
-// |     `HEALTH_CARE`                    | `ALLOW_HEALTH_CARE_USE`,  `CAUTION_HEALTH_CARE_USE`                |
-// |     `HEALTH_CARE`                    | `DENY_HEALTH_CARE_USE`, `ISOLATE_HEALTH_CARE_USE`                        |
-// |-------------------------|-------------------------------------------------|
-// |     `HOSTING_PROVIDER`               | `ALLOW_HOSTING_PROVIDER_DELETE`, `DENY_HOSTING_PROVIDER_EDIT`, `ALLOW_HOSTING_PROVIDER_EDIT`,           |
-// |     `HOSTING_PROVIDER`               | `ALLOW_HOSTING_PROVIDER_CREATE`, `DENY_HOSTING_PROVIDER_CREATE`,`DENY_HOSTING_PROVIDER_DELETE`,         |
-// |     `HOSTING_PROVIDER`               | `ALLOW_HOSTING_PROVIDER_USE`, `DENY_HOSTING_PROVIDER_USE`,            |
-// |     `HOSTING_PROVIDER`               | `ALLOW_HOSTING_PROVIDER_DOWNLOAD`, `DENY_HOSTING_PROVIDER_DOWNLOAD`,         |
-// |     `HOSTING_PROVIDER`               | `ALLOW_HOSTING_PROVIDER_MOVE`, `DENY_HOSTING_PROVIDER_MOVE`,          |
-// |     `HOSTING_PROVIDER`               | `ISOLATE_HOSTING_PROVIDER_USE`, `CAUTION_HOSTING_PROVIDER_USE`,          |
-// |--------------------------|-------------------------------------------------|
-// |     `HUMAN_RESOURCES`                | `ALLOW_HUMAN_RESOURCES_USE`, `CAUTION_HUMAN_RESOURCES_USE`,            |
-// |     `HUMAN_RESOURCES`                | `DENY_HUMAN_RESOURCES_USE`, `ISOLATE_HUMAN_RESOURCES_USE`,                    |
-// |--------------------------|-------------------------------------------------|
-// |     `INSTANT_MESSAGING`              | `ALLOW_CHAT`, `ALLOW_FILE_TRANSFER_IN_CHAT`,                           |
-// |     `INSTANT_MESSAGING`              | `ALLOW_FILE_TRANSFER_IN_CHAT`, `BLOCK_CHAT`,          |
-// |     `INSTANT_MESSAGING`              | `BLOCK_FILE_TRANSFER_IN_CHAT`, `CAUTION_CHAT`,                                      |
-// |     `INSTANT_MESSAGING`              | `CAUTION_FILE_TRANSFER_IN_CHAT`, `ISOLATE_CHAT`                      |
-// |--------------------------|-------------------------------------------------|
-// |     `IT_SERVICES`                    | `ALLOW_IT_SERVICES_USE`, `CAUTION_LEGAL_USE`,                |
-// |     `IT_SERVICES`                    | `DENY_IT_SERVICES_USE`, `ISOLATE_IT_SERVICES_USE`                              |
-// |-------------------------|-------------------------------------------------|
-// |     `LEGAL`                          | `ALLOW_LEGAL_USE`, `DENY_DNS_OVER_HTTPS_USE`,                        |
-// |     `LEGAL`                          |  `DENY_LEGAL_USE`, `ISOLATE_LEGAL_USE`                       |
-// |-------------------------|-------------------------------------------------|
-// |     `SALES_AND_MARKETING`            | `ALLOW_SALES_MARKETING_APPS`, `BLOCK_SALES_MARKETING_APPS`,           |
-// |     `SALES_AND_MARKETING`            | `CAUTION_SALES_MARKETING_APPS`, `ISOLATE_SALES_MARKETING_APPS`                      |
-// |-------------------------|-------------------------------------------------|
-// |     `STREAMING_MEDIA`                | `BLOCK_STREAMING_VIEW_LISTEN`, `ALLOW_STREAMING_VIEW_LISTEN`,          |
-// |     `STREAMING_MEDIA`                | `CAUTION_STREAMING_VIEW_LISTEN`, `BLOCK_STREAMING_UPLOAD`,               |
-// |     `STREAMING_MEDIA`                | `ALLOW_STREAMING_UPLOAD`, `ISOLATE_STREAMING_VIEW_LISTEN`               |
-// |-----------------------|-------------------------------------------------|
-// |     `SOCIAL_NETWORKING`              | `ALLOW_SOCIAL_NETWORKING_CHAT`, `ALLOW_SOCIAL_NETWORKING_COMMENT`,          |
-// |     `SOCIAL_NETWORKING`              | `ALLOW_SOCIAL_NETWORKING_CREATE`, `ALLOW_SOCIAL_NETWORKING_EDIT`,         |
-// |     `SOCIAL_NETWORKING`              | `ALLOW_SOCIAL_NETWORKING_POST`, `ALLOW_SOCIAL_NETWORKING_SHARE`,          |
-// |     `SOCIAL_NETWORKING`              | `ALLOW_SOCIAL_NETWORKING_UPLOAD`, `ALLOW_SOCIAL_NETWORKING_VIEW`,         |
-// |     `SOCIAL_NETWORKING`              | `BLOCK_SOCIAL_NETWORKING_CHAT`, `BLOCK_SOCIAL_NETWORKING_COMMENT`,       |
-// |     `SOCIAL_NETWORKING`              | `BLOCK_SOCIAL_NETWORKING_CREATE`, `BLOCK_SOCIAL_NETWORKING_EDIT`,       |
-// |     `SOCIAL_NETWORKING`              | `BLOCK_SOCIAL_NETWORKING_POST`,`BLOCK_SOCIAL_NETWORKING_SHARE`,       |
-// |     `SOCIAL_NETWORKING`              | `BLOCK_SOCIAL_NETWORKING_UPLOAD`, `BLOCK_SOCIAL_NETWORKING_VIEW`,       |
-// |     `SOCIAL_NETWORKING`              | `CAUTION_SOCIAL_NETWORKING_POST`, `CAUTION_SOCIAL_NETWORKING_VIEW`,       |
-// |     `SOCIAL_NETWORKING`              | `ISOLATE_SOCIAL_NETWORKING_VIEW`,        |
-// |-------------------------|-------------------------------------------------|
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_APPS`, `ALLOW_SYSTEM_DEVELOPMENT_APPS`,         |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `ISOLATE_SYSTEM_DEVELOPMENT_APPS`, `BLOCK_SYSTEM_DEVELOPMENT_UPLOAD`,       |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `ALLOW_SYSTEM_DEVELOPMENT_UPLOAD`,`CAUTION_SYSTEM_DEVELOPMENT_APPS`,        |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_CREATE`, `ALLOW_SYSTEM_DEVELOPMENT_CREATE`,      |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_EDIT`, `ALLOW_SYSTEM_DEVELOPMENT_EDIT`,      |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_SHARE`, `ALLOW_SYSTEM_DEVELOPMENT_SHARE`,         |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_COMMENT`, `ALLOW_SYSTEM_DEVELOPMENT_COMMENT`,         |
-// |     `SYSTEM_AND_DEVELOPMENT`         | `BLOCK_SYSTEM_DEVELOPMENT_REACTION`,`ALLOW_SYSTEM_DEVELOPMENT_REACTION`         |
-// |--------------------------|-------------------------------------------------|
-// |     `WEBMAIL`                        | `ALLOW_WEBMAIL_VIEW`, `ALLOW_WEBMAIL_ATTACHMENT_SEND`                   |
-// |     `WEBMAIL`                        | `ALLOW_WEBMAIL_SEND`, `CAUTION_WEBMAIL_VIEW`                    |
-// |     `WEBMAIL`                        | `BLOCK_WEBMAIL_VIEW`, `BLOCK_WEBMAIL_ATTACHMENT_SEND`                            |
-// |     `WEBMAIL`                        | `BLOCK_WEBMAIL_SEND`, `ISOLATE_WEBMAIL_VIEW`                          |
-// |-------------------------|-------------------------------------------------|
+// ### Using the Data Source for Actions
 //
-// ## Cloud Application Control - Rule Types vs Tenant Profile Support
+// **Best Practice**: Always use the `getCloudAppControlRuleActions` data source to retrieve valid actions for your applications. The data source automatically handles:
 //
-// **Note**: Refer to this matrix when configuring a Cloud App Control rule with Tenant Profile
+// * Application-specific action support
+// * Action intersections when multiple applications are configured
+// * Separation of ISOLATE actions from standard actions
 //
-// [Reference](https://help.zscaler.com/zia/documentation-knowledgebase/policies/cloud-apps/cloud-app-control-policies)
+// ### ISOLATE Actions Requirements
 //
-// |               Type               |         Applications          | tenancyProfileIds |
-// |:--------------------------------:|:-----------------------------:|:-------------------:|
-// |----------------------------------|-------------------------------|---------------------|
-// | `BUSINESS_PRODUCTIVITY`          | `"GOOGLEANALYTICS"`           |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `ENTERPRISE_COLLABORATION`       | `"GOOGLECALENDAR"`            |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"GOOGLEKEEP"`                |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"GOOGLEMEET"`                |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"GOOGLESITES"`               |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"WEBEX"`                     |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"SLACK"`                     |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"WEBEX_TEAMS"`               |          ✅         |
-// | `ENTERPRISE_COLLABORATION`       | `"ZOOM"`                      |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `FILE_SHARE`                     | `"DROPBOX"`                   |          ✅         |
-// | `FILE_SHARE`                     | `"GDRIVE"`                    |          ✅         |
-// | `FILE_SHARE`                     | `"GPHOTOS"`                   |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `HOSTING_PROVIDER`               | `"GCLOUDCOMPUTE"`             |          ✅         |
-// | `HOSTING_PROVIDER`               | `"AWS"`                       |          ✅         |
-// | `HOSTING_PROVIDER`               | `"IBMSMARTCLOUD"`             |          ✅         |
-// | `HOSTING_PROVIDER`               | `"GAPPENGINE"`                |          ✅         |
-// | `HOSTING_PROVIDER`               | `"GOOGLE_CLOUD_PLATFORM"`     |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `IT_SERVICES`                    | `"MSLOGINSERVICES"`           |          ✅         |
-// | `IT_SERVICES`                    | `"GOOGLOGINSERVICE"`          |          ✅         |
-// | `IT_SERVICES`                    | `"WEBEX_LOGIN_SERVICES"`      |          ✅         |
-// | `IT_SERVICES`                    | `"ZOHO_LOGIN_SERVICES"`       |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `SOCIAL_NETWORKING`              | `"GOOGLE_GROUPS"`             |          ✅         |
-// | `SOCIAL_NETWORKING`              | `"GOOGLE_PLUS"`               |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `STREAMING_MEDIA`                | `"YOUTUBE"`                   |          ✅         |
-// | `STREAMING_MEDIA`                | `"GOOGLE_STREAMING"`          |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `SYSTEM_AND_DEVELOPMENT`         | `"GOOGLE_DEVELOPERS"`         |          ✅         |
-// | `SYSTEM_AND_DEVELOPMENT`         | `"GOOGLEAPPMAKER"`            |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
-// | `WEBMAIL`                        | `"GOOGLE_WEBMAIL"`            |          ✅         |
-// |----------------------------------|-------------------------------|---------------------|
+// When using ISOLATE actions:
+//
+// * ISOLATE actions **cannot be mixed** with other action types (ALLOW, DENY, BLOCK, CAUTION)
+// * ISOLATE actions **require** `cbiProfile` block with a valid Cloud Browser Isolation profile
+// * ISOLATE actions **cannot** have `browserEunTemplateId` set
+// * Create separate rules for ISOLATE vs non-ISOLATE actions
+//
+// ### Multiple Applications
+//
+// When configuring multiple applications in a single rule, only actions supported by ALL applications are valid. The data source automatically computes this intersection when you specify multiple cloud_apps.
+//
+// ### Action Validation
+//
+// The resource validates actions during `pulumi preview`. If invalid actions are detected, an error message will show:
+//
+// * Which actions are invalid
+//
+// * List of valid actions for your configuration
+// * Suggestion to use the data source
+//
+// For more information, see the getCloudAppControlRuleActions data source documentation.
 //
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZPA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // Policy access rule can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
 //
@@ -213,9 +90,12 @@ type CloudAppControlRule struct {
 
 	// Actions allowed for the specified type.
 	Actions pulumi.StringArrayOutput `pulumi:"actions"`
-	// List of cloud applications for which rule will be applied
-	Applications pulumi.StringArrayOutput `pulumi:"applications"`
-	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+	// The list of cloud applications to which the cloud app control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
+	Applications         pulumi.StringArrayOutput `pulumi:"applications"`
+	BrowserEunTemplateId pulumi.IntPtrOutput      `pulumi:"browserEunTemplateId"`
+	// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrOutput                     `pulumi:"cascadingEnabled"`
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayOutput `pulumi:"cbiProfiles"`
 	// The cloud application instance ID.
@@ -228,14 +108,14 @@ type CloudAppControlRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups CloudAppControlRuleDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices CloudAppControlRuleDevicesPtrOutput `pulumi:"devices"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrOutput `pulumi:"enforceTimeValidity"`
+	EunEnabled          pulumi.BoolPtrOutput `pulumi:"eunEnabled"`
+	EunTemplateId       pulumi.IntPtrOutput  `pulumi:"eunTemplateId"`
 	// Name-ID pairs of groups for which rule must be applied
 	Groups CloudAppControlRuleGroupsPtrOutput `pulumi:"groups"`
 	// The URL Filtering rule's label.
@@ -252,15 +132,13 @@ type CloudAppControlRule struct {
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
 	// A unique identifier assigned to the forwarding rule
 	RuleId pulumi.IntOutput `pulumi:"ruleId"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrOutput `pulumi:"sizeQuota"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Name-ID pairs of groups for which rule must be applied
 	TenancyProfileIds CloudAppControlRuleTenancyProfileIdsPtrOutput `pulumi:"tenancyProfileIds"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrOutput `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows CloudAppControlRuleTimeWindowsPtrOutput `pulumi:"timeWindows"`
@@ -275,8 +153,7 @@ type CloudAppControlRule struct {
 	ValidityEndTime pulumi.StringPtrOutput `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrOutput `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 	ValidityTimeZoneId pulumi.StringPtrOutput `pulumi:"validityTimeZoneId"`
 }
 
@@ -315,9 +192,12 @@ func GetCloudAppControlRule(ctx *pulumi.Context,
 type cloudAppControlRuleState struct {
 	// Actions allowed for the specified type.
 	Actions []string `pulumi:"actions"`
-	// List of cloud applications for which rule will be applied
-	Applications []string `pulumi:"applications"`
-	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+	// The list of cloud applications to which the cloud app control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
+	Applications         []string `pulumi:"applications"`
+	BrowserEunTemplateId *int     `pulumi:"browserEunTemplateId"`
+	// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled *bool                           `pulumi:"cascadingEnabled"`
 	CbiProfiles      []CloudAppControlRuleCbiProfile `pulumi:"cbiProfiles"`
 	// The cloud application instance ID.
@@ -330,14 +210,14 @@ type cloudAppControlRuleState struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *CloudAppControlRuleDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *CloudAppControlRuleDevices `pulumi:"devices"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
+	EunEnabled          *bool `pulumi:"eunEnabled"`
+	EunTemplateId       *int  `pulumi:"eunTemplateId"`
 	// Name-ID pairs of groups for which rule must be applied
 	Groups *CloudAppControlRuleGroups `pulumi:"groups"`
 	// The URL Filtering rule's label.
@@ -354,15 +234,13 @@ type cloudAppControlRuleState struct {
 	Rank *int `pulumi:"rank"`
 	// A unique identifier assigned to the forwarding rule
 	RuleId *int `pulumi:"ruleId"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota *int `pulumi:"sizeQuota"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
 	// Name-ID pairs of groups for which rule must be applied
 	TenancyProfileIds *CloudAppControlRuleTenancyProfileIds `pulumi:"tenancyProfileIds"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota *int `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows *CloudAppControlRuleTimeWindows `pulumi:"timeWindows"`
@@ -377,17 +255,19 @@ type cloudAppControlRuleState struct {
 	ValidityEndTime *string `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime *string `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 	ValidityTimeZoneId *string `pulumi:"validityTimeZoneId"`
 }
 
 type CloudAppControlRuleState struct {
 	// Actions allowed for the specified type.
 	Actions pulumi.StringArrayInput
-	// List of cloud applications for which rule will be applied
-	Applications pulumi.StringArrayInput
-	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+	// The list of cloud applications to which the cloud app control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
+	Applications         pulumi.StringArrayInput
+	BrowserEunTemplateId pulumi.IntPtrInput
+	// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrInput
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayInput
 	// The cloud application instance ID.
@@ -400,14 +280,14 @@ type CloudAppControlRuleState struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups CloudAppControlRuleDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices CloudAppControlRuleDevicesPtrInput
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrInput
+	EunEnabled          pulumi.BoolPtrInput
+	EunTemplateId       pulumi.IntPtrInput
 	// Name-ID pairs of groups for which rule must be applied
 	Groups CloudAppControlRuleGroupsPtrInput
 	// The URL Filtering rule's label.
@@ -424,15 +304,13 @@ type CloudAppControlRuleState struct {
 	Rank pulumi.IntPtrInput
 	// A unique identifier assigned to the forwarding rule
 	RuleId pulumi.IntPtrInput
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrInput
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
 	// Name-ID pairs of groups for which rule must be applied
 	TenancyProfileIds CloudAppControlRuleTenancyProfileIdsPtrInput
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrInput
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows CloudAppControlRuleTimeWindowsPtrInput
@@ -447,8 +325,7 @@ type CloudAppControlRuleState struct {
 	ValidityEndTime pulumi.StringPtrInput
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrInput
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 	ValidityTimeZoneId pulumi.StringPtrInput
 }
 
@@ -459,9 +336,12 @@ func (CloudAppControlRuleState) ElementType() reflect.Type {
 type cloudAppControlRuleArgs struct {
 	// Actions allowed for the specified type.
 	Actions []string `pulumi:"actions"`
-	// List of cloud applications for which rule will be applied
-	Applications []string `pulumi:"applications"`
-	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+	// The list of cloud applications to which the cloud app control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
+	Applications         []string `pulumi:"applications"`
+	BrowserEunTemplateId *int     `pulumi:"browserEunTemplateId"`
+	// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled *bool                           `pulumi:"cascadingEnabled"`
 	CbiProfiles      []CloudAppControlRuleCbiProfile `pulumi:"cbiProfiles"`
 	// The cloud application instance ID.
@@ -474,14 +354,14 @@ type cloudAppControlRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *CloudAppControlRuleDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices *CloudAppControlRuleDevices `pulumi:"devices"`
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
+	EunEnabled          *bool `pulumi:"eunEnabled"`
+	EunTemplateId       *int  `pulumi:"eunTemplateId"`
 	// Name-ID pairs of groups for which rule must be applied
 	Groups *CloudAppControlRuleGroups `pulumi:"groups"`
 	// The URL Filtering rule's label.
@@ -496,15 +376,13 @@ type cloudAppControlRuleArgs struct {
 	Order int `pulumi:"order"`
 	// Admin rank assigned to the forwarding rule
 	Rank *int `pulumi:"rank"`
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota *int `pulumi:"sizeQuota"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
 	// Name-ID pairs of groups for which rule must be applied
 	TenancyProfileIds *CloudAppControlRuleTenancyProfileIds `pulumi:"tenancyProfileIds"`
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota *int `pulumi:"timeQuota"`
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows *CloudAppControlRuleTimeWindows `pulumi:"timeWindows"`
@@ -519,8 +397,7 @@ type cloudAppControlRuleArgs struct {
 	ValidityEndTime *string `pulumi:"validityEndTime"`
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime *string `pulumi:"validityStartTime"`
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 	ValidityTimeZoneId *string `pulumi:"validityTimeZoneId"`
 }
 
@@ -528,9 +405,12 @@ type cloudAppControlRuleArgs struct {
 type CloudAppControlRuleArgs struct {
 	// Actions allowed for the specified type.
 	Actions pulumi.StringArrayInput
-	// List of cloud applications for which rule will be applied
-	Applications pulumi.StringArrayInput
-	// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+	// The list of cloud applications to which the cloud app control rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
+	Applications         pulumi.StringArrayInput
+	BrowserEunTemplateId pulumi.IntPtrInput
+	// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 	CascadingEnabled pulumi.BoolPtrInput
 	CbiProfiles      CloudAppControlRuleCbiProfileArrayInput
 	// The cloud application instance ID.
@@ -543,14 +423,14 @@ type CloudAppControlRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups CloudAppControlRuleDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
 	Devices CloudAppControlRuleDevicesPtrInput
 	// Enforce a set a validity time period for the URL Filtering rule.
 	EnforceTimeValidity pulumi.BoolPtrInput
+	EunEnabled          pulumi.BoolPtrInput
+	EunTemplateId       pulumi.IntPtrInput
 	// Name-ID pairs of groups for which rule must be applied
 	Groups CloudAppControlRuleGroupsPtrInput
 	// The URL Filtering rule's label.
@@ -565,15 +445,13 @@ type CloudAppControlRuleArgs struct {
 	Order pulumi.IntInput
 	// Admin rank assigned to the forwarding rule
 	Rank pulumi.IntPtrInput
-	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	SizeQuota pulumi.IntPtrInput
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
 	// Name-ID pairs of groups for which rule must be applied
 	TenancyProfileIds CloudAppControlRuleTenancyProfileIdsPtrInput
-	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-	// action is set to 'BLOCK', this field is not applicable.
+	// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 	TimeQuota pulumi.IntPtrInput
 	// Name-ID pairs of time interval during which rule must be enforced.
 	TimeWindows CloudAppControlRuleTimeWindowsPtrInput
@@ -588,8 +466,7 @@ type CloudAppControlRuleArgs struct {
 	ValidityEndTime pulumi.StringPtrInput
 	// If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
 	ValidityStartTime pulumi.StringPtrInput
-	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-	// IANA Format TimeZone.
+	// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 	ValidityTimeZoneId pulumi.StringPtrInput
 }
 
@@ -685,12 +562,19 @@ func (o CloudAppControlRuleOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// List of cloud applications for which rule will be applied
+// The list of cloud applications to which the cloud app control rule must be applied
+//
+//	Use the data source getCloudApplications to get the list of available cloud applications:
+//	https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 func (o CloudAppControlRuleOutput) Applications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringArrayOutput { return v.Applications }).(pulumi.StringArrayOutput)
 }
 
-// nforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
+func (o CloudAppControlRuleOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
+}
+
+// Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
 func (o CloudAppControlRuleOutput) CascadingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.CascadingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -726,9 +610,7 @@ func (o CloudAppControlRuleOutput) DeviceGroups() CloudAppControlRuleDeviceGroup
 	return o.ApplyT(func(v *CloudAppControlRule) CloudAppControlRuleDeviceGroupsPtrOutput { return v.DeviceGroups }).(CloudAppControlRuleDeviceGroupsPtrOutput)
 }
 
-// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 func (o CloudAppControlRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
@@ -741,6 +623,14 @@ func (o CloudAppControlRuleOutput) Devices() CloudAppControlRuleDevicesPtrOutput
 // Enforce a set a validity time period for the URL Filtering rule.
 func (o CloudAppControlRuleOutput) EnforceTimeValidity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.EnforceTimeValidity }).(pulumi.BoolPtrOutput)
+}
+
+func (o CloudAppControlRuleOutput) EunEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.EunEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CloudAppControlRuleOutput) EunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.EunTemplateId }).(pulumi.IntPtrOutput)
 }
 
 // Name-ID pairs of groups for which rule must be applied
@@ -783,8 +673,7 @@ func (o CloudAppControlRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-// action is set to 'BLOCK', this field is not applicable.
+// Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 func (o CloudAppControlRuleOutput) SizeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.SizeQuota }).(pulumi.IntPtrOutput)
 }
@@ -799,8 +688,7 @@ func (o CloudAppControlRuleOutput) TenancyProfileIds() CloudAppControlRuleTenanc
 	return o.ApplyT(func(v *CloudAppControlRule) CloudAppControlRuleTenancyProfileIdsPtrOutput { return v.TenancyProfileIds }).(CloudAppControlRuleTenancyProfileIdsPtrOutput)
 }
 
-// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule
-// action is set to 'BLOCK', this field is not applicable.
+// Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
 func (o CloudAppControlRuleOutput) TimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.TimeQuota }).(pulumi.IntPtrOutput)
 }
@@ -839,8 +727,7 @@ func (o CloudAppControlRuleOutput) ValidityStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringPtrOutput { return v.ValidityStartTime }).(pulumi.StringPtrOutput)
 }
 
-// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use
-// IANA Format TimeZone.
+// If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
 func (o CloudAppControlRuleOutput) ValidityTimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringPtrOutput { return v.ValidityTimeZoneId }).(pulumi.StringPtrOutput)
 }

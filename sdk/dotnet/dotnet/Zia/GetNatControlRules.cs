@@ -220,7 +220,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool EnableFullLogging;
         /// <summary>
-        /// (Block List, Max: 1) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Block List, Max: 1) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNatControlRulesGroupResult> Groups;
         /// <summary>
@@ -237,11 +237,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int LastModifiedTime;
         /// <summary>
-        /// (Block List, Max: 1) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Block List, Max: 1) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNatControlRulesLocationGroupResult> LocationGroups;
         /// <summary>
-        /// (Block List, Max: 1) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Block List, Max: 1) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNatControlRulesLocationResult> Locations;
         /// <summary>
@@ -292,11 +292,11 @@ namespace zscaler.PulumiPackage.Zia
         public readonly ImmutableArray<Outputs.GetNatControlRulesSrcIpv6GroupResult> SrcIpv6Groups;
         public readonly string State;
         /// <summary>
-        /// (Block List, Max: 1) You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (Block List, Max: 1) You can manually select up to &lt;span pulumi-lang-nodejs="`2`" pulumi-lang-dotnet="`2`" pulumi-lang-go="`2`" pulumi-lang-python="`2`" pulumi-lang-yaml="`2`" pulumi-lang-java="`2`"&gt;`2`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNatControlRulesTimeWindowResult> TimeWindows;
         /// <summary>
-        /// (Block List, Max: 1) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (Block List, Max: 1) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNatControlRulesUserResult> Users;
 

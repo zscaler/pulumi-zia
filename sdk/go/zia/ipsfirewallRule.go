@@ -17,6 +17,14 @@ import (
 //
 // The **zia_firewall_ips_rule** resource allows the creation and management of ZIA Cloud Firewall IPS rules in the Zscaler Internet Access.
 //
+// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+//
+// * Automatically place new rules at the correct position
+// * Handle reordering around predefined rules
+// * Avoid configuration drift
+//
+// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+//
 // ## Example Usage
 type IPSFirewallRule struct {
 	pulumi.CustomResourceState
@@ -48,8 +56,12 @@ type IPSFirewallRule struct {
 	Devices IPSFirewallRuleDevicesPtrOutput `pulumi:"devices"`
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging pulumi.BoolPtrOutput `pulumi:"enableFullLogging"`
+	// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+	EunTemplateId pulumi.IntPtrOutput `pulumi:"eunTemplateId"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups IPSFirewallRuleGroupsPtrOutput `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsEunEnabled pulumi.BoolPtrOutput `pulumi:"isEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels IPSFirewallRuleLabelsPtrOutput `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -66,7 +78,7 @@ type IPSFirewallRule struct {
 	Order pulumi.IntOutput `pulumi:"order"`
 	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrOutput `pulumi:"rank"`
 	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayOutput `pulumi:"resCategories"`
@@ -80,7 +92,7 @@ type IPSFirewallRule struct {
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups IPSFirewallRuleSrcIpv6GroupsPtrOutput `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// (List of Objects) Advanced threat categories to which the rule applies
 	ThreatCategories IPSFirewallRuleThreatCategoriesPtrOutput `pulumi:"threatCategories"`
@@ -158,8 +170,12 @@ type ipsfirewallRuleState struct {
 	Devices *IPSFirewallRuleDevices `pulumi:"devices"`
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging *bool `pulumi:"enableFullLogging"`
+	// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+	EunTemplateId *int `pulumi:"eunTemplateId"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *IPSFirewallRuleGroups `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsEunEnabled *bool `pulumi:"isEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels *IPSFirewallRuleLabels `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -176,7 +192,7 @@ type ipsfirewallRuleState struct {
 	Order *int `pulumi:"order"`
 	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined *bool `pulumi:"predefined"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank *int `pulumi:"rank"`
 	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories []string `pulumi:"resCategories"`
@@ -190,7 +206,7 @@ type ipsfirewallRuleState struct {
 	SrcIps []string `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *IPSFirewallRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State *string `pulumi:"state"`
 	// (List of Objects) Advanced threat categories to which the rule applies
 	ThreatCategories *IPSFirewallRuleThreatCategories `pulumi:"threatCategories"`
@@ -230,8 +246,12 @@ type IPSFirewallRuleState struct {
 	Devices IPSFirewallRuleDevicesPtrInput
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging pulumi.BoolPtrInput
+	// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+	EunTemplateId pulumi.IntPtrInput
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups IPSFirewallRuleGroupsPtrInput
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsEunEnabled pulumi.BoolPtrInput
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels IPSFirewallRuleLabelsPtrInput
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -248,7 +268,7 @@ type IPSFirewallRuleState struct {
 	Order pulumi.IntPtrInput
 	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrInput
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrInput
 	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayInput
@@ -262,7 +282,7 @@ type IPSFirewallRuleState struct {
 	SrcIps pulumi.StringArrayInput
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups IPSFirewallRuleSrcIpv6GroupsPtrInput
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrInput
 	// (List of Objects) Advanced threat categories to which the rule applies
 	ThreatCategories IPSFirewallRuleThreatCategoriesPtrInput
@@ -306,8 +326,12 @@ type ipsfirewallRuleArgs struct {
 	Devices *IPSFirewallRuleDevices `pulumi:"devices"`
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging *bool `pulumi:"enableFullLogging"`
+	// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+	EunTemplateId *int `pulumi:"eunTemplateId"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups *IPSFirewallRuleGroups `pulumi:"groups"`
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsEunEnabled *bool `pulumi:"isEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels *IPSFirewallRuleLabels `pulumi:"labels"`
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -324,7 +348,7 @@ type ipsfirewallRuleArgs struct {
 	Order int `pulumi:"order"`
 	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined *bool `pulumi:"predefined"`
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank *int `pulumi:"rank"`
 	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories []string `pulumi:"resCategories"`
@@ -337,7 +361,7 @@ type ipsfirewallRuleArgs struct {
 	SrcIps []string `pulumi:"srcIps"`
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups *IPSFirewallRuleSrcIpv6Groups `pulumi:"srcIpv6Groups"`
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State *string `pulumi:"state"`
 	// (List of Objects) Advanced threat categories to which the rule applies
 	ThreatCategories *IPSFirewallRuleThreatCategories `pulumi:"threatCategories"`
@@ -378,8 +402,12 @@ type IPSFirewallRuleArgs struct {
 	Devices IPSFirewallRuleDevicesPtrInput
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging pulumi.BoolPtrInput
+	// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+	EunTemplateId pulumi.IntPtrInput
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups IPSFirewallRuleGroupsPtrInput
+	// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+	IsEunEnabled pulumi.BoolPtrInput
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels IPSFirewallRuleLabelsPtrInput
 	// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
@@ -396,7 +424,7 @@ type IPSFirewallRuleArgs struct {
 	Order pulumi.IntInput
 	// (Boolean) A Boolean field that indicates that the rule is predefined by using a true value
 	Predefined pulumi.BoolPtrInput
-	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+	// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 	Rank pulumi.IntPtrInput
 	// (Set of String) URL categories associated with resolved IP addresses to which the rule applies. If not set, the rule is not restricted to a specific URL category.
 	ResCategories pulumi.StringArrayInput
@@ -409,7 +437,7 @@ type IPSFirewallRuleArgs struct {
 	SrcIps pulumi.StringArrayInput
 	// (List of Objects) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
 	SrcIpv6Groups IPSFirewallRuleSrcIpv6GroupsPtrInput
-	// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+	// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 	State pulumi.StringPtrInput
 	// (List of Objects) Advanced threat categories to which the rule applies
 	ThreatCategories IPSFirewallRuleThreatCategoriesPtrInput
@@ -574,9 +602,19 @@ func (o IPSFirewallRuleOutput) EnableFullLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IPSFirewallRule) pulumi.BoolPtrOutput { return v.EnableFullLogging }).(pulumi.BoolPtrOutput)
 }
 
+// (Integer) The ID of the Enhanced User Notification (EUN) template associated with the rule.
+func (o IPSFirewallRuleOutput) EunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IPSFirewallRule) pulumi.IntPtrOutput { return v.EunTemplateId }).(pulumi.IntPtrOutput)
+}
+
 // (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 func (o IPSFirewallRuleOutput) Groups() IPSFirewallRuleGroupsPtrOutput {
 	return o.ApplyT(func(v *IPSFirewallRule) IPSFirewallRuleGroupsPtrOutput { return v.Groups }).(IPSFirewallRuleGroupsPtrOutput)
+}
+
+// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+func (o IPSFirewallRuleOutput) IsEunEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IPSFirewallRule) pulumi.BoolPtrOutput { return v.IsEunEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // (List of Objects) Labels that are applicable to the rule.
@@ -619,7 +657,7 @@ func (o IPSFirewallRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IPSFirewallRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
-// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
 func (o IPSFirewallRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IPSFirewallRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
@@ -654,7 +692,7 @@ func (o IPSFirewallRuleOutput) SrcIpv6Groups() IPSFirewallRuleSrcIpv6GroupsPtrOu
 	return o.ApplyT(func(v *IPSFirewallRule) IPSFirewallRuleSrcIpv6GroupsPtrOutput { return v.SrcIpv6Groups }).(IPSFirewallRuleSrcIpv6GroupsPtrOutput)
 }
 
-// (String) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+// (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule. Supported Values: `ENABLED`, `DISABLED`
 func (o IPSFirewallRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IPSFirewallRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }

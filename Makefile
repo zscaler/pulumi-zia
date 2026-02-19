@@ -71,7 +71,7 @@ build_dotnet:: install_plugins tfgen
 		provider/cmd/$(PROVIDER)/schema.json
 
 	# Step 3: Build the dotnet package
-	cd sdk/dotnet && \
+	cd sdk/dotnet/dotnet && \
 		echo "$(DOTNET_VERSION)" > version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 

@@ -29,6 +29,7 @@ func GetDLPIncidentReceiverServers(ctx *pulumi.Context, args *GetDLPIncidentRece
 
 // A collection of arguments for invoking getDLPIncidentReceiverServers.
 type GetDLPIncidentReceiverServersArgs struct {
+	Id   *int    `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -52,6 +53,7 @@ func GetDLPIncidentReceiverServersOutput(ctx *pulumi.Context, args GetDLPInciden
 
 // A collection of arguments for invoking getDLPIncidentReceiverServers.
 type GetDLPIncidentReceiverServersOutputArgs struct {
+	Id   pulumi.IntPtrInput    `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

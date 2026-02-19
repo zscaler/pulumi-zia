@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_security_settings** can be imported by using `all_urls` as the import ID.
+ * **zia_security_settings** can be imported by using `allUrls` as the import ID.
  *
  * For example:
  *
@@ -55,13 +54,13 @@ export class SecuritySettings extends pulumi.CustomResource {
     }
 
     /**
-     * URLs on the denylist for your organization. Allow up to 25000 URLs.
+     * URLs on the denylist for your organization. Allow up to 275000 URLs.
      */
-    public readonly blacklistUrls!: pulumi.Output<string[]>;
+    declare public readonly blacklistUrls: pulumi.Output<string[]>;
     /**
      * Allowlist URLs whose contents will not be scanned. Allows up to 255 URLs.
      */
-    public readonly whitelistUrls!: pulumi.Output<string[]>;
+    declare public readonly whitelistUrls: pulumi.Output<string[]>;
 
     /**
      * Create a SecuritySettings resource with the given unique name, arguments, and options.
@@ -76,12 +75,12 @@ export class SecuritySettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecuritySettingsState | undefined;
-            resourceInputs["blacklistUrls"] = state ? state.blacklistUrls : undefined;
-            resourceInputs["whitelistUrls"] = state ? state.whitelistUrls : undefined;
+            resourceInputs["blacklistUrls"] = state?.blacklistUrls;
+            resourceInputs["whitelistUrls"] = state?.whitelistUrls;
         } else {
             const args = argsOrState as SecuritySettingsArgs | undefined;
-            resourceInputs["blacklistUrls"] = args ? args.blacklistUrls : undefined;
-            resourceInputs["whitelistUrls"] = args ? args.whitelistUrls : undefined;
+            resourceInputs["blacklistUrls"] = args?.blacklistUrls;
+            resourceInputs["whitelistUrls"] = args?.whitelistUrls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecuritySettings.__pulumiType, name, resourceInputs, opts);
@@ -93,7 +92,7 @@ export class SecuritySettings extends pulumi.CustomResource {
  */
 export interface SecuritySettingsState {
     /**
-     * URLs on the denylist for your organization. Allow up to 25000 URLs.
+     * URLs on the denylist for your organization. Allow up to 275000 URLs.
      */
     blacklistUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -107,7 +106,7 @@ export interface SecuritySettingsState {
  */
 export interface SecuritySettingsArgs {
     /**
-     * URLs on the denylist for your organization. Allow up to 25000 URLs.
+     * URLs on the denylist for your organization. Allow up to 275000 URLs.
      */
     blacklistUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**

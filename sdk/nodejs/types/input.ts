@@ -13,6 +13,41 @@ export interface AdminUsersRole {
     id?: pulumi.Input<number>;
 }
 
+export interface BandwidthControlRuleBandwidthClasses {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BandwidthControlRuleLabels {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BandwidthControlRuleLocationGroups {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BandwidthControlRuleLocations {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface BandwidthControlRuleTimeWindows {
+    /**
+     * (Number) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface BrowserControlPolicySmartIsolationGroups {
     /**
      * A unique identifier for an entity.
@@ -115,6 +150,36 @@ export interface CasbDlpRuleObjectTypes {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface CasbDlpRuleReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the receiver
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: pulumi.Input<inputs.CasbDlpRuleReceiverTenant>;
+    /**
+     * Type of the receiver
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface CasbDlpRuleReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the tenant
+     */
+    name?: pulumi.Input<string>;
+}
+
 export interface CasbDlpRuleRedactionProfile {
     id?: pulumi.Input<number>;
 }
@@ -193,6 +258,36 @@ export interface CasbDlpRulesLabels {
 
 export interface CasbDlpRulesObjectTypes {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CasbDlpRulesReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the receiver
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: pulumi.Input<inputs.CasbDlpRulesReceiverTenant>;
+    /**
+     * Type of the receiver
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface CasbDlpRulesReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the tenant
+     */
+    name?: pulumi.Input<string>;
 }
 
 export interface CasbDlpRulesRedactionProfile {
@@ -339,6 +434,74 @@ export interface CloudApplicationInstanceInstanceIdentifier {
     instanceIdentifierName?: pulumi.Input<string>;
 }
 
+export interface CloudNSSFeedBuckets {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedCasbTenant {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedDepartments {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedDlpDictionaries {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedDlpEngines {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedExternalCollaborators {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedExternalOwners {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedInternalCollaborators {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedItsmObjectType {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedLocationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedLocations {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedNwServices {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedRules {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedSenderName {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedUrlCategories {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedUsers {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CloudNSSFeedVpnCredentials {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface DLPDictionariesExactDataMatchDetail {
     /**
      * The unique identifier for the EDM mapping
@@ -347,7 +510,7 @@ export interface DLPDictionariesExactDataMatchDetail {
     /**
      * The EDM template's primary field.
      */
-    primaryField?: pulumi.Input<number>;
+    primaryFields?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The unique identifier for the EDM template (or schema).
      */
@@ -374,7 +537,13 @@ export interface DLPDictionariesIdmProfileMatchAccuracy {
 }
 
 export interface DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile {
+    /**
+     * Extensions map
+     */
     extensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Identifier that uniquely identifies an entity
+     */
     id?: pulumi.Input<number>;
 }
 
@@ -392,7 +561,7 @@ export interface DLPDictionariesPattern {
 export interface DLPDictionariesPhrase {
     action?: pulumi.Input<string>;
     /**
-     * DLP dictionary phrase
+     * DLP dictionary phrase (0-128 characters)
      */
     phrase?: pulumi.Input<string>;
 }
@@ -425,6 +594,10 @@ export interface DLPWebRulesExcludedUsers {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
+export interface DLPWebRulesFileTypeCategories {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
 export interface DLPWebRulesGroups {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
@@ -453,6 +626,36 @@ export interface DLPWebRulesNotificationTemplate {
     id?: pulumi.Input<number>;
 }
 
+export interface DLPWebRulesReceiver {
+    /**
+     * Unique identifier for the receiver
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the receiver
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Tenant information for the receiver
+     */
+    tenant?: pulumi.Input<inputs.DLPWebRulesReceiverTenant>;
+    /**
+     * Type of the receiver
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface DLPWebRulesReceiverTenant {
+    /**
+     * Unique identifier for the tenant
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the tenant
+     */
+    name?: pulumi.Input<string>;
+}
+
 export interface DLPWebRulesSourceIpGroups {
     ids?: pulumi.Input<pulumi.Input<number>[]>;
 }
@@ -478,6 +681,52 @@ export interface DLPWebRulesWorkloadGroup {
      * The name of the resource.
      */
     name?: pulumi.Input<string>;
+}
+
+export interface ExtranetExtranetDnsList {
+    /**
+     * (Integer) The unique identifier for the extranet.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (String) The IP address of the primary DNS server.
+     */
+    primaryDnsServer: pulumi.Input<string>;
+    /**
+     * (String) The IP address of the secondary DNS server.
+     */
+    secondaryDnsServer?: pulumi.Input<string>;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault?: pulumi.Input<boolean>;
+}
+
+export interface ExtranetExtranetIpPoolList {
+    /**
+     * (Integer) The unique identifier for the extranet.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (String) The ending IP address of the pool.
+     */
+    ipEnd: pulumi.Input<string>;
+    /**
+     * (String) The starting IP address of the pool.
+     */
+    ipStart: pulumi.Input<string>;
+    /**
+     * (String) The name of the IP pool.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Boolean) Whether this IP pool is the designated default.
+     */
+    useAsDefault?: pulumi.Input<boolean>;
 }
 
 export interface FileTypeControlRulesDepartments {
@@ -797,6 +1046,13 @@ export interface ForwardingControlRuleDestIpGroups {
 }
 
 export interface ForwardingControlRuleDestIpv6Groups {
+    /**
+     * (int) Identifier that uniquely identifies an entity
+     */
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface ForwardingControlRuleDeviceGroups {
     /**
      * (int) Identifier that uniquely identifies an entity
      */
@@ -1312,10 +1568,6 @@ export interface IPSFirewallRuleZpaAppSegment {
     name: pulumi.Input<string>;
 }
 
-export interface LocationManagementDynamicLocationGroups {
-    ids?: pulumi.Input<pulumi.Input<number>[]>;
-}
-
 export interface LocationManagementExtranet {
     id?: pulumi.Input<number>;
 }
@@ -1333,7 +1585,6 @@ export interface LocationManagementStaticLocationGroups {
 }
 
 export interface LocationManagementVpnCredential {
-    comments?: pulumi.Input<string>;
     fqdn?: pulumi.Input<string>;
     id?: pulumi.Input<number>;
     ipAddress?: pulumi.Input<string>;
@@ -1658,6 +1909,126 @@ export interface SandboxRulesZpaAppSegment {
     name: pulumi.Input<string>;
 }
 
+export interface SubCloudDc {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country?: pulumi.Input<string>;
+    /**
+     * (Integer) Unique identifier for the datacenter.
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * (String) Datacenter name.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface SubCloudExclusion {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country: pulumi.Input<string>;
+    /**
+     * (List) The excluded datacenter reference.
+     */
+    datacenter: pulumi.Input<inputs.SubCloudExclusionDatacenter>;
+    /**
+     * (Integer, Optional) Exclusion end time (Unix timestamp). Either `endTime` or `endTimeUtc` must be set.
+     */
+    endTime?: pulumi.Input<number>;
+    /**
+     * (String, Optional) Data center disabled until (UTC). Format: `MM/DD/YYYY HH:MM:SS am/pm`. If set, overrides `endTime`.
+     */
+    endTimeUtc?: pulumi.Input<string>;
+}
+
+export interface SubCloudExclusionDatacenter {
+    /**
+     * (String) Country where the excluded data center is located.
+     */
+    country?: pulumi.Input<string>;
+    /**
+     * (Integer) Unique identifier for the datacenter.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * (String) Datacenter name.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface TrafficCaptureRulesAppServiceGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesDepartments {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesDestIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesDeviceGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesDevices {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesLabels {
+    id?: pulumi.Input<number>;
+}
+
+export interface TrafficCaptureRulesLocationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesLocations {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesNwApplicationGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesNwServiceGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesNwServices {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesSrcIpGroups {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesTimeWindows {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesUsers {
+    ids?: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface TrafficCaptureRulesWorkloadGroup {
+    /**
+     * The unique identifier for the resource.
+     */
+    id: pulumi.Input<number>;
+    /**
+     * The name of the resource.
+     */
+    name?: pulumi.Input<string>;
+}
+
 export interface TrafficForwardingGRETunnelPrimaryDestVip {
     /**
      * Data center information
@@ -1686,6 +2057,25 @@ export interface TrafficForwardingGRETunnelSecondaryDestVip {
      * GRE cluster virtual IP address (VIP)
      */
     virtualIp?: pulumi.Input<string>;
+}
+
+export interface URLCategoriesPredefinedUrlKeywordCount {
+    /**
+     * Count of total keywords with retain parent category.
+     */
+    retainParentKeywordCount?: pulumi.Input<number>;
+    /**
+     * Count of URLs with retain parent category.
+     */
+    retainParentUrlCount?: pulumi.Input<number>;
+    /**
+     * Total keyword count for the category.
+     */
+    totalKeywordCount?: pulumi.Input<number>;
+    /**
+     * Custom URL count for the category.
+     */
+    totalUrlCount?: pulumi.Input<number>;
 }
 
 export interface URLCategoriesScope {
@@ -1733,6 +2123,7 @@ export interface URLFilteringRulesCbiProfile {
      * Name of the Firewall Filtering policy rule
      */
     name?: pulumi.Input<string>;
+    profileSeq?: pulumi.Input<number>;
     /**
      * The browser isolation profile URL
      */
@@ -1804,6 +2195,11 @@ export interface UserManagementDepartment {
      */
     comments?: pulumi.Input<string>;
     deleted?: pulumi.Input<boolean>;
+    /**
+     * Department ID
+     *
+     * !> **WARNING:** The password parameter is considered sensitive information and is omitted in case terraform output is configured.
+     */
     id?: pulumi.Input<number>;
     /**
      * Identity provider (IdP) ID
@@ -1823,8 +2219,49 @@ export interface UserManagementGroups {
 }
 
 export interface VirtualServiceEdgeClusterVirtualZenNodes {
-    /**
-     * (Number) Identifier that uniquely identifies an entity
-     */
     ids: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface WorkloadGroupsExpressionJson {
+    /**
+     * (List) Contains one or more tag types (and associated tags) combined using logical operators within a workload group.
+     */
+    expressionContainers?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupsExpressionJsonExpressionContainer>[]>;
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainer {
+    /**
+     * (String) The logical operator (either AND or OR) used to combine the tags within a tag type. Returned values are: `AND`, `OR`.
+     */
+    operator?: pulumi.Input<string>;
+    /**
+     * (List) Contains one or more tags and the logical operator used to combine the tags within a tag type.
+     */
+    tagContainers?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupsExpressionJsonExpressionContainerTagContainer>[]>;
+    /**
+     * (String) The tag type selected from a predefined list. Returned values are: `ANY`, `VPC`, `SUBNET`, `VM`, `ENI`, `ATTR`.
+     */
+    tagType?: pulumi.Input<string>;
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainerTagContainer {
+    /**
+     * (String) The logical operator (either AND or OR) used to combine the tags within a tag type. Returned values are: `AND`, `OR`.
+     */
+    operator?: pulumi.Input<string>;
+    /**
+     * (List) One or more tags, each consisting of a key-value pair, selected within a tag type. If multiple tags are present within a tag type, they are combined using a logical operator. Note: A maximum of 8 tags can be added to a workload group, irrespective of the number of tag types present.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupsExpressionJsonExpressionContainerTagContainerTag>[]>;
+}
+
+export interface WorkloadGroupsExpressionJsonExpressionContainerTagContainerTag {
+    /**
+     * (String) The key component present in the key-value pair contained in a tag.
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * (String) The value component present in the key-value pair contained in a tag.
+     */
+    value?: pulumi.Input<string>;
 }

@@ -30,6 +30,7 @@ func GetDLPEDMSchema(ctx *pulumi.Context, args *GetDLPEDMSchemaArgs, opts ...pul
 // A collection of arguments for invoking getDLPEDMSchema.
 type GetDLPEDMSchemaArgs struct {
 	ProjectName *string `pulumi:"projectName"`
+	SchemaId    *int    `pulumi:"schemaId"`
 }
 
 // A collection of values returned by getDLPEDMSchema.
@@ -66,6 +67,7 @@ func GetDLPEDMSchemaOutput(ctx *pulumi.Context, args GetDLPEDMSchemaOutputArgs, 
 // A collection of arguments for invoking getDLPEDMSchema.
 type GetDLPEDMSchemaOutputArgs struct {
 	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+	SchemaId    pulumi.IntPtrInput    `pulumi:"schemaId"`
 }
 
 func (GetDLPEDMSchemaOutputArgs) ElementType() reflect.Type {

@@ -21,9 +21,23 @@ namespace zscaler.PulumiPackage.Zia
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Service
-        /// data "zia_firewall_filtering_network_service" "example" {
-        ///   name = "ICMP_ANY"
+        /// data "zia_firewall_filtering_network_service" "example_protocol" {
+        ///   protocol = "TCP"
+        /// }
+        /// 
+        /// # Test locale only
+        /// data "zia_firewall_filtering_network_service" "example_locale" {
+        ///   locale = "en-US"
+        /// }
+        /// 
+        /// # Test protocol + locale
+        /// data "zia_firewall_filtering_network_service" "example_both" {
+        ///   protocol = "TCP"
+        ///   locale   = "en-US"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_network_service" "dns" {
+        ///   name = "DNS"
         /// }
         /// ```
         /// </summary>
@@ -39,9 +53,23 @@ namespace zscaler.PulumiPackage.Zia
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Service
-        /// data "zia_firewall_filtering_network_service" "example" {
-        ///   name = "ICMP_ANY"
+        /// data "zia_firewall_filtering_network_service" "example_protocol" {
+        ///   protocol = "TCP"
+        /// }
+        /// 
+        /// # Test locale only
+        /// data "zia_firewall_filtering_network_service" "example_locale" {
+        ///   locale = "en-US"
+        /// }
+        /// 
+        /// # Test protocol + locale
+        /// data "zia_firewall_filtering_network_service" "example_both" {
+        ///   protocol = "TCP"
+        ///   locale   = "en-US"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_network_service" "dns" {
+        ///   name = "DNS"
         /// }
         /// ```
         /// </summary>
@@ -57,9 +85,23 @@ namespace zscaler.PulumiPackage.Zia
         /// ## Example Usage
         /// 
         /// ```hcl
-        /// # ZIA Network Service
-        /// data "zia_firewall_filtering_network_service" "example" {
-        ///   name = "ICMP_ANY"
+        /// data "zia_firewall_filtering_network_service" "example_protocol" {
+        ///   protocol = "TCP"
+        /// }
+        /// 
+        /// # Test locale only
+        /// data "zia_firewall_filtering_network_service" "example_locale" {
+        ///   locale = "en-US"
+        /// }
+        /// 
+        /// # Test protocol + locale
+        /// data "zia_firewall_filtering_network_service" "example_both" {
+        ///   protocol = "TCP"
+        ///   locale   = "en-US"
+        /// }
+        /// 
+        /// data "zia_firewall_filtering_network_service" "dns" {
+        ///   name = "DNS"
         /// }
         /// ```
         /// </summary>
@@ -77,10 +119,23 @@ namespace zscaler.PulumiPackage.Zia
         public int? Id { get; set; }
 
         /// <summary>
+        /// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+        /// </summary>
+        [Input("locale")]
+        public string? Locale { get; set; }
+
+        /// <summary>
         /// Name of the application layer service that you want to control. It can include any character and spaces.
+        /// See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute &lt;span pulumi-lang-nodejs="`tag`" pulumi-lang-dotnet="`Tag`" pulumi-lang-go="`tag`" pulumi-lang-python="`tag`" pulumi-lang-yaml="`tag`" pulumi-lang-java="`tag`"&gt;`tag`&lt;/span&gt; in the API documentation for the updated list.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+        /// </summary>
+        [Input("protocol")]
+        public string? Protocol { get; set; }
 
         public GetFirewallFilteringNetworkServicesArgs()
         {
@@ -97,10 +152,23 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Id { get; set; }
 
         /// <summary>
+        /// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+        /// </summary>
+        [Input("locale")]
+        public Input<string>? Locale { get; set; }
+
+        /// <summary>
         /// Name of the application layer service that you want to control. It can include any character and spaces.
+        /// See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute &lt;span pulumi-lang-nodejs="`tag`" pulumi-lang-dotnet="`Tag`" pulumi-lang-go="`tag`" pulumi-lang-python="`tag`" pulumi-lang-yaml="`tag`" pulumi-lang-java="`tag`"&gt;`tag`&lt;/span&gt; in the API documentation for the updated list.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
 
         public GetFirewallFilteringNetworkServicesInvokeArgs()
         {
@@ -113,7 +181,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetFirewallFilteringNetworkServicesResult
     {
         /// <summary>
-        /// (String) (Optional) Enter additional notes or information. The description cannot exceed 10240 characters.
+        /// (String) Enter additional notes or information. The description cannot exceed 10240 characters.
         /// </summary>
         public readonly string Description;
         /// <summary>
@@ -129,7 +197,15 @@ namespace zscaler.PulumiPackage.Zia
         /// (Bool) - Default: false
         /// </summary>
         public readonly bool IsNameL10nTag;
+        /// <summary>
+        /// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+        /// </summary>
+        public readonly string? Locale;
         public readonly string Name;
+        /// <summary>
+        /// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+        /// </summary>
+        public readonly string Protocol;
         /// <summary>
         /// (Optional) The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
         /// </summary>
@@ -138,6 +214,9 @@ namespace zscaler.PulumiPackage.Zia
         /// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringNetworkServicesSrcUdpPortResult> SrcUdpPorts;
+        /// <summary>
+        /// (string) - Supported network services names returned by the API. See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute &lt;span pulumi-lang-nodejs="`tag`" pulumi-lang-dotnet="`Tag`" pulumi-lang-go="`tag`" pulumi-lang-python="`tag`" pulumi-lang-yaml="`tag`" pulumi-lang-java="`tag`"&gt;`tag`&lt;/span&gt; in the API documentation for the updated list.
+        /// </summary>
         public readonly string Tag;
         /// <summary>
         /// (String) - Supported values are: `STANDARD`, `PREDEFINED` and `CUSTOM`
@@ -156,7 +235,11 @@ namespace zscaler.PulumiPackage.Zia
 
             bool isNameL10nTag,
 
+            string? locale,
+
             string name,
+
+            string protocol,
 
             ImmutableArray<Outputs.GetFirewallFilteringNetworkServicesSrcTcpPortResult> srcTcpPorts,
 
@@ -171,7 +254,9 @@ namespace zscaler.PulumiPackage.Zia
             DestUdpPorts = destUdpPorts;
             Id = id;
             IsNameL10nTag = isNameL10nTag;
+            Locale = locale;
             Name = name;
+            Protocol = protocol;
             SrcTcpPorts = srcTcpPorts;
             SrcUdpPorts = srcUdpPorts;
             Tag = tag;

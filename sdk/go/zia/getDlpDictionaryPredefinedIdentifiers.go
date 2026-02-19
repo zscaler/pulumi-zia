@@ -29,6 +29,8 @@ func GetDlpDictionaryPredefinedIdentifiers(ctx *pulumi.Context, args *GetDlpDict
 
 // A collection of arguments for invoking getDlpDictionaryPredefinedIdentifiers.
 type GetDlpDictionaryPredefinedIdentifiersArgs struct {
+	// (String) The ID of the hierarchical DLP dictionary.
+	Id *string `pulumi:"id"`
 	// The name of the hierarchical DLP dictionary.
 	Name string `pulumi:"name"`
 }
@@ -54,6 +56,8 @@ func GetDlpDictionaryPredefinedIdentifiersOutput(ctx *pulumi.Context, args GetDl
 
 // A collection of arguments for invoking getDlpDictionaryPredefinedIdentifiers.
 type GetDlpDictionaryPredefinedIdentifiersOutputArgs struct {
+	// (String) The ID of the hierarchical DLP dictionary.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the hierarchical DLP dictionary.
 	Name pulumi.StringInput `pulumi:"name"`
 }

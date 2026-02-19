@@ -18,17 +18,56 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
         /// 
+        /// ## Example Usage
+        /// 
+        /// ### Query A URL Category By Name (Default - All Types)
+        /// 
         /// ```hcl
-        /// // Query a URL Category by Name
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     configured_name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Query A URL Category By ID
+        /// 
         /// ```hcl
-        /// // Query a URL Category by its Custom ID
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     id = "CUSTOM_08"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A URL_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "url_category_example" {
+        ///     configured_name = "My URL Category"
+        ///     type            = "URL_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A TLD_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "tld_category_example" {
+        ///     configured_name = "tld_russia"
+        ///     type            = "TLD_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query All Category Types (Explicit)
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "all_types_example" {
+        ///     configured_name = "Example"
+        ///     type            = "ALL"
+        /// }
+        /// ```
+        /// 
+        /// ### Query Predefined URL Categories
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "this" {
+        ///     id = "CORPORATE_MARKETING"
         /// }
         /// ```
         /// </summary>
@@ -41,17 +80,56 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
         /// 
+        /// ## Example Usage
+        /// 
+        /// ### Query A URL Category By Name (Default - All Types)
+        /// 
         /// ```hcl
-        /// // Query a URL Category by Name
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     configured_name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Query A URL Category By ID
+        /// 
         /// ```hcl
-        /// // Query a URL Category by its Custom ID
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     id = "CUSTOM_08"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A URL_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "url_category_example" {
+        ///     configured_name = "My URL Category"
+        ///     type            = "URL_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A TLD_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "tld_category_example" {
+        ///     configured_name = "tld_russia"
+        ///     type            = "TLD_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query All Category Types (Explicit)
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "all_types_example" {
+        ///     configured_name = "Example"
+        ///     type            = "ALL"
+        /// }
+        /// ```
+        /// 
+        /// ### Query Predefined URL Categories
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "this" {
+        ///     id = "CORPORATE_MARKETING"
         /// }
         /// ```
         /// </summary>
@@ -64,17 +142,56 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// Use the **zia_url_categories** data source to get information about all or custom URL categories. By default, the response includes keywords.
         /// 
+        /// ## Example Usage
+        /// 
+        /// ### Query A URL Category By Name (Default - All Types)
+        /// 
         /// ```hcl
-        /// // Query a URL Category by Name
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     configured_name = "Example"
         /// }
         /// ```
         /// 
+        /// ### Query A URL Category By ID
+        /// 
         /// ```hcl
-        /// // Query a URL Category by its Custom ID
-        /// data "zia_url_categories" "this"{
+        /// data "zia_url_categories" "this" {
         ///     id = "CUSTOM_08"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A URL_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "url_category_example" {
+        ///     configured_name = "My URL Category"
+        ///     type            = "URL_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query A TLD_CATEGORY Type
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "tld_category_example" {
+        ///     configured_name = "tld_russia"
+        ///     type            = "TLD_CATEGORY"
+        /// }
+        /// ```
+        /// 
+        /// ### Query All Category Types (Explicit)
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "all_types_example" {
+        ///     configured_name = "Example"
+        ///     type            = "ALL"
+        /// }
+        /// ```
+        /// 
+        /// ### Query Predefined URL Categories
+        /// 
+        /// ```hcl
+        /// data "zia_url_categories" "this" {
+        ///     id = "CORPORATE_MARKETING"
         /// }
         /// ```
         /// </summary>
@@ -85,6 +202,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetURLCategoriesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("categoryGroup")]
+        public string? CategoryGroup { get; set; }
+
         /// <summary>
         /// (String) Name of the URL category. This is only required for custom URL categories.
         /// </summary>
@@ -104,16 +224,47 @@ namespace zscaler.PulumiPackage.Zia
         public int? CustomIpRangesCount { get; set; }
 
         /// <summary>
-        /// URL category
+        /// (String) Identifier that uniquely identifies an entity
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
+
+        [Input("regexPatterns")]
+        private List<string>? _regexPatterns;
+        public List<string> RegexPatterns
+        {
+            get => _regexPatterns ?? (_regexPatterns = new List<string>());
+            set => _regexPatterns = value;
+        }
+
+        [Input("regexPatternsRetainingParentCategories")]
+        private List<string>? _regexPatternsRetainingParentCategories;
+        public List<string> RegexPatternsRetainingParentCategories
+        {
+            get => _regexPatternsRetainingParentCategories ?? (_regexPatternsRetainingParentCategories = new List<string>());
+            set => _regexPatternsRetainingParentCategories = value;
+        }
 
         /// <summary>
         /// (String)
         /// </summary>
         [Input("superCategory")]
         public string? SuperCategory { get; set; }
+
+        /// <summary>
+        /// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        /// </summary>
+        [Input("type")]
+        public string? Type { get; set; }
+
+        [Input("urlType")]
+        public string? UrlType { get; set; }
+
+        /// <summary>
+        /// (Number) The unique ID for the URL category.
+        /// </summary>
+        [Input("val")]
+        public int? Val { get; set; }
 
         public GetURLCategoriesArgs()
         {
@@ -123,6 +274,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetURLCategoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("categoryGroup")]
+        public Input<string>? CategoryGroup { get; set; }
+
         /// <summary>
         /// (String) Name of the URL category. This is only required for custom URL categories.
         /// </summary>
@@ -142,16 +296,47 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? CustomIpRangesCount { get; set; }
 
         /// <summary>
-        /// URL category
+        /// (String) Identifier that uniquely identifies an entity
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("regexPatterns")]
+        private InputList<string>? _regexPatterns;
+        public InputList<string> RegexPatterns
+        {
+            get => _regexPatterns ?? (_regexPatterns = new InputList<string>());
+            set => _regexPatterns = value;
+        }
+
+        [Input("regexPatternsRetainingParentCategories")]
+        private InputList<string>? _regexPatternsRetainingParentCategories;
+        public InputList<string> RegexPatternsRetainingParentCategories
+        {
+            get => _regexPatternsRetainingParentCategories ?? (_regexPatternsRetainingParentCategories = new InputList<string>());
+            set => _regexPatternsRetainingParentCategories = value;
+        }
 
         /// <summary>
         /// (String)
         /// </summary>
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
+
+        /// <summary>
+        /// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        [Input("urlType")]
+        public Input<string>? UrlType { get; set; }
+
+        /// <summary>
+        /// (Number) The unique ID for the URL category.
+        /// </summary>
+        [Input("val")]
+        public Input<int>? Val { get; set; }
 
         public GetURLCategoriesInvokeArgs()
         {
@@ -163,6 +348,7 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetURLCategoriesResult
     {
+        public readonly string CategoryGroup;
         /// <summary>
         /// (String) Name of the URL category. This is only required for custom URL categories.
         /// </summary>
@@ -206,6 +392,8 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<string> Keywords;
         public readonly ImmutableArray<string> KeywordsRetainingParentCategories;
+        public readonly ImmutableArray<string> RegexPatterns;
+        public readonly ImmutableArray<string> RegexPatternsRetainingParentCategories;
         /// <summary>
         /// (List of Object) Scope of the custom categories.
         /// </summary>
@@ -217,11 +405,12 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// (List of Object) URL and keyword counts for the category.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetURLCategoriesUrlKeywordCountResult> UrlKeywordCounts;
+        public readonly string? UrlType;
         /// <summary>
         /// (List of String) Custom URLs to add to a URL category. Up to 25,000 custom URLs can be added per organization across all categories (including bandwidth classes).
         /// </summary>
@@ -237,6 +426,8 @@ namespace zscaler.PulumiPackage.Zia
 
         [OutputConstructor]
         private GetURLCategoriesResult(
+            string categoryGroup,
+
             string configuredName,
 
             bool customCategory,
@@ -263,13 +454,19 @@ namespace zscaler.PulumiPackage.Zia
 
             ImmutableArray<string> keywordsRetainingParentCategories,
 
+            ImmutableArray<string> regexPatterns,
+
+            ImmutableArray<string> regexPatternsRetainingParentCategories,
+
             ImmutableArray<Outputs.GetURLCategoriesScopeResult> scopes,
 
             string? superCategory,
 
-            string type,
+            string? type,
 
             ImmutableArray<Outputs.GetURLCategoriesUrlKeywordCountResult> urlKeywordCounts,
+
+            string? urlType,
 
             ImmutableArray<string> urls,
 
@@ -277,6 +474,7 @@ namespace zscaler.PulumiPackage.Zia
 
             int val)
         {
+            CategoryGroup = categoryGroup;
             ConfiguredName = configuredName;
             CustomCategory = customCategory;
             CustomIpRangesCount = customIpRangesCount;
@@ -290,10 +488,13 @@ namespace zscaler.PulumiPackage.Zia
             IpRangesRetainingParentCategoryCount = ipRangesRetainingParentCategoryCount;
             Keywords = keywords;
             KeywordsRetainingParentCategories = keywordsRetainingParentCategories;
+            RegexPatterns = regexPatterns;
+            RegexPatternsRetainingParentCategories = regexPatternsRetainingParentCategories;
             Scopes = scopes;
             SuperCategory = superCategory;
             Type = type;
             UrlKeywordCounts = urlKeywordCounts;
+            UrlType = urlType;
             Urls = urls;
             UrlsRetainingParentCategoryCount = urlsRetainingParentCategoryCount;
             Val = val;

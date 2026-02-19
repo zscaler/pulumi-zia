@@ -21,10 +21,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_ftp_control_policy** can be imported by using `ftp_control` as the import ID.
+// **zia_ftp_control_policy** can be imported by using `ftpControl` as the import ID.
 //
 // For example:
 //
@@ -38,7 +37,9 @@ type FtpControlPolicy struct {
 	FtpEnabled pulumi.BoolPtrOutput `pulumi:"ftpEnabled"`
 	// Indicates whether to enable FTP over HTTP.
 	FtpOverHttpEnabled pulumi.BoolPtrOutput `pulumi:"ftpOverHttpEnabled"`
-	// List of URL categories for which rule must be applied
+	// List of URL categories that allow FTP traffic.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
 	// Domains or URLs included for the FTP Control settings
 	Urls pulumi.StringArrayOutput `pulumi:"urls"`
@@ -78,7 +79,9 @@ type ftpControlPolicyState struct {
 	FtpEnabled *bool `pulumi:"ftpEnabled"`
 	// Indicates whether to enable FTP over HTTP.
 	FtpOverHttpEnabled *bool `pulumi:"ftpOverHttpEnabled"`
-	// List of URL categories for which rule must be applied
+	// List of URL categories that allow FTP traffic.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// Domains or URLs included for the FTP Control settings
 	Urls []string `pulumi:"urls"`
@@ -89,7 +92,9 @@ type FtpControlPolicyState struct {
 	FtpEnabled pulumi.BoolPtrInput
 	// Indicates whether to enable FTP over HTTP.
 	FtpOverHttpEnabled pulumi.BoolPtrInput
-	// List of URL categories for which rule must be applied
+	// List of URL categories that allow FTP traffic.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// Domains or URLs included for the FTP Control settings
 	Urls pulumi.StringArrayInput
@@ -104,7 +109,9 @@ type ftpControlPolicyArgs struct {
 	FtpEnabled *bool `pulumi:"ftpEnabled"`
 	// Indicates whether to enable FTP over HTTP.
 	FtpOverHttpEnabled *bool `pulumi:"ftpOverHttpEnabled"`
-	// List of URL categories for which rule must be applied
+	// List of URL categories that allow FTP traffic.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories []string `pulumi:"urlCategories"`
 	// Domains or URLs included for the FTP Control settings
 	Urls []string `pulumi:"urls"`
@@ -116,7 +123,9 @@ type FtpControlPolicyArgs struct {
 	FtpEnabled pulumi.BoolPtrInput
 	// Indicates whether to enable FTP over HTTP.
 	FtpOverHttpEnabled pulumi.BoolPtrInput
-	// List of URL categories for which rule must be applied
+	// List of URL categories that allow FTP traffic.
+	// 				See the URL Categories API for the list of available categories:
+	// 				https://help.zscaler.com/zia/url-categories#/urlCategories-get
 	UrlCategories pulumi.StringArrayInput
 	// Domains or URLs included for the FTP Control settings
 	Urls pulumi.StringArrayInput
@@ -219,7 +228,10 @@ func (o FtpControlPolicyOutput) FtpOverHttpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FtpControlPolicy) pulumi.BoolPtrOutput { return v.FtpOverHttpEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of URL categories for which rule must be applied
+// List of URL categories that allow FTP traffic.
+//
+//	See the URL Categories API for the list of available categories:
+//	https://help.zscaler.com/zia/url-categories#/urlCategories-get
 func (o FtpControlPolicyOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FtpControlPolicy) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }

@@ -12,6 +12,27 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/about-ssl-inspection-policy)
+// * [API documentation](https://help.zscaler.com/zia/ssl-inspection-policy#/sslInspectionRules-get)
+//
+// The **zia_ssl_inspection_rules** resource allows the creation and management of SSL Inspection rules in the Zscaler Internet Access.
+//
+// **NOTE 1** Zscaler SSL Inspection rules contain default and predefined rules which cannot be deleted. The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+// - Automatically place new rules at the correct position
+// - Handle reordering around predefined rules
+// - Avoid configuration drift
+//
+// Example: If there are 2 predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+//
+// **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
+//
+// * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+// * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to
+// * `labels` (list) - Labels that are applicable to the rule.
+//   - `id` - (Integer) Identifier that uniquely identifies an entity
+//
+// **NOTE 3** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+//
 // ## Example Usage
 //
 // ### Action - DECRYPT
@@ -26,7 +47,7 @@ type SSLInspectionRules struct {
 
 	// (Block List) - Action taken when the traffic matches policy
 	Actions SSLInspectionRulesActionArrayOutput `pulumi:"actions"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+	// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
 	// (Block List) - ID pairs of departments for which the rule is applied.
 	Departments SSLInspectionRulesDepartmentsPtrOutput `pulumi:"departments"`
@@ -67,7 +88,7 @@ type SSLInspectionRules struct {
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// (Block List) - The time intervals during which the rule applies
 	TimeWindows SSLInspectionRulesTimeWindowsPtrOutput `pulumi:"timeWindows"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
 	// (Set of String) -  A list of user agent types the rule applies to.
 	UserAgentTypes pulumi.StringArrayOutput `pulumi:"userAgentTypes"`
@@ -114,7 +135,7 @@ func GetSSLInspectionRules(ctx *pulumi.Context,
 type sslinspectionRulesState struct {
 	// (Block List) - Action taken when the traffic matches policy
 	Actions []SSLInspectionRulesAction `pulumi:"actions"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+	// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	CloudApplications []string `pulumi:"cloudApplications"`
 	// (Block List) - ID pairs of departments for which the rule is applied.
 	Departments *SSLInspectionRulesDepartments `pulumi:"departments"`
@@ -155,7 +176,7 @@ type sslinspectionRulesState struct {
 	State *string `pulumi:"state"`
 	// (Block List) - The time intervals during which the rule applies
 	TimeWindows *SSLInspectionRulesTimeWindows `pulumi:"timeWindows"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories []string `pulumi:"urlCategories"`
 	// (Set of String) -  A list of user agent types the rule applies to.
 	UserAgentTypes []string `pulumi:"userAgentTypes"`
@@ -170,7 +191,7 @@ type sslinspectionRulesState struct {
 type SSLInspectionRulesState struct {
 	// (Block List) - Action taken when the traffic matches policy
 	Actions SSLInspectionRulesActionArrayInput
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+	// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	CloudApplications pulumi.StringArrayInput
 	// (Block List) - ID pairs of departments for which the rule is applied.
 	Departments SSLInspectionRulesDepartmentsPtrInput
@@ -211,7 +232,7 @@ type SSLInspectionRulesState struct {
 	State pulumi.StringPtrInput
 	// (Block List) - The time intervals during which the rule applies
 	TimeWindows SSLInspectionRulesTimeWindowsPtrInput
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayInput
 	// (Set of String) -  A list of user agent types the rule applies to.
 	UserAgentTypes pulumi.StringArrayInput
@@ -230,7 +251,7 @@ func (SSLInspectionRulesState) ElementType() reflect.Type {
 type sslinspectionRulesArgs struct {
 	// (Block List) - Action taken when the traffic matches policy
 	Actions []SSLInspectionRulesAction `pulumi:"actions"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+	// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	CloudApplications []string `pulumi:"cloudApplications"`
 	// (Block List) - ID pairs of departments for which the rule is applied.
 	Departments *SSLInspectionRulesDepartments `pulumi:"departments"`
@@ -270,7 +291,7 @@ type sslinspectionRulesArgs struct {
 	State *string `pulumi:"state"`
 	// (Block List) - The time intervals during which the rule applies
 	TimeWindows *SSLInspectionRulesTimeWindows `pulumi:"timeWindows"`
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories []string `pulumi:"urlCategories"`
 	// (Set of String) -  A list of user agent types the rule applies to.
 	UserAgentTypes []string `pulumi:"userAgentTypes"`
@@ -286,7 +307,7 @@ type sslinspectionRulesArgs struct {
 type SSLInspectionRulesArgs struct {
 	// (Block List) - Action taken when the traffic matches policy
 	Actions SSLInspectionRulesActionArrayInput
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+	// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 	CloudApplications pulumi.StringArrayInput
 	// (Block List) - ID pairs of departments for which the rule is applied.
 	Departments SSLInspectionRulesDepartmentsPtrInput
@@ -326,7 +347,7 @@ type SSLInspectionRulesArgs struct {
 	State pulumi.StringPtrInput
 	// (Block List) - The time intervals during which the rule applies
 	TimeWindows SSLInspectionRulesTimeWindowsPtrInput
-	// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayInput
 	// (Set of String) -  A list of user agent types the rule applies to.
 	UserAgentTypes pulumi.StringArrayInput
@@ -430,7 +451,7 @@ func (o SSLInspectionRulesOutput) Actions() SSLInspectionRulesActionArrayOutput 
 	return o.ApplyT(func(v *SSLInspectionRules) SSLInspectionRulesActionArrayOutput { return v.Actions }).(SSLInspectionRulesActionArrayOutput)
 }
 
-// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post)
+// (List of Strings) The list of cloud applications to which the File Type Control policy rule must be applied. To retrieve the list of cloud applications, use the data source: `getCloudApplications`. For the complete list of supported file types refer to the  [ZIA API documentation](https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-post). To retrieve the list of cloud applications, use the data source: `getCloudApplications`
 func (o SSLInspectionRulesOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SSLInspectionRules) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
@@ -534,7 +555,7 @@ func (o SSLInspectionRulesOutput) TimeWindows() SSLInspectionRulesTimeWindowsPtr
 	return o.ApplyT(func(v *SSLInspectionRules) SSLInspectionRulesTimeWindowsPtrOutput { return v.TimeWindows }).(SSLInspectionRulesTimeWindowsPtrOutput)
 }
 
-// (Set of String) -  The list of URL categories to which the DLP policy rule must be applied.
+// (List of Strings) The list of URL categories to which the SSL Inspection rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 func (o SSLInspectionRulesOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SSLInspectionRules) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }

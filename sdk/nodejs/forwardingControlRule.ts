@@ -7,10 +7,30 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
+ * * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
+ *
+ * The **zia_forwarding_control_rule** resource allows the creation and management of ZIA Forwarding Control rules in the Zscaler Internet Access.
+ *
+ * ⚠️ **WARNING:**  - PR #373 - The resource `zia.ForwardingControlRule` now pauses for 60 seconds before proceeding with the create or update process whenever the `forwardMethod` attribute is set to `ZPA`. In case of a failure related to resource synchronization, the provider will retry the resource creation or update up to 3 times, waiting 30 seconds between each retry. This behavior ensures that ZIA and ZPA have sufficient time to synchronize and replicate the necessary resource IDs, reducing the risk of transient errors during provisioning.
+ *
+ *   **NOTE**: This retry mechanism helps to automatically overcome temporary latency without manual intervention. This behavior does not affect forwarding rules configured with other forwardMethods such as `DIRECT`.
+ *
+ * ## Example Usage
+ *
+ * ### DIRECT Forwarding Method
+ *
+ * ### ZPA Forwarding Method
+ *
+ *   ⚠️ **WARNING:**: You must use the ZPA provider in combination with the ZIA Terraform Provider to successfully configure a Forwarding control rule where the `forwardMethod` is `ZPA`
+ *
+ * ### PROXYCHAIN Forwarding Method
+ *
+ *   ⚠️ **WARNING:**: Creating or retrieving a Proxy Gateway via API is not currently supported; hence, the `id` and `name` for the `proxyGateway` must be passed manually to the `proxyGateway` block in the below configuration.
+ *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_forwarding_control_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
@@ -58,135 +78,139 @@ export class ForwardingControlRule extends pulumi.CustomResource {
     /**
      * (list) - Application service groups on which this rule is applied
      */
-    public readonly appServiceGroups!: pulumi.Output<outputs.ForwardingControlRuleAppServiceGroups | undefined>;
+    declare public readonly appServiceGroups: pulumi.Output<outputs.ForwardingControlRuleAppServiceGroups | undefined>;
     /**
      * (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
-    public readonly departments!: pulumi.Output<outputs.ForwardingControlRuleDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.ForwardingControlRuleDepartments | undefined>;
     /**
      * (string) - Additional information about the forwarding rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
      */
-    public readonly destAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
     /**
      * ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
      */
-    public readonly destCountries!: pulumi.Output<string[]>;
+    declare public readonly destCountries: pulumi.Output<string[]>;
     /**
      * ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
      */
-    public readonly destIpCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
     /**
      * ** - (list) Any number of destination IP address groups that you want to control with this rule.
      */
-    public readonly destIpGroups!: pulumi.Output<outputs.ForwardingControlRuleDestIpGroups | undefined>;
+    declare public readonly destIpGroups: pulumi.Output<outputs.ForwardingControlRuleDestIpGroups | undefined>;
     /**
      * ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
-    public readonly destIpv6Groups!: pulumi.Output<outputs.ForwardingControlRuleDestIpv6Groups | undefined>;
+    declare public readonly destIpv6Groups: pulumi.Output<outputs.ForwardingControlRuleDestIpv6Groups | undefined>;
+    /**
+     * (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+     */
+    declare public readonly deviceGroups: pulumi.Output<outputs.ForwardingControlRuleDeviceGroups | undefined>;
     /**
      * (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
      */
-    public readonly ecGroups!: pulumi.Output<outputs.ForwardingControlRuleEcGroups | undefined>;
+    declare public readonly ecGroups: pulumi.Output<outputs.ForwardingControlRuleEcGroups | undefined>;
     /**
      * The type of traffic forwarding method selected from the available options
      */
-    public readonly forwardMethod!: pulumi.Output<string>;
+    declare public readonly forwardMethod: pulumi.Output<string>;
     /**
      * (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly groups!: pulumi.Output<outputs.ForwardingControlRuleGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.ForwardingControlRuleGroups | undefined>;
     /**
      * (list) Labels that are applicable to the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.ForwardingControlRuleLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.ForwardingControlRuleLabels | undefined>;
     /**
      * (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.ForwardingControlRuleLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.ForwardingControlRuleLocationGroups | undefined>;
     /**
      * (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly locations!: pulumi.Output<outputs.ForwardingControlRuleLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.ForwardingControlRuleLocations | undefined>;
     /**
      * (string) The configured name of the entity
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
      */
-    public readonly nwApplicationGroups!: pulumi.Output<outputs.ForwardingControlRuleNwApplicationGroups | undefined>;
+    declare public readonly nwApplicationGroups: pulumi.Output<outputs.ForwardingControlRuleNwApplicationGroups | undefined>;
     /**
      * (list) Any number of predefined or custom network service groups to which the rule applies.
      */
-    public readonly nwServiceGroups!: pulumi.Output<outputs.ForwardingControlRuleNwServiceGroups | undefined>;
+    declare public readonly nwServiceGroups: pulumi.Output<outputs.ForwardingControlRuleNwServiceGroups | undefined>;
     /**
      * (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
      */
-    public readonly nwServices!: pulumi.Output<outputs.ForwardingControlRuleNwServices | undefined>;
+    declare public readonly nwServices: pulumi.Output<outputs.ForwardingControlRuleNwServices | undefined>;
     /**
      * (int) - The order of execution for the forwarding rule order.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
      */
-    public readonly proxyGateway!: pulumi.Output<outputs.ForwardingControlRuleProxyGateway>;
+    declare public readonly proxyGateway: pulumi.Output<outputs.ForwardingControlRuleProxyGateway>;
     /**
      * Admin rank assigned to the forwarding rule
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * ** - (list) List of destination domain categories to which the rule applies.
      */
-    public readonly resCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly resCategories: pulumi.Output<string[] | undefined>;
     /**
      * A unique identifier assigned to the forwarding rule
      */
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * (list) Any number of source IP address groups that you want to control with this rule.
      */
-    public readonly srcIpGroups!: pulumi.Output<outputs.ForwardingControlRuleSrcIpGroups | undefined>;
+    declare public readonly srcIpGroups: pulumi.Output<outputs.ForwardingControlRuleSrcIpGroups | undefined>;
     /**
      * (Optional) You can enter individual IP addresses, subnets, or address ranges.
      */
-    public readonly srcIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly srcIps: pulumi.Output<string[] | undefined>;
     /**
      * (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
-    public readonly srcIpv6Groups!: pulumi.Output<outputs.ForwardingControlRuleSrcIpv6Groups | undefined>;
+    declare public readonly srcIpv6Groups: pulumi.Output<outputs.ForwardingControlRuleSrcIpv6Groups | undefined>;
     /**
      * (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The rule type selected from the available options
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
-    public readonly users!: pulumi.Output<outputs.ForwardingControlRuleUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.ForwardingControlRuleUsers | undefined>;
     /**
      * (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.ForwardingControlRuleZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.ForwardingControlRuleZpaAppSegment[]>;
     /**
      * (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
      */
-    public readonly zpaApplicationSegmentGroups!: pulumi.Output<outputs.ForwardingControlRuleZpaApplicationSegmentGroups | undefined>;
+    declare public readonly zpaApplicationSegmentGroups: pulumi.Output<outputs.ForwardingControlRuleZpaApplicationSegmentGroups | undefined>;
     /**
      * (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
      */
-    public readonly zpaApplicationSegments!: pulumi.Output<outputs.ForwardingControlRuleZpaApplicationSegments | undefined>;
+    declare public readonly zpaApplicationSegments: pulumi.Output<outputs.ForwardingControlRuleZpaApplicationSegments | undefined>;
     /**
      * (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
      */
-    public readonly zpaGateway!: pulumi.Output<outputs.ForwardingControlRuleZpaGateway>;
+    declare public readonly zpaGateway: pulumi.Output<outputs.ForwardingControlRuleZpaGateway>;
 
     /**
      * Create a ForwardingControlRule resource with the given unique name, arguments, and options.
@@ -201,79 +225,81 @@ export class ForwardingControlRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ForwardingControlRuleState | undefined;
-            resourceInputs["appServiceGroups"] = state ? state.appServiceGroups : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destAddresses"] = state ? state.destAddresses : undefined;
-            resourceInputs["destCountries"] = state ? state.destCountries : undefined;
-            resourceInputs["destIpCategories"] = state ? state.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = state ? state.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = state ? state.destIpv6Groups : undefined;
-            resourceInputs["ecGroups"] = state ? state.ecGroups : undefined;
-            resourceInputs["forwardMethod"] = state ? state.forwardMethod : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nwApplicationGroups"] = state ? state.nwApplicationGroups : undefined;
-            resourceInputs["nwServiceGroups"] = state ? state.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = state ? state.nwServices : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["proxyGateway"] = state ? state.proxyGateway : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["resCategories"] = state ? state.resCategories : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["srcIpGroups"] = state ? state.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = state ? state.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = state ? state.srcIpv6Groups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
-            resourceInputs["zpaApplicationSegmentGroups"] = state ? state.zpaApplicationSegmentGroups : undefined;
-            resourceInputs["zpaApplicationSegments"] = state ? state.zpaApplicationSegments : undefined;
-            resourceInputs["zpaGateway"] = state ? state.zpaGateway : undefined;
+            resourceInputs["appServiceGroups"] = state?.appServiceGroups;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destAddresses"] = state?.destAddresses;
+            resourceInputs["destCountries"] = state?.destCountries;
+            resourceInputs["destIpCategories"] = state?.destIpCategories;
+            resourceInputs["destIpGroups"] = state?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = state?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = state?.deviceGroups;
+            resourceInputs["ecGroups"] = state?.ecGroups;
+            resourceInputs["forwardMethod"] = state?.forwardMethod;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nwApplicationGroups"] = state?.nwApplicationGroups;
+            resourceInputs["nwServiceGroups"] = state?.nwServiceGroups;
+            resourceInputs["nwServices"] = state?.nwServices;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["proxyGateway"] = state?.proxyGateway;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["resCategories"] = state?.resCategories;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["srcIpGroups"] = state?.srcIpGroups;
+            resourceInputs["srcIps"] = state?.srcIps;
+            resourceInputs["srcIpv6Groups"] = state?.srcIpv6Groups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
+            resourceInputs["zpaApplicationSegmentGroups"] = state?.zpaApplicationSegmentGroups;
+            resourceInputs["zpaApplicationSegments"] = state?.zpaApplicationSegments;
+            resourceInputs["zpaGateway"] = state?.zpaGateway;
         } else {
             const args = argsOrState as ForwardingControlRuleArgs | undefined;
-            if ((!args || args.forwardMethod === undefined) && !opts.urn) {
+            if (args?.forwardMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'forwardMethod'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["appServiceGroups"] = args ? args.appServiceGroups : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destAddresses"] = args ? args.destAddresses : undefined;
-            resourceInputs["destCountries"] = args ? args.destCountries : undefined;
-            resourceInputs["destIpCategories"] = args ? args.destIpCategories : undefined;
-            resourceInputs["destIpGroups"] = args ? args.destIpGroups : undefined;
-            resourceInputs["destIpv6Groups"] = args ? args.destIpv6Groups : undefined;
-            resourceInputs["ecGroups"] = args ? args.ecGroups : undefined;
-            resourceInputs["forwardMethod"] = args ? args.forwardMethod : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nwApplicationGroups"] = args ? args.nwApplicationGroups : undefined;
-            resourceInputs["nwServiceGroups"] = args ? args.nwServiceGroups : undefined;
-            resourceInputs["nwServices"] = args ? args.nwServices : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["proxyGateway"] = args ? args.proxyGateway : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["resCategories"] = args ? args.resCategories : undefined;
-            resourceInputs["srcIpGroups"] = args ? args.srcIpGroups : undefined;
-            resourceInputs["srcIps"] = args ? args.srcIps : undefined;
-            resourceInputs["srcIpv6Groups"] = args ? args.srcIpv6Groups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
-            resourceInputs["zpaApplicationSegmentGroups"] = args ? args.zpaApplicationSegmentGroups : undefined;
-            resourceInputs["zpaApplicationSegments"] = args ? args.zpaApplicationSegments : undefined;
-            resourceInputs["zpaGateway"] = args ? args.zpaGateway : undefined;
+            resourceInputs["appServiceGroups"] = args?.appServiceGroups;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destAddresses"] = args?.destAddresses;
+            resourceInputs["destCountries"] = args?.destCountries;
+            resourceInputs["destIpCategories"] = args?.destIpCategories;
+            resourceInputs["destIpGroups"] = args?.destIpGroups;
+            resourceInputs["destIpv6Groups"] = args?.destIpv6Groups;
+            resourceInputs["deviceGroups"] = args?.deviceGroups;
+            resourceInputs["ecGroups"] = args?.ecGroups;
+            resourceInputs["forwardMethod"] = args?.forwardMethod;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nwApplicationGroups"] = args?.nwApplicationGroups;
+            resourceInputs["nwServiceGroups"] = args?.nwServiceGroups;
+            resourceInputs["nwServices"] = args?.nwServices;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["proxyGateway"] = args?.proxyGateway;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["resCategories"] = args?.resCategories;
+            resourceInputs["srcIpGroups"] = args?.srcIpGroups;
+            resourceInputs["srcIps"] = args?.srcIps;
+            resourceInputs["srcIpv6Groups"] = args?.srcIpv6Groups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
+            resourceInputs["zpaApplicationSegmentGroups"] = args?.zpaApplicationSegmentGroups;
+            resourceInputs["zpaApplicationSegments"] = args?.zpaApplicationSegments;
+            resourceInputs["zpaGateway"] = args?.zpaGateway;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -317,6 +343,10 @@ export interface ForwardingControlRuleState {
      * ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
     destIpv6Groups?: pulumi.Input<inputs.ForwardingControlRuleDestIpv6Groups>;
+    /**
+     * (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+     */
+    deviceGroups?: pulumi.Input<inputs.ForwardingControlRuleDeviceGroups>;
     /**
      * (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
      */
@@ -455,6 +485,10 @@ export interface ForwardingControlRuleArgs {
      * ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
      */
     destIpv6Groups?: pulumi.Input<inputs.ForwardingControlRuleDestIpv6Groups>;
+    /**
+     * (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
+     */
+    deviceGroups?: pulumi.Input<inputs.ForwardingControlRuleDeviceGroups>;
     /**
      * (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
      */

@@ -113,6 +113,12 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetTimeWindowArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The ID of the time window resource.
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
         /// The name of the time window to be exported.
         /// </summary>
         [Input("name")]
@@ -126,6 +132,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetTimeWindowInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the time window resource.
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         /// <summary>
         /// The name of the time window to be exported.
         /// </summary>

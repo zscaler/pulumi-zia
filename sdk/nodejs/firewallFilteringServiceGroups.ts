@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **firewall_filtering_network_service_groups** can be imported by using `<GROUP_ID>` or `<GROUP_NAME>` as the import ID.
@@ -62,13 +61,13 @@ export class FirewallFilteringServiceGroups extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringServiceGroups.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly groupId!: pulumi.Output<number>;
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly groupId: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * list of services IDs
      */
-    public readonly services!: pulumi.Output<outputs.FirewallFilteringServiceGroupsService[]>;
+    declare public readonly services: pulumi.Output<outputs.FirewallFilteringServiceGroupsService[]>;
 
     /**
      * Create a FirewallFilteringServiceGroups resource with the given unique name, arguments, and options.
@@ -83,15 +82,15 @@ export class FirewallFilteringServiceGroups extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallFilteringServiceGroupsState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["services"] = state?.services;
         } else {
             const args = argsOrState as FirewallFilteringServiceGroupsArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["services"] = args?.services;
             resourceInputs["groupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

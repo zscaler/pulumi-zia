@@ -206,6 +206,10 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_firewall_filtering_network_service_groups":     {Tok: ziaResource(ziaMod, "FirewallFilteringServiceGroups")},
 			"zia_firewall_filtering_network_application_groups": {Tok: ziaResource(ziaMod, "FirewallFilteringApplicationGroups")},
 			"zia_forwarding_control_rule":                       {Tok: ziaResource(ziaMod, "ForwardingControlRule")},
+			"zia_bandwidth_control_rule":                        {Tok: ziaResource(ziaMod, "BandwidthControlRule")},
+			"zia_bandwidth_classes":                             {Tok: ziaResource(ziaMod, "BandwidthControlClasses")},
+			"zia_bandwidth_classes_web_conferencing":            {Tok: ziaResource(ziaMod, "BandwidthControlClassesWebConferencing")},
+			"zia_bandwidth_classes_file_size":                   {Tok: ziaResource(ziaMod, "BandwidthControlClassesFileSize")},
 			"zia_forwarding_control_zpa_gateway":                {Tok: ziaResource(ziaMod, "ForwardingControlZPAGateway")},
 			"zia_forwarding_control_proxies":                    {Tok: ziaResource(ziaMod, "ForwardingControlProxies")},
 			"zia_nat_control_rules":                             {Tok: ziaResource(ziaMod, "NatControlRules")},
@@ -220,16 +224,27 @@ func Provider() tfbridge.ProviderInfo {
 			"zia_traffic_forwarding_vpn_credentials":            {Tok: ziaResource(ziaMod, "TrafficForwardingVPNCredentials")},
 			"zia_location_management":                           {Tok: ziaResource(ziaMod, "LocationManagement")},
 			"zia_url_categories":                                {Tok: ziaResource(ziaMod, "URLCategories")},
+			"zia_url_categories_predefined":                     {Tok: ziaResource(ziaMod, "URLCategoriesPredefined")},
 			"zia_url_filtering_rules":                           {Tok: ziaResource(ziaMod, "URLFilteringRules")},
 			"zia_url_filtering_and_cloud_app_settings":          {Tok: ziaResource(ziaMod, "URLFilteringCloudAppSettings")},
 			"zia_user_management":                               {Tok: ziaResource(ziaMod, "UserManagement")},
 			"zia_risk_profiles":                                 {Tok: ziaResource(ziaMod, "RiskProfiles")},
 			"zia_rule_labels":                                   {Tok: ziaResource(ziaMod, "RuleLabels")},
+			"zia_sub_cloud":                                     {Tok: ziaResource(ziaMod, "SubCloud")},
+			"zia_extranet":                                      {Tok: ziaResource(ziaMod, "Extranet")},
+			"zia_custom_file_types":                             {Tok: ziaResource(ziaMod, "CustomFileTypes")},
+			"zia_cloud_nss_feed":                                {Tok: ziaResource(ziaMod, "CloudNSSFeed")},
 			"zia_security_settings": {
 				Tok: ziaResource(ziaMod, "SecuritySettings"),
 				// Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
-			"zia_virtual_service_edge_cluster": {Tok: ziaResource(ziaMod, "VirtualServiceEdgeCluster")},
+			"zia_virtual_service_edge_cluster":     {Tok: ziaResource(ziaMod, "VirtualServiceEdgeCluster")},
+			"zia_virtual_service_edge_node":        {Tok: ziaResource(ziaMod, "VirtualServiceEdgeNode")},
+			"zia_dc_exclusions":                    {Tok: ziaResource(ziaMod, "DCExclusions")},
+			"zia_workload_groups":                  {Tok: ziaResource(ziaMod, "WorkloadGroups")},
+			"zia_traffic_capture_rules":            {Tok: ziaResource(ziaMod, "TrafficCaptureRules")},
+			"zia_mobile_malware_protection_policy": {Tok: ziaResource(ziaMod, "MobileMalwareProtectionPolicy")},
+			"zia_ftp_control_policy":               {Tok: ziaResource(ziaMod, "FtpControlPolicy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"zia_activation_status": {
@@ -489,6 +504,36 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"zia_virtual_service_edge_cluster": {
 				Tok: ziaDataSource(ziaMod, "getVirtualServiceEdgeCluster"),
+			},
+			"zia_virtual_service_edge_node": {
+				Tok: ziaDataSource(ziaMod, "getVirtualServiceEdgeNode"),
+			},
+			"zia_bandwidth_control_rule": {
+				Tok: ziaDataSource(ziaMod, "getBandwidthControlRule"),
+			},
+			"zia_bandwidth_classes": {
+				Tok: ziaDataSource(ziaMod, "getBandwidthClasses"),
+			},
+			"zia_cloud_nss_feed": {
+				Tok: ziaDataSource(ziaMod, "getCloudNSSFeed"),
+			},
+			"zia_extranet": {
+				Tok: ziaDataSource(ziaMod, "getExtranet"),
+			},
+			"zia_custom_file_types": {
+				Tok: ziaDataSource(ziaMod, "getCustomFileTypes"),
+			},
+			"zia_datacenters": {
+				Tok: ziaDataSource(ziaMod, "getDatacenters"),
+			},
+			"zia_dc_exclusions": {
+				Tok: ziaDataSource(ziaMod, "getDCExclusions"),
+			},
+			"zia_traffic_capture_rules": {
+				Tok: ziaDataSource(ziaMod, "getTrafficCaptureRules"),
+			},
+			"zia_mobile_malware_protection_policy": {
+				Tok: ziaDataSource(ziaMod, "getMobileMalwareProtectionPolicy"),
 			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

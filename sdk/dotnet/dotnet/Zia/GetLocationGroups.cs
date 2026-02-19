@@ -146,6 +146,12 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
+        /// Unique identifier for the location group
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
         /// Location group name
         /// </summary>
         [Input("name")]
@@ -170,6 +176,12 @@ namespace zscaler.PulumiPackage.Zia
             get => _dynamicLocationGroupCriterias ?? (_dynamicLocationGroupCriterias = new InputList<Inputs.GetLocationGroupsDynamicLocationGroupCriteriaInputArgs>());
             set => _dynamicLocationGroupCriterias = value;
         }
+
+        /// <summary>
+        /// Unique identifier for the location group
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
 
         /// <summary>
         /// Location group name

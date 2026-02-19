@@ -29,6 +29,7 @@ func GetDLPIDMProfiles(ctx *pulumi.Context, args *GetDLPIDMProfilesArgs, opts ..
 
 // A collection of arguments for invoking getDLPIDMProfiles.
 type GetDLPIDMProfilesArgs struct {
+	ProfileId   *int    `pulumi:"profileId"`
 	ProfileName *string `pulumi:"profileName"`
 }
 
@@ -70,6 +71,7 @@ func GetDLPIDMProfilesOutput(ctx *pulumi.Context, args GetDLPIDMProfilesOutputAr
 
 // A collection of arguments for invoking getDLPIDMProfiles.
 type GetDLPIDMProfilesOutputArgs struct {
+	ProfileId   pulumi.IntPtrInput    `pulumi:"profileId"`
 	ProfileName pulumi.StringPtrInput `pulumi:"profileName"`
 }
 

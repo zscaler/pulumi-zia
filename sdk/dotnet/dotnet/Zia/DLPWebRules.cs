@@ -22,6 +22,8 @@ namespace zscaler.PulumiPackage.Zia
     /// 
     /// ### "FTCATEGORY_ALL_OUTBOUND" File Type"
     /// 
+    /// ### "FTCATEGORY_ALL_OUTBOUND" File Type - New"
+    /// 
     /// ### "Specify Incident Receiver Setting"
     /// 
     /// ### "Creating Parent Rules And SubRules"
@@ -32,10 +34,21 @@ namespace zscaler.PulumiPackage.Zia
     ///  to evaluate all DLP rules in the DLP Advanced Settings.
     ///  To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
     /// 
+    /// ### "Configuring Receiver For DLP Policy Rule"
+    /// 
+    /// ### Configure Cloud To Cloud Forwarding
+    /// 
+    /// **Note:** The receiver configuration uses values from the C2CIR data source:
+    /// 
+    /// * &lt;span pulumi-lang-nodejs="`id`" pulumi-lang-dotnet="`Id`" pulumi-lang-go="`id`" pulumi-lang-python="`id`" pulumi-lang-yaml="`id`" pulumi-lang-java="`id`"&gt;`id`&lt;/span&gt;: Uses the SMIR bucket configuration ID (converted to string)
+    /// * &lt;span pulumi-lang-nodejs="`name`" pulumi-lang-dotnet="`Name`" pulumi-lang-go="`name`" pulumi-lang-python="`name`" pulumi-lang-yaml="`name`" pulumi-lang-java="`name`"&gt;`name`&lt;/span&gt;: Uses the SMIR bucket configuration name
+    /// * &lt;span pulumi-lang-nodejs="`type`" pulumi-lang-dotnet="`Type`" pulumi-lang-go="`type`" pulumi-lang-python="`type`" pulumi-lang-yaml="`type`" pulumi-lang-java="`type`"&gt;`type`&lt;/span&gt;: Uses the onboardable entity type (e.g., "C2CIR")
+    /// * `tenant.id`: Uses the C2CIR tenant ID (converted to string)
+    /// * `tenant.name`: Uses the C2CIR tenant name
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_dlp_web_rules** can be imported by using `&lt;RULE ID&gt;` or `&lt;RULE NAME&gt;` as the import ID.
@@ -62,19 +75,21 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The auditor to which the DLP policy rule must be applied.
+        /// The auditor to which the DLP policy rule must be applied
         /// </summary>
         [Output("auditors")]
         public Output<ImmutableArray<Outputs.DLPWebRulesAuditor>> Auditors { get; private set; } = null!;
 
         /// <summary>
-        /// The list of cloud applications to which the DLP policy rule must be applied.
+        /// The list of cloud applications to which the DLP policy rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         [Output("cloudApplications")]
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied
         /// </summary>
         [Output("departments")]
         public Output<Outputs.DLPWebRulesDepartments?> Departments { get; private set; } = null!;
@@ -92,31 +107,37 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> DlpDownloadScanEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The list of DLP engines to which the DLP policy rule must be applied.
+        /// The list of DLP engines to which the DLP policy rule must be applied
         /// </summary>
         [Output("dlpEngines")]
         public Output<Outputs.DLPWebRulesDlpEngines?> DlpEngines { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The EUN template ID associated with the rule
+        /// </summary>
+        [Output("eunTemplateId")]
+        public Output<int?> EunTemplateId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Name-ID pairs of departments which the DLP policy rule must exclude
         /// </summary>
         [Output("excludedDepartments")]
         public Output<Outputs.DLPWebRulesExcludedDepartments?> ExcludedDepartments { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
         /// </summary>
         [Output("excludedDomainProfiles")]
         public Output<Outputs.DLPWebRulesExcludedDomainProfiles?> ExcludedDomainProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups which the DLP policy rule must exclude
         /// </summary>
         [Output("excludedGroups")]
         public Output<Outputs.DLPWebRulesExcludedGroups?> ExcludedGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users which the DLP policy rule must exclude
         /// </summary>
         [Output("excludedUsers")]
         public Output<Outputs.DLPWebRulesExcludedUsers?> ExcludedUsers { get; private set; } = null!;
@@ -128,25 +149,33 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> ExternalAuditorEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The list of file types for which the DLP policy rule must be applied.
+        /// The list of file types to which the rule applies
+        /// </summary>
+        [Output("fileTypeCategories")]
+        public Output<Outputs.DLPWebRulesFileTypeCategories?> FileTypeCategories { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of file types for which the DLP policy rule must be applied,
+        /// 				See the Web DLP Rules API for the list of available File types:
+        /// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
         /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied
         /// </summary>
         [Output("groups")]
         public Output<Outputs.DLPWebRulesGroups?> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// The DLP server, using ICAP, to which the transaction content is forwarded.
+        /// The DLP server, using ICAP, to which the transaction content is forwarded
         /// </summary>
         [Output("icapServers")]
         public Output<ImmutableArray<Outputs.DLPWebRulesIcapServer>> IcapServers { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiiles which the DLP policy rule must include
         /// </summary>
         [Output("includedDomainProfiles")]
         public Output<Outputs.DLPWebRulesIncludedDomainProfiles?> IncludedDomainProfiles { get; private set; } = null!;
@@ -155,19 +184,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> InspectHttpGetEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule
         /// </summary>
         [Output("labels")]
         public Output<Outputs.DLPWebRulesLabels?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
         /// </summary>
         [Output("locationGroups")]
         public Output<Outputs.DLPWebRulesLocationGroups?> LocationGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied
         /// </summary>
         [Output("locations")]
         public Output<Outputs.DLPWebRulesLocations?> Locations { get; private set; } = null!;
@@ -191,7 +220,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The template used for DLP notification emails.
+        /// The template used for DLP notification emails
         /// </summary>
         [Output("notificationTemplates")]
         public Output<ImmutableArray<Outputs.DLPWebRulesNotificationTemplate>> NotificationTemplates { get; private set; } = null!;
@@ -219,6 +248,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("rank")]
         public Output<int> Rank { get; private set; } = null!;
+
+        /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Output("receiver")]
+        public Output<Outputs.DLPWebRulesReceiver?> Receiver { get; private set; } = null!;
 
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
@@ -248,13 +283,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> SubRules { get; private set; } = null!;
 
         /// <summary>
-        /// list of time interval during which rule must be enforced.
+        /// list of source ip groups
         /// </summary>
         [Output("timeWindows")]
         public Output<Outputs.DLPWebRulesTimeWindows?> TimeWindows { get; private set; } = null!;
 
         /// <summary>
-        /// The list of URL categories to which the DLP policy rule must be applied.
+        /// The list of URL categories to which the DLP policy rule must be applied
         /// </summary>
         [Output("urlCategories")]
         public Output<Outputs.DLPWebRulesUrlCategories?> UrlCategories { get; private set; } = null!;
@@ -263,7 +298,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> UserRiskScoreLevels { get; private set; } = null!;
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied
         /// </summary>
         [Output("users")]
         public Output<Outputs.DLPWebRulesUsers?> Users { get; private set; } = null!;
@@ -287,7 +322,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> ZccNotificationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
         /// </summary>
         [Output("zscalerIncidentReceiver")]
         public Output<bool?> ZscalerIncidentReceiver { get; private set; } = null!;
@@ -349,7 +384,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesAuditorArgs>? _auditors;
 
         /// <summary>
-        /// The auditor to which the DLP policy rule must be applied.
+        /// The auditor to which the DLP policy rule must be applied
         /// </summary>
         public InputList<Inputs.DLPWebRulesAuditorArgs> Auditors
         {
@@ -361,7 +396,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// The list of cloud applications to which the DLP policy rule must be applied.
+        /// The list of cloud applications to which the DLP policy rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -370,7 +407,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.DLPWebRulesDepartmentsArgs>? Departments { get; set; }
@@ -388,31 +425,37 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DlpDownloadScanEnabled { get; set; }
 
         /// <summary>
-        /// The list of DLP engines to which the DLP policy rule must be applied.
+        /// The list of DLP engines to which the DLP policy rule must be applied
         /// </summary>
         [Input("dlpEngines")]
         public Input<Inputs.DLPWebRulesDlpEnginesArgs>? DlpEngines { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The EUN template ID associated with the rule
+        /// </summary>
+        [Input("eunTemplateId")]
+        public Input<int>? EunTemplateId { get; set; }
+
+        /// <summary>
+        /// The Name-ID pairs of departments which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedDepartments")]
         public Input<Inputs.DLPWebRulesExcludedDepartmentsArgs>? ExcludedDepartments { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedDomainProfiles")]
         public Input<Inputs.DLPWebRulesExcludedDomainProfilesArgs>? ExcludedDomainProfiles { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedGroups")]
         public Input<Inputs.DLPWebRulesExcludedGroupsArgs>? ExcludedGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedUsers")]
         public Input<Inputs.DLPWebRulesExcludedUsersArgs>? ExcludedUsers { get; set; }
@@ -423,11 +466,19 @@ namespace zscaler.PulumiPackage.Zia
         [Input("externalAuditorEmail")]
         public Input<string>? ExternalAuditorEmail { get; set; }
 
+        /// <summary>
+        /// The list of file types to which the rule applies
+        /// </summary>
+        [Input("fileTypeCategories")]
+        public Input<Inputs.DLPWebRulesFileTypeCategoriesArgs>? FileTypeCategories { get; set; }
+
         [Input("fileTypes")]
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// The list of file types for which the DLP policy rule must be applied.
+        /// The list of file types for which the DLP policy rule must be applied,
+        /// 				See the Web DLP Rules API for the list of available File types:
+        /// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -436,7 +487,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.DLPWebRulesGroupsArgs>? Groups { get; set; }
@@ -445,7 +496,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesIcapServerArgs>? _icapServers;
 
         /// <summary>
-        /// The DLP server, using ICAP, to which the transaction content is forwarded.
+        /// The DLP server, using ICAP, to which the transaction content is forwarded
         /// </summary>
         public InputList<Inputs.DLPWebRulesIcapServerArgs> IcapServers
         {
@@ -454,7 +505,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiiles which the DLP policy rule must include
         /// </summary>
         [Input("includedDomainProfiles")]
         public Input<Inputs.DLPWebRulesIncludedDomainProfilesArgs>? IncludedDomainProfiles { get; set; }
@@ -463,19 +514,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? InspectHttpGetEnabled { get; set; }
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule
         /// </summary>
         [Input("labels")]
         public Input<Inputs.DLPWebRulesLabelsArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.DLPWebRulesLocationGroupsArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.DLPWebRulesLocationsArgs>? Locations { get; set; }
@@ -502,7 +553,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesNotificationTemplateArgs>? _notificationTemplates;
 
         /// <summary>
-        /// The template used for DLP notification emails.
+        /// The template used for DLP notification emails
         /// </summary>
         public InputList<Inputs.DLPWebRulesNotificationTemplateArgs> NotificationTemplates
         {
@@ -541,6 +592,12 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? Rank { get; set; }
 
         /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Input("receiver")]
+        public Input<Inputs.DLPWebRulesReceiverArgs>? Receiver { get; set; }
+
+        /// <summary>
         /// Indicates the severity selected for the DLP rule violation
         /// </summary>
         [Input("severity")]
@@ -571,13 +628,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of time interval during which rule must be enforced.
+        /// list of source ip groups
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.DLPWebRulesTimeWindowsArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// The list of URL categories to which the DLP policy rule must be applied.
+        /// The list of URL categories to which the DLP policy rule must be applied
         /// </summary>
         [Input("urlCategories")]
         public Input<Inputs.DLPWebRulesUrlCategoriesArgs>? UrlCategories { get; set; }
@@ -591,7 +648,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.DLPWebRulesUsersArgs>? Users { get; set; }
@@ -621,7 +678,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? ZccNotificationsEnabled { get; set; }
 
         /// <summary>
-        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
         /// </summary>
         [Input("zscalerIncidentReceiver")]
         public Input<bool>? ZscalerIncidentReceiver { get; set; }
@@ -644,7 +701,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesAuditorGetArgs>? _auditors;
 
         /// <summary>
-        /// The auditor to which the DLP policy rule must be applied.
+        /// The auditor to which the DLP policy rule must be applied
         /// </summary>
         public InputList<Inputs.DLPWebRulesAuditorGetArgs> Auditors
         {
@@ -656,7 +713,9 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _cloudApplications;
 
         /// <summary>
-        /// The list of cloud applications to which the DLP policy rule must be applied.
+        /// The list of cloud applications to which the DLP policy rule must be applied
+        /// 				Use the data source&lt;span pulumi-lang-nodejs=" zia.getCloudApplications " pulumi-lang-dotnet=" zia.getCloudApplications " pulumi-lang-go=" getCloudApplications " pulumi-lang-python=" get_cloud_applications " pulumi-lang-yaml=" zia.getCloudApplications " pulumi-lang-java=" zia.getCloudApplications "&gt; zia.getCloudApplications &lt;/span&gt;to get the list of available cloud applications:
+        /// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
         /// </summary>
         public InputList<string> CloudApplications
         {
@@ -665,7 +724,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of departments to which the DLP policy rule must be applied
         /// </summary>
         [Input("departments")]
         public Input<Inputs.DLPWebRulesDepartmentsGetArgs>? Departments { get; set; }
@@ -683,31 +742,37 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DlpDownloadScanEnabled { get; set; }
 
         /// <summary>
-        /// The list of DLP engines to which the DLP policy rule must be applied.
+        /// The list of DLP engines to which the DLP policy rule must be applied
         /// </summary>
         [Input("dlpEngines")]
         public Input<Inputs.DLPWebRulesDlpEnginesGetArgs>? DlpEngines { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The EUN template ID associated with the rule
+        /// </summary>
+        [Input("eunTemplateId")]
+        public Input<int>? EunTemplateId { get; set; }
+
+        /// <summary>
+        /// The Name-ID pairs of departments which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedDepartments")]
         public Input<Inputs.DLPWebRulesExcludedDepartmentsGetArgs>? ExcludedDepartments { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedDomainProfiles")]
         public Input<Inputs.DLPWebRulesExcludedDomainProfilesGetArgs>? ExcludedDomainProfiles { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedGroups")]
         public Input<Inputs.DLPWebRulesExcludedGroupsGetArgs>? ExcludedGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users which the DLP policy rule must exclude
         /// </summary>
         [Input("excludedUsers")]
         public Input<Inputs.DLPWebRulesExcludedUsersGetArgs>? ExcludedUsers { get; set; }
@@ -718,11 +783,19 @@ namespace zscaler.PulumiPackage.Zia
         [Input("externalAuditorEmail")]
         public Input<string>? ExternalAuditorEmail { get; set; }
 
+        /// <summary>
+        /// The list of file types to which the rule applies
+        /// </summary>
+        [Input("fileTypeCategories")]
+        public Input<Inputs.DLPWebRulesFileTypeCategoriesGetArgs>? FileTypeCategories { get; set; }
+
         [Input("fileTypes")]
         private InputList<string>? _fileTypes;
 
         /// <summary>
-        /// The list of file types for which the DLP policy rule must be applied.
+        /// The list of file types for which the DLP policy rule must be applied,
+        /// 				See the Web DLP Rules API for the list of available File types:
+        /// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
         /// </summary>
         public InputList<string> FileTypes
         {
@@ -731,7 +804,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of groups to which the DLP policy rule must be applied
         /// </summary>
         [Input("groups")]
         public Input<Inputs.DLPWebRulesGroupsGetArgs>? Groups { get; set; }
@@ -740,7 +813,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesIcapServerGetArgs>? _icapServers;
 
         /// <summary>
-        /// The DLP server, using ICAP, to which the transaction content is forwarded.
+        /// The DLP server, using ICAP, to which the transaction content is forwarded
         /// </summary>
         public InputList<Inputs.DLPWebRulesIcapServerGetArgs> IcapServers
         {
@@ -749,7 +822,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of domain profiiles which the DLP policy rule must include
         /// </summary>
         [Input("includedDomainProfiles")]
         public Input<Inputs.DLPWebRulesIncludedDomainProfilesGetArgs>? IncludedDomainProfiles { get; set; }
@@ -758,19 +831,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? InspectHttpGetEnabled { get; set; }
 
         /// <summary>
-        /// list of Labels that are applicable to the rule.
+        /// list of Labels that are applicable to the rule
         /// </summary>
         [Input("labels")]
         public Input<Inputs.DLPWebRulesLabelsGetArgs>? Labels { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
         /// </summary>
         [Input("locationGroups")]
         public Input<Inputs.DLPWebRulesLocationGroupsGetArgs>? LocationGroups { get; set; }
 
         /// <summary>
-        /// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of locations to which the DLP policy rule must be applied
         /// </summary>
         [Input("locations")]
         public Input<Inputs.DLPWebRulesLocationsGetArgs>? Locations { get; set; }
@@ -797,7 +870,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<Inputs.DLPWebRulesNotificationTemplateGetArgs>? _notificationTemplates;
 
         /// <summary>
-        /// The template used for DLP notification emails.
+        /// The template used for DLP notification emails
         /// </summary>
         public InputList<Inputs.DLPWebRulesNotificationTemplateGetArgs> NotificationTemplates
         {
@@ -835,6 +908,12 @@ namespace zscaler.PulumiPackage.Zia
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// The receiver information for the DLP policy rule
+        /// </summary>
+        [Input("receiver")]
+        public Input<Inputs.DLPWebRulesReceiverGetArgs>? Receiver { get; set; }
+
         [Input("ruleId")]
         public Input<int>? RuleId { get; set; }
 
@@ -869,13 +948,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// list of time interval during which rule must be enforced.
+        /// list of source ip groups
         /// </summary>
         [Input("timeWindows")]
         public Input<Inputs.DLPWebRulesTimeWindowsGetArgs>? TimeWindows { get; set; }
 
         /// <summary>
-        /// The list of URL categories to which the DLP policy rule must be applied.
+        /// The list of URL categories to which the DLP policy rule must be applied
         /// </summary>
         [Input("urlCategories")]
         public Input<Inputs.DLPWebRulesUrlCategoriesGetArgs>? UrlCategories { get; set; }
@@ -889,7 +968,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The Name-ID pairs of users to which the DLP policy rule must be applied.
+        /// The Name-ID pairs of users to which the DLP policy rule must be applied
         /// </summary>
         [Input("users")]
         public Input<Inputs.DLPWebRulesUsersGetArgs>? Users { get; set; }
@@ -919,7 +998,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? ZccNotificationsEnabled { get; set; }
 
         /// <summary>
-        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+        /// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
         /// </summary>
         [Input("zscalerIncidentReceiver")]
         public Input<bool>? ZscalerIncidentReceiver { get; set; }

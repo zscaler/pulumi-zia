@@ -21,10 +21,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_atp_security_exceptions** can be imported by using `all_urls` as the import ID.
+// **zia_atp_security_exceptions** can be imported by using `allUrls` as the import ID.
 //
 // For example:
 //

@@ -141,11 +141,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// ** - (Optional) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
+        /// ** - (List of String) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
         /// </summary>
         public readonly ImmutableArray<string> DestAddresses;
         /// <summary>
-        /// ** - (Optional) Identify destinations based on the location of a server, select Any to apply the rule to all countries or select the countries to which you want to control traffic.
+        /// ** - (List of String) Identify destinations based on the location of a server. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes). i.e ``"US"``, ``"CA"``
         /// </summary>
         public readonly ImmutableArray<string> DestCountries;
         /// <summary>
@@ -164,7 +164,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool EnableFullLogging;
         /// <summary>
-        /// (Optional) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringRuleGroupResult> Groups;
         /// <summary>
@@ -181,11 +181,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int LastModifiedTime;
         /// <summary>
-        /// (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringRuleLocationGroupResult> LocationGroups;
         /// <summary>
-        /// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringRuleLocationResult> Locations;
         /// <summary>
@@ -217,7 +217,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool Predefined;
         /// <summary>
-        /// (Optional) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Optional) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;.
         /// </summary>
         public readonly int Rank;
         /// <summary>
@@ -233,11 +233,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// (Optional) You can manually select up to `2` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`2`" pulumi-lang-dotnet="`2`" pulumi-lang-go="`2`" pulumi-lang-python="`2`" pulumi-lang-yaml="`2`" pulumi-lang-java="`2`"&gt;`2`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringRuleTimeWindowResult> TimeWindows;
         /// <summary>
-        /// (Optional) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallFilteringRuleUserResult> Users;
         /// <summary>

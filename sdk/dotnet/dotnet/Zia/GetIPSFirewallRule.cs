@@ -92,10 +92,19 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetIPSFirewallRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Integer) The EUN template ID associated with the rule
+        /// </summary>
+        [Input("eunTemplateId")]
+        public int? EunTemplateId { get; set; }
+
+        /// <summary>
         /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
+
+        [Input("isEunEnabled")]
+        public bool? IsEunEnabled { get; set; }
 
         /// <summary>
         /// Name of the Firewall Filtering policy rule
@@ -112,10 +121,19 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetIPSFirewallRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Integer) The EUN template ID associated with the rule
+        /// </summary>
+        [Input("eunTemplateId")]
+        public Input<int>? EunTemplateId { get; set; }
+
+        /// <summary>
         /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
+
+        [Input("isEunEnabled")]
+        public Input<bool>? IsEunEnabled { get; set; }
 
         /// <summary>
         /// Name of the Firewall Filtering policy rule
@@ -184,13 +202,18 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool EnableFullLogging;
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (Integer) The EUN template ID associated with the rule
+        /// </summary>
+        public readonly int? EunTemplateId;
+        /// <summary>
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleGroupResult> Groups;
         /// <summary>
         /// (Integer) Identifier that uniquely identifies an entity
         /// </summary>
         public readonly int Id;
+        public readonly bool? IsEunEnabled;
         /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
         /// </summary>
@@ -198,11 +221,11 @@ namespace zscaler.PulumiPackage.Zia
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleLastModifiedByResult> LastModifiedBies;
         public readonly int LastModifiedTime;
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleLocationGroupResult> LocationGroups;
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleLocationResult> Locations;
         /// <summary>
@@ -226,7 +249,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly bool Predefined;
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;.
         /// </summary>
         public readonly int Rank;
         /// <summary>
@@ -259,11 +282,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleThreatCategoryResult> ThreatCategories;
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleTimeWindowResult> TimeWindows;
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIPSFirewallRuleUserResult> Users;
         /// <summary>
@@ -299,9 +322,13 @@ namespace zscaler.PulumiPackage.Zia
 
             bool enableFullLogging,
 
+            int? eunTemplateId,
+
             ImmutableArray<Outputs.GetIPSFirewallRuleGroupResult> groups,
 
             int id,
+
+            bool? isEunEnabled,
 
             ImmutableArray<Outputs.GetIPSFirewallRuleLabelResult> labels,
 
@@ -358,8 +385,10 @@ namespace zscaler.PulumiPackage.Zia
             DeviceGroups = deviceGroups;
             Devices = devices;
             EnableFullLogging = enableFullLogging;
+            EunTemplateId = eunTemplateId;
             Groups = groups;
             Id = id;
+            IsEunEnabled = isEunEnabled;
             Labels = labels;
             LastModifiedBies = lastModifiedBies;
             LastModifiedTime = lastModifiedTime;

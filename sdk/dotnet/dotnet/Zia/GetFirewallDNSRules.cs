@@ -92,10 +92,22 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetFirewallDNSRulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        [Input("defaultDnsRuleNameUsed")]
+        public bool? DefaultDnsRuleNameUsed { get; set; }
+
+        /// <summary>
         /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         [Input("id")]
         public int? Id { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isWebEunEnabled")]
+        public bool? IsWebEunEnabled { get; set; }
 
         /// <summary>
         /// Name of the Firewall Filtering policy rule
@@ -112,10 +124,22 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetFirewallDNSRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        [Input("defaultDnsRuleNameUsed")]
+        public Input<bool>? DefaultDnsRuleNameUsed { get; set; }
+
+        /// <summary>
         /// Unique identifier for the Firewall Filtering policy rule
         /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
+
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        [Input("isWebEunEnabled")]
+        public Input<bool>? IsWebEunEnabled { get; set; }
 
         /// <summary>
         /// Name of the Firewall Filtering policy rule
@@ -142,7 +166,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesApplicationGroupResult> ApplicationGroups;
         /// <summary>
-        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: `zia.getCloudApplications` with the `app_class` value `DNS_OVER_HTTPS`. See example:
+        /// (Set of Strings) DNS tunnels and network applications to which the rule applies. To retrieve the available list of DNS tunnels applications use the data source: &lt;span pulumi-lang-nodejs="`zia.getCloudApplications`" pulumi-lang-dotnet="`zia.getCloudApplications`" pulumi-lang-go="`getCloudApplications`" pulumi-lang-python="`get_cloud_applications`" pulumi-lang-yaml="`zia.getCloudApplications`" pulumi-lang-java="`zia.getCloudApplications`"&gt;`zia.getCloudApplications`&lt;/span&gt; with the &lt;span pulumi-lang-nodejs="`appClass`" pulumi-lang-dotnet="`AppClass`" pulumi-lang-go="`appClass`" pulumi-lang-python="`app_class`" pulumi-lang-yaml="`appClass`" pulumi-lang-java="`appClass`"&gt;`app_class`&lt;/span&gt; value `DNS_OVER_HTTPS`. See example:
         /// </summary>
         public readonly ImmutableArray<string> Applications;
         /// <summary>
@@ -154,6 +178,10 @@ namespace zscaler.PulumiPackage.Zia
         /// (Boolean) Value that indicates whether packet capture (PCAP) is enabled or not
         /// </summary>
         public readonly bool CapturePcap;
+        /// <summary>
+        /// (Boolean) A Boolean value that indicates whether the default DNS rule name is used for the rule.
+        /// </summary>
+        public readonly bool? DefaultDnsRuleNameUsed;
         /// <summary>
         /// (Boolean) Value that indicates whether the rule is the Default Cloud DNS Rule or not
         /// </summary>
@@ -202,7 +230,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<string> DnsRuleRequestTypes;
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesGroupResult> Groups;
         /// <summary>
@@ -210,17 +238,21 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int Id;
         /// <summary>
+        /// (Boolean) A Boolean value that indicates whether Enhanced User Notification (EUN) is enabled for the rule.
+        /// </summary>
+        public readonly bool? IsWebEunEnabled;
+        /// <summary>
         /// (List of Objects) Labels that are applicable to the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesLabelResult> Labels;
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesLastModifiedByResult> LastModifiedBies;
         public readonly int LastModifiedTime;
         /// <summary>
-        /// (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (List of Objects)You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesLocationGroupResult> LocationGroups;
         /// <summary>
-        /// (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesLocationResult> Locations;
         /// <summary>
@@ -240,11 +272,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>
-        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is `7`.
+        /// (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank. The default value is &lt;span pulumi-lang-nodejs="`7`" pulumi-lang-dotnet="`7`" pulumi-lang-go="`7`" pulumi-lang-python="`7`" pulumi-lang-yaml="`7`" pulumi-lang-java="`7`"&gt;`7`&lt;/span&gt;.
         /// </summary>
         public readonly int Rank;
         /// <summary>
-        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the `action` is `REDIR_REQ`
+        /// (String) The IP address to which the traffic will be redirected to when the DNAT rule is triggered. If not set, no redirection is done to specific IP addresses. Only supported when the &lt;span pulumi-lang-nodejs="`action`" pulumi-lang-dotnet="`Action`" pulumi-lang-go="`action`" pulumi-lang-python="`action`" pulumi-lang-yaml="`action`" pulumi-lang-java="`action`"&gt;`action`&lt;/span&gt; is `REDIR_REQ`
         /// </summary>
         public readonly string RedirectIp;
         /// <summary>
@@ -273,11 +305,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// (List of Objects) You can manually select up to `1` time intervals. When not used it implies `always` to apply the rule to all time intervals.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`1`" pulumi-lang-dotnet="`1`" pulumi-lang-go="`1`" pulumi-lang-python="`1`" pulumi-lang-yaml="`1`" pulumi-lang-java="`1`"&gt;`1`&lt;/span&gt; time intervals. When not used it implies &lt;span pulumi-lang-nodejs="`always`" pulumi-lang-dotnet="`Always`" pulumi-lang-go="`always`" pulumi-lang-python="`always`" pulumi-lang-yaml="`always`" pulumi-lang-java="`always`"&gt;`always`&lt;/span&gt; to apply the rule to all time intervals.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesTimeWindowResult> TimeWindows;
         /// <summary>
-        /// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (List of Objects) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallDNSRulesUserResult> Users;
 
@@ -292,6 +324,8 @@ namespace zscaler.PulumiPackage.Zia
             string blockResponseCode,
 
             bool capturePcap,
+
+            bool? defaultDnsRuleNameUsed,
 
             bool defaultRule,
 
@@ -318,6 +352,8 @@ namespace zscaler.PulumiPackage.Zia
             ImmutableArray<Outputs.GetFirewallDNSRulesGroupResult> groups,
 
             int id,
+
+            bool? isWebEunEnabled,
 
             ImmutableArray<Outputs.GetFirewallDNSRulesLabelResult> labels,
 
@@ -362,6 +398,7 @@ namespace zscaler.PulumiPackage.Zia
             Applications = applications;
             BlockResponseCode = blockResponseCode;
             CapturePcap = capturePcap;
+            DefaultDnsRuleNameUsed = defaultDnsRuleNameUsed;
             DefaultRule = defaultRule;
             Departments = departments;
             Description = description;
@@ -375,6 +412,7 @@ namespace zscaler.PulumiPackage.Zia
             DnsRuleRequestTypes = dnsRuleRequestTypes;
             Groups = groups;
             Id = id;
+            IsWebEunEnabled = isWebEunEnabled;
             Labels = labels;
             LastModifiedBies = lastModifiedBies;
             LastModifiedTime = lastModifiedTime;

@@ -19,6 +19,11 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string? Comments;
         public readonly bool? Deleted;
+        /// <summary>
+        /// Department ID
+        /// 
+        /// !&gt; **WARNING:** The password parameter is considered sensitive information and is omitted in case terraform output is configured.
+        /// </summary>
         public readonly int? Id;
         /// <summary>
         /// Identity provider (IdP) ID

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_rule_labels** can be imported by using `<LABEL_ID>` or `<LABEL_NAME>` as the import ID.
@@ -67,79 +66,76 @@ export class AdminRoles extends pulumi.CustomResource {
     /**
      * Admin and role management access permission.
      */
-    public readonly adminAcctAccess!: pulumi.Output<string>;
+    declare public readonly adminAcctAccess: pulumi.Output<string>;
     /**
      * Alerting access permission
      */
-    public readonly alertingAccess!: pulumi.Output<string>;
+    declare public readonly alertingAccess: pulumi.Output<string>;
     /**
      * Insights logs access permission.
      */
-    public readonly analysisAccess!: pulumi.Output<string>;
+    declare public readonly analysisAccess: pulumi.Output<string>;
     /**
      * Dashboard access permission.
      */
-    public readonly dashboardAccess!: pulumi.Output<string>;
+    declare public readonly dashboardAccess: pulumi.Output<string>;
     /**
      * Device information access permission. When set to NONE, device information is obfuscated.
      */
-    public readonly deviceInfoAccess!: pulumi.Output<string>;
+    declare public readonly deviceInfoAccess: pulumi.Output<string>;
     /**
      * External feature access permission.
      */
-    public readonly extFeaturePermissions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly extFeaturePermissions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-     * access, or read-only access.
+     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
      */
-    public readonly featurePermissions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly featurePermissions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Indicates whether this is an auditor role.
      */
-    public readonly isAuditor!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAuditor: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether or not this admin user is editable/deletable.
      */
-    public readonly isNonEditable!: pulumi.Output<boolean | undefined>;
+    declare public readonly isNonEditable: pulumi.Output<boolean | undefined>;
     /**
      * Log range limit.
      */
-    public readonly logsLimit!: pulumi.Output<string | undefined>;
+    declare public readonly logsLimit: pulumi.Output<string | undefined>;
     /**
      * The Name of the admin role
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Request method for which the rule must be applied. If not set, rule will be applied to all methods
      */
-    public readonly permissions!: pulumi.Output<string[]>;
+    declare public readonly permissions: pulumi.Output<string[]>;
     /**
      * Policy access permission.
      */
-    public readonly policyAccess!: pulumi.Output<string>;
+    declare public readonly policyAccess: pulumi.Output<string>;
     /**
-     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-     * value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-     * which rule orders this admin can access.
+     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
      */
-    public readonly rank!: pulumi.Output<number | undefined>;
+    declare public readonly rank: pulumi.Output<number | undefined>;
     /**
      * Report access permission.
      */
-    public readonly reportAccess!: pulumi.Output<string>;
+    declare public readonly reportAccess: pulumi.Output<string>;
     /**
      * Time duration allocated to the report dashboard.
      */
-    public readonly reportTimeDuration!: pulumi.Output<number>;
-    public /*out*/ readonly roleId!: pulumi.Output<number>;
+    declare public readonly reportTimeDuration: pulumi.Output<number>;
+    declare public /*out*/ readonly roleId: pulumi.Output<number>;
     /**
      * The admin role type. ()This attribute is subject to change.)
      */
-    public readonly roleType!: pulumi.Output<string | undefined>;
+    declare public readonly roleType: pulumi.Output<string | undefined>;
     /**
      * Username access permission. When set to NONE, the username will be obfuscated.
      */
-    public readonly usernameAccess!: pulumi.Output<string>;
+    declare public readonly usernameAccess: pulumi.Output<string>;
 
     /**
      * Create a AdminRoles resource with the given unique name, arguments, and options.
@@ -154,45 +150,45 @@ export class AdminRoles extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRolesState | undefined;
-            resourceInputs["adminAcctAccess"] = state ? state.adminAcctAccess : undefined;
-            resourceInputs["alertingAccess"] = state ? state.alertingAccess : undefined;
-            resourceInputs["analysisAccess"] = state ? state.analysisAccess : undefined;
-            resourceInputs["dashboardAccess"] = state ? state.dashboardAccess : undefined;
-            resourceInputs["deviceInfoAccess"] = state ? state.deviceInfoAccess : undefined;
-            resourceInputs["extFeaturePermissions"] = state ? state.extFeaturePermissions : undefined;
-            resourceInputs["featurePermissions"] = state ? state.featurePermissions : undefined;
-            resourceInputs["isAuditor"] = state ? state.isAuditor : undefined;
-            resourceInputs["isNonEditable"] = state ? state.isNonEditable : undefined;
-            resourceInputs["logsLimit"] = state ? state.logsLimit : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["policyAccess"] = state ? state.policyAccess : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["reportAccess"] = state ? state.reportAccess : undefined;
-            resourceInputs["reportTimeDuration"] = state ? state.reportTimeDuration : undefined;
-            resourceInputs["roleId"] = state ? state.roleId : undefined;
-            resourceInputs["roleType"] = state ? state.roleType : undefined;
-            resourceInputs["usernameAccess"] = state ? state.usernameAccess : undefined;
+            resourceInputs["adminAcctAccess"] = state?.adminAcctAccess;
+            resourceInputs["alertingAccess"] = state?.alertingAccess;
+            resourceInputs["analysisAccess"] = state?.analysisAccess;
+            resourceInputs["dashboardAccess"] = state?.dashboardAccess;
+            resourceInputs["deviceInfoAccess"] = state?.deviceInfoAccess;
+            resourceInputs["extFeaturePermissions"] = state?.extFeaturePermissions;
+            resourceInputs["featurePermissions"] = state?.featurePermissions;
+            resourceInputs["isAuditor"] = state?.isAuditor;
+            resourceInputs["isNonEditable"] = state?.isNonEditable;
+            resourceInputs["logsLimit"] = state?.logsLimit;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["policyAccess"] = state?.policyAccess;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["reportAccess"] = state?.reportAccess;
+            resourceInputs["reportTimeDuration"] = state?.reportTimeDuration;
+            resourceInputs["roleId"] = state?.roleId;
+            resourceInputs["roleType"] = state?.roleType;
+            resourceInputs["usernameAccess"] = state?.usernameAccess;
         } else {
             const args = argsOrState as AdminRolesArgs | undefined;
-            resourceInputs["adminAcctAccess"] = args ? args.adminAcctAccess : undefined;
-            resourceInputs["alertingAccess"] = args ? args.alertingAccess : undefined;
-            resourceInputs["analysisAccess"] = args ? args.analysisAccess : undefined;
-            resourceInputs["dashboardAccess"] = args ? args.dashboardAccess : undefined;
-            resourceInputs["deviceInfoAccess"] = args ? args.deviceInfoAccess : undefined;
-            resourceInputs["extFeaturePermissions"] = args ? args.extFeaturePermissions : undefined;
-            resourceInputs["featurePermissions"] = args ? args.featurePermissions : undefined;
-            resourceInputs["isAuditor"] = args ? args.isAuditor : undefined;
-            resourceInputs["isNonEditable"] = args ? args.isNonEditable : undefined;
-            resourceInputs["logsLimit"] = args ? args.logsLimit : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["policyAccess"] = args ? args.policyAccess : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["reportAccess"] = args ? args.reportAccess : undefined;
-            resourceInputs["reportTimeDuration"] = args ? args.reportTimeDuration : undefined;
-            resourceInputs["roleType"] = args ? args.roleType : undefined;
-            resourceInputs["usernameAccess"] = args ? args.usernameAccess : undefined;
+            resourceInputs["adminAcctAccess"] = args?.adminAcctAccess;
+            resourceInputs["alertingAccess"] = args?.alertingAccess;
+            resourceInputs["analysisAccess"] = args?.analysisAccess;
+            resourceInputs["dashboardAccess"] = args?.dashboardAccess;
+            resourceInputs["deviceInfoAccess"] = args?.deviceInfoAccess;
+            resourceInputs["extFeaturePermissions"] = args?.extFeaturePermissions;
+            resourceInputs["featurePermissions"] = args?.featurePermissions;
+            resourceInputs["isAuditor"] = args?.isAuditor;
+            resourceInputs["isNonEditable"] = args?.isNonEditable;
+            resourceInputs["logsLimit"] = args?.logsLimit;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["policyAccess"] = args?.policyAccess;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["reportAccess"] = args?.reportAccess;
+            resourceInputs["reportTimeDuration"] = args?.reportTimeDuration;
+            resourceInputs["roleType"] = args?.roleType;
+            resourceInputs["usernameAccess"] = args?.usernameAccess;
             resourceInputs["roleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -229,8 +225,7 @@ export interface AdminRolesState {
      */
     extFeaturePermissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-     * access, or read-only access.
+     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
      */
     featurePermissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -258,9 +253,7 @@ export interface AdminRolesState {
      */
     policyAccess?: pulumi.Input<string>;
     /**
-     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-     * value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-     * which rule orders this admin can access.
+     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
      */
     rank?: pulumi.Input<number>;
     /**
@@ -311,8 +304,7 @@ export interface AdminRolesArgs {
      */
     extFeaturePermissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write
-     * access, or read-only access.
+     * Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
      */
     featurePermissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -340,9 +332,7 @@ export interface AdminRolesArgs {
      */
     policyAccess?: pulumi.Input<string>;
     /**
-     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default
-     * value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and
-     * which rule orders this admin can access.
+     * Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
      */
     rank?: pulumi.Input<number>;
     /**

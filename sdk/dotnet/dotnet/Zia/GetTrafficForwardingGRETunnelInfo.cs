@@ -73,7 +73,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Displays only ip addresses with GRE tunnel enabled
         /// 
-        /// &gt; **NOTE** `ip_address` is the public IP address (Static IP) associated with the GRE Tunnel
+        /// &gt; **NOTE** &lt;span pulumi-lang-nodejs="`ipAddress`" pulumi-lang-dotnet="`IpAddress`" pulumi-lang-go="`ipAddress`" pulumi-lang-python="`ip_address`" pulumi-lang-yaml="`ipAddress`" pulumi-lang-java="`ipAddress`"&gt;`ip_address`&lt;/span&gt; is the public IP address (Static IP) associated with the GRE Tunnel
         /// </summary>
         [Input("greEnabled")]
         public bool? GreEnabled { get; set; }
@@ -95,7 +95,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// Displays only ip addresses with GRE tunnel enabled
         /// 
-        /// &gt; **NOTE** `ip_address` is the public IP address (Static IP) associated with the GRE Tunnel
+        /// &gt; **NOTE** &lt;span pulumi-lang-nodejs="`ipAddress`" pulumi-lang-dotnet="`IpAddress`" pulumi-lang-go="`ipAddress`" pulumi-lang-python="`ip_address`" pulumi-lang-yaml="`ipAddress`" pulumi-lang-java="`ipAddress`"&gt;`ip_address`&lt;/span&gt; is the public IP address (Static IP) associated with the GRE Tunnel
         /// </summary>
         [Input("greEnabled")]
         public Input<bool>? GreEnabled { get; set; }

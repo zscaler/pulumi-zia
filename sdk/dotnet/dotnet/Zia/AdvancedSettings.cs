@@ -21,10 +21,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_advanced_settings** can be imported by using `advanced_settings` as the import ID.
+    /// **zia_advanced_settings** can be imported by using &lt;span pulumi-lang-nodejs="`advancedSettings`" pulumi-lang-dotnet="`AdvancedSettings`" pulumi-lang-go="`advancedSettings`" pulumi-lang-python="`advanced_settings`" pulumi-lang-yaml="`advancedSettings`" pulumi-lang-java="`advancedSettings`"&gt;`advanced_settings`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -66,8 +65,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> BasicBypassUrlCategories { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-        /// is blocked or not
+        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
         /// </summary>
         [Output("blockConnectHostSniMismatch")]
         public Output<bool> BlockConnectHostSniMismatch { get; private set; } = null!;
@@ -79,15 +77,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> BlockDomainFrontingApps { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-        /// the FQDN of the request's host header
+        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
         /// </summary>
         [Output("blockDomainFrontingOnHostHeader")]
         public Output<bool> BlockDomainFrontingOnHostHeader { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-        /// to ports other than the standard HTTP/S ports 80 and 443)
+        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
         /// </summary>
         [Output("blockHttpTunnelOnNonHttpPorts")]
         public Output<bool> BlockHttpTunnelOnNonHttpPorts { get; private set; } = null!;
@@ -105,8 +101,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> BlockNonHttpOnHttpPortEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-        /// transaction explicitly
+        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
         /// </summary>
         [Output("cascadeUrlFiltering")]
         public Output<bool> CascadeUrlFiltering { get; private set; } = null!;
@@ -124,8 +119,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<string>> DigestAuthBypassUrlCategories { get; private set; } = null!;
 
         /// <summary>
-        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-        /// authentication
+        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
         /// </summary>
         [Output("digestAuthBypassUrls")]
         public Output<ImmutableArray<string>> DigestAuthBypassUrls { get; private set; } = null!;
@@ -197,8 +191,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> DynamicUserRiskEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Output("ecsForAllEnabled")]
         public Output<bool> EcsForAllEnabled { get; private set; } = null!;
@@ -210,8 +203,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableAdminRankAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-        /// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Output("enableDnsResolutionOnTransparentProxy")]
         public Output<bool> EnableDnsResolutionOnTransparentProxy { get; private set; } = null!;
@@ -229,9 +221,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableIpv6DnsOptimizationOnAllTransparentProxy { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-        /// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-        /// PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Output("enableIpv6DnsResolutionOnTransparentProxy")]
         public Output<bool> EnableIpv6DnsResolutionOnTransparentProxy { get; private set; } = null!;
@@ -243,8 +233,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableOffice365 { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether policies that include user and department criteria can be configured and applied for
-        /// unauthenticated traffic
+        /// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
         /// </summary>
         [Output("enablePolicyForUnauthenticatedTraffic")]
         public Output<bool> EnablePolicyForUnauthenticatedTraffic { get; private set; } = null!;
@@ -256,8 +245,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnforceSurrogateIpForWindowsApp { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-        /// organizational level
+        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
         /// </summary>
         [Output("http2NonbrowserTrafficEnabled")]
         public Output<bool> Http2NonbrowserTrafficEnabled { get; private set; } = null!;
@@ -293,36 +281,31 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> LogInternalIp { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-        /// forward proxy connections
+        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
         /// </summary>
         [Output("preferSniOverConnHost")]
         public Output<bool> PreferSniOverConnHost { get; private set; } = null!;
 
         /// <summary>
-        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         [Output("preferSniOverConnHostApps")]
         public Output<ImmutableArray<string>> PreferSniOverConnHostApps { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-        /// IP-anchored and ZIA-inspected ZPA application traffic.
+        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
         /// </summary>
         [Output("sipaXffHeaderEnabled")]
         public Output<bool> SipaXffHeaderEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         [Output("sniDnsOptimizationBypassUrlCategories")]
         public Output<ImmutableArray<string>> SniDnsOptimizationBypassUrlCategories { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-        /// 80
+        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
         /// </summary>
         [Output("trackHttpTunnelOnHttpPorts")]
         public Output<bool> TrackHttpTunnelOnHttpPorts { get; private set; } = null!;
@@ -334,8 +317,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> UiSessionTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-        /// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
         /// </summary>
         [Output("zscalerClientConnector1AndPacRoadWarriorInFirewall")]
         public Output<bool> ZscalerClientConnector1AndPacRoadWarriorInFirewall { get; private set; } = null!;
@@ -448,8 +430,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-        /// is blocked or not
+        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
         /// </summary>
         [Input("blockConnectHostSniMismatch")]
         public Input<bool>? BlockConnectHostSniMismatch { get; set; }
@@ -467,15 +448,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-        /// the FQDN of the request's host header
+        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
         /// </summary>
         [Input("blockDomainFrontingOnHostHeader")]
         public Input<bool>? BlockDomainFrontingOnHostHeader { get; set; }
 
         /// <summary>
-        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-        /// to ports other than the standard HTTP/S ports 80 and 443)
+        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
         /// </summary>
         [Input("blockHttpTunnelOnNonHttpPorts")]
         public Input<bool>? BlockHttpTunnelOnNonHttpPorts { get; set; }
@@ -493,8 +472,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? BlockNonHttpOnHttpPortEnabled { get; set; }
 
         /// <summary>
-        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-        /// transaction explicitly
+        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
         /// </summary>
         [Input("cascadeUrlFiltering")]
         public Input<bool>? CascadeUrlFiltering { get; set; }
@@ -527,8 +505,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _digestAuthBypassUrls;
 
         /// <summary>
-        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-        /// authentication
+        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
         /// </summary>
         public InputList<string> DigestAuthBypassUrls
         {
@@ -667,8 +644,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DynamicUserRiskEnabled { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Input("ecsForAllEnabled")]
         public Input<bool>? EcsForAllEnabled { get; set; }
@@ -680,8 +656,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableAdminRankAccess { get; set; }
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-        /// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Input("enableDnsResolutionOnTransparentProxy")]
         public Input<bool>? EnableDnsResolutionOnTransparentProxy { get; set; }
@@ -699,9 +674,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableIpv6DnsOptimizationOnAllTransparentProxy { get; set; }
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-        /// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-        /// PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Input("enableIpv6DnsResolutionOnTransparentProxy")]
         public Input<bool>? EnableIpv6DnsResolutionOnTransparentProxy { get; set; }
@@ -713,8 +686,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableOffice365 { get; set; }
 
         /// <summary>
-        /// Value indicating whether policies that include user and department criteria can be configured and applied for
-        /// unauthenticated traffic
+        /// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
         /// </summary>
         [Input("enablePolicyForUnauthenticatedTraffic")]
         public Input<bool>? EnablePolicyForUnauthenticatedTraffic { get; set; }
@@ -726,8 +698,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnforceSurrogateIpForWindowsApp { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-        /// organizational level
+        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
         /// </summary>
         [Input("http2NonbrowserTrafficEnabled")]
         public Input<bool>? Http2NonbrowserTrafficEnabled { get; set; }
@@ -787,8 +758,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? LogInternalIp { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-        /// forward proxy connections
+        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
         /// </summary>
         [Input("preferSniOverConnHost")]
         public Input<bool>? PreferSniOverConnHost { get; set; }
@@ -797,8 +767,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _preferSniOverConnHostApps;
 
         /// <summary>
-        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         public InputList<string> PreferSniOverConnHostApps
         {
@@ -807,8 +776,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-        /// IP-anchored and ZIA-inspected ZPA application traffic.
+        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
         /// </summary>
         [Input("sipaXffHeaderEnabled")]
         public Input<bool>? SipaXffHeaderEnabled { get; set; }
@@ -817,8 +785,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sniDnsOptimizationBypassUrlCategories;
 
         /// <summary>
-        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         public InputList<string> SniDnsOptimizationBypassUrlCategories
         {
@@ -827,8 +794,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-        /// 80
+        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
         /// </summary>
         [Input("trackHttpTunnelOnHttpPorts")]
         public Input<bool>? TrackHttpTunnelOnHttpPorts { get; set; }
@@ -840,8 +806,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? UiSessionTimeout { get; set; }
 
         /// <summary>
-        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-        /// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
         /// </summary>
         [Input("zscalerClientConnector1AndPacRoadWarriorInFirewall")]
         public Input<bool>? ZscalerClientConnector1AndPacRoadWarriorInFirewall { get; set; }
@@ -915,8 +880,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI)
-        /// is blocked or not
+        /// Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
         /// </summary>
         [Input("blockConnectHostSniMismatch")]
         public Input<bool>? BlockConnectHostSniMismatch { get; set; }
@@ -934,15 +898,13 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than
-        /// the FQDN of the request's host header
+        /// Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
         /// </summary>
         [Input("blockDomainFrontingOnHostHeader")]
         public Input<bool>? BlockDomainFrontingOnHostHeader { get; set; }
 
         /// <summary>
-        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed
-        /// to ports other than the standard HTTP/S ports 80 and 443)
+        /// Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
         /// </summary>
         [Input("blockHttpTunnelOnNonHttpPorts")]
         public Input<bool>? BlockHttpTunnelOnNonHttpPorts { get; set; }
@@ -960,8 +922,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? BlockNonHttpOnHttpPortEnabled { get; set; }
 
         /// <summary>
-        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a
-        /// transaction explicitly
+        /// Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
         /// </summary>
         [Input("cascadeUrlFiltering")]
         public Input<bool>? CascadeUrlFiltering { get; set; }
@@ -994,8 +955,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _digestAuthBypassUrls;
 
         /// <summary>
-        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest
-        /// authentication
+        /// Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
         /// </summary>
         public InputList<string> DigestAuthBypassUrls
         {
@@ -1134,8 +1094,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DynamicUserRiskEnabled { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote
-        /// users.
+        /// Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
         /// </summary>
         [Input("ecsForAllEnabled")]
         public Input<bool>? EcsForAllEnabled { get; set; }
@@ -1147,8 +1106,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableAdminRankAccess { get; set; }
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic
-        /// (e.g., traffic via GRE or IPSec tunnels without a PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Input("enableDnsResolutionOnTransparentProxy")]
         public Input<bool>? EnableDnsResolutionOnTransparentProxy { get; set; }
@@ -1166,9 +1124,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableIpv6DnsOptimizationOnAllTransparentProxy { get; set; }
 
         /// <summary>
-        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only
-        /// destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a
-        /// PAC file).
+        /// Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
         /// </summary>
         [Input("enableIpv6DnsResolutionOnTransparentProxy")]
         public Input<bool>? EnableIpv6DnsResolutionOnTransparentProxy { get; set; }
@@ -1180,8 +1136,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableOffice365 { get; set; }
 
         /// <summary>
-        /// Value indicating whether policies that include user and department criteria can be configured and applied for
-        /// unauthenticated traffic
+        /// Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
         /// </summary>
         [Input("enablePolicyForUnauthenticatedTraffic")]
         public Input<bool>? EnablePolicyForUnauthenticatedTraffic { get; set; }
@@ -1193,8 +1148,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnforceSurrogateIpForWindowsApp { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your
-        /// organizational level
+        /// Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
         /// </summary>
         [Input("http2NonbrowserTrafficEnabled")]
         public Input<bool>? Http2NonbrowserTrafficEnabled { get; set; }
@@ -1254,8 +1208,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? LogInternalIp { get; set; }
 
         /// <summary>
-        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for
-        /// forward proxy connections
+        /// Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
         /// </summary>
         [Input("preferSniOverConnHost")]
         public Input<bool>? PreferSniOverConnHost { get; set; }
@@ -1264,8 +1217,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _preferSniOverConnHostApps;
 
         /// <summary>
-        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         public InputList<string> PreferSniOverConnHostApps
         {
@@ -1274,8 +1226,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source
-        /// IP-anchored and ZIA-inspected ZPA application traffic.
+        /// Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
         /// </summary>
         [Input("sipaXffHeaderEnabled")]
         public Input<bool>? SipaXffHeaderEnabled { get; set; }
@@ -1284,8 +1235,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _sniDnsOptimizationBypassUrlCategories;
 
         /// <summary>
-        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS
-        /// resolution instead of the CONNECT host for forward proxy connections)
+        /// URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
         /// </summary>
         public InputList<string> SniDnsOptimizationBypassUrlCategories
         {
@@ -1294,8 +1244,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port
-        /// 80
+        /// Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
         /// </summary>
         [Input("trackHttpTunnelOnHttpPorts")]
         public Input<bool>? TrackHttpTunnelOnHttpPorts { get; set; }
@@ -1307,8 +1256,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? UiSessionTimeout { get; set; }
 
         /// <summary>
-        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road
-        /// Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
+        /// Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
         /// </summary>
         [Input("zscalerClientConnector1AndPacRoadWarriorInFirewall")]
         public Input<bool>? ZscalerClientConnector1AndPacRoadWarriorInFirewall { get; set; }

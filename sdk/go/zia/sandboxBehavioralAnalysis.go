@@ -27,10 +27,9 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
+// Visit
 //
-// # Visit
-//
-// **zia_sandbox_behavioral_analysis** can be imported by using `sandbox_settings` as the import ID.
+// **zia_sandbox_behavioral_analysis** can be imported by using `sandboxSettings` as the import ID.
 //
 // For example:
 //
@@ -40,8 +39,7 @@ import (
 type SandboxBehavioralAnalysis struct {
 	pulumi.CustomResourceState
 
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-	// blocked
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 	FileHashesToBeBlockeds pulumi.StringArrayOutput `pulumi:"fileHashesToBeBlockeds"`
 }
 
@@ -75,14 +73,12 @@ func GetSandboxBehavioralAnalysis(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SandboxBehavioralAnalysis resources.
 type sandboxBehavioralAnalysisState struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-	// blocked
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 	FileHashesToBeBlockeds []string `pulumi:"fileHashesToBeBlockeds"`
 }
 
 type SandboxBehavioralAnalysisState struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-	// blocked
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 	FileHashesToBeBlockeds pulumi.StringArrayInput
 }
 
@@ -91,15 +87,13 @@ func (SandboxBehavioralAnalysisState) ElementType() reflect.Type {
 }
 
 type sandboxBehavioralAnalysisArgs struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-	// blocked
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 	FileHashesToBeBlockeds []string `pulumi:"fileHashesToBeBlockeds"`
 }
 
 // The set of arguments for constructing a SandboxBehavioralAnalysis resource.
 type SandboxBehavioralAnalysisArgs struct {
-	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-	// blocked
+	// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 	FileHashesToBeBlockeds pulumi.StringArrayInput
 }
 
@@ -190,8 +184,7 @@ func (o SandboxBehavioralAnalysisOutput) ToSandboxBehavioralAnalysisOutputWithCo
 	return o
 }
 
-// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be
-// blocked
+// A custom list of unique MD5 file hashes that must be blocked by Sandbox. A maximum of 10000 MD5 file hashes can be blocked
 func (o SandboxBehavioralAnalysisOutput) FileHashesToBeBlockeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxBehavioralAnalysis) pulumi.StringArrayOutput { return v.FileHashesToBeBlockeds }).(pulumi.StringArrayOutput)
 }

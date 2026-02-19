@@ -12,19 +12,18 @@ namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
     /// * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
-    /// * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+    /// * [API documentation](https://help.zscaler.com/legacy-apis/advanced-threat-protection-policy#/cyberThreatProtection/advancedThreatSettings-put)
     /// 
-    /// The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
+    /// The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Threat Protection Settings](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
     /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_advanced_threat_settings** can be imported by using `advanced_threat_settings` as the import ID.
+    /// **zia_advanced_threat_settings** can be imported by using &lt;span pulumi-lang-nodejs="`advancedThreatSettings`" pulumi-lang-dotnet="`AdvancedThreatSettings`" pulumi-lang-go="`advancedThreatSettings`" pulumi-lang-python="`advanced_threat_settings`" pulumi-lang-yaml="`advancedThreatSettings`" pulumi-lang-java="`advancedThreatSettings`"&gt;`advanced_threat_settings`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -36,8 +35,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class AdvancedThreatSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-        /// known to have been exploited.
+        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
         /// </summary>
         [Output("activexBlocked")]
         public Output<bool?> ActivexBlocked { get; private set; } = null!;
@@ -49,8 +47,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> ActivexCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-        /// advertisements that can collect users' information without their knowledge
+        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
         /// </summary>
         [Output("adSpywareSitesBlocked")]
         public Output<bool?> AdSpywareSitesBlocked { get; private set; } = null!;
@@ -68,8 +65,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> AlertForUnknownSuspiciousC2Traffic { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-        /// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
         /// </summary>
         [Output("anonymizerBlocked")]
         public Output<bool?> AnonymizerBlocked { get; private set; } = null!;
@@ -99,8 +95,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> BlockCountriesCapture { get; private set; } = null!;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         [Output("blockedCountries")]
         public Output<ImmutableArray<string>> BlockedCountries { get; private set; } = null!;
@@ -166,8 +161,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> CryptoMiningCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-        /// algorithms (DGA)
+        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
         /// </summary>
         [Output("dgaDomainsBlocked")]
         public Output<bool?> DgaDomainsBlocked { get; private set; } = null!;
@@ -179,8 +173,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> DgaDomainsCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-        /// Office or PDF documents are allowed or blocked
+        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
         /// </summary>
         [Output("fileFormatVunerabilitesBlocked")]
         public Output<bool?> FileFormatVunerabilitesBlocked { get; private set; } = null!;
@@ -282,8 +275,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> SshTunnellingCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-        /// with spyware agents and data transmission
+        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
         /// </summary>
         [Output("suspectAdwareSpywareSitesBlocked")]
         public Output<bool?> SuspectAdwareSpywareSitesBlocked { get; private set; } = null!;
@@ -307,8 +299,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> SuspectedPhishingSitesCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-        /// for encryption.
+        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
         /// </summary>
         [Output("torBlocked")]
         public Output<bool?> TorBlocked { get; private set; } = null!;
@@ -320,8 +311,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> TorCapture { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-        /// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
         /// </summary>
         [Output("webSpamBlocked")]
         public Output<bool?> WebSpamBlocked { get; private set; } = null!;
@@ -380,8 +370,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class AdvancedThreatSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-        /// known to have been exploited.
+        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
         /// </summary>
         [Input("activexBlocked")]
         public Input<bool>? ActivexBlocked { get; set; }
@@ -393,8 +382,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? ActivexCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-        /// advertisements that can collect users' information without their knowledge
+        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
         /// </summary>
         [Input("adSpywareSitesBlocked")]
         public Input<bool>? AdSpywareSitesBlocked { get; set; }
@@ -412,8 +400,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? AlertForUnknownSuspiciousC2Traffic { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-        /// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
         /// </summary>
         [Input("anonymizerBlocked")]
         public Input<bool>? AnonymizerBlocked { get; set; }
@@ -446,8 +433,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _blockedCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> BlockedCountries
         {
@@ -516,8 +502,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? CryptoMiningCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-        /// algorithms (DGA)
+        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
         /// </summary>
         [Input("dgaDomainsBlocked")]
         public Input<bool>? DgaDomainsBlocked { get; set; }
@@ -529,8 +514,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DgaDomainsCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-        /// Office or PDF documents are allowed or blocked
+        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
         /// </summary>
         [Input("fileFormatVunerabilitesBlocked")]
         public Input<bool>? FileFormatVunerabilitesBlocked { get; set; }
@@ -632,8 +616,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SshTunnellingCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-        /// with spyware agents and data transmission
+        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
         /// </summary>
         [Input("suspectAdwareSpywareSitesBlocked")]
         public Input<bool>? SuspectAdwareSpywareSitesBlocked { get; set; }
@@ -657,8 +640,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SuspectedPhishingSitesCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-        /// for encryption.
+        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
         /// </summary>
         [Input("torBlocked")]
         public Input<bool>? TorBlocked { get; set; }
@@ -670,8 +652,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? TorCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-        /// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
         /// </summary>
         [Input("webSpamBlocked")]
         public Input<bool>? WebSpamBlocked { get; set; }
@@ -691,8 +672,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class AdvancedThreatSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-        /// known to have been exploited.
+        /// A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
         /// </summary>
         [Input("activexBlocked")]
         public Input<bool>? ActivexBlocked { get; set; }
@@ -704,8 +684,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? ActivexCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-        /// advertisements that can collect users' information without their knowledge
+        /// A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
         /// </summary>
         [Input("adSpywareSitesBlocked")]
         public Input<bool>? AdSpywareSitesBlocked { get; set; }
@@ -723,8 +702,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? AlertForUnknownSuspiciousC2Traffic { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-        /// content accessed by the user, therefore blocking traffic to anonymizing web proxies
+        /// A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
         /// </summary>
         [Input("anonymizerBlocked")]
         public Input<bool>? AnonymizerBlocked { get; set; }
@@ -757,8 +735,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _blockedCountries;
 
         /// <summary>
-        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-        /// countries.
+        /// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
         /// </summary>
         public InputList<string> BlockedCountries
         {
@@ -827,8 +804,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? CryptoMiningCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-        /// algorithms (DGA)
+        /// A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
         /// </summary>
         [Input("dgaDomainsBlocked")]
         public Input<bool>? DgaDomainsBlocked { get; set; }
@@ -840,8 +816,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? DgaDomainsCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-        /// Office or PDF documents are allowed or blocked
+        /// A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
         /// </summary>
         [Input("fileFormatVunerabilitesBlocked")]
         public Input<bool>? FileFormatVunerabilitesBlocked { get; set; }
@@ -943,8 +918,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SshTunnellingCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-        /// with spyware agents and data transmission
+        /// A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
         /// </summary>
         [Input("suspectAdwareSpywareSitesBlocked")]
         public Input<bool>? SuspectAdwareSpywareSitesBlocked { get; set; }
@@ -968,8 +942,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? SuspectedPhishingSitesCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-        /// for encryption.
+        /// A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
         /// </summary>
         [Input("torBlocked")]
         public Input<bool>? TorBlocked { get; set; }
@@ -981,8 +954,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? TorCapture { get; set; }
 
         /// <summary>
-        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-        /// ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+        /// A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
         /// </summary>
         [Input("webSpamBlocked")]
         public Input<bool>? WebSpamBlocked { get; set; }

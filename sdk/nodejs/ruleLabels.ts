@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_rule_labels** can be imported by using `<LABEL_ID>` or `<LABEL_NAME>` as the import ID.
@@ -60,12 +59,12 @@ export class RuleLabels extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleLabels.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the devices to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly ruleLabelId!: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleLabelId: pulumi.Output<number>;
 
     /**
      * Create a RuleLabels resource with the given unique name, arguments, and options.
@@ -80,13 +79,13 @@ export class RuleLabels extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleLabelsState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ruleLabelId"] = state ? state.ruleLabelId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ruleLabelId"] = state?.ruleLabelId;
         } else {
             const args = argsOrState as RuleLabelsArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
             resourceInputs["ruleLabelId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

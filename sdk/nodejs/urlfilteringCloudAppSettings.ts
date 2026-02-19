@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_url_filtering_and_cloud_app_settings** can be imported by using `app_setting` as the import ID.
+ * **zia_url_filtering_and_cloud_app_settings** can be imported by using `appSetting` as the import ID.
  *
  * For example:
  *
@@ -57,95 +56,89 @@ export class URLFilteringCloudAppSettings extends pulumi.CustomResource {
     /**
      * A Boolean value indicating whether access to Skype is blocked or not.
      */
-    public readonly blockSkype!: pulumi.Output<boolean>;
+    declare public readonly blockSkype: pulumi.Output<boolean>;
     /**
-     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-     * services or not.
+     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
      */
-    public readonly considerEmbeddedSites!: pulumi.Output<boolean>;
+    declare public readonly considerEmbeddedSites: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-     * authentication information
+     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
      */
-    public readonly enableBlockOverrideForNonAuthUser!: pulumi.Output<boolean>;
+    declare public readonly enableBlockOverrideForNonAuthUser: pulumi.Output<boolean>;
     /**
      * A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
      */
-    public readonly enableChatgptPrompt!: pulumi.Output<boolean>;
+    declare public readonly enableChatgptPrompt: pulumi.Output<boolean>;
     /**
      * A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
      */
-    public readonly enableCipaCompliance!: pulumi.Output<boolean>;
+    declare public readonly enableCipaCompliance: pulumi.Output<boolean>;
     /**
-     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-     * AI/ML tools is enabled or not.
+     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
      */
-    public readonly enableDynamicContentCat!: pulumi.Output<boolean>;
+    declare public readonly enableDynamicContentCat: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
      */
-    public readonly enableGeminiPrompt!: pulumi.Output<boolean>;
+    declare public readonly enableGeminiPrompt: pulumi.Output<boolean>;
     /**
      * A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
      */
-    public readonly enableMetaPrompt!: pulumi.Output<boolean>;
+    declare public readonly enableMetaPrompt: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
      */
-    public readonly enableMicrosoftCopilotPrompt!: pulumi.Output<boolean>;
+    declare public readonly enableMicrosoftCopilotPrompt: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-     * automatically without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
      */
-    public readonly enableMsftO365!: pulumi.Output<boolean>;
+    declare public readonly enableMsftO365: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-     * are allowed or blocked
+     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
      */
-    public readonly enableNewlyRegisteredDomains!: pulumi.Output<boolean>;
+    declare public readonly enableNewlyRegisteredDomains: pulumi.Output<boolean>;
     /**
      * A Boolean value that enables or disables Microsoft Office 365 configuration.
      */
-    public readonly enableOffice365!: pulumi.Output<boolean>;
+    declare public readonly enableOffice365: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
      */
-    public readonly enablePerPlexityPrompt!: pulumi.Output<boolean>;
+    declare public readonly enablePerPlexityPrompt: pulumi.Output<boolean>;
     /**
      * A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
      */
-    public readonly enablePoepPrompt!: pulumi.Output<boolean>;
+    declare public readonly enablePoepPrompt: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
      */
-    public readonly enableUcaasLogmein!: pulumi.Output<boolean>;
+    declare public readonly enableUcaasLogmein: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-     * RingCentral traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
      */
-    public readonly enableUcaasRingCentral!: pulumi.Output<boolean>;
+    declare public readonly enableUcaasRingCentral: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-     * traffic, with minimal or no manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
      */
-    public readonly enableUcaasTalkdesk!: pulumi.Output<boolean>;
+    declare public readonly enableUcaasTalkdesk: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
      */
-    public readonly enableUcaasWebex!: pulumi.Output<boolean>;
+    declare public readonly enableUcaasWebex: pulumi.Output<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
      */
-    public readonly enableUcaasZoom!: pulumi.Output<boolean>;
+    declare public readonly enableUcaasZoom: pulumi.Output<boolean>;
     /**
      * A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
      */
-    public readonly enforceSafeSearch!: pulumi.Output<boolean>;
+    declare public readonly enforceSafeSearch: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+     * 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+     * 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+     */
+    declare public readonly safeSearchApps: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a URLFilteringCloudAppSettings resource with the given unique name, arguments, and options.
@@ -160,48 +153,50 @@ export class URLFilteringCloudAppSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as URLFilteringCloudAppSettingsState | undefined;
-            resourceInputs["blockSkype"] = state ? state.blockSkype : undefined;
-            resourceInputs["considerEmbeddedSites"] = state ? state.considerEmbeddedSites : undefined;
-            resourceInputs["enableBlockOverrideForNonAuthUser"] = state ? state.enableBlockOverrideForNonAuthUser : undefined;
-            resourceInputs["enableChatgptPrompt"] = state ? state.enableChatgptPrompt : undefined;
-            resourceInputs["enableCipaCompliance"] = state ? state.enableCipaCompliance : undefined;
-            resourceInputs["enableDynamicContentCat"] = state ? state.enableDynamicContentCat : undefined;
-            resourceInputs["enableGeminiPrompt"] = state ? state.enableGeminiPrompt : undefined;
-            resourceInputs["enableMetaPrompt"] = state ? state.enableMetaPrompt : undefined;
-            resourceInputs["enableMicrosoftCopilotPrompt"] = state ? state.enableMicrosoftCopilotPrompt : undefined;
-            resourceInputs["enableMsftO365"] = state ? state.enableMsftO365 : undefined;
-            resourceInputs["enableNewlyRegisteredDomains"] = state ? state.enableNewlyRegisteredDomains : undefined;
-            resourceInputs["enableOffice365"] = state ? state.enableOffice365 : undefined;
-            resourceInputs["enablePerPlexityPrompt"] = state ? state.enablePerPlexityPrompt : undefined;
-            resourceInputs["enablePoepPrompt"] = state ? state.enablePoepPrompt : undefined;
-            resourceInputs["enableUcaasLogmein"] = state ? state.enableUcaasLogmein : undefined;
-            resourceInputs["enableUcaasRingCentral"] = state ? state.enableUcaasRingCentral : undefined;
-            resourceInputs["enableUcaasTalkdesk"] = state ? state.enableUcaasTalkdesk : undefined;
-            resourceInputs["enableUcaasWebex"] = state ? state.enableUcaasWebex : undefined;
-            resourceInputs["enableUcaasZoom"] = state ? state.enableUcaasZoom : undefined;
-            resourceInputs["enforceSafeSearch"] = state ? state.enforceSafeSearch : undefined;
+            resourceInputs["blockSkype"] = state?.blockSkype;
+            resourceInputs["considerEmbeddedSites"] = state?.considerEmbeddedSites;
+            resourceInputs["enableBlockOverrideForNonAuthUser"] = state?.enableBlockOverrideForNonAuthUser;
+            resourceInputs["enableChatgptPrompt"] = state?.enableChatgptPrompt;
+            resourceInputs["enableCipaCompliance"] = state?.enableCipaCompliance;
+            resourceInputs["enableDynamicContentCat"] = state?.enableDynamicContentCat;
+            resourceInputs["enableGeminiPrompt"] = state?.enableGeminiPrompt;
+            resourceInputs["enableMetaPrompt"] = state?.enableMetaPrompt;
+            resourceInputs["enableMicrosoftCopilotPrompt"] = state?.enableMicrosoftCopilotPrompt;
+            resourceInputs["enableMsftO365"] = state?.enableMsftO365;
+            resourceInputs["enableNewlyRegisteredDomains"] = state?.enableNewlyRegisteredDomains;
+            resourceInputs["enableOffice365"] = state?.enableOffice365;
+            resourceInputs["enablePerPlexityPrompt"] = state?.enablePerPlexityPrompt;
+            resourceInputs["enablePoepPrompt"] = state?.enablePoepPrompt;
+            resourceInputs["enableUcaasLogmein"] = state?.enableUcaasLogmein;
+            resourceInputs["enableUcaasRingCentral"] = state?.enableUcaasRingCentral;
+            resourceInputs["enableUcaasTalkdesk"] = state?.enableUcaasTalkdesk;
+            resourceInputs["enableUcaasWebex"] = state?.enableUcaasWebex;
+            resourceInputs["enableUcaasZoom"] = state?.enableUcaasZoom;
+            resourceInputs["enforceSafeSearch"] = state?.enforceSafeSearch;
+            resourceInputs["safeSearchApps"] = state?.safeSearchApps;
         } else {
             const args = argsOrState as URLFilteringCloudAppSettingsArgs | undefined;
-            resourceInputs["blockSkype"] = args ? args.blockSkype : undefined;
-            resourceInputs["considerEmbeddedSites"] = args ? args.considerEmbeddedSites : undefined;
-            resourceInputs["enableBlockOverrideForNonAuthUser"] = args ? args.enableBlockOverrideForNonAuthUser : undefined;
-            resourceInputs["enableChatgptPrompt"] = args ? args.enableChatgptPrompt : undefined;
-            resourceInputs["enableCipaCompliance"] = args ? args.enableCipaCompliance : undefined;
-            resourceInputs["enableDynamicContentCat"] = args ? args.enableDynamicContentCat : undefined;
-            resourceInputs["enableGeminiPrompt"] = args ? args.enableGeminiPrompt : undefined;
-            resourceInputs["enableMetaPrompt"] = args ? args.enableMetaPrompt : undefined;
-            resourceInputs["enableMicrosoftCopilotPrompt"] = args ? args.enableMicrosoftCopilotPrompt : undefined;
-            resourceInputs["enableMsftO365"] = args ? args.enableMsftO365 : undefined;
-            resourceInputs["enableNewlyRegisteredDomains"] = args ? args.enableNewlyRegisteredDomains : undefined;
-            resourceInputs["enableOffice365"] = args ? args.enableOffice365 : undefined;
-            resourceInputs["enablePerPlexityPrompt"] = args ? args.enablePerPlexityPrompt : undefined;
-            resourceInputs["enablePoepPrompt"] = args ? args.enablePoepPrompt : undefined;
-            resourceInputs["enableUcaasLogmein"] = args ? args.enableUcaasLogmein : undefined;
-            resourceInputs["enableUcaasRingCentral"] = args ? args.enableUcaasRingCentral : undefined;
-            resourceInputs["enableUcaasTalkdesk"] = args ? args.enableUcaasTalkdesk : undefined;
-            resourceInputs["enableUcaasWebex"] = args ? args.enableUcaasWebex : undefined;
-            resourceInputs["enableUcaasZoom"] = args ? args.enableUcaasZoom : undefined;
-            resourceInputs["enforceSafeSearch"] = args ? args.enforceSafeSearch : undefined;
+            resourceInputs["blockSkype"] = args?.blockSkype;
+            resourceInputs["considerEmbeddedSites"] = args?.considerEmbeddedSites;
+            resourceInputs["enableBlockOverrideForNonAuthUser"] = args?.enableBlockOverrideForNonAuthUser;
+            resourceInputs["enableChatgptPrompt"] = args?.enableChatgptPrompt;
+            resourceInputs["enableCipaCompliance"] = args?.enableCipaCompliance;
+            resourceInputs["enableDynamicContentCat"] = args?.enableDynamicContentCat;
+            resourceInputs["enableGeminiPrompt"] = args?.enableGeminiPrompt;
+            resourceInputs["enableMetaPrompt"] = args?.enableMetaPrompt;
+            resourceInputs["enableMicrosoftCopilotPrompt"] = args?.enableMicrosoftCopilotPrompt;
+            resourceInputs["enableMsftO365"] = args?.enableMsftO365;
+            resourceInputs["enableNewlyRegisteredDomains"] = args?.enableNewlyRegisteredDomains;
+            resourceInputs["enableOffice365"] = args?.enableOffice365;
+            resourceInputs["enablePerPlexityPrompt"] = args?.enablePerPlexityPrompt;
+            resourceInputs["enablePoepPrompt"] = args?.enablePoepPrompt;
+            resourceInputs["enableUcaasLogmein"] = args?.enableUcaasLogmein;
+            resourceInputs["enableUcaasRingCentral"] = args?.enableUcaasRingCentral;
+            resourceInputs["enableUcaasTalkdesk"] = args?.enableUcaasTalkdesk;
+            resourceInputs["enableUcaasWebex"] = args?.enableUcaasWebex;
+            resourceInputs["enableUcaasZoom"] = args?.enableUcaasZoom;
+            resourceInputs["enforceSafeSearch"] = args?.enforceSafeSearch;
+            resourceInputs["safeSearchApps"] = args?.safeSearchApps;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(URLFilteringCloudAppSettings.__pulumiType, name, resourceInputs, opts);
@@ -217,13 +212,11 @@ export interface URLFilteringCloudAppSettingsState {
      */
     blockSkype?: pulumi.Input<boolean>;
     /**
-     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-     * services or not.
+     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
      */
     considerEmbeddedSites?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-     * authentication information
+     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
      */
     enableBlockOverrideForNonAuthUser?: pulumi.Input<boolean>;
     /**
@@ -235,13 +228,11 @@ export interface URLFilteringCloudAppSettingsState {
      */
     enableCipaCompliance?: pulumi.Input<boolean>;
     /**
-     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-     * AI/ML tools is enabled or not.
+     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
      */
     enableDynamicContentCat?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
      */
     enableGeminiPrompt?: pulumi.Input<boolean>;
     /**
@@ -249,18 +240,15 @@ export interface URLFilteringCloudAppSettingsState {
      */
     enableMetaPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
      */
     enableMicrosoftCopilotPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-     * automatically without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
      */
     enableMsftO365?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-     * are allowed or blocked
+     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
      */
     enableNewlyRegisteredDomains?: pulumi.Input<boolean>;
     /**
@@ -276,34 +264,35 @@ export interface URLFilteringCloudAppSettingsState {
      */
     enablePoepPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
      */
     enableUcaasLogmein?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-     * RingCentral traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
      */
     enableUcaasRingCentral?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-     * traffic, with minimal or no manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
      */
     enableUcaasTalkdesk?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
      */
     enableUcaasWebex?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
      */
     enableUcaasZoom?: pulumi.Input<boolean>;
     /**
      * A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
      */
     enforceSafeSearch?: pulumi.Input<boolean>;
+    /**
+     * A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+     * 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+     * 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+     */
+    safeSearchApps?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -315,13 +304,11 @@ export interface URLFilteringCloudAppSettingsArgs {
      */
     blockSkype?: pulumi.Input<boolean>;
     /**
-     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-     * services or not.
+     * A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
      */
     considerEmbeddedSites?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-     * authentication information
+     * A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
      */
     enableBlockOverrideForNonAuthUser?: pulumi.Input<boolean>;
     /**
@@ -333,13 +320,11 @@ export interface URLFilteringCloudAppSettingsArgs {
      */
     enableCipaCompliance?: pulumi.Input<boolean>;
     /**
-     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-     * AI/ML tools is enabled or not.
+     * A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
      */
     enableDynamicContentCat?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
      */
     enableGeminiPrompt?: pulumi.Input<boolean>;
     /**
@@ -347,18 +332,15 @@ export interface URLFilteringCloudAppSettingsArgs {
      */
     enableMetaPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-     * logged
+     * A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
      */
     enableMicrosoftCopilotPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-     * automatically without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
      */
     enableMsftO365?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-     * are allowed or blocked
+     * A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
      */
     enableNewlyRegisteredDomains?: pulumi.Input<boolean>;
     /**
@@ -374,32 +356,33 @@ export interface URLFilteringCloudAppSettingsArgs {
      */
     enablePoepPrompt?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
      */
     enableUcaasLogmein?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-     * RingCentral traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
      */
     enableUcaasRingCentral?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-     * traffic, with minimal or no manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
      */
     enableUcaasTalkdesk?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
      */
     enableUcaasWebex?: pulumi.Input<boolean>;
     /**
-     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-     * traffic, without any manual configuration needed.
+     * A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
      */
     enableUcaasZoom?: pulumi.Input<boolean>;
     /**
      * A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
      */
     enforceSafeSearch?: pulumi.Input<boolean>;
+    /**
+     * A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+     * 				See the URL & Cloud App Control Policy Settings for the list of available apps:
+     * 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+     */
+    safeSearchApps?: pulumi.Input<pulumi.Input<string>[]>;
 }

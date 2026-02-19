@@ -30,8 +30,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_admin_users** can be imported by using `<ADMIN ID>` or `<LOGIN NAME>` as the import ID.
 //
@@ -69,8 +68,7 @@ type AdminUsers struct {
 	IsSecurityReportCommEnabled pulumi.BoolPtrOutput `pulumi:"isSecurityReportCommEnabled"`
 	IsServiceUpdateCommEnabled  pulumi.BoolPtrOutput `pulumi:"isServiceUpdateCommEnabled"`
 	LoginName                   pulumi.StringOutput  `pulumi:"loginName"`
-	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-	// information is not provided in a GET response.
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayOutput `pulumi:"roles"`
@@ -142,8 +140,7 @@ type adminUsersState struct {
 	IsSecurityReportCommEnabled *bool   `pulumi:"isSecurityReportCommEnabled"`
 	IsServiceUpdateCommEnabled  *bool   `pulumi:"isServiceUpdateCommEnabled"`
 	LoginName                   *string `pulumi:"loginName"`
-	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-	// information is not provided in a GET response.
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 	Password *string `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles []AdminUsersRole `pulumi:"roles"`
@@ -170,8 +167,7 @@ type AdminUsersState struct {
 	IsSecurityReportCommEnabled pulumi.BoolPtrInput
 	IsServiceUpdateCommEnabled  pulumi.BoolPtrInput
 	LoginName                   pulumi.StringPtrInput
-	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-	// information is not provided in a GET response.
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 	Password pulumi.StringPtrInput
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayInput
@@ -201,8 +197,7 @@ type adminUsersArgs struct {
 	IsSecurityReportCommEnabled *bool  `pulumi:"isSecurityReportCommEnabled"`
 	IsServiceUpdateCommEnabled  *bool  `pulumi:"isServiceUpdateCommEnabled"`
 	LoginName                   string `pulumi:"loginName"`
-	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-	// information is not provided in a GET response.
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 	Password *string `pulumi:"password"`
 	// Role of the admin. This is not required for an auditor.
 	Roles []AdminUsersRole `pulumi:"roles"`
@@ -229,8 +224,7 @@ type AdminUsersArgs struct {
 	IsSecurityReportCommEnabled pulumi.BoolPtrInput
 	IsServiceUpdateCommEnabled  pulumi.BoolPtrInput
 	LoginName                   pulumi.StringInput
-	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-	// information is not provided in a GET response.
+	// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 	Password pulumi.StringPtrInput
 	// Role of the admin. This is not required for an auditor.
 	Roles AdminUsersRoleArrayInput
@@ -388,8 +382,7 @@ func (o AdminUsersOutput) LoginName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.LoginName }).(pulumi.StringOutput)
 }
 
-// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This
-// information is not provided in a GET response.
+// The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
 func (o AdminUsersOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

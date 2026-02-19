@@ -17,6 +17,10 @@ import (
 // Use the **zia_device_groups** data source to get information about a device group in the Zscaler Internet Access cloud or via the API. This data source can then be associated with resources such as: URL Filtering Rules
 //
 // ## Example Usage
+//
+// ### By Name
+//
+// ### Return All Groups
 func GetDeviceGroups(ctx *pulumi.Context, args *GetDeviceGroupsArgs, opts ...pulumi.InvokeOption) (*GetDeviceGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDeviceGroupsResult
@@ -29,7 +33,9 @@ func GetDeviceGroups(ctx *pulumi.Context, args *GetDeviceGroupsArgs, opts ...pul
 
 // A collection of arguments for invoking getDeviceGroups.
 type GetDeviceGroupsArgs struct {
-	// The name of the device group to be exported.
+	// (String) The unique identifer for the device group.
+	Id *int `pulumi:"id"`
+	// The name of the device group to be exported. If not provided, all device groups will be returned.
 	Name *string `pulumi:"name"`
 }
 
@@ -44,7 +50,9 @@ type GetDeviceGroupsResult struct {
 	// (String) The device group type. i.e ``ZCC_OS``, ``NON_ZCC``, ``CBI``
 	GroupType string `pulumi:"groupType"`
 	// (String) The unique identifer for the device group.
-	Id int `pulumi:"id"`
+	Id *int `pulumi:"id"`
+	// (List) List of all device groups when no name is specified. Each item in the list contains the same attributes as above.
+	Lists []GetDeviceGroupsList `pulumi:"lists"`
 	// (String) The device group name.
 	Name *string `pulumi:"name"`
 	// (String) The operating system (OS).
@@ -64,7 +72,9 @@ func GetDeviceGroupsOutput(ctx *pulumi.Context, args GetDeviceGroupsOutputArgs, 
 
 // A collection of arguments for invoking getDeviceGroups.
 type GetDeviceGroupsOutputArgs struct {
-	// The name of the device group to be exported.
+	// (String) The unique identifer for the device group.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// The name of the device group to be exported. If not provided, all device groups will be returned.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -108,8 +118,13 @@ func (o GetDeviceGroupsResultOutput) GroupType() pulumi.StringOutput {
 }
 
 // (String) The unique identifer for the device group.
-func (o GetDeviceGroupsResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDeviceGroupsResult) int { return v.Id }).(pulumi.IntOutput)
+func (o GetDeviceGroupsResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDeviceGroupsResult) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// (List) List of all device groups when no name is specified. Each item in the list contains the same attributes as above.
+func (o GetDeviceGroupsResultOutput) Lists() GetDeviceGroupsListArrayOutput {
+	return o.ApplyT(func(v GetDeviceGroupsResult) []GetDeviceGroupsList { return v.Lists }).(GetDeviceGroupsListArrayOutput)
 }
 
 // (String) The device group name.

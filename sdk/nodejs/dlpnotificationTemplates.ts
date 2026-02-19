@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_dlp_notification_templates** can be imported by using `<TEMPLATE ID>` or `<TEMPLATE NAME>` as the import ID.
@@ -63,31 +62,31 @@ export class DLPNotificationTemplates extends pulumi.CustomResource {
     /**
      * f set to true, the content that is violation is attached to the DLP notification email
      */
-    public readonly attachContent!: pulumi.Output<boolean | undefined>;
+    declare public readonly attachContent: pulumi.Output<boolean | undefined>;
     /**
      * The template for the HTML message body that must be displayed in the DLP notification email
      */
-    public readonly htmlMessage!: pulumi.Output<string>;
+    declare public readonly htmlMessage: pulumi.Output<string>;
     /**
      * The DLP notification template name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The template for the plain text UTF-8 message body that must be displayed in the DLP notification email
      */
-    public readonly plainTextMessage!: pulumi.Output<string>;
+    declare public readonly plainTextMessage: pulumi.Output<string>;
     /**
      * The Subject line that is displayed within the DLP notification email
      */
-    public readonly subject!: pulumi.Output<string>;
+    declare public readonly subject: pulumi.Output<string>;
     /**
      * The unique identifier for a DLP notification template
      */
-    public /*out*/ readonly templateId!: pulumi.Output<number>;
+    declare public /*out*/ readonly templateId: pulumi.Output<number>;
     /**
      * If set to true, TLS will be enabled
      */
-    public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tlsEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DLPNotificationTemplates resource with the given unique name, arguments, and options.
@@ -102,30 +101,30 @@ export class DLPNotificationTemplates extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DLPNotificationTemplatesState | undefined;
-            resourceInputs["attachContent"] = state ? state.attachContent : undefined;
-            resourceInputs["htmlMessage"] = state ? state.htmlMessage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["plainTextMessage"] = state ? state.plainTextMessage : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
-            resourceInputs["templateId"] = state ? state.templateId : undefined;
-            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
+            resourceInputs["attachContent"] = state?.attachContent;
+            resourceInputs["htmlMessage"] = state?.htmlMessage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["plainTextMessage"] = state?.plainTextMessage;
+            resourceInputs["subject"] = state?.subject;
+            resourceInputs["templateId"] = state?.templateId;
+            resourceInputs["tlsEnabled"] = state?.tlsEnabled;
         } else {
             const args = argsOrState as DLPNotificationTemplatesArgs | undefined;
-            if ((!args || args.htmlMessage === undefined) && !opts.urn) {
+            if (args?.htmlMessage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'htmlMessage'");
             }
-            if ((!args || args.plainTextMessage === undefined) && !opts.urn) {
+            if (args?.plainTextMessage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plainTextMessage'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            resourceInputs["attachContent"] = args ? args.attachContent : undefined;
-            resourceInputs["htmlMessage"] = args ? args.htmlMessage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["plainTextMessage"] = args ? args.plainTextMessage : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["attachContent"] = args?.attachContent;
+            resourceInputs["htmlMessage"] = args?.htmlMessage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["plainTextMessage"] = args?.plainTextMessage;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["tlsEnabled"] = args?.tlsEnabled;
             resourceInputs["templateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

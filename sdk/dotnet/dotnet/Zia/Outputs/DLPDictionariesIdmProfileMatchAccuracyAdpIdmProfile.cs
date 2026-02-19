@@ -14,7 +14,13 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class DLPDictionariesIdmProfileMatchAccuracyAdpIdmProfile
     {
+        /// <summary>
+        /// Extensions map
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Extensions;
+        /// <summary>
+        /// Identifier that uniquely identifies an entity
+        /// </summary>
         public readonly int? Id;
 
         [OutputConstructor]

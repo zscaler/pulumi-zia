@@ -166,7 +166,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string ForwardMethod;
         /// <summary>
-        /// (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; groups. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetForwardingControlRuleGroupResult> Groups;
         /// <summary>
@@ -178,11 +178,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly ImmutableArray<Outputs.GetForwardingControlRuleLabelResult> Labels;
         /// <summary>
-        /// (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`32`" pulumi-lang-dotnet="`32`" pulumi-lang-go="`32`" pulumi-lang-python="`32`" pulumi-lang-yaml="`32`" pulumi-lang-java="`32`"&gt;`32`&lt;/span&gt; location groups. When not used it implies `Any` to apply the rule to all location groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetForwardingControlRuleLocationGroupResult> LocationGroups;
         /// <summary>
-        /// (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
+        /// (Optional) You can manually select up to &lt;span pulumi-lang-nodejs="`8`" pulumi-lang-dotnet="`8`" pulumi-lang-go="`8`" pulumi-lang-python="`8`" pulumi-lang-yaml="`8`" pulumi-lang-java="`8`"&gt;`8`&lt;/span&gt; locations. When not used it implies `Any` to apply the rule to all groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetForwardingControlRuleLocationResult> Locations;
         /// <summary>
@@ -236,7 +236,7 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
+        /// (list) You can manually select up to &lt;span pulumi-lang-nodejs="`4`" pulumi-lang-dotnet="`4`" pulumi-lang-go="`4`" pulumi-lang-python="`4`" pulumi-lang-yaml="`4`" pulumi-lang-java="`4`"&gt;`4`&lt;/span&gt; general and/or special users. When not used it implies `Any` to apply the rule to all users.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetForwardingControlRuleUserResult> Users;
         /// <summary>

@@ -6,19 +6,18 @@ import * as utilities from "./utilities";
 
 /**
  * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
- * * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
+ * * [API documentation](https://help.zscaler.com/legacy-apis/advanced-threat-protection-policy#/cyberThreatProtection/advancedThreatSettings-put)
  *
- * The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
+ * The **zia_advanced_threat_settings** resource allows you to update the advanced threat configuration settings. To learn more see [Configuring Advanced Threat Protection Settings](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
  *
  * ## Example Usage
  *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_advanced_threat_settings** can be imported by using `advanced_threat_settings` as the import ID.
+ * **zia_advanced_threat_settings** can be imported by using `advancedThreatSettings` as the import ID.
  *
  * For example:
  *
@@ -55,206 +54,197 @@ export class AdvancedThreatSettings extends pulumi.CustomResource {
     }
 
     /**
-     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-     * known to have been exploited.
+     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
      */
-    public readonly activexBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly activexBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for ActiveX controls
      */
-    public readonly activexCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly activexCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-     * advertisements that can collect users' information without their knowledge
+     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
      */
-    public readonly adSpywareSitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly adSpywareSitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for adware and spyware sites
      */
-    public readonly adSpywareSitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly adSpywareSitesCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to send alerts upon detecting unknown or suspicious C2 traffic
      */
-    public readonly alertForUnknownSuspiciousC2Traffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly alertForUnknownSuspiciousC2Traffic: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-     * content accessed by the user, therefore blocking traffic to anonymizing web proxies
+     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
      */
-    public readonly anonymizerBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly anonymizerBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for anonymizers
      */
-    public readonly anonymizerCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly anonymizerCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
      */
-    public readonly bitTorrentBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly bitTorrentBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for BitTorrent
      */
-    public readonly bitTorrentCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly bitTorrentCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for blocked countries
      */
-    public readonly blockCountriesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly blockCountriesCapture: pulumi.Output<boolean | undefined>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
-    public readonly blockedCountries!: pulumi.Output<string[]>;
+    declare public readonly blockedCountries: pulumi.Output<string[]>;
     /**
      * A Boolean value specifying whether known web browser vulnerabilities prone to exploitation are allowed or blocked.
      */
-    public readonly browserExploitsBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly browserExploitsBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for browser exploits
      */
-    public readonly browserExploitsCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly browserExploitsCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether connections to known Command & Control (C2) Servers are allowed or blocked
      */
-    public readonly cmdCtlServerBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly cmdCtlServerBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for connections to known C2 servers
      */
-    public readonly cmdCtlServerCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly cmdCtlServerCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether botnets are allowed or blocked from sending or receiving commands to unknown servers
      */
-    public readonly cmdCtlTrafficBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly cmdCtlTrafficBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for botnets
      */
-    public readonly cmdCtlTrafficCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly cmdCtlTrafficCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block third-party websites that gather cookie information
      */
-    public readonly cookieStealingBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly cookieStealingBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for cookie stealing
      */
-    public readonly cookieStealingPcapEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cookieStealingPcapEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block cryptocurrency mining network traffic and script
      */
-    public readonly cryptoMiningBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly cryptoMiningBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for cryptomining
      */
-    public readonly cryptoMiningCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly cryptoMiningCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-     * algorithms (DGA)
+     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
      */
-    public readonly dgaDomainsBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly dgaDomainsBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for DGA domains
      */
-    public readonly dgaDomainsCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly dgaDomainsCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-     * Office or PDF documents are allowed or blocked
+     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
      */
-    public readonly fileFormatVunerabilitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly fileFormatVunerabilitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for file format vulnerabilities
      */
-    public readonly fileFormatVunerabilitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly fileFormatVunerabilitesCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block access to Google Hangouts, a popular P2P VoIP application.
      */
-    public readonly googleTalkBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly googleTalkBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for Google Hangouts
      */
-    public readonly googleTalkCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly googleTalkCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
      */
-    public readonly ircTunnellingBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly ircTunnellingBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for IRC tunnels
      */
-    public readonly ircTunnellingCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly ircTunnellingCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether known phishing sites are allowed or blocked
      */
-    public readonly knownPhishingSitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly knownPhishingSitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for known phishing sites
      */
-    public readonly knownPhishingSitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly knownPhishingSitesCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for malicious URLs
      */
-    public readonly maliciousUrlsCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly maliciousUrlsCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether known malicious sites and content are allowed or blocked
      */
-    public readonly malwareSitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly malwareSitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for malicious sites
      */
-    public readonly malwareSitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly malwareSitesCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block this type of cross-site scripting (XSS)
      */
-    public readonly potentialMaliciousRequestsBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly potentialMaliciousRequestsBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for (XSS) attacks
      */
-    public readonly potentialMaliciousRequestsCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly potentialMaliciousRequestsCapture: pulumi.Output<boolean | undefined>;
     /**
      * The Page Risk tolerance index set between 0 and 100 (100 being the highest risk).
      */
-    public readonly riskTolerance!: pulumi.Output<number | undefined>;
+    declare public readonly riskTolerance: pulumi.Output<number | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspicious web pages
      */
-    public readonly riskToleranceCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly riskToleranceCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block SSH traffic being tunneled over HTTP/Ss
      */
-    public readonly sshTunnellingBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly sshTunnellingBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for SSH tunnels
      */
-    public readonly sshTunnellingCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly sshTunnellingCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-     * with spyware agents and data transmission
+     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
      */
-    public readonly suspectAdwareSpywareSitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly suspectAdwareSpywareSitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected adware and spyware sites
      */
-    public readonly suspectAdwareSpywareSitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly suspectAdwareSpywareSitesCapture: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether to allow or block suspected phishing sites identified through heuristic detection.
      */
-    public readonly suspectedPhishingSitesBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly suspectedPhishingSitesBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for suspected phishing sites
      */
-    public readonly suspectedPhishingSitesCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly suspectedPhishingSitesCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-     * for encryption.
+     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
      */
-    public readonly torBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly torBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for Tor
      */
-    public readonly torCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly torCapture: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-     * ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
      */
-    public readonly webSpamBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly webSpamBlocked: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean value specifying whether packet capture (PCAP) is enabled or not for web spam
      */
-    public readonly webSpamCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly webSpamCapture: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AdvancedThreatSettings resource with the given unique name, arguments, and options.
@@ -269,104 +259,104 @@ export class AdvancedThreatSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdvancedThreatSettingsState | undefined;
-            resourceInputs["activexBlocked"] = state ? state.activexBlocked : undefined;
-            resourceInputs["activexCapture"] = state ? state.activexCapture : undefined;
-            resourceInputs["adSpywareSitesBlocked"] = state ? state.adSpywareSitesBlocked : undefined;
-            resourceInputs["adSpywareSitesCapture"] = state ? state.adSpywareSitesCapture : undefined;
-            resourceInputs["alertForUnknownSuspiciousC2Traffic"] = state ? state.alertForUnknownSuspiciousC2Traffic : undefined;
-            resourceInputs["anonymizerBlocked"] = state ? state.anonymizerBlocked : undefined;
-            resourceInputs["anonymizerCapture"] = state ? state.anonymizerCapture : undefined;
-            resourceInputs["bitTorrentBlocked"] = state ? state.bitTorrentBlocked : undefined;
-            resourceInputs["bitTorrentCapture"] = state ? state.bitTorrentCapture : undefined;
-            resourceInputs["blockCountriesCapture"] = state ? state.blockCountriesCapture : undefined;
-            resourceInputs["blockedCountries"] = state ? state.blockedCountries : undefined;
-            resourceInputs["browserExploitsBlocked"] = state ? state.browserExploitsBlocked : undefined;
-            resourceInputs["browserExploitsCapture"] = state ? state.browserExploitsCapture : undefined;
-            resourceInputs["cmdCtlServerBlocked"] = state ? state.cmdCtlServerBlocked : undefined;
-            resourceInputs["cmdCtlServerCapture"] = state ? state.cmdCtlServerCapture : undefined;
-            resourceInputs["cmdCtlTrafficBlocked"] = state ? state.cmdCtlTrafficBlocked : undefined;
-            resourceInputs["cmdCtlTrafficCapture"] = state ? state.cmdCtlTrafficCapture : undefined;
-            resourceInputs["cookieStealingBlocked"] = state ? state.cookieStealingBlocked : undefined;
-            resourceInputs["cookieStealingPcapEnabled"] = state ? state.cookieStealingPcapEnabled : undefined;
-            resourceInputs["cryptoMiningBlocked"] = state ? state.cryptoMiningBlocked : undefined;
-            resourceInputs["cryptoMiningCapture"] = state ? state.cryptoMiningCapture : undefined;
-            resourceInputs["dgaDomainsBlocked"] = state ? state.dgaDomainsBlocked : undefined;
-            resourceInputs["dgaDomainsCapture"] = state ? state.dgaDomainsCapture : undefined;
-            resourceInputs["fileFormatVunerabilitesBlocked"] = state ? state.fileFormatVunerabilitesBlocked : undefined;
-            resourceInputs["fileFormatVunerabilitesCapture"] = state ? state.fileFormatVunerabilitesCapture : undefined;
-            resourceInputs["googleTalkBlocked"] = state ? state.googleTalkBlocked : undefined;
-            resourceInputs["googleTalkCapture"] = state ? state.googleTalkCapture : undefined;
-            resourceInputs["ircTunnellingBlocked"] = state ? state.ircTunnellingBlocked : undefined;
-            resourceInputs["ircTunnellingCapture"] = state ? state.ircTunnellingCapture : undefined;
-            resourceInputs["knownPhishingSitesBlocked"] = state ? state.knownPhishingSitesBlocked : undefined;
-            resourceInputs["knownPhishingSitesCapture"] = state ? state.knownPhishingSitesCapture : undefined;
-            resourceInputs["maliciousUrlsCapture"] = state ? state.maliciousUrlsCapture : undefined;
-            resourceInputs["malwareSitesBlocked"] = state ? state.malwareSitesBlocked : undefined;
-            resourceInputs["malwareSitesCapture"] = state ? state.malwareSitesCapture : undefined;
-            resourceInputs["potentialMaliciousRequestsBlocked"] = state ? state.potentialMaliciousRequestsBlocked : undefined;
-            resourceInputs["potentialMaliciousRequestsCapture"] = state ? state.potentialMaliciousRequestsCapture : undefined;
-            resourceInputs["riskTolerance"] = state ? state.riskTolerance : undefined;
-            resourceInputs["riskToleranceCapture"] = state ? state.riskToleranceCapture : undefined;
-            resourceInputs["sshTunnellingBlocked"] = state ? state.sshTunnellingBlocked : undefined;
-            resourceInputs["sshTunnellingCapture"] = state ? state.sshTunnellingCapture : undefined;
-            resourceInputs["suspectAdwareSpywareSitesBlocked"] = state ? state.suspectAdwareSpywareSitesBlocked : undefined;
-            resourceInputs["suspectAdwareSpywareSitesCapture"] = state ? state.suspectAdwareSpywareSitesCapture : undefined;
-            resourceInputs["suspectedPhishingSitesBlocked"] = state ? state.suspectedPhishingSitesBlocked : undefined;
-            resourceInputs["suspectedPhishingSitesCapture"] = state ? state.suspectedPhishingSitesCapture : undefined;
-            resourceInputs["torBlocked"] = state ? state.torBlocked : undefined;
-            resourceInputs["torCapture"] = state ? state.torCapture : undefined;
-            resourceInputs["webSpamBlocked"] = state ? state.webSpamBlocked : undefined;
-            resourceInputs["webSpamCapture"] = state ? state.webSpamCapture : undefined;
+            resourceInputs["activexBlocked"] = state?.activexBlocked;
+            resourceInputs["activexCapture"] = state?.activexCapture;
+            resourceInputs["adSpywareSitesBlocked"] = state?.adSpywareSitesBlocked;
+            resourceInputs["adSpywareSitesCapture"] = state?.adSpywareSitesCapture;
+            resourceInputs["alertForUnknownSuspiciousC2Traffic"] = state?.alertForUnknownSuspiciousC2Traffic;
+            resourceInputs["anonymizerBlocked"] = state?.anonymizerBlocked;
+            resourceInputs["anonymizerCapture"] = state?.anonymizerCapture;
+            resourceInputs["bitTorrentBlocked"] = state?.bitTorrentBlocked;
+            resourceInputs["bitTorrentCapture"] = state?.bitTorrentCapture;
+            resourceInputs["blockCountriesCapture"] = state?.blockCountriesCapture;
+            resourceInputs["blockedCountries"] = state?.blockedCountries;
+            resourceInputs["browserExploitsBlocked"] = state?.browserExploitsBlocked;
+            resourceInputs["browserExploitsCapture"] = state?.browserExploitsCapture;
+            resourceInputs["cmdCtlServerBlocked"] = state?.cmdCtlServerBlocked;
+            resourceInputs["cmdCtlServerCapture"] = state?.cmdCtlServerCapture;
+            resourceInputs["cmdCtlTrafficBlocked"] = state?.cmdCtlTrafficBlocked;
+            resourceInputs["cmdCtlTrafficCapture"] = state?.cmdCtlTrafficCapture;
+            resourceInputs["cookieStealingBlocked"] = state?.cookieStealingBlocked;
+            resourceInputs["cookieStealingPcapEnabled"] = state?.cookieStealingPcapEnabled;
+            resourceInputs["cryptoMiningBlocked"] = state?.cryptoMiningBlocked;
+            resourceInputs["cryptoMiningCapture"] = state?.cryptoMiningCapture;
+            resourceInputs["dgaDomainsBlocked"] = state?.dgaDomainsBlocked;
+            resourceInputs["dgaDomainsCapture"] = state?.dgaDomainsCapture;
+            resourceInputs["fileFormatVunerabilitesBlocked"] = state?.fileFormatVunerabilitesBlocked;
+            resourceInputs["fileFormatVunerabilitesCapture"] = state?.fileFormatVunerabilitesCapture;
+            resourceInputs["googleTalkBlocked"] = state?.googleTalkBlocked;
+            resourceInputs["googleTalkCapture"] = state?.googleTalkCapture;
+            resourceInputs["ircTunnellingBlocked"] = state?.ircTunnellingBlocked;
+            resourceInputs["ircTunnellingCapture"] = state?.ircTunnellingCapture;
+            resourceInputs["knownPhishingSitesBlocked"] = state?.knownPhishingSitesBlocked;
+            resourceInputs["knownPhishingSitesCapture"] = state?.knownPhishingSitesCapture;
+            resourceInputs["maliciousUrlsCapture"] = state?.maliciousUrlsCapture;
+            resourceInputs["malwareSitesBlocked"] = state?.malwareSitesBlocked;
+            resourceInputs["malwareSitesCapture"] = state?.malwareSitesCapture;
+            resourceInputs["potentialMaliciousRequestsBlocked"] = state?.potentialMaliciousRequestsBlocked;
+            resourceInputs["potentialMaliciousRequestsCapture"] = state?.potentialMaliciousRequestsCapture;
+            resourceInputs["riskTolerance"] = state?.riskTolerance;
+            resourceInputs["riskToleranceCapture"] = state?.riskToleranceCapture;
+            resourceInputs["sshTunnellingBlocked"] = state?.sshTunnellingBlocked;
+            resourceInputs["sshTunnellingCapture"] = state?.sshTunnellingCapture;
+            resourceInputs["suspectAdwareSpywareSitesBlocked"] = state?.suspectAdwareSpywareSitesBlocked;
+            resourceInputs["suspectAdwareSpywareSitesCapture"] = state?.suspectAdwareSpywareSitesCapture;
+            resourceInputs["suspectedPhishingSitesBlocked"] = state?.suspectedPhishingSitesBlocked;
+            resourceInputs["suspectedPhishingSitesCapture"] = state?.suspectedPhishingSitesCapture;
+            resourceInputs["torBlocked"] = state?.torBlocked;
+            resourceInputs["torCapture"] = state?.torCapture;
+            resourceInputs["webSpamBlocked"] = state?.webSpamBlocked;
+            resourceInputs["webSpamCapture"] = state?.webSpamCapture;
         } else {
             const args = argsOrState as AdvancedThreatSettingsArgs | undefined;
-            resourceInputs["activexBlocked"] = args ? args.activexBlocked : undefined;
-            resourceInputs["activexCapture"] = args ? args.activexCapture : undefined;
-            resourceInputs["adSpywareSitesBlocked"] = args ? args.adSpywareSitesBlocked : undefined;
-            resourceInputs["adSpywareSitesCapture"] = args ? args.adSpywareSitesCapture : undefined;
-            resourceInputs["alertForUnknownSuspiciousC2Traffic"] = args ? args.alertForUnknownSuspiciousC2Traffic : undefined;
-            resourceInputs["anonymizerBlocked"] = args ? args.anonymizerBlocked : undefined;
-            resourceInputs["anonymizerCapture"] = args ? args.anonymizerCapture : undefined;
-            resourceInputs["bitTorrentBlocked"] = args ? args.bitTorrentBlocked : undefined;
-            resourceInputs["bitTorrentCapture"] = args ? args.bitTorrentCapture : undefined;
-            resourceInputs["blockCountriesCapture"] = args ? args.blockCountriesCapture : undefined;
-            resourceInputs["blockedCountries"] = args ? args.blockedCountries : undefined;
-            resourceInputs["browserExploitsBlocked"] = args ? args.browserExploitsBlocked : undefined;
-            resourceInputs["browserExploitsCapture"] = args ? args.browserExploitsCapture : undefined;
-            resourceInputs["cmdCtlServerBlocked"] = args ? args.cmdCtlServerBlocked : undefined;
-            resourceInputs["cmdCtlServerCapture"] = args ? args.cmdCtlServerCapture : undefined;
-            resourceInputs["cmdCtlTrafficBlocked"] = args ? args.cmdCtlTrafficBlocked : undefined;
-            resourceInputs["cmdCtlTrafficCapture"] = args ? args.cmdCtlTrafficCapture : undefined;
-            resourceInputs["cookieStealingBlocked"] = args ? args.cookieStealingBlocked : undefined;
-            resourceInputs["cookieStealingPcapEnabled"] = args ? args.cookieStealingPcapEnabled : undefined;
-            resourceInputs["cryptoMiningBlocked"] = args ? args.cryptoMiningBlocked : undefined;
-            resourceInputs["cryptoMiningCapture"] = args ? args.cryptoMiningCapture : undefined;
-            resourceInputs["dgaDomainsBlocked"] = args ? args.dgaDomainsBlocked : undefined;
-            resourceInputs["dgaDomainsCapture"] = args ? args.dgaDomainsCapture : undefined;
-            resourceInputs["fileFormatVunerabilitesBlocked"] = args ? args.fileFormatVunerabilitesBlocked : undefined;
-            resourceInputs["fileFormatVunerabilitesCapture"] = args ? args.fileFormatVunerabilitesCapture : undefined;
-            resourceInputs["googleTalkBlocked"] = args ? args.googleTalkBlocked : undefined;
-            resourceInputs["googleTalkCapture"] = args ? args.googleTalkCapture : undefined;
-            resourceInputs["ircTunnellingBlocked"] = args ? args.ircTunnellingBlocked : undefined;
-            resourceInputs["ircTunnellingCapture"] = args ? args.ircTunnellingCapture : undefined;
-            resourceInputs["knownPhishingSitesBlocked"] = args ? args.knownPhishingSitesBlocked : undefined;
-            resourceInputs["knownPhishingSitesCapture"] = args ? args.knownPhishingSitesCapture : undefined;
-            resourceInputs["maliciousUrlsCapture"] = args ? args.maliciousUrlsCapture : undefined;
-            resourceInputs["malwareSitesBlocked"] = args ? args.malwareSitesBlocked : undefined;
-            resourceInputs["malwareSitesCapture"] = args ? args.malwareSitesCapture : undefined;
-            resourceInputs["potentialMaliciousRequestsBlocked"] = args ? args.potentialMaliciousRequestsBlocked : undefined;
-            resourceInputs["potentialMaliciousRequestsCapture"] = args ? args.potentialMaliciousRequestsCapture : undefined;
-            resourceInputs["riskTolerance"] = args ? args.riskTolerance : undefined;
-            resourceInputs["riskToleranceCapture"] = args ? args.riskToleranceCapture : undefined;
-            resourceInputs["sshTunnellingBlocked"] = args ? args.sshTunnellingBlocked : undefined;
-            resourceInputs["sshTunnellingCapture"] = args ? args.sshTunnellingCapture : undefined;
-            resourceInputs["suspectAdwareSpywareSitesBlocked"] = args ? args.suspectAdwareSpywareSitesBlocked : undefined;
-            resourceInputs["suspectAdwareSpywareSitesCapture"] = args ? args.suspectAdwareSpywareSitesCapture : undefined;
-            resourceInputs["suspectedPhishingSitesBlocked"] = args ? args.suspectedPhishingSitesBlocked : undefined;
-            resourceInputs["suspectedPhishingSitesCapture"] = args ? args.suspectedPhishingSitesCapture : undefined;
-            resourceInputs["torBlocked"] = args ? args.torBlocked : undefined;
-            resourceInputs["torCapture"] = args ? args.torCapture : undefined;
-            resourceInputs["webSpamBlocked"] = args ? args.webSpamBlocked : undefined;
-            resourceInputs["webSpamCapture"] = args ? args.webSpamCapture : undefined;
+            resourceInputs["activexBlocked"] = args?.activexBlocked;
+            resourceInputs["activexCapture"] = args?.activexCapture;
+            resourceInputs["adSpywareSitesBlocked"] = args?.adSpywareSitesBlocked;
+            resourceInputs["adSpywareSitesCapture"] = args?.adSpywareSitesCapture;
+            resourceInputs["alertForUnknownSuspiciousC2Traffic"] = args?.alertForUnknownSuspiciousC2Traffic;
+            resourceInputs["anonymizerBlocked"] = args?.anonymizerBlocked;
+            resourceInputs["anonymizerCapture"] = args?.anonymizerCapture;
+            resourceInputs["bitTorrentBlocked"] = args?.bitTorrentBlocked;
+            resourceInputs["bitTorrentCapture"] = args?.bitTorrentCapture;
+            resourceInputs["blockCountriesCapture"] = args?.blockCountriesCapture;
+            resourceInputs["blockedCountries"] = args?.blockedCountries;
+            resourceInputs["browserExploitsBlocked"] = args?.browserExploitsBlocked;
+            resourceInputs["browserExploitsCapture"] = args?.browserExploitsCapture;
+            resourceInputs["cmdCtlServerBlocked"] = args?.cmdCtlServerBlocked;
+            resourceInputs["cmdCtlServerCapture"] = args?.cmdCtlServerCapture;
+            resourceInputs["cmdCtlTrafficBlocked"] = args?.cmdCtlTrafficBlocked;
+            resourceInputs["cmdCtlTrafficCapture"] = args?.cmdCtlTrafficCapture;
+            resourceInputs["cookieStealingBlocked"] = args?.cookieStealingBlocked;
+            resourceInputs["cookieStealingPcapEnabled"] = args?.cookieStealingPcapEnabled;
+            resourceInputs["cryptoMiningBlocked"] = args?.cryptoMiningBlocked;
+            resourceInputs["cryptoMiningCapture"] = args?.cryptoMiningCapture;
+            resourceInputs["dgaDomainsBlocked"] = args?.dgaDomainsBlocked;
+            resourceInputs["dgaDomainsCapture"] = args?.dgaDomainsCapture;
+            resourceInputs["fileFormatVunerabilitesBlocked"] = args?.fileFormatVunerabilitesBlocked;
+            resourceInputs["fileFormatVunerabilitesCapture"] = args?.fileFormatVunerabilitesCapture;
+            resourceInputs["googleTalkBlocked"] = args?.googleTalkBlocked;
+            resourceInputs["googleTalkCapture"] = args?.googleTalkCapture;
+            resourceInputs["ircTunnellingBlocked"] = args?.ircTunnellingBlocked;
+            resourceInputs["ircTunnellingCapture"] = args?.ircTunnellingCapture;
+            resourceInputs["knownPhishingSitesBlocked"] = args?.knownPhishingSitesBlocked;
+            resourceInputs["knownPhishingSitesCapture"] = args?.knownPhishingSitesCapture;
+            resourceInputs["maliciousUrlsCapture"] = args?.maliciousUrlsCapture;
+            resourceInputs["malwareSitesBlocked"] = args?.malwareSitesBlocked;
+            resourceInputs["malwareSitesCapture"] = args?.malwareSitesCapture;
+            resourceInputs["potentialMaliciousRequestsBlocked"] = args?.potentialMaliciousRequestsBlocked;
+            resourceInputs["potentialMaliciousRequestsCapture"] = args?.potentialMaliciousRequestsCapture;
+            resourceInputs["riskTolerance"] = args?.riskTolerance;
+            resourceInputs["riskToleranceCapture"] = args?.riskToleranceCapture;
+            resourceInputs["sshTunnellingBlocked"] = args?.sshTunnellingBlocked;
+            resourceInputs["sshTunnellingCapture"] = args?.sshTunnellingCapture;
+            resourceInputs["suspectAdwareSpywareSitesBlocked"] = args?.suspectAdwareSpywareSitesBlocked;
+            resourceInputs["suspectAdwareSpywareSitesCapture"] = args?.suspectAdwareSpywareSitesCapture;
+            resourceInputs["suspectedPhishingSitesBlocked"] = args?.suspectedPhishingSitesBlocked;
+            resourceInputs["suspectedPhishingSitesCapture"] = args?.suspectedPhishingSitesCapture;
+            resourceInputs["torBlocked"] = args?.torBlocked;
+            resourceInputs["torCapture"] = args?.torCapture;
+            resourceInputs["webSpamBlocked"] = args?.webSpamBlocked;
+            resourceInputs["webSpamCapture"] = args?.webSpamCapture;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AdvancedThreatSettings.__pulumiType, name, resourceInputs, opts);
@@ -378,8 +368,7 @@ export class AdvancedThreatSettings extends pulumi.CustomResource {
  */
 export interface AdvancedThreatSettingsState {
     /**
-     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-     * known to have been exploited.
+     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
      */
     activexBlocked?: pulumi.Input<boolean>;
     /**
@@ -387,8 +376,7 @@ export interface AdvancedThreatSettingsState {
      */
     activexCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-     * advertisements that can collect users' information without their knowledge
+     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
      */
     adSpywareSitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -400,8 +388,7 @@ export interface AdvancedThreatSettingsState {
      */
     alertForUnknownSuspiciousC2Traffic?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-     * content accessed by the user, therefore blocking traffic to anonymizing web proxies
+     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
      */
     anonymizerBlocked?: pulumi.Input<boolean>;
     /**
@@ -421,8 +408,7 @@ export interface AdvancedThreatSettingsState {
      */
     blockCountriesCapture?: pulumi.Input<boolean>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     blockedCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -466,8 +452,7 @@ export interface AdvancedThreatSettingsState {
      */
     cryptoMiningCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-     * algorithms (DGA)
+     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
      */
     dgaDomainsBlocked?: pulumi.Input<boolean>;
     /**
@@ -475,8 +460,7 @@ export interface AdvancedThreatSettingsState {
      */
     dgaDomainsCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-     * Office or PDF documents are allowed or blocked
+     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
      */
     fileFormatVunerabilitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -544,8 +528,7 @@ export interface AdvancedThreatSettingsState {
      */
     sshTunnellingCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-     * with spyware agents and data transmission
+     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
      */
     suspectAdwareSpywareSitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -561,8 +544,7 @@ export interface AdvancedThreatSettingsState {
      */
     suspectedPhishingSitesCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-     * for encryption.
+     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
      */
     torBlocked?: pulumi.Input<boolean>;
     /**
@@ -570,8 +552,7 @@ export interface AdvancedThreatSettingsState {
      */
     torCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-     * ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
      */
     webSpamBlocked?: pulumi.Input<boolean>;
     /**
@@ -585,8 +566,7 @@ export interface AdvancedThreatSettingsState {
  */
 export interface AdvancedThreatSettingsArgs {
     /**
-     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are
-     * known to have been exploited.
+     * A Boolean value specifying whether sites are allowed or blocked from accessing vulnerable ActiveX controls that are known to have been exploited.
      */
     activexBlocked?: pulumi.Input<boolean>;
     /**
@@ -594,8 +574,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     activexCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious
-     * advertisements that can collect users' information without their knowledge
+     * A Boolean value specifying whether to allow or block websites known to contain adware or spyware that displays malicious advertisements that can collect users' information without their knowledge
      */
     adSpywareSitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -607,8 +586,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     alertForUnknownSuspiciousC2Traffic?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the
-     * content accessed by the user, therefore blocking traffic to anonymizing web proxies
+     * A Boolean value specifying whether to allow or block applications and methods used to obscure the destination and the content accessed by the user, therefore blocking traffic to anonymizing web proxies
      */
     anonymizerBlocked?: pulumi.Input<boolean>;
     /**
@@ -628,8 +606,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     blockCountriesCapture?: pulumi.Input<boolean>;
     /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-     * countries.
+     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
      */
     blockedCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -673,8 +650,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     cryptoMiningCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation
-     * algorithms (DGA)
+     * A Boolean value specifying whether to allow or block domains that are suspected to be generated using domain generation algorithms (DGA)
      */
     dgaDomainsBlocked?: pulumi.Input<boolean>;
     /**
@@ -682,8 +658,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     dgaDomainsCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft
-     * Office or PDF documents are allowed or blocked
+     * A Boolean value specifying whether known file format vulnerabilities and suspicious or malicious content in Microsoft Office or PDF documents are allowed or blocked
      */
     fileFormatVunerabilitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -751,8 +726,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     sshTunnellingCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated
-     * with spyware agents and data transmission
+     * A Boolean value specifying whether to allow or block any detections of communication and callback traffic associated with spyware agents and data transmission
      */
     suspectAdwareSpywareSitesBlocked?: pulumi.Input<boolean>;
     /**
@@ -768,8 +742,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     suspectedPhishingSitesCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support
-     * for encryption.
+     * A Boolean value specifying whether to allow or block the usage of Tor, a popular P2P anonymizer protocol with support for encryption.
      */
     torBlocked?: pulumi.Input<boolean>;
     /**
@@ -777,8 +750,7 @@ export interface AdvancedThreatSettingsArgs {
      */
     torCapture?: pulumi.Input<boolean>;
     /**
-     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher
-     * ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
+     * A Boolean value specifying whether to allow or block web pages that pretend to contain useful information, to get higher ranking in search engine results or drive traffic to phishing, adware, or spyware distribution sites.
      */
     webSpamBlocked?: pulumi.Input<boolean>;
     /**

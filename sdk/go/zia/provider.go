@@ -161,14 +161,12 @@ type providerArgs struct {
 	HttpProxy *string `pulumi:"httpProxy"`
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-	// https://help.zscaler.com/oneapi/understanding-rate-limiting.
+	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
 	Parallelism *int    `pulumi:"parallelism"`
 	Password    *string `pulumi:"password"`
 	// zpa private key
 	PrivateKey *string `pulumi:"privateKey"`
-	// Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The
-	// maximum value can be `300`.
+	// Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// Zscaler Sandbox Cloud
 	SandboxCloud *string `pulumi:"sandboxCloud"`
@@ -194,14 +192,12 @@ type ProviderArgs struct {
 	HttpProxy pulumi.StringPtrInput
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries pulumi.IntPtrInput
-	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-	// https://help.zscaler.com/oneapi/understanding-rate-limiting.
+	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
 	Parallelism pulumi.IntPtrInput
 	Password    pulumi.StringPtrInput
 	// zpa private key
 	PrivateKey pulumi.StringPtrInput
-	// Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The
-	// maximum value can be `300`.
+	// Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
 	RequestTimeout pulumi.IntPtrInput
 	// Zscaler Sandbox Cloud
 	SandboxCloud pulumi.StringPtrInput

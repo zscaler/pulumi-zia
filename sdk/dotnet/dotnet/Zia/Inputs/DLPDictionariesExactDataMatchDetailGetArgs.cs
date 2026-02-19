@@ -19,11 +19,17 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         [Input("dictionaryEdmMappingId")]
         public Input<int>? DictionaryEdmMappingId { get; set; }
 
+        [Input("primaryFields")]
+        private InputList<int>? _primaryFields;
+
         /// <summary>
         /// The EDM template's primary field.
         /// </summary>
-        [Input("primaryField")]
-        public Input<int>? PrimaryField { get; set; }
+        public InputList<int> PrimaryFields
+        {
+            get => _primaryFields ?? (_primaryFields = new InputList<int>());
+            set => _primaryFields = value;
+        }
 
         /// <summary>
         /// The unique identifier for the EDM template (or schema).

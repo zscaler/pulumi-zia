@@ -11,6 +11,12 @@ import * as utilities from "./utilities";
  * Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
+ *
+ * ### Retrieve Custom DLP Engine By Name
+ *
+ * ### Retrieve Custom DLP Engine By ID
+ *
+ * ### Retrieve Predefined DLP Engine By Name
  */
 export function getDLPEngines(args?: GetDLPEnginesArgs, opts?: pulumi.InvokeOptions): Promise<GetDLPEnginesResult> {
     args = args || {};
@@ -49,6 +55,12 @@ export interface GetDLPEnginesResult {
  * Use the **zia_dlp_engines** data source to get information about a ZIA DLP Engines in the Zscaler Internet Access cloud or via the API.
  *
  * ## Example Usage
+ *
+ * ### Retrieve Custom DLP Engine By Name
+ *
+ * ### Retrieve Custom DLP Engine By ID
+ *
+ * ### Retrieve Predefined DLP Engine By Name
  */
 export function getDLPEnginesOutput(args?: GetDLPEnginesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDLPEnginesResult> {
     args = args || {};

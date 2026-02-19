@@ -23,10 +23,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_browser_control_policy** can be imported by using `browser_settings` as the import ID.
+    /// **zia_browser_control_policy** can be imported by using &lt;span pulumi-lang-nodejs="`browserSettings`" pulumi-lang-dotnet="`BrowserSettings`" pulumi-lang-go="`browserSettings`" pulumi-lang-python="`browser_settings`" pulumi-lang-yaml="`browserSettings`" pulumi-lang-java="`browserSettings`"&gt;`browser_settings`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -38,8 +37,7 @@ namespace zscaler.PulumiPackage.Zia
     public partial class BrowserControlSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-        /// internet
+        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
         /// </summary>
         [Output("allowAllBrowsers")]
         public Output<bool> AllowAllBrowsers { get; private set; } = null!;
@@ -81,15 +79,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> BypassAllBrowsers { get; private set; } = null!;
 
         /// <summary>
-        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-        /// attribute is set to true. If not set, all vulnerable applications are warned
+        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
         /// </summary>
         [Output("bypassApplications")]
         public Output<ImmutableArray<string>> BypassApplications { get; private set; } = null!;
 
         /// <summary>
-        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-        /// is set to true. If not set, all vulnerable plugins are warned
+        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
         /// </summary>
         [Output("bypassPlugins")]
         public Output<ImmutableArray<string>> BypassPlugins { get; private set; } = null!;
@@ -107,8 +103,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableWarnings { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-        /// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
         /// </summary>
         [Output("pluginCheckFrequency")]
         public Output<string?> PluginCheckFrequency { get; private set; } = null!;
@@ -183,8 +178,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class BrowserControlSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-        /// internet
+        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
         /// </summary>
         [Input("allowAllBrowsers")]
         public Input<bool>? AllowAllBrowsers { get; set; }
@@ -259,8 +253,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _bypassApplications;
 
         /// <summary>
-        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-        /// attribute is set to true. If not set, all vulnerable applications are warned
+        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
         /// </summary>
         public InputList<string> BypassApplications
         {
@@ -272,8 +265,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _bypassPlugins;
 
         /// <summary>
-        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-        /// is set to true. If not set, all vulnerable plugins are warned
+        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
         /// </summary>
         public InputList<string> BypassPlugins
         {
@@ -294,8 +286,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableWarnings { get; set; }
 
         /// <summary>
-        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-        /// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
         /// </summary>
         [Input("pluginCheckFrequency")]
         public Input<string>? PluginCheckFrequency { get; set; }
@@ -333,8 +324,7 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class BrowserControlSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the
-        /// internet
+        /// A Boolean value that specifies whether or not to allow all the browsers and their respective versions access to the internet
         /// </summary>
         [Input("allowAllBrowsers")]
         public Input<bool>? AllowAllBrowsers { get; set; }
@@ -409,8 +399,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _bypassApplications;
 
         /// <summary>
-        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings'
-        /// attribute is set to true. If not set, all vulnerable applications are warned
+        /// List of applications that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable applications are warned
         /// </summary>
         public InputList<string> BypassApplications
         {
@@ -422,8 +411,7 @@ namespace zscaler.PulumiPackage.Zia
         private InputList<string>? _bypassPlugins;
 
         /// <summary>
-        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute
-        /// is set to true. If not set, all vulnerable plugins are warned
+        /// List of plugins that need to be bypassed for warnings. This attribute has effect only if the 'enableWarnings' attribute is set to true. If not set, all vulnerable plugins are warned
         /// </summary>
         public InputList<string> BypassPlugins
         {
@@ -444,8 +432,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableWarnings { get; set; }
 
         /// <summary>
-        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or
-        /// vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
+        /// Specifies how frequently the service checks browsers and relevant applications to warn users regarding outdated or vulnerable browsers, plugins, and applications. If not set, the warnings are disabled
         /// </summary>
         [Input("pluginCheckFrequency")]
         public Input<string>? PluginCheckFrequency { get; set; }

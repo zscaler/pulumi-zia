@@ -142,7 +142,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// [Reference](https://help.zscaler.com/zia/documentation-knowledgebase/policies/cloud-apps/cloud-app-control-policies)
         /// 
-        /// |               Type               |         Applications          | tenancy_profile_ids |
+        /// |               Type               |         Applications          |&lt;span pulumi-lang-nodejs=" tenancyProfileIds " pulumi-lang-dotnet=" TenancyProfileIds " pulumi-lang-go=" tenancyProfileIds " pulumi-lang-python=" tenancy_profile_ids " pulumi-lang-yaml=" tenancyProfileIds " pulumi-lang-java=" tenancyProfileIds "&gt; tenancy_profile_ids &lt;/span&gt;|
         /// |:--------------------------------:|:-----------------------------:|:-------------------:|
         /// |----------------------------------|-------------------------------|---------------------|
         /// | `BUSINESS_PRODUCTIVITY`          | `"GOOGLEANALYTICS"`           |          ✅         |
@@ -316,7 +316,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// [Reference](https://help.zscaler.com/zia/documentation-knowledgebase/policies/cloud-apps/cloud-app-control-policies)
         /// 
-        /// |               Type               |         Applications          | tenancy_profile_ids |
+        /// |               Type               |         Applications          |&lt;span pulumi-lang-nodejs=" tenancyProfileIds " pulumi-lang-dotnet=" TenancyProfileIds " pulumi-lang-go=" tenancyProfileIds " pulumi-lang-python=" tenancy_profile_ids " pulumi-lang-yaml=" tenancyProfileIds " pulumi-lang-java=" tenancyProfileIds "&gt; tenancy_profile_ids &lt;/span&gt;|
         /// |:--------------------------------:|:-----------------------------:|:-------------------:|
         /// |----------------------------------|-------------------------------|---------------------|
         /// | `BUSINESS_PRODUCTIVITY`          | `"GOOGLEANALYTICS"`           |          ✅         |
@@ -490,7 +490,7 @@ namespace zscaler.PulumiPackage.Zia
         /// 
         /// [Reference](https://help.zscaler.com/zia/documentation-knowledgebase/policies/cloud-apps/cloud-app-control-policies)
         /// 
-        /// |               Type               |         Applications          | tenancy_profile_ids |
+        /// |               Type               |         Applications          |&lt;span pulumi-lang-nodejs=" tenancyProfileIds " pulumi-lang-dotnet=" TenancyProfileIds " pulumi-lang-go=" tenancyProfileIds " pulumi-lang-python=" tenancy_profile_ids " pulumi-lang-yaml=" tenancyProfileIds " pulumi-lang-java=" tenancyProfileIds "&gt; tenancy_profile_ids &lt;/span&gt;|
         /// |:--------------------------------:|:-----------------------------:|:-------------------:|
         /// |----------------------------------|-------------------------------|---------------------|
         /// | `BUSINESS_PRODUCTIVITY`          | `"GOOGLEANALYTICS"`           |          ✅         |

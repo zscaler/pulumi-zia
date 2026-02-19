@@ -16,7 +16,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-email-profiles)
         /// * [API documentation](https://help.zscaler.com/zia/saas-security-api#/domainProfiles/lite-get)
         /// 
-        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource `zia.DLPWebRules`
+        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource &lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -43,7 +43,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-email-profiles)
         /// * [API documentation](https://help.zscaler.com/zia/saas-security-api#/domainProfiles/lite-get)
         /// 
-        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource `zia.DLPWebRules`
+        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource &lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 
@@ -70,7 +70,7 @@ namespace zscaler.PulumiPackage.Zia
         /// * [Official documentation](https://help.zscaler.com/zia/about-email-profiles)
         /// * [API documentation](https://help.zscaler.com/zia/saas-security-api#/domainProfiles/lite-get)
         /// 
-        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource `zia.DLPWebRules`
+        /// Use the **zia_domain_profiles** data source to get information about a ZIA Domain Profiles in the Zscaler Internet Access cloud or via the API. The resource can then be utilized when configuring a Web DLP Rule resource &lt;span pulumi-lang-nodejs="`zia.DLPWebRules`" pulumi-lang-dotnet="`zia.DLPWebRules`" pulumi-lang-go="`DLPWebRules`" pulumi-lang-python="`DLPWebRules`" pulumi-lang-yaml="`zia.DLPWebRules`" pulumi-lang-java="`zia.DLPWebRules`"&gt;`zia.DLPWebRules`&lt;/span&gt;
         /// 
         /// ## Example Usage
         /// 

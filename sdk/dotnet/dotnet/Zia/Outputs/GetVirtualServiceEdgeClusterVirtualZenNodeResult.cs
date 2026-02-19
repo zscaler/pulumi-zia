@@ -14,16 +14,13 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class GetVirtualServiceEdgeClusterVirtualZenNodeResult
     {
-        /// <summary>
-        /// (Map of String)
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
-        /// (String) An external identifier used for an entity that is managed outside of ZIA.
+        /// The configured name of the entity
         /// </summary>
         public readonly string ExternalId;
         /// <summary>
-        /// USystem-generated Virtual Service Edge cluster ID
+        /// System-generated Virtual Service Edge cluster ID
         /// </summary>
         public readonly int Id;
         /// <summary>

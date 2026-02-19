@@ -14,7 +14,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class LocationManagementVpnCredential
     {
-        public readonly string? Comments;
         public readonly string? Fqdn;
         public readonly int? Id;
         public readonly string? IpAddress;
@@ -23,8 +22,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
         [OutputConstructor]
         private LocationManagementVpnCredential(
-            string? comments,
-
             string? fqdn,
 
             int? id,
@@ -35,7 +32,6 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
             string? type)
         {
-            Comments = comments;
             Fqdn = fqdn;
             Id = id;
             IpAddress = ipAddress;

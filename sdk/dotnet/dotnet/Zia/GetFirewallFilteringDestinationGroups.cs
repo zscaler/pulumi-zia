@@ -127,7 +127,7 @@ namespace zscaler.PulumiPackage.Zia
         public readonly int Id;
         /// <summary>
         /// (List of String) Destination IP address URL categories. You can identify destinations based on the URL category of the domain. See list of all IP Categories [Here](https://help.zscaler.com/zia/firewall-policies#/ipDestinationGroups-get)
-        /// * !&gt; **WARNING:** The `ip_categories` attribute only accepts custom URL categories.
+        /// * !&gt; **WARNING:** The &lt;span pulumi-lang-nodejs="`ipCategories`" pulumi-lang-dotnet="`IpCategories`" pulumi-lang-go="`ipCategories`" pulumi-lang-python="`ip_categories`" pulumi-lang-yaml="`ipCategories`" pulumi-lang-java="`ipCategories`"&gt;`ip_categories`&lt;/span&gt; attribute only accepts custom URL categories.
         /// </summary>
         public readonly ImmutableArray<string> IpCategories;
         public readonly string Name;

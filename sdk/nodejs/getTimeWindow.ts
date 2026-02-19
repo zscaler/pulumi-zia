@@ -16,6 +16,7 @@ export function getTimeWindow(args?: GetTimeWindowArgs, opts?: pulumi.InvokeOpti
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getTimeWindow:getTimeWindow", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -24,6 +25,10 @@ export function getTimeWindow(args?: GetTimeWindowArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getTimeWindow.
  */
 export interface GetTimeWindowArgs {
+    /**
+     * The ID of the time window resource.
+     */
+    id?: number;
     /**
      * The name of the time window to be exported.
      */
@@ -71,6 +76,7 @@ export function getTimeWindowOutput(args?: GetTimeWindowOutputArgs, opts?: pulum
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getTimeWindow:getTimeWindow", {
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -79,6 +85,10 @@ export function getTimeWindowOutput(args?: GetTimeWindowOutputArgs, opts?: pulum
  * A collection of arguments for invoking getTimeWindow.
  */
 export interface GetTimeWindowOutputArgs {
+    /**
+     * The ID of the time window resource.
+     */
+    id?: pulumi.Input<number>;
     /**
      * The name of the time window to be exported.
      */

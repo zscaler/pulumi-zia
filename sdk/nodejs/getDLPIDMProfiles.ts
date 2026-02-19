@@ -18,6 +18,7 @@ export function getDLPIDMProfiles(args?: GetDLPIDMProfilesArgs, opts?: pulumi.In
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("zia:index/getDLPIDMProfiles:getDLPIDMProfiles", {
+        "profileId": args.profileId,
         "profileName": args.profileName,
     }, opts);
 }
@@ -26,6 +27,7 @@ export function getDLPIDMProfiles(args?: GetDLPIDMProfilesArgs, opts?: pulumi.In
  * A collection of arguments for invoking getDLPIDMProfiles.
  */
 export interface GetDLPIDMProfilesArgs {
+    profileId?: number;
     profileName?: string;
 }
 
@@ -71,6 +73,7 @@ export function getDLPIDMProfilesOutput(args?: GetDLPIDMProfilesOutputArgs, opts
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("zia:index/getDLPIDMProfiles:getDLPIDMProfiles", {
+        "profileId": args.profileId,
         "profileName": args.profileName,
     }, opts);
 }
@@ -79,5 +82,6 @@ export function getDLPIDMProfilesOutput(args?: GetDLPIDMProfilesOutputArgs, opts
  * A collection of arguments for invoking getDLPIDMProfiles.
  */
 export interface GetDLPIDMProfilesOutputArgs {
+    profileId?: pulumi.Input<number>;
     profileName?: pulumi.Input<string>;
 }

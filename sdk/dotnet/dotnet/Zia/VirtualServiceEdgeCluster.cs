@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_virtual_service_edge_cluster** can be imported by using `&lt;CLUSTER_ID&gt;` or `&lt;CLUSTER_NAME&gt;` as the import ID.
@@ -45,19 +44,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<int> ClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// (String) The IP address of the default gateway to the internet
+        /// The IP address of the default gateway to the internet
         /// </summary>
         [Output("defaultGateway")]
         public Output<string?> DefaultGateway { get; private set; } = null!;
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+        /// The Virtual Service Edge cluster IP address
         /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+        /// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
         /// </summary>
         [Output("ipSecEnabled")]
         public Output<bool?> IpSecEnabled { get; private set; } = null!;
@@ -69,29 +68,25 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+        /// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster subnet mask
+        /// The Virtual Service Edge cluster subnet mask
         /// </summary>
         [Output("subnetMask")]
         public Output<string?> SubnetMask { get; private set; } = null!;
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster type
-        /// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-        /// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-        /// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-        /// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+        /// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+        /// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
         /// </summary>
         [Output("virtualZenNodes")]
         public Output<Outputs.VirtualServiceEdgeClusterVirtualZenNodes?> VirtualZenNodes { get; private set; } = null!;
@@ -144,19 +139,19 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class VirtualServiceEdgeClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (String) The IP address of the default gateway to the internet
+        /// The IP address of the default gateway to the internet
         /// </summary>
         [Input("defaultGateway")]
         public Input<string>? DefaultGateway { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+        /// The Virtual Service Edge cluster IP address
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+        /// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
         /// </summary>
         [Input("ipSecEnabled")]
         public Input<bool>? IpSecEnabled { get; set; }
@@ -168,29 +163,25 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+        /// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster subnet mask
+        /// The Virtual Service Edge cluster subnet mask
         /// </summary>
         [Input("subnetMask")]
         public Input<string>? SubnetMask { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster type
-        /// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-        /// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-        /// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-        /// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+        /// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+        /// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
         /// </summary>
         [Input("virtualZenNodes")]
         public Input<Inputs.VirtualServiceEdgeClusterVirtualZenNodesArgs>? VirtualZenNodes { get; set; }
@@ -207,19 +198,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? ClusterId { get; set; }
 
         /// <summary>
-        /// (String) The IP address of the default gateway to the internet
+        /// The IP address of the default gateway to the internet
         /// </summary>
         [Input("defaultGateway")]
         public Input<string>? DefaultGateway { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+        /// The Virtual Service Edge cluster IP address
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+        /// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
         /// </summary>
         [Input("ipSecEnabled")]
         public Input<bool>? IpSecEnabled { get; set; }
@@ -231,29 +222,25 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+        /// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster subnet mask
+        /// The Virtual Service Edge cluster subnet mask
         /// </summary>
         [Input("subnetMask")]
         public Input<string>? SubnetMask { get; set; }
 
         /// <summary>
-        /// (String) The Virtual Service Edge cluster type
-        /// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-        /// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-        /// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-        /// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,`SMBAM`, `ZWACLT`
+        /// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+        /// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
         /// </summary>
         [Input("virtualZenNodes")]
         public Input<Inputs.VirtualServiceEdgeClusterVirtualZenNodesGetArgs>? VirtualZenNodes { get; set; }

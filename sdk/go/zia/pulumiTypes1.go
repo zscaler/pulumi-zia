@@ -13,6 +13,11084 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetForwardingControlRuleGroup struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleGroupInput is an input type that accepts GetForwardingControlRuleGroupArgs and GetForwardingControlRuleGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleGroupInput` via:
+//
+//	GetForwardingControlRuleGroupArgs{...}
+type GetForwardingControlRuleGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleGroupOutput() GetForwardingControlRuleGroupOutput
+	ToGetForwardingControlRuleGroupOutputWithContext(context.Context) GetForwardingControlRuleGroupOutput
+}
+
+type GetForwardingControlRuleGroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleGroupArgs) ToGetForwardingControlRuleGroupOutput() GetForwardingControlRuleGroupOutput {
+	return i.ToGetForwardingControlRuleGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleGroupArgs) ToGetForwardingControlRuleGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleGroupOutput)
+}
+
+// GetForwardingControlRuleGroupArrayInput is an input type that accepts GetForwardingControlRuleGroupArray and GetForwardingControlRuleGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleGroupArrayInput` via:
+//
+//	GetForwardingControlRuleGroupArray{ GetForwardingControlRuleGroupArgs{...} }
+type GetForwardingControlRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleGroupArrayOutput() GetForwardingControlRuleGroupArrayOutput
+	ToGetForwardingControlRuleGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleGroupArrayOutput
+}
+
+type GetForwardingControlRuleGroupArray []GetForwardingControlRuleGroupInput
+
+func (GetForwardingControlRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleGroupArray) ToGetForwardingControlRuleGroupArrayOutput() GetForwardingControlRuleGroupArrayOutput {
+	return i.ToGetForwardingControlRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleGroupArray) ToGetForwardingControlRuleGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleGroupArrayOutput)
+}
+
+type GetForwardingControlRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleGroupOutput) ToGetForwardingControlRuleGroupOutput() GetForwardingControlRuleGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleGroupOutput) ToGetForwardingControlRuleGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleGroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleGroupArrayOutput) ToGetForwardingControlRuleGroupArrayOutput() GetForwardingControlRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleGroupArrayOutput) ToGetForwardingControlRuleGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleGroup {
+		return vs[0].([]GetForwardingControlRuleGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleGroupOutput)
+}
+
+type GetForwardingControlRuleLabel struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleLabelInput is an input type that accepts GetForwardingControlRuleLabelArgs and GetForwardingControlRuleLabelOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLabelInput` via:
+//
+//	GetForwardingControlRuleLabelArgs{...}
+type GetForwardingControlRuleLabelInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLabelOutput() GetForwardingControlRuleLabelOutput
+	ToGetForwardingControlRuleLabelOutputWithContext(context.Context) GetForwardingControlRuleLabelOutput
+}
+
+type GetForwardingControlRuleLabelArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLabel)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLabelArgs) ToGetForwardingControlRuleLabelOutput() GetForwardingControlRuleLabelOutput {
+	return i.ToGetForwardingControlRuleLabelOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLabelArgs) ToGetForwardingControlRuleLabelOutputWithContext(ctx context.Context) GetForwardingControlRuleLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLabelOutput)
+}
+
+// GetForwardingControlRuleLabelArrayInput is an input type that accepts GetForwardingControlRuleLabelArray and GetForwardingControlRuleLabelArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLabelArrayInput` via:
+//
+//	GetForwardingControlRuleLabelArray{ GetForwardingControlRuleLabelArgs{...} }
+type GetForwardingControlRuleLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLabelArrayOutput() GetForwardingControlRuleLabelArrayOutput
+	ToGetForwardingControlRuleLabelArrayOutputWithContext(context.Context) GetForwardingControlRuleLabelArrayOutput
+}
+
+type GetForwardingControlRuleLabelArray []GetForwardingControlRuleLabelInput
+
+func (GetForwardingControlRuleLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLabel)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLabelArray) ToGetForwardingControlRuleLabelArrayOutput() GetForwardingControlRuleLabelArrayOutput {
+	return i.ToGetForwardingControlRuleLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLabelArray) ToGetForwardingControlRuleLabelArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLabelArrayOutput)
+}
+
+type GetForwardingControlRuleLabelOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLabel)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLabelOutput) ToGetForwardingControlRuleLabelOutput() GetForwardingControlRuleLabelOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLabelOutput) ToGetForwardingControlRuleLabelOutputWithContext(ctx context.Context) GetForwardingControlRuleLabelOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLabel)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLabelArrayOutput) ToGetForwardingControlRuleLabelArrayOutput() GetForwardingControlRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLabelArrayOutput) ToGetForwardingControlRuleLabelArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLabelArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleLabel {
+		return vs[0].([]GetForwardingControlRuleLabel)[vs[1].(int)]
+	}).(GetForwardingControlRuleLabelOutput)
+}
+
+type GetForwardingControlRuleLocation struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleLocationInput is an input type that accepts GetForwardingControlRuleLocationArgs and GetForwardingControlRuleLocationOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLocationInput` via:
+//
+//	GetForwardingControlRuleLocationArgs{...}
+type GetForwardingControlRuleLocationInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLocationOutput() GetForwardingControlRuleLocationOutput
+	ToGetForwardingControlRuleLocationOutputWithContext(context.Context) GetForwardingControlRuleLocationOutput
+}
+
+type GetForwardingControlRuleLocationArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLocation)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLocationArgs) ToGetForwardingControlRuleLocationOutput() GetForwardingControlRuleLocationOutput {
+	return i.ToGetForwardingControlRuleLocationOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLocationArgs) ToGetForwardingControlRuleLocationOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLocationOutput)
+}
+
+// GetForwardingControlRuleLocationArrayInput is an input type that accepts GetForwardingControlRuleLocationArray and GetForwardingControlRuleLocationArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLocationArrayInput` via:
+//
+//	GetForwardingControlRuleLocationArray{ GetForwardingControlRuleLocationArgs{...} }
+type GetForwardingControlRuleLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLocationArrayOutput() GetForwardingControlRuleLocationArrayOutput
+	ToGetForwardingControlRuleLocationArrayOutputWithContext(context.Context) GetForwardingControlRuleLocationArrayOutput
+}
+
+type GetForwardingControlRuleLocationArray []GetForwardingControlRuleLocationInput
+
+func (GetForwardingControlRuleLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLocation)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLocationArray) ToGetForwardingControlRuleLocationArrayOutput() GetForwardingControlRuleLocationArrayOutput {
+	return i.ToGetForwardingControlRuleLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLocationArray) ToGetForwardingControlRuleLocationArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLocationArrayOutput)
+}
+
+type GetForwardingControlRuleLocationOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLocation)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLocationOutput) ToGetForwardingControlRuleLocationOutput() GetForwardingControlRuleLocationOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationOutput) ToGetForwardingControlRuleLocationOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLocation)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLocationArrayOutput) ToGetForwardingControlRuleLocationArrayOutput() GetForwardingControlRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationArrayOutput) ToGetForwardingControlRuleLocationArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleLocation {
+		return vs[0].([]GetForwardingControlRuleLocation)[vs[1].(int)]
+	}).(GetForwardingControlRuleLocationOutput)
+}
+
+type GetForwardingControlRuleLocationGroup struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleLocationGroupInput is an input type that accepts GetForwardingControlRuleLocationGroupArgs and GetForwardingControlRuleLocationGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLocationGroupInput` via:
+//
+//	GetForwardingControlRuleLocationGroupArgs{...}
+type GetForwardingControlRuleLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLocationGroupOutput() GetForwardingControlRuleLocationGroupOutput
+	ToGetForwardingControlRuleLocationGroupOutputWithContext(context.Context) GetForwardingControlRuleLocationGroupOutput
+}
+
+type GetForwardingControlRuleLocationGroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLocationGroupArgs) ToGetForwardingControlRuleLocationGroupOutput() GetForwardingControlRuleLocationGroupOutput {
+	return i.ToGetForwardingControlRuleLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLocationGroupArgs) ToGetForwardingControlRuleLocationGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLocationGroupOutput)
+}
+
+// GetForwardingControlRuleLocationGroupArrayInput is an input type that accepts GetForwardingControlRuleLocationGroupArray and GetForwardingControlRuleLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleLocationGroupArrayInput` via:
+//
+//	GetForwardingControlRuleLocationGroupArray{ GetForwardingControlRuleLocationGroupArgs{...} }
+type GetForwardingControlRuleLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleLocationGroupArrayOutput() GetForwardingControlRuleLocationGroupArrayOutput
+	ToGetForwardingControlRuleLocationGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleLocationGroupArrayOutput
+}
+
+type GetForwardingControlRuleLocationGroupArray []GetForwardingControlRuleLocationGroupInput
+
+func (GetForwardingControlRuleLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleLocationGroupArray) ToGetForwardingControlRuleLocationGroupArrayOutput() GetForwardingControlRuleLocationGroupArrayOutput {
+	return i.ToGetForwardingControlRuleLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleLocationGroupArray) ToGetForwardingControlRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleLocationGroupArrayOutput)
+}
+
+type GetForwardingControlRuleLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLocationGroupOutput) ToGetForwardingControlRuleLocationGroupOutput() GetForwardingControlRuleLocationGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationGroupOutput) ToGetForwardingControlRuleLocationGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationGroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleLocationGroupArrayOutput) ToGetForwardingControlRuleLocationGroupArrayOutput() GetForwardingControlRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationGroupArrayOutput) ToGetForwardingControlRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleLocationGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleLocationGroup {
+		return vs[0].([]GetForwardingControlRuleLocationGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleLocationGroupOutput)
+}
+
+type GetForwardingControlRuleNwApplicationGroup struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleNwApplicationGroupInput is an input type that accepts GetForwardingControlRuleNwApplicationGroupArgs and GetForwardingControlRuleNwApplicationGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwApplicationGroupInput` via:
+//
+//	GetForwardingControlRuleNwApplicationGroupArgs{...}
+type GetForwardingControlRuleNwApplicationGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwApplicationGroupOutput() GetForwardingControlRuleNwApplicationGroupOutput
+	ToGetForwardingControlRuleNwApplicationGroupOutputWithContext(context.Context) GetForwardingControlRuleNwApplicationGroupOutput
+}
+
+type GetForwardingControlRuleNwApplicationGroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleNwApplicationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwApplicationGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwApplicationGroupArgs) ToGetForwardingControlRuleNwApplicationGroupOutput() GetForwardingControlRuleNwApplicationGroupOutput {
+	return i.ToGetForwardingControlRuleNwApplicationGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwApplicationGroupArgs) ToGetForwardingControlRuleNwApplicationGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleNwApplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwApplicationGroupOutput)
+}
+
+// GetForwardingControlRuleNwApplicationGroupArrayInput is an input type that accepts GetForwardingControlRuleNwApplicationGroupArray and GetForwardingControlRuleNwApplicationGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwApplicationGroupArrayInput` via:
+//
+//	GetForwardingControlRuleNwApplicationGroupArray{ GetForwardingControlRuleNwApplicationGroupArgs{...} }
+type GetForwardingControlRuleNwApplicationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwApplicationGroupArrayOutput() GetForwardingControlRuleNwApplicationGroupArrayOutput
+	ToGetForwardingControlRuleNwApplicationGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleNwApplicationGroupArrayOutput
+}
+
+type GetForwardingControlRuleNwApplicationGroupArray []GetForwardingControlRuleNwApplicationGroupInput
+
+func (GetForwardingControlRuleNwApplicationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwApplicationGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwApplicationGroupArray) ToGetForwardingControlRuleNwApplicationGroupArrayOutput() GetForwardingControlRuleNwApplicationGroupArrayOutput {
+	return i.ToGetForwardingControlRuleNwApplicationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwApplicationGroupArray) ToGetForwardingControlRuleNwApplicationGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwApplicationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwApplicationGroupArrayOutput)
+}
+
+type GetForwardingControlRuleNwApplicationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwApplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwApplicationGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwApplicationGroupOutput) ToGetForwardingControlRuleNwApplicationGroupOutput() GetForwardingControlRuleNwApplicationGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwApplicationGroupOutput) ToGetForwardingControlRuleNwApplicationGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleNwApplicationGroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleNwApplicationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwApplicationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleNwApplicationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwApplicationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleNwApplicationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwApplicationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwApplicationGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwApplicationGroupArrayOutput) ToGetForwardingControlRuleNwApplicationGroupArrayOutput() GetForwardingControlRuleNwApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwApplicationGroupArrayOutput) ToGetForwardingControlRuleNwApplicationGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwApplicationGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleNwApplicationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleNwApplicationGroup {
+		return vs[0].([]GetForwardingControlRuleNwApplicationGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleNwApplicationGroupOutput)
+}
+
+type GetForwardingControlRuleNwService struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleNwServiceInput is an input type that accepts GetForwardingControlRuleNwServiceArgs and GetForwardingControlRuleNwServiceOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwServiceInput` via:
+//
+//	GetForwardingControlRuleNwServiceArgs{...}
+type GetForwardingControlRuleNwServiceInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwServiceOutput() GetForwardingControlRuleNwServiceOutput
+	ToGetForwardingControlRuleNwServiceOutputWithContext(context.Context) GetForwardingControlRuleNwServiceOutput
+}
+
+type GetForwardingControlRuleNwServiceArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleNwServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwService)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwServiceArgs) ToGetForwardingControlRuleNwServiceOutput() GetForwardingControlRuleNwServiceOutput {
+	return i.ToGetForwardingControlRuleNwServiceOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwServiceArgs) ToGetForwardingControlRuleNwServiceOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwServiceOutput)
+}
+
+// GetForwardingControlRuleNwServiceArrayInput is an input type that accepts GetForwardingControlRuleNwServiceArray and GetForwardingControlRuleNwServiceArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwServiceArrayInput` via:
+//
+//	GetForwardingControlRuleNwServiceArray{ GetForwardingControlRuleNwServiceArgs{...} }
+type GetForwardingControlRuleNwServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwServiceArrayOutput() GetForwardingControlRuleNwServiceArrayOutput
+	ToGetForwardingControlRuleNwServiceArrayOutputWithContext(context.Context) GetForwardingControlRuleNwServiceArrayOutput
+}
+
+type GetForwardingControlRuleNwServiceArray []GetForwardingControlRuleNwServiceInput
+
+func (GetForwardingControlRuleNwServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwService)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwServiceArray) ToGetForwardingControlRuleNwServiceArrayOutput() GetForwardingControlRuleNwServiceArrayOutput {
+	return i.ToGetForwardingControlRuleNwServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwServiceArray) ToGetForwardingControlRuleNwServiceArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwServiceArrayOutput)
+}
+
+type GetForwardingControlRuleNwServiceOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwService)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwServiceOutput) ToGetForwardingControlRuleNwServiceOutput() GetForwardingControlRuleNwServiceOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceOutput) ToGetForwardingControlRuleNwServiceOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleNwServiceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwService) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleNwServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleNwServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwService)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwServiceArrayOutput) ToGetForwardingControlRuleNwServiceArrayOutput() GetForwardingControlRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceArrayOutput) ToGetForwardingControlRuleNwServiceArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleNwServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleNwService {
+		return vs[0].([]GetForwardingControlRuleNwService)[vs[1].(int)]
+	}).(GetForwardingControlRuleNwServiceOutput)
+}
+
+type GetForwardingControlRuleNwServiceGroup struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleNwServiceGroupInput is an input type that accepts GetForwardingControlRuleNwServiceGroupArgs and GetForwardingControlRuleNwServiceGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwServiceGroupInput` via:
+//
+//	GetForwardingControlRuleNwServiceGroupArgs{...}
+type GetForwardingControlRuleNwServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwServiceGroupOutput() GetForwardingControlRuleNwServiceGroupOutput
+	ToGetForwardingControlRuleNwServiceGroupOutputWithContext(context.Context) GetForwardingControlRuleNwServiceGroupOutput
+}
+
+type GetForwardingControlRuleNwServiceGroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleNwServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwServiceGroupArgs) ToGetForwardingControlRuleNwServiceGroupOutput() GetForwardingControlRuleNwServiceGroupOutput {
+	return i.ToGetForwardingControlRuleNwServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwServiceGroupArgs) ToGetForwardingControlRuleNwServiceGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwServiceGroupOutput)
+}
+
+// GetForwardingControlRuleNwServiceGroupArrayInput is an input type that accepts GetForwardingControlRuleNwServiceGroupArray and GetForwardingControlRuleNwServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleNwServiceGroupArrayInput` via:
+//
+//	GetForwardingControlRuleNwServiceGroupArray{ GetForwardingControlRuleNwServiceGroupArgs{...} }
+type GetForwardingControlRuleNwServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleNwServiceGroupArrayOutput() GetForwardingControlRuleNwServiceGroupArrayOutput
+	ToGetForwardingControlRuleNwServiceGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleNwServiceGroupArrayOutput
+}
+
+type GetForwardingControlRuleNwServiceGroupArray []GetForwardingControlRuleNwServiceGroupInput
+
+func (GetForwardingControlRuleNwServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleNwServiceGroupArray) ToGetForwardingControlRuleNwServiceGroupArrayOutput() GetForwardingControlRuleNwServiceGroupArrayOutput {
+	return i.ToGetForwardingControlRuleNwServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleNwServiceGroupArray) ToGetForwardingControlRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleNwServiceGroupArrayOutput)
+}
+
+type GetForwardingControlRuleNwServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwServiceGroupOutput) ToGetForwardingControlRuleNwServiceGroupOutput() GetForwardingControlRuleNwServiceGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceGroupOutput) ToGetForwardingControlRuleNwServiceGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceGroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleNwServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleNwServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleNwServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleNwServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleNwServiceGroupArrayOutput) ToGetForwardingControlRuleNwServiceGroupArrayOutput() GetForwardingControlRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceGroupArrayOutput) ToGetForwardingControlRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleNwServiceGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleNwServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleNwServiceGroup {
+		return vs[0].([]GetForwardingControlRuleNwServiceGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleNwServiceGroupOutput)
+}
+
+type GetForwardingControlRuleProxyGateway struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleProxyGatewayInput is an input type that accepts GetForwardingControlRuleProxyGatewayArgs and GetForwardingControlRuleProxyGatewayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleProxyGatewayInput` via:
+//
+//	GetForwardingControlRuleProxyGatewayArgs{...}
+type GetForwardingControlRuleProxyGatewayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleProxyGatewayOutput() GetForwardingControlRuleProxyGatewayOutput
+	ToGetForwardingControlRuleProxyGatewayOutputWithContext(context.Context) GetForwardingControlRuleProxyGatewayOutput
+}
+
+type GetForwardingControlRuleProxyGatewayArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleProxyGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleProxyGateway)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleProxyGatewayArgs) ToGetForwardingControlRuleProxyGatewayOutput() GetForwardingControlRuleProxyGatewayOutput {
+	return i.ToGetForwardingControlRuleProxyGatewayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleProxyGatewayArgs) ToGetForwardingControlRuleProxyGatewayOutputWithContext(ctx context.Context) GetForwardingControlRuleProxyGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleProxyGatewayOutput)
+}
+
+// GetForwardingControlRuleProxyGatewayArrayInput is an input type that accepts GetForwardingControlRuleProxyGatewayArray and GetForwardingControlRuleProxyGatewayArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleProxyGatewayArrayInput` via:
+//
+//	GetForwardingControlRuleProxyGatewayArray{ GetForwardingControlRuleProxyGatewayArgs{...} }
+type GetForwardingControlRuleProxyGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleProxyGatewayArrayOutput() GetForwardingControlRuleProxyGatewayArrayOutput
+	ToGetForwardingControlRuleProxyGatewayArrayOutputWithContext(context.Context) GetForwardingControlRuleProxyGatewayArrayOutput
+}
+
+type GetForwardingControlRuleProxyGatewayArray []GetForwardingControlRuleProxyGatewayInput
+
+func (GetForwardingControlRuleProxyGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleProxyGateway)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleProxyGatewayArray) ToGetForwardingControlRuleProxyGatewayArrayOutput() GetForwardingControlRuleProxyGatewayArrayOutput {
+	return i.ToGetForwardingControlRuleProxyGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleProxyGatewayArray) ToGetForwardingControlRuleProxyGatewayArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleProxyGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleProxyGatewayArrayOutput)
+}
+
+type GetForwardingControlRuleProxyGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleProxyGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleProxyGateway)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleProxyGatewayOutput) ToGetForwardingControlRuleProxyGatewayOutput() GetForwardingControlRuleProxyGatewayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleProxyGatewayOutput) ToGetForwardingControlRuleProxyGatewayOutputWithContext(ctx context.Context) GetForwardingControlRuleProxyGatewayOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleProxyGatewayOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleProxyGateway) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleProxyGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleProxyGateway) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleProxyGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleProxyGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleProxyGateway)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleProxyGatewayArrayOutput) ToGetForwardingControlRuleProxyGatewayArrayOutput() GetForwardingControlRuleProxyGatewayArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleProxyGatewayArrayOutput) ToGetForwardingControlRuleProxyGatewayArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleProxyGatewayArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleProxyGatewayArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleProxyGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleProxyGateway {
+		return vs[0].([]GetForwardingControlRuleProxyGateway)[vs[1].(int)]
+	}).(GetForwardingControlRuleProxyGatewayOutput)
+}
+
+type GetForwardingControlRuleSrcIpGroup struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleSrcIpGroupInput is an input type that accepts GetForwardingControlRuleSrcIpGroupArgs and GetForwardingControlRuleSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleSrcIpGroupInput` via:
+//
+//	GetForwardingControlRuleSrcIpGroupArgs{...}
+type GetForwardingControlRuleSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleSrcIpGroupOutput() GetForwardingControlRuleSrcIpGroupOutput
+	ToGetForwardingControlRuleSrcIpGroupOutputWithContext(context.Context) GetForwardingControlRuleSrcIpGroupOutput
+}
+
+type GetForwardingControlRuleSrcIpGroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleSrcIpGroupArgs) ToGetForwardingControlRuleSrcIpGroupOutput() GetForwardingControlRuleSrcIpGroupOutput {
+	return i.ToGetForwardingControlRuleSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleSrcIpGroupArgs) ToGetForwardingControlRuleSrcIpGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleSrcIpGroupOutput)
+}
+
+// GetForwardingControlRuleSrcIpGroupArrayInput is an input type that accepts GetForwardingControlRuleSrcIpGroupArray and GetForwardingControlRuleSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleSrcIpGroupArrayInput` via:
+//
+//	GetForwardingControlRuleSrcIpGroupArray{ GetForwardingControlRuleSrcIpGroupArgs{...} }
+type GetForwardingControlRuleSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleSrcIpGroupArrayOutput() GetForwardingControlRuleSrcIpGroupArrayOutput
+	ToGetForwardingControlRuleSrcIpGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleSrcIpGroupArrayOutput
+}
+
+type GetForwardingControlRuleSrcIpGroupArray []GetForwardingControlRuleSrcIpGroupInput
+
+func (GetForwardingControlRuleSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleSrcIpGroupArray) ToGetForwardingControlRuleSrcIpGroupArrayOutput() GetForwardingControlRuleSrcIpGroupArrayOutput {
+	return i.ToGetForwardingControlRuleSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleSrcIpGroupArray) ToGetForwardingControlRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleSrcIpGroupArrayOutput)
+}
+
+type GetForwardingControlRuleSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleSrcIpGroupOutput) ToGetForwardingControlRuleSrcIpGroupOutput() GetForwardingControlRuleSrcIpGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpGroupOutput) ToGetForwardingControlRuleSrcIpGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpGroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleSrcIpGroupArrayOutput) ToGetForwardingControlRuleSrcIpGroupArrayOutput() GetForwardingControlRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpGroupArrayOutput) ToGetForwardingControlRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleSrcIpGroup {
+		return vs[0].([]GetForwardingControlRuleSrcIpGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleSrcIpGroupOutput)
+}
+
+type GetForwardingControlRuleSrcIpv6Group struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleSrcIpv6GroupInput is an input type that accepts GetForwardingControlRuleSrcIpv6GroupArgs and GetForwardingControlRuleSrcIpv6GroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleSrcIpv6GroupInput` via:
+//
+//	GetForwardingControlRuleSrcIpv6GroupArgs{...}
+type GetForwardingControlRuleSrcIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleSrcIpv6GroupOutput() GetForwardingControlRuleSrcIpv6GroupOutput
+	ToGetForwardingControlRuleSrcIpv6GroupOutputWithContext(context.Context) GetForwardingControlRuleSrcIpv6GroupOutput
+}
+
+type GetForwardingControlRuleSrcIpv6GroupArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleSrcIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleSrcIpv6GroupArgs) ToGetForwardingControlRuleSrcIpv6GroupOutput() GetForwardingControlRuleSrcIpv6GroupOutput {
+	return i.ToGetForwardingControlRuleSrcIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleSrcIpv6GroupArgs) ToGetForwardingControlRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleSrcIpv6GroupOutput)
+}
+
+// GetForwardingControlRuleSrcIpv6GroupArrayInput is an input type that accepts GetForwardingControlRuleSrcIpv6GroupArray and GetForwardingControlRuleSrcIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleSrcIpv6GroupArrayInput` via:
+//
+//	GetForwardingControlRuleSrcIpv6GroupArray{ GetForwardingControlRuleSrcIpv6GroupArgs{...} }
+type GetForwardingControlRuleSrcIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleSrcIpv6GroupArrayOutput() GetForwardingControlRuleSrcIpv6GroupArrayOutput
+	ToGetForwardingControlRuleSrcIpv6GroupArrayOutputWithContext(context.Context) GetForwardingControlRuleSrcIpv6GroupArrayOutput
+}
+
+type GetForwardingControlRuleSrcIpv6GroupArray []GetForwardingControlRuleSrcIpv6GroupInput
+
+func (GetForwardingControlRuleSrcIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleSrcIpv6GroupArray) ToGetForwardingControlRuleSrcIpv6GroupArrayOutput() GetForwardingControlRuleSrcIpv6GroupArrayOutput {
+	return i.ToGetForwardingControlRuleSrcIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleSrcIpv6GroupArray) ToGetForwardingControlRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleSrcIpv6GroupArrayOutput)
+}
+
+type GetForwardingControlRuleSrcIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleSrcIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleSrcIpv6GroupOutput) ToGetForwardingControlRuleSrcIpv6GroupOutput() GetForwardingControlRuleSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpv6GroupOutput) ToGetForwardingControlRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpv6GroupOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleSrcIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleSrcIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleSrcIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleSrcIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleSrcIpv6GroupArrayOutput) ToGetForwardingControlRuleSrcIpv6GroupArrayOutput() GetForwardingControlRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpv6GroupArrayOutput) ToGetForwardingControlRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleSrcIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleSrcIpv6Group {
+		return vs[0].([]GetForwardingControlRuleSrcIpv6Group)[vs[1].(int)]
+	}).(GetForwardingControlRuleSrcIpv6GroupOutput)
+}
+
+type GetForwardingControlRuleUser struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleUserInput is an input type that accepts GetForwardingControlRuleUserArgs and GetForwardingControlRuleUserOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleUserInput` via:
+//
+//	GetForwardingControlRuleUserArgs{...}
+type GetForwardingControlRuleUserInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleUserOutput() GetForwardingControlRuleUserOutput
+	ToGetForwardingControlRuleUserOutputWithContext(context.Context) GetForwardingControlRuleUserOutput
+}
+
+type GetForwardingControlRuleUserArgs struct {
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleUser)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleUserArgs) ToGetForwardingControlRuleUserOutput() GetForwardingControlRuleUserOutput {
+	return i.ToGetForwardingControlRuleUserOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleUserArgs) ToGetForwardingControlRuleUserOutputWithContext(ctx context.Context) GetForwardingControlRuleUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleUserOutput)
+}
+
+// GetForwardingControlRuleUserArrayInput is an input type that accepts GetForwardingControlRuleUserArray and GetForwardingControlRuleUserArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleUserArrayInput` via:
+//
+//	GetForwardingControlRuleUserArray{ GetForwardingControlRuleUserArgs{...} }
+type GetForwardingControlRuleUserArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleUserArrayOutput() GetForwardingControlRuleUserArrayOutput
+	ToGetForwardingControlRuleUserArrayOutputWithContext(context.Context) GetForwardingControlRuleUserArrayOutput
+}
+
+type GetForwardingControlRuleUserArray []GetForwardingControlRuleUserInput
+
+func (GetForwardingControlRuleUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleUser)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleUserArray) ToGetForwardingControlRuleUserArrayOutput() GetForwardingControlRuleUserArrayOutput {
+	return i.ToGetForwardingControlRuleUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleUserArray) ToGetForwardingControlRuleUserArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleUserArrayOutput)
+}
+
+type GetForwardingControlRuleUserOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleUser)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleUserOutput) ToGetForwardingControlRuleUserOutput() GetForwardingControlRuleUserOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleUserOutput) ToGetForwardingControlRuleUserOutputWithContext(ctx context.Context) GetForwardingControlRuleUserOutput {
+	return o
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleUser)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleUserArrayOutput) ToGetForwardingControlRuleUserArrayOutput() GetForwardingControlRuleUserArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleUserArrayOutput) ToGetForwardingControlRuleUserArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleUserArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleUserArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleUser {
+		return vs[0].([]GetForwardingControlRuleUser)[vs[1].(int)]
+	}).(GetForwardingControlRuleUserOutput)
+}
+
+type GetForwardingControlRuleZpaAppSegment struct {
+	// (int) Identifier that uniquely identifies an entity
+	ExternalId string `pulumi:"externalId"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleZpaAppSegmentInput is an input type that accepts GetForwardingControlRuleZpaAppSegmentArgs and GetForwardingControlRuleZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaAppSegmentInput` via:
+//
+//	GetForwardingControlRuleZpaAppSegmentArgs{...}
+type GetForwardingControlRuleZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaAppSegmentOutput() GetForwardingControlRuleZpaAppSegmentOutput
+	ToGetForwardingControlRuleZpaAppSegmentOutputWithContext(context.Context) GetForwardingControlRuleZpaAppSegmentOutput
+}
+
+type GetForwardingControlRuleZpaAppSegmentArgs struct {
+	// (int) Identifier that uniquely identifies an entity
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaAppSegmentArgs) ToGetForwardingControlRuleZpaAppSegmentOutput() GetForwardingControlRuleZpaAppSegmentOutput {
+	return i.ToGetForwardingControlRuleZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaAppSegmentArgs) ToGetForwardingControlRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaAppSegmentOutput)
+}
+
+// GetForwardingControlRuleZpaAppSegmentArrayInput is an input type that accepts GetForwardingControlRuleZpaAppSegmentArray and GetForwardingControlRuleZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaAppSegmentArrayInput` via:
+//
+//	GetForwardingControlRuleZpaAppSegmentArray{ GetForwardingControlRuleZpaAppSegmentArgs{...} }
+type GetForwardingControlRuleZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaAppSegmentArrayOutput() GetForwardingControlRuleZpaAppSegmentArrayOutput
+	ToGetForwardingControlRuleZpaAppSegmentArrayOutputWithContext(context.Context) GetForwardingControlRuleZpaAppSegmentArrayOutput
+}
+
+type GetForwardingControlRuleZpaAppSegmentArray []GetForwardingControlRuleZpaAppSegmentInput
+
+func (GetForwardingControlRuleZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaAppSegmentArray) ToGetForwardingControlRuleZpaAppSegmentArrayOutput() GetForwardingControlRuleZpaAppSegmentArrayOutput {
+	return i.ToGetForwardingControlRuleZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaAppSegmentArray) ToGetForwardingControlRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaAppSegmentArrayOutput)
+}
+
+type GetForwardingControlRuleZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaAppSegmentOutput) ToGetForwardingControlRuleZpaAppSegmentOutput() GetForwardingControlRuleZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaAppSegmentOutput) ToGetForwardingControlRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaAppSegmentOutput {
+	return o
+}
+
+// (int) Identifier that uniquely identifies an entity
+func (o GetForwardingControlRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleZpaAppSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaAppSegmentArrayOutput) ToGetForwardingControlRuleZpaAppSegmentArrayOutput() GetForwardingControlRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaAppSegmentArrayOutput) ToGetForwardingControlRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleZpaAppSegment {
+		return vs[0].([]GetForwardingControlRuleZpaAppSegment)[vs[1].(int)]
+	}).(GetForwardingControlRuleZpaAppSegmentOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegment struct {
+	// Additional information about the Application Segment
+	Ddescription string `pulumi:"ddescription"`
+	// ID of the ZPA tenant where the Application Segment is configured
+	Deleted bool `pulumi:"deleted"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+	// ID of the ZPA tenant where the Application Segment is configured
+	ZpaId int `pulumi:"zpaId"`
+}
+
+// GetForwardingControlRuleZpaApplicationSegmentInput is an input type that accepts GetForwardingControlRuleZpaApplicationSegmentArgs and GetForwardingControlRuleZpaApplicationSegmentOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaApplicationSegmentInput` via:
+//
+//	GetForwardingControlRuleZpaApplicationSegmentArgs{...}
+type GetForwardingControlRuleZpaApplicationSegmentInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaApplicationSegmentOutput() GetForwardingControlRuleZpaApplicationSegmentOutput
+	ToGetForwardingControlRuleZpaApplicationSegmentOutputWithContext(context.Context) GetForwardingControlRuleZpaApplicationSegmentOutput
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentArgs struct {
+	// Additional information about the Application Segment
+	Ddescription pulumi.StringInput `pulumi:"ddescription"`
+	// ID of the ZPA tenant where the Application Segment is configured
+	Deleted pulumi.BoolInput `pulumi:"deleted"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// ID of the ZPA tenant where the Application Segment is configured
+	ZpaId pulumi.IntInput `pulumi:"zpaId"`
+}
+
+func (GetForwardingControlRuleZpaApplicationSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentArgs) ToGetForwardingControlRuleZpaApplicationSegmentOutput() GetForwardingControlRuleZpaApplicationSegmentOutput {
+	return i.ToGetForwardingControlRuleZpaApplicationSegmentOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentArgs) ToGetForwardingControlRuleZpaApplicationSegmentOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaApplicationSegmentOutput)
+}
+
+// GetForwardingControlRuleZpaApplicationSegmentArrayInput is an input type that accepts GetForwardingControlRuleZpaApplicationSegmentArray and GetForwardingControlRuleZpaApplicationSegmentArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaApplicationSegmentArrayInput` via:
+//
+//	GetForwardingControlRuleZpaApplicationSegmentArray{ GetForwardingControlRuleZpaApplicationSegmentArgs{...} }
+type GetForwardingControlRuleZpaApplicationSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaApplicationSegmentArrayOutput() GetForwardingControlRuleZpaApplicationSegmentArrayOutput
+	ToGetForwardingControlRuleZpaApplicationSegmentArrayOutputWithContext(context.Context) GetForwardingControlRuleZpaApplicationSegmentArrayOutput
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentArray []GetForwardingControlRuleZpaApplicationSegmentInput
+
+func (GetForwardingControlRuleZpaApplicationSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaApplicationSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentArray) ToGetForwardingControlRuleZpaApplicationSegmentArrayOutput() GetForwardingControlRuleZpaApplicationSegmentArrayOutput {
+	return i.ToGetForwardingControlRuleZpaApplicationSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentArray) ToGetForwardingControlRuleZpaApplicationSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaApplicationSegmentArrayOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaApplicationSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) ToGetForwardingControlRuleZpaApplicationSegmentOutput() GetForwardingControlRuleZpaApplicationSegmentOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) ToGetForwardingControlRuleZpaApplicationSegmentOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentOutput {
+	return o
+}
+
+// Additional information about the Application Segment
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) Ddescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegment) string { return v.Ddescription }).(pulumi.StringOutput)
+}
+
+// ID of the ZPA tenant where the Application Segment is configured
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) Deleted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegment) bool { return v.Deleted }).(pulumi.BoolOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ID of the ZPA tenant where the Application Segment is configured
+func (o GetForwardingControlRuleZpaApplicationSegmentOutput) ZpaId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegment) int { return v.ZpaId }).(pulumi.IntOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaApplicationSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaApplicationSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentArrayOutput) ToGetForwardingControlRuleZpaApplicationSegmentArrayOutput() GetForwardingControlRuleZpaApplicationSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentArrayOutput) ToGetForwardingControlRuleZpaApplicationSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleZpaApplicationSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleZpaApplicationSegment {
+		return vs[0].([]GetForwardingControlRuleZpaApplicationSegment)[vs[1].(int)]
+	}).(GetForwardingControlRuleZpaApplicationSegmentOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentGroup struct {
+	// Indicates whether the ZPA Application Segment Group has been deleted
+	Deleted bool `pulumi:"deleted"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+	// The number of ZPA Application Segments in the group
+	ZpaAppSegmentsCount int `pulumi:"zpaAppSegmentsCount"`
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ZpaId int `pulumi:"zpaId"`
+}
+
+// GetForwardingControlRuleZpaApplicationSegmentGroupInput is an input type that accepts GetForwardingControlRuleZpaApplicationSegmentGroupArgs and GetForwardingControlRuleZpaApplicationSegmentGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaApplicationSegmentGroupInput` via:
+//
+//	GetForwardingControlRuleZpaApplicationSegmentGroupArgs{...}
+type GetForwardingControlRuleZpaApplicationSegmentGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaApplicationSegmentGroupOutput() GetForwardingControlRuleZpaApplicationSegmentGroupOutput
+	ToGetForwardingControlRuleZpaApplicationSegmentGroupOutputWithContext(context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupOutput
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentGroupArgs struct {
+	// Indicates whether the ZPA Application Segment Group has been deleted
+	Deleted pulumi.BoolInput `pulumi:"deleted"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of ZPA Application Segments in the group
+	ZpaAppSegmentsCount pulumi.IntInput `pulumi:"zpaAppSegmentsCount"`
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ZpaId pulumi.IntInput `pulumi:"zpaId"`
+}
+
+func (GetForwardingControlRuleZpaApplicationSegmentGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentGroupArgs) ToGetForwardingControlRuleZpaApplicationSegmentGroupOutput() GetForwardingControlRuleZpaApplicationSegmentGroupOutput {
+	return i.ToGetForwardingControlRuleZpaApplicationSegmentGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentGroupArgs) ToGetForwardingControlRuleZpaApplicationSegmentGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaApplicationSegmentGroupOutput)
+}
+
+// GetForwardingControlRuleZpaApplicationSegmentGroupArrayInput is an input type that accepts GetForwardingControlRuleZpaApplicationSegmentGroupArray and GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaApplicationSegmentGroupArrayInput` via:
+//
+//	GetForwardingControlRuleZpaApplicationSegmentGroupArray{ GetForwardingControlRuleZpaApplicationSegmentGroupArgs{...} }
+type GetForwardingControlRuleZpaApplicationSegmentGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput() GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput
+	ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutputWithContext(context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentGroupArray []GetForwardingControlRuleZpaApplicationSegmentGroupInput
+
+func (GetForwardingControlRuleZpaApplicationSegmentGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaApplicationSegmentGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentGroupArray) ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput() GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput {
+	return i.ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaApplicationSegmentGroupArray) ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaApplicationSegmentGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) ToGetForwardingControlRuleZpaApplicationSegmentGroupOutput() GetForwardingControlRuleZpaApplicationSegmentGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) ToGetForwardingControlRuleZpaApplicationSegmentGroupOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupOutput {
+	return o
+}
+
+// Indicates whether the ZPA Application Segment Group has been deleted
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) Deleted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegmentGroup) bool { return v.Deleted }).(pulumi.BoolOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegmentGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegmentGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of ZPA Application Segments in the group
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) ZpaAppSegmentsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegmentGroup) int { return v.ZpaAppSegmentsCount }).(pulumi.IntOutput)
+}
+
+// Indicates the external ID. Applicable only when this reference is of an external entity.
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupOutput) ZpaId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaApplicationSegmentGroup) int { return v.ZpaId }).(pulumi.IntOutput)
+}
+
+type GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaApplicationSegmentGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput) ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput() GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput) ToGetForwardingControlRuleZpaApplicationSegmentGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleZpaApplicationSegmentGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleZpaApplicationSegmentGroup {
+		return vs[0].([]GetForwardingControlRuleZpaApplicationSegmentGroup)[vs[1].(int)]
+	}).(GetForwardingControlRuleZpaApplicationSegmentGroupOutput)
+}
+
+type GetForwardingControlRuleZpaGateway struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlRuleZpaGatewayInput is an input type that accepts GetForwardingControlRuleZpaGatewayArgs and GetForwardingControlRuleZpaGatewayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaGatewayInput` via:
+//
+//	GetForwardingControlRuleZpaGatewayArgs{...}
+type GetForwardingControlRuleZpaGatewayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaGatewayOutput() GetForwardingControlRuleZpaGatewayOutput
+	ToGetForwardingControlRuleZpaGatewayOutputWithContext(context.Context) GetForwardingControlRuleZpaGatewayOutput
+}
+
+type GetForwardingControlRuleZpaGatewayArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlRuleZpaGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaGateway)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaGatewayArgs) ToGetForwardingControlRuleZpaGatewayOutput() GetForwardingControlRuleZpaGatewayOutput {
+	return i.ToGetForwardingControlRuleZpaGatewayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaGatewayArgs) ToGetForwardingControlRuleZpaGatewayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaGatewayOutput)
+}
+
+// GetForwardingControlRuleZpaGatewayArrayInput is an input type that accepts GetForwardingControlRuleZpaGatewayArray and GetForwardingControlRuleZpaGatewayArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlRuleZpaGatewayArrayInput` via:
+//
+//	GetForwardingControlRuleZpaGatewayArray{ GetForwardingControlRuleZpaGatewayArgs{...} }
+type GetForwardingControlRuleZpaGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlRuleZpaGatewayArrayOutput() GetForwardingControlRuleZpaGatewayArrayOutput
+	ToGetForwardingControlRuleZpaGatewayArrayOutputWithContext(context.Context) GetForwardingControlRuleZpaGatewayArrayOutput
+}
+
+type GetForwardingControlRuleZpaGatewayArray []GetForwardingControlRuleZpaGatewayInput
+
+func (GetForwardingControlRuleZpaGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaGateway)(nil)).Elem()
+}
+
+func (i GetForwardingControlRuleZpaGatewayArray) ToGetForwardingControlRuleZpaGatewayArrayOutput() GetForwardingControlRuleZpaGatewayArrayOutput {
+	return i.ToGetForwardingControlRuleZpaGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlRuleZpaGatewayArray) ToGetForwardingControlRuleZpaGatewayArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlRuleZpaGatewayArrayOutput)
+}
+
+type GetForwardingControlRuleZpaGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlRuleZpaGateway)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaGatewayOutput) ToGetForwardingControlRuleZpaGatewayOutput() GetForwardingControlRuleZpaGatewayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaGatewayOutput) ToGetForwardingControlRuleZpaGatewayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaGatewayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaGatewayOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaGateway) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetForwardingControlRuleZpaGatewayOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaGateway) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetForwardingControlRuleZpaGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlRuleZpaGateway) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlRuleZpaGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlRuleZpaGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlRuleZpaGateway)(nil)).Elem()
+}
+
+func (o GetForwardingControlRuleZpaGatewayArrayOutput) ToGetForwardingControlRuleZpaGatewayArrayOutput() GetForwardingControlRuleZpaGatewayArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaGatewayArrayOutput) ToGetForwardingControlRuleZpaGatewayArrayOutputWithContext(ctx context.Context) GetForwardingControlRuleZpaGatewayArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlRuleZpaGatewayArrayOutput) Index(i pulumi.IntInput) GetForwardingControlRuleZpaGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlRuleZpaGateway {
+		return vs[0].([]GetForwardingControlRuleZpaGateway)[vs[1].(int)]
+	}).(GetForwardingControlRuleZpaGatewayOutput)
+}
+
+type GetForwardingControlZPAGatewayLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// The ID of the forwarding control ZPA Gateway resource.
+	Id int `pulumi:"id"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlZPAGatewayLastModifiedByInput is an input type that accepts GetForwardingControlZPAGatewayLastModifiedByArgs and GetForwardingControlZPAGatewayLastModifiedByOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayLastModifiedByInput` via:
+//
+//	GetForwardingControlZPAGatewayLastModifiedByArgs{...}
+type GetForwardingControlZPAGatewayLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayLastModifiedByOutput() GetForwardingControlZPAGatewayLastModifiedByOutput
+	ToGetForwardingControlZPAGatewayLastModifiedByOutputWithContext(context.Context) GetForwardingControlZPAGatewayLastModifiedByOutput
+}
+
+type GetForwardingControlZPAGatewayLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The ID of the forwarding control ZPA Gateway resource.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlZPAGatewayLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayLastModifiedByArgs) ToGetForwardingControlZPAGatewayLastModifiedByOutput() GetForwardingControlZPAGatewayLastModifiedByOutput {
+	return i.ToGetForwardingControlZPAGatewayLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayLastModifiedByArgs) ToGetForwardingControlZPAGatewayLastModifiedByOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayLastModifiedByOutput)
+}
+
+// GetForwardingControlZPAGatewayLastModifiedByArrayInput is an input type that accepts GetForwardingControlZPAGatewayLastModifiedByArray and GetForwardingControlZPAGatewayLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayLastModifiedByArrayInput` via:
+//
+//	GetForwardingControlZPAGatewayLastModifiedByArray{ GetForwardingControlZPAGatewayLastModifiedByArgs{...} }
+type GetForwardingControlZPAGatewayLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayLastModifiedByArrayOutput() GetForwardingControlZPAGatewayLastModifiedByArrayOutput
+	ToGetForwardingControlZPAGatewayLastModifiedByArrayOutputWithContext(context.Context) GetForwardingControlZPAGatewayLastModifiedByArrayOutput
+}
+
+type GetForwardingControlZPAGatewayLastModifiedByArray []GetForwardingControlZPAGatewayLastModifiedByInput
+
+func (GetForwardingControlZPAGatewayLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayLastModifiedByArray) ToGetForwardingControlZPAGatewayLastModifiedByArrayOutput() GetForwardingControlZPAGatewayLastModifiedByArrayOutput {
+	return i.ToGetForwardingControlZPAGatewayLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayLastModifiedByArray) ToGetForwardingControlZPAGatewayLastModifiedByArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayLastModifiedByArrayOutput)
+}
+
+type GetForwardingControlZPAGatewayLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByOutput) ToGetForwardingControlZPAGatewayLastModifiedByOutput() GetForwardingControlZPAGatewayLastModifiedByOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByOutput) ToGetForwardingControlZPAGatewayLastModifiedByOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayLastModifiedByOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The ID of the forwarding control ZPA Gateway resource.
+func (o GetForwardingControlZPAGatewayLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding control ZPA Gateway to be exported.
+func (o GetForwardingControlZPAGatewayLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlZPAGatewayLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByArrayOutput) ToGetForwardingControlZPAGatewayLastModifiedByArrayOutput() GetForwardingControlZPAGatewayLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByArrayOutput) ToGetForwardingControlZPAGatewayLastModifiedByArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetForwardingControlZPAGatewayLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlZPAGatewayLastModifiedBy {
+		return vs[0].([]GetForwardingControlZPAGatewayLastModifiedBy)[vs[1].(int)]
+	}).(GetForwardingControlZPAGatewayLastModifiedByOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaAppSegment struct {
+	// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+	ExternalId string `pulumi:"externalId"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlZPAGatewayZpaAppSegmentInput is an input type that accepts GetForwardingControlZPAGatewayZpaAppSegmentArgs and GetForwardingControlZPAGatewayZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayZpaAppSegmentInput` via:
+//
+//	GetForwardingControlZPAGatewayZpaAppSegmentArgs{...}
+type GetForwardingControlZPAGatewayZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayZpaAppSegmentOutput() GetForwardingControlZPAGatewayZpaAppSegmentOutput
+	ToGetForwardingControlZPAGatewayZpaAppSegmentOutputWithContext(context.Context) GetForwardingControlZPAGatewayZpaAppSegmentOutput
+}
+
+type GetForwardingControlZPAGatewayZpaAppSegmentArgs struct {
+	// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlZPAGatewayZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayZpaAppSegmentArgs) ToGetForwardingControlZPAGatewayZpaAppSegmentOutput() GetForwardingControlZPAGatewayZpaAppSegmentOutput {
+	return i.ToGetForwardingControlZPAGatewayZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayZpaAppSegmentArgs) ToGetForwardingControlZPAGatewayZpaAppSegmentOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayZpaAppSegmentOutput)
+}
+
+// GetForwardingControlZPAGatewayZpaAppSegmentArrayInput is an input type that accepts GetForwardingControlZPAGatewayZpaAppSegmentArray and GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayZpaAppSegmentArrayInput` via:
+//
+//	GetForwardingControlZPAGatewayZpaAppSegmentArray{ GetForwardingControlZPAGatewayZpaAppSegmentArgs{...} }
+type GetForwardingControlZPAGatewayZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutput() GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput
+	ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutputWithContext(context.Context) GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput
+}
+
+type GetForwardingControlZPAGatewayZpaAppSegmentArray []GetForwardingControlZPAGatewayZpaAppSegmentInput
+
+func (GetForwardingControlZPAGatewayZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayZpaAppSegmentArray) ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutput() GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput {
+	return i.ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayZpaAppSegmentArray) ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayZpaAppSegmentOutput) ToGetForwardingControlZPAGatewayZpaAppSegmentOutput() GetForwardingControlZPAGatewayZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaAppSegmentOutput) ToGetForwardingControlZPAGatewayZpaAppSegmentOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaAppSegmentOutput {
+	return o
+}
+
+// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+func (o GetForwardingControlZPAGatewayZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The name of the forwarding control ZPA Gateway to be exported.
+func (o GetForwardingControlZPAGatewayZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput) ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutput() GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput) ToGetForwardingControlZPAGatewayZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetForwardingControlZPAGatewayZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlZPAGatewayZpaAppSegment {
+		return vs[0].([]GetForwardingControlZPAGatewayZpaAppSegment)[vs[1].(int)]
+	}).(GetForwardingControlZPAGatewayZpaAppSegmentOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaServerGroup struct {
+	// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+	ExternalId string `pulumi:"externalId"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingControlZPAGatewayZpaServerGroupInput is an input type that accepts GetForwardingControlZPAGatewayZpaServerGroupArgs and GetForwardingControlZPAGatewayZpaServerGroupOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayZpaServerGroupInput` via:
+//
+//	GetForwardingControlZPAGatewayZpaServerGroupArgs{...}
+type GetForwardingControlZPAGatewayZpaServerGroupInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayZpaServerGroupOutput() GetForwardingControlZPAGatewayZpaServerGroupOutput
+	ToGetForwardingControlZPAGatewayZpaServerGroupOutputWithContext(context.Context) GetForwardingControlZPAGatewayZpaServerGroupOutput
+}
+
+type GetForwardingControlZPAGatewayZpaServerGroupArgs struct {
+	// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The name of the forwarding control ZPA Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingControlZPAGatewayZpaServerGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayZpaServerGroupArgs) ToGetForwardingControlZPAGatewayZpaServerGroupOutput() GetForwardingControlZPAGatewayZpaServerGroupOutput {
+	return i.ToGetForwardingControlZPAGatewayZpaServerGroupOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayZpaServerGroupArgs) ToGetForwardingControlZPAGatewayZpaServerGroupOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaServerGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayZpaServerGroupOutput)
+}
+
+// GetForwardingControlZPAGatewayZpaServerGroupArrayInput is an input type that accepts GetForwardingControlZPAGatewayZpaServerGroupArray and GetForwardingControlZPAGatewayZpaServerGroupArrayOutput values.
+// You can construct a concrete instance of `GetForwardingControlZPAGatewayZpaServerGroupArrayInput` via:
+//
+//	GetForwardingControlZPAGatewayZpaServerGroupArray{ GetForwardingControlZPAGatewayZpaServerGroupArgs{...} }
+type GetForwardingControlZPAGatewayZpaServerGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutput() GetForwardingControlZPAGatewayZpaServerGroupArrayOutput
+	ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutputWithContext(context.Context) GetForwardingControlZPAGatewayZpaServerGroupArrayOutput
+}
+
+type GetForwardingControlZPAGatewayZpaServerGroupArray []GetForwardingControlZPAGatewayZpaServerGroupInput
+
+func (GetForwardingControlZPAGatewayZpaServerGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayZpaServerGroup)(nil)).Elem()
+}
+
+func (i GetForwardingControlZPAGatewayZpaServerGroupArray) ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutput() GetForwardingControlZPAGatewayZpaServerGroupArrayOutput {
+	return i.ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingControlZPAGatewayZpaServerGroupArray) ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaServerGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingControlZPAGatewayZpaServerGroupArrayOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaServerGroupOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayZpaServerGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayZpaServerGroupOutput) ToGetForwardingControlZPAGatewayZpaServerGroupOutput() GetForwardingControlZPAGatewayZpaServerGroupOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaServerGroupOutput) ToGetForwardingControlZPAGatewayZpaServerGroupOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaServerGroupOutput {
+	return o
+}
+
+// (string) An external identifier used for an entity that is managed outside of ZIA. Examples include zpaServerGroup and zpaAppSegments. This field is not applicable to ZIA-managed entities.
+func (o GetForwardingControlZPAGatewayZpaServerGroupOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayZpaServerGroup) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The name of the forwarding control ZPA Gateway to be exported.
+func (o GetForwardingControlZPAGatewayZpaServerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingControlZPAGatewayZpaServerGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingControlZPAGatewayZpaServerGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingControlZPAGatewayZpaServerGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingControlZPAGatewayZpaServerGroup)(nil)).Elem()
+}
+
+func (o GetForwardingControlZPAGatewayZpaServerGroupArrayOutput) ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutput() GetForwardingControlZPAGatewayZpaServerGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaServerGroupArrayOutput) ToGetForwardingControlZPAGatewayZpaServerGroupArrayOutputWithContext(ctx context.Context) GetForwardingControlZPAGatewayZpaServerGroupArrayOutput {
+	return o
+}
+
+func (o GetForwardingControlZPAGatewayZpaServerGroupArrayOutput) Index(i pulumi.IntInput) GetForwardingControlZPAGatewayZpaServerGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingControlZPAGatewayZpaServerGroup {
+		return vs[0].([]GetForwardingControlZPAGatewayZpaServerGroup)[vs[1].(int)]
+	}).(GetForwardingControlZPAGatewayZpaServerGroupOutput)
+}
+
+type GetForwardingProxyGatewayLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id int `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingProxyGatewayLastModifiedByInput is an input type that accepts GetForwardingProxyGatewayLastModifiedByArgs and GetForwardingProxyGatewayLastModifiedByOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewayLastModifiedByInput` via:
+//
+//	GetForwardingProxyGatewayLastModifiedByArgs{...}
+type GetForwardingProxyGatewayLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewayLastModifiedByOutput() GetForwardingProxyGatewayLastModifiedByOutput
+	ToGetForwardingProxyGatewayLastModifiedByOutputWithContext(context.Context) GetForwardingProxyGatewayLastModifiedByOutput
+}
+
+type GetForwardingProxyGatewayLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingProxyGatewayLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewayLastModifiedByArgs) ToGetForwardingProxyGatewayLastModifiedByOutput() GetForwardingProxyGatewayLastModifiedByOutput {
+	return i.ToGetForwardingProxyGatewayLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewayLastModifiedByArgs) ToGetForwardingProxyGatewayLastModifiedByOutputWithContext(ctx context.Context) GetForwardingProxyGatewayLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewayLastModifiedByOutput)
+}
+
+// GetForwardingProxyGatewayLastModifiedByArrayInput is an input type that accepts GetForwardingProxyGatewayLastModifiedByArray and GetForwardingProxyGatewayLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewayLastModifiedByArrayInput` via:
+//
+//	GetForwardingProxyGatewayLastModifiedByArray{ GetForwardingProxyGatewayLastModifiedByArgs{...} }
+type GetForwardingProxyGatewayLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewayLastModifiedByArrayOutput() GetForwardingProxyGatewayLastModifiedByArrayOutput
+	ToGetForwardingProxyGatewayLastModifiedByArrayOutputWithContext(context.Context) GetForwardingProxyGatewayLastModifiedByArrayOutput
+}
+
+type GetForwardingProxyGatewayLastModifiedByArray []GetForwardingProxyGatewayLastModifiedByInput
+
+func (GetForwardingProxyGatewayLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewayLastModifiedByArray) ToGetForwardingProxyGatewayLastModifiedByArrayOutput() GetForwardingProxyGatewayLastModifiedByArrayOutput {
+	return i.ToGetForwardingProxyGatewayLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewayLastModifiedByArray) ToGetForwardingProxyGatewayLastModifiedByArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewayLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewayLastModifiedByArrayOutput)
+}
+
+type GetForwardingProxyGatewayLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewayLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByOutput) ToGetForwardingProxyGatewayLastModifiedByOutput() GetForwardingProxyGatewayLastModifiedByOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByOutput) ToGetForwardingProxyGatewayLastModifiedByOutputWithContext(ctx context.Context) GetForwardingProxyGatewayLastModifiedByOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewayLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The ID of the forwarding control Proxy Gateway resource.
+func (o GetForwardingProxyGatewayLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewayLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding control Proxy Gateway to be exported.
+func (o GetForwardingProxyGatewayLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewayLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingProxyGatewayLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewayLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewayLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByArrayOutput) ToGetForwardingProxyGatewayLastModifiedByArrayOutput() GetForwardingProxyGatewayLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByArrayOutput) ToGetForwardingProxyGatewayLastModifiedByArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewayLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetForwardingProxyGatewayLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingProxyGatewayLastModifiedBy {
+		return vs[0].([]GetForwardingProxyGatewayLastModifiedBy)[vs[1].(int)]
+	}).(GetForwardingProxyGatewayLastModifiedByOutput)
+}
+
+type GetForwardingProxyGatewayPrimaryProxy struct {
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id int `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingProxyGatewayPrimaryProxyInput is an input type that accepts GetForwardingProxyGatewayPrimaryProxyArgs and GetForwardingProxyGatewayPrimaryProxyOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewayPrimaryProxyInput` via:
+//
+//	GetForwardingProxyGatewayPrimaryProxyArgs{...}
+type GetForwardingProxyGatewayPrimaryProxyInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewayPrimaryProxyOutput() GetForwardingProxyGatewayPrimaryProxyOutput
+	ToGetForwardingProxyGatewayPrimaryProxyOutputWithContext(context.Context) GetForwardingProxyGatewayPrimaryProxyOutput
+}
+
+type GetForwardingProxyGatewayPrimaryProxyArgs struct {
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingProxyGatewayPrimaryProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewayPrimaryProxy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewayPrimaryProxyArgs) ToGetForwardingProxyGatewayPrimaryProxyOutput() GetForwardingProxyGatewayPrimaryProxyOutput {
+	return i.ToGetForwardingProxyGatewayPrimaryProxyOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewayPrimaryProxyArgs) ToGetForwardingProxyGatewayPrimaryProxyOutputWithContext(ctx context.Context) GetForwardingProxyGatewayPrimaryProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewayPrimaryProxyOutput)
+}
+
+// GetForwardingProxyGatewayPrimaryProxyArrayInput is an input type that accepts GetForwardingProxyGatewayPrimaryProxyArray and GetForwardingProxyGatewayPrimaryProxyArrayOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewayPrimaryProxyArrayInput` via:
+//
+//	GetForwardingProxyGatewayPrimaryProxyArray{ GetForwardingProxyGatewayPrimaryProxyArgs{...} }
+type GetForwardingProxyGatewayPrimaryProxyArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewayPrimaryProxyArrayOutput() GetForwardingProxyGatewayPrimaryProxyArrayOutput
+	ToGetForwardingProxyGatewayPrimaryProxyArrayOutputWithContext(context.Context) GetForwardingProxyGatewayPrimaryProxyArrayOutput
+}
+
+type GetForwardingProxyGatewayPrimaryProxyArray []GetForwardingProxyGatewayPrimaryProxyInput
+
+func (GetForwardingProxyGatewayPrimaryProxyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewayPrimaryProxy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewayPrimaryProxyArray) ToGetForwardingProxyGatewayPrimaryProxyArrayOutput() GetForwardingProxyGatewayPrimaryProxyArrayOutput {
+	return i.ToGetForwardingProxyGatewayPrimaryProxyArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewayPrimaryProxyArray) ToGetForwardingProxyGatewayPrimaryProxyArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewayPrimaryProxyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewayPrimaryProxyArrayOutput)
+}
+
+type GetForwardingProxyGatewayPrimaryProxyOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewayPrimaryProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewayPrimaryProxy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewayPrimaryProxyOutput) ToGetForwardingProxyGatewayPrimaryProxyOutput() GetForwardingProxyGatewayPrimaryProxyOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayPrimaryProxyOutput) ToGetForwardingProxyGatewayPrimaryProxyOutputWithContext(ctx context.Context) GetForwardingProxyGatewayPrimaryProxyOutput {
+	return o
+}
+
+// The ID of the forwarding control Proxy Gateway resource.
+func (o GetForwardingProxyGatewayPrimaryProxyOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewayPrimaryProxy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding control Proxy Gateway to be exported.
+func (o GetForwardingProxyGatewayPrimaryProxyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewayPrimaryProxy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingProxyGatewayPrimaryProxyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewayPrimaryProxyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewayPrimaryProxy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewayPrimaryProxyArrayOutput) ToGetForwardingProxyGatewayPrimaryProxyArrayOutput() GetForwardingProxyGatewayPrimaryProxyArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayPrimaryProxyArrayOutput) ToGetForwardingProxyGatewayPrimaryProxyArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewayPrimaryProxyArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewayPrimaryProxyArrayOutput) Index(i pulumi.IntInput) GetForwardingProxyGatewayPrimaryProxyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingProxyGatewayPrimaryProxy {
+		return vs[0].([]GetForwardingProxyGatewayPrimaryProxy)[vs[1].(int)]
+	}).(GetForwardingProxyGatewayPrimaryProxyOutput)
+}
+
+type GetForwardingProxyGatewaySecondaryProxy struct {
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id int `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetForwardingProxyGatewaySecondaryProxyInput is an input type that accepts GetForwardingProxyGatewaySecondaryProxyArgs and GetForwardingProxyGatewaySecondaryProxyOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewaySecondaryProxyInput` via:
+//
+//	GetForwardingProxyGatewaySecondaryProxyArgs{...}
+type GetForwardingProxyGatewaySecondaryProxyInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewaySecondaryProxyOutput() GetForwardingProxyGatewaySecondaryProxyOutput
+	ToGetForwardingProxyGatewaySecondaryProxyOutputWithContext(context.Context) GetForwardingProxyGatewaySecondaryProxyOutput
+}
+
+type GetForwardingProxyGatewaySecondaryProxyArgs struct {
+	// The ID of the forwarding control Proxy Gateway resource.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding control Proxy Gateway to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetForwardingProxyGatewaySecondaryProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewaySecondaryProxy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewaySecondaryProxyArgs) ToGetForwardingProxyGatewaySecondaryProxyOutput() GetForwardingProxyGatewaySecondaryProxyOutput {
+	return i.ToGetForwardingProxyGatewaySecondaryProxyOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewaySecondaryProxyArgs) ToGetForwardingProxyGatewaySecondaryProxyOutputWithContext(ctx context.Context) GetForwardingProxyGatewaySecondaryProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewaySecondaryProxyOutput)
+}
+
+// GetForwardingProxyGatewaySecondaryProxyArrayInput is an input type that accepts GetForwardingProxyGatewaySecondaryProxyArray and GetForwardingProxyGatewaySecondaryProxyArrayOutput values.
+// You can construct a concrete instance of `GetForwardingProxyGatewaySecondaryProxyArrayInput` via:
+//
+//	GetForwardingProxyGatewaySecondaryProxyArray{ GetForwardingProxyGatewaySecondaryProxyArgs{...} }
+type GetForwardingProxyGatewaySecondaryProxyArrayInput interface {
+	pulumi.Input
+
+	ToGetForwardingProxyGatewaySecondaryProxyArrayOutput() GetForwardingProxyGatewaySecondaryProxyArrayOutput
+	ToGetForwardingProxyGatewaySecondaryProxyArrayOutputWithContext(context.Context) GetForwardingProxyGatewaySecondaryProxyArrayOutput
+}
+
+type GetForwardingProxyGatewaySecondaryProxyArray []GetForwardingProxyGatewaySecondaryProxyInput
+
+func (GetForwardingProxyGatewaySecondaryProxyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewaySecondaryProxy)(nil)).Elem()
+}
+
+func (i GetForwardingProxyGatewaySecondaryProxyArray) ToGetForwardingProxyGatewaySecondaryProxyArrayOutput() GetForwardingProxyGatewaySecondaryProxyArrayOutput {
+	return i.ToGetForwardingProxyGatewaySecondaryProxyArrayOutputWithContext(context.Background())
+}
+
+func (i GetForwardingProxyGatewaySecondaryProxyArray) ToGetForwardingProxyGatewaySecondaryProxyArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewaySecondaryProxyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetForwardingProxyGatewaySecondaryProxyArrayOutput)
+}
+
+type GetForwardingProxyGatewaySecondaryProxyOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewaySecondaryProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetForwardingProxyGatewaySecondaryProxy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewaySecondaryProxyOutput) ToGetForwardingProxyGatewaySecondaryProxyOutput() GetForwardingProxyGatewaySecondaryProxyOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewaySecondaryProxyOutput) ToGetForwardingProxyGatewaySecondaryProxyOutputWithContext(ctx context.Context) GetForwardingProxyGatewaySecondaryProxyOutput {
+	return o
+}
+
+// The ID of the forwarding control Proxy Gateway resource.
+func (o GetForwardingProxyGatewaySecondaryProxyOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewaySecondaryProxy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding control Proxy Gateway to be exported.
+func (o GetForwardingProxyGatewaySecondaryProxyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetForwardingProxyGatewaySecondaryProxy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetForwardingProxyGatewaySecondaryProxyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetForwardingProxyGatewaySecondaryProxyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetForwardingProxyGatewaySecondaryProxy)(nil)).Elem()
+}
+
+func (o GetForwardingProxyGatewaySecondaryProxyArrayOutput) ToGetForwardingProxyGatewaySecondaryProxyArrayOutput() GetForwardingProxyGatewaySecondaryProxyArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewaySecondaryProxyArrayOutput) ToGetForwardingProxyGatewaySecondaryProxyArrayOutputWithContext(ctx context.Context) GetForwardingProxyGatewaySecondaryProxyArrayOutput {
+	return o
+}
+
+func (o GetForwardingProxyGatewaySecondaryProxyArrayOutput) Index(i pulumi.IntInput) GetForwardingProxyGatewaySecondaryProxyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetForwardingProxyGatewaySecondaryProxy {
+		return vs[0].([]GetForwardingProxyGatewaySecondaryProxy)[vs[1].(int)]
+	}).(GetForwardingProxyGatewaySecondaryProxyOutput)
+}
+
+type GetIPSFirewallRuleDepartment struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDepartmentInput is an input type that accepts GetIPSFirewallRuleDepartmentArgs and GetIPSFirewallRuleDepartmentOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDepartmentInput` via:
+//
+//	GetIPSFirewallRuleDepartmentArgs{...}
+type GetIPSFirewallRuleDepartmentInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput
+	ToGetIPSFirewallRuleDepartmentOutputWithContext(context.Context) GetIPSFirewallRuleDepartmentOutput
+}
+
+type GetIPSFirewallRuleDepartmentArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDepartmentArgs) ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput {
+	return i.ToGetIPSFirewallRuleDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDepartmentArgs) ToGetIPSFirewallRuleDepartmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDepartmentOutput)
+}
+
+// GetIPSFirewallRuleDepartmentArrayInput is an input type that accepts GetIPSFirewallRuleDepartmentArray and GetIPSFirewallRuleDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDepartmentArrayInput` via:
+//
+//	GetIPSFirewallRuleDepartmentArray{ GetIPSFirewallRuleDepartmentArgs{...} }
+type GetIPSFirewallRuleDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput
+	ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(context.Context) GetIPSFirewallRuleDepartmentArrayOutput
+}
+
+type GetIPSFirewallRuleDepartmentArray []GetIPSFirewallRuleDepartmentInput
+
+func (GetIPSFirewallRuleDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDepartmentArray) ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput {
+	return i.ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDepartmentArray) ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDepartmentArrayOutput)
+}
+
+type GetIPSFirewallRuleDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) ToGetIPSFirewallRuleDepartmentOutput() GetIPSFirewallRuleDepartmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) ToGetIPSFirewallRuleDepartmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDepartment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) ToGetIPSFirewallRuleDepartmentArrayOutput() GetIPSFirewallRuleDepartmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) ToGetIPSFirewallRuleDepartmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDepartmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDepartmentArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDepartment {
+		return vs[0].([]GetIPSFirewallRuleDepartment)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDepartmentOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDestIpGroupInput is an input type that accepts GetIPSFirewallRuleDestIpGroupArgs and GetIPSFirewallRuleDestIpGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpGroupInput` via:
+//
+//	GetIPSFirewallRuleDestIpGroupArgs{...}
+type GetIPSFirewallRuleDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput
+	ToGetIPSFirewallRuleDestIpGroupOutputWithContext(context.Context) GetIPSFirewallRuleDestIpGroupOutput
+}
+
+type GetIPSFirewallRuleDestIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArgs) ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput {
+	return i.ToGetIPSFirewallRuleDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArgs) ToGetIPSFirewallRuleDestIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpGroupOutput)
+}
+
+// GetIPSFirewallRuleDestIpGroupArrayInput is an input type that accepts GetIPSFirewallRuleDestIpGroupArray and GetIPSFirewallRuleDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDestIpGroupArray{ GetIPSFirewallRuleDestIpGroupArgs{...} }
+type GetIPSFirewallRuleDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput
+	ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput
+}
+
+type GetIPSFirewallRuleDestIpGroupArray []GetIPSFirewallRuleDestIpGroupInput
+
+func (GetIPSFirewallRuleDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArray) ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpGroupArray) ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) ToGetIPSFirewallRuleDestIpGroupOutput() GetIPSFirewallRuleDestIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) ToGetIPSFirewallRuleDestIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) ToGetIPSFirewallRuleDestIpGroupArrayOutput() GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) ToGetIPSFirewallRuleDestIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDestIpGroup {
+		return vs[0].([]GetIPSFirewallRuleDestIpGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDestIpGroupOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDestIpv6GroupInput is an input type that accepts GetIPSFirewallRuleDestIpv6GroupArgs and GetIPSFirewallRuleDestIpv6GroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpv6GroupInput` via:
+//
+//	GetIPSFirewallRuleDestIpv6GroupArgs{...}
+type GetIPSFirewallRuleDestIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput
+	ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(context.Context) GetIPSFirewallRuleDestIpv6GroupOutput
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDestIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArgs) ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput {
+	return i.ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArgs) ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpv6GroupOutput)
+}
+
+// GetIPSFirewallRuleDestIpv6GroupArrayInput is an input type that accepts GetIPSFirewallRuleDestIpv6GroupArray and GetIPSFirewallRuleDestIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDestIpv6GroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDestIpv6GroupArray{ GetIPSFirewallRuleDestIpv6GroupArgs{...} }
+type GetIPSFirewallRuleDestIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput
+	ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArray []GetIPSFirewallRuleDestIpv6GroupInput
+
+func (GetIPSFirewallRuleDestIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArray) ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDestIpv6GroupArray) ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDestIpv6GroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) ToGetIPSFirewallRuleDestIpv6GroupOutput() GetIPSFirewallRuleDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) ToGetIPSFirewallRuleDestIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDestIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDestIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDestIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) ToGetIPSFirewallRuleDestIpv6GroupArrayOutput() GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) ToGetIPSFirewallRuleDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDestIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDestIpv6Group {
+		return vs[0].([]GetIPSFirewallRuleDestIpv6Group)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDestIpv6GroupOutput)
+}
+
+type GetIPSFirewallRuleDevice struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDeviceInput is an input type that accepts GetIPSFirewallRuleDeviceArgs and GetIPSFirewallRuleDeviceOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceInput` via:
+//
+//	GetIPSFirewallRuleDeviceArgs{...}
+type GetIPSFirewallRuleDeviceInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput
+	ToGetIPSFirewallRuleDeviceOutputWithContext(context.Context) GetIPSFirewallRuleDeviceOutput
+}
+
+type GetIPSFirewallRuleDeviceArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceArgs) ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput {
+	return i.ToGetIPSFirewallRuleDeviceOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceArgs) ToGetIPSFirewallRuleDeviceOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceOutput)
+}
+
+// GetIPSFirewallRuleDeviceArrayInput is an input type that accepts GetIPSFirewallRuleDeviceArray and GetIPSFirewallRuleDeviceArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceArrayInput` via:
+//
+//	GetIPSFirewallRuleDeviceArray{ GetIPSFirewallRuleDeviceArgs{...} }
+type GetIPSFirewallRuleDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput
+	ToGetIPSFirewallRuleDeviceArrayOutputWithContext(context.Context) GetIPSFirewallRuleDeviceArrayOutput
+}
+
+type GetIPSFirewallRuleDeviceArray []GetIPSFirewallRuleDeviceInput
+
+func (GetIPSFirewallRuleDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceArray) ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput {
+	return i.ToGetIPSFirewallRuleDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceArray) ToGetIPSFirewallRuleDeviceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceArrayOutput)
+}
+
+type GetIPSFirewallRuleDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) ToGetIPSFirewallRuleDeviceOutput() GetIPSFirewallRuleDeviceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) ToGetIPSFirewallRuleDeviceOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDevice)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) ToGetIPSFirewallRuleDeviceArrayOutput() GetIPSFirewallRuleDeviceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) ToGetIPSFirewallRuleDeviceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDevice {
+		return vs[0].([]GetIPSFirewallRuleDevice)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDeviceOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleDeviceGroupInput is an input type that accepts GetIPSFirewallRuleDeviceGroupArgs and GetIPSFirewallRuleDeviceGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceGroupInput` via:
+//
+//	GetIPSFirewallRuleDeviceGroupArgs{...}
+type GetIPSFirewallRuleDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput
+	ToGetIPSFirewallRuleDeviceGroupOutputWithContext(context.Context) GetIPSFirewallRuleDeviceGroupOutput
+}
+
+type GetIPSFirewallRuleDeviceGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArgs) ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput {
+	return i.ToGetIPSFirewallRuleDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArgs) ToGetIPSFirewallRuleDeviceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceGroupOutput)
+}
+
+// GetIPSFirewallRuleDeviceGroupArrayInput is an input type that accepts GetIPSFirewallRuleDeviceGroupArray and GetIPSFirewallRuleDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleDeviceGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleDeviceGroupArray{ GetIPSFirewallRuleDeviceGroupArgs{...} }
+type GetIPSFirewallRuleDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput
+	ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput
+}
+
+type GetIPSFirewallRuleDeviceGroupArray []GetIPSFirewallRuleDeviceGroupInput
+
+func (GetIPSFirewallRuleDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArray) ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleDeviceGroupArray) ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleDeviceGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) ToGetIPSFirewallRuleDeviceGroupOutput() GetIPSFirewallRuleDeviceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) ToGetIPSFirewallRuleDeviceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleDeviceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) ToGetIPSFirewallRuleDeviceGroupArrayOutput() GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) ToGetIPSFirewallRuleDeviceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleDeviceGroup {
+		return vs[0].([]GetIPSFirewallRuleDeviceGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleDeviceGroupOutput)
+}
+
+type GetIPSFirewallRuleGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleGroupInput is an input type that accepts GetIPSFirewallRuleGroupArgs and GetIPSFirewallRuleGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleGroupInput` via:
+//
+//	GetIPSFirewallRuleGroupArgs{...}
+type GetIPSFirewallRuleGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput
+	ToGetIPSFirewallRuleGroupOutputWithContext(context.Context) GetIPSFirewallRuleGroupOutput
+}
+
+type GetIPSFirewallRuleGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleGroupArgs) ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput {
+	return i.ToGetIPSFirewallRuleGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleGroupArgs) ToGetIPSFirewallRuleGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleGroupOutput)
+}
+
+// GetIPSFirewallRuleGroupArrayInput is an input type that accepts GetIPSFirewallRuleGroupArray and GetIPSFirewallRuleGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleGroupArray{ GetIPSFirewallRuleGroupArgs{...} }
+type GetIPSFirewallRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput
+	ToGetIPSFirewallRuleGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleGroupArrayOutput
+}
+
+type GetIPSFirewallRuleGroupArray []GetIPSFirewallRuleGroupInput
+
+func (GetIPSFirewallRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleGroupArray) ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleGroupArray) ToGetIPSFirewallRuleGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleGroupOutput) ToGetIPSFirewallRuleGroupOutput() GetIPSFirewallRuleGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupOutput) ToGetIPSFirewallRuleGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) ToGetIPSFirewallRuleGroupArrayOutput() GetIPSFirewallRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) ToGetIPSFirewallRuleGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleGroup {
+		return vs[0].([]GetIPSFirewallRuleGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleGroupOutput)
+}
+
+type GetIPSFirewallRuleLabel struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLabelInput is an input type that accepts GetIPSFirewallRuleLabelArgs and GetIPSFirewallRuleLabelOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLabelInput` via:
+//
+//	GetIPSFirewallRuleLabelArgs{...}
+type GetIPSFirewallRuleLabelInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput
+	ToGetIPSFirewallRuleLabelOutputWithContext(context.Context) GetIPSFirewallRuleLabelOutput
+}
+
+type GetIPSFirewallRuleLabelArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLabelArgs) ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput {
+	return i.ToGetIPSFirewallRuleLabelOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLabelArgs) ToGetIPSFirewallRuleLabelOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLabelOutput)
+}
+
+// GetIPSFirewallRuleLabelArrayInput is an input type that accepts GetIPSFirewallRuleLabelArray and GetIPSFirewallRuleLabelArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLabelArrayInput` via:
+//
+//	GetIPSFirewallRuleLabelArray{ GetIPSFirewallRuleLabelArgs{...} }
+type GetIPSFirewallRuleLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput
+	ToGetIPSFirewallRuleLabelArrayOutputWithContext(context.Context) GetIPSFirewallRuleLabelArrayOutput
+}
+
+type GetIPSFirewallRuleLabelArray []GetIPSFirewallRuleLabelInput
+
+func (GetIPSFirewallRuleLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLabelArray) ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput {
+	return i.ToGetIPSFirewallRuleLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLabelArray) ToGetIPSFirewallRuleLabelArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLabelArrayOutput)
+}
+
+type GetIPSFirewallRuleLabelOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLabelOutput) ToGetIPSFirewallRuleLabelOutput() GetIPSFirewallRuleLabelOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelOutput) ToGetIPSFirewallRuleLabelOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLabel)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) ToGetIPSFirewallRuleLabelArrayOutput() GetIPSFirewallRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) ToGetIPSFirewallRuleLabelArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLabelArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLabelArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLabel {
+		return vs[0].([]GetIPSFirewallRuleLabel)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLabelOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLastModifiedByInput is an input type that accepts GetIPSFirewallRuleLastModifiedByArgs and GetIPSFirewallRuleLastModifiedByOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLastModifiedByInput` via:
+//
+//	GetIPSFirewallRuleLastModifiedByArgs{...}
+type GetIPSFirewallRuleLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput
+	ToGetIPSFirewallRuleLastModifiedByOutputWithContext(context.Context) GetIPSFirewallRuleLastModifiedByOutput
+}
+
+type GetIPSFirewallRuleLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArgs) ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput {
+	return i.ToGetIPSFirewallRuleLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArgs) ToGetIPSFirewallRuleLastModifiedByOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLastModifiedByOutput)
+}
+
+// GetIPSFirewallRuleLastModifiedByArrayInput is an input type that accepts GetIPSFirewallRuleLastModifiedByArray and GetIPSFirewallRuleLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLastModifiedByArrayInput` via:
+//
+//	GetIPSFirewallRuleLastModifiedByArray{ GetIPSFirewallRuleLastModifiedByArgs{...} }
+type GetIPSFirewallRuleLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput
+	ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput
+}
+
+type GetIPSFirewallRuleLastModifiedByArray []GetIPSFirewallRuleLastModifiedByInput
+
+func (GetIPSFirewallRuleLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArray) ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return i.ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLastModifiedByArray) ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLastModifiedByArrayOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) ToGetIPSFirewallRuleLastModifiedByOutput() GetIPSFirewallRuleLastModifiedByOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) ToGetIPSFirewallRuleLastModifiedByOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) ToGetIPSFirewallRuleLastModifiedByArrayOutput() GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) ToGetIPSFirewallRuleLastModifiedByArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLastModifiedBy {
+		return vs[0].([]GetIPSFirewallRuleLastModifiedBy)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLastModifiedByOutput)
+}
+
+type GetIPSFirewallRuleLocation struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLocationInput is an input type that accepts GetIPSFirewallRuleLocationArgs and GetIPSFirewallRuleLocationOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationInput` via:
+//
+//	GetIPSFirewallRuleLocationArgs{...}
+type GetIPSFirewallRuleLocationInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput
+	ToGetIPSFirewallRuleLocationOutputWithContext(context.Context) GetIPSFirewallRuleLocationOutput
+}
+
+type GetIPSFirewallRuleLocationArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationArgs) ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput {
+	return i.ToGetIPSFirewallRuleLocationOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationArgs) ToGetIPSFirewallRuleLocationOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationOutput)
+}
+
+// GetIPSFirewallRuleLocationArrayInput is an input type that accepts GetIPSFirewallRuleLocationArray and GetIPSFirewallRuleLocationArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationArrayInput` via:
+//
+//	GetIPSFirewallRuleLocationArray{ GetIPSFirewallRuleLocationArgs{...} }
+type GetIPSFirewallRuleLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput
+	ToGetIPSFirewallRuleLocationArrayOutputWithContext(context.Context) GetIPSFirewallRuleLocationArrayOutput
+}
+
+type GetIPSFirewallRuleLocationArray []GetIPSFirewallRuleLocationInput
+
+func (GetIPSFirewallRuleLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationArray) ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput {
+	return i.ToGetIPSFirewallRuleLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationArray) ToGetIPSFirewallRuleLocationArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationArrayOutput)
+}
+
+type GetIPSFirewallRuleLocationOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationOutput) ToGetIPSFirewallRuleLocationOutput() GetIPSFirewallRuleLocationOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationOutput) ToGetIPSFirewallRuleLocationOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocation)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) ToGetIPSFirewallRuleLocationArrayOutput() GetIPSFirewallRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) ToGetIPSFirewallRuleLocationArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLocation {
+		return vs[0].([]GetIPSFirewallRuleLocation)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLocationOutput)
+}
+
+type GetIPSFirewallRuleLocationGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleLocationGroupInput is an input type that accepts GetIPSFirewallRuleLocationGroupArgs and GetIPSFirewallRuleLocationGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationGroupInput` via:
+//
+//	GetIPSFirewallRuleLocationGroupArgs{...}
+type GetIPSFirewallRuleLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput
+	ToGetIPSFirewallRuleLocationGroupOutputWithContext(context.Context) GetIPSFirewallRuleLocationGroupOutput
+}
+
+type GetIPSFirewallRuleLocationGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationGroupArgs) ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput {
+	return i.ToGetIPSFirewallRuleLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationGroupArgs) ToGetIPSFirewallRuleLocationGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationGroupOutput)
+}
+
+// GetIPSFirewallRuleLocationGroupArrayInput is an input type that accepts GetIPSFirewallRuleLocationGroupArray and GetIPSFirewallRuleLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleLocationGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleLocationGroupArray{ GetIPSFirewallRuleLocationGroupArgs{...} }
+type GetIPSFirewallRuleLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput
+	ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleLocationGroupArrayOutput
+}
+
+type GetIPSFirewallRuleLocationGroupArray []GetIPSFirewallRuleLocationGroupInput
+
+func (GetIPSFirewallRuleLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleLocationGroupArray) ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleLocationGroupArray) ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleLocationGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) ToGetIPSFirewallRuleLocationGroupOutput() GetIPSFirewallRuleLocationGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) ToGetIPSFirewallRuleLocationGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleLocationGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) ToGetIPSFirewallRuleLocationGroupArrayOutput() GetIPSFirewallRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) ToGetIPSFirewallRuleLocationGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleLocationGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleLocationGroup {
+		return vs[0].([]GetIPSFirewallRuleLocationGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleLocationGroupOutput)
+}
+
+type GetIPSFirewallRuleNwService struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleNwServiceInput is an input type that accepts GetIPSFirewallRuleNwServiceArgs and GetIPSFirewallRuleNwServiceOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceInput` via:
+//
+//	GetIPSFirewallRuleNwServiceArgs{...}
+type GetIPSFirewallRuleNwServiceInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput
+	ToGetIPSFirewallRuleNwServiceOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceOutput
+}
+
+type GetIPSFirewallRuleNwServiceArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleNwServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceArgs) ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput {
+	return i.ToGetIPSFirewallRuleNwServiceOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceArgs) ToGetIPSFirewallRuleNwServiceOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceOutput)
+}
+
+// GetIPSFirewallRuleNwServiceArrayInput is an input type that accepts GetIPSFirewallRuleNwServiceArray and GetIPSFirewallRuleNwServiceArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceArrayInput` via:
+//
+//	GetIPSFirewallRuleNwServiceArray{ GetIPSFirewallRuleNwServiceArgs{...} }
+type GetIPSFirewallRuleNwServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput
+	ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceArrayOutput
+}
+
+type GetIPSFirewallRuleNwServiceArray []GetIPSFirewallRuleNwServiceInput
+
+func (GetIPSFirewallRuleNwServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceArray) ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput {
+	return i.ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceArray) ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceArrayOutput)
+}
+
+type GetIPSFirewallRuleNwServiceOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) ToGetIPSFirewallRuleNwServiceOutput() GetIPSFirewallRuleNwServiceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) ToGetIPSFirewallRuleNwServiceOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleNwServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwService)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) ToGetIPSFirewallRuleNwServiceArrayOutput() GetIPSFirewallRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) ToGetIPSFirewallRuleNwServiceArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleNwServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleNwService {
+		return vs[0].([]GetIPSFirewallRuleNwService)[vs[1].(int)]
+	}).(GetIPSFirewallRuleNwServiceOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleNwServiceGroupInput is an input type that accepts GetIPSFirewallRuleNwServiceGroupArgs and GetIPSFirewallRuleNwServiceGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceGroupInput` via:
+//
+//	GetIPSFirewallRuleNwServiceGroupArgs{...}
+type GetIPSFirewallRuleNwServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput
+	ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceGroupOutput
+}
+
+type GetIPSFirewallRuleNwServiceGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleNwServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArgs) ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput {
+	return i.ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArgs) ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceGroupOutput)
+}
+
+// GetIPSFirewallRuleNwServiceGroupArrayInput is an input type that accepts GetIPSFirewallRuleNwServiceGroupArray and GetIPSFirewallRuleNwServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleNwServiceGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleNwServiceGroupArray{ GetIPSFirewallRuleNwServiceGroupArgs{...} }
+type GetIPSFirewallRuleNwServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput
+	ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput
+}
+
+type GetIPSFirewallRuleNwServiceGroupArray []GetIPSFirewallRuleNwServiceGroupInput
+
+func (GetIPSFirewallRuleNwServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArray) ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleNwServiceGroupArray) ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleNwServiceGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) ToGetIPSFirewallRuleNwServiceGroupOutput() GetIPSFirewallRuleNwServiceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) ToGetIPSFirewallRuleNwServiceGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleNwServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleNwServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleNwServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) ToGetIPSFirewallRuleNwServiceGroupArrayOutput() GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) ToGetIPSFirewallRuleNwServiceGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleNwServiceGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleNwServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleNwServiceGroup {
+		return vs[0].([]GetIPSFirewallRuleNwServiceGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleNwServiceGroupOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroup struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleSrcIpGroupInput is an input type that accepts GetIPSFirewallRuleSrcIpGroupArgs and GetIPSFirewallRuleSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpGroupInput` via:
+//
+//	GetIPSFirewallRuleSrcIpGroupArgs{...}
+type GetIPSFirewallRuleSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput
+	ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpGroupOutput
+}
+
+type GetIPSFirewallRuleSrcIpGroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArgs) ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput {
+	return i.ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArgs) ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpGroupOutput)
+}
+
+// GetIPSFirewallRuleSrcIpGroupArrayInput is an input type that accepts GetIPSFirewallRuleSrcIpGroupArray and GetIPSFirewallRuleSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpGroupArrayInput` via:
+//
+//	GetIPSFirewallRuleSrcIpGroupArray{ GetIPSFirewallRuleSrcIpGroupArgs{...} }
+type GetIPSFirewallRuleSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput
+	ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput
+}
+
+type GetIPSFirewallRuleSrcIpGroupArray []GetIPSFirewallRuleSrcIpGroupInput
+
+func (GetIPSFirewallRuleSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArray) ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return i.ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpGroupArray) ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpGroupArrayOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) ToGetIPSFirewallRuleSrcIpGroupOutput() GetIPSFirewallRuleSrcIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) ToGetIPSFirewallRuleSrcIpGroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) ToGetIPSFirewallRuleSrcIpGroupArrayOutput() GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) ToGetIPSFirewallRuleSrcIpGroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleSrcIpGroup {
+		return vs[0].([]GetIPSFirewallRuleSrcIpGroup)[vs[1].(int)]
+	}).(GetIPSFirewallRuleSrcIpGroupOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6Group struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleSrcIpv6GroupInput is an input type that accepts GetIPSFirewallRuleSrcIpv6GroupArgs and GetIPSFirewallRuleSrcIpv6GroupOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpv6GroupInput` via:
+//
+//	GetIPSFirewallRuleSrcIpv6GroupArgs{...}
+type GetIPSFirewallRuleSrcIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput
+	ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleSrcIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArgs) ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return i.ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArgs) ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpv6GroupOutput)
+}
+
+// GetIPSFirewallRuleSrcIpv6GroupArrayInput is an input type that accepts GetIPSFirewallRuleSrcIpv6GroupArray and GetIPSFirewallRuleSrcIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleSrcIpv6GroupArrayInput` via:
+//
+//	GetIPSFirewallRuleSrcIpv6GroupArray{ GetIPSFirewallRuleSrcIpv6GroupArgs{...} }
+type GetIPSFirewallRuleSrcIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput
+	ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArray []GetIPSFirewallRuleSrcIpv6GroupInput
+
+func (GetIPSFirewallRuleSrcIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArray) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return i.ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleSrcIpv6GroupArray) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleSrcIpv6GroupArrayOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) ToGetIPSFirewallRuleSrcIpv6GroupOutput() GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) ToGetIPSFirewallRuleSrcIpv6GroupOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleSrcIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleSrcIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutput() GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) ToGetIPSFirewallRuleSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleSrcIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleSrcIpv6Group {
+		return vs[0].([]GetIPSFirewallRuleSrcIpv6Group)[vs[1].(int)]
+	}).(GetIPSFirewallRuleSrcIpv6GroupOutput)
+}
+
+type GetIPSFirewallRuleThreatCategory struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleThreatCategoryInput is an input type that accepts GetIPSFirewallRuleThreatCategoryArgs and GetIPSFirewallRuleThreatCategoryOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleThreatCategoryInput` via:
+//
+//	GetIPSFirewallRuleThreatCategoryArgs{...}
+type GetIPSFirewallRuleThreatCategoryInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput
+	ToGetIPSFirewallRuleThreatCategoryOutputWithContext(context.Context) GetIPSFirewallRuleThreatCategoryOutput
+}
+
+type GetIPSFirewallRuleThreatCategoryArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleThreatCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArgs) ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput {
+	return i.ToGetIPSFirewallRuleThreatCategoryOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArgs) ToGetIPSFirewallRuleThreatCategoryOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleThreatCategoryOutput)
+}
+
+// GetIPSFirewallRuleThreatCategoryArrayInput is an input type that accepts GetIPSFirewallRuleThreatCategoryArray and GetIPSFirewallRuleThreatCategoryArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleThreatCategoryArrayInput` via:
+//
+//	GetIPSFirewallRuleThreatCategoryArray{ GetIPSFirewallRuleThreatCategoryArgs{...} }
+type GetIPSFirewallRuleThreatCategoryArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput
+	ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput
+}
+
+type GetIPSFirewallRuleThreatCategoryArray []GetIPSFirewallRuleThreatCategoryInput
+
+func (GetIPSFirewallRuleThreatCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArray) ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return i.ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleThreatCategoryArray) ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleThreatCategoryArrayOutput)
+}
+
+type GetIPSFirewallRuleThreatCategoryOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleThreatCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) ToGetIPSFirewallRuleThreatCategoryOutput() GetIPSFirewallRuleThreatCategoryOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) ToGetIPSFirewallRuleThreatCategoryOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleThreatCategoryOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleThreatCategoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleThreatCategory) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleThreatCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleThreatCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleThreatCategory)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) ToGetIPSFirewallRuleThreatCategoryArrayOutput() GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) ToGetIPSFirewallRuleThreatCategoryArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleThreatCategoryArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleThreatCategoryArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleThreatCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleThreatCategory {
+		return vs[0].([]GetIPSFirewallRuleThreatCategory)[vs[1].(int)]
+	}).(GetIPSFirewallRuleThreatCategoryOutput)
+}
+
+type GetIPSFirewallRuleTimeWindow struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleTimeWindowInput is an input type that accepts GetIPSFirewallRuleTimeWindowArgs and GetIPSFirewallRuleTimeWindowOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleTimeWindowInput` via:
+//
+//	GetIPSFirewallRuleTimeWindowArgs{...}
+type GetIPSFirewallRuleTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput
+	ToGetIPSFirewallRuleTimeWindowOutputWithContext(context.Context) GetIPSFirewallRuleTimeWindowOutput
+}
+
+type GetIPSFirewallRuleTimeWindowArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleTimeWindowArgs) ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput {
+	return i.ToGetIPSFirewallRuleTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleTimeWindowArgs) ToGetIPSFirewallRuleTimeWindowOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleTimeWindowOutput)
+}
+
+// GetIPSFirewallRuleTimeWindowArrayInput is an input type that accepts GetIPSFirewallRuleTimeWindowArray and GetIPSFirewallRuleTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleTimeWindowArrayInput` via:
+//
+//	GetIPSFirewallRuleTimeWindowArray{ GetIPSFirewallRuleTimeWindowArgs{...} }
+type GetIPSFirewallRuleTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput
+	ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(context.Context) GetIPSFirewallRuleTimeWindowArrayOutput
+}
+
+type GetIPSFirewallRuleTimeWindowArray []GetIPSFirewallRuleTimeWindowInput
+
+func (GetIPSFirewallRuleTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleTimeWindowArray) ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput {
+	return i.ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleTimeWindowArray) ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleTimeWindowArrayOutput)
+}
+
+type GetIPSFirewallRuleTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) ToGetIPSFirewallRuleTimeWindowOutput() GetIPSFirewallRuleTimeWindowOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) ToGetIPSFirewallRuleTimeWindowOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleTimeWindow)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) ToGetIPSFirewallRuleTimeWindowArrayOutput() GetIPSFirewallRuleTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) ToGetIPSFirewallRuleTimeWindowArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleTimeWindowArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleTimeWindow {
+		return vs[0].([]GetIPSFirewallRuleTimeWindow)[vs[1].(int)]
+	}).(GetIPSFirewallRuleTimeWindowOutput)
+}
+
+type GetIPSFirewallRuleUser struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleUserInput is an input type that accepts GetIPSFirewallRuleUserArgs and GetIPSFirewallRuleUserOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleUserInput` via:
+//
+//	GetIPSFirewallRuleUserArgs{...}
+type GetIPSFirewallRuleUserInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput
+	ToGetIPSFirewallRuleUserOutputWithContext(context.Context) GetIPSFirewallRuleUserOutput
+}
+
+type GetIPSFirewallRuleUserArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleUserArgs) ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput {
+	return i.ToGetIPSFirewallRuleUserOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleUserArgs) ToGetIPSFirewallRuleUserOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleUserOutput)
+}
+
+// GetIPSFirewallRuleUserArrayInput is an input type that accepts GetIPSFirewallRuleUserArray and GetIPSFirewallRuleUserArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleUserArrayInput` via:
+//
+//	GetIPSFirewallRuleUserArray{ GetIPSFirewallRuleUserArgs{...} }
+type GetIPSFirewallRuleUserArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput
+	ToGetIPSFirewallRuleUserArrayOutputWithContext(context.Context) GetIPSFirewallRuleUserArrayOutput
+}
+
+type GetIPSFirewallRuleUserArray []GetIPSFirewallRuleUserInput
+
+func (GetIPSFirewallRuleUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleUserArray) ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput {
+	return i.ToGetIPSFirewallRuleUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleUserArray) ToGetIPSFirewallRuleUserArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleUserArrayOutput)
+}
+
+type GetIPSFirewallRuleUserOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleUserOutput) ToGetIPSFirewallRuleUserOutput() GetIPSFirewallRuleUserOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserOutput) ToGetIPSFirewallRuleUserOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleUser)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) ToGetIPSFirewallRuleUserArrayOutput() GetIPSFirewallRuleUserArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) ToGetIPSFirewallRuleUserArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleUserArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleUserArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleUser {
+		return vs[0].([]GetIPSFirewallRuleUser)[vs[1].(int)]
+	}).(GetIPSFirewallRuleUserOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegment struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId string `pulumi:"externalId"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id int `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name string `pulumi:"name"`
+}
+
+// GetIPSFirewallRuleZpaAppSegmentInput is an input type that accepts GetIPSFirewallRuleZpaAppSegmentArgs and GetIPSFirewallRuleZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleZpaAppSegmentInput` via:
+//
+//	GetIPSFirewallRuleZpaAppSegmentArgs{...}
+type GetIPSFirewallRuleZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput
+	ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Context) GetIPSFirewallRuleZpaAppSegmentOutput
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArgs struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// Unique identifier for the Firewall Filtering policy rule
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the Firewall Filtering policy rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIPSFirewallRuleZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArgs) ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput {
+	return i.ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArgs) ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleZpaAppSegmentOutput)
+}
+
+// GetIPSFirewallRuleZpaAppSegmentArrayInput is an input type that accepts GetIPSFirewallRuleZpaAppSegmentArray and GetIPSFirewallRuleZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetIPSFirewallRuleZpaAppSegmentArrayInput` via:
+//
+//	GetIPSFirewallRuleZpaAppSegmentArray{ GetIPSFirewallRuleZpaAppSegmentArgs{...} }
+type GetIPSFirewallRuleZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput
+	ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArray []GetIPSFirewallRuleZpaAppSegmentInput
+
+func (GetIPSFirewallRuleZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArray) ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return i.ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetIPSFirewallRuleZpaAppSegmentArray) ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIPSFirewallRuleZpaAppSegmentArrayOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ToGetIPSFirewallRuleZpaAppSegmentOutput() GetIPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ToGetIPSFirewallRuleZpaAppSegmentOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return o
+}
+
+// Indicates the external ID. Applicable only when this reference is of an external entity.
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the Firewall Filtering policy rule
+func (o GetIPSFirewallRuleZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIPSFirewallRuleZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetIPSFirewallRuleZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIPSFirewallRuleZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIPSFirewallRuleZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) ToGetIPSFirewallRuleZpaAppSegmentArrayOutput() GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) ToGetIPSFirewallRuleZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetIPSFirewallRuleZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetIPSFirewallRuleZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetIPSFirewallRuleZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIPSFirewallRuleZpaAppSegment {
+		return vs[0].([]GetIPSFirewallRuleZpaAppSegment)[vs[1].(int)]
+	}).(GetIPSFirewallRuleZpaAppSegmentOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteria struct {
+	// (Block List)
+	Cities []GetLocationGroupsDynamicLocationGroupCriteriaCity `pulumi:"cities"`
+	// (List of String) One or more countries from a predefined set
+	Countries []string `pulumi:"countries"`
+	// (Boolean) Enable Bandwidth Control. When set to true, Bandwidth Control is enabled for the location.
+	EnableBandwidthControl bool `pulumi:"enableBandwidthControl"`
+	// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
+	EnableCaution bool `pulumi:"enableCaution"`
+	// (Boolean) Enable `XFF` Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
+	EnableXffForwarding bool `pulumi:"enableXffForwarding"`
+	// (Boolean) Enable AUP. When set to true, AUP is enabled for the location.
+	EnforceAup bool `pulumi:"enforceAup"`
+	// (Boolean) Enforce Authentication. Required when ports are enabled, IP Surrogate is enabled, or Kerberos Authentication is enabled.
+	EnforceAuthentication bool `pulumi:"enforceAuthentication"`
+	// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
+	EnforceFirewallControl bool `pulumi:"enforceFirewallControl"`
+	// (Block List)
+	ManagedBies []GetLocationGroupsDynamicLocationGroupCriteriaManagedBy `pulumi:"managedBies"`
+	// Location group name
+	Names []GetLocationGroupsDynamicLocationGroupCriteriaName `pulumi:"names"`
+	// (List of String) One or more location profiles from a predefined set
+	Profiles []string `pulumi:"profiles"`
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaArgs and GetLocationGroupsDynamicLocationGroupCriteriaOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaArgs{...}
+type GetLocationGroupsDynamicLocationGroupCriteriaInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaOutput() GetLocationGroupsDynamicLocationGroupCriteriaOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaArgs struct {
+	// (Block List)
+	Cities GetLocationGroupsDynamicLocationGroupCriteriaCityArrayInput `pulumi:"cities"`
+	// (List of String) One or more countries from a predefined set
+	Countries pulumi.StringArrayInput `pulumi:"countries"`
+	// (Boolean) Enable Bandwidth Control. When set to true, Bandwidth Control is enabled for the location.
+	EnableBandwidthControl pulumi.BoolInput `pulumi:"enableBandwidthControl"`
+	// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
+	EnableCaution pulumi.BoolInput `pulumi:"enableCaution"`
+	// (Boolean) Enable `XFF` Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
+	EnableXffForwarding pulumi.BoolInput `pulumi:"enableXffForwarding"`
+	// (Boolean) Enable AUP. When set to true, AUP is enabled for the location.
+	EnforceAup pulumi.BoolInput `pulumi:"enforceAup"`
+	// (Boolean) Enforce Authentication. Required when ports are enabled, IP Surrogate is enabled, or Kerberos Authentication is enabled.
+	EnforceAuthentication pulumi.BoolInput `pulumi:"enforceAuthentication"`
+	// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
+	EnforceFirewallControl pulumi.BoolInput `pulumi:"enforceFirewallControl"`
+	// (Block List)
+	ManagedBies GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayInput `pulumi:"managedBies"`
+	// Location group name
+	Names GetLocationGroupsDynamicLocationGroupCriteriaNameArrayInput `pulumi:"names"`
+	// (List of String) One or more location profiles from a predefined set
+	Profiles pulumi.StringArrayInput `pulumi:"profiles"`
+}
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteria)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaOutput() GetLocationGroupsDynamicLocationGroupCriteriaOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaOutput)
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaArrayInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaArray and GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaArrayInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaArray{ GetLocationGroupsDynamicLocationGroupCriteriaArgs{...} }
+type GetLocationGroupsDynamicLocationGroupCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaArray []GetLocationGroupsDynamicLocationGroupCriteriaInput
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteria)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaArray) ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaArray) ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteria)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaOutput() GetLocationGroupsDynamicLocationGroupCriteriaOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaOutput {
+	return o
+}
+
+// (Block List)
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) Cities() GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) []GetLocationGroupsDynamicLocationGroupCriteriaCity {
+		return v.Cities
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput)
+}
+
+// (List of String) One or more countries from a predefined set
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) Countries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) []string { return v.Countries }).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Enable Bandwidth Control. When set to true, Bandwidth Control is enabled for the location.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnableBandwidthControl() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnableBandwidthControl }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Enable Caution. When set to true, a caution notifcation is enabled for the location.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnableCaution() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnableCaution }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Enable `XFF` Forwarding. When set to true, traffic is passed to Zscaler Cloud via the X-Forwarded-For (XFF) header.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnableXffForwarding() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnableXffForwarding }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Enable AUP. When set to true, AUP is enabled for the location.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnforceAup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnforceAup }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Enforce Authentication. Required when ports are enabled, IP Surrogate is enabled, or Kerberos Authentication is enabled.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnforceAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnforceAuthentication }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) EnforceFirewallControl() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) bool { return v.EnforceFirewallControl }).(pulumi.BoolOutput)
+}
+
+// (Block List)
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) ManagedBies() GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) []GetLocationGroupsDynamicLocationGroupCriteriaManagedBy {
+		return v.ManagedBies
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput)
+}
+
+// Location group name
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) Names() GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) []GetLocationGroupsDynamicLocationGroupCriteriaName {
+		return v.Names
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput)
+}
+
+// (List of String) One or more location profiles from a predefined set
+func (o GetLocationGroupsDynamicLocationGroupCriteriaOutput) Profiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteria) []string { return v.Profiles }).(pulumi.StringArrayOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteria)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsDynamicLocationGroupCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsDynamicLocationGroupCriteria {
+		return vs[0].([]GetLocationGroupsDynamicLocationGroupCriteria)[vs[1].(int)]
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaCity struct {
+	// (String) String value to be matched or partially matched
+	MatchString *string `pulumi:"matchString"`
+	// (String) Operator that performs match action
+	MatchType *string `pulumi:"matchType"`
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaCityInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaCityArgs and GetLocationGroupsDynamicLocationGroupCriteriaCityOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaCityInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaCityArgs{...}
+type GetLocationGroupsDynamicLocationGroupCriteriaCityInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaCityArgs struct {
+	// (String) String value to be matched or partially matched
+	MatchString pulumi.StringPtrInput `pulumi:"matchString"`
+	// (String) Operator that performs match action
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+}
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaCityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaCity)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaCityArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaCityArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaCityOutput)
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaCityArrayInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaCityArray and GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaCityArrayInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaCityArray{ GetLocationGroupsDynamicLocationGroupCriteriaCityArgs{...} }
+type GetLocationGroupsDynamicLocationGroupCriteriaCityArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaCityArray []GetLocationGroupsDynamicLocationGroupCriteriaCityInput
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaCityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaCity)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaCityArray) ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaCityArray) ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaCityOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaCityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaCity)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaCityOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityOutput {
+	return o
+}
+
+// (String) String value to be matched or partially matched
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityOutput) MatchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaCity) *string { return v.MatchString }).(pulumi.StringPtrOutput)
+}
+
+// (String) Operator that performs match action
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaCity) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaCity)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsDynamicLocationGroupCriteriaCityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsDynamicLocationGroupCriteriaCity {
+		return vs[0].([]GetLocationGroupsDynamicLocationGroupCriteriaCity)[vs[1].(int)]
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaCityOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id int `pulumi:"id"`
+	// Location group name
+	Name string `pulumi:"name"`
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaManagedByInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs and GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaManagedByInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs{...}
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id pulumi.IntInput `pulumi:"id"`
+	// Location group name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaManagedBy)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput)
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray and GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray{ GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs{...} }
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray []GetLocationGroupsDynamicLocationGroupCriteriaManagedByInput
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaManagedBy)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaManagedBy)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaManagedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the location group
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaManagedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Location group name
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaManagedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaManagedBy)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsDynamicLocationGroupCriteriaManagedBy {
+		return vs[0].([]GetLocationGroupsDynamicLocationGroupCriteriaManagedBy)[vs[1].(int)]
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaName struct {
+	// (String) String value to be matched or partially matched
+	MatchString *string `pulumi:"matchString"`
+	// (String) Operator that performs match action
+	MatchType *string `pulumi:"matchType"`
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaNameInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaNameArgs and GetLocationGroupsDynamicLocationGroupCriteriaNameOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaNameInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaNameArgs{...}
+type GetLocationGroupsDynamicLocationGroupCriteriaNameInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaNameArgs struct {
+	// (String) String value to be matched or partially matched
+	MatchString pulumi.StringPtrInput `pulumi:"matchString"`
+	// (String) Operator that performs match action
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+}
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaName)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaNameArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaNameArgs) ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaNameOutput)
+}
+
+// GetLocationGroupsDynamicLocationGroupCriteriaNameArrayInput is an input type that accepts GetLocationGroupsDynamicLocationGroupCriteriaNameArray and GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsDynamicLocationGroupCriteriaNameArrayInput` via:
+//
+//	GetLocationGroupsDynamicLocationGroupCriteriaNameArray{ GetLocationGroupsDynamicLocationGroupCriteriaNameArgs{...} }
+type GetLocationGroupsDynamicLocationGroupCriteriaNameArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput
+	ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutputWithContext(context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaNameArray []GetLocationGroupsDynamicLocationGroupCriteriaNameInput
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaName)(nil)).Elem()
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaNameArray) ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput {
+	return i.ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsDynamicLocationGroupCriteriaNameArray) ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaNameOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaName)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaNameOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameOutput {
+	return o
+}
+
+// (String) String value to be matched or partially matched
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameOutput) MatchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaName) *string { return v.MatchString }).(pulumi.StringPtrOutput)
+}
+
+// (String) Operator that performs match action
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocationGroupsDynamicLocationGroupCriteriaName) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+type GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsDynamicLocationGroupCriteriaName)(nil)).Elem()
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput() GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput) ToGetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutputWithContext(ctx context.Context) GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsDynamicLocationGroupCriteriaNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsDynamicLocationGroupCriteriaName {
+		return vs[0].([]GetLocationGroupsDynamicLocationGroupCriteriaName)[vs[1].(int)]
+	}).(GetLocationGroupsDynamicLocationGroupCriteriaNameOutput)
+}
+
+type GetLocationGroupsLastModUser struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id int `pulumi:"id"`
+	// Location group name
+	Name string `pulumi:"name"`
+}
+
+// GetLocationGroupsLastModUserInput is an input type that accepts GetLocationGroupsLastModUserArgs and GetLocationGroupsLastModUserOutput values.
+// You can construct a concrete instance of `GetLocationGroupsLastModUserInput` via:
+//
+//	GetLocationGroupsLastModUserArgs{...}
+type GetLocationGroupsLastModUserInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsLastModUserOutput() GetLocationGroupsLastModUserOutput
+	ToGetLocationGroupsLastModUserOutputWithContext(context.Context) GetLocationGroupsLastModUserOutput
+}
+
+type GetLocationGroupsLastModUserArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id pulumi.IntInput `pulumi:"id"`
+	// Location group name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLocationGroupsLastModUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsLastModUser)(nil)).Elem()
+}
+
+func (i GetLocationGroupsLastModUserArgs) ToGetLocationGroupsLastModUserOutput() GetLocationGroupsLastModUserOutput {
+	return i.ToGetLocationGroupsLastModUserOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsLastModUserArgs) ToGetLocationGroupsLastModUserOutputWithContext(ctx context.Context) GetLocationGroupsLastModUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsLastModUserOutput)
+}
+
+// GetLocationGroupsLastModUserArrayInput is an input type that accepts GetLocationGroupsLastModUserArray and GetLocationGroupsLastModUserArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsLastModUserArrayInput` via:
+//
+//	GetLocationGroupsLastModUserArray{ GetLocationGroupsLastModUserArgs{...} }
+type GetLocationGroupsLastModUserArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsLastModUserArrayOutput() GetLocationGroupsLastModUserArrayOutput
+	ToGetLocationGroupsLastModUserArrayOutputWithContext(context.Context) GetLocationGroupsLastModUserArrayOutput
+}
+
+type GetLocationGroupsLastModUserArray []GetLocationGroupsLastModUserInput
+
+func (GetLocationGroupsLastModUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsLastModUser)(nil)).Elem()
+}
+
+func (i GetLocationGroupsLastModUserArray) ToGetLocationGroupsLastModUserArrayOutput() GetLocationGroupsLastModUserArrayOutput {
+	return i.ToGetLocationGroupsLastModUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsLastModUserArray) ToGetLocationGroupsLastModUserArrayOutputWithContext(ctx context.Context) GetLocationGroupsLastModUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsLastModUserArrayOutput)
+}
+
+type GetLocationGroupsLastModUserOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsLastModUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsLastModUser)(nil)).Elem()
+}
+
+func (o GetLocationGroupsLastModUserOutput) ToGetLocationGroupsLastModUserOutput() GetLocationGroupsLastModUserOutput {
+	return o
+}
+
+func (o GetLocationGroupsLastModUserOutput) ToGetLocationGroupsLastModUserOutputWithContext(ctx context.Context) GetLocationGroupsLastModUserOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetLocationGroupsLastModUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocationGroupsLastModUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the location group
+func (o GetLocationGroupsLastModUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationGroupsLastModUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Location group name
+func (o GetLocationGroupsLastModUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationGroupsLastModUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLocationGroupsLastModUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsLastModUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsLastModUser)(nil)).Elem()
+}
+
+func (o GetLocationGroupsLastModUserArrayOutput) ToGetLocationGroupsLastModUserArrayOutput() GetLocationGroupsLastModUserArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsLastModUserArrayOutput) ToGetLocationGroupsLastModUserArrayOutputWithContext(ctx context.Context) GetLocationGroupsLastModUserArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsLastModUserArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsLastModUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsLastModUser {
+		return vs[0].([]GetLocationGroupsLastModUser)[vs[1].(int)]
+	}).(GetLocationGroupsLastModUserOutput)
+}
+
+type GetLocationGroupsLocation struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id int `pulumi:"id"`
+	// Location group name
+	Name string `pulumi:"name"`
+}
+
+// GetLocationGroupsLocationInput is an input type that accepts GetLocationGroupsLocationArgs and GetLocationGroupsLocationOutput values.
+// You can construct a concrete instance of `GetLocationGroupsLocationInput` via:
+//
+//	GetLocationGroupsLocationArgs{...}
+type GetLocationGroupsLocationInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsLocationOutput() GetLocationGroupsLocationOutput
+	ToGetLocationGroupsLocationOutputWithContext(context.Context) GetLocationGroupsLocationOutput
+}
+
+type GetLocationGroupsLocationArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the location group
+	Id pulumi.IntInput `pulumi:"id"`
+	// Location group name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLocationGroupsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsLocation)(nil)).Elem()
+}
+
+func (i GetLocationGroupsLocationArgs) ToGetLocationGroupsLocationOutput() GetLocationGroupsLocationOutput {
+	return i.ToGetLocationGroupsLocationOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsLocationArgs) ToGetLocationGroupsLocationOutputWithContext(ctx context.Context) GetLocationGroupsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsLocationOutput)
+}
+
+// GetLocationGroupsLocationArrayInput is an input type that accepts GetLocationGroupsLocationArray and GetLocationGroupsLocationArrayOutput values.
+// You can construct a concrete instance of `GetLocationGroupsLocationArrayInput` via:
+//
+//	GetLocationGroupsLocationArray{ GetLocationGroupsLocationArgs{...} }
+type GetLocationGroupsLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationGroupsLocationArrayOutput() GetLocationGroupsLocationArrayOutput
+	ToGetLocationGroupsLocationArrayOutputWithContext(context.Context) GetLocationGroupsLocationArrayOutput
+}
+
+type GetLocationGroupsLocationArray []GetLocationGroupsLocationInput
+
+func (GetLocationGroupsLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsLocation)(nil)).Elem()
+}
+
+func (i GetLocationGroupsLocationArray) ToGetLocationGroupsLocationArrayOutput() GetLocationGroupsLocationArrayOutput {
+	return i.ToGetLocationGroupsLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationGroupsLocationArray) ToGetLocationGroupsLocationArrayOutputWithContext(ctx context.Context) GetLocationGroupsLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationGroupsLocationArrayOutput)
+}
+
+type GetLocationGroupsLocationOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationGroupsLocation)(nil)).Elem()
+}
+
+func (o GetLocationGroupsLocationOutput) ToGetLocationGroupsLocationOutput() GetLocationGroupsLocationOutput {
+	return o
+}
+
+func (o GetLocationGroupsLocationOutput) ToGetLocationGroupsLocationOutputWithContext(ctx context.Context) GetLocationGroupsLocationOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetLocationGroupsLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocationGroupsLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the location group
+func (o GetLocationGroupsLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationGroupsLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Location group name
+func (o GetLocationGroupsLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationGroupsLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLocationGroupsLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationGroupsLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationGroupsLocation)(nil)).Elem()
+}
+
+func (o GetLocationGroupsLocationArrayOutput) ToGetLocationGroupsLocationArrayOutput() GetLocationGroupsLocationArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsLocationArrayOutput) ToGetLocationGroupsLocationArrayOutputWithContext(ctx context.Context) GetLocationGroupsLocationArrayOutput {
+	return o
+}
+
+func (o GetLocationGroupsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationGroupsLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationGroupsLocation {
+		return vs[0].([]GetLocationGroupsLocation)[vs[1].(int)]
+	}).(GetLocationGroupsLocationOutput)
+}
+
+type GetLocationManagementExtranet struct {
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+}
+
+// GetLocationManagementExtranetInput is an input type that accepts GetLocationManagementExtranetArgs and GetLocationManagementExtranetOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetInput` via:
+//
+//	GetLocationManagementExtranetArgs{...}
+type GetLocationManagementExtranetInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetOutput() GetLocationManagementExtranetOutput
+	ToGetLocationManagementExtranetOutputWithContext(context.Context) GetLocationManagementExtranetOutput
+}
+
+type GetLocationManagementExtranetArgs struct {
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+}
+
+func (GetLocationManagementExtranetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranet)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetArgs) ToGetLocationManagementExtranetOutput() GetLocationManagementExtranetOutput {
+	return i.ToGetLocationManagementExtranetOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetArgs) ToGetLocationManagementExtranetOutputWithContext(ctx context.Context) GetLocationManagementExtranetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetOutput)
+}
+
+// GetLocationManagementExtranetArrayInput is an input type that accepts GetLocationManagementExtranetArray and GetLocationManagementExtranetArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetArrayInput` via:
+//
+//	GetLocationManagementExtranetArray{ GetLocationManagementExtranetArgs{...} }
+type GetLocationManagementExtranetArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetArrayOutput() GetLocationManagementExtranetArrayOutput
+	ToGetLocationManagementExtranetArrayOutputWithContext(context.Context) GetLocationManagementExtranetArrayOutput
+}
+
+type GetLocationManagementExtranetArray []GetLocationManagementExtranetInput
+
+func (GetLocationManagementExtranetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranet)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetArray) ToGetLocationManagementExtranetArrayOutput() GetLocationManagementExtranetArrayOutput {
+	return i.ToGetLocationManagementExtranetArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetArray) ToGetLocationManagementExtranetArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetArrayOutput)
+}
+
+type GetLocationManagementExtranetOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranet)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetOutput) ToGetLocationManagementExtranetOutput() GetLocationManagementExtranetOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetOutput) ToGetLocationManagementExtranetOutputWithContext(ctx context.Context) GetLocationManagementExtranetOutput {
+	return o
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementExtranetOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementExtranet) int { return v.Id }).(pulumi.IntOutput)
+}
+
+type GetLocationManagementExtranetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranet)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetArrayOutput) ToGetLocationManagementExtranetArrayOutput() GetLocationManagementExtranetArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetArrayOutput) ToGetLocationManagementExtranetArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetArrayOutput) Index(i pulumi.IntInput) GetLocationManagementExtranetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementExtranet {
+		return vs[0].([]GetLocationManagementExtranet)[vs[1].(int)]
+	}).(GetLocationManagementExtranetOutput)
+}
+
+type GetLocationManagementExtranetDn struct {
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+}
+
+// GetLocationManagementExtranetDnInput is an input type that accepts GetLocationManagementExtranetDnArgs and GetLocationManagementExtranetDnOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetDnInput` via:
+//
+//	GetLocationManagementExtranetDnArgs{...}
+type GetLocationManagementExtranetDnInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetDnOutput() GetLocationManagementExtranetDnOutput
+	ToGetLocationManagementExtranetDnOutputWithContext(context.Context) GetLocationManagementExtranetDnOutput
+}
+
+type GetLocationManagementExtranetDnArgs struct {
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+}
+
+func (GetLocationManagementExtranetDnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranetDn)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetDnArgs) ToGetLocationManagementExtranetDnOutput() GetLocationManagementExtranetDnOutput {
+	return i.ToGetLocationManagementExtranetDnOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetDnArgs) ToGetLocationManagementExtranetDnOutputWithContext(ctx context.Context) GetLocationManagementExtranetDnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetDnOutput)
+}
+
+// GetLocationManagementExtranetDnArrayInput is an input type that accepts GetLocationManagementExtranetDnArray and GetLocationManagementExtranetDnArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetDnArrayInput` via:
+//
+//	GetLocationManagementExtranetDnArray{ GetLocationManagementExtranetDnArgs{...} }
+type GetLocationManagementExtranetDnArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetDnArrayOutput() GetLocationManagementExtranetDnArrayOutput
+	ToGetLocationManagementExtranetDnArrayOutputWithContext(context.Context) GetLocationManagementExtranetDnArrayOutput
+}
+
+type GetLocationManagementExtranetDnArray []GetLocationManagementExtranetDnInput
+
+func (GetLocationManagementExtranetDnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranetDn)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetDnArray) ToGetLocationManagementExtranetDnArrayOutput() GetLocationManagementExtranetDnArrayOutput {
+	return i.ToGetLocationManagementExtranetDnArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetDnArray) ToGetLocationManagementExtranetDnArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetDnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetDnArrayOutput)
+}
+
+type GetLocationManagementExtranetDnOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetDnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranetDn)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetDnOutput) ToGetLocationManagementExtranetDnOutput() GetLocationManagementExtranetDnOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetDnOutput) ToGetLocationManagementExtranetDnOutputWithContext(ctx context.Context) GetLocationManagementExtranetDnOutput {
+	return o
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementExtranetDnOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementExtranetDn) int { return v.Id }).(pulumi.IntOutput)
+}
+
+type GetLocationManagementExtranetDnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetDnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranetDn)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetDnArrayOutput) ToGetLocationManagementExtranetDnArrayOutput() GetLocationManagementExtranetDnArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetDnArrayOutput) ToGetLocationManagementExtranetDnArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetDnArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetDnArrayOutput) Index(i pulumi.IntInput) GetLocationManagementExtranetDnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementExtranetDn {
+		return vs[0].([]GetLocationManagementExtranetDn)[vs[1].(int)]
+	}).(GetLocationManagementExtranetDnOutput)
+}
+
+type GetLocationManagementExtranetIpPool struct {
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+}
+
+// GetLocationManagementExtranetIpPoolInput is an input type that accepts GetLocationManagementExtranetIpPoolArgs and GetLocationManagementExtranetIpPoolOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetIpPoolInput` via:
+//
+//	GetLocationManagementExtranetIpPoolArgs{...}
+type GetLocationManagementExtranetIpPoolInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetIpPoolOutput() GetLocationManagementExtranetIpPoolOutput
+	ToGetLocationManagementExtranetIpPoolOutputWithContext(context.Context) GetLocationManagementExtranetIpPoolOutput
+}
+
+type GetLocationManagementExtranetIpPoolArgs struct {
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+}
+
+func (GetLocationManagementExtranetIpPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranetIpPool)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetIpPoolArgs) ToGetLocationManagementExtranetIpPoolOutput() GetLocationManagementExtranetIpPoolOutput {
+	return i.ToGetLocationManagementExtranetIpPoolOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetIpPoolArgs) ToGetLocationManagementExtranetIpPoolOutputWithContext(ctx context.Context) GetLocationManagementExtranetIpPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetIpPoolOutput)
+}
+
+// GetLocationManagementExtranetIpPoolArrayInput is an input type that accepts GetLocationManagementExtranetIpPoolArray and GetLocationManagementExtranetIpPoolArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementExtranetIpPoolArrayInput` via:
+//
+//	GetLocationManagementExtranetIpPoolArray{ GetLocationManagementExtranetIpPoolArgs{...} }
+type GetLocationManagementExtranetIpPoolArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementExtranetIpPoolArrayOutput() GetLocationManagementExtranetIpPoolArrayOutput
+	ToGetLocationManagementExtranetIpPoolArrayOutputWithContext(context.Context) GetLocationManagementExtranetIpPoolArrayOutput
+}
+
+type GetLocationManagementExtranetIpPoolArray []GetLocationManagementExtranetIpPoolInput
+
+func (GetLocationManagementExtranetIpPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranetIpPool)(nil)).Elem()
+}
+
+func (i GetLocationManagementExtranetIpPoolArray) ToGetLocationManagementExtranetIpPoolArrayOutput() GetLocationManagementExtranetIpPoolArrayOutput {
+	return i.ToGetLocationManagementExtranetIpPoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementExtranetIpPoolArray) ToGetLocationManagementExtranetIpPoolArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetIpPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementExtranetIpPoolArrayOutput)
+}
+
+type GetLocationManagementExtranetIpPoolOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetIpPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementExtranetIpPool)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetIpPoolOutput) ToGetLocationManagementExtranetIpPoolOutput() GetLocationManagementExtranetIpPoolOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetIpPoolOutput) ToGetLocationManagementExtranetIpPoolOutputWithContext(ctx context.Context) GetLocationManagementExtranetIpPoolOutput {
+	return o
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementExtranetIpPoolOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementExtranetIpPool) int { return v.Id }).(pulumi.IntOutput)
+}
+
+type GetLocationManagementExtranetIpPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementExtranetIpPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementExtranetIpPool)(nil)).Elem()
+}
+
+func (o GetLocationManagementExtranetIpPoolArrayOutput) ToGetLocationManagementExtranetIpPoolArrayOutput() GetLocationManagementExtranetIpPoolArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetIpPoolArrayOutput) ToGetLocationManagementExtranetIpPoolArrayOutputWithContext(ctx context.Context) GetLocationManagementExtranetIpPoolArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementExtranetIpPoolArrayOutput) Index(i pulumi.IntInput) GetLocationManagementExtranetIpPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementExtranetIpPool {
+		return vs[0].([]GetLocationManagementExtranetIpPool)[vs[1].(int)]
+	}).(GetLocationManagementExtranetIpPoolOutput)
+}
+
+type GetLocationManagementVpnCredential struct {
+	// (String) Additional information about this VPN credential.
+	// Additional information about this VPN credential.
+	Comments string `pulumi:"comments"`
+	// (String) Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
+	Fqdn string `pulumi:"fqdn"`
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+	// (List of Object)
+	Locations []GetLocationManagementVpnCredentialLocation `pulumi:"locations"`
+	// (List of Object)
+	ManagedBies []GetLocationManagementVpnCredentialManagedBy `pulumi:"managedBies"`
+	// (String) Pre-shared key. This is a required field for `UFQDN` and IP auth type.
+	PreSharedKey string `pulumi:"preSharedKey"`
+	// (String) VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created.
+	Type string `pulumi:"type"`
+}
+
+// GetLocationManagementVpnCredentialInput is an input type that accepts GetLocationManagementVpnCredentialArgs and GetLocationManagementVpnCredentialOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialInput` via:
+//
+//	GetLocationManagementVpnCredentialArgs{...}
+type GetLocationManagementVpnCredentialInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialOutput() GetLocationManagementVpnCredentialOutput
+	ToGetLocationManagementVpnCredentialOutputWithContext(context.Context) GetLocationManagementVpnCredentialOutput
+}
+
+type GetLocationManagementVpnCredentialArgs struct {
+	// (String) Additional information about this VPN credential.
+	// Additional information about this VPN credential.
+	Comments pulumi.StringInput `pulumi:"comments"`
+	// (String) Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+	// (List of Object)
+	Locations GetLocationManagementVpnCredentialLocationArrayInput `pulumi:"locations"`
+	// (List of Object)
+	ManagedBies GetLocationManagementVpnCredentialManagedByArrayInput `pulumi:"managedBies"`
+	// (String) Pre-shared key. This is a required field for `UFQDN` and IP auth type.
+	PreSharedKey pulumi.StringInput `pulumi:"preSharedKey"`
+	// (String) VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLocationManagementVpnCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredential)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialArgs) ToGetLocationManagementVpnCredentialOutput() GetLocationManagementVpnCredentialOutput {
+	return i.ToGetLocationManagementVpnCredentialOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialArgs) ToGetLocationManagementVpnCredentialOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialOutput)
+}
+
+// GetLocationManagementVpnCredentialArrayInput is an input type that accepts GetLocationManagementVpnCredentialArray and GetLocationManagementVpnCredentialArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialArrayInput` via:
+//
+//	GetLocationManagementVpnCredentialArray{ GetLocationManagementVpnCredentialArgs{...} }
+type GetLocationManagementVpnCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialArrayOutput() GetLocationManagementVpnCredentialArrayOutput
+	ToGetLocationManagementVpnCredentialArrayOutputWithContext(context.Context) GetLocationManagementVpnCredentialArrayOutput
+}
+
+type GetLocationManagementVpnCredentialArray []GetLocationManagementVpnCredentialInput
+
+func (GetLocationManagementVpnCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredential)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialArray) ToGetLocationManagementVpnCredentialArrayOutput() GetLocationManagementVpnCredentialArrayOutput {
+	return i.ToGetLocationManagementVpnCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialArray) ToGetLocationManagementVpnCredentialArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialArrayOutput)
+}
+
+type GetLocationManagementVpnCredentialOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredential)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialOutput) ToGetLocationManagementVpnCredentialOutput() GetLocationManagementVpnCredentialOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialOutput) ToGetLocationManagementVpnCredentialOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialOutput {
+	return o
+}
+
+// (String) Additional information about this VPN credential.
+// Additional information about this VPN credential.
+func (o GetLocationManagementVpnCredentialOutput) Comments() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) string { return v.Comments }).(pulumi.StringOutput)
+}
+
+// (String) Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
+func (o GetLocationManagementVpnCredentialOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementVpnCredentialOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (List of Object)
+func (o GetLocationManagementVpnCredentialOutput) Locations() GetLocationManagementVpnCredentialLocationArrayOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) []GetLocationManagementVpnCredentialLocation {
+		return v.Locations
+	}).(GetLocationManagementVpnCredentialLocationArrayOutput)
+}
+
+// (List of Object)
+func (o GetLocationManagementVpnCredentialOutput) ManagedBies() GetLocationManagementVpnCredentialManagedByArrayOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) []GetLocationManagementVpnCredentialManagedBy {
+		return v.ManagedBies
+	}).(GetLocationManagementVpnCredentialManagedByArrayOutput)
+}
+
+// (String) Pre-shared key. This is a required field for `UFQDN` and IP auth type.
+func (o GetLocationManagementVpnCredentialOutput) PreSharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) string { return v.PreSharedKey }).(pulumi.StringOutput)
+}
+
+// (String) VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created.
+func (o GetLocationManagementVpnCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredential) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLocationManagementVpnCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredential)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialArrayOutput) ToGetLocationManagementVpnCredentialArrayOutput() GetLocationManagementVpnCredentialArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialArrayOutput) ToGetLocationManagementVpnCredentialArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialArrayOutput) Index(i pulumi.IntInput) GetLocationManagementVpnCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementVpnCredential {
+		return vs[0].([]GetLocationManagementVpnCredential)[vs[1].(int)]
+	}).(GetLocationManagementVpnCredentialOutput)
+}
+
+type GetLocationManagementVpnCredentialLocation struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+	// The name of the location to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetLocationManagementVpnCredentialLocationInput is an input type that accepts GetLocationManagementVpnCredentialLocationArgs and GetLocationManagementVpnCredentialLocationOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialLocationInput` via:
+//
+//	GetLocationManagementVpnCredentialLocationArgs{...}
+type GetLocationManagementVpnCredentialLocationInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialLocationOutput() GetLocationManagementVpnCredentialLocationOutput
+	ToGetLocationManagementVpnCredentialLocationOutputWithContext(context.Context) GetLocationManagementVpnCredentialLocationOutput
+}
+
+type GetLocationManagementVpnCredentialLocationArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the location to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLocationManagementVpnCredentialLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredentialLocation)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialLocationArgs) ToGetLocationManagementVpnCredentialLocationOutput() GetLocationManagementVpnCredentialLocationOutput {
+	return i.ToGetLocationManagementVpnCredentialLocationOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialLocationArgs) ToGetLocationManagementVpnCredentialLocationOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialLocationOutput)
+}
+
+// GetLocationManagementVpnCredentialLocationArrayInput is an input type that accepts GetLocationManagementVpnCredentialLocationArray and GetLocationManagementVpnCredentialLocationArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialLocationArrayInput` via:
+//
+//	GetLocationManagementVpnCredentialLocationArray{ GetLocationManagementVpnCredentialLocationArgs{...} }
+type GetLocationManagementVpnCredentialLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialLocationArrayOutput() GetLocationManagementVpnCredentialLocationArrayOutput
+	ToGetLocationManagementVpnCredentialLocationArrayOutputWithContext(context.Context) GetLocationManagementVpnCredentialLocationArrayOutput
+}
+
+type GetLocationManagementVpnCredentialLocationArray []GetLocationManagementVpnCredentialLocationInput
+
+func (GetLocationManagementVpnCredentialLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredentialLocation)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialLocationArray) ToGetLocationManagementVpnCredentialLocationArrayOutput() GetLocationManagementVpnCredentialLocationArrayOutput {
+	return i.ToGetLocationManagementVpnCredentialLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialLocationArray) ToGetLocationManagementVpnCredentialLocationArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialLocationArrayOutput)
+}
+
+type GetLocationManagementVpnCredentialLocationOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredentialLocation)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialLocationOutput) ToGetLocationManagementVpnCredentialLocationOutput() GetLocationManagementVpnCredentialLocationOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialLocationOutput) ToGetLocationManagementVpnCredentialLocationOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialLocationOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetLocationManagementVpnCredentialLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementVpnCredentialLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the location to be exported.
+func (o GetLocationManagementVpnCredentialLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLocationManagementVpnCredentialLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredentialLocation)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialLocationArrayOutput) ToGetLocationManagementVpnCredentialLocationArrayOutput() GetLocationManagementVpnCredentialLocationArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialLocationArrayOutput) ToGetLocationManagementVpnCredentialLocationArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialLocationArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialLocationArrayOutput) Index(i pulumi.IntInput) GetLocationManagementVpnCredentialLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementVpnCredentialLocation {
+		return vs[0].([]GetLocationManagementVpnCredentialLocation)[vs[1].(int)]
+	}).(GetLocationManagementVpnCredentialLocationOutput)
+}
+
+type GetLocationManagementVpnCredentialManagedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// The ID of the location to be exported.
+	Id int `pulumi:"id"`
+	// The name of the location to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetLocationManagementVpnCredentialManagedByInput is an input type that accepts GetLocationManagementVpnCredentialManagedByArgs and GetLocationManagementVpnCredentialManagedByOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialManagedByInput` via:
+//
+//	GetLocationManagementVpnCredentialManagedByArgs{...}
+type GetLocationManagementVpnCredentialManagedByInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialManagedByOutput() GetLocationManagementVpnCredentialManagedByOutput
+	ToGetLocationManagementVpnCredentialManagedByOutputWithContext(context.Context) GetLocationManagementVpnCredentialManagedByOutput
+}
+
+type GetLocationManagementVpnCredentialManagedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The ID of the location to be exported.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the location to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLocationManagementVpnCredentialManagedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredentialManagedBy)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialManagedByArgs) ToGetLocationManagementVpnCredentialManagedByOutput() GetLocationManagementVpnCredentialManagedByOutput {
+	return i.ToGetLocationManagementVpnCredentialManagedByOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialManagedByArgs) ToGetLocationManagementVpnCredentialManagedByOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialManagedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialManagedByOutput)
+}
+
+// GetLocationManagementVpnCredentialManagedByArrayInput is an input type that accepts GetLocationManagementVpnCredentialManagedByArray and GetLocationManagementVpnCredentialManagedByArrayOutput values.
+// You can construct a concrete instance of `GetLocationManagementVpnCredentialManagedByArrayInput` via:
+//
+//	GetLocationManagementVpnCredentialManagedByArray{ GetLocationManagementVpnCredentialManagedByArgs{...} }
+type GetLocationManagementVpnCredentialManagedByArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationManagementVpnCredentialManagedByArrayOutput() GetLocationManagementVpnCredentialManagedByArrayOutput
+	ToGetLocationManagementVpnCredentialManagedByArrayOutputWithContext(context.Context) GetLocationManagementVpnCredentialManagedByArrayOutput
+}
+
+type GetLocationManagementVpnCredentialManagedByArray []GetLocationManagementVpnCredentialManagedByInput
+
+func (GetLocationManagementVpnCredentialManagedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredentialManagedBy)(nil)).Elem()
+}
+
+func (i GetLocationManagementVpnCredentialManagedByArray) ToGetLocationManagementVpnCredentialManagedByArrayOutput() GetLocationManagementVpnCredentialManagedByArrayOutput {
+	return i.ToGetLocationManagementVpnCredentialManagedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationManagementVpnCredentialManagedByArray) ToGetLocationManagementVpnCredentialManagedByArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialManagedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationManagementVpnCredentialManagedByArrayOutput)
+}
+
+type GetLocationManagementVpnCredentialManagedByOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialManagedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationManagementVpnCredentialManagedBy)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialManagedByOutput) ToGetLocationManagementVpnCredentialManagedByOutput() GetLocationManagementVpnCredentialManagedByOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialManagedByOutput) ToGetLocationManagementVpnCredentialManagedByOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialManagedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetLocationManagementVpnCredentialManagedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialManagedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The ID of the location to be exported.
+func (o GetLocationManagementVpnCredentialManagedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialManagedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the location to be exported.
+func (o GetLocationManagementVpnCredentialManagedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationManagementVpnCredentialManagedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLocationManagementVpnCredentialManagedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationManagementVpnCredentialManagedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationManagementVpnCredentialManagedBy)(nil)).Elem()
+}
+
+func (o GetLocationManagementVpnCredentialManagedByArrayOutput) ToGetLocationManagementVpnCredentialManagedByArrayOutput() GetLocationManagementVpnCredentialManagedByArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialManagedByArrayOutput) ToGetLocationManagementVpnCredentialManagedByArrayOutputWithContext(ctx context.Context) GetLocationManagementVpnCredentialManagedByArrayOutput {
+	return o
+}
+
+func (o GetLocationManagementVpnCredentialManagedByArrayOutput) Index(i pulumi.IntInput) GetLocationManagementVpnCredentialManagedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationManagementVpnCredentialManagedBy {
+		return vs[0].([]GetLocationManagementVpnCredentialManagedBy)[vs[1].(int)]
+	}).(GetLocationManagementVpnCredentialManagedByOutput)
+}
+
+type GetNatControlRulesDepartment struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesDepartmentInput is an input type that accepts GetNatControlRulesDepartmentArgs and GetNatControlRulesDepartmentOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDepartmentInput` via:
+//
+//	GetNatControlRulesDepartmentArgs{...}
+type GetNatControlRulesDepartmentInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDepartmentOutput() GetNatControlRulesDepartmentOutput
+	ToGetNatControlRulesDepartmentOutputWithContext(context.Context) GetNatControlRulesDepartmentOutput
+}
+
+type GetNatControlRulesDepartmentArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDepartment)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDepartmentArgs) ToGetNatControlRulesDepartmentOutput() GetNatControlRulesDepartmentOutput {
+	return i.ToGetNatControlRulesDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDepartmentArgs) ToGetNatControlRulesDepartmentOutputWithContext(ctx context.Context) GetNatControlRulesDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDepartmentOutput)
+}
+
+// GetNatControlRulesDepartmentArrayInput is an input type that accepts GetNatControlRulesDepartmentArray and GetNatControlRulesDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDepartmentArrayInput` via:
+//
+//	GetNatControlRulesDepartmentArray{ GetNatControlRulesDepartmentArgs{...} }
+type GetNatControlRulesDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDepartmentArrayOutput() GetNatControlRulesDepartmentArrayOutput
+	ToGetNatControlRulesDepartmentArrayOutputWithContext(context.Context) GetNatControlRulesDepartmentArrayOutput
+}
+
+type GetNatControlRulesDepartmentArray []GetNatControlRulesDepartmentInput
+
+func (GetNatControlRulesDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDepartment)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDepartmentArray) ToGetNatControlRulesDepartmentArrayOutput() GetNatControlRulesDepartmentArrayOutput {
+	return i.ToGetNatControlRulesDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDepartmentArray) ToGetNatControlRulesDepartmentArrayOutputWithContext(ctx context.Context) GetNatControlRulesDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDepartmentArrayOutput)
+}
+
+type GetNatControlRulesDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDepartment)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDepartmentOutput) ToGetNatControlRulesDepartmentOutput() GetNatControlRulesDepartmentOutput {
+	return o
+}
+
+func (o GetNatControlRulesDepartmentOutput) ToGetNatControlRulesDepartmentOutputWithContext(ctx context.Context) GetNatControlRulesDepartmentOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDepartment)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDepartmentArrayOutput) ToGetNatControlRulesDepartmentArrayOutput() GetNatControlRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDepartmentArrayOutput) ToGetNatControlRulesDepartmentArrayOutputWithContext(ctx context.Context) GetNatControlRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesDepartment {
+		return vs[0].([]GetNatControlRulesDepartment)[vs[1].(int)]
+	}).(GetNatControlRulesDepartmentOutput)
+}
+
+type GetNatControlRulesDestIpGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesDestIpGroupInput is an input type that accepts GetNatControlRulesDestIpGroupArgs and GetNatControlRulesDestIpGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDestIpGroupInput` via:
+//
+//	GetNatControlRulesDestIpGroupArgs{...}
+type GetNatControlRulesDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDestIpGroupOutput() GetNatControlRulesDestIpGroupOutput
+	ToGetNatControlRulesDestIpGroupOutputWithContext(context.Context) GetNatControlRulesDestIpGroupOutput
+}
+
+type GetNatControlRulesDestIpGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDestIpGroupArgs) ToGetNatControlRulesDestIpGroupOutput() GetNatControlRulesDestIpGroupOutput {
+	return i.ToGetNatControlRulesDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDestIpGroupArgs) ToGetNatControlRulesDestIpGroupOutputWithContext(ctx context.Context) GetNatControlRulesDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDestIpGroupOutput)
+}
+
+// GetNatControlRulesDestIpGroupArrayInput is an input type that accepts GetNatControlRulesDestIpGroupArray and GetNatControlRulesDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDestIpGroupArrayInput` via:
+//
+//	GetNatControlRulesDestIpGroupArray{ GetNatControlRulesDestIpGroupArgs{...} }
+type GetNatControlRulesDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDestIpGroupArrayOutput() GetNatControlRulesDestIpGroupArrayOutput
+	ToGetNatControlRulesDestIpGroupArrayOutputWithContext(context.Context) GetNatControlRulesDestIpGroupArrayOutput
+}
+
+type GetNatControlRulesDestIpGroupArray []GetNatControlRulesDestIpGroupInput
+
+func (GetNatControlRulesDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDestIpGroupArray) ToGetNatControlRulesDestIpGroupArrayOutput() GetNatControlRulesDestIpGroupArrayOutput {
+	return i.ToGetNatControlRulesDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDestIpGroupArray) ToGetNatControlRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDestIpGroupArrayOutput)
+}
+
+type GetNatControlRulesDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDestIpGroupOutput) ToGetNatControlRulesDestIpGroupOutput() GetNatControlRulesDestIpGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpGroupOutput) ToGetNatControlRulesDestIpGroupOutputWithContext(ctx context.Context) GetNatControlRulesDestIpGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDestIpGroupArrayOutput) ToGetNatControlRulesDestIpGroupArrayOutput() GetNatControlRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpGroupArrayOutput) ToGetNatControlRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesDestIpGroup {
+		return vs[0].([]GetNatControlRulesDestIpGroup)[vs[1].(int)]
+	}).(GetNatControlRulesDestIpGroupOutput)
+}
+
+type GetNatControlRulesDestIpv6Group struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesDestIpv6GroupInput is an input type that accepts GetNatControlRulesDestIpv6GroupArgs and GetNatControlRulesDestIpv6GroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDestIpv6GroupInput` via:
+//
+//	GetNatControlRulesDestIpv6GroupArgs{...}
+type GetNatControlRulesDestIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDestIpv6GroupOutput() GetNatControlRulesDestIpv6GroupOutput
+	ToGetNatControlRulesDestIpv6GroupOutputWithContext(context.Context) GetNatControlRulesDestIpv6GroupOutput
+}
+
+type GetNatControlRulesDestIpv6GroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesDestIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDestIpv6GroupArgs) ToGetNatControlRulesDestIpv6GroupOutput() GetNatControlRulesDestIpv6GroupOutput {
+	return i.ToGetNatControlRulesDestIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDestIpv6GroupArgs) ToGetNatControlRulesDestIpv6GroupOutputWithContext(ctx context.Context) GetNatControlRulesDestIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDestIpv6GroupOutput)
+}
+
+// GetNatControlRulesDestIpv6GroupArrayInput is an input type that accepts GetNatControlRulesDestIpv6GroupArray and GetNatControlRulesDestIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDestIpv6GroupArrayInput` via:
+//
+//	GetNatControlRulesDestIpv6GroupArray{ GetNatControlRulesDestIpv6GroupArgs{...} }
+type GetNatControlRulesDestIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDestIpv6GroupArrayOutput() GetNatControlRulesDestIpv6GroupArrayOutput
+	ToGetNatControlRulesDestIpv6GroupArrayOutputWithContext(context.Context) GetNatControlRulesDestIpv6GroupArrayOutput
+}
+
+type GetNatControlRulesDestIpv6GroupArray []GetNatControlRulesDestIpv6GroupInput
+
+func (GetNatControlRulesDestIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDestIpv6GroupArray) ToGetNatControlRulesDestIpv6GroupArrayOutput() GetNatControlRulesDestIpv6GroupArrayOutput {
+	return i.ToGetNatControlRulesDestIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDestIpv6GroupArray) ToGetNatControlRulesDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDestIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDestIpv6GroupArrayOutput)
+}
+
+type GetNatControlRulesDestIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDestIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDestIpv6GroupOutput) ToGetNatControlRulesDestIpv6GroupOutput() GetNatControlRulesDestIpv6GroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpv6GroupOutput) ToGetNatControlRulesDestIpv6GroupOutputWithContext(ctx context.Context) GetNatControlRulesDestIpv6GroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesDestIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesDestIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesDestIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesDestIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesDestIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDestIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDestIpv6Group)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDestIpv6GroupArrayOutput) ToGetNatControlRulesDestIpv6GroupArrayOutput() GetNatControlRulesDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpv6GroupArrayOutput) ToGetNatControlRulesDestIpv6GroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDestIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDestIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesDestIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesDestIpv6Group {
+		return vs[0].([]GetNatControlRulesDestIpv6Group)[vs[1].(int)]
+	}).(GetNatControlRulesDestIpv6GroupOutput)
+}
+
+type GetNatControlRulesDevice struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesDeviceInput is an input type that accepts GetNatControlRulesDeviceArgs and GetNatControlRulesDeviceOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDeviceInput` via:
+//
+//	GetNatControlRulesDeviceArgs{...}
+type GetNatControlRulesDeviceInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDeviceOutput() GetNatControlRulesDeviceOutput
+	ToGetNatControlRulesDeviceOutputWithContext(context.Context) GetNatControlRulesDeviceOutput
+}
+
+type GetNatControlRulesDeviceArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDevice)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDeviceArgs) ToGetNatControlRulesDeviceOutput() GetNatControlRulesDeviceOutput {
+	return i.ToGetNatControlRulesDeviceOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDeviceArgs) ToGetNatControlRulesDeviceOutputWithContext(ctx context.Context) GetNatControlRulesDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDeviceOutput)
+}
+
+// GetNatControlRulesDeviceArrayInput is an input type that accepts GetNatControlRulesDeviceArray and GetNatControlRulesDeviceArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDeviceArrayInput` via:
+//
+//	GetNatControlRulesDeviceArray{ GetNatControlRulesDeviceArgs{...} }
+type GetNatControlRulesDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDeviceArrayOutput() GetNatControlRulesDeviceArrayOutput
+	ToGetNatControlRulesDeviceArrayOutputWithContext(context.Context) GetNatControlRulesDeviceArrayOutput
+}
+
+type GetNatControlRulesDeviceArray []GetNatControlRulesDeviceInput
+
+func (GetNatControlRulesDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDevice)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDeviceArray) ToGetNatControlRulesDeviceArrayOutput() GetNatControlRulesDeviceArrayOutput {
+	return i.ToGetNatControlRulesDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDeviceArray) ToGetNatControlRulesDeviceArrayOutputWithContext(ctx context.Context) GetNatControlRulesDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDeviceArrayOutput)
+}
+
+type GetNatControlRulesDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDevice)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDeviceOutput) ToGetNatControlRulesDeviceOutput() GetNatControlRulesDeviceOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceOutput) ToGetNatControlRulesDeviceOutputWithContext(ctx context.Context) GetNatControlRulesDeviceOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDevice)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDeviceArrayOutput) ToGetNatControlRulesDeviceArrayOutput() GetNatControlRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceArrayOutput) ToGetNatControlRulesDeviceArrayOutputWithContext(ctx context.Context) GetNatControlRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesDevice {
+		return vs[0].([]GetNatControlRulesDevice)[vs[1].(int)]
+	}).(GetNatControlRulesDeviceOutput)
+}
+
+type GetNatControlRulesDeviceGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesDeviceGroupInput is an input type that accepts GetNatControlRulesDeviceGroupArgs and GetNatControlRulesDeviceGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDeviceGroupInput` via:
+//
+//	GetNatControlRulesDeviceGroupArgs{...}
+type GetNatControlRulesDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDeviceGroupOutput() GetNatControlRulesDeviceGroupOutput
+	ToGetNatControlRulesDeviceGroupOutputWithContext(context.Context) GetNatControlRulesDeviceGroupOutput
+}
+
+type GetNatControlRulesDeviceGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDeviceGroupArgs) ToGetNatControlRulesDeviceGroupOutput() GetNatControlRulesDeviceGroupOutput {
+	return i.ToGetNatControlRulesDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDeviceGroupArgs) ToGetNatControlRulesDeviceGroupOutputWithContext(ctx context.Context) GetNatControlRulesDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDeviceGroupOutput)
+}
+
+// GetNatControlRulesDeviceGroupArrayInput is an input type that accepts GetNatControlRulesDeviceGroupArray and GetNatControlRulesDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesDeviceGroupArrayInput` via:
+//
+//	GetNatControlRulesDeviceGroupArray{ GetNatControlRulesDeviceGroupArgs{...} }
+type GetNatControlRulesDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesDeviceGroupArrayOutput() GetNatControlRulesDeviceGroupArrayOutput
+	ToGetNatControlRulesDeviceGroupArrayOutputWithContext(context.Context) GetNatControlRulesDeviceGroupArrayOutput
+}
+
+type GetNatControlRulesDeviceGroupArray []GetNatControlRulesDeviceGroupInput
+
+func (GetNatControlRulesDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesDeviceGroupArray) ToGetNatControlRulesDeviceGroupArrayOutput() GetNatControlRulesDeviceGroupArrayOutput {
+	return i.ToGetNatControlRulesDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesDeviceGroupArray) ToGetNatControlRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesDeviceGroupArrayOutput)
+}
+
+type GetNatControlRulesDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDeviceGroupOutput) ToGetNatControlRulesDeviceGroupOutput() GetNatControlRulesDeviceGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceGroupOutput) ToGetNatControlRulesDeviceGroupOutputWithContext(ctx context.Context) GetNatControlRulesDeviceGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesDeviceGroupArrayOutput) ToGetNatControlRulesDeviceGroupArrayOutput() GetNatControlRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceGroupArrayOutput) ToGetNatControlRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesDeviceGroup {
+		return vs[0].([]GetNatControlRulesDeviceGroup)[vs[1].(int)]
+	}).(GetNatControlRulesDeviceGroupOutput)
+}
+
+type GetNatControlRulesGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesGroupInput is an input type that accepts GetNatControlRulesGroupArgs and GetNatControlRulesGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesGroupInput` via:
+//
+//	GetNatControlRulesGroupArgs{...}
+type GetNatControlRulesGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesGroupOutput() GetNatControlRulesGroupOutput
+	ToGetNatControlRulesGroupOutputWithContext(context.Context) GetNatControlRulesGroupOutput
+}
+
+type GetNatControlRulesGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesGroupArgs) ToGetNatControlRulesGroupOutput() GetNatControlRulesGroupOutput {
+	return i.ToGetNatControlRulesGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesGroupArgs) ToGetNatControlRulesGroupOutputWithContext(ctx context.Context) GetNatControlRulesGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesGroupOutput)
+}
+
+// GetNatControlRulesGroupArrayInput is an input type that accepts GetNatControlRulesGroupArray and GetNatControlRulesGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesGroupArrayInput` via:
+//
+//	GetNatControlRulesGroupArray{ GetNatControlRulesGroupArgs{...} }
+type GetNatControlRulesGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesGroupArrayOutput() GetNatControlRulesGroupArrayOutput
+	ToGetNatControlRulesGroupArrayOutputWithContext(context.Context) GetNatControlRulesGroupArrayOutput
+}
+
+type GetNatControlRulesGroupArray []GetNatControlRulesGroupInput
+
+func (GetNatControlRulesGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesGroupArray) ToGetNatControlRulesGroupArrayOutput() GetNatControlRulesGroupArrayOutput {
+	return i.ToGetNatControlRulesGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesGroupArray) ToGetNatControlRulesGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesGroupArrayOutput)
+}
+
+type GetNatControlRulesGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesGroupOutput) ToGetNatControlRulesGroupOutput() GetNatControlRulesGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesGroupOutput) ToGetNatControlRulesGroupOutputWithContext(ctx context.Context) GetNatControlRulesGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesGroupArrayOutput) ToGetNatControlRulesGroupArrayOutput() GetNatControlRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesGroupArrayOutput) ToGetNatControlRulesGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesGroup {
+		return vs[0].([]GetNatControlRulesGroup)[vs[1].(int)]
+	}).(GetNatControlRulesGroupOutput)
+}
+
+type GetNatControlRulesLabel struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesLabelInput is an input type that accepts GetNatControlRulesLabelArgs and GetNatControlRulesLabelOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLabelInput` via:
+//
+//	GetNatControlRulesLabelArgs{...}
+type GetNatControlRulesLabelInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLabelOutput() GetNatControlRulesLabelOutput
+	ToGetNatControlRulesLabelOutputWithContext(context.Context) GetNatControlRulesLabelOutput
+}
+
+type GetNatControlRulesLabelArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLabel)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLabelArgs) ToGetNatControlRulesLabelOutput() GetNatControlRulesLabelOutput {
+	return i.ToGetNatControlRulesLabelOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLabelArgs) ToGetNatControlRulesLabelOutputWithContext(ctx context.Context) GetNatControlRulesLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLabelOutput)
+}
+
+// GetNatControlRulesLabelArrayInput is an input type that accepts GetNatControlRulesLabelArray and GetNatControlRulesLabelArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLabelArrayInput` via:
+//
+//	GetNatControlRulesLabelArray{ GetNatControlRulesLabelArgs{...} }
+type GetNatControlRulesLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLabelArrayOutput() GetNatControlRulesLabelArrayOutput
+	ToGetNatControlRulesLabelArrayOutputWithContext(context.Context) GetNatControlRulesLabelArrayOutput
+}
+
+type GetNatControlRulesLabelArray []GetNatControlRulesLabelInput
+
+func (GetNatControlRulesLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLabel)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLabelArray) ToGetNatControlRulesLabelArrayOutput() GetNatControlRulesLabelArrayOutput {
+	return i.ToGetNatControlRulesLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLabelArray) ToGetNatControlRulesLabelArrayOutputWithContext(ctx context.Context) GetNatControlRulesLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLabelArrayOutput)
+}
+
+type GetNatControlRulesLabelOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLabel)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLabelOutput) ToGetNatControlRulesLabelOutput() GetNatControlRulesLabelOutput {
+	return o
+}
+
+func (o GetNatControlRulesLabelOutput) ToGetNatControlRulesLabelOutputWithContext(ctx context.Context) GetNatControlRulesLabelOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLabel)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLabelArrayOutput) ToGetNatControlRulesLabelArrayOutput() GetNatControlRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLabelArrayOutput) ToGetNatControlRulesLabelArrayOutputWithContext(ctx context.Context) GetNatControlRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLabelArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesLabel {
+		return vs[0].([]GetNatControlRulesLabel)[vs[1].(int)]
+	}).(GetNatControlRulesLabelOutput)
+}
+
+type GetNatControlRulesLastModifiedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesLastModifiedByInput is an input type that accepts GetNatControlRulesLastModifiedByArgs and GetNatControlRulesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLastModifiedByInput` via:
+//
+//	GetNatControlRulesLastModifiedByArgs{...}
+type GetNatControlRulesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLastModifiedByOutput() GetNatControlRulesLastModifiedByOutput
+	ToGetNatControlRulesLastModifiedByOutputWithContext(context.Context) GetNatControlRulesLastModifiedByOutput
+}
+
+type GetNatControlRulesLastModifiedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLastModifiedByArgs) ToGetNatControlRulesLastModifiedByOutput() GetNatControlRulesLastModifiedByOutput {
+	return i.ToGetNatControlRulesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLastModifiedByArgs) ToGetNatControlRulesLastModifiedByOutputWithContext(ctx context.Context) GetNatControlRulesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLastModifiedByOutput)
+}
+
+// GetNatControlRulesLastModifiedByArrayInput is an input type that accepts GetNatControlRulesLastModifiedByArray and GetNatControlRulesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLastModifiedByArrayInput` via:
+//
+//	GetNatControlRulesLastModifiedByArray{ GetNatControlRulesLastModifiedByArgs{...} }
+type GetNatControlRulesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLastModifiedByArrayOutput() GetNatControlRulesLastModifiedByArrayOutput
+	ToGetNatControlRulesLastModifiedByArrayOutputWithContext(context.Context) GetNatControlRulesLastModifiedByArrayOutput
+}
+
+type GetNatControlRulesLastModifiedByArray []GetNatControlRulesLastModifiedByInput
+
+func (GetNatControlRulesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLastModifiedByArray) ToGetNatControlRulesLastModifiedByArrayOutput() GetNatControlRulesLastModifiedByArrayOutput {
+	return i.ToGetNatControlRulesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLastModifiedByArray) ToGetNatControlRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetNatControlRulesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLastModifiedByArrayOutput)
+}
+
+type GetNatControlRulesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLastModifiedByOutput) ToGetNatControlRulesLastModifiedByOutput() GetNatControlRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetNatControlRulesLastModifiedByOutput) ToGetNatControlRulesLastModifiedByOutputWithContext(ctx context.Context) GetNatControlRulesLastModifiedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLastModifiedByArrayOutput) ToGetNatControlRulesLastModifiedByArrayOutput() GetNatControlRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLastModifiedByArrayOutput) ToGetNatControlRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetNatControlRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesLastModifiedBy {
+		return vs[0].([]GetNatControlRulesLastModifiedBy)[vs[1].(int)]
+	}).(GetNatControlRulesLastModifiedByOutput)
+}
+
+type GetNatControlRulesLocation struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesLocationInput is an input type that accepts GetNatControlRulesLocationArgs and GetNatControlRulesLocationOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLocationInput` via:
+//
+//	GetNatControlRulesLocationArgs{...}
+type GetNatControlRulesLocationInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLocationOutput() GetNatControlRulesLocationOutput
+	ToGetNatControlRulesLocationOutputWithContext(context.Context) GetNatControlRulesLocationOutput
+}
+
+type GetNatControlRulesLocationArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLocation)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLocationArgs) ToGetNatControlRulesLocationOutput() GetNatControlRulesLocationOutput {
+	return i.ToGetNatControlRulesLocationOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLocationArgs) ToGetNatControlRulesLocationOutputWithContext(ctx context.Context) GetNatControlRulesLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLocationOutput)
+}
+
+// GetNatControlRulesLocationArrayInput is an input type that accepts GetNatControlRulesLocationArray and GetNatControlRulesLocationArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLocationArrayInput` via:
+//
+//	GetNatControlRulesLocationArray{ GetNatControlRulesLocationArgs{...} }
+type GetNatControlRulesLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLocationArrayOutput() GetNatControlRulesLocationArrayOutput
+	ToGetNatControlRulesLocationArrayOutputWithContext(context.Context) GetNatControlRulesLocationArrayOutput
+}
+
+type GetNatControlRulesLocationArray []GetNatControlRulesLocationInput
+
+func (GetNatControlRulesLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLocation)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLocationArray) ToGetNatControlRulesLocationArrayOutput() GetNatControlRulesLocationArrayOutput {
+	return i.ToGetNatControlRulesLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLocationArray) ToGetNatControlRulesLocationArrayOutputWithContext(ctx context.Context) GetNatControlRulesLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLocationArrayOutput)
+}
+
+type GetNatControlRulesLocationOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLocation)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLocationOutput) ToGetNatControlRulesLocationOutput() GetNatControlRulesLocationOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationOutput) ToGetNatControlRulesLocationOutputWithContext(ctx context.Context) GetNatControlRulesLocationOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLocation)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLocationArrayOutput) ToGetNatControlRulesLocationArrayOutput() GetNatControlRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationArrayOutput) ToGetNatControlRulesLocationArrayOutputWithContext(ctx context.Context) GetNatControlRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesLocation {
+		return vs[0].([]GetNatControlRulesLocation)[vs[1].(int)]
+	}).(GetNatControlRulesLocationOutput)
+}
+
+type GetNatControlRulesLocationGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesLocationGroupInput is an input type that accepts GetNatControlRulesLocationGroupArgs and GetNatControlRulesLocationGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLocationGroupInput` via:
+//
+//	GetNatControlRulesLocationGroupArgs{...}
+type GetNatControlRulesLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLocationGroupOutput() GetNatControlRulesLocationGroupOutput
+	ToGetNatControlRulesLocationGroupOutputWithContext(context.Context) GetNatControlRulesLocationGroupOutput
+}
+
+type GetNatControlRulesLocationGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLocationGroupArgs) ToGetNatControlRulesLocationGroupOutput() GetNatControlRulesLocationGroupOutput {
+	return i.ToGetNatControlRulesLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLocationGroupArgs) ToGetNatControlRulesLocationGroupOutputWithContext(ctx context.Context) GetNatControlRulesLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLocationGroupOutput)
+}
+
+// GetNatControlRulesLocationGroupArrayInput is an input type that accepts GetNatControlRulesLocationGroupArray and GetNatControlRulesLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesLocationGroupArrayInput` via:
+//
+//	GetNatControlRulesLocationGroupArray{ GetNatControlRulesLocationGroupArgs{...} }
+type GetNatControlRulesLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesLocationGroupArrayOutput() GetNatControlRulesLocationGroupArrayOutput
+	ToGetNatControlRulesLocationGroupArrayOutputWithContext(context.Context) GetNatControlRulesLocationGroupArrayOutput
+}
+
+type GetNatControlRulesLocationGroupArray []GetNatControlRulesLocationGroupInput
+
+func (GetNatControlRulesLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesLocationGroupArray) ToGetNatControlRulesLocationGroupArrayOutput() GetNatControlRulesLocationGroupArrayOutput {
+	return i.ToGetNatControlRulesLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesLocationGroupArray) ToGetNatControlRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesLocationGroupArrayOutput)
+}
+
+type GetNatControlRulesLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLocationGroupOutput) ToGetNatControlRulesLocationGroupOutput() GetNatControlRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationGroupOutput) ToGetNatControlRulesLocationGroupOutputWithContext(ctx context.Context) GetNatControlRulesLocationGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesLocationGroupArrayOutput) ToGetNatControlRulesLocationGroupArrayOutput() GetNatControlRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationGroupArrayOutput) ToGetNatControlRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesLocationGroup {
+		return vs[0].([]GetNatControlRulesLocationGroup)[vs[1].(int)]
+	}).(GetNatControlRulesLocationGroupOutput)
+}
+
+type GetNatControlRulesNwService struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesNwServiceInput is an input type that accepts GetNatControlRulesNwServiceArgs and GetNatControlRulesNwServiceOutput values.
+// You can construct a concrete instance of `GetNatControlRulesNwServiceInput` via:
+//
+//	GetNatControlRulesNwServiceArgs{...}
+type GetNatControlRulesNwServiceInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesNwServiceOutput() GetNatControlRulesNwServiceOutput
+	ToGetNatControlRulesNwServiceOutputWithContext(context.Context) GetNatControlRulesNwServiceOutput
+}
+
+type GetNatControlRulesNwServiceArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesNwServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesNwService)(nil)).Elem()
+}
+
+func (i GetNatControlRulesNwServiceArgs) ToGetNatControlRulesNwServiceOutput() GetNatControlRulesNwServiceOutput {
+	return i.ToGetNatControlRulesNwServiceOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesNwServiceArgs) ToGetNatControlRulesNwServiceOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesNwServiceOutput)
+}
+
+// GetNatControlRulesNwServiceArrayInput is an input type that accepts GetNatControlRulesNwServiceArray and GetNatControlRulesNwServiceArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesNwServiceArrayInput` via:
+//
+//	GetNatControlRulesNwServiceArray{ GetNatControlRulesNwServiceArgs{...} }
+type GetNatControlRulesNwServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesNwServiceArrayOutput() GetNatControlRulesNwServiceArrayOutput
+	ToGetNatControlRulesNwServiceArrayOutputWithContext(context.Context) GetNatControlRulesNwServiceArrayOutput
+}
+
+type GetNatControlRulesNwServiceArray []GetNatControlRulesNwServiceInput
+
+func (GetNatControlRulesNwServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesNwService)(nil)).Elem()
+}
+
+func (i GetNatControlRulesNwServiceArray) ToGetNatControlRulesNwServiceArrayOutput() GetNatControlRulesNwServiceArrayOutput {
+	return i.ToGetNatControlRulesNwServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesNwServiceArray) ToGetNatControlRulesNwServiceArrayOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesNwServiceArrayOutput)
+}
+
+type GetNatControlRulesNwServiceOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesNwServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesNwService)(nil)).Elem()
+}
+
+func (o GetNatControlRulesNwServiceOutput) ToGetNatControlRulesNwServiceOutput() GetNatControlRulesNwServiceOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceOutput) ToGetNatControlRulesNwServiceOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesNwServiceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwService) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesNwServiceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwService) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesNwServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesNwServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesNwServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesNwService)(nil)).Elem()
+}
+
+func (o GetNatControlRulesNwServiceArrayOutput) ToGetNatControlRulesNwServiceArrayOutput() GetNatControlRulesNwServiceArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceArrayOutput) ToGetNatControlRulesNwServiceArrayOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesNwServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesNwService {
+		return vs[0].([]GetNatControlRulesNwService)[vs[1].(int)]
+	}).(GetNatControlRulesNwServiceOutput)
+}
+
+type GetNatControlRulesNwServiceGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesNwServiceGroupInput is an input type that accepts GetNatControlRulesNwServiceGroupArgs and GetNatControlRulesNwServiceGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesNwServiceGroupInput` via:
+//
+//	GetNatControlRulesNwServiceGroupArgs{...}
+type GetNatControlRulesNwServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesNwServiceGroupOutput() GetNatControlRulesNwServiceGroupOutput
+	ToGetNatControlRulesNwServiceGroupOutputWithContext(context.Context) GetNatControlRulesNwServiceGroupOutput
+}
+
+type GetNatControlRulesNwServiceGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesNwServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesNwServiceGroupArgs) ToGetNatControlRulesNwServiceGroupOutput() GetNatControlRulesNwServiceGroupOutput {
+	return i.ToGetNatControlRulesNwServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesNwServiceGroupArgs) ToGetNatControlRulesNwServiceGroupOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesNwServiceGroupOutput)
+}
+
+// GetNatControlRulesNwServiceGroupArrayInput is an input type that accepts GetNatControlRulesNwServiceGroupArray and GetNatControlRulesNwServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesNwServiceGroupArrayInput` via:
+//
+//	GetNatControlRulesNwServiceGroupArray{ GetNatControlRulesNwServiceGroupArgs{...} }
+type GetNatControlRulesNwServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesNwServiceGroupArrayOutput() GetNatControlRulesNwServiceGroupArrayOutput
+	ToGetNatControlRulesNwServiceGroupArrayOutputWithContext(context.Context) GetNatControlRulesNwServiceGroupArrayOutput
+}
+
+type GetNatControlRulesNwServiceGroupArray []GetNatControlRulesNwServiceGroupInput
+
+func (GetNatControlRulesNwServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesNwServiceGroupArray) ToGetNatControlRulesNwServiceGroupArrayOutput() GetNatControlRulesNwServiceGroupArrayOutput {
+	return i.ToGetNatControlRulesNwServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesNwServiceGroupArray) ToGetNatControlRulesNwServiceGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesNwServiceGroupArrayOutput)
+}
+
+type GetNatControlRulesNwServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesNwServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesNwServiceGroupOutput) ToGetNatControlRulesNwServiceGroupOutput() GetNatControlRulesNwServiceGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceGroupOutput) ToGetNatControlRulesNwServiceGroupOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesNwServiceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesNwServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesNwServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesNwServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesNwServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesNwServiceGroupArrayOutput) ToGetNatControlRulesNwServiceGroupArrayOutput() GetNatControlRulesNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceGroupArrayOutput) ToGetNatControlRulesNwServiceGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesNwServiceGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesNwServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesNwServiceGroup {
+		return vs[0].([]GetNatControlRulesNwServiceGroup)[vs[1].(int)]
+	}).(GetNatControlRulesNwServiceGroupOutput)
+}
+
+type GetNatControlRulesSrcIpGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesSrcIpGroupInput is an input type that accepts GetNatControlRulesSrcIpGroupArgs and GetNatControlRulesSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesSrcIpGroupInput` via:
+//
+//	GetNatControlRulesSrcIpGroupArgs{...}
+type GetNatControlRulesSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesSrcIpGroupOutput() GetNatControlRulesSrcIpGroupOutput
+	ToGetNatControlRulesSrcIpGroupOutputWithContext(context.Context) GetNatControlRulesSrcIpGroupOutput
+}
+
+type GetNatControlRulesSrcIpGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesSrcIpGroupArgs) ToGetNatControlRulesSrcIpGroupOutput() GetNatControlRulesSrcIpGroupOutput {
+	return i.ToGetNatControlRulesSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesSrcIpGroupArgs) ToGetNatControlRulesSrcIpGroupOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesSrcIpGroupOutput)
+}
+
+// GetNatControlRulesSrcIpGroupArrayInput is an input type that accepts GetNatControlRulesSrcIpGroupArray and GetNatControlRulesSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesSrcIpGroupArrayInput` via:
+//
+//	GetNatControlRulesSrcIpGroupArray{ GetNatControlRulesSrcIpGroupArgs{...} }
+type GetNatControlRulesSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesSrcIpGroupArrayOutput() GetNatControlRulesSrcIpGroupArrayOutput
+	ToGetNatControlRulesSrcIpGroupArrayOutputWithContext(context.Context) GetNatControlRulesSrcIpGroupArrayOutput
+}
+
+type GetNatControlRulesSrcIpGroupArray []GetNatControlRulesSrcIpGroupInput
+
+func (GetNatControlRulesSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetNatControlRulesSrcIpGroupArray) ToGetNatControlRulesSrcIpGroupArrayOutput() GetNatControlRulesSrcIpGroupArrayOutput {
+	return i.ToGetNatControlRulesSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesSrcIpGroupArray) ToGetNatControlRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesSrcIpGroupArrayOutput)
+}
+
+type GetNatControlRulesSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesSrcIpGroupOutput) ToGetNatControlRulesSrcIpGroupOutput() GetNatControlRulesSrcIpGroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpGroupOutput) ToGetNatControlRulesSrcIpGroupOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesSrcIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetNatControlRulesSrcIpGroupArrayOutput) ToGetNatControlRulesSrcIpGroupArrayOutput() GetNatControlRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpGroupArrayOutput) ToGetNatControlRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesSrcIpGroup {
+		return vs[0].([]GetNatControlRulesSrcIpGroup)[vs[1].(int)]
+	}).(GetNatControlRulesSrcIpGroupOutput)
+}
+
+type GetNatControlRulesSrcIpv6Group struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesSrcIpv6GroupInput is an input type that accepts GetNatControlRulesSrcIpv6GroupArgs and GetNatControlRulesSrcIpv6GroupOutput values.
+// You can construct a concrete instance of `GetNatControlRulesSrcIpv6GroupInput` via:
+//
+//	GetNatControlRulesSrcIpv6GroupArgs{...}
+type GetNatControlRulesSrcIpv6GroupInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesSrcIpv6GroupOutput() GetNatControlRulesSrcIpv6GroupOutput
+	ToGetNatControlRulesSrcIpv6GroupOutputWithContext(context.Context) GetNatControlRulesSrcIpv6GroupOutput
+}
+
+type GetNatControlRulesSrcIpv6GroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesSrcIpv6GroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetNatControlRulesSrcIpv6GroupArgs) ToGetNatControlRulesSrcIpv6GroupOutput() GetNatControlRulesSrcIpv6GroupOutput {
+	return i.ToGetNatControlRulesSrcIpv6GroupOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesSrcIpv6GroupArgs) ToGetNatControlRulesSrcIpv6GroupOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpv6GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesSrcIpv6GroupOutput)
+}
+
+// GetNatControlRulesSrcIpv6GroupArrayInput is an input type that accepts GetNatControlRulesSrcIpv6GroupArray and GetNatControlRulesSrcIpv6GroupArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesSrcIpv6GroupArrayInput` via:
+//
+//	GetNatControlRulesSrcIpv6GroupArray{ GetNatControlRulesSrcIpv6GroupArgs{...} }
+type GetNatControlRulesSrcIpv6GroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesSrcIpv6GroupArrayOutput() GetNatControlRulesSrcIpv6GroupArrayOutput
+	ToGetNatControlRulesSrcIpv6GroupArrayOutputWithContext(context.Context) GetNatControlRulesSrcIpv6GroupArrayOutput
+}
+
+type GetNatControlRulesSrcIpv6GroupArray []GetNatControlRulesSrcIpv6GroupInput
+
+func (GetNatControlRulesSrcIpv6GroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (i GetNatControlRulesSrcIpv6GroupArray) ToGetNatControlRulesSrcIpv6GroupArrayOutput() GetNatControlRulesSrcIpv6GroupArrayOutput {
+	return i.ToGetNatControlRulesSrcIpv6GroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesSrcIpv6GroupArray) ToGetNatControlRulesSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpv6GroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesSrcIpv6GroupArrayOutput)
+}
+
+type GetNatControlRulesSrcIpv6GroupOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesSrcIpv6GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetNatControlRulesSrcIpv6GroupOutput) ToGetNatControlRulesSrcIpv6GroupOutput() GetNatControlRulesSrcIpv6GroupOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpv6GroupOutput) ToGetNatControlRulesSrcIpv6GroupOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpv6GroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesSrcIpv6GroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpv6Group) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesSrcIpv6GroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpv6Group) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesSrcIpv6GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesSrcIpv6Group) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesSrcIpv6GroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesSrcIpv6GroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesSrcIpv6Group)(nil)).Elem()
+}
+
+func (o GetNatControlRulesSrcIpv6GroupArrayOutput) ToGetNatControlRulesSrcIpv6GroupArrayOutput() GetNatControlRulesSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpv6GroupArrayOutput) ToGetNatControlRulesSrcIpv6GroupArrayOutputWithContext(ctx context.Context) GetNatControlRulesSrcIpv6GroupArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesSrcIpv6GroupArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesSrcIpv6GroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesSrcIpv6Group {
+		return vs[0].([]GetNatControlRulesSrcIpv6Group)[vs[1].(int)]
+	}).(GetNatControlRulesSrcIpv6GroupOutput)
+}
+
+type GetNatControlRulesTimeWindow struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesTimeWindowInput is an input type that accepts GetNatControlRulesTimeWindowArgs and GetNatControlRulesTimeWindowOutput values.
+// You can construct a concrete instance of `GetNatControlRulesTimeWindowInput` via:
+//
+//	GetNatControlRulesTimeWindowArgs{...}
+type GetNatControlRulesTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesTimeWindowOutput() GetNatControlRulesTimeWindowOutput
+	ToGetNatControlRulesTimeWindowOutputWithContext(context.Context) GetNatControlRulesTimeWindowOutput
+}
+
+type GetNatControlRulesTimeWindowArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetNatControlRulesTimeWindowArgs) ToGetNatControlRulesTimeWindowOutput() GetNatControlRulesTimeWindowOutput {
+	return i.ToGetNatControlRulesTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesTimeWindowArgs) ToGetNatControlRulesTimeWindowOutputWithContext(ctx context.Context) GetNatControlRulesTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesTimeWindowOutput)
+}
+
+// GetNatControlRulesTimeWindowArrayInput is an input type that accepts GetNatControlRulesTimeWindowArray and GetNatControlRulesTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesTimeWindowArrayInput` via:
+//
+//	GetNatControlRulesTimeWindowArray{ GetNatControlRulesTimeWindowArgs{...} }
+type GetNatControlRulesTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesTimeWindowArrayOutput() GetNatControlRulesTimeWindowArrayOutput
+	ToGetNatControlRulesTimeWindowArrayOutputWithContext(context.Context) GetNatControlRulesTimeWindowArrayOutput
+}
+
+type GetNatControlRulesTimeWindowArray []GetNatControlRulesTimeWindowInput
+
+func (GetNatControlRulesTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetNatControlRulesTimeWindowArray) ToGetNatControlRulesTimeWindowArrayOutput() GetNatControlRulesTimeWindowArrayOutput {
+	return i.ToGetNatControlRulesTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesTimeWindowArray) ToGetNatControlRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetNatControlRulesTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesTimeWindowArrayOutput)
+}
+
+type GetNatControlRulesTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetNatControlRulesTimeWindowOutput) ToGetNatControlRulesTimeWindowOutput() GetNatControlRulesTimeWindowOutput {
+	return o
+}
+
+func (o GetNatControlRulesTimeWindowOutput) ToGetNatControlRulesTimeWindowOutputWithContext(ctx context.Context) GetNatControlRulesTimeWindowOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetNatControlRulesTimeWindowArrayOutput) ToGetNatControlRulesTimeWindowArrayOutput() GetNatControlRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesTimeWindowArrayOutput) ToGetNatControlRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetNatControlRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesTimeWindowArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesTimeWindow {
+		return vs[0].([]GetNatControlRulesTimeWindow)[vs[1].(int)]
+	}).(GetNatControlRulesTimeWindowOutput)
+}
+
+type GetNatControlRulesUser struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id int `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name string `pulumi:"name"`
+}
+
+// GetNatControlRulesUserInput is an input type that accepts GetNatControlRulesUserArgs and GetNatControlRulesUserOutput values.
+// You can construct a concrete instance of `GetNatControlRulesUserInput` via:
+//
+//	GetNatControlRulesUserArgs{...}
+type GetNatControlRulesUserInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesUserOutput() GetNatControlRulesUserOutput
+	ToGetNatControlRulesUserOutputWithContext(context.Context) GetNatControlRulesUserOutput
+}
+
+type GetNatControlRulesUserArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// A unique identifier assigned to the forwarding rule.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the forwarding rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNatControlRulesUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesUser)(nil)).Elem()
+}
+
+func (i GetNatControlRulesUserArgs) ToGetNatControlRulesUserOutput() GetNatControlRulesUserOutput {
+	return i.ToGetNatControlRulesUserOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesUserArgs) ToGetNatControlRulesUserOutputWithContext(ctx context.Context) GetNatControlRulesUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesUserOutput)
+}
+
+// GetNatControlRulesUserArrayInput is an input type that accepts GetNatControlRulesUserArray and GetNatControlRulesUserArrayOutput values.
+// You can construct a concrete instance of `GetNatControlRulesUserArrayInput` via:
+//
+//	GetNatControlRulesUserArray{ GetNatControlRulesUserArgs{...} }
+type GetNatControlRulesUserArrayInput interface {
+	pulumi.Input
+
+	ToGetNatControlRulesUserArrayOutput() GetNatControlRulesUserArrayOutput
+	ToGetNatControlRulesUserArrayOutputWithContext(context.Context) GetNatControlRulesUserArrayOutput
+}
+
+type GetNatControlRulesUserArray []GetNatControlRulesUserInput
+
+func (GetNatControlRulesUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesUser)(nil)).Elem()
+}
+
+func (i GetNatControlRulesUserArray) ToGetNatControlRulesUserArrayOutput() GetNatControlRulesUserArrayOutput {
+	return i.ToGetNatControlRulesUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatControlRulesUserArray) ToGetNatControlRulesUserArrayOutputWithContext(ctx context.Context) GetNatControlRulesUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatControlRulesUserArrayOutput)
+}
+
+type GetNatControlRulesUserOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatControlRulesUser)(nil)).Elem()
+}
+
+func (o GetNatControlRulesUserOutput) ToGetNatControlRulesUserOutput() GetNatControlRulesUserOutput {
+	return o
+}
+
+func (o GetNatControlRulesUserOutput) ToGetNatControlRulesUserOutputWithContext(ctx context.Context) GetNatControlRulesUserOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetNatControlRulesUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNatControlRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// A unique identifier assigned to the forwarding rule.
+func (o GetNatControlRulesUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNatControlRulesUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the forwarding rule.
+func (o GetNatControlRulesUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatControlRulesUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNatControlRulesUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatControlRulesUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatControlRulesUser)(nil)).Elem()
+}
+
+func (o GetNatControlRulesUserArrayOutput) ToGetNatControlRulesUserArrayOutput() GetNatControlRulesUserArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesUserArrayOutput) ToGetNatControlRulesUserArrayOutputWithContext(ctx context.Context) GetNatControlRulesUserArrayOutput {
+	return o
+}
+
+func (o GetNatControlRulesUserArrayOutput) Index(i pulumi.IntInput) GetNatControlRulesUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatControlRulesUser {
+		return vs[0].([]GetNatControlRulesUser)[vs[1].(int)]
+	}).(GetNatControlRulesUserOutput)
+}
+
+type GetRiskProfilesCustomTag struct {
+	// Unique identifier for the risk profile.
+	Id int `pulumi:"id"`
+	// Cloud application risk profile name.
+	Name string `pulumi:"name"`
+}
+
+// GetRiskProfilesCustomTagInput is an input type that accepts GetRiskProfilesCustomTagArgs and GetRiskProfilesCustomTagOutput values.
+// You can construct a concrete instance of `GetRiskProfilesCustomTagInput` via:
+//
+//	GetRiskProfilesCustomTagArgs{...}
+type GetRiskProfilesCustomTagInput interface {
+	pulumi.Input
+
+	ToGetRiskProfilesCustomTagOutput() GetRiskProfilesCustomTagOutput
+	ToGetRiskProfilesCustomTagOutputWithContext(context.Context) GetRiskProfilesCustomTagOutput
+}
+
+type GetRiskProfilesCustomTagArgs struct {
+	// Unique identifier for the risk profile.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Cloud application risk profile name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRiskProfilesCustomTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRiskProfilesCustomTag)(nil)).Elem()
+}
+
+func (i GetRiskProfilesCustomTagArgs) ToGetRiskProfilesCustomTagOutput() GetRiskProfilesCustomTagOutput {
+	return i.ToGetRiskProfilesCustomTagOutputWithContext(context.Background())
+}
+
+func (i GetRiskProfilesCustomTagArgs) ToGetRiskProfilesCustomTagOutputWithContext(ctx context.Context) GetRiskProfilesCustomTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRiskProfilesCustomTagOutput)
+}
+
+// GetRiskProfilesCustomTagArrayInput is an input type that accepts GetRiskProfilesCustomTagArray and GetRiskProfilesCustomTagArrayOutput values.
+// You can construct a concrete instance of `GetRiskProfilesCustomTagArrayInput` via:
+//
+//	GetRiskProfilesCustomTagArray{ GetRiskProfilesCustomTagArgs{...} }
+type GetRiskProfilesCustomTagArrayInput interface {
+	pulumi.Input
+
+	ToGetRiskProfilesCustomTagArrayOutput() GetRiskProfilesCustomTagArrayOutput
+	ToGetRiskProfilesCustomTagArrayOutputWithContext(context.Context) GetRiskProfilesCustomTagArrayOutput
+}
+
+type GetRiskProfilesCustomTagArray []GetRiskProfilesCustomTagInput
+
+func (GetRiskProfilesCustomTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRiskProfilesCustomTag)(nil)).Elem()
+}
+
+func (i GetRiskProfilesCustomTagArray) ToGetRiskProfilesCustomTagArrayOutput() GetRiskProfilesCustomTagArrayOutput {
+	return i.ToGetRiskProfilesCustomTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetRiskProfilesCustomTagArray) ToGetRiskProfilesCustomTagArrayOutputWithContext(ctx context.Context) GetRiskProfilesCustomTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRiskProfilesCustomTagArrayOutput)
+}
+
+type GetRiskProfilesCustomTagOutput struct{ *pulumi.OutputState }
+
+func (GetRiskProfilesCustomTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRiskProfilesCustomTag)(nil)).Elem()
+}
+
+func (o GetRiskProfilesCustomTagOutput) ToGetRiskProfilesCustomTagOutput() GetRiskProfilesCustomTagOutput {
+	return o
+}
+
+func (o GetRiskProfilesCustomTagOutput) ToGetRiskProfilesCustomTagOutputWithContext(ctx context.Context) GetRiskProfilesCustomTagOutput {
+	return o
+}
+
+// Unique identifier for the risk profile.
+func (o GetRiskProfilesCustomTagOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRiskProfilesCustomTag) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Cloud application risk profile name.
+func (o GetRiskProfilesCustomTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRiskProfilesCustomTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRiskProfilesCustomTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRiskProfilesCustomTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRiskProfilesCustomTag)(nil)).Elem()
+}
+
+func (o GetRiskProfilesCustomTagArrayOutput) ToGetRiskProfilesCustomTagArrayOutput() GetRiskProfilesCustomTagArrayOutput {
+	return o
+}
+
+func (o GetRiskProfilesCustomTagArrayOutput) ToGetRiskProfilesCustomTagArrayOutputWithContext(ctx context.Context) GetRiskProfilesCustomTagArrayOutput {
+	return o
+}
+
+func (o GetRiskProfilesCustomTagArrayOutput) Index(i pulumi.IntInput) GetRiskProfilesCustomTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRiskProfilesCustomTag {
+		return vs[0].([]GetRiskProfilesCustomTag)[vs[1].(int)]
+	}).(GetRiskProfilesCustomTagOutput)
+}
+
+type GetRiskProfilesLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the risk profile.
+	Id int `pulumi:"id"`
+	// Cloud application risk profile name.
+	Name string `pulumi:"name"`
+}
+
+// GetRiskProfilesLastModifiedByInput is an input type that accepts GetRiskProfilesLastModifiedByArgs and GetRiskProfilesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetRiskProfilesLastModifiedByInput` via:
+//
+//	GetRiskProfilesLastModifiedByArgs{...}
+type GetRiskProfilesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetRiskProfilesLastModifiedByOutput() GetRiskProfilesLastModifiedByOutput
+	ToGetRiskProfilesLastModifiedByOutputWithContext(context.Context) GetRiskProfilesLastModifiedByOutput
+}
+
+type GetRiskProfilesLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the risk profile.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Cloud application risk profile name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRiskProfilesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRiskProfilesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetRiskProfilesLastModifiedByArgs) ToGetRiskProfilesLastModifiedByOutput() GetRiskProfilesLastModifiedByOutput {
+	return i.ToGetRiskProfilesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetRiskProfilesLastModifiedByArgs) ToGetRiskProfilesLastModifiedByOutputWithContext(ctx context.Context) GetRiskProfilesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRiskProfilesLastModifiedByOutput)
+}
+
+// GetRiskProfilesLastModifiedByArrayInput is an input type that accepts GetRiskProfilesLastModifiedByArray and GetRiskProfilesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetRiskProfilesLastModifiedByArrayInput` via:
+//
+//	GetRiskProfilesLastModifiedByArray{ GetRiskProfilesLastModifiedByArgs{...} }
+type GetRiskProfilesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetRiskProfilesLastModifiedByArrayOutput() GetRiskProfilesLastModifiedByArrayOutput
+	ToGetRiskProfilesLastModifiedByArrayOutputWithContext(context.Context) GetRiskProfilesLastModifiedByArrayOutput
+}
+
+type GetRiskProfilesLastModifiedByArray []GetRiskProfilesLastModifiedByInput
+
+func (GetRiskProfilesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRiskProfilesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetRiskProfilesLastModifiedByArray) ToGetRiskProfilesLastModifiedByArrayOutput() GetRiskProfilesLastModifiedByArrayOutput {
+	return i.ToGetRiskProfilesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetRiskProfilesLastModifiedByArray) ToGetRiskProfilesLastModifiedByArrayOutputWithContext(ctx context.Context) GetRiskProfilesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRiskProfilesLastModifiedByArrayOutput)
+}
+
+type GetRiskProfilesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetRiskProfilesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRiskProfilesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetRiskProfilesLastModifiedByOutput) ToGetRiskProfilesLastModifiedByOutput() GetRiskProfilesLastModifiedByOutput {
+	return o
+}
+
+func (o GetRiskProfilesLastModifiedByOutput) ToGetRiskProfilesLastModifiedByOutputWithContext(ctx context.Context) GetRiskProfilesLastModifiedByOutput {
+	return o
+}
+
+func (o GetRiskProfilesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRiskProfilesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the risk profile.
+func (o GetRiskProfilesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRiskProfilesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Cloud application risk profile name.
+func (o GetRiskProfilesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRiskProfilesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRiskProfilesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRiskProfilesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRiskProfilesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetRiskProfilesLastModifiedByArrayOutput) ToGetRiskProfilesLastModifiedByArrayOutput() GetRiskProfilesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetRiskProfilesLastModifiedByArrayOutput) ToGetRiskProfilesLastModifiedByArrayOutputWithContext(ctx context.Context) GetRiskProfilesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetRiskProfilesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetRiskProfilesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRiskProfilesLastModifiedBy {
+		return vs[0].([]GetRiskProfilesLastModifiedBy)[vs[1].(int)]
+	}).(GetRiskProfilesLastModifiedByOutput)
+}
+
+type GetRuleLabelsCreatedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// The unique identifer for the rule label.
+	Id int `pulumi:"id"`
+	// The name of the rule label to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetRuleLabelsCreatedByInput is an input type that accepts GetRuleLabelsCreatedByArgs and GetRuleLabelsCreatedByOutput values.
+// You can construct a concrete instance of `GetRuleLabelsCreatedByInput` via:
+//
+//	GetRuleLabelsCreatedByArgs{...}
+type GetRuleLabelsCreatedByInput interface {
+	pulumi.Input
+
+	ToGetRuleLabelsCreatedByOutput() GetRuleLabelsCreatedByOutput
+	ToGetRuleLabelsCreatedByOutputWithContext(context.Context) GetRuleLabelsCreatedByOutput
+}
+
+type GetRuleLabelsCreatedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The unique identifer for the rule label.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the rule label to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRuleLabelsCreatedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleLabelsCreatedBy)(nil)).Elem()
+}
+
+func (i GetRuleLabelsCreatedByArgs) ToGetRuleLabelsCreatedByOutput() GetRuleLabelsCreatedByOutput {
+	return i.ToGetRuleLabelsCreatedByOutputWithContext(context.Background())
+}
+
+func (i GetRuleLabelsCreatedByArgs) ToGetRuleLabelsCreatedByOutputWithContext(ctx context.Context) GetRuleLabelsCreatedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleLabelsCreatedByOutput)
+}
+
+// GetRuleLabelsCreatedByArrayInput is an input type that accepts GetRuleLabelsCreatedByArray and GetRuleLabelsCreatedByArrayOutput values.
+// You can construct a concrete instance of `GetRuleLabelsCreatedByArrayInput` via:
+//
+//	GetRuleLabelsCreatedByArray{ GetRuleLabelsCreatedByArgs{...} }
+type GetRuleLabelsCreatedByArrayInput interface {
+	pulumi.Input
+
+	ToGetRuleLabelsCreatedByArrayOutput() GetRuleLabelsCreatedByArrayOutput
+	ToGetRuleLabelsCreatedByArrayOutputWithContext(context.Context) GetRuleLabelsCreatedByArrayOutput
+}
+
+type GetRuleLabelsCreatedByArray []GetRuleLabelsCreatedByInput
+
+func (GetRuleLabelsCreatedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleLabelsCreatedBy)(nil)).Elem()
+}
+
+func (i GetRuleLabelsCreatedByArray) ToGetRuleLabelsCreatedByArrayOutput() GetRuleLabelsCreatedByArrayOutput {
+	return i.ToGetRuleLabelsCreatedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetRuleLabelsCreatedByArray) ToGetRuleLabelsCreatedByArrayOutputWithContext(ctx context.Context) GetRuleLabelsCreatedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleLabelsCreatedByArrayOutput)
+}
+
+type GetRuleLabelsCreatedByOutput struct{ *pulumi.OutputState }
+
+func (GetRuleLabelsCreatedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleLabelsCreatedBy)(nil)).Elem()
+}
+
+func (o GetRuleLabelsCreatedByOutput) ToGetRuleLabelsCreatedByOutput() GetRuleLabelsCreatedByOutput {
+	return o
+}
+
+func (o GetRuleLabelsCreatedByOutput) ToGetRuleLabelsCreatedByOutputWithContext(ctx context.Context) GetRuleLabelsCreatedByOutput {
+	return o
+}
+
+func (o GetRuleLabelsCreatedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRuleLabelsCreatedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The unique identifer for the rule label.
+func (o GetRuleLabelsCreatedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRuleLabelsCreatedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the rule label to be exported.
+func (o GetRuleLabelsCreatedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleLabelsCreatedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRuleLabelsCreatedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRuleLabelsCreatedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleLabelsCreatedBy)(nil)).Elem()
+}
+
+func (o GetRuleLabelsCreatedByArrayOutput) ToGetRuleLabelsCreatedByArrayOutput() GetRuleLabelsCreatedByArrayOutput {
+	return o
+}
+
+func (o GetRuleLabelsCreatedByArrayOutput) ToGetRuleLabelsCreatedByArrayOutputWithContext(ctx context.Context) GetRuleLabelsCreatedByArrayOutput {
+	return o
+}
+
+func (o GetRuleLabelsCreatedByArrayOutput) Index(i pulumi.IntInput) GetRuleLabelsCreatedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRuleLabelsCreatedBy {
+		return vs[0].([]GetRuleLabelsCreatedBy)[vs[1].(int)]
+	}).(GetRuleLabelsCreatedByOutput)
+}
+
+type GetRuleLabelsLastModifiedBy struct {
+	Extensions map[string]string `pulumi:"extensions"`
+	// The unique identifer for the rule label.
+	Id int `pulumi:"id"`
+	// The name of the rule label to be exported.
+	Name string `pulumi:"name"`
+}
+
+// GetRuleLabelsLastModifiedByInput is an input type that accepts GetRuleLabelsLastModifiedByArgs and GetRuleLabelsLastModifiedByOutput values.
+// You can construct a concrete instance of `GetRuleLabelsLastModifiedByInput` via:
+//
+//	GetRuleLabelsLastModifiedByArgs{...}
+type GetRuleLabelsLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetRuleLabelsLastModifiedByOutput() GetRuleLabelsLastModifiedByOutput
+	ToGetRuleLabelsLastModifiedByOutputWithContext(context.Context) GetRuleLabelsLastModifiedByOutput
+}
+
+type GetRuleLabelsLastModifiedByArgs struct {
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// The unique identifer for the rule label.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the rule label to be exported.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRuleLabelsLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleLabelsLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetRuleLabelsLastModifiedByArgs) ToGetRuleLabelsLastModifiedByOutput() GetRuleLabelsLastModifiedByOutput {
+	return i.ToGetRuleLabelsLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetRuleLabelsLastModifiedByArgs) ToGetRuleLabelsLastModifiedByOutputWithContext(ctx context.Context) GetRuleLabelsLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleLabelsLastModifiedByOutput)
+}
+
+// GetRuleLabelsLastModifiedByArrayInput is an input type that accepts GetRuleLabelsLastModifiedByArray and GetRuleLabelsLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetRuleLabelsLastModifiedByArrayInput` via:
+//
+//	GetRuleLabelsLastModifiedByArray{ GetRuleLabelsLastModifiedByArgs{...} }
+type GetRuleLabelsLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetRuleLabelsLastModifiedByArrayOutput() GetRuleLabelsLastModifiedByArrayOutput
+	ToGetRuleLabelsLastModifiedByArrayOutputWithContext(context.Context) GetRuleLabelsLastModifiedByArrayOutput
+}
+
+type GetRuleLabelsLastModifiedByArray []GetRuleLabelsLastModifiedByInput
+
+func (GetRuleLabelsLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleLabelsLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetRuleLabelsLastModifiedByArray) ToGetRuleLabelsLastModifiedByArrayOutput() GetRuleLabelsLastModifiedByArrayOutput {
+	return i.ToGetRuleLabelsLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetRuleLabelsLastModifiedByArray) ToGetRuleLabelsLastModifiedByArrayOutputWithContext(ctx context.Context) GetRuleLabelsLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleLabelsLastModifiedByArrayOutput)
+}
+
+type GetRuleLabelsLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetRuleLabelsLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleLabelsLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetRuleLabelsLastModifiedByOutput) ToGetRuleLabelsLastModifiedByOutput() GetRuleLabelsLastModifiedByOutput {
+	return o
+}
+
+func (o GetRuleLabelsLastModifiedByOutput) ToGetRuleLabelsLastModifiedByOutputWithContext(ctx context.Context) GetRuleLabelsLastModifiedByOutput {
+	return o
+}
+
+func (o GetRuleLabelsLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRuleLabelsLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// The unique identifer for the rule label.
+func (o GetRuleLabelsLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRuleLabelsLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the rule label to be exported.
+func (o GetRuleLabelsLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleLabelsLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRuleLabelsLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRuleLabelsLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleLabelsLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetRuleLabelsLastModifiedByArrayOutput) ToGetRuleLabelsLastModifiedByArrayOutput() GetRuleLabelsLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetRuleLabelsLastModifiedByArrayOutput) ToGetRuleLabelsLastModifiedByArrayOutputWithContext(ctx context.Context) GetRuleLabelsLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetRuleLabelsLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetRuleLabelsLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRuleLabelsLastModifiedBy {
+		return vs[0].([]GetRuleLabelsLastModifiedBy)[vs[1].(int)]
+	}).(GetRuleLabelsLastModifiedByOutput)
+}
+
+type GetSSLInspectionRulesAction struct {
+	DecryptSubActions []GetSSLInspectionRulesActionDecryptSubAction `pulumi:"decryptSubActions"`
+	// Action taken when bypassing SSL intercept
+	DoNotDecryptSubActions []GetSSLInspectionRulesActionDoNotDecryptSubAction `pulumi:"doNotDecryptSubActions"`
+	// Whether to override the default SSL interception certificate.
+	OverrideDefaultCertificate bool `pulumi:"overrideDefaultCertificate"`
+	// Whether to show End User Notification (EUN).
+	ShowEun bool `pulumi:"showEun"`
+	// Whether to display the EUN ATP page.
+	ShowEunatp bool `pulumi:"showEunatp"`
+	// Action taken when enabling SSL intercept
+	SslInterceptionCerts []GetSSLInspectionRulesActionSslInterceptionCert `pulumi:"sslInterceptionCerts"`
+	// The action type for this rule. Possible values: `BLOCK`, `DECRYPT`, or `DO_NOT_DECRYPT`.
+	Type string `pulumi:"type"`
+}
+
+// GetSSLInspectionRulesActionInput is an input type that accepts GetSSLInspectionRulesActionArgs and GetSSLInspectionRulesActionOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionInput` via:
+//
+//	GetSSLInspectionRulesActionArgs{...}
+type GetSSLInspectionRulesActionInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionOutput() GetSSLInspectionRulesActionOutput
+	ToGetSSLInspectionRulesActionOutputWithContext(context.Context) GetSSLInspectionRulesActionOutput
+}
+
+type GetSSLInspectionRulesActionArgs struct {
+	DecryptSubActions GetSSLInspectionRulesActionDecryptSubActionArrayInput `pulumi:"decryptSubActions"`
+	// Action taken when bypassing SSL intercept
+	DoNotDecryptSubActions GetSSLInspectionRulesActionDoNotDecryptSubActionArrayInput `pulumi:"doNotDecryptSubActions"`
+	// Whether to override the default SSL interception certificate.
+	OverrideDefaultCertificate pulumi.BoolInput `pulumi:"overrideDefaultCertificate"`
+	// Whether to show End User Notification (EUN).
+	ShowEun pulumi.BoolInput `pulumi:"showEun"`
+	// Whether to display the EUN ATP page.
+	ShowEunatp pulumi.BoolInput `pulumi:"showEunatp"`
+	// Action taken when enabling SSL intercept
+	SslInterceptionCerts GetSSLInspectionRulesActionSslInterceptionCertArrayInput `pulumi:"sslInterceptionCerts"`
+	// The action type for this rule. Possible values: `BLOCK`, `DECRYPT`, or `DO_NOT_DECRYPT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSSLInspectionRulesActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionArgs) ToGetSSLInspectionRulesActionOutput() GetSSLInspectionRulesActionOutput {
+	return i.ToGetSSLInspectionRulesActionOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionArgs) ToGetSSLInspectionRulesActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionOutput)
+}
+
+// GetSSLInspectionRulesActionArrayInput is an input type that accepts GetSSLInspectionRulesActionArray and GetSSLInspectionRulesActionArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionArrayInput` via:
+//
+//	GetSSLInspectionRulesActionArray{ GetSSLInspectionRulesActionArgs{...} }
+type GetSSLInspectionRulesActionArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionArrayOutput() GetSSLInspectionRulesActionArrayOutput
+	ToGetSSLInspectionRulesActionArrayOutputWithContext(context.Context) GetSSLInspectionRulesActionArrayOutput
+}
+
+type GetSSLInspectionRulesActionArray []GetSSLInspectionRulesActionInput
+
+func (GetSSLInspectionRulesActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionArray) ToGetSSLInspectionRulesActionArrayOutput() GetSSLInspectionRulesActionArrayOutput {
+	return i.ToGetSSLInspectionRulesActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionArray) ToGetSSLInspectionRulesActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionArrayOutput)
+}
+
+type GetSSLInspectionRulesActionOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionOutput) ToGetSSLInspectionRulesActionOutput() GetSSLInspectionRulesActionOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionOutput) ToGetSSLInspectionRulesActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionOutput) DecryptSubActions() GetSSLInspectionRulesActionDecryptSubActionArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) []GetSSLInspectionRulesActionDecryptSubAction {
+		return v.DecryptSubActions
+	}).(GetSSLInspectionRulesActionDecryptSubActionArrayOutput)
+}
+
+// Action taken when bypassing SSL intercept
+func (o GetSSLInspectionRulesActionOutput) DoNotDecryptSubActions() GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) []GetSSLInspectionRulesActionDoNotDecryptSubAction {
+		return v.DoNotDecryptSubActions
+	}).(GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput)
+}
+
+// Whether to override the default SSL interception certificate.
+func (o GetSSLInspectionRulesActionOutput) OverrideDefaultCertificate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) bool { return v.OverrideDefaultCertificate }).(pulumi.BoolOutput)
+}
+
+// Whether to show End User Notification (EUN).
+func (o GetSSLInspectionRulesActionOutput) ShowEun() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) bool { return v.ShowEun }).(pulumi.BoolOutput)
+}
+
+// Whether to display the EUN ATP page.
+func (o GetSSLInspectionRulesActionOutput) ShowEunatp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) bool { return v.ShowEunatp }).(pulumi.BoolOutput)
+}
+
+// Action taken when enabling SSL intercept
+func (o GetSSLInspectionRulesActionOutput) SslInterceptionCerts() GetSSLInspectionRulesActionSslInterceptionCertArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) []GetSSLInspectionRulesActionSslInterceptionCert {
+		return v.SslInterceptionCerts
+	}).(GetSSLInspectionRulesActionSslInterceptionCertArrayOutput)
+}
+
+// The action type for this rule. Possible values: `BLOCK`, `DECRYPT`, or `DO_NOT_DECRYPT`.
+func (o GetSSLInspectionRulesActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionArrayOutput) ToGetSSLInspectionRulesActionArrayOutput() GetSSLInspectionRulesActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionArrayOutput) ToGetSSLInspectionRulesActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesAction {
+		return vs[0].([]GetSSLInspectionRulesAction)[vs[1].(int)]
+	}).(GetSSLInspectionRulesActionOutput)
+}
+
+type GetSSLInspectionRulesActionDecryptSubAction struct {
+	// Whether to block SSL traffic when SNI is not present.
+	BlockSslTrafficWithNoSniEnabled bool   `pulumi:"blockSslTrafficWithNoSniEnabled"`
+	BlockUndecrypt                  bool   `pulumi:"blockUndecrypt"`
+	Http2Enabled                    bool   `pulumi:"http2Enabled"`
+	MinClientTlsVersion             string `pulumi:"minClientTlsVersion"`
+	MinServerTlsVersion             string `pulumi:"minServerTlsVersion"`
+	// Whether to enable OCSP check.
+	OcspCheck bool `pulumi:"ocspCheck"`
+	// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+	ServerCertificates string `pulumi:"serverCertificates"`
+}
+
+// GetSSLInspectionRulesActionDecryptSubActionInput is an input type that accepts GetSSLInspectionRulesActionDecryptSubActionArgs and GetSSLInspectionRulesActionDecryptSubActionOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionDecryptSubActionInput` via:
+//
+//	GetSSLInspectionRulesActionDecryptSubActionArgs{...}
+type GetSSLInspectionRulesActionDecryptSubActionInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionDecryptSubActionOutput() GetSSLInspectionRulesActionDecryptSubActionOutput
+	ToGetSSLInspectionRulesActionDecryptSubActionOutputWithContext(context.Context) GetSSLInspectionRulesActionDecryptSubActionOutput
+}
+
+type GetSSLInspectionRulesActionDecryptSubActionArgs struct {
+	// Whether to block SSL traffic when SNI is not present.
+	BlockSslTrafficWithNoSniEnabled pulumi.BoolInput   `pulumi:"blockSslTrafficWithNoSniEnabled"`
+	BlockUndecrypt                  pulumi.BoolInput   `pulumi:"blockUndecrypt"`
+	Http2Enabled                    pulumi.BoolInput   `pulumi:"http2Enabled"`
+	MinClientTlsVersion             pulumi.StringInput `pulumi:"minClientTlsVersion"`
+	MinServerTlsVersion             pulumi.StringInput `pulumi:"minServerTlsVersion"`
+	// Whether to enable OCSP check.
+	OcspCheck pulumi.BoolInput `pulumi:"ocspCheck"`
+	// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+	ServerCertificates pulumi.StringInput `pulumi:"serverCertificates"`
+}
+
+func (GetSSLInspectionRulesActionDecryptSubActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionDecryptSubAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionDecryptSubActionArgs) ToGetSSLInspectionRulesActionDecryptSubActionOutput() GetSSLInspectionRulesActionDecryptSubActionOutput {
+	return i.ToGetSSLInspectionRulesActionDecryptSubActionOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionDecryptSubActionArgs) ToGetSSLInspectionRulesActionDecryptSubActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDecryptSubActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionDecryptSubActionOutput)
+}
+
+// GetSSLInspectionRulesActionDecryptSubActionArrayInput is an input type that accepts GetSSLInspectionRulesActionDecryptSubActionArray and GetSSLInspectionRulesActionDecryptSubActionArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionDecryptSubActionArrayInput` via:
+//
+//	GetSSLInspectionRulesActionDecryptSubActionArray{ GetSSLInspectionRulesActionDecryptSubActionArgs{...} }
+type GetSSLInspectionRulesActionDecryptSubActionArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDecryptSubActionArrayOutput
+	ToGetSSLInspectionRulesActionDecryptSubActionArrayOutputWithContext(context.Context) GetSSLInspectionRulesActionDecryptSubActionArrayOutput
+}
+
+type GetSSLInspectionRulesActionDecryptSubActionArray []GetSSLInspectionRulesActionDecryptSubActionInput
+
+func (GetSSLInspectionRulesActionDecryptSubActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionDecryptSubAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionDecryptSubActionArray) ToGetSSLInspectionRulesActionDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDecryptSubActionArrayOutput {
+	return i.ToGetSSLInspectionRulesActionDecryptSubActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionDecryptSubActionArray) ToGetSSLInspectionRulesActionDecryptSubActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDecryptSubActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionDecryptSubActionArrayOutput)
+}
+
+type GetSSLInspectionRulesActionDecryptSubActionOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionDecryptSubActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionDecryptSubAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) ToGetSSLInspectionRulesActionDecryptSubActionOutput() GetSSLInspectionRulesActionDecryptSubActionOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) ToGetSSLInspectionRulesActionDecryptSubActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDecryptSubActionOutput {
+	return o
+}
+
+// Whether to block SSL traffic when SNI is not present.
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) BlockSslTrafficWithNoSniEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) bool { return v.BlockSslTrafficWithNoSniEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) BlockUndecrypt() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) bool { return v.BlockUndecrypt }).(pulumi.BoolOutput)
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) MinClientTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) string { return v.MinClientTlsVersion }).(pulumi.StringOutput)
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) MinServerTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) string { return v.MinServerTlsVersion }).(pulumi.StringOutput)
+}
+
+// Whether to enable OCSP check.
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) OcspCheck() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) bool { return v.OcspCheck }).(pulumi.BoolOutput)
+}
+
+// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+func (o GetSSLInspectionRulesActionDecryptSubActionOutput) ServerCertificates() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDecryptSubAction) string { return v.ServerCertificates }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesActionDecryptSubActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionDecryptSubActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionDecryptSubAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionArrayOutput) ToGetSSLInspectionRulesActionDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDecryptSubActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionArrayOutput) ToGetSSLInspectionRulesActionDecryptSubActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDecryptSubActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDecryptSubActionArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesActionDecryptSubActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesActionDecryptSubAction {
+		return vs[0].([]GetSSLInspectionRulesActionDecryptSubAction)[vs[1].(int)]
+	}).(GetSSLInspectionRulesActionDecryptSubActionOutput)
+}
+
+type GetSSLInspectionRulesActionDoNotDecryptSubAction struct {
+	// Whether to block SSL traffic when SNI is not present.
+	BlockSslTrafficWithNoSniEnabled bool `pulumi:"blockSslTrafficWithNoSniEnabled"`
+	// Whether to bypass other policies when action is set to `DO_NOT_DECRYPT`.
+	BypassOtherPolicies bool `pulumi:"bypassOtherPolicies"`
+	// The minimum TLS version allowed when action is `DO_NOT_DECRYPT`.
+	MinTlsVersion string `pulumi:"minTlsVersion"`
+	// Whether to enable OCSP check.
+	OcspCheck bool `pulumi:"ocspCheck"`
+	// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+	ServerCertificates string `pulumi:"serverCertificates"`
+}
+
+// GetSSLInspectionRulesActionDoNotDecryptSubActionInput is an input type that accepts GetSSLInspectionRulesActionDoNotDecryptSubActionArgs and GetSSLInspectionRulesActionDoNotDecryptSubActionOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionDoNotDecryptSubActionInput` via:
+//
+//	GetSSLInspectionRulesActionDoNotDecryptSubActionArgs{...}
+type GetSSLInspectionRulesActionDoNotDecryptSubActionInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionOutput
+	ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutputWithContext(context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionOutput
+}
+
+type GetSSLInspectionRulesActionDoNotDecryptSubActionArgs struct {
+	// Whether to block SSL traffic when SNI is not present.
+	BlockSslTrafficWithNoSniEnabled pulumi.BoolInput `pulumi:"blockSslTrafficWithNoSniEnabled"`
+	// Whether to bypass other policies when action is set to `DO_NOT_DECRYPT`.
+	BypassOtherPolicies pulumi.BoolInput `pulumi:"bypassOtherPolicies"`
+	// The minimum TLS version allowed when action is `DO_NOT_DECRYPT`.
+	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
+	// Whether to enable OCSP check.
+	OcspCheck pulumi.BoolInput `pulumi:"ocspCheck"`
+	// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+	ServerCertificates pulumi.StringInput `pulumi:"serverCertificates"`
+}
+
+func (GetSSLInspectionRulesActionDoNotDecryptSubActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionDoNotDecryptSubAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionDoNotDecryptSubActionArgs) ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionOutput {
+	return i.ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionDoNotDecryptSubActionArgs) ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionDoNotDecryptSubActionOutput)
+}
+
+// GetSSLInspectionRulesActionDoNotDecryptSubActionArrayInput is an input type that accepts GetSSLInspectionRulesActionDoNotDecryptSubActionArray and GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionDoNotDecryptSubActionArrayInput` via:
+//
+//	GetSSLInspectionRulesActionDoNotDecryptSubActionArray{ GetSSLInspectionRulesActionDoNotDecryptSubActionArgs{...} }
+type GetSSLInspectionRulesActionDoNotDecryptSubActionArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput
+	ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutputWithContext(context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput
+}
+
+type GetSSLInspectionRulesActionDoNotDecryptSubActionArray []GetSSLInspectionRulesActionDoNotDecryptSubActionInput
+
+func (GetSSLInspectionRulesActionDoNotDecryptSubActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionDoNotDecryptSubAction)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionDoNotDecryptSubActionArray) ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput {
+	return i.ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionDoNotDecryptSubActionArray) ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput)
+}
+
+type GetSSLInspectionRulesActionDoNotDecryptSubActionOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionDoNotDecryptSubAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) ToGetSSLInspectionRulesActionDoNotDecryptSubActionOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionOutput {
+	return o
+}
+
+// Whether to block SSL traffic when SNI is not present.
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) BlockSslTrafficWithNoSniEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDoNotDecryptSubAction) bool {
+		return v.BlockSslTrafficWithNoSniEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// Whether to bypass other policies when action is set to `DO_NOT_DECRYPT`.
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) BypassOtherPolicies() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDoNotDecryptSubAction) bool { return v.BypassOtherPolicies }).(pulumi.BoolOutput)
+}
+
+// The minimum TLS version allowed when action is `DO_NOT_DECRYPT`.
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) MinTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDoNotDecryptSubAction) string { return v.MinTlsVersion }).(pulumi.StringOutput)
+}
+
+// Whether to enable OCSP check.
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) OcspCheck() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDoNotDecryptSubAction) bool { return v.OcspCheck }).(pulumi.BoolOutput)
+}
+
+// Action to take on server certificates. Valid values might include `ALLOW`, `BLOCK`, or `PASS_THRU`.
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionOutput) ServerCertificates() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionDoNotDecryptSubAction) string { return v.ServerCertificates }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionDoNotDecryptSubAction)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput) ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput() GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput) ToGetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesActionDoNotDecryptSubActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesActionDoNotDecryptSubAction {
+		return vs[0].([]GetSSLInspectionRulesActionDoNotDecryptSubAction)[vs[1].(int)]
+	}).(GetSSLInspectionRulesActionDoNotDecryptSubActionOutput)
+}
+
+type GetSSLInspectionRulesActionSslInterceptionCert struct {
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+}
+
+// GetSSLInspectionRulesActionSslInterceptionCertInput is an input type that accepts GetSSLInspectionRulesActionSslInterceptionCertArgs and GetSSLInspectionRulesActionSslInterceptionCertOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionSslInterceptionCertInput` via:
+//
+//	GetSSLInspectionRulesActionSslInterceptionCertArgs{...}
+type GetSSLInspectionRulesActionSslInterceptionCertInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionSslInterceptionCertOutput() GetSSLInspectionRulesActionSslInterceptionCertOutput
+	ToGetSSLInspectionRulesActionSslInterceptionCertOutputWithContext(context.Context) GetSSLInspectionRulesActionSslInterceptionCertOutput
+}
+
+type GetSSLInspectionRulesActionSslInterceptionCertArgs struct {
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+}
+
+func (GetSSLInspectionRulesActionSslInterceptionCertArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionSslInterceptionCert)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionSslInterceptionCertArgs) ToGetSSLInspectionRulesActionSslInterceptionCertOutput() GetSSLInspectionRulesActionSslInterceptionCertOutput {
+	return i.ToGetSSLInspectionRulesActionSslInterceptionCertOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionSslInterceptionCertArgs) ToGetSSLInspectionRulesActionSslInterceptionCertOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionSslInterceptionCertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionSslInterceptionCertOutput)
+}
+
+// GetSSLInspectionRulesActionSslInterceptionCertArrayInput is an input type that accepts GetSSLInspectionRulesActionSslInterceptionCertArray and GetSSLInspectionRulesActionSslInterceptionCertArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesActionSslInterceptionCertArrayInput` via:
+//
+//	GetSSLInspectionRulesActionSslInterceptionCertArray{ GetSSLInspectionRulesActionSslInterceptionCertArgs{...} }
+type GetSSLInspectionRulesActionSslInterceptionCertArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutput() GetSSLInspectionRulesActionSslInterceptionCertArrayOutput
+	ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutputWithContext(context.Context) GetSSLInspectionRulesActionSslInterceptionCertArrayOutput
+}
+
+type GetSSLInspectionRulesActionSslInterceptionCertArray []GetSSLInspectionRulesActionSslInterceptionCertInput
+
+func (GetSSLInspectionRulesActionSslInterceptionCertArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionSslInterceptionCert)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesActionSslInterceptionCertArray) ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutput() GetSSLInspectionRulesActionSslInterceptionCertArrayOutput {
+	return i.ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesActionSslInterceptionCertArray) ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionSslInterceptionCertArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesActionSslInterceptionCertArrayOutput)
+}
+
+type GetSSLInspectionRulesActionSslInterceptionCertOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionSslInterceptionCertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesActionSslInterceptionCert)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionSslInterceptionCertOutput) ToGetSSLInspectionRulesActionSslInterceptionCertOutput() GetSSLInspectionRulesActionSslInterceptionCertOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionSslInterceptionCertOutput) ToGetSSLInspectionRulesActionSslInterceptionCertOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionSslInterceptionCertOutput {
+	return o
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesActionSslInterceptionCertOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesActionSslInterceptionCert) int { return v.Id }).(pulumi.IntOutput)
+}
+
+type GetSSLInspectionRulesActionSslInterceptionCertArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesActionSslInterceptionCertArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesActionSslInterceptionCert)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesActionSslInterceptionCertArrayOutput) ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutput() GetSSLInspectionRulesActionSslInterceptionCertArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionSslInterceptionCertArrayOutput) ToGetSSLInspectionRulesActionSslInterceptionCertArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesActionSslInterceptionCertArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesActionSslInterceptionCertArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesActionSslInterceptionCertOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesActionSslInterceptionCert {
+		return vs[0].([]GetSSLInspectionRulesActionSslInterceptionCert)[vs[1].(int)]
+	}).(GetSSLInspectionRulesActionSslInterceptionCertOutput)
+}
+
+type GetSSLInspectionRulesDepartment struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesDepartmentInput is an input type that accepts GetSSLInspectionRulesDepartmentArgs and GetSSLInspectionRulesDepartmentOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDepartmentInput` via:
+//
+//	GetSSLInspectionRulesDepartmentArgs{...}
+type GetSSLInspectionRulesDepartmentInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDepartmentOutput() GetSSLInspectionRulesDepartmentOutput
+	ToGetSSLInspectionRulesDepartmentOutputWithContext(context.Context) GetSSLInspectionRulesDepartmentOutput
+}
+
+type GetSSLInspectionRulesDepartmentArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDepartment)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDepartmentArgs) ToGetSSLInspectionRulesDepartmentOutput() GetSSLInspectionRulesDepartmentOutput {
+	return i.ToGetSSLInspectionRulesDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDepartmentArgs) ToGetSSLInspectionRulesDepartmentOutputWithContext(ctx context.Context) GetSSLInspectionRulesDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDepartmentOutput)
+}
+
+// GetSSLInspectionRulesDepartmentArrayInput is an input type that accepts GetSSLInspectionRulesDepartmentArray and GetSSLInspectionRulesDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDepartmentArrayInput` via:
+//
+//	GetSSLInspectionRulesDepartmentArray{ GetSSLInspectionRulesDepartmentArgs{...} }
+type GetSSLInspectionRulesDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDepartmentArrayOutput() GetSSLInspectionRulesDepartmentArrayOutput
+	ToGetSSLInspectionRulesDepartmentArrayOutputWithContext(context.Context) GetSSLInspectionRulesDepartmentArrayOutput
+}
+
+type GetSSLInspectionRulesDepartmentArray []GetSSLInspectionRulesDepartmentInput
+
+func (GetSSLInspectionRulesDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDepartment)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDepartmentArray) ToGetSSLInspectionRulesDepartmentArrayOutput() GetSSLInspectionRulesDepartmentArrayOutput {
+	return i.ToGetSSLInspectionRulesDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDepartmentArray) ToGetSSLInspectionRulesDepartmentArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDepartmentArrayOutput)
+}
+
+type GetSSLInspectionRulesDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDepartment)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDepartmentOutput) ToGetSSLInspectionRulesDepartmentOutput() GetSSLInspectionRulesDepartmentOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDepartmentOutput) ToGetSSLInspectionRulesDepartmentOutputWithContext(ctx context.Context) GetSSLInspectionRulesDepartmentOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDepartment)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDepartmentArrayOutput) ToGetSSLInspectionRulesDepartmentArrayOutput() GetSSLInspectionRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDepartmentArrayOutput) ToGetSSLInspectionRulesDepartmentArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesDepartment {
+		return vs[0].([]GetSSLInspectionRulesDepartment)[vs[1].(int)]
+	}).(GetSSLInspectionRulesDepartmentOutput)
+}
+
+type GetSSLInspectionRulesDestIpGroup struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesDestIpGroupInput is an input type that accepts GetSSLInspectionRulesDestIpGroupArgs and GetSSLInspectionRulesDestIpGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDestIpGroupInput` via:
+//
+//	GetSSLInspectionRulesDestIpGroupArgs{...}
+type GetSSLInspectionRulesDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDestIpGroupOutput() GetSSLInspectionRulesDestIpGroupOutput
+	ToGetSSLInspectionRulesDestIpGroupOutputWithContext(context.Context) GetSSLInspectionRulesDestIpGroupOutput
+}
+
+type GetSSLInspectionRulesDestIpGroupArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDestIpGroupArgs) ToGetSSLInspectionRulesDestIpGroupOutput() GetSSLInspectionRulesDestIpGroupOutput {
+	return i.ToGetSSLInspectionRulesDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDestIpGroupArgs) ToGetSSLInspectionRulesDestIpGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDestIpGroupOutput)
+}
+
+// GetSSLInspectionRulesDestIpGroupArrayInput is an input type that accepts GetSSLInspectionRulesDestIpGroupArray and GetSSLInspectionRulesDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDestIpGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesDestIpGroupArray{ GetSSLInspectionRulesDestIpGroupArgs{...} }
+type GetSSLInspectionRulesDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDestIpGroupArrayOutput() GetSSLInspectionRulesDestIpGroupArrayOutput
+	ToGetSSLInspectionRulesDestIpGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesDestIpGroupArrayOutput
+}
+
+type GetSSLInspectionRulesDestIpGroupArray []GetSSLInspectionRulesDestIpGroupInput
+
+func (GetSSLInspectionRulesDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDestIpGroupArray) ToGetSSLInspectionRulesDestIpGroupArrayOutput() GetSSLInspectionRulesDestIpGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDestIpGroupArray) ToGetSSLInspectionRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDestIpGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDestIpGroupOutput) ToGetSSLInspectionRulesDestIpGroupOutput() GetSSLInspectionRulesDestIpGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDestIpGroupOutput) ToGetSSLInspectionRulesDestIpGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesDestIpGroupOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDestIpGroupArrayOutput) ToGetSSLInspectionRulesDestIpGroupArrayOutput() GetSSLInspectionRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDestIpGroupArrayOutput) ToGetSSLInspectionRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesDestIpGroup {
+		return vs[0].([]GetSSLInspectionRulesDestIpGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesDestIpGroupOutput)
+}
+
+type GetSSLInspectionRulesDevice struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesDeviceInput is an input type that accepts GetSSLInspectionRulesDeviceArgs and GetSSLInspectionRulesDeviceOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDeviceInput` via:
+//
+//	GetSSLInspectionRulesDeviceArgs{...}
+type GetSSLInspectionRulesDeviceInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDeviceOutput() GetSSLInspectionRulesDeviceOutput
+	ToGetSSLInspectionRulesDeviceOutputWithContext(context.Context) GetSSLInspectionRulesDeviceOutput
+}
+
+type GetSSLInspectionRulesDeviceArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDevice)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDeviceArgs) ToGetSSLInspectionRulesDeviceOutput() GetSSLInspectionRulesDeviceOutput {
+	return i.ToGetSSLInspectionRulesDeviceOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDeviceArgs) ToGetSSLInspectionRulesDeviceOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDeviceOutput)
+}
+
+// GetSSLInspectionRulesDeviceArrayInput is an input type that accepts GetSSLInspectionRulesDeviceArray and GetSSLInspectionRulesDeviceArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDeviceArrayInput` via:
+//
+//	GetSSLInspectionRulesDeviceArray{ GetSSLInspectionRulesDeviceArgs{...} }
+type GetSSLInspectionRulesDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDeviceArrayOutput() GetSSLInspectionRulesDeviceArrayOutput
+	ToGetSSLInspectionRulesDeviceArrayOutputWithContext(context.Context) GetSSLInspectionRulesDeviceArrayOutput
+}
+
+type GetSSLInspectionRulesDeviceArray []GetSSLInspectionRulesDeviceInput
+
+func (GetSSLInspectionRulesDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDevice)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDeviceArray) ToGetSSLInspectionRulesDeviceArrayOutput() GetSSLInspectionRulesDeviceArrayOutput {
+	return i.ToGetSSLInspectionRulesDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDeviceArray) ToGetSSLInspectionRulesDeviceArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDeviceArrayOutput)
+}
+
+type GetSSLInspectionRulesDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDevice)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDeviceOutput) ToGetSSLInspectionRulesDeviceOutput() GetSSLInspectionRulesDeviceOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceOutput) ToGetSSLInspectionRulesDeviceOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDevice)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDeviceArrayOutput) ToGetSSLInspectionRulesDeviceArrayOutput() GetSSLInspectionRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceArrayOutput) ToGetSSLInspectionRulesDeviceArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesDevice {
+		return vs[0].([]GetSSLInspectionRulesDevice)[vs[1].(int)]
+	}).(GetSSLInspectionRulesDeviceOutput)
+}
+
+type GetSSLInspectionRulesDeviceGroup struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesDeviceGroupInput is an input type that accepts GetSSLInspectionRulesDeviceGroupArgs and GetSSLInspectionRulesDeviceGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDeviceGroupInput` via:
+//
+//	GetSSLInspectionRulesDeviceGroupArgs{...}
+type GetSSLInspectionRulesDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDeviceGroupOutput() GetSSLInspectionRulesDeviceGroupOutput
+	ToGetSSLInspectionRulesDeviceGroupOutputWithContext(context.Context) GetSSLInspectionRulesDeviceGroupOutput
+}
+
+type GetSSLInspectionRulesDeviceGroupArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDeviceGroupArgs) ToGetSSLInspectionRulesDeviceGroupOutput() GetSSLInspectionRulesDeviceGroupOutput {
+	return i.ToGetSSLInspectionRulesDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDeviceGroupArgs) ToGetSSLInspectionRulesDeviceGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDeviceGroupOutput)
+}
+
+// GetSSLInspectionRulesDeviceGroupArrayInput is an input type that accepts GetSSLInspectionRulesDeviceGroupArray and GetSSLInspectionRulesDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesDeviceGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesDeviceGroupArray{ GetSSLInspectionRulesDeviceGroupArgs{...} }
+type GetSSLInspectionRulesDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesDeviceGroupArrayOutput() GetSSLInspectionRulesDeviceGroupArrayOutput
+	ToGetSSLInspectionRulesDeviceGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesDeviceGroupArrayOutput
+}
+
+type GetSSLInspectionRulesDeviceGroupArray []GetSSLInspectionRulesDeviceGroupInput
+
+func (GetSSLInspectionRulesDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesDeviceGroupArray) ToGetSSLInspectionRulesDeviceGroupArrayOutput() GetSSLInspectionRulesDeviceGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesDeviceGroupArray) ToGetSSLInspectionRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesDeviceGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDeviceGroupOutput) ToGetSSLInspectionRulesDeviceGroupOutput() GetSSLInspectionRulesDeviceGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceGroupOutput) ToGetSSLInspectionRulesDeviceGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceGroupOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesDeviceGroupArrayOutput) ToGetSSLInspectionRulesDeviceGroupArrayOutput() GetSSLInspectionRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceGroupArrayOutput) ToGetSSLInspectionRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesDeviceGroup {
+		return vs[0].([]GetSSLInspectionRulesDeviceGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesDeviceGroupOutput)
+}
+
+type GetSSLInspectionRulesGroup struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesGroupInput is an input type that accepts GetSSLInspectionRulesGroupArgs and GetSSLInspectionRulesGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesGroupInput` via:
+//
+//	GetSSLInspectionRulesGroupArgs{...}
+type GetSSLInspectionRulesGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesGroupOutput() GetSSLInspectionRulesGroupOutput
+	ToGetSSLInspectionRulesGroupOutputWithContext(context.Context) GetSSLInspectionRulesGroupOutput
+}
+
+type GetSSLInspectionRulesGroupArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesGroupArgs) ToGetSSLInspectionRulesGroupOutput() GetSSLInspectionRulesGroupOutput {
+	return i.ToGetSSLInspectionRulesGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesGroupArgs) ToGetSSLInspectionRulesGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesGroupOutput)
+}
+
+// GetSSLInspectionRulesGroupArrayInput is an input type that accepts GetSSLInspectionRulesGroupArray and GetSSLInspectionRulesGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesGroupArray{ GetSSLInspectionRulesGroupArgs{...} }
+type GetSSLInspectionRulesGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesGroupArrayOutput() GetSSLInspectionRulesGroupArrayOutput
+	ToGetSSLInspectionRulesGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesGroupArrayOutput
+}
+
+type GetSSLInspectionRulesGroupArray []GetSSLInspectionRulesGroupInput
+
+func (GetSSLInspectionRulesGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesGroupArray) ToGetSSLInspectionRulesGroupArrayOutput() GetSSLInspectionRulesGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesGroupArray) ToGetSSLInspectionRulesGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesGroupOutput) ToGetSSLInspectionRulesGroupOutput() GetSSLInspectionRulesGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesGroupOutput) ToGetSSLInspectionRulesGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesGroupOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesGroupArrayOutput) ToGetSSLInspectionRulesGroupArrayOutput() GetSSLInspectionRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesGroupArrayOutput) ToGetSSLInspectionRulesGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesGroup {
+		return vs[0].([]GetSSLInspectionRulesGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesGroupOutput)
+}
+
+type GetSSLInspectionRulesLabel struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesLabelInput is an input type that accepts GetSSLInspectionRulesLabelArgs and GetSSLInspectionRulesLabelOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLabelInput` via:
+//
+//	GetSSLInspectionRulesLabelArgs{...}
+type GetSSLInspectionRulesLabelInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLabelOutput() GetSSLInspectionRulesLabelOutput
+	ToGetSSLInspectionRulesLabelOutputWithContext(context.Context) GetSSLInspectionRulesLabelOutput
+}
+
+type GetSSLInspectionRulesLabelArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLabel)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLabelArgs) ToGetSSLInspectionRulesLabelOutput() GetSSLInspectionRulesLabelOutput {
+	return i.ToGetSSLInspectionRulesLabelOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLabelArgs) ToGetSSLInspectionRulesLabelOutputWithContext(ctx context.Context) GetSSLInspectionRulesLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLabelOutput)
+}
+
+// GetSSLInspectionRulesLabelArrayInput is an input type that accepts GetSSLInspectionRulesLabelArray and GetSSLInspectionRulesLabelArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLabelArrayInput` via:
+//
+//	GetSSLInspectionRulesLabelArray{ GetSSLInspectionRulesLabelArgs{...} }
+type GetSSLInspectionRulesLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLabelArrayOutput() GetSSLInspectionRulesLabelArrayOutput
+	ToGetSSLInspectionRulesLabelArrayOutputWithContext(context.Context) GetSSLInspectionRulesLabelArrayOutput
+}
+
+type GetSSLInspectionRulesLabelArray []GetSSLInspectionRulesLabelInput
+
+func (GetSSLInspectionRulesLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLabel)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLabelArray) ToGetSSLInspectionRulesLabelArrayOutput() GetSSLInspectionRulesLabelArrayOutput {
+	return i.ToGetSSLInspectionRulesLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLabelArray) ToGetSSLInspectionRulesLabelArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLabelArrayOutput)
+}
+
+type GetSSLInspectionRulesLabelOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLabel)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLabelOutput) ToGetSSLInspectionRulesLabelOutput() GetSSLInspectionRulesLabelOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLabelOutput) ToGetSSLInspectionRulesLabelOutputWithContext(ctx context.Context) GetSSLInspectionRulesLabelOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLabel)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLabelArrayOutput) ToGetSSLInspectionRulesLabelArrayOutput() GetSSLInspectionRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLabelArrayOutput) ToGetSSLInspectionRulesLabelArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLabelArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesLabel {
+		return vs[0].([]GetSSLInspectionRulesLabel)[vs[1].(int)]
+	}).(GetSSLInspectionRulesLabelOutput)
+}
+
+type GetSSLInspectionRulesLastModifiedBy struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesLastModifiedByInput is an input type that accepts GetSSLInspectionRulesLastModifiedByArgs and GetSSLInspectionRulesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLastModifiedByInput` via:
+//
+//	GetSSLInspectionRulesLastModifiedByArgs{...}
+type GetSSLInspectionRulesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLastModifiedByOutput() GetSSLInspectionRulesLastModifiedByOutput
+	ToGetSSLInspectionRulesLastModifiedByOutputWithContext(context.Context) GetSSLInspectionRulesLastModifiedByOutput
+}
+
+type GetSSLInspectionRulesLastModifiedByArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLastModifiedByArgs) ToGetSSLInspectionRulesLastModifiedByOutput() GetSSLInspectionRulesLastModifiedByOutput {
+	return i.ToGetSSLInspectionRulesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLastModifiedByArgs) ToGetSSLInspectionRulesLastModifiedByOutputWithContext(ctx context.Context) GetSSLInspectionRulesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLastModifiedByOutput)
+}
+
+// GetSSLInspectionRulesLastModifiedByArrayInput is an input type that accepts GetSSLInspectionRulesLastModifiedByArray and GetSSLInspectionRulesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLastModifiedByArrayInput` via:
+//
+//	GetSSLInspectionRulesLastModifiedByArray{ GetSSLInspectionRulesLastModifiedByArgs{...} }
+type GetSSLInspectionRulesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLastModifiedByArrayOutput() GetSSLInspectionRulesLastModifiedByArrayOutput
+	ToGetSSLInspectionRulesLastModifiedByArrayOutputWithContext(context.Context) GetSSLInspectionRulesLastModifiedByArrayOutput
+}
+
+type GetSSLInspectionRulesLastModifiedByArray []GetSSLInspectionRulesLastModifiedByInput
+
+func (GetSSLInspectionRulesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLastModifiedByArray) ToGetSSLInspectionRulesLastModifiedByArrayOutput() GetSSLInspectionRulesLastModifiedByArrayOutput {
+	return i.ToGetSSLInspectionRulesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLastModifiedByArray) ToGetSSLInspectionRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLastModifiedByArrayOutput)
+}
+
+type GetSSLInspectionRulesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLastModifiedByOutput) ToGetSSLInspectionRulesLastModifiedByOutput() GetSSLInspectionRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLastModifiedByOutput) ToGetSSLInspectionRulesLastModifiedByOutputWithContext(ctx context.Context) GetSSLInspectionRulesLastModifiedByOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLastModifiedByArrayOutput) ToGetSSLInspectionRulesLastModifiedByArrayOutput() GetSSLInspectionRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLastModifiedByArrayOutput) ToGetSSLInspectionRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesLastModifiedBy {
+		return vs[0].([]GetSSLInspectionRulesLastModifiedBy)[vs[1].(int)]
+	}).(GetSSLInspectionRulesLastModifiedByOutput)
+}
+
+type GetSSLInspectionRulesLocation struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesLocationInput is an input type that accepts GetSSLInspectionRulesLocationArgs and GetSSLInspectionRulesLocationOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLocationInput` via:
+//
+//	GetSSLInspectionRulesLocationArgs{...}
+type GetSSLInspectionRulesLocationInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLocationOutput() GetSSLInspectionRulesLocationOutput
+	ToGetSSLInspectionRulesLocationOutputWithContext(context.Context) GetSSLInspectionRulesLocationOutput
+}
+
+type GetSSLInspectionRulesLocationArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLocation)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLocationArgs) ToGetSSLInspectionRulesLocationOutput() GetSSLInspectionRulesLocationOutput {
+	return i.ToGetSSLInspectionRulesLocationOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLocationArgs) ToGetSSLInspectionRulesLocationOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLocationOutput)
+}
+
+// GetSSLInspectionRulesLocationArrayInput is an input type that accepts GetSSLInspectionRulesLocationArray and GetSSLInspectionRulesLocationArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLocationArrayInput` via:
+//
+//	GetSSLInspectionRulesLocationArray{ GetSSLInspectionRulesLocationArgs{...} }
+type GetSSLInspectionRulesLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLocationArrayOutput() GetSSLInspectionRulesLocationArrayOutput
+	ToGetSSLInspectionRulesLocationArrayOutputWithContext(context.Context) GetSSLInspectionRulesLocationArrayOutput
+}
+
+type GetSSLInspectionRulesLocationArray []GetSSLInspectionRulesLocationInput
+
+func (GetSSLInspectionRulesLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLocation)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLocationArray) ToGetSSLInspectionRulesLocationArrayOutput() GetSSLInspectionRulesLocationArrayOutput {
+	return i.ToGetSSLInspectionRulesLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLocationArray) ToGetSSLInspectionRulesLocationArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLocationArrayOutput)
+}
+
+type GetSSLInspectionRulesLocationOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLocation)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLocationOutput) ToGetSSLInspectionRulesLocationOutput() GetSSLInspectionRulesLocationOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationOutput) ToGetSSLInspectionRulesLocationOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLocation)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLocationArrayOutput) ToGetSSLInspectionRulesLocationArrayOutput() GetSSLInspectionRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationArrayOutput) ToGetSSLInspectionRulesLocationArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesLocation {
+		return vs[0].([]GetSSLInspectionRulesLocation)[vs[1].(int)]
+	}).(GetSSLInspectionRulesLocationOutput)
+}
+
+type GetSSLInspectionRulesLocationGroup struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesLocationGroupInput is an input type that accepts GetSSLInspectionRulesLocationGroupArgs and GetSSLInspectionRulesLocationGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLocationGroupInput` via:
+//
+//	GetSSLInspectionRulesLocationGroupArgs{...}
+type GetSSLInspectionRulesLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLocationGroupOutput() GetSSLInspectionRulesLocationGroupOutput
+	ToGetSSLInspectionRulesLocationGroupOutputWithContext(context.Context) GetSSLInspectionRulesLocationGroupOutput
+}
+
+type GetSSLInspectionRulesLocationGroupArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLocationGroupArgs) ToGetSSLInspectionRulesLocationGroupOutput() GetSSLInspectionRulesLocationGroupOutput {
+	return i.ToGetSSLInspectionRulesLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLocationGroupArgs) ToGetSSLInspectionRulesLocationGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLocationGroupOutput)
+}
+
+// GetSSLInspectionRulesLocationGroupArrayInput is an input type that accepts GetSSLInspectionRulesLocationGroupArray and GetSSLInspectionRulesLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesLocationGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesLocationGroupArray{ GetSSLInspectionRulesLocationGroupArgs{...} }
+type GetSSLInspectionRulesLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesLocationGroupArrayOutput() GetSSLInspectionRulesLocationGroupArrayOutput
+	ToGetSSLInspectionRulesLocationGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesLocationGroupArrayOutput
+}
+
+type GetSSLInspectionRulesLocationGroupArray []GetSSLInspectionRulesLocationGroupInput
+
+func (GetSSLInspectionRulesLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesLocationGroupArray) ToGetSSLInspectionRulesLocationGroupArrayOutput() GetSSLInspectionRulesLocationGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesLocationGroupArray) ToGetSSLInspectionRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesLocationGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLocationGroupOutput) ToGetSSLInspectionRulesLocationGroupOutput() GetSSLInspectionRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationGroupOutput) ToGetSSLInspectionRulesLocationGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationGroupOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesLocationGroupArrayOutput) ToGetSSLInspectionRulesLocationGroupArrayOutput() GetSSLInspectionRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationGroupArrayOutput) ToGetSSLInspectionRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesLocationGroup {
+		return vs[0].([]GetSSLInspectionRulesLocationGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesLocationGroupOutput)
+}
+
+type GetSSLInspectionRulesProxyGateway struct {
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesProxyGatewayInput is an input type that accepts GetSSLInspectionRulesProxyGatewayArgs and GetSSLInspectionRulesProxyGatewayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesProxyGatewayInput` via:
+//
+//	GetSSLInspectionRulesProxyGatewayArgs{...}
+type GetSSLInspectionRulesProxyGatewayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesProxyGatewayOutput() GetSSLInspectionRulesProxyGatewayOutput
+	ToGetSSLInspectionRulesProxyGatewayOutputWithContext(context.Context) GetSSLInspectionRulesProxyGatewayOutput
+}
+
+type GetSSLInspectionRulesProxyGatewayArgs struct {
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesProxyGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesProxyGateway)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesProxyGatewayArgs) ToGetSSLInspectionRulesProxyGatewayOutput() GetSSLInspectionRulesProxyGatewayOutput {
+	return i.ToGetSSLInspectionRulesProxyGatewayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesProxyGatewayArgs) ToGetSSLInspectionRulesProxyGatewayOutputWithContext(ctx context.Context) GetSSLInspectionRulesProxyGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesProxyGatewayOutput)
+}
+
+// GetSSLInspectionRulesProxyGatewayArrayInput is an input type that accepts GetSSLInspectionRulesProxyGatewayArray and GetSSLInspectionRulesProxyGatewayArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesProxyGatewayArrayInput` via:
+//
+//	GetSSLInspectionRulesProxyGatewayArray{ GetSSLInspectionRulesProxyGatewayArgs{...} }
+type GetSSLInspectionRulesProxyGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesProxyGatewayArrayOutput() GetSSLInspectionRulesProxyGatewayArrayOutput
+	ToGetSSLInspectionRulesProxyGatewayArrayOutputWithContext(context.Context) GetSSLInspectionRulesProxyGatewayArrayOutput
+}
+
+type GetSSLInspectionRulesProxyGatewayArray []GetSSLInspectionRulesProxyGatewayInput
+
+func (GetSSLInspectionRulesProxyGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesProxyGateway)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesProxyGatewayArray) ToGetSSLInspectionRulesProxyGatewayArrayOutput() GetSSLInspectionRulesProxyGatewayArrayOutput {
+	return i.ToGetSSLInspectionRulesProxyGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesProxyGatewayArray) ToGetSSLInspectionRulesProxyGatewayArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesProxyGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesProxyGatewayArrayOutput)
+}
+
+type GetSSLInspectionRulesProxyGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesProxyGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesProxyGateway)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesProxyGatewayOutput) ToGetSSLInspectionRulesProxyGatewayOutput() GetSSLInspectionRulesProxyGatewayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesProxyGatewayOutput) ToGetSSLInspectionRulesProxyGatewayOutputWithContext(ctx context.Context) GetSSLInspectionRulesProxyGatewayOutput {
+	return o
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesProxyGatewayOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesProxyGateway) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesProxyGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesProxyGateway) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesProxyGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesProxyGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesProxyGateway)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesProxyGatewayArrayOutput) ToGetSSLInspectionRulesProxyGatewayArrayOutput() GetSSLInspectionRulesProxyGatewayArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesProxyGatewayArrayOutput) ToGetSSLInspectionRulesProxyGatewayArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesProxyGatewayArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesProxyGatewayArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesProxyGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesProxyGateway {
+		return vs[0].([]GetSSLInspectionRulesProxyGateway)[vs[1].(int)]
+	}).(GetSSLInspectionRulesProxyGatewayOutput)
+}
+
+type GetSSLInspectionRulesSourceIpGroup struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesSourceIpGroupInput is an input type that accepts GetSSLInspectionRulesSourceIpGroupArgs and GetSSLInspectionRulesSourceIpGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesSourceIpGroupInput` via:
+//
+//	GetSSLInspectionRulesSourceIpGroupArgs{...}
+type GetSSLInspectionRulesSourceIpGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesSourceIpGroupOutput() GetSSLInspectionRulesSourceIpGroupOutput
+	ToGetSSLInspectionRulesSourceIpGroupOutputWithContext(context.Context) GetSSLInspectionRulesSourceIpGroupOutput
+}
+
+type GetSSLInspectionRulesSourceIpGroupArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesSourceIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesSourceIpGroupArgs) ToGetSSLInspectionRulesSourceIpGroupOutput() GetSSLInspectionRulesSourceIpGroupOutput {
+	return i.ToGetSSLInspectionRulesSourceIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesSourceIpGroupArgs) ToGetSSLInspectionRulesSourceIpGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesSourceIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesSourceIpGroupOutput)
+}
+
+// GetSSLInspectionRulesSourceIpGroupArrayInput is an input type that accepts GetSSLInspectionRulesSourceIpGroupArray and GetSSLInspectionRulesSourceIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesSourceIpGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesSourceIpGroupArray{ GetSSLInspectionRulesSourceIpGroupArgs{...} }
+type GetSSLInspectionRulesSourceIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesSourceIpGroupArrayOutput() GetSSLInspectionRulesSourceIpGroupArrayOutput
+	ToGetSSLInspectionRulesSourceIpGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesSourceIpGroupArrayOutput
+}
+
+type GetSSLInspectionRulesSourceIpGroupArray []GetSSLInspectionRulesSourceIpGroupInput
+
+func (GetSSLInspectionRulesSourceIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesSourceIpGroupArray) ToGetSSLInspectionRulesSourceIpGroupArrayOutput() GetSSLInspectionRulesSourceIpGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesSourceIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesSourceIpGroupArray) ToGetSSLInspectionRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesSourceIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesSourceIpGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesSourceIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesSourceIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesSourceIpGroupOutput) ToGetSSLInspectionRulesSourceIpGroupOutput() GetSSLInspectionRulesSourceIpGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesSourceIpGroupOutput) ToGetSSLInspectionRulesSourceIpGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesSourceIpGroupOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesSourceIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesSourceIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesSourceIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesSourceIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesSourceIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesSourceIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesSourceIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesSourceIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesSourceIpGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesSourceIpGroupArrayOutput) ToGetSSLInspectionRulesSourceIpGroupArrayOutput() GetSSLInspectionRulesSourceIpGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesSourceIpGroupArrayOutput) ToGetSSLInspectionRulesSourceIpGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesSourceIpGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesSourceIpGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesSourceIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesSourceIpGroup {
+		return vs[0].([]GetSSLInspectionRulesSourceIpGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesSourceIpGroupOutput)
+}
+
+type GetSSLInspectionRulesTimeWindow struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesTimeWindowInput is an input type that accepts GetSSLInspectionRulesTimeWindowArgs and GetSSLInspectionRulesTimeWindowOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesTimeWindowInput` via:
+//
+//	GetSSLInspectionRulesTimeWindowArgs{...}
+type GetSSLInspectionRulesTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesTimeWindowOutput() GetSSLInspectionRulesTimeWindowOutput
+	ToGetSSLInspectionRulesTimeWindowOutputWithContext(context.Context) GetSSLInspectionRulesTimeWindowOutput
+}
+
+type GetSSLInspectionRulesTimeWindowArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesTimeWindowArgs) ToGetSSLInspectionRulesTimeWindowOutput() GetSSLInspectionRulesTimeWindowOutput {
+	return i.ToGetSSLInspectionRulesTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesTimeWindowArgs) ToGetSSLInspectionRulesTimeWindowOutputWithContext(ctx context.Context) GetSSLInspectionRulesTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesTimeWindowOutput)
+}
+
+// GetSSLInspectionRulesTimeWindowArrayInput is an input type that accepts GetSSLInspectionRulesTimeWindowArray and GetSSLInspectionRulesTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesTimeWindowArrayInput` via:
+//
+//	GetSSLInspectionRulesTimeWindowArray{ GetSSLInspectionRulesTimeWindowArgs{...} }
+type GetSSLInspectionRulesTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesTimeWindowArrayOutput() GetSSLInspectionRulesTimeWindowArrayOutput
+	ToGetSSLInspectionRulesTimeWindowArrayOutputWithContext(context.Context) GetSSLInspectionRulesTimeWindowArrayOutput
+}
+
+type GetSSLInspectionRulesTimeWindowArray []GetSSLInspectionRulesTimeWindowInput
+
+func (GetSSLInspectionRulesTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesTimeWindowArray) ToGetSSLInspectionRulesTimeWindowArrayOutput() GetSSLInspectionRulesTimeWindowArrayOutput {
+	return i.ToGetSSLInspectionRulesTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesTimeWindowArray) ToGetSSLInspectionRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesTimeWindowArrayOutput)
+}
+
+type GetSSLInspectionRulesTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesTimeWindowOutput) ToGetSSLInspectionRulesTimeWindowOutput() GetSSLInspectionRulesTimeWindowOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesTimeWindowOutput) ToGetSSLInspectionRulesTimeWindowOutputWithContext(ctx context.Context) GetSSLInspectionRulesTimeWindowOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesTimeWindowArrayOutput) ToGetSSLInspectionRulesTimeWindowArrayOutput() GetSSLInspectionRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesTimeWindowArrayOutput) ToGetSSLInspectionRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesTimeWindowArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesTimeWindow {
+		return vs[0].([]GetSSLInspectionRulesTimeWindow)[vs[1].(int)]
+	}).(GetSSLInspectionRulesTimeWindowOutput)
+}
+
+type GetSSLInspectionRulesUser struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesUserInput is an input type that accepts GetSSLInspectionRulesUserArgs and GetSSLInspectionRulesUserOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesUserInput` via:
+//
+//	GetSSLInspectionRulesUserArgs{...}
+type GetSSLInspectionRulesUserInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesUserOutput() GetSSLInspectionRulesUserOutput
+	ToGetSSLInspectionRulesUserOutputWithContext(context.Context) GetSSLInspectionRulesUserOutput
+}
+
+type GetSSLInspectionRulesUserArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesUser)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesUserArgs) ToGetSSLInspectionRulesUserOutput() GetSSLInspectionRulesUserOutput {
+	return i.ToGetSSLInspectionRulesUserOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesUserArgs) ToGetSSLInspectionRulesUserOutputWithContext(ctx context.Context) GetSSLInspectionRulesUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesUserOutput)
+}
+
+// GetSSLInspectionRulesUserArrayInput is an input type that accepts GetSSLInspectionRulesUserArray and GetSSLInspectionRulesUserArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesUserArrayInput` via:
+//
+//	GetSSLInspectionRulesUserArray{ GetSSLInspectionRulesUserArgs{...} }
+type GetSSLInspectionRulesUserArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesUserArrayOutput() GetSSLInspectionRulesUserArrayOutput
+	ToGetSSLInspectionRulesUserArrayOutputWithContext(context.Context) GetSSLInspectionRulesUserArrayOutput
+}
+
+type GetSSLInspectionRulesUserArray []GetSSLInspectionRulesUserInput
+
+func (GetSSLInspectionRulesUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesUser)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesUserArray) ToGetSSLInspectionRulesUserArrayOutput() GetSSLInspectionRulesUserArrayOutput {
+	return i.ToGetSSLInspectionRulesUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesUserArray) ToGetSSLInspectionRulesUserArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesUserArrayOutput)
+}
+
+type GetSSLInspectionRulesUserOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesUser)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesUserOutput) ToGetSSLInspectionRulesUserOutput() GetSSLInspectionRulesUserOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesUserOutput) ToGetSSLInspectionRulesUserOutputWithContext(ctx context.Context) GetSSLInspectionRulesUserOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesUser)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesUserArrayOutput) ToGetSSLInspectionRulesUserArrayOutput() GetSSLInspectionRulesUserArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesUserArrayOutput) ToGetSSLInspectionRulesUserArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesUserArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesUserArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesUser {
+		return vs[0].([]GetSSLInspectionRulesUser)[vs[1].(int)]
+	}).(GetSSLInspectionRulesUserOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroup struct {
+	// The description of the workload group
+	Description string `pulumi:"description"`
+	// The expression used within the workload group.
+	Expression string `pulumi:"expression"`
+	// A nested block describing the JSON expression for the workload group.
+	ExpressionJsons []GetSSLInspectionRulesWorkloadGroupExpressionJson `pulumi:"expressionJsons"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// A nested block with details about who last modified the workload group.
+	LastModifiedBies []GetSSLInspectionRulesWorkloadGroupLastModifiedBy `pulumi:"lastModifiedBies"`
+	// Timestamp when the workload group was last modified.
+	LastModifiedTime int `pulumi:"lastModifiedTime"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupArgs and GetSSLInspectionRulesWorkloadGroupOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupArgs{...}
+type GetSSLInspectionRulesWorkloadGroupInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupOutput() GetSSLInspectionRulesWorkloadGroupOutput
+	ToGetSSLInspectionRulesWorkloadGroupOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupArgs struct {
+	// The description of the workload group
+	Description pulumi.StringInput `pulumi:"description"`
+	// The expression used within the workload group.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// A nested block describing the JSON expression for the workload group.
+	ExpressionJsons GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayInput `pulumi:"expressionJsons"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// A nested block with details about who last modified the workload group.
+	LastModifiedBies GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayInput `pulumi:"lastModifiedBies"`
+	// Timestamp when the workload group was last modified.
+	LastModifiedTime pulumi.IntInput `pulumi:"lastModifiedTime"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupArgs) ToGetSSLInspectionRulesWorkloadGroupOutput() GetSSLInspectionRulesWorkloadGroupOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupArgs) ToGetSSLInspectionRulesWorkloadGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupArray and GetSSLInspectionRulesWorkloadGroupArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupArray{ GetSSLInspectionRulesWorkloadGroupArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupArrayOutput() GetSSLInspectionRulesWorkloadGroupArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupArray []GetSSLInspectionRulesWorkloadGroupInput
+
+func (GetSSLInspectionRulesWorkloadGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupArray) ToGetSSLInspectionRulesWorkloadGroupArrayOutput() GetSSLInspectionRulesWorkloadGroupArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupArray) ToGetSSLInspectionRulesWorkloadGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupOutput) ToGetSSLInspectionRulesWorkloadGroupOutput() GetSSLInspectionRulesWorkloadGroupOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupOutput) ToGetSSLInspectionRulesWorkloadGroupOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupOutput {
+	return o
+}
+
+// The description of the workload group
+func (o GetSSLInspectionRulesWorkloadGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The expression used within the workload group.
+func (o GetSSLInspectionRulesWorkloadGroupOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// A nested block describing the JSON expression for the workload group.
+func (o GetSSLInspectionRulesWorkloadGroupOutput) ExpressionJsons() GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) []GetSSLInspectionRulesWorkloadGroupExpressionJson {
+		return v.ExpressionJsons
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesWorkloadGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// A nested block with details about who last modified the workload group.
+func (o GetSSLInspectionRulesWorkloadGroupOutput) LastModifiedBies() GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) []GetSSLInspectionRulesWorkloadGroupLastModifiedBy {
+		return v.LastModifiedBies
+	}).(GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput)
+}
+
+// Timestamp when the workload group was last modified.
+func (o GetSSLInspectionRulesWorkloadGroupOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesWorkloadGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupArrayOutput) ToGetSSLInspectionRulesWorkloadGroupArrayOutput() GetSSLInspectionRulesWorkloadGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupArrayOutput) ToGetSSLInspectionRulesWorkloadGroupArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroup {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroup)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJson struct {
+	// Contains one or more tag types (and associated tags) combined using logical operators within a workload group
+	ExpressionContainers []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer `pulumi:"expressionContainers"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs and GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs{...}
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs struct {
+	// Contains one or more tag types (and associated tags) combined using logical operators within a workload group
+	ExpressionContainers GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput `pulumi:"expressionContainers"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonArray and GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonArray{ GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonArray []GetSSLInspectionRulesWorkloadGroupExpressionJsonInput
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput {
+	return o
+}
+
+// Contains one or more tag types (and associated tags) combined using logical operators within a workload group
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput) ExpressionContainers() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJson) []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer {
+		return v.ExpressionContainers
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroupExpressionJson {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroupExpressionJson)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer struct {
+	// The operator (either AND or OR) used to create logical relationships among tag types
+	Operator string `pulumi:"operator"`
+	// Contains one or more tags and the logical operator used to combine the tags within a tag type
+	TagContainers []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer `pulumi:"tagContainers"`
+	// The tag type selected from a predefined list
+	TagType string `pulumi:"tagType"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...}
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs struct {
+	// The operator (either AND or OR) used to create logical relationships among tag types
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Contains one or more tags and the logical operator used to combine the tags within a tag type
+	TagContainers GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput `pulumi:"tagContainers"`
+	// The tag type selected from a predefined list
+	TagType pulumi.StringInput `pulumi:"tagType"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray{ GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerInput
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return o
+}
+
+// The operator (either AND or OR) used to create logical relationships among tag types
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Contains one or more tags and the logical operator used to combine the tags within a tag type
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagContainers() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer) []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
+		return v.TagContainers
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
+}
+
+// The tag type selected from a predefined list
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.TagType }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainer)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer struct {
+	// The operator (either AND or OR) used to create logical relationships among tag types
+	Operator string                                                                               `pulumi:"operator"`
+	Tags     []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag `pulumi:"tags"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...}
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs struct {
+	// The operator (either AND or OR) used to create logical relationships among tag types
+	Operator pulumi.StringInput                                                                           `pulumi:"operator"`
+	Tags     GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput `pulumi:"tags"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{ GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return o
+}
+
+// The operator (either AND or OR) used to create logical relationships among tag types
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Tags() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
+		return v.Tags
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...}
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray and GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{ GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray []GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupLastModifiedBy struct {
+	// Additional information about the time window.
+	Extensions map[string]string `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesWorkloadGroupLastModifiedByInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs and GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupLastModifiedByInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs{...}
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput
+	ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs struct {
+	// Additional information about the time window.
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput)
+}
+
+// GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayInput is an input type that accepts GetSSLInspectionRulesWorkloadGroupLastModifiedByArray and GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayInput` via:
+//
+//	GetSSLInspectionRulesWorkloadGroupLastModifiedByArray{ GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs{...} }
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput
+	ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutputWithContext(context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput
+}
+
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByArray []GetSSLInspectionRulesWorkloadGroupLastModifiedByInput
+
+func (GetSSLInspectionRulesWorkloadGroupLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupLastModifiedByArray) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput {
+	return i.ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesWorkloadGroupLastModifiedByArray) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput {
+	return o
+}
+
+// Additional information about the time window.
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesWorkloadGroupLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput() GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput) ToGetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesWorkloadGroupLastModifiedBy {
+		return vs[0].([]GetSSLInspectionRulesWorkloadGroupLastModifiedBy)[vs[1].(int)]
+	}).(GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput)
+}
+
+type GetSSLInspectionRulesZpaAppSegment struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId string `pulumi:"externalId"`
+	// Unique identifier for the SSL Inspection
+	Id int `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name string `pulumi:"name"`
+}
+
+// GetSSLInspectionRulesZpaAppSegmentInput is an input type that accepts GetSSLInspectionRulesZpaAppSegmentArgs and GetSSLInspectionRulesZpaAppSegmentOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesZpaAppSegmentInput` via:
+//
+//	GetSSLInspectionRulesZpaAppSegmentArgs{...}
+type GetSSLInspectionRulesZpaAppSegmentInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesZpaAppSegmentOutput() GetSSLInspectionRulesZpaAppSegmentOutput
+	ToGetSSLInspectionRulesZpaAppSegmentOutputWithContext(context.Context) GetSSLInspectionRulesZpaAppSegmentOutput
+}
+
+type GetSSLInspectionRulesZpaAppSegmentArgs struct {
+	// Indicates the external ID. Applicable only when this reference is of an external entity.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// Unique identifier for the SSL Inspection
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the SSL Inspection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSSLInspectionRulesZpaAppSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesZpaAppSegmentArgs) ToGetSSLInspectionRulesZpaAppSegmentOutput() GetSSLInspectionRulesZpaAppSegmentOutput {
+	return i.ToGetSSLInspectionRulesZpaAppSegmentOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesZpaAppSegmentArgs) ToGetSSLInspectionRulesZpaAppSegmentOutputWithContext(ctx context.Context) GetSSLInspectionRulesZpaAppSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesZpaAppSegmentOutput)
+}
+
+// GetSSLInspectionRulesZpaAppSegmentArrayInput is an input type that accepts GetSSLInspectionRulesZpaAppSegmentArray and GetSSLInspectionRulesZpaAppSegmentArrayOutput values.
+// You can construct a concrete instance of `GetSSLInspectionRulesZpaAppSegmentArrayInput` via:
+//
+//	GetSSLInspectionRulesZpaAppSegmentArray{ GetSSLInspectionRulesZpaAppSegmentArgs{...} }
+type GetSSLInspectionRulesZpaAppSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetSSLInspectionRulesZpaAppSegmentArrayOutput() GetSSLInspectionRulesZpaAppSegmentArrayOutput
+	ToGetSSLInspectionRulesZpaAppSegmentArrayOutputWithContext(context.Context) GetSSLInspectionRulesZpaAppSegmentArrayOutput
+}
+
+type GetSSLInspectionRulesZpaAppSegmentArray []GetSSLInspectionRulesZpaAppSegmentInput
+
+func (GetSSLInspectionRulesZpaAppSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (i GetSSLInspectionRulesZpaAppSegmentArray) ToGetSSLInspectionRulesZpaAppSegmentArrayOutput() GetSSLInspectionRulesZpaAppSegmentArrayOutput {
+	return i.ToGetSSLInspectionRulesZpaAppSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetSSLInspectionRulesZpaAppSegmentArray) ToGetSSLInspectionRulesZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesZpaAppSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSSLInspectionRulesZpaAppSegmentArrayOutput)
+}
+
+type GetSSLInspectionRulesZpaAppSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesZpaAppSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSSLInspectionRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesZpaAppSegmentOutput) ToGetSSLInspectionRulesZpaAppSegmentOutput() GetSSLInspectionRulesZpaAppSegmentOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesZpaAppSegmentOutput) ToGetSSLInspectionRulesZpaAppSegmentOutputWithContext(ctx context.Context) GetSSLInspectionRulesZpaAppSegmentOutput {
+	return o
+}
+
+// Indicates the external ID. Applicable only when this reference is of an external entity.
+func (o GetSSLInspectionRulesZpaAppSegmentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesZpaAppSegment) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the SSL Inspection
+func (o GetSSLInspectionRulesZpaAppSegmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesZpaAppSegment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Name of the SSL Inspection
+func (o GetSSLInspectionRulesZpaAppSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSSLInspectionRulesZpaAppSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSSLInspectionRulesZpaAppSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSSLInspectionRulesZpaAppSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSSLInspectionRulesZpaAppSegment)(nil)).Elem()
+}
+
+func (o GetSSLInspectionRulesZpaAppSegmentArrayOutput) ToGetSSLInspectionRulesZpaAppSegmentArrayOutput() GetSSLInspectionRulesZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesZpaAppSegmentArrayOutput) ToGetSSLInspectionRulesZpaAppSegmentArrayOutputWithContext(ctx context.Context) GetSSLInspectionRulesZpaAppSegmentArrayOutput {
+	return o
+}
+
+func (o GetSSLInspectionRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetSSLInspectionRulesZpaAppSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSSLInspectionRulesZpaAppSegment {
+		return vs[0].([]GetSSLInspectionRulesZpaAppSegment)[vs[1].(int)]
+	}).(GetSSLInspectionRulesZpaAppSegmentOutput)
+}
+
+type GetSandboxReportClassification struct {
+	Category        string `pulumi:"category"`
+	DetectedMalware string `pulumi:"detectedMalware"`
+	Score           int    `pulumi:"score"`
+	Type            string `pulumi:"type"`
+}
+
+// GetSandboxReportClassificationInput is an input type that accepts GetSandboxReportClassificationArgs and GetSandboxReportClassificationOutput values.
+// You can construct a concrete instance of `GetSandboxReportClassificationInput` via:
+//
+//	GetSandboxReportClassificationArgs{...}
+type GetSandboxReportClassificationInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportClassificationOutput() GetSandboxReportClassificationOutput
+	ToGetSandboxReportClassificationOutputWithContext(context.Context) GetSandboxReportClassificationOutput
+}
+
+type GetSandboxReportClassificationArgs struct {
+	Category        pulumi.StringInput `pulumi:"category"`
+	DetectedMalware pulumi.StringInput `pulumi:"detectedMalware"`
+	Score           pulumi.IntInput    `pulumi:"score"`
+	Type            pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSandboxReportClassificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportClassification)(nil)).Elem()
+}
+
+func (i GetSandboxReportClassificationArgs) ToGetSandboxReportClassificationOutput() GetSandboxReportClassificationOutput {
+	return i.ToGetSandboxReportClassificationOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportClassificationArgs) ToGetSandboxReportClassificationOutputWithContext(ctx context.Context) GetSandboxReportClassificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportClassificationOutput)
+}
+
+// GetSandboxReportClassificationArrayInput is an input type that accepts GetSandboxReportClassificationArray and GetSandboxReportClassificationArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportClassificationArrayInput` via:
+//
+//	GetSandboxReportClassificationArray{ GetSandboxReportClassificationArgs{...} }
+type GetSandboxReportClassificationArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportClassificationArrayOutput() GetSandboxReportClassificationArrayOutput
+	ToGetSandboxReportClassificationArrayOutputWithContext(context.Context) GetSandboxReportClassificationArrayOutput
+}
+
+type GetSandboxReportClassificationArray []GetSandboxReportClassificationInput
+
+func (GetSandboxReportClassificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportClassification)(nil)).Elem()
+}
+
+func (i GetSandboxReportClassificationArray) ToGetSandboxReportClassificationArrayOutput() GetSandboxReportClassificationArrayOutput {
+	return i.ToGetSandboxReportClassificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportClassificationArray) ToGetSandboxReportClassificationArrayOutputWithContext(ctx context.Context) GetSandboxReportClassificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportClassificationArrayOutput)
+}
+
+type GetSandboxReportClassificationOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportClassificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportClassification)(nil)).Elem()
+}
+
+func (o GetSandboxReportClassificationOutput) ToGetSandboxReportClassificationOutput() GetSandboxReportClassificationOutput {
+	return o
+}
+
+func (o GetSandboxReportClassificationOutput) ToGetSandboxReportClassificationOutputWithContext(ctx context.Context) GetSandboxReportClassificationOutput {
+	return o
+}
+
+func (o GetSandboxReportClassificationOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportClassification) string { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportClassificationOutput) DetectedMalware() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportClassification) string { return v.DetectedMalware }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportClassificationOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSandboxReportClassification) int { return v.Score }).(pulumi.IntOutput)
+}
+
+func (o GetSandboxReportClassificationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportClassification) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSandboxReportClassificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportClassificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportClassification)(nil)).Elem()
+}
+
+func (o GetSandboxReportClassificationArrayOutput) ToGetSandboxReportClassificationArrayOutput() GetSandboxReportClassificationArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportClassificationArrayOutput) ToGetSandboxReportClassificationArrayOutputWithContext(ctx context.Context) GetSandboxReportClassificationArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportClassificationArrayOutput) Index(i pulumi.IntInput) GetSandboxReportClassificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportClassification {
+		return vs[0].([]GetSandboxReportClassification)[vs[1].(int)]
+	}).(GetSandboxReportClassificationOutput)
+}
+
+type GetSandboxReportExploit struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+// GetSandboxReportExploitInput is an input type that accepts GetSandboxReportExploitArgs and GetSandboxReportExploitOutput values.
+// You can construct a concrete instance of `GetSandboxReportExploitInput` via:
+//
+//	GetSandboxReportExploitArgs{...}
+type GetSandboxReportExploitInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportExploitOutput() GetSandboxReportExploitOutput
+	ToGetSandboxReportExploitOutputWithContext(context.Context) GetSandboxReportExploitOutput
+}
+
+type GetSandboxReportExploitArgs struct {
+	Risk             pulumi.StringInput      `pulumi:"risk"`
+	Signature        pulumi.StringInput      `pulumi:"signature"`
+	SignatureSources pulumi.StringArrayInput `pulumi:"signatureSources"`
+}
+
+func (GetSandboxReportExploitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportExploit)(nil)).Elem()
+}
+
+func (i GetSandboxReportExploitArgs) ToGetSandboxReportExploitOutput() GetSandboxReportExploitOutput {
+	return i.ToGetSandboxReportExploitOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportExploitArgs) ToGetSandboxReportExploitOutputWithContext(ctx context.Context) GetSandboxReportExploitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportExploitOutput)
+}
+
+// GetSandboxReportExploitArrayInput is an input type that accepts GetSandboxReportExploitArray and GetSandboxReportExploitArrayOutput values.
+// You can construct a concrete instance of `GetSandboxReportExploitArrayInput` via:
+//
+//	GetSandboxReportExploitArray{ GetSandboxReportExploitArgs{...} }
+type GetSandboxReportExploitArrayInput interface {
+	pulumi.Input
+
+	ToGetSandboxReportExploitArrayOutput() GetSandboxReportExploitArrayOutput
+	ToGetSandboxReportExploitArrayOutputWithContext(context.Context) GetSandboxReportExploitArrayOutput
+}
+
+type GetSandboxReportExploitArray []GetSandboxReportExploitInput
+
+func (GetSandboxReportExploitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportExploit)(nil)).Elem()
+}
+
+func (i GetSandboxReportExploitArray) ToGetSandboxReportExploitArrayOutput() GetSandboxReportExploitArrayOutput {
+	return i.ToGetSandboxReportExploitArrayOutputWithContext(context.Background())
+}
+
+func (i GetSandboxReportExploitArray) ToGetSandboxReportExploitArrayOutputWithContext(ctx context.Context) GetSandboxReportExploitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSandboxReportExploitArrayOutput)
+}
+
+type GetSandboxReportExploitOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportExploitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSandboxReportExploit)(nil)).Elem()
+}
+
+func (o GetSandboxReportExploitOutput) ToGetSandboxReportExploitOutput() GetSandboxReportExploitOutput {
+	return o
+}
+
+func (o GetSandboxReportExploitOutput) ToGetSandboxReportExploitOutputWithContext(ctx context.Context) GetSandboxReportExploitOutput {
+	return o
+}
+
+func (o GetSandboxReportExploitOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportExploit) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportExploitOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSandboxReportExploit) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o GetSandboxReportExploitOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSandboxReportExploit) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type GetSandboxReportExploitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSandboxReportExploitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSandboxReportExploit)(nil)).Elem()
+}
+
+func (o GetSandboxReportExploitArrayOutput) ToGetSandboxReportExploitArrayOutput() GetSandboxReportExploitArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportExploitArrayOutput) ToGetSandboxReportExploitArrayOutputWithContext(ctx context.Context) GetSandboxReportExploitArrayOutput {
+	return o
+}
+
+func (o GetSandboxReportExploitArrayOutput) Index(i pulumi.IntInput) GetSandboxReportExploitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSandboxReportExploit {
+		return vs[0].([]GetSandboxReportExploit)[vs[1].(int)]
+	}).(GetSandboxReportExploitOutput)
+}
+
 type GetSandboxReportFileProperty struct {
 	DigitalCerificate string `pulumi:"digitalCerificate"`
 	FileSize          int    `pulumi:"fileSize"`
@@ -1935,6 +13013,3057 @@ func (o GetSandboxRulesZpaAppSegmentArrayOutput) Index(i pulumi.IntInput) GetSan
 	}).(GetSandboxRulesZpaAppSegmentOutput)
 }
 
+type GetSubCloudDc struct {
+	// (String) Country where the data center is located. Enum with 245 predefined country values.
+	Country string `pulumi:"country"`
+	// (Integer) A unique identifier for an entity
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name string `pulumi:"name"`
+}
+
+// GetSubCloudDcInput is an input type that accepts GetSubCloudDcArgs and GetSubCloudDcOutput values.
+// You can construct a concrete instance of `GetSubCloudDcInput` via:
+//
+//	GetSubCloudDcArgs{...}
+type GetSubCloudDcInput interface {
+	pulumi.Input
+
+	ToGetSubCloudDcOutput() GetSubCloudDcOutput
+	ToGetSubCloudDcOutputWithContext(context.Context) GetSubCloudDcOutput
+}
+
+type GetSubCloudDcArgs struct {
+	// (String) Country where the data center is located. Enum with 245 predefined country values.
+	Country pulumi.StringInput `pulumi:"country"`
+	// (Integer) A unique identifier for an entity
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSubCloudDcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudDc)(nil)).Elem()
+}
+
+func (i GetSubCloudDcArgs) ToGetSubCloudDcOutput() GetSubCloudDcOutput {
+	return i.ToGetSubCloudDcOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudDcArgs) ToGetSubCloudDcOutputWithContext(ctx context.Context) GetSubCloudDcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudDcOutput)
+}
+
+// GetSubCloudDcArrayInput is an input type that accepts GetSubCloudDcArray and GetSubCloudDcArrayOutput values.
+// You can construct a concrete instance of `GetSubCloudDcArrayInput` via:
+//
+//	GetSubCloudDcArray{ GetSubCloudDcArgs{...} }
+type GetSubCloudDcArrayInput interface {
+	pulumi.Input
+
+	ToGetSubCloudDcArrayOutput() GetSubCloudDcArrayOutput
+	ToGetSubCloudDcArrayOutputWithContext(context.Context) GetSubCloudDcArrayOutput
+}
+
+type GetSubCloudDcArray []GetSubCloudDcInput
+
+func (GetSubCloudDcArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudDc)(nil)).Elem()
+}
+
+func (i GetSubCloudDcArray) ToGetSubCloudDcArrayOutput() GetSubCloudDcArrayOutput {
+	return i.ToGetSubCloudDcArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudDcArray) ToGetSubCloudDcArrayOutputWithContext(ctx context.Context) GetSubCloudDcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudDcArrayOutput)
+}
+
+type GetSubCloudDcOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudDcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudDc)(nil)).Elem()
+}
+
+func (o GetSubCloudDcOutput) ToGetSubCloudDcOutput() GetSubCloudDcOutput {
+	return o
+}
+
+func (o GetSubCloudDcOutput) ToGetSubCloudDcOutputWithContext(ctx context.Context) GetSubCloudDcOutput {
+	return o
+}
+
+// (String) Country where the data center is located. Enum with 245 predefined country values.
+func (o GetSubCloudDcOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudDc) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// (Integer) A unique identifier for an entity
+func (o GetSubCloudDcOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudDc) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity (read-only)
+func (o GetSubCloudDcOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudDc) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSubCloudDcArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudDcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudDc)(nil)).Elem()
+}
+
+func (o GetSubCloudDcArrayOutput) ToGetSubCloudDcArrayOutput() GetSubCloudDcArrayOutput {
+	return o
+}
+
+func (o GetSubCloudDcArrayOutput) ToGetSubCloudDcArrayOutputWithContext(ctx context.Context) GetSubCloudDcArrayOutput {
+	return o
+}
+
+func (o GetSubCloudDcArrayOutput) Index(i pulumi.IntInput) GetSubCloudDcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubCloudDc {
+		return vs[0].([]GetSubCloudDc)[vs[1].(int)]
+	}).(GetSubCloudDcOutput)
+}
+
+type GetSubCloudExclusion struct {
+	// (String) Country where the data center is located. Enum with 245 predefined country values.
+	Country string `pulumi:"country"`
+	// (Integer) Timestamp when the data center exclusion was created
+	CreateTime int `pulumi:"createTime"`
+	// (List) The data center associated with the subcloud. An immutable reference to an entity that mainly consists of `id` and `name`.
+	Datacenters []GetSubCloudExclusionDatacenter `pulumi:"datacenters"`
+	// (Boolean) If set to true, this data center exclusion is disabled by Zscaler CloudOps
+	DisabledByOps bool `pulumi:"disabledByOps"`
+	// (Integer) Timestamp when the data center exclusion was stopped
+	EndTime int `pulumi:"endTime"`
+	// Exclusion end time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// (Boolean) The subcloud data center exclusion is disabled
+	Expired bool `pulumi:"expired"`
+	// (Integer) Timestamp when the data center exclusion entry was last modified
+	LastModifiedTime int `pulumi:"lastModifiedTime"`
+	// (List) Last user that modified the data center. An immutable reference to an entity that mainly consists of `id` and `name`.
+	LastModifiedUsers []GetSubCloudExclusionLastModifiedUser `pulumi:"lastModifiedUsers"`
+	// (Integer) Timestamp when the data center exclusion was started
+	StartTime int `pulumi:"startTime"`
+	// Exclusion start time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+}
+
+// GetSubCloudExclusionInput is an input type that accepts GetSubCloudExclusionArgs and GetSubCloudExclusionOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionInput` via:
+//
+//	GetSubCloudExclusionArgs{...}
+type GetSubCloudExclusionInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionOutput() GetSubCloudExclusionOutput
+	ToGetSubCloudExclusionOutputWithContext(context.Context) GetSubCloudExclusionOutput
+}
+
+type GetSubCloudExclusionArgs struct {
+	// (String) Country where the data center is located. Enum with 245 predefined country values.
+	Country pulumi.StringInput `pulumi:"country"`
+	// (Integer) Timestamp when the data center exclusion was created
+	CreateTime pulumi.IntInput `pulumi:"createTime"`
+	// (List) The data center associated with the subcloud. An immutable reference to an entity that mainly consists of `id` and `name`.
+	Datacenters GetSubCloudExclusionDatacenterArrayInput `pulumi:"datacenters"`
+	// (Boolean) If set to true, this data center exclusion is disabled by Zscaler CloudOps
+	DisabledByOps pulumi.BoolInput `pulumi:"disabledByOps"`
+	// (Integer) Timestamp when the data center exclusion was stopped
+	EndTime pulumi.IntInput `pulumi:"endTime"`
+	// Exclusion end time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// (Boolean) The subcloud data center exclusion is disabled
+	Expired pulumi.BoolInput `pulumi:"expired"`
+	// (Integer) Timestamp when the data center exclusion entry was last modified
+	LastModifiedTime pulumi.IntInput `pulumi:"lastModifiedTime"`
+	// (List) Last user that modified the data center. An immutable reference to an entity that mainly consists of `id` and `name`.
+	LastModifiedUsers GetSubCloudExclusionLastModifiedUserArrayInput `pulumi:"lastModifiedUsers"`
+	// (Integer) Timestamp when the data center exclusion was started
+	StartTime pulumi.IntInput `pulumi:"startTime"`
+	// Exclusion start time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+}
+
+func (GetSubCloudExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusion)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionArgs) ToGetSubCloudExclusionOutput() GetSubCloudExclusionOutput {
+	return i.ToGetSubCloudExclusionOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionArgs) ToGetSubCloudExclusionOutputWithContext(ctx context.Context) GetSubCloudExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionOutput)
+}
+
+// GetSubCloudExclusionArrayInput is an input type that accepts GetSubCloudExclusionArray and GetSubCloudExclusionArrayOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionArrayInput` via:
+//
+//	GetSubCloudExclusionArray{ GetSubCloudExclusionArgs{...} }
+type GetSubCloudExclusionArrayInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionArrayOutput() GetSubCloudExclusionArrayOutput
+	ToGetSubCloudExclusionArrayOutputWithContext(context.Context) GetSubCloudExclusionArrayOutput
+}
+
+type GetSubCloudExclusionArray []GetSubCloudExclusionInput
+
+func (GetSubCloudExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusion)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionArray) ToGetSubCloudExclusionArrayOutput() GetSubCloudExclusionArrayOutput {
+	return i.ToGetSubCloudExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionArray) ToGetSubCloudExclusionArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionArrayOutput)
+}
+
+type GetSubCloudExclusionOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusion)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionOutput) ToGetSubCloudExclusionOutput() GetSubCloudExclusionOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionOutput) ToGetSubCloudExclusionOutputWithContext(ctx context.Context) GetSubCloudExclusionOutput {
+	return o
+}
+
+// (String) Country where the data center is located. Enum with 245 predefined country values.
+func (o GetSubCloudExclusionOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// (Integer) Timestamp when the data center exclusion was created
+func (o GetSubCloudExclusionOutput) CreateTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) int { return v.CreateTime }).(pulumi.IntOutput)
+}
+
+// (List) The data center associated with the subcloud. An immutable reference to an entity that mainly consists of `id` and `name`.
+func (o GetSubCloudExclusionOutput) Datacenters() GetSubCloudExclusionDatacenterArrayOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) []GetSubCloudExclusionDatacenter { return v.Datacenters }).(GetSubCloudExclusionDatacenterArrayOutput)
+}
+
+// (Boolean) If set to true, this data center exclusion is disabled by Zscaler CloudOps
+func (o GetSubCloudExclusionOutput) DisabledByOps() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) bool { return v.DisabledByOps }).(pulumi.BoolOutput)
+}
+
+// (Integer) Timestamp when the data center exclusion was stopped
+func (o GetSubCloudExclusionOutput) EndTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) int { return v.EndTime }).(pulumi.IntOutput)
+}
+
+// Exclusion end time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+func (o GetSubCloudExclusionOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// (Boolean) The subcloud data center exclusion is disabled
+func (o GetSubCloudExclusionOutput) Expired() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) bool { return v.Expired }).(pulumi.BoolOutput)
+}
+
+// (Integer) Timestamp when the data center exclusion entry was last modified
+func (o GetSubCloudExclusionOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+// (List) Last user that modified the data center. An immutable reference to an entity that mainly consists of `id` and `name`.
+func (o GetSubCloudExclusionOutput) LastModifiedUsers() GetSubCloudExclusionLastModifiedUserArrayOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) []GetSubCloudExclusionLastModifiedUser { return v.LastModifiedUsers }).(GetSubCloudExclusionLastModifiedUserArrayOutput)
+}
+
+// (Integer) Timestamp when the data center exclusion was started
+func (o GetSubCloudExclusionOutput) StartTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) int { return v.StartTime }).(pulumi.IntOutput)
+}
+
+// Exclusion start time (UTC). Format: MM/DD/YYYY HH:MM am/pm.
+func (o GetSubCloudExclusionOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudExclusion) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+type GetSubCloudExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusion)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionArrayOutput) ToGetSubCloudExclusionArrayOutput() GetSubCloudExclusionArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionArrayOutput) ToGetSubCloudExclusionArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionArrayOutput) Index(i pulumi.IntInput) GetSubCloudExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubCloudExclusion {
+		return vs[0].([]GetSubCloudExclusion)[vs[1].(int)]
+	}).(GetSubCloudExclusionOutput)
+}
+
+type GetSubCloudExclusionDatacenter struct {
+	// (Map of String) Extension attributes
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Integer) A unique identifier for an entity
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name string `pulumi:"name"`
+}
+
+// GetSubCloudExclusionDatacenterInput is an input type that accepts GetSubCloudExclusionDatacenterArgs and GetSubCloudExclusionDatacenterOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionDatacenterInput` via:
+//
+//	GetSubCloudExclusionDatacenterArgs{...}
+type GetSubCloudExclusionDatacenterInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionDatacenterOutput() GetSubCloudExclusionDatacenterOutput
+	ToGetSubCloudExclusionDatacenterOutputWithContext(context.Context) GetSubCloudExclusionDatacenterOutput
+}
+
+type GetSubCloudExclusionDatacenterArgs struct {
+	// (Map of String) Extension attributes
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Integer) A unique identifier for an entity
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSubCloudExclusionDatacenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusionDatacenter)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionDatacenterArgs) ToGetSubCloudExclusionDatacenterOutput() GetSubCloudExclusionDatacenterOutput {
+	return i.ToGetSubCloudExclusionDatacenterOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionDatacenterArgs) ToGetSubCloudExclusionDatacenterOutputWithContext(ctx context.Context) GetSubCloudExclusionDatacenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionDatacenterOutput)
+}
+
+// GetSubCloudExclusionDatacenterArrayInput is an input type that accepts GetSubCloudExclusionDatacenterArray and GetSubCloudExclusionDatacenterArrayOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionDatacenterArrayInput` via:
+//
+//	GetSubCloudExclusionDatacenterArray{ GetSubCloudExclusionDatacenterArgs{...} }
+type GetSubCloudExclusionDatacenterArrayInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionDatacenterArrayOutput() GetSubCloudExclusionDatacenterArrayOutput
+	ToGetSubCloudExclusionDatacenterArrayOutputWithContext(context.Context) GetSubCloudExclusionDatacenterArrayOutput
+}
+
+type GetSubCloudExclusionDatacenterArray []GetSubCloudExclusionDatacenterInput
+
+func (GetSubCloudExclusionDatacenterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusionDatacenter)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionDatacenterArray) ToGetSubCloudExclusionDatacenterArrayOutput() GetSubCloudExclusionDatacenterArrayOutput {
+	return i.ToGetSubCloudExclusionDatacenterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionDatacenterArray) ToGetSubCloudExclusionDatacenterArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionDatacenterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionDatacenterArrayOutput)
+}
+
+type GetSubCloudExclusionDatacenterOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionDatacenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusionDatacenter)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionDatacenterOutput) ToGetSubCloudExclusionDatacenterOutput() GetSubCloudExclusionDatacenterOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionDatacenterOutput) ToGetSubCloudExclusionDatacenterOutputWithContext(ctx context.Context) GetSubCloudExclusionDatacenterOutput {
+	return o
+}
+
+// (Map of String) Extension attributes
+func (o GetSubCloudExclusionDatacenterOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionDatacenter) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Integer) A unique identifier for an entity
+func (o GetSubCloudExclusionDatacenterOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionDatacenter) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity (read-only)
+func (o GetSubCloudExclusionDatacenterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionDatacenter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSubCloudExclusionDatacenterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionDatacenterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusionDatacenter)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionDatacenterArrayOutput) ToGetSubCloudExclusionDatacenterArrayOutput() GetSubCloudExclusionDatacenterArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionDatacenterArrayOutput) ToGetSubCloudExclusionDatacenterArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionDatacenterArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionDatacenterArrayOutput) Index(i pulumi.IntInput) GetSubCloudExclusionDatacenterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubCloudExclusionDatacenter {
+		return vs[0].([]GetSubCloudExclusionDatacenter)[vs[1].(int)]
+	}).(GetSubCloudExclusionDatacenterOutput)
+}
+
+type GetSubCloudExclusionLastModifiedUser struct {
+	// (Map of String) Extension attributes
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Integer) A unique identifier for an entity
+	Id int `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name string `pulumi:"name"`
+}
+
+// GetSubCloudExclusionLastModifiedUserInput is an input type that accepts GetSubCloudExclusionLastModifiedUserArgs and GetSubCloudExclusionLastModifiedUserOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionLastModifiedUserInput` via:
+//
+//	GetSubCloudExclusionLastModifiedUserArgs{...}
+type GetSubCloudExclusionLastModifiedUserInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionLastModifiedUserOutput() GetSubCloudExclusionLastModifiedUserOutput
+	ToGetSubCloudExclusionLastModifiedUserOutputWithContext(context.Context) GetSubCloudExclusionLastModifiedUserOutput
+}
+
+type GetSubCloudExclusionLastModifiedUserArgs struct {
+	// (Map of String) Extension attributes
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Integer) A unique identifier for an entity
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The configured name of the entity (read-only)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSubCloudExclusionLastModifiedUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusionLastModifiedUser)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionLastModifiedUserArgs) ToGetSubCloudExclusionLastModifiedUserOutput() GetSubCloudExclusionLastModifiedUserOutput {
+	return i.ToGetSubCloudExclusionLastModifiedUserOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionLastModifiedUserArgs) ToGetSubCloudExclusionLastModifiedUserOutputWithContext(ctx context.Context) GetSubCloudExclusionLastModifiedUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionLastModifiedUserOutput)
+}
+
+// GetSubCloudExclusionLastModifiedUserArrayInput is an input type that accepts GetSubCloudExclusionLastModifiedUserArray and GetSubCloudExclusionLastModifiedUserArrayOutput values.
+// You can construct a concrete instance of `GetSubCloudExclusionLastModifiedUserArrayInput` via:
+//
+//	GetSubCloudExclusionLastModifiedUserArray{ GetSubCloudExclusionLastModifiedUserArgs{...} }
+type GetSubCloudExclusionLastModifiedUserArrayInput interface {
+	pulumi.Input
+
+	ToGetSubCloudExclusionLastModifiedUserArrayOutput() GetSubCloudExclusionLastModifiedUserArrayOutput
+	ToGetSubCloudExclusionLastModifiedUserArrayOutputWithContext(context.Context) GetSubCloudExclusionLastModifiedUserArrayOutput
+}
+
+type GetSubCloudExclusionLastModifiedUserArray []GetSubCloudExclusionLastModifiedUserInput
+
+func (GetSubCloudExclusionLastModifiedUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusionLastModifiedUser)(nil)).Elem()
+}
+
+func (i GetSubCloudExclusionLastModifiedUserArray) ToGetSubCloudExclusionLastModifiedUserArrayOutput() GetSubCloudExclusionLastModifiedUserArrayOutput {
+	return i.ToGetSubCloudExclusionLastModifiedUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubCloudExclusionLastModifiedUserArray) ToGetSubCloudExclusionLastModifiedUserArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionLastModifiedUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubCloudExclusionLastModifiedUserArrayOutput)
+}
+
+type GetSubCloudExclusionLastModifiedUserOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionLastModifiedUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubCloudExclusionLastModifiedUser)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionLastModifiedUserOutput) ToGetSubCloudExclusionLastModifiedUserOutput() GetSubCloudExclusionLastModifiedUserOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionLastModifiedUserOutput) ToGetSubCloudExclusionLastModifiedUserOutputWithContext(ctx context.Context) GetSubCloudExclusionLastModifiedUserOutput {
+	return o
+}
+
+// (Map of String) Extension attributes
+func (o GetSubCloudExclusionLastModifiedUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionLastModifiedUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Integer) A unique identifier for an entity
+func (o GetSubCloudExclusionLastModifiedUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionLastModifiedUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The configured name of the entity (read-only)
+func (o GetSubCloudExclusionLastModifiedUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubCloudExclusionLastModifiedUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetSubCloudExclusionLastModifiedUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubCloudExclusionLastModifiedUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubCloudExclusionLastModifiedUser)(nil)).Elem()
+}
+
+func (o GetSubCloudExclusionLastModifiedUserArrayOutput) ToGetSubCloudExclusionLastModifiedUserArrayOutput() GetSubCloudExclusionLastModifiedUserArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionLastModifiedUserArrayOutput) ToGetSubCloudExclusionLastModifiedUserArrayOutputWithContext(ctx context.Context) GetSubCloudExclusionLastModifiedUserArrayOutput {
+	return o
+}
+
+func (o GetSubCloudExclusionLastModifiedUserArrayOutput) Index(i pulumi.IntInput) GetSubCloudExclusionLastModifiedUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubCloudExclusionLastModifiedUser {
+		return vs[0].([]GetSubCloudExclusionLastModifiedUser)[vs[1].(int)]
+	}).(GetSubCloudExclusionLastModifiedUserOutput)
+}
+
+type GetTrafficCaptureRulesAppServiceGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesAppServiceGroupInput is an input type that accepts GetTrafficCaptureRulesAppServiceGroupArgs and GetTrafficCaptureRulesAppServiceGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesAppServiceGroupInput` via:
+//
+//	GetTrafficCaptureRulesAppServiceGroupArgs{...}
+type GetTrafficCaptureRulesAppServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesAppServiceGroupOutput() GetTrafficCaptureRulesAppServiceGroupOutput
+	ToGetTrafficCaptureRulesAppServiceGroupOutputWithContext(context.Context) GetTrafficCaptureRulesAppServiceGroupOutput
+}
+
+type GetTrafficCaptureRulesAppServiceGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesAppServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesAppServiceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesAppServiceGroupArgs) ToGetTrafficCaptureRulesAppServiceGroupOutput() GetTrafficCaptureRulesAppServiceGroupOutput {
+	return i.ToGetTrafficCaptureRulesAppServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesAppServiceGroupArgs) ToGetTrafficCaptureRulesAppServiceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesAppServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesAppServiceGroupOutput)
+}
+
+// GetTrafficCaptureRulesAppServiceGroupArrayInput is an input type that accepts GetTrafficCaptureRulesAppServiceGroupArray and GetTrafficCaptureRulesAppServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesAppServiceGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesAppServiceGroupArray{ GetTrafficCaptureRulesAppServiceGroupArgs{...} }
+type GetTrafficCaptureRulesAppServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesAppServiceGroupArrayOutput() GetTrafficCaptureRulesAppServiceGroupArrayOutput
+	ToGetTrafficCaptureRulesAppServiceGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesAppServiceGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesAppServiceGroupArray []GetTrafficCaptureRulesAppServiceGroupInput
+
+func (GetTrafficCaptureRulesAppServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesAppServiceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesAppServiceGroupArray) ToGetTrafficCaptureRulesAppServiceGroupArrayOutput() GetTrafficCaptureRulesAppServiceGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesAppServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesAppServiceGroupArray) ToGetTrafficCaptureRulesAppServiceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesAppServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesAppServiceGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesAppServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesAppServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesAppServiceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesAppServiceGroupOutput) ToGetTrafficCaptureRulesAppServiceGroupOutput() GetTrafficCaptureRulesAppServiceGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesAppServiceGroupOutput) ToGetTrafficCaptureRulesAppServiceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesAppServiceGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesAppServiceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesAppServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesAppServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesAppServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesAppServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesAppServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesAppServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesAppServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesAppServiceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesAppServiceGroupArrayOutput) ToGetTrafficCaptureRulesAppServiceGroupArrayOutput() GetTrafficCaptureRulesAppServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesAppServiceGroupArrayOutput) ToGetTrafficCaptureRulesAppServiceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesAppServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesAppServiceGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesAppServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesAppServiceGroup {
+		return vs[0].([]GetTrafficCaptureRulesAppServiceGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesAppServiceGroupOutput)
+}
+
+type GetTrafficCaptureRulesDepartment struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesDepartmentInput is an input type that accepts GetTrafficCaptureRulesDepartmentArgs and GetTrafficCaptureRulesDepartmentOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDepartmentInput` via:
+//
+//	GetTrafficCaptureRulesDepartmentArgs{...}
+type GetTrafficCaptureRulesDepartmentInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDepartmentOutput() GetTrafficCaptureRulesDepartmentOutput
+	ToGetTrafficCaptureRulesDepartmentOutputWithContext(context.Context) GetTrafficCaptureRulesDepartmentOutput
+}
+
+type GetTrafficCaptureRulesDepartmentArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesDepartmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDepartment)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDepartmentArgs) ToGetTrafficCaptureRulesDepartmentOutput() GetTrafficCaptureRulesDepartmentOutput {
+	return i.ToGetTrafficCaptureRulesDepartmentOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDepartmentArgs) ToGetTrafficCaptureRulesDepartmentOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDepartmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDepartmentOutput)
+}
+
+// GetTrafficCaptureRulesDepartmentArrayInput is an input type that accepts GetTrafficCaptureRulesDepartmentArray and GetTrafficCaptureRulesDepartmentArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDepartmentArrayInput` via:
+//
+//	GetTrafficCaptureRulesDepartmentArray{ GetTrafficCaptureRulesDepartmentArgs{...} }
+type GetTrafficCaptureRulesDepartmentArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDepartmentArrayOutput() GetTrafficCaptureRulesDepartmentArrayOutput
+	ToGetTrafficCaptureRulesDepartmentArrayOutputWithContext(context.Context) GetTrafficCaptureRulesDepartmentArrayOutput
+}
+
+type GetTrafficCaptureRulesDepartmentArray []GetTrafficCaptureRulesDepartmentInput
+
+func (GetTrafficCaptureRulesDepartmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDepartment)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDepartmentArray) ToGetTrafficCaptureRulesDepartmentArrayOutput() GetTrafficCaptureRulesDepartmentArrayOutput {
+	return i.ToGetTrafficCaptureRulesDepartmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDepartmentArray) ToGetTrafficCaptureRulesDepartmentArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDepartmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDepartmentArrayOutput)
+}
+
+type GetTrafficCaptureRulesDepartmentOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDepartmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDepartment)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDepartmentOutput) ToGetTrafficCaptureRulesDepartmentOutput() GetTrafficCaptureRulesDepartmentOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDepartmentOutput) ToGetTrafficCaptureRulesDepartmentOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDepartmentOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesDepartmentOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDepartment) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesDepartmentOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDepartment) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDepartment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesDepartmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDepartmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDepartment)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDepartmentArrayOutput) ToGetTrafficCaptureRulesDepartmentArrayOutput() GetTrafficCaptureRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDepartmentArrayOutput) ToGetTrafficCaptureRulesDepartmentArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDepartmentArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDepartmentArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesDepartmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesDepartment {
+		return vs[0].([]GetTrafficCaptureRulesDepartment)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesDepartmentOutput)
+}
+
+type GetTrafficCaptureRulesDestIpGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesDestIpGroupInput is an input type that accepts GetTrafficCaptureRulesDestIpGroupArgs and GetTrafficCaptureRulesDestIpGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDestIpGroupInput` via:
+//
+//	GetTrafficCaptureRulesDestIpGroupArgs{...}
+type GetTrafficCaptureRulesDestIpGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDestIpGroupOutput() GetTrafficCaptureRulesDestIpGroupOutput
+	ToGetTrafficCaptureRulesDestIpGroupOutputWithContext(context.Context) GetTrafficCaptureRulesDestIpGroupOutput
+}
+
+type GetTrafficCaptureRulesDestIpGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesDestIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDestIpGroupArgs) ToGetTrafficCaptureRulesDestIpGroupOutput() GetTrafficCaptureRulesDestIpGroupOutput {
+	return i.ToGetTrafficCaptureRulesDestIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDestIpGroupArgs) ToGetTrafficCaptureRulesDestIpGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDestIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDestIpGroupOutput)
+}
+
+// GetTrafficCaptureRulesDestIpGroupArrayInput is an input type that accepts GetTrafficCaptureRulesDestIpGroupArray and GetTrafficCaptureRulesDestIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDestIpGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesDestIpGroupArray{ GetTrafficCaptureRulesDestIpGroupArgs{...} }
+type GetTrafficCaptureRulesDestIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDestIpGroupArrayOutput() GetTrafficCaptureRulesDestIpGroupArrayOutput
+	ToGetTrafficCaptureRulesDestIpGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesDestIpGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesDestIpGroupArray []GetTrafficCaptureRulesDestIpGroupInput
+
+func (GetTrafficCaptureRulesDestIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDestIpGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDestIpGroupArray) ToGetTrafficCaptureRulesDestIpGroupArrayOutput() GetTrafficCaptureRulesDestIpGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesDestIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDestIpGroupArray) ToGetTrafficCaptureRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDestIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDestIpGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesDestIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDestIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDestIpGroupOutput) ToGetTrafficCaptureRulesDestIpGroupOutput() GetTrafficCaptureRulesDestIpGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDestIpGroupOutput) ToGetTrafficCaptureRulesDestIpGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDestIpGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesDestIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDestIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesDestIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDestIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesDestIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDestIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesDestIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDestIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDestIpGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDestIpGroupArrayOutput) ToGetTrafficCaptureRulesDestIpGroupArrayOutput() GetTrafficCaptureRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDestIpGroupArrayOutput) ToGetTrafficCaptureRulesDestIpGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDestIpGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDestIpGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesDestIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesDestIpGroup {
+		return vs[0].([]GetTrafficCaptureRulesDestIpGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesDestIpGroupOutput)
+}
+
+type GetTrafficCaptureRulesDevice struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesDeviceInput is an input type that accepts GetTrafficCaptureRulesDeviceArgs and GetTrafficCaptureRulesDeviceOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDeviceInput` via:
+//
+//	GetTrafficCaptureRulesDeviceArgs{...}
+type GetTrafficCaptureRulesDeviceInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDeviceOutput() GetTrafficCaptureRulesDeviceOutput
+	ToGetTrafficCaptureRulesDeviceOutputWithContext(context.Context) GetTrafficCaptureRulesDeviceOutput
+}
+
+type GetTrafficCaptureRulesDeviceArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDevice)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDeviceArgs) ToGetTrafficCaptureRulesDeviceOutput() GetTrafficCaptureRulesDeviceOutput {
+	return i.ToGetTrafficCaptureRulesDeviceOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDeviceArgs) ToGetTrafficCaptureRulesDeviceOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDeviceOutput)
+}
+
+// GetTrafficCaptureRulesDeviceArrayInput is an input type that accepts GetTrafficCaptureRulesDeviceArray and GetTrafficCaptureRulesDeviceArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDeviceArrayInput` via:
+//
+//	GetTrafficCaptureRulesDeviceArray{ GetTrafficCaptureRulesDeviceArgs{...} }
+type GetTrafficCaptureRulesDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDeviceArrayOutput() GetTrafficCaptureRulesDeviceArrayOutput
+	ToGetTrafficCaptureRulesDeviceArrayOutputWithContext(context.Context) GetTrafficCaptureRulesDeviceArrayOutput
+}
+
+type GetTrafficCaptureRulesDeviceArray []GetTrafficCaptureRulesDeviceInput
+
+func (GetTrafficCaptureRulesDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDevice)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDeviceArray) ToGetTrafficCaptureRulesDeviceArrayOutput() GetTrafficCaptureRulesDeviceArrayOutput {
+	return i.ToGetTrafficCaptureRulesDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDeviceArray) ToGetTrafficCaptureRulesDeviceArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDeviceArrayOutput)
+}
+
+type GetTrafficCaptureRulesDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDevice)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDeviceOutput) ToGetTrafficCaptureRulesDeviceOutput() GetTrafficCaptureRulesDeviceOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceOutput) ToGetTrafficCaptureRulesDeviceOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesDeviceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDevice) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesDeviceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDevice) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDevice)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDeviceArrayOutput) ToGetTrafficCaptureRulesDeviceArrayOutput() GetTrafficCaptureRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceArrayOutput) ToGetTrafficCaptureRulesDeviceArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesDevice {
+		return vs[0].([]GetTrafficCaptureRulesDevice)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesDeviceOutput)
+}
+
+type GetTrafficCaptureRulesDeviceGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesDeviceGroupInput is an input type that accepts GetTrafficCaptureRulesDeviceGroupArgs and GetTrafficCaptureRulesDeviceGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDeviceGroupInput` via:
+//
+//	GetTrafficCaptureRulesDeviceGroupArgs{...}
+type GetTrafficCaptureRulesDeviceGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDeviceGroupOutput() GetTrafficCaptureRulesDeviceGroupOutput
+	ToGetTrafficCaptureRulesDeviceGroupOutputWithContext(context.Context) GetTrafficCaptureRulesDeviceGroupOutput
+}
+
+type GetTrafficCaptureRulesDeviceGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesDeviceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDeviceGroupArgs) ToGetTrafficCaptureRulesDeviceGroupOutput() GetTrafficCaptureRulesDeviceGroupOutput {
+	return i.ToGetTrafficCaptureRulesDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDeviceGroupArgs) ToGetTrafficCaptureRulesDeviceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDeviceGroupOutput)
+}
+
+// GetTrafficCaptureRulesDeviceGroupArrayInput is an input type that accepts GetTrafficCaptureRulesDeviceGroupArray and GetTrafficCaptureRulesDeviceGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesDeviceGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesDeviceGroupArray{ GetTrafficCaptureRulesDeviceGroupArgs{...} }
+type GetTrafficCaptureRulesDeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesDeviceGroupArrayOutput() GetTrafficCaptureRulesDeviceGroupArrayOutput
+	ToGetTrafficCaptureRulesDeviceGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesDeviceGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesDeviceGroupArray []GetTrafficCaptureRulesDeviceGroupInput
+
+func (GetTrafficCaptureRulesDeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDeviceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesDeviceGroupArray) ToGetTrafficCaptureRulesDeviceGroupArrayOutput() GetTrafficCaptureRulesDeviceGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesDeviceGroupArray) ToGetTrafficCaptureRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesDeviceGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesDeviceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDeviceGroupOutput) ToGetTrafficCaptureRulesDeviceGroupOutput() GetTrafficCaptureRulesDeviceGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceGroupOutput) ToGetTrafficCaptureRulesDeviceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesDeviceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDeviceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesDeviceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDeviceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesDeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesDeviceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesDeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesDeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesDeviceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesDeviceGroupArrayOutput) ToGetTrafficCaptureRulesDeviceGroupArrayOutput() GetTrafficCaptureRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceGroupArrayOutput) ToGetTrafficCaptureRulesDeviceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesDeviceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesDeviceGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesDeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesDeviceGroup {
+		return vs[0].([]GetTrafficCaptureRulesDeviceGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesDeviceGroupOutput)
+}
+
+type GetTrafficCaptureRulesGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesGroupInput is an input type that accepts GetTrafficCaptureRulesGroupArgs and GetTrafficCaptureRulesGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesGroupInput` via:
+//
+//	GetTrafficCaptureRulesGroupArgs{...}
+type GetTrafficCaptureRulesGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesGroupOutput() GetTrafficCaptureRulesGroupOutput
+	ToGetTrafficCaptureRulesGroupOutputWithContext(context.Context) GetTrafficCaptureRulesGroupOutput
+}
+
+type GetTrafficCaptureRulesGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesGroupArgs) ToGetTrafficCaptureRulesGroupOutput() GetTrafficCaptureRulesGroupOutput {
+	return i.ToGetTrafficCaptureRulesGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesGroupArgs) ToGetTrafficCaptureRulesGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesGroupOutput)
+}
+
+// GetTrafficCaptureRulesGroupArrayInput is an input type that accepts GetTrafficCaptureRulesGroupArray and GetTrafficCaptureRulesGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesGroupArray{ GetTrafficCaptureRulesGroupArgs{...} }
+type GetTrafficCaptureRulesGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesGroupArrayOutput() GetTrafficCaptureRulesGroupArrayOutput
+	ToGetTrafficCaptureRulesGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesGroupArray []GetTrafficCaptureRulesGroupInput
+
+func (GetTrafficCaptureRulesGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesGroupArray) ToGetTrafficCaptureRulesGroupArrayOutput() GetTrafficCaptureRulesGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesGroupArray) ToGetTrafficCaptureRulesGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesGroupOutput) ToGetTrafficCaptureRulesGroupOutput() GetTrafficCaptureRulesGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesGroupOutput) ToGetTrafficCaptureRulesGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesGroupArrayOutput) ToGetTrafficCaptureRulesGroupArrayOutput() GetTrafficCaptureRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesGroupArrayOutput) ToGetTrafficCaptureRulesGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesGroup {
+		return vs[0].([]GetTrafficCaptureRulesGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesGroupOutput)
+}
+
+type GetTrafficCaptureRulesLabel struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesLabelInput is an input type that accepts GetTrafficCaptureRulesLabelArgs and GetTrafficCaptureRulesLabelOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLabelInput` via:
+//
+//	GetTrafficCaptureRulesLabelArgs{...}
+type GetTrafficCaptureRulesLabelInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLabelOutput() GetTrafficCaptureRulesLabelOutput
+	ToGetTrafficCaptureRulesLabelOutputWithContext(context.Context) GetTrafficCaptureRulesLabelOutput
+}
+
+type GetTrafficCaptureRulesLabelArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLabel)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLabelArgs) ToGetTrafficCaptureRulesLabelOutput() GetTrafficCaptureRulesLabelOutput {
+	return i.ToGetTrafficCaptureRulesLabelOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLabelArgs) ToGetTrafficCaptureRulesLabelOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLabelOutput)
+}
+
+// GetTrafficCaptureRulesLabelArrayInput is an input type that accepts GetTrafficCaptureRulesLabelArray and GetTrafficCaptureRulesLabelArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLabelArrayInput` via:
+//
+//	GetTrafficCaptureRulesLabelArray{ GetTrafficCaptureRulesLabelArgs{...} }
+type GetTrafficCaptureRulesLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLabelArrayOutput() GetTrafficCaptureRulesLabelArrayOutput
+	ToGetTrafficCaptureRulesLabelArrayOutputWithContext(context.Context) GetTrafficCaptureRulesLabelArrayOutput
+}
+
+type GetTrafficCaptureRulesLabelArray []GetTrafficCaptureRulesLabelInput
+
+func (GetTrafficCaptureRulesLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLabel)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLabelArray) ToGetTrafficCaptureRulesLabelArrayOutput() GetTrafficCaptureRulesLabelArrayOutput {
+	return i.ToGetTrafficCaptureRulesLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLabelArray) ToGetTrafficCaptureRulesLabelArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLabelArrayOutput)
+}
+
+type GetTrafficCaptureRulesLabelOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLabel)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLabelOutput) ToGetTrafficCaptureRulesLabelOutput() GetTrafficCaptureRulesLabelOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLabelOutput) ToGetTrafficCaptureRulesLabelOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLabelOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesLabelOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLabel) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesLabelOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLabel) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLabel)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLabelArrayOutput) ToGetTrafficCaptureRulesLabelArrayOutput() GetTrafficCaptureRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLabelArrayOutput) ToGetTrafficCaptureRulesLabelArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLabelArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLabelArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesLabel {
+		return vs[0].([]GetTrafficCaptureRulesLabel)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesLabelOutput)
+}
+
+type GetTrafficCaptureRulesLastModifiedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesLastModifiedByInput is an input type that accepts GetTrafficCaptureRulesLastModifiedByArgs and GetTrafficCaptureRulesLastModifiedByOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLastModifiedByInput` via:
+//
+//	GetTrafficCaptureRulesLastModifiedByArgs{...}
+type GetTrafficCaptureRulesLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLastModifiedByOutput() GetTrafficCaptureRulesLastModifiedByOutput
+	ToGetTrafficCaptureRulesLastModifiedByOutputWithContext(context.Context) GetTrafficCaptureRulesLastModifiedByOutput
+}
+
+type GetTrafficCaptureRulesLastModifiedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLastModifiedByArgs) ToGetTrafficCaptureRulesLastModifiedByOutput() GetTrafficCaptureRulesLastModifiedByOutput {
+	return i.ToGetTrafficCaptureRulesLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLastModifiedByArgs) ToGetTrafficCaptureRulesLastModifiedByOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLastModifiedByOutput)
+}
+
+// GetTrafficCaptureRulesLastModifiedByArrayInput is an input type that accepts GetTrafficCaptureRulesLastModifiedByArray and GetTrafficCaptureRulesLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLastModifiedByArrayInput` via:
+//
+//	GetTrafficCaptureRulesLastModifiedByArray{ GetTrafficCaptureRulesLastModifiedByArgs{...} }
+type GetTrafficCaptureRulesLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLastModifiedByArrayOutput() GetTrafficCaptureRulesLastModifiedByArrayOutput
+	ToGetTrafficCaptureRulesLastModifiedByArrayOutputWithContext(context.Context) GetTrafficCaptureRulesLastModifiedByArrayOutput
+}
+
+type GetTrafficCaptureRulesLastModifiedByArray []GetTrafficCaptureRulesLastModifiedByInput
+
+func (GetTrafficCaptureRulesLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLastModifiedByArray) ToGetTrafficCaptureRulesLastModifiedByArrayOutput() GetTrafficCaptureRulesLastModifiedByArrayOutput {
+	return i.ToGetTrafficCaptureRulesLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLastModifiedByArray) ToGetTrafficCaptureRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLastModifiedByArrayOutput)
+}
+
+type GetTrafficCaptureRulesLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLastModifiedByOutput) ToGetTrafficCaptureRulesLastModifiedByOutput() GetTrafficCaptureRulesLastModifiedByOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLastModifiedByOutput) ToGetTrafficCaptureRulesLastModifiedByOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLastModifiedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLastModifiedByArrayOutput) ToGetTrafficCaptureRulesLastModifiedByArrayOutput() GetTrafficCaptureRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLastModifiedByArrayOutput) ToGetTrafficCaptureRulesLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesLastModifiedBy {
+		return vs[0].([]GetTrafficCaptureRulesLastModifiedBy)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesLastModifiedByOutput)
+}
+
+type GetTrafficCaptureRulesLocation struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesLocationInput is an input type that accepts GetTrafficCaptureRulesLocationArgs and GetTrafficCaptureRulesLocationOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLocationInput` via:
+//
+//	GetTrafficCaptureRulesLocationArgs{...}
+type GetTrafficCaptureRulesLocationInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLocationOutput() GetTrafficCaptureRulesLocationOutput
+	ToGetTrafficCaptureRulesLocationOutputWithContext(context.Context) GetTrafficCaptureRulesLocationOutput
+}
+
+type GetTrafficCaptureRulesLocationArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLocation)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLocationArgs) ToGetTrafficCaptureRulesLocationOutput() GetTrafficCaptureRulesLocationOutput {
+	return i.ToGetTrafficCaptureRulesLocationOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLocationArgs) ToGetTrafficCaptureRulesLocationOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLocationOutput)
+}
+
+// GetTrafficCaptureRulesLocationArrayInput is an input type that accepts GetTrafficCaptureRulesLocationArray and GetTrafficCaptureRulesLocationArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLocationArrayInput` via:
+//
+//	GetTrafficCaptureRulesLocationArray{ GetTrafficCaptureRulesLocationArgs{...} }
+type GetTrafficCaptureRulesLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLocationArrayOutput() GetTrafficCaptureRulesLocationArrayOutput
+	ToGetTrafficCaptureRulesLocationArrayOutputWithContext(context.Context) GetTrafficCaptureRulesLocationArrayOutput
+}
+
+type GetTrafficCaptureRulesLocationArray []GetTrafficCaptureRulesLocationInput
+
+func (GetTrafficCaptureRulesLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLocation)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLocationArray) ToGetTrafficCaptureRulesLocationArrayOutput() GetTrafficCaptureRulesLocationArrayOutput {
+	return i.ToGetTrafficCaptureRulesLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLocationArray) ToGetTrafficCaptureRulesLocationArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLocationArrayOutput)
+}
+
+type GetTrafficCaptureRulesLocationOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLocation)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLocationOutput) ToGetTrafficCaptureRulesLocationOutput() GetTrafficCaptureRulesLocationOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationOutput) ToGetTrafficCaptureRulesLocationOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesLocationOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocation) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesLocationOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocation) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLocation)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLocationArrayOutput) ToGetTrafficCaptureRulesLocationArrayOutput() GetTrafficCaptureRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationArrayOutput) ToGetTrafficCaptureRulesLocationArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesLocation {
+		return vs[0].([]GetTrafficCaptureRulesLocation)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesLocationOutput)
+}
+
+type GetTrafficCaptureRulesLocationGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesLocationGroupInput is an input type that accepts GetTrafficCaptureRulesLocationGroupArgs and GetTrafficCaptureRulesLocationGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLocationGroupInput` via:
+//
+//	GetTrafficCaptureRulesLocationGroupArgs{...}
+type GetTrafficCaptureRulesLocationGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLocationGroupOutput() GetTrafficCaptureRulesLocationGroupOutput
+	ToGetTrafficCaptureRulesLocationGroupOutputWithContext(context.Context) GetTrafficCaptureRulesLocationGroupOutput
+}
+
+type GetTrafficCaptureRulesLocationGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesLocationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLocationGroupArgs) ToGetTrafficCaptureRulesLocationGroupOutput() GetTrafficCaptureRulesLocationGroupOutput {
+	return i.ToGetTrafficCaptureRulesLocationGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLocationGroupArgs) ToGetTrafficCaptureRulesLocationGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLocationGroupOutput)
+}
+
+// GetTrafficCaptureRulesLocationGroupArrayInput is an input type that accepts GetTrafficCaptureRulesLocationGroupArray and GetTrafficCaptureRulesLocationGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesLocationGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesLocationGroupArray{ GetTrafficCaptureRulesLocationGroupArgs{...} }
+type GetTrafficCaptureRulesLocationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesLocationGroupArrayOutput() GetTrafficCaptureRulesLocationGroupArrayOutput
+	ToGetTrafficCaptureRulesLocationGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesLocationGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesLocationGroupArray []GetTrafficCaptureRulesLocationGroupInput
+
+func (GetTrafficCaptureRulesLocationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLocationGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesLocationGroupArray) ToGetTrafficCaptureRulesLocationGroupArrayOutput() GetTrafficCaptureRulesLocationGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesLocationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesLocationGroupArray) ToGetTrafficCaptureRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesLocationGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesLocationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLocationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLocationGroupOutput) ToGetTrafficCaptureRulesLocationGroupOutput() GetTrafficCaptureRulesLocationGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationGroupOutput) ToGetTrafficCaptureRulesLocationGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesLocationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesLocationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesLocationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesLocationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesLocationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesLocationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesLocationGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesLocationGroupArrayOutput) ToGetTrafficCaptureRulesLocationGroupArrayOutput() GetTrafficCaptureRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationGroupArrayOutput) ToGetTrafficCaptureRulesLocationGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesLocationGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesLocationGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesLocationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesLocationGroup {
+		return vs[0].([]GetTrafficCaptureRulesLocationGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesLocationGroupOutput)
+}
+
+type GetTrafficCaptureRulesNwApplicationGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesNwApplicationGroupInput is an input type that accepts GetTrafficCaptureRulesNwApplicationGroupArgs and GetTrafficCaptureRulesNwApplicationGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwApplicationGroupInput` via:
+//
+//	GetTrafficCaptureRulesNwApplicationGroupArgs{...}
+type GetTrafficCaptureRulesNwApplicationGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwApplicationGroupOutput() GetTrafficCaptureRulesNwApplicationGroupOutput
+	ToGetTrafficCaptureRulesNwApplicationGroupOutputWithContext(context.Context) GetTrafficCaptureRulesNwApplicationGroupOutput
+}
+
+type GetTrafficCaptureRulesNwApplicationGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesNwApplicationGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwApplicationGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwApplicationGroupArgs) ToGetTrafficCaptureRulesNwApplicationGroupOutput() GetTrafficCaptureRulesNwApplicationGroupOutput {
+	return i.ToGetTrafficCaptureRulesNwApplicationGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwApplicationGroupArgs) ToGetTrafficCaptureRulesNwApplicationGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwApplicationGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwApplicationGroupOutput)
+}
+
+// GetTrafficCaptureRulesNwApplicationGroupArrayInput is an input type that accepts GetTrafficCaptureRulesNwApplicationGroupArray and GetTrafficCaptureRulesNwApplicationGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwApplicationGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesNwApplicationGroupArray{ GetTrafficCaptureRulesNwApplicationGroupArgs{...} }
+type GetTrafficCaptureRulesNwApplicationGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwApplicationGroupArrayOutput() GetTrafficCaptureRulesNwApplicationGroupArrayOutput
+	ToGetTrafficCaptureRulesNwApplicationGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesNwApplicationGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesNwApplicationGroupArray []GetTrafficCaptureRulesNwApplicationGroupInput
+
+func (GetTrafficCaptureRulesNwApplicationGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwApplicationGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwApplicationGroupArray) ToGetTrafficCaptureRulesNwApplicationGroupArrayOutput() GetTrafficCaptureRulesNwApplicationGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesNwApplicationGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwApplicationGroupArray) ToGetTrafficCaptureRulesNwApplicationGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwApplicationGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwApplicationGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesNwApplicationGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwApplicationGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwApplicationGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwApplicationGroupOutput) ToGetTrafficCaptureRulesNwApplicationGroupOutput() GetTrafficCaptureRulesNwApplicationGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwApplicationGroupOutput) ToGetTrafficCaptureRulesNwApplicationGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwApplicationGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesNwApplicationGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwApplicationGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesNwApplicationGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwApplicationGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesNwApplicationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwApplicationGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesNwApplicationGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwApplicationGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwApplicationGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwApplicationGroupArrayOutput) ToGetTrafficCaptureRulesNwApplicationGroupArrayOutput() GetTrafficCaptureRulesNwApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwApplicationGroupArrayOutput) ToGetTrafficCaptureRulesNwApplicationGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwApplicationGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwApplicationGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesNwApplicationGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesNwApplicationGroup {
+		return vs[0].([]GetTrafficCaptureRulesNwApplicationGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesNwApplicationGroupOutput)
+}
+
+type GetTrafficCaptureRulesNwService struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesNwServiceInput is an input type that accepts GetTrafficCaptureRulesNwServiceArgs and GetTrafficCaptureRulesNwServiceOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwServiceInput` via:
+//
+//	GetTrafficCaptureRulesNwServiceArgs{...}
+type GetTrafficCaptureRulesNwServiceInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwServiceOutput() GetTrafficCaptureRulesNwServiceOutput
+	ToGetTrafficCaptureRulesNwServiceOutputWithContext(context.Context) GetTrafficCaptureRulesNwServiceOutput
+}
+
+type GetTrafficCaptureRulesNwServiceArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesNwServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwService)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwServiceArgs) ToGetTrafficCaptureRulesNwServiceOutput() GetTrafficCaptureRulesNwServiceOutput {
+	return i.ToGetTrafficCaptureRulesNwServiceOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwServiceArgs) ToGetTrafficCaptureRulesNwServiceOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwServiceOutput)
+}
+
+// GetTrafficCaptureRulesNwServiceArrayInput is an input type that accepts GetTrafficCaptureRulesNwServiceArray and GetTrafficCaptureRulesNwServiceArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwServiceArrayInput` via:
+//
+//	GetTrafficCaptureRulesNwServiceArray{ GetTrafficCaptureRulesNwServiceArgs{...} }
+type GetTrafficCaptureRulesNwServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwServiceArrayOutput() GetTrafficCaptureRulesNwServiceArrayOutput
+	ToGetTrafficCaptureRulesNwServiceArrayOutputWithContext(context.Context) GetTrafficCaptureRulesNwServiceArrayOutput
+}
+
+type GetTrafficCaptureRulesNwServiceArray []GetTrafficCaptureRulesNwServiceInput
+
+func (GetTrafficCaptureRulesNwServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwService)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwServiceArray) ToGetTrafficCaptureRulesNwServiceArrayOutput() GetTrafficCaptureRulesNwServiceArrayOutput {
+	return i.ToGetTrafficCaptureRulesNwServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwServiceArray) ToGetTrafficCaptureRulesNwServiceArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwServiceArrayOutput)
+}
+
+type GetTrafficCaptureRulesNwServiceOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwService)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwServiceOutput) ToGetTrafficCaptureRulesNwServiceOutput() GetTrafficCaptureRulesNwServiceOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceOutput) ToGetTrafficCaptureRulesNwServiceOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesNwServiceOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwService) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesNwServiceOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwService) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesNwServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesNwServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwService)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwServiceArrayOutput) ToGetTrafficCaptureRulesNwServiceArrayOutput() GetTrafficCaptureRulesNwServiceArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceArrayOutput) ToGetTrafficCaptureRulesNwServiceArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesNwServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesNwService {
+		return vs[0].([]GetTrafficCaptureRulesNwService)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesNwServiceOutput)
+}
+
+type GetTrafficCaptureRulesNwServiceGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesNwServiceGroupInput is an input type that accepts GetTrafficCaptureRulesNwServiceGroupArgs and GetTrafficCaptureRulesNwServiceGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwServiceGroupInput` via:
+//
+//	GetTrafficCaptureRulesNwServiceGroupArgs{...}
+type GetTrafficCaptureRulesNwServiceGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwServiceGroupOutput() GetTrafficCaptureRulesNwServiceGroupOutput
+	ToGetTrafficCaptureRulesNwServiceGroupOutputWithContext(context.Context) GetTrafficCaptureRulesNwServiceGroupOutput
+}
+
+type GetTrafficCaptureRulesNwServiceGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesNwServiceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwServiceGroupArgs) ToGetTrafficCaptureRulesNwServiceGroupOutput() GetTrafficCaptureRulesNwServiceGroupOutput {
+	return i.ToGetTrafficCaptureRulesNwServiceGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwServiceGroupArgs) ToGetTrafficCaptureRulesNwServiceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwServiceGroupOutput)
+}
+
+// GetTrafficCaptureRulesNwServiceGroupArrayInput is an input type that accepts GetTrafficCaptureRulesNwServiceGroupArray and GetTrafficCaptureRulesNwServiceGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesNwServiceGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesNwServiceGroupArray{ GetTrafficCaptureRulesNwServiceGroupArgs{...} }
+type GetTrafficCaptureRulesNwServiceGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesNwServiceGroupArrayOutput() GetTrafficCaptureRulesNwServiceGroupArrayOutput
+	ToGetTrafficCaptureRulesNwServiceGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesNwServiceGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesNwServiceGroupArray []GetTrafficCaptureRulesNwServiceGroupInput
+
+func (GetTrafficCaptureRulesNwServiceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesNwServiceGroupArray) ToGetTrafficCaptureRulesNwServiceGroupArrayOutput() GetTrafficCaptureRulesNwServiceGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesNwServiceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesNwServiceGroupArray) ToGetTrafficCaptureRulesNwServiceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesNwServiceGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesNwServiceGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwServiceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwServiceGroupOutput) ToGetTrafficCaptureRulesNwServiceGroupOutput() GetTrafficCaptureRulesNwServiceGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceGroupOutput) ToGetTrafficCaptureRulesNwServiceGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesNwServiceGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwServiceGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesNwServiceGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwServiceGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesNwServiceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesNwServiceGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesNwServiceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesNwServiceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesNwServiceGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesNwServiceGroupArrayOutput) ToGetTrafficCaptureRulesNwServiceGroupArrayOutput() GetTrafficCaptureRulesNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceGroupArrayOutput) ToGetTrafficCaptureRulesNwServiceGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesNwServiceGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesNwServiceGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesNwServiceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesNwServiceGroup {
+		return vs[0].([]GetTrafficCaptureRulesNwServiceGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesNwServiceGroupOutput)
+}
+
+type GetTrafficCaptureRulesSrcIpGroup struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesSrcIpGroupInput is an input type that accepts GetTrafficCaptureRulesSrcIpGroupArgs and GetTrafficCaptureRulesSrcIpGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesSrcIpGroupInput` via:
+//
+//	GetTrafficCaptureRulesSrcIpGroupArgs{...}
+type GetTrafficCaptureRulesSrcIpGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesSrcIpGroupOutput() GetTrafficCaptureRulesSrcIpGroupOutput
+	ToGetTrafficCaptureRulesSrcIpGroupOutputWithContext(context.Context) GetTrafficCaptureRulesSrcIpGroupOutput
+}
+
+type GetTrafficCaptureRulesSrcIpGroupArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesSrcIpGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesSrcIpGroupArgs) ToGetTrafficCaptureRulesSrcIpGroupOutput() GetTrafficCaptureRulesSrcIpGroupOutput {
+	return i.ToGetTrafficCaptureRulesSrcIpGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesSrcIpGroupArgs) ToGetTrafficCaptureRulesSrcIpGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesSrcIpGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesSrcIpGroupOutput)
+}
+
+// GetTrafficCaptureRulesSrcIpGroupArrayInput is an input type that accepts GetTrafficCaptureRulesSrcIpGroupArray and GetTrafficCaptureRulesSrcIpGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesSrcIpGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesSrcIpGroupArray{ GetTrafficCaptureRulesSrcIpGroupArgs{...} }
+type GetTrafficCaptureRulesSrcIpGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesSrcIpGroupArrayOutput() GetTrafficCaptureRulesSrcIpGroupArrayOutput
+	ToGetTrafficCaptureRulesSrcIpGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesSrcIpGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesSrcIpGroupArray []GetTrafficCaptureRulesSrcIpGroupInput
+
+func (GetTrafficCaptureRulesSrcIpGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesSrcIpGroupArray) ToGetTrafficCaptureRulesSrcIpGroupArrayOutput() GetTrafficCaptureRulesSrcIpGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesSrcIpGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesSrcIpGroupArray) ToGetTrafficCaptureRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesSrcIpGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesSrcIpGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesSrcIpGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesSrcIpGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesSrcIpGroupOutput) ToGetTrafficCaptureRulesSrcIpGroupOutput() GetTrafficCaptureRulesSrcIpGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesSrcIpGroupOutput) ToGetTrafficCaptureRulesSrcIpGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesSrcIpGroupOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesSrcIpGroupOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesSrcIpGroup) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesSrcIpGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesSrcIpGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesSrcIpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesSrcIpGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesSrcIpGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesSrcIpGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesSrcIpGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesSrcIpGroupArrayOutput) ToGetTrafficCaptureRulesSrcIpGroupArrayOutput() GetTrafficCaptureRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesSrcIpGroupArrayOutput) ToGetTrafficCaptureRulesSrcIpGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesSrcIpGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesSrcIpGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesSrcIpGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesSrcIpGroup {
+		return vs[0].([]GetTrafficCaptureRulesSrcIpGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesSrcIpGroupOutput)
+}
+
+type GetTrafficCaptureRulesTimeWindow struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesTimeWindowInput is an input type that accepts GetTrafficCaptureRulesTimeWindowArgs and GetTrafficCaptureRulesTimeWindowOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesTimeWindowInput` via:
+//
+//	GetTrafficCaptureRulesTimeWindowArgs{...}
+type GetTrafficCaptureRulesTimeWindowInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesTimeWindowOutput() GetTrafficCaptureRulesTimeWindowOutput
+	ToGetTrafficCaptureRulesTimeWindowOutputWithContext(context.Context) GetTrafficCaptureRulesTimeWindowOutput
+}
+
+type GetTrafficCaptureRulesTimeWindowArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesTimeWindowArgs) ToGetTrafficCaptureRulesTimeWindowOutput() GetTrafficCaptureRulesTimeWindowOutput {
+	return i.ToGetTrafficCaptureRulesTimeWindowOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesTimeWindowArgs) ToGetTrafficCaptureRulesTimeWindowOutputWithContext(ctx context.Context) GetTrafficCaptureRulesTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesTimeWindowOutput)
+}
+
+// GetTrafficCaptureRulesTimeWindowArrayInput is an input type that accepts GetTrafficCaptureRulesTimeWindowArray and GetTrafficCaptureRulesTimeWindowArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesTimeWindowArrayInput` via:
+//
+//	GetTrafficCaptureRulesTimeWindowArray{ GetTrafficCaptureRulesTimeWindowArgs{...} }
+type GetTrafficCaptureRulesTimeWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesTimeWindowArrayOutput() GetTrafficCaptureRulesTimeWindowArrayOutput
+	ToGetTrafficCaptureRulesTimeWindowArrayOutputWithContext(context.Context) GetTrafficCaptureRulesTimeWindowArrayOutput
+}
+
+type GetTrafficCaptureRulesTimeWindowArray []GetTrafficCaptureRulesTimeWindowInput
+
+func (GetTrafficCaptureRulesTimeWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesTimeWindow)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesTimeWindowArray) ToGetTrafficCaptureRulesTimeWindowArrayOutput() GetTrafficCaptureRulesTimeWindowArrayOutput {
+	return i.ToGetTrafficCaptureRulesTimeWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesTimeWindowArray) ToGetTrafficCaptureRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesTimeWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesTimeWindowArrayOutput)
+}
+
+type GetTrafficCaptureRulesTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesTimeWindowOutput) ToGetTrafficCaptureRulesTimeWindowOutput() GetTrafficCaptureRulesTimeWindowOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesTimeWindowOutput) ToGetTrafficCaptureRulesTimeWindowOutputWithContext(ctx context.Context) GetTrafficCaptureRulesTimeWindowOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesTimeWindowOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesTimeWindow) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesTimeWindowOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesTimeWindow) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesTimeWindowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesTimeWindow) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesTimeWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesTimeWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesTimeWindow)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesTimeWindowArrayOutput) ToGetTrafficCaptureRulesTimeWindowArrayOutput() GetTrafficCaptureRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesTimeWindowArrayOutput) ToGetTrafficCaptureRulesTimeWindowArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesTimeWindowArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesTimeWindowArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesTimeWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesTimeWindow {
+		return vs[0].([]GetTrafficCaptureRulesTimeWindow)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesTimeWindowOutput)
+}
+
+type GetTrafficCaptureRulesUser struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesUserInput is an input type that accepts GetTrafficCaptureRulesUserArgs and GetTrafficCaptureRulesUserOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesUserInput` via:
+//
+//	GetTrafficCaptureRulesUserArgs{...}
+type GetTrafficCaptureRulesUserInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesUserOutput() GetTrafficCaptureRulesUserOutput
+	ToGetTrafficCaptureRulesUserOutputWithContext(context.Context) GetTrafficCaptureRulesUserOutput
+}
+
+type GetTrafficCaptureRulesUserArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesUser)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesUserArgs) ToGetTrafficCaptureRulesUserOutput() GetTrafficCaptureRulesUserOutput {
+	return i.ToGetTrafficCaptureRulesUserOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesUserArgs) ToGetTrafficCaptureRulesUserOutputWithContext(ctx context.Context) GetTrafficCaptureRulesUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesUserOutput)
+}
+
+// GetTrafficCaptureRulesUserArrayInput is an input type that accepts GetTrafficCaptureRulesUserArray and GetTrafficCaptureRulesUserArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesUserArrayInput` via:
+//
+//	GetTrafficCaptureRulesUserArray{ GetTrafficCaptureRulesUserArgs{...} }
+type GetTrafficCaptureRulesUserArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesUserArrayOutput() GetTrafficCaptureRulesUserArrayOutput
+	ToGetTrafficCaptureRulesUserArrayOutputWithContext(context.Context) GetTrafficCaptureRulesUserArrayOutput
+}
+
+type GetTrafficCaptureRulesUserArray []GetTrafficCaptureRulesUserInput
+
+func (GetTrafficCaptureRulesUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesUser)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesUserArray) ToGetTrafficCaptureRulesUserArrayOutput() GetTrafficCaptureRulesUserArrayOutput {
+	return i.ToGetTrafficCaptureRulesUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesUserArray) ToGetTrafficCaptureRulesUserArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesUserArrayOutput)
+}
+
+type GetTrafficCaptureRulesUserOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesUser)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesUserOutput) ToGetTrafficCaptureRulesUserOutput() GetTrafficCaptureRulesUserOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesUserOutput) ToGetTrafficCaptureRulesUserOutputWithContext(ctx context.Context) GetTrafficCaptureRulesUserOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesUserOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesUser) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesUserOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesUser) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesUser)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesUserArrayOutput) ToGetTrafficCaptureRulesUserArrayOutput() GetTrafficCaptureRulesUserArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesUserArrayOutput) ToGetTrafficCaptureRulesUserArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesUserArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesUserArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesUser {
+		return vs[0].([]GetTrafficCaptureRulesUser)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesUserOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroup struct {
+	// (String) Additional information about the rule. Cannot exceed 10,240 characters.
+	Description string `pulumi:"description"`
+	// The description of the workload group
+	Expression      string                                              `pulumi:"expression"`
+	ExpressionJsons []GetTrafficCaptureRulesWorkloadGroupExpressionJson `pulumi:"expressionJsons"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (List) User who last modified the rule
+	LastModifiedBies []GetTrafficCaptureRulesWorkloadGroupLastModifiedBy `pulumi:"lastModifiedBies"`
+	// (Integer) Timestamp when the rule was last modified
+	LastModifiedTime int `pulumi:"lastModifiedTime"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupArgs and GetTrafficCaptureRulesWorkloadGroupOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupOutput() GetTrafficCaptureRulesWorkloadGroupOutput
+	ToGetTrafficCaptureRulesWorkloadGroupOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupArgs struct {
+	// (String) Additional information about the rule. Cannot exceed 10,240 characters.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The description of the workload group
+	Expression      pulumi.StringInput                                          `pulumi:"expression"`
+	ExpressionJsons GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayInput `pulumi:"expressionJsons"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (List) User who last modified the rule
+	LastModifiedBies GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayInput `pulumi:"lastModifiedBies"`
+	// (Integer) Timestamp when the rule was last modified
+	LastModifiedTime pulumi.IntInput `pulumi:"lastModifiedTime"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupArgs) ToGetTrafficCaptureRulesWorkloadGroupOutput() GetTrafficCaptureRulesWorkloadGroupOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupArgs) ToGetTrafficCaptureRulesWorkloadGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupArray and GetTrafficCaptureRulesWorkloadGroupArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupArray{ GetTrafficCaptureRulesWorkloadGroupArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupArrayOutput() GetTrafficCaptureRulesWorkloadGroupArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupArray []GetTrafficCaptureRulesWorkloadGroupInput
+
+func (GetTrafficCaptureRulesWorkloadGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupArray) ToGetTrafficCaptureRulesWorkloadGroupArrayOutput() GetTrafficCaptureRulesWorkloadGroupArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupArray) ToGetTrafficCaptureRulesWorkloadGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) ToGetTrafficCaptureRulesWorkloadGroupOutput() GetTrafficCaptureRulesWorkloadGroupOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) ToGetTrafficCaptureRulesWorkloadGroupOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupOutput {
+	return o
+}
+
+// (String) Additional information about the rule. Cannot exceed 10,240 characters.
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The description of the workload group
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) ExpressionJsons() GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) []GetTrafficCaptureRulesWorkloadGroupExpressionJson {
+		return v.ExpressionJsons
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (List) User who last modified the rule
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) LastModifiedBies() GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) []GetTrafficCaptureRulesWorkloadGroupLastModifiedBy {
+		return v.LastModifiedBies
+	}).(GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput)
+}
+
+// (Integer) Timestamp when the rule was last modified
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesWorkloadGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroup)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupArrayOutput() GetTrafficCaptureRulesWorkloadGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroup {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroup)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJson struct {
+	ExpressionContainers []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer `pulumi:"expressionContainers"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs and GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs struct {
+	ExpressionContainers GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput `pulumi:"expressionContainers"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray and GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray{ GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray []GetTrafficCaptureRulesWorkloadGroupExpressionJsonInput
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput) ExpressionContainers() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJson) []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer {
+		return v.ExpressionContainers
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJson)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroupExpressionJson {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroupExpressionJson)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer struct {
+	Operator      string                                                                             `pulumi:"operator"`
+	TagContainers []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer `pulumi:"tagContainers"`
+	TagType       string                                                                             `pulumi:"tagType"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs struct {
+	Operator      pulumi.StringInput                                                                         `pulumi:"operator"`
+	TagContainers GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput `pulumi:"tagContainers"`
+	TagType       pulumi.StringInput                                                                         `pulumi:"tagType"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray{ GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerInput
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagContainers() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer) []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
+		return v.TagContainers
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput) TagType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer) string { return v.TagType }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainer)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer struct {
+	Operator string                                                                                `pulumi:"operator"`
+	Tags     []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag `pulumi:"tags"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs struct {
+	Operator pulumi.StringInput                                                                            `pulumi:"operator"`
+	Tags     GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput `pulumi:"tags"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{ GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput) Tags() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer) []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
+		return v.Tags
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainer)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray and GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{ GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray []GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput() GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTag)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedBy struct {
+	// (Map of String)
+	Extensions map[string]string `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id int `pulumi:"id"`
+	// (String) The name of the workload group
+	Name string `pulumi:"name"`
+}
+
+// GetTrafficCaptureRulesWorkloadGroupLastModifiedByInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs and GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupLastModifiedByInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs{...}
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput
+	ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs struct {
+	// (Map of String)
+	Extensions pulumi.StringMapInput `pulumi:"extensions"`
+	// (Number) A unique identifier assigned to the workload group
+	Id pulumi.IntInput `pulumi:"id"`
+	// (String) The name of the workload group
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput)
+}
+
+// GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayInput is an input type that accepts GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray and GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput values.
+// You can construct a concrete instance of `GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayInput` via:
+//
+//	GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray{ GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs{...} }
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput
+	ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutputWithContext(context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput
+}
+
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray []GetTrafficCaptureRulesWorkloadGroupLastModifiedByInput
+
+func (GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput {
+	return i.ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput {
+	return o
+}
+
+// (Map of String)
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) Extensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupLastModifiedBy) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
+}
+
+// (Number) A unique identifier assigned to the workload group
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupLastModifiedBy) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// (String) The name of the workload group
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficCaptureRulesWorkloadGroupLastModifiedBy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficCaptureRulesWorkloadGroupLastModifiedBy)(nil)).Elem()
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput() GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput) ToGetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutputWithContext(ctx context.Context) GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput {
+	return o
+}
+
+func (o GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput) Index(i pulumi.IntInput) GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficCaptureRulesWorkloadGroupLastModifiedBy {
+		return vs[0].([]GetTrafficCaptureRulesWorkloadGroupLastModifiedBy)[vs[1].(int)]
+	}).(GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput)
+}
+
 type GetTrafficForwardingGREInternalIPRangeList struct {
 	// (String) Starting IP address in the range
 	EndIpAddress string `pulumi:"endIpAddress"`
@@ -3272,7 +17401,7 @@ type GetURLCategoriesScope struct {
 	// (List of Object) Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
 	ScopeGroupMemberEntities []GetURLCategoriesScopeScopeGroupMemberEntity `pulumi:"scopeGroupMemberEntities"`
 	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // GetURLCategoriesScopeInput is an input type that accepts GetURLCategoriesScopeArgs and GetURLCategoriesScopeOutput values.
@@ -3292,7 +17421,7 @@ type GetURLCategoriesScopeArgs struct {
 	// (List of Object) Only applicable for the LOCATION_GROUP admin scope type, in which case this attribute gives the list of ID/name pairs of locations within the location group. The attribute name is subject to change.
 	ScopeGroupMemberEntities GetURLCategoriesScopeScopeGroupMemberEntityArrayInput `pulumi:"scopeGroupMemberEntities"`
 	// (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetURLCategoriesScopeArgs) ElementType() reflect.Type {
@@ -3359,8 +17488,8 @@ func (o GetURLCategoriesScopeOutput) ScopeGroupMemberEntities() GetURLCategories
 }
 
 // (String) The admin scope type. The attribute name is subject to change. `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`
-func (o GetURLCategoriesScopeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetURLCategoriesScope) string { return v.Type }).(pulumi.StringOutput)
+func (o GetURLCategoriesScopeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetURLCategoriesScope) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type GetURLCategoriesScopeArrayOutput struct{ *pulumi.OutputState }
@@ -3386,7 +17515,7 @@ func (o GetURLCategoriesScopeArrayOutput) Index(i pulumi.IntInput) GetURLCategor
 type GetURLCategoriesScopeScopeEntity struct {
 	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
-	// URL category
+	// (String) Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
 	// (String) The configured name of the entity
 	Name string `pulumi:"name"`
@@ -3406,7 +17535,7 @@ type GetURLCategoriesScopeScopeEntityInput interface {
 type GetURLCategoriesScopeScopeEntityArgs struct {
 	// (Map of String)
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// URL category
+	// (String) Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
 	// (String) The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3468,7 +17597,7 @@ func (o GetURLCategoriesScopeScopeEntityOutput) Extensions() pulumi.StringMapOut
 	return o.ApplyT(func(v GetURLCategoriesScopeScopeEntity) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// URL category
+// (String) Identifier that uniquely identifies an entity
 func (o GetURLCategoriesScopeScopeEntityOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetURLCategoriesScopeScopeEntity) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -3501,7 +17630,7 @@ func (o GetURLCategoriesScopeScopeEntityArrayOutput) Index(i pulumi.IntInput) Ge
 type GetURLCategoriesScopeScopeGroupMemberEntity struct {
 	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
-	// URL category
+	// (String) Identifier that uniquely identifies an entity
 	Id int `pulumi:"id"`
 	// (String) The configured name of the entity
 	Name string `pulumi:"name"`
@@ -3521,7 +17650,7 @@ type GetURLCategoriesScopeScopeGroupMemberEntityInput interface {
 type GetURLCategoriesScopeScopeGroupMemberEntityArgs struct {
 	// (Map of String)
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// URL category
+	// (String) Identifier that uniquely identifies an entity
 	Id pulumi.IntInput `pulumi:"id"`
 	// (String) The configured name of the entity
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3583,7 +17712,7 @@ func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) Extensions() pulumi.S
 	return o.ApplyT(func(v GetURLCategoriesScopeScopeGroupMemberEntity) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// URL category
+// (String) Identifier that uniquely identifies an entity
 func (o GetURLCategoriesScopeScopeGroupMemberEntityOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetURLCategoriesScopeScopeGroupMemberEntity) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -3742,6 +17871,8 @@ type GetURLFilteringRulesCbiProfile struct {
 	Id string `pulumi:"id"`
 	// Name of the URL Filtering policy rule
 	Name string `pulumi:"name"`
+	// The browser isolation profile URL
+	ProfileSeq int `pulumi:"profileSeq"`
 	// (String) The browser isolation profile URL
 	Url string `pulumi:"url"`
 }
@@ -3762,6 +17893,8 @@ type GetURLFilteringRulesCbiProfileArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the URL Filtering policy rule
 	Name pulumi.StringInput `pulumi:"name"`
+	// The browser isolation profile URL
+	ProfileSeq pulumi.IntInput `pulumi:"profileSeq"`
 	// (String) The browser isolation profile URL
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -3825,6 +17958,11 @@ func (o GetURLFilteringRulesCbiProfileOutput) Id() pulumi.StringOutput {
 // Name of the URL Filtering policy rule
 func (o GetURLFilteringRulesCbiProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetURLFilteringRulesCbiProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The browser isolation profile URL
+func (o GetURLFilteringRulesCbiProfileOutput) ProfileSeq() pulumi.IntOutput {
+	return o.ApplyT(func(v GetURLFilteringRulesCbiProfile) int { return v.ProfileSeq }).(pulumi.IntOutput)
 }
 
 // (String) The browser isolation profile URL
@@ -6281,11 +20419,10 @@ func (o GetUserManagementGroupArrayOutput) Index(i pulumi.IntInput) GetUserManag
 }
 
 type GetVirtualServiceEdgeClusterVirtualZenNode struct {
-	// (Map of String)
 	Extensions map[string]string `pulumi:"extensions"`
-	// (String) An external identifier used for an entity that is managed outside of ZIA.
+	// The configured name of the entity
 	ExternalId string `pulumi:"externalId"`
-	// USystem-generated Virtual Service Edge cluster ID
+	// System-generated Virtual Service Edge cluster ID
 	Id int `pulumi:"id"`
 	// Name of the Virtual Service Edge cluster
 	Name string `pulumi:"name"`
@@ -6303,11 +20440,10 @@ type GetVirtualServiceEdgeClusterVirtualZenNodeInput interface {
 }
 
 type GetVirtualServiceEdgeClusterVirtualZenNodeArgs struct {
-	// (Map of String)
 	Extensions pulumi.StringMapInput `pulumi:"extensions"`
-	// (String) An external identifier used for an entity that is managed outside of ZIA.
+	// The configured name of the entity
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// USystem-generated Virtual Service Edge cluster ID
+	// System-generated Virtual Service Edge cluster ID
 	Id pulumi.IntInput `pulumi:"id"`
 	// Name of the Virtual Service Edge cluster
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6364,17 +20500,16 @@ func (o GetVirtualServiceEdgeClusterVirtualZenNodeOutput) ToGetVirtualServiceEdg
 	return o
 }
 
-// (Map of String)
 func (o GetVirtualServiceEdgeClusterVirtualZenNodeOutput) Extensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetVirtualServiceEdgeClusterVirtualZenNode) map[string]string { return v.Extensions }).(pulumi.StringMapOutput)
 }
 
-// (String) An external identifier used for an entity that is managed outside of ZIA.
+// The configured name of the entity
 func (o GetVirtualServiceEdgeClusterVirtualZenNodeOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualServiceEdgeClusterVirtualZenNode) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// USystem-generated Virtual Service Edge cluster ID
+// System-generated Virtual Service Edge cluster ID
 func (o GetVirtualServiceEdgeClusterVirtualZenNodeOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualServiceEdgeClusterVirtualZenNode) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -6956,6 +21091,200 @@ func (o GetWorkloadGroupsLastModifiedByArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleGroupInput)(nil)).Elem(), GetForwardingControlRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLabelInput)(nil)).Elem(), GetForwardingControlRuleLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLabelArrayInput)(nil)).Elem(), GetForwardingControlRuleLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLocationInput)(nil)).Elem(), GetForwardingControlRuleLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLocationArrayInput)(nil)).Elem(), GetForwardingControlRuleLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLocationGroupInput)(nil)).Elem(), GetForwardingControlRuleLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleLocationGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwApplicationGroupInput)(nil)).Elem(), GetForwardingControlRuleNwApplicationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwApplicationGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleNwApplicationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwServiceInput)(nil)).Elem(), GetForwardingControlRuleNwServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwServiceArrayInput)(nil)).Elem(), GetForwardingControlRuleNwServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwServiceGroupInput)(nil)).Elem(), GetForwardingControlRuleNwServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleNwServiceGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleNwServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleProxyGatewayInput)(nil)).Elem(), GetForwardingControlRuleProxyGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleProxyGatewayArrayInput)(nil)).Elem(), GetForwardingControlRuleProxyGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleSrcIpGroupInput)(nil)).Elem(), GetForwardingControlRuleSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleSrcIpGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleSrcIpv6GroupInput)(nil)).Elem(), GetForwardingControlRuleSrcIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleSrcIpv6GroupArrayInput)(nil)).Elem(), GetForwardingControlRuleSrcIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleUserInput)(nil)).Elem(), GetForwardingControlRuleUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleUserArrayInput)(nil)).Elem(), GetForwardingControlRuleUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaAppSegmentInput)(nil)).Elem(), GetForwardingControlRuleZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaAppSegmentArrayInput)(nil)).Elem(), GetForwardingControlRuleZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentInput)(nil)).Elem(), GetForwardingControlRuleZpaApplicationSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentArrayInput)(nil)).Elem(), GetForwardingControlRuleZpaApplicationSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentGroupInput)(nil)).Elem(), GetForwardingControlRuleZpaApplicationSegmentGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaApplicationSegmentGroupArrayInput)(nil)).Elem(), GetForwardingControlRuleZpaApplicationSegmentGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaGatewayInput)(nil)).Elem(), GetForwardingControlRuleZpaGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlRuleZpaGatewayArrayInput)(nil)).Elem(), GetForwardingControlRuleZpaGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayLastModifiedByInput)(nil)).Elem(), GetForwardingControlZPAGatewayLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayLastModifiedByArrayInput)(nil)).Elem(), GetForwardingControlZPAGatewayLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaAppSegmentInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaAppSegmentArrayInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroupInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaServerGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingControlZPAGatewayZpaServerGroupArrayInput)(nil)).Elem(), GetForwardingControlZPAGatewayZpaServerGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewayLastModifiedByInput)(nil)).Elem(), GetForwardingProxyGatewayLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewayLastModifiedByArrayInput)(nil)).Elem(), GetForwardingProxyGatewayLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewayPrimaryProxyInput)(nil)).Elem(), GetForwardingProxyGatewayPrimaryProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewayPrimaryProxyArrayInput)(nil)).Elem(), GetForwardingProxyGatewayPrimaryProxyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewaySecondaryProxyInput)(nil)).Elem(), GetForwardingProxyGatewaySecondaryProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetForwardingProxyGatewaySecondaryProxyArrayInput)(nil)).Elem(), GetForwardingProxyGatewaySecondaryProxyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDepartmentInput)(nil)).Elem(), GetIPSFirewallRuleDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDepartmentArrayInput)(nil)).Elem(), GetIPSFirewallRuleDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpGroupInput)(nil)).Elem(), GetIPSFirewallRuleDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpv6GroupInput)(nil)).Elem(), GetIPSFirewallRuleDestIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDestIpv6GroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDestIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceInput)(nil)).Elem(), GetIPSFirewallRuleDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceArrayInput)(nil)).Elem(), GetIPSFirewallRuleDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceGroupInput)(nil)).Elem(), GetIPSFirewallRuleDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleDeviceGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleGroupInput)(nil)).Elem(), GetIPSFirewallRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLabelInput)(nil)).Elem(), GetIPSFirewallRuleLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLabelArrayInput)(nil)).Elem(), GetIPSFirewallRuleLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLastModifiedByInput)(nil)).Elem(), GetIPSFirewallRuleLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLastModifiedByArrayInput)(nil)).Elem(), GetIPSFirewallRuleLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationInput)(nil)).Elem(), GetIPSFirewallRuleLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationArrayInput)(nil)).Elem(), GetIPSFirewallRuleLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationGroupInput)(nil)).Elem(), GetIPSFirewallRuleLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleLocationGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceArrayInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroupInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleNwServiceGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleNwServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroupInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpGroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6GroupInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleSrcIpv6GroupArrayInput)(nil)).Elem(), GetIPSFirewallRuleSrcIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleThreatCategoryInput)(nil)).Elem(), GetIPSFirewallRuleThreatCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleThreatCategoryArrayInput)(nil)).Elem(), GetIPSFirewallRuleThreatCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleTimeWindowInput)(nil)).Elem(), GetIPSFirewallRuleTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleTimeWindowArrayInput)(nil)).Elem(), GetIPSFirewallRuleTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleUserInput)(nil)).Elem(), GetIPSFirewallRuleUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleUserArrayInput)(nil)).Elem(), GetIPSFirewallRuleUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegmentInput)(nil)).Elem(), GetIPSFirewallRuleZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIPSFirewallRuleZpaAppSegmentArrayInput)(nil)).Elem(), GetIPSFirewallRuleZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaArrayInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaCityInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaCityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaCityArrayInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaCityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaManagedByInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaManagedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaManagedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaNameInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsDynamicLocationGroupCriteriaNameArrayInput)(nil)).Elem(), GetLocationGroupsDynamicLocationGroupCriteriaNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsLastModUserInput)(nil)).Elem(), GetLocationGroupsLastModUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsLastModUserArrayInput)(nil)).Elem(), GetLocationGroupsLastModUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsLocationInput)(nil)).Elem(), GetLocationGroupsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationGroupsLocationArrayInput)(nil)).Elem(), GetLocationGroupsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetInput)(nil)).Elem(), GetLocationManagementExtranetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetArrayInput)(nil)).Elem(), GetLocationManagementExtranetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetDnInput)(nil)).Elem(), GetLocationManagementExtranetDnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetDnArrayInput)(nil)).Elem(), GetLocationManagementExtranetDnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetIpPoolInput)(nil)).Elem(), GetLocationManagementExtranetIpPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementExtranetIpPoolArrayInput)(nil)).Elem(), GetLocationManagementExtranetIpPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialInput)(nil)).Elem(), GetLocationManagementVpnCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialArrayInput)(nil)).Elem(), GetLocationManagementVpnCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialLocationInput)(nil)).Elem(), GetLocationManagementVpnCredentialLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialLocationArrayInput)(nil)).Elem(), GetLocationManagementVpnCredentialLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialManagedByInput)(nil)).Elem(), GetLocationManagementVpnCredentialManagedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationManagementVpnCredentialManagedByArrayInput)(nil)).Elem(), GetLocationManagementVpnCredentialManagedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDepartmentInput)(nil)).Elem(), GetNatControlRulesDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDepartmentArrayInput)(nil)).Elem(), GetNatControlRulesDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDestIpGroupInput)(nil)).Elem(), GetNatControlRulesDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDestIpGroupArrayInput)(nil)).Elem(), GetNatControlRulesDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDestIpv6GroupInput)(nil)).Elem(), GetNatControlRulesDestIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDestIpv6GroupArrayInput)(nil)).Elem(), GetNatControlRulesDestIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDeviceInput)(nil)).Elem(), GetNatControlRulesDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDeviceArrayInput)(nil)).Elem(), GetNatControlRulesDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDeviceGroupInput)(nil)).Elem(), GetNatControlRulesDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesDeviceGroupArrayInput)(nil)).Elem(), GetNatControlRulesDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesGroupInput)(nil)).Elem(), GetNatControlRulesGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesGroupArrayInput)(nil)).Elem(), GetNatControlRulesGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLabelInput)(nil)).Elem(), GetNatControlRulesLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLabelArrayInput)(nil)).Elem(), GetNatControlRulesLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLastModifiedByInput)(nil)).Elem(), GetNatControlRulesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLastModifiedByArrayInput)(nil)).Elem(), GetNatControlRulesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLocationInput)(nil)).Elem(), GetNatControlRulesLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLocationArrayInput)(nil)).Elem(), GetNatControlRulesLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLocationGroupInput)(nil)).Elem(), GetNatControlRulesLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesLocationGroupArrayInput)(nil)).Elem(), GetNatControlRulesLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesNwServiceInput)(nil)).Elem(), GetNatControlRulesNwServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesNwServiceArrayInput)(nil)).Elem(), GetNatControlRulesNwServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesNwServiceGroupInput)(nil)).Elem(), GetNatControlRulesNwServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesNwServiceGroupArrayInput)(nil)).Elem(), GetNatControlRulesNwServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesSrcIpGroupInput)(nil)).Elem(), GetNatControlRulesSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesSrcIpGroupArrayInput)(nil)).Elem(), GetNatControlRulesSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesSrcIpv6GroupInput)(nil)).Elem(), GetNatControlRulesSrcIpv6GroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesSrcIpv6GroupArrayInput)(nil)).Elem(), GetNatControlRulesSrcIpv6GroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesTimeWindowInput)(nil)).Elem(), GetNatControlRulesTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesTimeWindowArrayInput)(nil)).Elem(), GetNatControlRulesTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesUserInput)(nil)).Elem(), GetNatControlRulesUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatControlRulesUserArrayInput)(nil)).Elem(), GetNatControlRulesUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRiskProfilesCustomTagInput)(nil)).Elem(), GetRiskProfilesCustomTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRiskProfilesCustomTagArrayInput)(nil)).Elem(), GetRiskProfilesCustomTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRiskProfilesLastModifiedByInput)(nil)).Elem(), GetRiskProfilesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRiskProfilesLastModifiedByArrayInput)(nil)).Elem(), GetRiskProfilesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleLabelsCreatedByInput)(nil)).Elem(), GetRuleLabelsCreatedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleLabelsCreatedByArrayInput)(nil)).Elem(), GetRuleLabelsCreatedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleLabelsLastModifiedByInput)(nil)).Elem(), GetRuleLabelsLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleLabelsLastModifiedByArrayInput)(nil)).Elem(), GetRuleLabelsLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionInput)(nil)).Elem(), GetSSLInspectionRulesActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionArrayInput)(nil)).Elem(), GetSSLInspectionRulesActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionDecryptSubActionInput)(nil)).Elem(), GetSSLInspectionRulesActionDecryptSubActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionDecryptSubActionArrayInput)(nil)).Elem(), GetSSLInspectionRulesActionDecryptSubActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionDoNotDecryptSubActionInput)(nil)).Elem(), GetSSLInspectionRulesActionDoNotDecryptSubActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionDoNotDecryptSubActionArrayInput)(nil)).Elem(), GetSSLInspectionRulesActionDoNotDecryptSubActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionSslInterceptionCertInput)(nil)).Elem(), GetSSLInspectionRulesActionSslInterceptionCertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesActionSslInterceptionCertArrayInput)(nil)).Elem(), GetSSLInspectionRulesActionSslInterceptionCertArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDepartmentInput)(nil)).Elem(), GetSSLInspectionRulesDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDepartmentArrayInput)(nil)).Elem(), GetSSLInspectionRulesDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDestIpGroupInput)(nil)).Elem(), GetSSLInspectionRulesDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDestIpGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDeviceInput)(nil)).Elem(), GetSSLInspectionRulesDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDeviceArrayInput)(nil)).Elem(), GetSSLInspectionRulesDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDeviceGroupInput)(nil)).Elem(), GetSSLInspectionRulesDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesDeviceGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesGroupInput)(nil)).Elem(), GetSSLInspectionRulesGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLabelInput)(nil)).Elem(), GetSSLInspectionRulesLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLabelArrayInput)(nil)).Elem(), GetSSLInspectionRulesLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLastModifiedByInput)(nil)).Elem(), GetSSLInspectionRulesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLastModifiedByArrayInput)(nil)).Elem(), GetSSLInspectionRulesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLocationInput)(nil)).Elem(), GetSSLInspectionRulesLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLocationArrayInput)(nil)).Elem(), GetSSLInspectionRulesLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLocationGroupInput)(nil)).Elem(), GetSSLInspectionRulesLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesLocationGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesProxyGatewayInput)(nil)).Elem(), GetSSLInspectionRulesProxyGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesProxyGatewayArrayInput)(nil)).Elem(), GetSSLInspectionRulesProxyGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesSourceIpGroupInput)(nil)).Elem(), GetSSLInspectionRulesSourceIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesSourceIpGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesSourceIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesTimeWindowInput)(nil)).Elem(), GetSSLInspectionRulesTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesTimeWindowArrayInput)(nil)).Elem(), GetSSLInspectionRulesTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesUserInput)(nil)).Elem(), GetSSLInspectionRulesUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesUserArrayInput)(nil)).Elem(), GetSSLInspectionRulesUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupLastModifiedByInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayInput)(nil)).Elem(), GetSSLInspectionRulesWorkloadGroupLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesZpaAppSegmentInput)(nil)).Elem(), GetSSLInspectionRulesZpaAppSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSSLInspectionRulesZpaAppSegmentArrayInput)(nil)).Elem(), GetSSLInspectionRulesZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportClassificationInput)(nil)).Elem(), GetSandboxReportClassificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportClassificationArrayInput)(nil)).Elem(), GetSandboxReportClassificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportExploitInput)(nil)).Elem(), GetSandboxReportExploitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportExploitArrayInput)(nil)).Elem(), GetSandboxReportExploitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportFilePropertyInput)(nil)).Elem(), GetSandboxReportFilePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportFilePropertyArrayInput)(nil)).Elem(), GetSandboxReportFilePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxReportNetworkingInput)(nil)).Elem(), GetSandboxReportNetworkingArgs{})
@@ -6990,6 +21319,58 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesUserArrayInput)(nil)).Elem(), GetSandboxRulesUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesZpaAppSegmentInput)(nil)).Elem(), GetSandboxRulesZpaAppSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSandboxRulesZpaAppSegmentArrayInput)(nil)).Elem(), GetSandboxRulesZpaAppSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudDcInput)(nil)).Elem(), GetSubCloudDcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudDcArrayInput)(nil)).Elem(), GetSubCloudDcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionInput)(nil)).Elem(), GetSubCloudExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionArrayInput)(nil)).Elem(), GetSubCloudExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionDatacenterInput)(nil)).Elem(), GetSubCloudExclusionDatacenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionDatacenterArrayInput)(nil)).Elem(), GetSubCloudExclusionDatacenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionLastModifiedUserInput)(nil)).Elem(), GetSubCloudExclusionLastModifiedUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubCloudExclusionLastModifiedUserArrayInput)(nil)).Elem(), GetSubCloudExclusionLastModifiedUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesAppServiceGroupInput)(nil)).Elem(), GetTrafficCaptureRulesAppServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesAppServiceGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesAppServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDepartmentInput)(nil)).Elem(), GetTrafficCaptureRulesDepartmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDepartmentArrayInput)(nil)).Elem(), GetTrafficCaptureRulesDepartmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDestIpGroupInput)(nil)).Elem(), GetTrafficCaptureRulesDestIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDestIpGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesDestIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDeviceInput)(nil)).Elem(), GetTrafficCaptureRulesDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDeviceArrayInput)(nil)).Elem(), GetTrafficCaptureRulesDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDeviceGroupInput)(nil)).Elem(), GetTrafficCaptureRulesDeviceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesDeviceGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesDeviceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesGroupInput)(nil)).Elem(), GetTrafficCaptureRulesGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLabelInput)(nil)).Elem(), GetTrafficCaptureRulesLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLabelArrayInput)(nil)).Elem(), GetTrafficCaptureRulesLabelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLastModifiedByInput)(nil)).Elem(), GetTrafficCaptureRulesLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLastModifiedByArrayInput)(nil)).Elem(), GetTrafficCaptureRulesLastModifiedByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLocationInput)(nil)).Elem(), GetTrafficCaptureRulesLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLocationArrayInput)(nil)).Elem(), GetTrafficCaptureRulesLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLocationGroupInput)(nil)).Elem(), GetTrafficCaptureRulesLocationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesLocationGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesLocationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwApplicationGroupInput)(nil)).Elem(), GetTrafficCaptureRulesNwApplicationGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwApplicationGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesNwApplicationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwServiceInput)(nil)).Elem(), GetTrafficCaptureRulesNwServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwServiceArrayInput)(nil)).Elem(), GetTrafficCaptureRulesNwServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwServiceGroupInput)(nil)).Elem(), GetTrafficCaptureRulesNwServiceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesNwServiceGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesNwServiceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesSrcIpGroupInput)(nil)).Elem(), GetTrafficCaptureRulesSrcIpGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesSrcIpGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesSrcIpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesTimeWindowInput)(nil)).Elem(), GetTrafficCaptureRulesTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesTimeWindowArrayInput)(nil)).Elem(), GetTrafficCaptureRulesTimeWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesUserInput)(nil)).Elem(), GetTrafficCaptureRulesUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesUserArrayInput)(nil)).Elem(), GetTrafficCaptureRulesUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupLastModifiedByInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupLastModifiedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayInput)(nil)).Elem(), GetTrafficCaptureRulesWorkloadGroupLastModifiedByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeListInput)(nil)).Elem(), GetTrafficForwardingGREInternalIPRangeListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGREInternalIPRangeListArrayInput)(nil)).Elem(), GetTrafficForwardingGREInternalIPRangeListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficForwardingGRETunnelLastModifiedByInput)(nil)).Elem(), GetTrafficForwardingGRETunnelLastModifiedByArgs{})
@@ -7076,6 +21457,200 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsExpressionJsonExpressionContainerTagContainerTagArrayInput)(nil)).Elem(), GetWorkloadGroupsExpressionJsonExpressionContainerTagContainerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsLastModifiedByInput)(nil)).Elem(), GetWorkloadGroupsLastModifiedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkloadGroupsLastModifiedByArrayInput)(nil)).Elem(), GetWorkloadGroupsLastModifiedByArray{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLabelOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLocationOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwApplicationGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwApplicationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwServiceOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleNwServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleProxyGatewayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleProxyGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleSrcIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleSrcIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleUserOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleUserArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaApplicationSegmentOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaApplicationSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaApplicationSegmentGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaApplicationSegmentGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaGatewayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlRuleZpaGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaServerGroupOutput{})
+	pulumi.RegisterOutputType(GetForwardingControlZPAGatewayZpaServerGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewayLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewayLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewayPrimaryProxyOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewayPrimaryProxyArrayOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewaySecondaryProxyOutput{})
+	pulumi.RegisterOutputType(GetForwardingProxyGatewaySecondaryProxyArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDepartmentOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDestIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLabelOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleNwServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleSrcIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleThreatCategoryOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleThreatCategoryArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleUserOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleUserArrayOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetIPSFirewallRuleZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaCityOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaCityArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaManagedByOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaManagedByArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaNameOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsDynamicLocationGroupCriteriaNameArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsLastModUserOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsLastModUserArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsLocationOutput{})
+	pulumi.RegisterOutputType(GetLocationGroupsLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetDnOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetDnArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetIpPoolOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementExtranetIpPoolArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialLocationOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialManagedByOutput{})
+	pulumi.RegisterOutputType(GetLocationManagementVpnCredentialManagedByArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDepartmentOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDestIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDestIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDeviceOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLabelOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLocationOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesNwServiceOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesNwServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesNwServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesNwServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesSrcIpv6GroupOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesSrcIpv6GroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesUserOutput{})
+	pulumi.RegisterOutputType(GetNatControlRulesUserArrayOutput{})
+	pulumi.RegisterOutputType(GetRiskProfilesCustomTagOutput{})
+	pulumi.RegisterOutputType(GetRiskProfilesCustomTagArrayOutput{})
+	pulumi.RegisterOutputType(GetRiskProfilesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetRiskProfilesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetRuleLabelsCreatedByOutput{})
+	pulumi.RegisterOutputType(GetRuleLabelsCreatedByArrayOutput{})
+	pulumi.RegisterOutputType(GetRuleLabelsLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetRuleLabelsLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionDecryptSubActionOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionDecryptSubActionArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionDoNotDecryptSubActionOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionDoNotDecryptSubActionArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionSslInterceptionCertOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesActionSslInterceptionCertArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDepartmentOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDeviceOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLabelOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLocationOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesProxyGatewayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesProxyGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesSourceIpGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesSourceIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesUserOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesUserArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesWorkloadGroupLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesZpaAppSegmentOutput{})
+	pulumi.RegisterOutputType(GetSSLInspectionRulesZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportClassificationOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportClassificationArrayOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportExploitOutput{})
+	pulumi.RegisterOutputType(GetSandboxReportExploitArrayOutput{})
 	pulumi.RegisterOutputType(GetSandboxReportFilePropertyOutput{})
 	pulumi.RegisterOutputType(GetSandboxReportFilePropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetSandboxReportNetworkingOutput{})
@@ -7110,6 +21685,58 @@ func init() {
 	pulumi.RegisterOutputType(GetSandboxRulesUserArrayOutput{})
 	pulumi.RegisterOutputType(GetSandboxRulesZpaAppSegmentOutput{})
 	pulumi.RegisterOutputType(GetSandboxRulesZpaAppSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetSubCloudDcOutput{})
+	pulumi.RegisterOutputType(GetSubCloudDcArrayOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionArrayOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionDatacenterOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionDatacenterArrayOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionLastModifiedUserOutput{})
+	pulumi.RegisterOutputType(GetSubCloudExclusionLastModifiedUserArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesAppServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesAppServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDepartmentOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDepartmentArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDestIpGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDestIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDeviceOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDeviceGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesDeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLabelOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLabelArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLastModifiedByArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLocationOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLocationGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesLocationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwApplicationGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwApplicationGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwServiceOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwServiceGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesNwServiceGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesSrcIpGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesSrcIpGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesTimeWindowOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesTimeWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesUserOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesUserArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupExpressionJsonExpressionContainerTagContainerTagArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupLastModifiedByOutput{})
+	pulumi.RegisterOutputType(GetTrafficCaptureRulesWorkloadGroupLastModifiedByArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingGREInternalIPRangeListOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingGREInternalIPRangeListArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficForwardingGRETunnelLastModifiedByOutput{})

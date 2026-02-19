@@ -23,6 +23,10 @@ namespace zscaler.PulumiPackage.Zia.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The browser isolation profile URL
+        /// </summary>
+        public readonly int ProfileSeq;
+        /// <summary>
         /// (String) The browser isolation profile URL
         /// </summary>
         public readonly string Url;
@@ -33,10 +37,13 @@ namespace zscaler.PulumiPackage.Zia.Outputs
 
             string name,
 
+            int profileSeq,
+
             string url)
         {
             Id = id;
             Name = name;
+            ProfileSeq = profileSeq;
             Url = url;
         }
     }

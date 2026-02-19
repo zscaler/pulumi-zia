@@ -21,10 +21,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_url_filtering_and_cloud_app_settings** can be imported by using `app_setting` as the import ID.
+    /// **zia_url_filtering_and_cloud_app_settings** can be imported by using &lt;span pulumi-lang-nodejs="`appSetting`" pulumi-lang-dotnet="`AppSetting`" pulumi-lang-go="`appSetting`" pulumi-lang-python="`app_setting`" pulumi-lang-yaml="`appSetting`" pulumi-lang-java="`appSetting`"&gt;`app_setting`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 
@@ -42,15 +41,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> BlockSkype { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-        /// services or not.
+        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
         /// </summary>
         [Output("considerEmbeddedSites")]
         public Output<bool> ConsiderEmbeddedSites { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-        /// authentication information
+        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
         /// </summary>
         [Output("enableBlockOverrideForNonAuthUser")]
         public Output<bool> EnableBlockOverrideForNonAuthUser { get; private set; } = null!;
@@ -68,15 +65,13 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableCipaCompliance { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-        /// AI/ML tools is enabled or not.
+        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
         /// </summary>
         [Output("enableDynamicContentCat")]
         public Output<bool> EnableDynamicContentCat { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
         /// </summary>
         [Output("enableGeminiPrompt")]
         public Output<bool> EnableGeminiPrompt { get; private set; } = null!;
@@ -88,22 +83,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnableMetaPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
         /// </summary>
         [Output("enableMicrosoftCopilotPrompt")]
         public Output<bool> EnableMicrosoftCopilotPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-        /// automatically without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
         /// </summary>
         [Output("enableMsftO365")]
-        public Output<bool> EnableMsftO365 { get; private set; } = null!;
+        public Output<bool?> EnableMsftO365 { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-        /// are allowed or blocked
+        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
         /// </summary>
         [Output("enableNewlyRegisteredDomains")]
         public Output<bool> EnableNewlyRegisteredDomains { get; private set; } = null!;
@@ -112,7 +104,7 @@ namespace zscaler.PulumiPackage.Zia
         /// A Boolean value that enables or disables Microsoft Office 365 configuration.
         /// </summary>
         [Output("enableOffice365")]
-        public Output<bool> EnableOffice365 { get; private set; } = null!;
+        public Output<bool?> EnableOffice365 { get; private set; } = null!;
 
         /// <summary>
         /// A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
@@ -127,36 +119,31 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool> EnablePoepPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
         /// </summary>
         [Output("enableUcaasLogmein")]
         public Output<bool> EnableUcaasLogmein { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-        /// RingCentral traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
         /// </summary>
         [Output("enableUcaasRingCentral")]
         public Output<bool> EnableUcaasRingCentral { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-        /// traffic, with minimal or no manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
         /// </summary>
         [Output("enableUcaasTalkdesk")]
         public Output<bool> EnableUcaasTalkdesk { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
         /// </summary>
         [Output("enableUcaasWebex")]
         public Output<bool> EnableUcaasWebex { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
         /// </summary>
         [Output("enableUcaasZoom")]
         public Output<bool> EnableUcaasZoom { get; private set; } = null!;
@@ -165,7 +152,15 @@ namespace zscaler.PulumiPackage.Zia
         /// A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
         /// </summary>
         [Output("enforceSafeSearch")]
-        public Output<bool> EnforceSafeSearch { get; private set; } = null!;
+        public Output<bool?> EnforceSafeSearch { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+        /// 				See the URL &amp; Cloud App Control Policy Settings for the list of available apps:
+        /// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+        /// </summary>
+        [Output("safeSearchApps")]
+        public Output<ImmutableArray<string>> SafeSearchApps { get; private set; } = null!;
 
 
         /// <summary>
@@ -221,15 +216,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? BlockSkype { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-        /// services or not.
+        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
         /// </summary>
         [Input("considerEmbeddedSites")]
         public Input<bool>? ConsiderEmbeddedSites { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-        /// authentication information
+        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
         /// </summary>
         [Input("enableBlockOverrideForNonAuthUser")]
         public Input<bool>? EnableBlockOverrideForNonAuthUser { get; set; }
@@ -247,15 +240,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableCipaCompliance { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-        /// AI/ML tools is enabled or not.
+        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
         /// </summary>
         [Input("enableDynamicContentCat")]
         public Input<bool>? EnableDynamicContentCat { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
         /// </summary>
         [Input("enableGeminiPrompt")]
         public Input<bool>? EnableGeminiPrompt { get; set; }
@@ -267,22 +258,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableMetaPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
         /// </summary>
         [Input("enableMicrosoftCopilotPrompt")]
         public Input<bool>? EnableMicrosoftCopilotPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-        /// automatically without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
         /// </summary>
         [Input("enableMsftO365")]
         public Input<bool>? EnableMsftO365 { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-        /// are allowed or blocked
+        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
         /// </summary>
         [Input("enableNewlyRegisteredDomains")]
         public Input<bool>? EnableNewlyRegisteredDomains { get; set; }
@@ -306,36 +294,31 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnablePoepPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasLogmein")]
         public Input<bool>? EnableUcaasLogmein { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-        /// RingCentral traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasRingCentral")]
         public Input<bool>? EnableUcaasRingCentral { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-        /// traffic, with minimal or no manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
         /// </summary>
         [Input("enableUcaasTalkdesk")]
         public Input<bool>? EnableUcaasTalkdesk { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasWebex")]
         public Input<bool>? EnableUcaasWebex { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasZoom")]
         public Input<bool>? EnableUcaasZoom { get; set; }
@@ -345,6 +328,20 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("enforceSafeSearch")]
         public Input<bool>? EnforceSafeSearch { get; set; }
+
+        [Input("safeSearchApps")]
+        private InputList<string>? _safeSearchApps;
+
+        /// <summary>
+        /// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+        /// 				See the URL &amp; Cloud App Control Policy Settings for the list of available apps:
+        /// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+        /// </summary>
+        public InputList<string> SafeSearchApps
+        {
+            get => _safeSearchApps ?? (_safeSearchApps = new InputList<string>());
+            set => _safeSearchApps = value;
+        }
 
         public URLFilteringCloudAppSettingsArgs()
         {
@@ -361,15 +358,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? BlockSkype { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation
-        /// services or not.
+        /// A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
         /// </summary>
         [Input("considerEmbeddedSites")]
         public Input<bool>? ConsiderEmbeddedSites { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their
-        /// authentication information
+        /// A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
         /// </summary>
         [Input("enableBlockOverrideForNonAuthUser")]
         public Input<bool>? EnableBlockOverrideForNonAuthUser { get; set; }
@@ -387,15 +382,13 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableCipaCompliance { get; set; }
 
         /// <summary>
-        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using
-        /// AI/ML tools is enabled or not.
+        /// A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
         /// </summary>
         [Input("enableDynamicContentCat")]
         public Input<bool>? EnableDynamicContentCat { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
         /// </summary>
         [Input("enableGeminiPrompt")]
         public Input<bool>? EnableGeminiPrompt { get; set; }
@@ -407,22 +400,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableMetaPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and
-        /// logged
+        /// A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
         /// </summary>
         [Input("enableMicrosoftCopilotPrompt")]
         public Input<bool>? EnableMicrosoftCopilotPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic
-        /// automatically without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
         /// </summary>
         [Input("enableMsftO365")]
         public Input<bool>? EnableMsftO365 { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live
-        /// are allowed or blocked
+        /// A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
         /// </summary>
         [Input("enableNewlyRegisteredDomains")]
         public Input<bool>? EnableNewlyRegisteredDomains { get; set; }
@@ -446,36 +436,31 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnablePoepPrompt { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasLogmein")]
         public Input<bool>? EnableUcaasLogmein { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for
-        /// RingCentral traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasRingCentral")]
         public Input<bool>? EnableUcaasRingCentral { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk
-        /// traffic, with minimal or no manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
         /// </summary>
         [Input("enableUcaasTalkdesk")]
         public Input<bool>? EnableUcaasTalkdesk { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasWebex")]
         public Input<bool>? EnableUcaasWebex { get; set; }
 
         /// <summary>
-        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom
-        /// traffic, without any manual configuration needed.
+        /// A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
         /// </summary>
         [Input("enableUcaasZoom")]
         public Input<bool>? EnableUcaasZoom { get; set; }
@@ -485,6 +470,20 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("enforceSafeSearch")]
         public Input<bool>? EnforceSafeSearch { get; set; }
+
+        [Input("safeSearchApps")]
+        private InputList<string>? _safeSearchApps;
+
+        /// <summary>
+        /// A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
+        /// 				See the URL &amp; Cloud App Control Policy Settings for the list of available apps:
+        /// 				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+        /// </summary>
+        public InputList<string> SafeSearchApps
+        {
+            get => _safeSearchApps ?? (_safeSearchApps = new InputList<string>());
+            set => _safeSearchApps = value;
+        }
 
         public URLFilteringCloudAppSettingsState()
         {

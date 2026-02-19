@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_url_categories** can be imported by using `<CATEGORY_ID>` or `<CATEGORY_NAME>` as the import ID.
@@ -64,31 +63,38 @@ export class URLCategories extends pulumi.CustomResource {
         return obj['__pulumiType'] === URLCategories.__pulumiType;
     }
 
-    public /*out*/ readonly categoryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly categoryId: pulumi.Output<string>;
     /**
      * Name of the URL category. This is only required for custom URL categories.
      */
-    public readonly configuredName!: pulumi.Output<string | undefined>;
-    public readonly customCategory!: pulumi.Output<boolean | undefined>;
-    public readonly customIpRangesCount!: pulumi.Output<number>;
-    public readonly customUrlsCount!: pulumi.Output<number>;
-    public readonly dbCategorizedUrls!: pulumi.Output<string[] | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly editable!: pulumi.Output<boolean>;
-    public readonly ipRanges!: pulumi.Output<string[] | undefined>;
-    public readonly ipRangesRetainingParentCategories!: pulumi.Output<string[] | undefined>;
-    public readonly ipRangesRetainingParentCategoryCount!: pulumi.Output<number>;
-    public readonly keywords!: pulumi.Output<string[] | undefined>;
-    public readonly keywordsRetainingParentCategories!: pulumi.Output<string[] | undefined>;
-    public readonly scopes!: pulumi.Output<outputs.URLCategoriesScope[] | undefined>;
+    declare public readonly configuredName: pulumi.Output<string | undefined>;
+    declare public readonly customCategory: pulumi.Output<boolean | undefined>;
+    declare public readonly customIpRangesCount: pulumi.Output<number>;
+    declare public readonly customUrlsCount: pulumi.Output<number>;
+    declare public readonly dbCategorizedUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly editable: pulumi.Output<boolean>;
+    declare public readonly ipRanges: pulumi.Output<string[] | undefined>;
+    declare public readonly ipRangesRetainingParentCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly ipRangesRetainingParentCategoryCount: pulumi.Output<number>;
+    declare public readonly keywords: pulumi.Output<string[] | undefined>;
+    declare public readonly keywordsRetainingParentCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly regexPatterns: pulumi.Output<string[] | undefined>;
+    declare public readonly regexPatternsRetainingParentCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.URLCategoriesScope[] | undefined>;
     /**
-     * Super Category of the URL category. This field is required when creating custom URL categories.
+     * Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
      */
-    public readonly superCategory!: pulumi.Output<string | undefined>;
-    public readonly type!: pulumi.Output<string | undefined>;
-    public readonly urlKeywordCounts!: pulumi.Output<outputs.URLCategoriesUrlKeywordCounts>;
-    public readonly urls!: pulumi.Output<string[] | undefined>;
-    public readonly urlsRetainingParentCategoryCount!: pulumi.Output<number>;
+    declare public readonly superCategory: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string | undefined>;
+    declare public readonly urlKeywordCounts: pulumi.Output<outputs.URLCategoriesUrlKeywordCounts>;
+    declare public readonly urlType: pulumi.Output<string>;
+    declare public readonly urls: pulumi.Output<string[] | undefined>;
+    declare public readonly urlsRetainingParentCategoryCount: pulumi.Output<number>;
+    /**
+     * The unique ID for the URL category.
+     */
+    declare public /*out*/ readonly val: pulumi.Output<number>;
 
     /**
      * Create a URLCategories resource with the given unique name, arguments, and options.
@@ -103,46 +109,54 @@ export class URLCategories extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as URLCategoriesState | undefined;
-            resourceInputs["categoryId"] = state ? state.categoryId : undefined;
-            resourceInputs["configuredName"] = state ? state.configuredName : undefined;
-            resourceInputs["customCategory"] = state ? state.customCategory : undefined;
-            resourceInputs["customIpRangesCount"] = state ? state.customIpRangesCount : undefined;
-            resourceInputs["customUrlsCount"] = state ? state.customUrlsCount : undefined;
-            resourceInputs["dbCategorizedUrls"] = state ? state.dbCategorizedUrls : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["editable"] = state ? state.editable : undefined;
-            resourceInputs["ipRanges"] = state ? state.ipRanges : undefined;
-            resourceInputs["ipRangesRetainingParentCategories"] = state ? state.ipRangesRetainingParentCategories : undefined;
-            resourceInputs["ipRangesRetainingParentCategoryCount"] = state ? state.ipRangesRetainingParentCategoryCount : undefined;
-            resourceInputs["keywords"] = state ? state.keywords : undefined;
-            resourceInputs["keywordsRetainingParentCategories"] = state ? state.keywordsRetainingParentCategories : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["superCategory"] = state ? state.superCategory : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["urlKeywordCounts"] = state ? state.urlKeywordCounts : undefined;
-            resourceInputs["urls"] = state ? state.urls : undefined;
-            resourceInputs["urlsRetainingParentCategoryCount"] = state ? state.urlsRetainingParentCategoryCount : undefined;
+            resourceInputs["categoryId"] = state?.categoryId;
+            resourceInputs["configuredName"] = state?.configuredName;
+            resourceInputs["customCategory"] = state?.customCategory;
+            resourceInputs["customIpRangesCount"] = state?.customIpRangesCount;
+            resourceInputs["customUrlsCount"] = state?.customUrlsCount;
+            resourceInputs["dbCategorizedUrls"] = state?.dbCategorizedUrls;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["editable"] = state?.editable;
+            resourceInputs["ipRanges"] = state?.ipRanges;
+            resourceInputs["ipRangesRetainingParentCategories"] = state?.ipRangesRetainingParentCategories;
+            resourceInputs["ipRangesRetainingParentCategoryCount"] = state?.ipRangesRetainingParentCategoryCount;
+            resourceInputs["keywords"] = state?.keywords;
+            resourceInputs["keywordsRetainingParentCategories"] = state?.keywordsRetainingParentCategories;
+            resourceInputs["regexPatterns"] = state?.regexPatterns;
+            resourceInputs["regexPatternsRetainingParentCategories"] = state?.regexPatternsRetainingParentCategories;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["superCategory"] = state?.superCategory;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["urlKeywordCounts"] = state?.urlKeywordCounts;
+            resourceInputs["urlType"] = state?.urlType;
+            resourceInputs["urls"] = state?.urls;
+            resourceInputs["urlsRetainingParentCategoryCount"] = state?.urlsRetainingParentCategoryCount;
+            resourceInputs["val"] = state?.val;
         } else {
             const args = argsOrState as URLCategoriesArgs | undefined;
-            resourceInputs["configuredName"] = args ? args.configuredName : undefined;
-            resourceInputs["customCategory"] = args ? args.customCategory : undefined;
-            resourceInputs["customIpRangesCount"] = args ? args.customIpRangesCount : undefined;
-            resourceInputs["customUrlsCount"] = args ? args.customUrlsCount : undefined;
-            resourceInputs["dbCategorizedUrls"] = args ? args.dbCategorizedUrls : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["editable"] = args ? args.editable : undefined;
-            resourceInputs["ipRanges"] = args ? args.ipRanges : undefined;
-            resourceInputs["ipRangesRetainingParentCategories"] = args ? args.ipRangesRetainingParentCategories : undefined;
-            resourceInputs["ipRangesRetainingParentCategoryCount"] = args ? args.ipRangesRetainingParentCategoryCount : undefined;
-            resourceInputs["keywords"] = args ? args.keywords : undefined;
-            resourceInputs["keywordsRetainingParentCategories"] = args ? args.keywordsRetainingParentCategories : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["superCategory"] = args ? args.superCategory : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["urlKeywordCounts"] = args ? args.urlKeywordCounts : undefined;
-            resourceInputs["urls"] = args ? args.urls : undefined;
-            resourceInputs["urlsRetainingParentCategoryCount"] = args ? args.urlsRetainingParentCategoryCount : undefined;
+            resourceInputs["configuredName"] = args?.configuredName;
+            resourceInputs["customCategory"] = args?.customCategory;
+            resourceInputs["customIpRangesCount"] = args?.customIpRangesCount;
+            resourceInputs["customUrlsCount"] = args?.customUrlsCount;
+            resourceInputs["dbCategorizedUrls"] = args?.dbCategorizedUrls;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["editable"] = args?.editable;
+            resourceInputs["ipRanges"] = args?.ipRanges;
+            resourceInputs["ipRangesRetainingParentCategories"] = args?.ipRangesRetainingParentCategories;
+            resourceInputs["ipRangesRetainingParentCategoryCount"] = args?.ipRangesRetainingParentCategoryCount;
+            resourceInputs["keywords"] = args?.keywords;
+            resourceInputs["keywordsRetainingParentCategories"] = args?.keywordsRetainingParentCategories;
+            resourceInputs["regexPatterns"] = args?.regexPatterns;
+            resourceInputs["regexPatternsRetainingParentCategories"] = args?.regexPatternsRetainingParentCategories;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["superCategory"] = args?.superCategory;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["urlKeywordCounts"] = args?.urlKeywordCounts;
+            resourceInputs["urlType"] = args?.urlType;
+            resourceInputs["urls"] = args?.urls;
+            resourceInputs["urlsRetainingParentCategoryCount"] = args?.urlsRetainingParentCategoryCount;
             resourceInputs["categoryId"] = undefined /*out*/;
+            resourceInputs["val"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(URLCategories.__pulumiType, name, resourceInputs, opts);
@@ -169,15 +183,22 @@ export interface URLCategoriesState {
     ipRangesRetainingParentCategoryCount?: pulumi.Input<number>;
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
     keywordsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatternsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
     scopes?: pulumi.Input<pulumi.Input<inputs.URLCategoriesScope>[]>;
     /**
-     * Super Category of the URL category. This field is required when creating custom URL categories.
+     * Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
      */
     superCategory?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     urlKeywordCounts?: pulumi.Input<inputs.URLCategoriesUrlKeywordCounts>;
+    urlType?: pulumi.Input<string>;
     urls?: pulumi.Input<pulumi.Input<string>[]>;
     urlsRetainingParentCategoryCount?: pulumi.Input<number>;
+    /**
+     * The unique ID for the URL category.
+     */
+    val?: pulumi.Input<number>;
 }
 
 /**
@@ -199,13 +220,16 @@ export interface URLCategoriesArgs {
     ipRangesRetainingParentCategoryCount?: pulumi.Input<number>;
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
     keywordsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatternsRetainingParentCategories?: pulumi.Input<pulumi.Input<string>[]>;
     scopes?: pulumi.Input<pulumi.Input<inputs.URLCategoriesScope>[]>;
     /**
-     * Super Category of the URL category. This field is required when creating custom URL categories.
+     * Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
      */
     superCategory?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     urlKeywordCounts?: pulumi.Input<inputs.URLCategoriesUrlKeywordCounts>;
+    urlType?: pulumi.Input<string>;
     urls?: pulumi.Input<pulumi.Input<string>[]>;
     urlsRetainingParentCategoryCount?: pulumi.Input<number>;
 }

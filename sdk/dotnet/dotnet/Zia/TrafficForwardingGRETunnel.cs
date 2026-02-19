@@ -11,10 +11,30 @@ using Pulumi;
 namespace zscaler.PulumiPackage.Zia
 {
     /// <summary>
+    /// * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
+    /// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
+    /// 
+    /// The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
+    /// 
+    /// &gt; **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The attribute can be overriden if needed by setting the parameters: &lt;span pulumi-lang-nodejs="`primaryDestVip`" pulumi-lang-dotnet="`PrimaryDestVip`" pulumi-lang-go="`primaryDestVip`" pulumi-lang-python="`primary_dest_vip`" pulumi-lang-yaml="`primaryDestVip`" pulumi-lang-java="`primaryDestVip`"&gt;`primary_dest_vip`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`secondaryDestVip`" pulumi-lang-dotnet="`SecondaryDestVip`" pulumi-lang-go="`secondaryDestVip`" pulumi-lang-python="`secondary_dest_vip`" pulumi-lang-yaml="`secondaryDestVip`" pulumi-lang-java="`secondaryDestVip`"&gt;`secondary_dest_vip`&lt;/span&gt;.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Unnumbered
+    /// 
+    /// &gt; **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the&lt;span pulumi-lang-nodejs=" primaryDestVip " pulumi-lang-dotnet=" PrimaryDestVip " pulumi-lang-go=" primaryDestVip " pulumi-lang-python=" primary_dest_vip " pulumi-lang-yaml=" primaryDestVip " pulumi-lang-java=" primaryDestVip "&gt; primary_dest_vip &lt;/span&gt;and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the available VIP.
+    /// 
+    /// &gt; **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
+    /// 
+    /// &gt; **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
+    /// 
+    /// ### Numbered
+    /// 
+    /// &gt; **Note:** When configuring a numbered GRE Tunnel where the attribute &lt;span pulumi-lang-nodejs="`internalIpRange`" pulumi-lang-dotnet="`InternalIpRange`" pulumi-lang-go="`internalIpRange`" pulumi-lang-python="`internal_ip_range`" pulumi-lang-yaml="`internalIpRange`" pulumi-lang-java="`internalIpRange`"&gt;`internal_ip_range`&lt;/span&gt; is defined, we must set the lifecycle block to ignore changes to the `&lt;span pulumi-lang-nodejs="`internalIpRange`" pulumi-lang-dotnet="`InternalIpRange`" pulumi-lang-go="`internalIpRange`" pulumi-lang-python="`internal_ip_range`" pulumi-lang-yaml="`internalIpRange`" pulumi-lang-java="`internalIpRange`"&gt;`internal_ip_range`&lt;/span&gt;` attribute unless it is explicitly changed in the Terraform configuration.
+    /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_traffic_forwarding_gre_tunnel** can be imported by using `&lt;TUNNEL_ID&gt;` as the import ID.
@@ -41,7 +61,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// When within_country is enabled, you must set this to the country code.
+        /// When&lt;span pulumi-lang-nodejs=" withinCountry " pulumi-lang-dotnet=" WithinCountry " pulumi-lang-go=" withinCountry " pulumi-lang-python=" within_country " pulumi-lang-yaml=" withinCountry " pulumi-lang-java=" withinCountry "&gt; within_country &lt;/span&gt;is enabled, you must set this to the country code.
         /// </summary>
         [Output("countryCode")]
         public Output<string> CountryCode { get; private set; } = null!;
@@ -53,8 +73,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string?> InternalIpRange { get; private set; } = null!;
 
         /// <summary>
-        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id
-        /// are set to null
+        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true&lt;span pulumi-lang-nodejs=" greTunIp " pulumi-lang-dotnet=" GreTunIp " pulumi-lang-go=" greTunIp " pulumi-lang-python=" gre_tun_ip " pulumi-lang-yaml=" greTunIp " pulumi-lang-java=" greTunIp "&gt; gre_tun_ip &lt;/span&gt;and&lt;span pulumi-lang-nodejs=" greTunId " pulumi-lang-dotnet=" GreTunId " pulumi-lang-go=" greTunId " pulumi-lang-python=" gre_tun_id " pulumi-lang-yaml=" greTunId " pulumi-lang-java=" greTunId "&gt; gre_tun_id &lt;/span&gt;are set to null
         /// </summary>
         [Output("ipUnnumbered")]
         public Output<bool> IpUnnumbered { get; private set; } = null!;
@@ -143,7 +162,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// When within_country is enabled, you must set this to the country code.
+        /// When&lt;span pulumi-lang-nodejs=" withinCountry " pulumi-lang-dotnet=" WithinCountry " pulumi-lang-go=" withinCountry " pulumi-lang-python=" within_country " pulumi-lang-yaml=" withinCountry " pulumi-lang-java=" withinCountry "&gt; within_country &lt;/span&gt;is enabled, you must set this to the country code.
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
@@ -155,8 +174,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? InternalIpRange { get; set; }
 
         /// <summary>
-        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id
-        /// are set to null
+        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true&lt;span pulumi-lang-nodejs=" greTunIp " pulumi-lang-dotnet=" GreTunIp " pulumi-lang-go=" greTunIp " pulumi-lang-python=" gre_tun_ip " pulumi-lang-yaml=" greTunIp " pulumi-lang-java=" greTunIp "&gt; gre_tun_ip &lt;/span&gt;and&lt;span pulumi-lang-nodejs=" greTunId " pulumi-lang-dotnet=" GreTunId " pulumi-lang-go=" greTunId " pulumi-lang-python=" gre_tun_id " pulumi-lang-yaml=" greTunId " pulumi-lang-java=" greTunId "&gt; gre_tun_id &lt;/span&gt;are set to null
         /// </summary>
         [Input("ipUnnumbered")]
         public Input<bool>? IpUnnumbered { get; set; }
@@ -212,7 +230,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// When within_country is enabled, you must set this to the country code.
+        /// When&lt;span pulumi-lang-nodejs=" withinCountry " pulumi-lang-dotnet=" WithinCountry " pulumi-lang-go=" withinCountry " pulumi-lang-python=" within_country " pulumi-lang-yaml=" withinCountry " pulumi-lang-java=" withinCountry "&gt; within_country &lt;/span&gt;is enabled, you must set this to the country code.
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
@@ -224,8 +242,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? InternalIpRange { get; set; }
 
         /// <summary>
-        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id
-        /// are set to null
+        /// This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true&lt;span pulumi-lang-nodejs=" greTunIp " pulumi-lang-dotnet=" GreTunIp " pulumi-lang-go=" greTunIp " pulumi-lang-python=" gre_tun_ip " pulumi-lang-yaml=" greTunIp " pulumi-lang-java=" greTunIp "&gt; gre_tun_ip &lt;/span&gt;and&lt;span pulumi-lang-nodejs=" greTunId " pulumi-lang-dotnet=" GreTunId " pulumi-lang-go=" greTunId " pulumi-lang-python=" gre_tun_id " pulumi-lang-yaml=" greTunId " pulumi-lang-java=" greTunId "&gt; gre_tun_id &lt;/span&gt;are set to null
         /// </summary>
         [Input("ipUnnumbered")]
         public Input<bool>? IpUnnumbered { get; set; }

@@ -278,6 +278,7 @@ namespace zscaler.PulumiPackage.Zia
         /// (int) Rank of the rule.
         /// </summary>
         public readonly int Rank;
+        public readonly ImmutableArray<Outputs.GetCasbDlpRulesReceiverResult> Receivers;
         /// <summary>
         /// (string) Specifies if the email recipient is internal or external.
         /// </summary>
@@ -379,6 +380,8 @@ namespace zscaler.PulumiPackage.Zia
 
             int rank,
 
+            ImmutableArray<Outputs.GetCasbDlpRulesReceiverResult> receivers,
+
             string recipient,
 
             ImmutableArray<Outputs.GetCasbDlpRulesRedactionProfileResult> redactionProfiles,
@@ -437,6 +440,7 @@ namespace zscaler.PulumiPackage.Zia
             Order = order;
             QuarantineLocation = quarantineLocation;
             Rank = rank;
+            Receivers = receivers;
             Recipient = recipient;
             RedactionProfiles = redactionProfiles;
             Severity = severity;

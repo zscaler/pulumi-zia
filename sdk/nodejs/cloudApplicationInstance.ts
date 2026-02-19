@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_cloud_application_instance** can be imported by using `<INSTANCE_ID>` or `<INSTANCE_NAME>` as the import ID.
@@ -62,19 +61,19 @@ export class CloudApplicationInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudApplicationInstance.__pulumiType;
     }
 
-    public /*out*/ readonly instanceId!: pulumi.Output<number>;
+    declare public /*out*/ readonly instanceId: pulumi.Output<number>;
     /**
      * List of identifiers for the cloud application instance.
      */
-    public readonly instanceIdentifiers!: pulumi.Output<outputs.CloudApplicationInstanceInstanceIdentifier[] | undefined>;
+    declare public readonly instanceIdentifiers: pulumi.Output<outputs.CloudApplicationInstanceInstanceIdentifier[] | undefined>;
     /**
      * Type of the cloud application instance.
      */
-    public readonly instanceType!: pulumi.Output<string | undefined>;
+    declare public readonly instanceType: pulumi.Output<string | undefined>;
     /**
      * Name of the cloud application instance.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CloudApplicationInstance resource with the given unique name, arguments, and options.
@@ -89,15 +88,15 @@ export class CloudApplicationInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudApplicationInstanceState | undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
-            resourceInputs["instanceIdentifiers"] = state ? state.instanceIdentifiers : undefined;
-            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["instanceIdentifiers"] = state?.instanceIdentifiers;
+            resourceInputs["instanceType"] = state?.instanceType;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as CloudApplicationInstanceArgs | undefined;
-            resourceInputs["instanceIdentifiers"] = args ? args.instanceIdentifiers : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["instanceIdentifiers"] = args?.instanceIdentifiers;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["instanceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -31,13 +31,18 @@ func LookupFirewallFilteringNetworkServices(ctx *pulumi.Context, args *LookupFir
 type LookupFirewallFilteringNetworkServicesArgs struct {
 	// The ID of the application layer service to be exported.
 	Id *int `pulumi:"id"`
+	// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+	Locale *string `pulumi:"locale"`
 	// Name of the application layer service that you want to control. It can include any character and spaces.
+	// See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
 	Name *string `pulumi:"name"`
+	// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // A collection of values returned by getFirewallFilteringNetworkServices.
 type LookupFirewallFilteringNetworkServicesResult struct {
-	// (String) (Optional) Enter additional notes or information. The description cannot exceed 10240 characters.
+	// (String) Enter additional notes or information. The description cannot exceed 10240 characters.
 	Description string `pulumi:"description"`
 	// (Required) The TCP destination port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
 	DestTcpPorts []GetFirewallFilteringNetworkServicesDestTcpPort `pulumi:"destTcpPorts"`
@@ -45,13 +50,18 @@ type LookupFirewallFilteringNetworkServicesResult struct {
 	DestUdpPorts []GetFirewallFilteringNetworkServicesDestUdpPort `pulumi:"destUdpPorts"`
 	Id           int                                              `pulumi:"id"`
 	// (Bool) - Default: false
-	IsNameL10nTag bool   `pulumi:"isNameL10nTag"`
-	Name          string `pulumi:"name"`
+	IsNameL10nTag bool `pulumi:"isNameL10nTag"`
+	// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+	Locale *string `pulumi:"locale"`
+	Name   string  `pulumi:"name"`
+	// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+	Protocol string `pulumi:"protocol"`
 	// (Optional) The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
 	SrcTcpPorts []GetFirewallFilteringNetworkServicesSrcTcpPort `pulumi:"srcTcpPorts"`
 	// The UDP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service.
 	SrcUdpPorts []GetFirewallFilteringNetworkServicesSrcUdpPort `pulumi:"srcUdpPorts"`
-	Tag         string                                          `pulumi:"tag"`
+	// (string) - Supported network services names returned by the API. See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
+	Tag string `pulumi:"tag"`
 	// (String) - Supported values are: `STANDARD`, `PREDEFINED` and `CUSTOM`
 	Type string `pulumi:"type"`
 }
@@ -69,8 +79,13 @@ func LookupFirewallFilteringNetworkServicesOutput(ctx *pulumi.Context, args Look
 type LookupFirewallFilteringNetworkServicesOutputArgs struct {
 	// The ID of the application layer service to be exported.
 	Id pulumi.IntPtrInput `pulumi:"id"`
+	// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+	Locale pulumi.StringPtrInput `pulumi:"locale"`
 	// Name of the application layer service that you want to control. It can include any character and spaces.
+	// See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (LookupFirewallFilteringNetworkServicesOutputArgs) ElementType() reflect.Type {
@@ -92,7 +107,7 @@ func (o LookupFirewallFilteringNetworkServicesResultOutput) ToLookupFirewallFilt
 	return o
 }
 
-// (String) (Optional) Enter additional notes or information. The description cannot exceed 10240 characters.
+// (String) Enter additional notes or information. The description cannot exceed 10240 characters.
 func (o LookupFirewallFilteringNetworkServicesResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -120,8 +135,18 @@ func (o LookupFirewallFilteringNetworkServicesResultOutput) IsNameL10nTag() pulu
 	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) bool { return v.IsNameL10nTag }).(pulumi.BoolOutput)
 }
 
+// (String) When set to one of the supported locales (i.e., `en-US`, `de-DE`, `es-ES`, `fr-FR`, `ja-JP`,`fr-FR`, `ja-JP`, `zh-CN`), the network service's description is localized into the requested language.
+func (o LookupFirewallFilteringNetworkServicesResultOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupFirewallFilteringNetworkServicesResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (String) Filter based on the network service protocol. Supported values are: `TCP`, `UDP`, `ICMP`, `GRE`, `ESP`, `OTHER`
+func (o LookupFirewallFilteringNetworkServicesResultOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // (Optional) The TCP source port number (example: 50) or port number range (example: 1000-1050), if any, that is used by the network service
@@ -138,6 +163,7 @@ func (o LookupFirewallFilteringNetworkServicesResultOutput) SrcUdpPorts() GetFir
 	}).(GetFirewallFilteringNetworkServicesSrcUdpPortArrayOutput)
 }
 
+// (string) - Supported network services names returned by the API. See the [Network Services API](https://help.zscaler.com/zia/firewall-policies#/networkServices-get) for the list of available services. Check the attribute `tag` in the API documentation for the updated list.
 func (o LookupFirewallFilteringNetworkServicesResultOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallFilteringNetworkServicesResult) string { return v.Tag }).(pulumi.StringOutput)
 }

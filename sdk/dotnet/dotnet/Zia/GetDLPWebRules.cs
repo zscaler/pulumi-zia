@@ -111,6 +111,7 @@ namespace zscaler.PulumiPackage.Zia
         public readonly ImmutableArray<Outputs.GetDLPWebRulesExcludedGroupResult> ExcludedGroups;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesExcludedUserResult> ExcludedUsers;
         public readonly string ExternalAuditorEmail;
+        public readonly ImmutableArray<Outputs.GetDLPWebRulesFileTypeCategoryResult> FileTypeCategories;
         public readonly ImmutableArray<string> FileTypes;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesGroupResult> Groups;
         public readonly int? Id;
@@ -127,6 +128,7 @@ namespace zscaler.PulumiPackage.Zia
         public readonly int ParentRule;
         public readonly ImmutableArray<string> Protocols;
         public readonly int Rank;
+        public readonly ImmutableArray<Outputs.GetDLPWebRulesReceiverResult> Receivers;
         public readonly string Severity;
         public readonly ImmutableArray<Outputs.GetDLPWebRulesSourceIpGroupResult> SourceIpGroups;
         public readonly string State;
@@ -163,6 +165,8 @@ namespace zscaler.PulumiPackage.Zia
 
             string externalAuditorEmail,
 
+            ImmutableArray<Outputs.GetDLPWebRulesFileTypeCategoryResult> fileTypeCategories,
+
             ImmutableArray<string> fileTypes,
 
             ImmutableArray<Outputs.GetDLPWebRulesGroupResult> groups,
@@ -194,6 +198,8 @@ namespace zscaler.PulumiPackage.Zia
             ImmutableArray<string> protocols,
 
             int rank,
+
+            ImmutableArray<Outputs.GetDLPWebRulesReceiverResult> receivers,
 
             string severity,
 
@@ -228,6 +234,7 @@ namespace zscaler.PulumiPackage.Zia
             ExcludedGroups = excludedGroups;
             ExcludedUsers = excludedUsers;
             ExternalAuditorEmail = externalAuditorEmail;
+            FileTypeCategories = fileTypeCategories;
             FileTypes = fileTypes;
             Groups = groups;
             Id = id;
@@ -244,6 +251,7 @@ namespace zscaler.PulumiPackage.Zia
             ParentRule = parentRule;
             Protocols = protocols;
             Rank = rank;
+            Receivers = receivers;
             Severity = severity;
             SourceIpGroups = sourceIpGroups;
             State = state;

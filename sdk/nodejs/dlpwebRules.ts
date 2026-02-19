@@ -18,6 +18,8 @@ import * as utilities from "./utilities";
  *
  * ### "FTCATEGORY_ALL_OUTBOUND" File Type"
  *
+ * ### "FTCATEGORY_ALL_OUTBOUND" File Type - New"
+ *
  * ### "Specify Incident Receiver Setting"
  *
  * ### "Creating Parent Rules And SubRules"
@@ -28,10 +30,21 @@ import * as utilities from "./utilities";
  *  to evaluate all DLP rules in the DLP Advanced Settings.
  *  To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
  *
+ * ### "Configuring Receiver For DLP Policy Rule"
+ *
+ * ### Configure Cloud To Cloud Forwarding
+ *
+ * **Note:** The receiver configuration uses values from the C2CIR data source:
+ *
+ * * `id`: Uses the SMIR bucket configuration ID (converted to string)
+ * * `name`: Uses the SMIR bucket configuration name
+ * * `type`: Uses the onboardable entity type (e.g., "C2CIR")
+ * * `tenant.id`: Uses the C2CIR tenant ID (converted to string)
+ * * `tenant.name`: Uses the C2CIR tenant name
+ *
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_dlp_web_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
@@ -79,158 +92,174 @@ export class DLPWebRules extends pulumi.CustomResource {
     /**
      * The action taken when traffic matches the DLP policy rule criteria.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
-     * The auditor to which the DLP policy rule must be applied.
+     * The auditor to which the DLP policy rule must be applied
      */
-    public readonly auditors!: pulumi.Output<outputs.DLPWebRulesAuditor[] | undefined>;
+    declare public readonly auditors: pulumi.Output<outputs.DLPWebRulesAuditor[] | undefined>;
     /**
-     * The list of cloud applications to which the DLP policy rule must be applied.
+     * The list of cloud applications to which the DLP policy rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
-    public readonly cloudApplications!: pulumi.Output<string[]>;
+    declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
     /**
-     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied
      */
-    public readonly departments!: pulumi.Output<outputs.DLPWebRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.DLPWebRulesDepartments | undefined>;
     /**
      * The description of the DLP policy rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
-    public readonly dlpDownloadScanEnabled!: pulumi.Output<boolean>;
+    declare public readonly dlpDownloadScanEnabled: pulumi.Output<boolean>;
     /**
-     * The list of DLP engines to which the DLP policy rule must be applied.
+     * The list of DLP engines to which the DLP policy rule must be applied
      */
-    public readonly dlpEngines!: pulumi.Output<outputs.DLPWebRulesDlpEngines | undefined>;
+    declare public readonly dlpEngines: pulumi.Output<outputs.DLPWebRulesDlpEngines | undefined>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The EUN template ID associated with the rule
      */
-    public readonly excludedDepartments!: pulumi.Output<outputs.DLPWebRulesExcludedDepartments | undefined>;
+    declare public readonly eunTemplateId: pulumi.Output<number | undefined>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of departments which the DLP policy rule must exclude
      */
-    public readonly excludedDomainProfiles!: pulumi.Output<outputs.DLPWebRulesExcludedDomainProfiles | undefined>;
+    declare public readonly excludedDepartments: pulumi.Output<outputs.DLPWebRulesExcludedDepartments | undefined>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
      */
-    public readonly excludedGroups!: pulumi.Output<outputs.DLPWebRulesExcludedGroups | undefined>;
+    declare public readonly excludedDomainProfiles: pulumi.Output<outputs.DLPWebRulesExcludedDomainProfiles | undefined>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of groups which the DLP policy rule must exclude
      */
-    public readonly excludedUsers!: pulumi.Output<outputs.DLPWebRulesExcludedUsers | undefined>;
+    declare public readonly excludedGroups: pulumi.Output<outputs.DLPWebRulesExcludedGroups | undefined>;
+    /**
+     * The Name-ID pairs of users which the DLP policy rule must exclude
+     */
+    declare public readonly excludedUsers: pulumi.Output<outputs.DLPWebRulesExcludedUsers | undefined>;
     /**
      * The email address of an external auditor to whom DLP email notifications are sent
      */
-    public readonly externalAuditorEmail!: pulumi.Output<string | undefined>;
+    declare public readonly externalAuditorEmail: pulumi.Output<string | undefined>;
     /**
-     * The list of file types for which the DLP policy rule must be applied.
+     * The list of file types to which the rule applies
      */
-    public readonly fileTypes!: pulumi.Output<string[]>;
+    declare public readonly fileTypeCategories: pulumi.Output<outputs.DLPWebRulesFileTypeCategories | undefined>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
+     * The list of file types for which the DLP policy rule must be applied,
+     * 				See the Web DLP Rules API for the list of available File types:
+     * 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
      */
-    public readonly groups!: pulumi.Output<outputs.DLPWebRulesGroups | undefined>;
+    declare public readonly fileTypes: pulumi.Output<string[]>;
     /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied
      */
-    public readonly icapServers!: pulumi.Output<outputs.DLPWebRulesIcapServer[] | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.DLPWebRulesGroups | undefined>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The DLP server, using ICAP, to which the transaction content is forwarded
      */
-    public readonly includedDomainProfiles!: pulumi.Output<outputs.DLPWebRulesIncludedDomainProfiles | undefined>;
-    public readonly inspectHttpGetEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly icapServers: pulumi.Output<outputs.DLPWebRulesIcapServer[] | undefined>;
     /**
-     * list of Labels that are applicable to the rule.
+     * The Name-ID pairs of domain profiiles which the DLP policy rule must include
      */
-    public readonly labels!: pulumi.Output<outputs.DLPWebRulesLabels | undefined>;
+    declare public readonly includedDomainProfiles: pulumi.Output<outputs.DLPWebRulesIncludedDomainProfiles | undefined>;
+    declare public readonly inspectHttpGetEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+     * list of Labels that are applicable to the rule
      */
-    public readonly locationGroups!: pulumi.Output<outputs.DLPWebRulesLocationGroups | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.DLPWebRulesLabels | undefined>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied
      */
-    public readonly locations!: pulumi.Output<outputs.DLPWebRulesLocations | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.DLPWebRulesLocationGroups | undefined>;
+    /**
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied
+     */
+    declare public readonly locations: pulumi.Output<outputs.DLPWebRulesLocations | undefined>;
     /**
      * The match only criteria for DLP engines.
      */
-    public readonly matchOnly!: pulumi.Output<boolean>;
+    declare public readonly matchOnly: pulumi.Output<boolean>;
     /**
      * The minimum file size (in KB) used for evaluation of the DLP policy rule.
      */
-    public readonly minSize!: pulumi.Output<number>;
+    declare public readonly minSize: pulumi.Output<number>;
     /**
      * The DLP policy rule name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * The template used for DLP notification emails.
+     * The template used for DLP notification emails
      */
-    public readonly notificationTemplates!: pulumi.Output<outputs.DLPWebRulesNotificationTemplate[] | undefined>;
+    declare public readonly notificationTemplates: pulumi.Output<outputs.DLPWebRulesNotificationTemplate[] | undefined>;
     /**
      * The rule order of execution for the DLP policy rule with respect to other rules.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * The unique identifier of the parent rule under which an exception rule is added
      */
-    public readonly parentRule!: pulumi.Output<number>;
+    declare public readonly parentRule: pulumi.Output<number>;
     /**
      * The protocol criteria specified for the DLP policy rule.
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * Admin rank of the admin who creates this rule
      */
-    public readonly rank!: pulumi.Output<number>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly rank: pulumi.Output<number>;
+    /**
+     * The receiver information for the DLP policy rule
+     */
+    declare public readonly receiver: pulumi.Output<outputs.DLPWebRulesReceiver | undefined>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * Indicates the severity selected for the DLP rule violation
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * list of source ip groups
      */
-    public readonly sourceIpGroups!: pulumi.Output<outputs.DLPWebRulesSourceIpGroups | undefined>;
+    declare public readonly sourceIpGroups: pulumi.Output<outputs.DLPWebRulesSourceIpGroups | undefined>;
     /**
      * Enables or disables the DLP policy rule.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * The list of exception rules added to a parent rule
      */
-    public readonly subRules!: pulumi.Output<string[]>;
+    declare public readonly subRules: pulumi.Output<string[]>;
     /**
-     * list of time interval during which rule must be enforced.
+     * list of source ip groups
      */
-    public readonly timeWindows!: pulumi.Output<outputs.DLPWebRulesTimeWindows | undefined>;
+    declare public readonly timeWindows: pulumi.Output<outputs.DLPWebRulesTimeWindows | undefined>;
     /**
-     * The list of URL categories to which the DLP policy rule must be applied.
+     * The list of URL categories to which the DLP policy rule must be applied
      */
-    public readonly urlCategories!: pulumi.Output<outputs.DLPWebRulesUrlCategories | undefined>;
-    public readonly userRiskScoreLevels!: pulumi.Output<string[]>;
+    declare public readonly urlCategories: pulumi.Output<outputs.DLPWebRulesUrlCategories | undefined>;
+    declare public readonly userRiskScoreLevels: pulumi.Output<string[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied
      */
-    public readonly users!: pulumi.Output<outputs.DLPWebRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.DLPWebRulesUsers | undefined>;
     /**
      * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
-    public readonly withoutContentInspection!: pulumi.Output<boolean>;
+    declare public readonly withoutContentInspection: pulumi.Output<boolean>;
     /**
      * The list of preconfigured workload groups to which the policy must be applied
      */
-    public readonly workloadGroups!: pulumi.Output<outputs.DLPWebRulesWorkloadGroup[]>;
+    declare public readonly workloadGroups: pulumi.Output<outputs.DLPWebRulesWorkloadGroup[]>;
     /**
      * Indicates a DLP policy rule without content inspection, when the value is set to true.
      */
-    public readonly zccNotificationsEnabled!: pulumi.Output<boolean>;
+    declare public readonly zccNotificationsEnabled: pulumi.Output<boolean>;
     /**
-     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
      */
-    public readonly zscalerIncidentReceiver!: pulumi.Output<boolean | undefined>;
+    declare public readonly zscalerIncidentReceiver: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DLPWebRules resource with the given unique name, arguments, and options.
@@ -245,92 +274,98 @@ export class DLPWebRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DLPWebRulesState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["auditors"] = state ? state.auditors : undefined;
-            resourceInputs["cloudApplications"] = state ? state.cloudApplications : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dlpDownloadScanEnabled"] = state ? state.dlpDownloadScanEnabled : undefined;
-            resourceInputs["dlpEngines"] = state ? state.dlpEngines : undefined;
-            resourceInputs["excludedDepartments"] = state ? state.excludedDepartments : undefined;
-            resourceInputs["excludedDomainProfiles"] = state ? state.excludedDomainProfiles : undefined;
-            resourceInputs["excludedGroups"] = state ? state.excludedGroups : undefined;
-            resourceInputs["excludedUsers"] = state ? state.excludedUsers : undefined;
-            resourceInputs["externalAuditorEmail"] = state ? state.externalAuditorEmail : undefined;
-            resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["icapServers"] = state ? state.icapServers : undefined;
-            resourceInputs["includedDomainProfiles"] = state ? state.includedDomainProfiles : undefined;
-            resourceInputs["inspectHttpGetEnabled"] = state ? state.inspectHttpGetEnabled : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["matchOnly"] = state ? state.matchOnly : undefined;
-            resourceInputs["minSize"] = state ? state.minSize : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationTemplates"] = state ? state.notificationTemplates : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["parentRule"] = state ? state.parentRule : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["sourceIpGroups"] = state ? state.sourceIpGroups : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["subRules"] = state ? state.subRules : undefined;
-            resourceInputs["timeWindows"] = state ? state.timeWindows : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["userRiskScoreLevels"] = state ? state.userRiskScoreLevels : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["withoutContentInspection"] = state ? state.withoutContentInspection : undefined;
-            resourceInputs["workloadGroups"] = state ? state.workloadGroups : undefined;
-            resourceInputs["zccNotificationsEnabled"] = state ? state.zccNotificationsEnabled : undefined;
-            resourceInputs["zscalerIncidentReceiver"] = state ? state.zscalerIncidentReceiver : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["auditors"] = state?.auditors;
+            resourceInputs["cloudApplications"] = state?.cloudApplications;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dlpDownloadScanEnabled"] = state?.dlpDownloadScanEnabled;
+            resourceInputs["dlpEngines"] = state?.dlpEngines;
+            resourceInputs["eunTemplateId"] = state?.eunTemplateId;
+            resourceInputs["excludedDepartments"] = state?.excludedDepartments;
+            resourceInputs["excludedDomainProfiles"] = state?.excludedDomainProfiles;
+            resourceInputs["excludedGroups"] = state?.excludedGroups;
+            resourceInputs["excludedUsers"] = state?.excludedUsers;
+            resourceInputs["externalAuditorEmail"] = state?.externalAuditorEmail;
+            resourceInputs["fileTypeCategories"] = state?.fileTypeCategories;
+            resourceInputs["fileTypes"] = state?.fileTypes;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["icapServers"] = state?.icapServers;
+            resourceInputs["includedDomainProfiles"] = state?.includedDomainProfiles;
+            resourceInputs["inspectHttpGetEnabled"] = state?.inspectHttpGetEnabled;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["matchOnly"] = state?.matchOnly;
+            resourceInputs["minSize"] = state?.minSize;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationTemplates"] = state?.notificationTemplates;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["parentRule"] = state?.parentRule;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["receiver"] = state?.receiver;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["sourceIpGroups"] = state?.sourceIpGroups;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["subRules"] = state?.subRules;
+            resourceInputs["timeWindows"] = state?.timeWindows;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["userRiskScoreLevels"] = state?.userRiskScoreLevels;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["withoutContentInspection"] = state?.withoutContentInspection;
+            resourceInputs["workloadGroups"] = state?.workloadGroups;
+            resourceInputs["zccNotificationsEnabled"] = state?.zccNotificationsEnabled;
+            resourceInputs["zscalerIncidentReceiver"] = state?.zscalerIncidentReceiver;
         } else {
             const args = argsOrState as DLPWebRulesArgs | undefined;
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["auditors"] = args ? args.auditors : undefined;
-            resourceInputs["cloudApplications"] = args ? args.cloudApplications : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dlpDownloadScanEnabled"] = args ? args.dlpDownloadScanEnabled : undefined;
-            resourceInputs["dlpEngines"] = args ? args.dlpEngines : undefined;
-            resourceInputs["excludedDepartments"] = args ? args.excludedDepartments : undefined;
-            resourceInputs["excludedDomainProfiles"] = args ? args.excludedDomainProfiles : undefined;
-            resourceInputs["excludedGroups"] = args ? args.excludedGroups : undefined;
-            resourceInputs["excludedUsers"] = args ? args.excludedUsers : undefined;
-            resourceInputs["externalAuditorEmail"] = args ? args.externalAuditorEmail : undefined;
-            resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["icapServers"] = args ? args.icapServers : undefined;
-            resourceInputs["includedDomainProfiles"] = args ? args.includedDomainProfiles : undefined;
-            resourceInputs["inspectHttpGetEnabled"] = args ? args.inspectHttpGetEnabled : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["matchOnly"] = args ? args.matchOnly : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTemplates"] = args ? args.notificationTemplates : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["parentRule"] = args ? args.parentRule : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["sourceIpGroups"] = args ? args.sourceIpGroups : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["subRules"] = args ? args.subRules : undefined;
-            resourceInputs["timeWindows"] = args ? args.timeWindows : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["userRiskScoreLevels"] = args ? args.userRiskScoreLevels : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["withoutContentInspection"] = args ? args.withoutContentInspection : undefined;
-            resourceInputs["workloadGroups"] = args ? args.workloadGroups : undefined;
-            resourceInputs["zccNotificationsEnabled"] = args ? args.zccNotificationsEnabled : undefined;
-            resourceInputs["zscalerIncidentReceiver"] = args ? args.zscalerIncidentReceiver : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["auditors"] = args?.auditors;
+            resourceInputs["cloudApplications"] = args?.cloudApplications;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dlpDownloadScanEnabled"] = args?.dlpDownloadScanEnabled;
+            resourceInputs["dlpEngines"] = args?.dlpEngines;
+            resourceInputs["eunTemplateId"] = args?.eunTemplateId;
+            resourceInputs["excludedDepartments"] = args?.excludedDepartments;
+            resourceInputs["excludedDomainProfiles"] = args?.excludedDomainProfiles;
+            resourceInputs["excludedGroups"] = args?.excludedGroups;
+            resourceInputs["excludedUsers"] = args?.excludedUsers;
+            resourceInputs["externalAuditorEmail"] = args?.externalAuditorEmail;
+            resourceInputs["fileTypeCategories"] = args?.fileTypeCategories;
+            resourceInputs["fileTypes"] = args?.fileTypes;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["icapServers"] = args?.icapServers;
+            resourceInputs["includedDomainProfiles"] = args?.includedDomainProfiles;
+            resourceInputs["inspectHttpGetEnabled"] = args?.inspectHttpGetEnabled;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["matchOnly"] = args?.matchOnly;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTemplates"] = args?.notificationTemplates;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["parentRule"] = args?.parentRule;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["receiver"] = args?.receiver;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["sourceIpGroups"] = args?.sourceIpGroups;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["subRules"] = args?.subRules;
+            resourceInputs["timeWindows"] = args?.timeWindows;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["userRiskScoreLevels"] = args?.userRiskScoreLevels;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["withoutContentInspection"] = args?.withoutContentInspection;
+            resourceInputs["workloadGroups"] = args?.workloadGroups;
+            resourceInputs["zccNotificationsEnabled"] = args?.zccNotificationsEnabled;
+            resourceInputs["zscalerIncidentReceiver"] = args?.zscalerIncidentReceiver;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -347,15 +382,17 @@ export interface DLPWebRulesState {
      */
     action?: pulumi.Input<string>;
     /**
-     * The auditor to which the DLP policy rule must be applied.
+     * The auditor to which the DLP policy rule must be applied
      */
     auditors?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesAuditor>[]>;
     /**
-     * The list of cloud applications to which the DLP policy rule must be applied.
+     * The list of cloud applications to which the DLP policy rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied
      */
     departments?: pulumi.Input<inputs.DLPWebRulesDepartments>;
     /**
@@ -367,23 +404,27 @@ export interface DLPWebRulesState {
      */
     dlpDownloadScanEnabled?: pulumi.Input<boolean>;
     /**
-     * The list of DLP engines to which the DLP policy rule must be applied.
+     * The list of DLP engines to which the DLP policy rule must be applied
      */
     dlpEngines?: pulumi.Input<inputs.DLPWebRulesDlpEngines>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The EUN template ID associated with the rule
+     */
+    eunTemplateId?: pulumi.Input<number>;
+    /**
+     * The Name-ID pairs of departments which the DLP policy rule must exclude
      */
     excludedDepartments?: pulumi.Input<inputs.DLPWebRulesExcludedDepartments>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
      */
     excludedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesExcludedDomainProfiles>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of groups which the DLP policy rule must exclude
      */
     excludedGroups?: pulumi.Input<inputs.DLPWebRulesExcludedGroups>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of users which the DLP policy rule must exclude
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
@@ -391,32 +432,38 @@ export interface DLPWebRulesState {
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**
-     * The list of file types for which the DLP policy rule must be applied.
+     * The list of file types to which the rule applies
+     */
+    fileTypeCategories?: pulumi.Input<inputs.DLPWebRulesFileTypeCategories>;
+    /**
+     * The list of file types for which the DLP policy rule must be applied,
+     * 				See the Web DLP Rules API for the list of available File types:
+     * 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied
      */
     groups?: pulumi.Input<inputs.DLPWebRulesGroups>;
     /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
+     * The DLP server, using ICAP, to which the transaction content is forwarded
      */
     icapServers?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesIcapServer>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of domain profiiles which the DLP policy rule must include
      */
     includedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesIncludedDomainProfiles>;
     inspectHttpGetEnabled?: pulumi.Input<boolean>;
     /**
-     * list of Labels that are applicable to the rule.
+     * list of Labels that are applicable to the rule
      */
     labels?: pulumi.Input<inputs.DLPWebRulesLabels>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied
      */
     locationGroups?: pulumi.Input<inputs.DLPWebRulesLocationGroups>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied
      */
     locations?: pulumi.Input<inputs.DLPWebRulesLocations>;
     /**
@@ -432,7 +479,7 @@ export interface DLPWebRulesState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The template used for DLP notification emails.
+     * The template used for DLP notification emails
      */
     notificationTemplates?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesNotificationTemplate>[]>;
     /**
@@ -451,6 +498,10 @@ export interface DLPWebRulesState {
      * Admin rank of the admin who creates this rule
      */
     rank?: pulumi.Input<number>;
+    /**
+     * The receiver information for the DLP policy rule
+     */
+    receiver?: pulumi.Input<inputs.DLPWebRulesReceiver>;
     ruleId?: pulumi.Input<number>;
     /**
      * Indicates the severity selected for the DLP rule violation
@@ -469,16 +520,16 @@ export interface DLPWebRulesState {
      */
     subRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of time interval during which rule must be enforced.
+     * list of source ip groups
      */
     timeWindows?: pulumi.Input<inputs.DLPWebRulesTimeWindows>;
     /**
-     * The list of URL categories to which the DLP policy rule must be applied.
+     * The list of URL categories to which the DLP policy rule must be applied
      */
     urlCategories?: pulumi.Input<inputs.DLPWebRulesUrlCategories>;
     userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied
      */
     users?: pulumi.Input<inputs.DLPWebRulesUsers>;
     /**
@@ -494,7 +545,7 @@ export interface DLPWebRulesState {
      */
     zccNotificationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
      */
     zscalerIncidentReceiver?: pulumi.Input<boolean>;
 }
@@ -508,15 +559,17 @@ export interface DLPWebRulesArgs {
      */
     action?: pulumi.Input<string>;
     /**
-     * The auditor to which the DLP policy rule must be applied.
+     * The auditor to which the DLP policy rule must be applied
      */
     auditors?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesAuditor>[]>;
     /**
-     * The list of cloud applications to which the DLP policy rule must be applied.
+     * The list of cloud applications to which the DLP policy rule must be applied
+     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
+     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
      */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of departments to which the DLP policy rule must be applied.
+     * The Name-ID pairs of departments to which the DLP policy rule must be applied
      */
     departments?: pulumi.Input<inputs.DLPWebRulesDepartments>;
     /**
@@ -528,23 +581,27 @@ export interface DLPWebRulesArgs {
      */
     dlpDownloadScanEnabled?: pulumi.Input<boolean>;
     /**
-     * The list of DLP engines to which the DLP policy rule must be applied.
+     * The list of DLP engines to which the DLP policy rule must be applied
      */
     dlpEngines?: pulumi.Input<inputs.DLPWebRulesDlpEngines>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The EUN template ID associated with the rule
+     */
+    eunTemplateId?: pulumi.Input<number>;
+    /**
+     * The Name-ID pairs of departments which the DLP policy rule must exclude
      */
     excludedDepartments?: pulumi.Input<inputs.DLPWebRulesExcludedDepartments>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
      */
     excludedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesExcludedDomainProfiles>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of groups which the DLP policy rule must exclude
      */
     excludedGroups?: pulumi.Input<inputs.DLPWebRulesExcludedGroups>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of users which the DLP policy rule must exclude
      */
     excludedUsers?: pulumi.Input<inputs.DLPWebRulesExcludedUsers>;
     /**
@@ -552,32 +609,38 @@ export interface DLPWebRulesArgs {
      */
     externalAuditorEmail?: pulumi.Input<string>;
     /**
-     * The list of file types for which the DLP policy rule must be applied.
+     * The list of file types to which the rule applies
+     */
+    fileTypeCategories?: pulumi.Input<inputs.DLPWebRulesFileTypeCategories>;
+    /**
+     * The list of file types for which the DLP policy rule must be applied,
+     * 				See the Web DLP Rules API for the list of available File types:
+     * 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of groups to which the DLP policy rule must be applied.
+     * The Name-ID pairs of groups to which the DLP policy rule must be applied
      */
     groups?: pulumi.Input<inputs.DLPWebRulesGroups>;
     /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
+     * The DLP server, using ICAP, to which the transaction content is forwarded
      */
     icapServers?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesIcapServer>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of domain profiiles which the DLP policy rule must include
      */
     includedDomainProfiles?: pulumi.Input<inputs.DLPWebRulesIncludedDomainProfiles>;
     inspectHttpGetEnabled?: pulumi.Input<boolean>;
     /**
-     * list of Labels that are applicable to the rule.
+     * list of Labels that are applicable to the rule
      */
     labels?: pulumi.Input<inputs.DLPWebRulesLabels>;
     /**
-     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+     * The Name-ID pairs of locations groups to which the DLP policy rule must be applied
      */
     locationGroups?: pulumi.Input<inputs.DLPWebRulesLocationGroups>;
     /**
-     * The Name-ID pairs of locations to which the DLP policy rule must be applied.
+     * The Name-ID pairs of locations to which the DLP policy rule must be applied
      */
     locations?: pulumi.Input<inputs.DLPWebRulesLocations>;
     /**
@@ -593,7 +656,7 @@ export interface DLPWebRulesArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The template used for DLP notification emails.
+     * The template used for DLP notification emails
      */
     notificationTemplates?: pulumi.Input<pulumi.Input<inputs.DLPWebRulesNotificationTemplate>[]>;
     /**
@@ -613,6 +676,10 @@ export interface DLPWebRulesArgs {
      */
     rank?: pulumi.Input<number>;
     /**
+     * The receiver information for the DLP policy rule
+     */
+    receiver?: pulumi.Input<inputs.DLPWebRulesReceiver>;
+    /**
      * Indicates the severity selected for the DLP rule violation
      */
     severity?: pulumi.Input<string>;
@@ -629,16 +696,16 @@ export interface DLPWebRulesArgs {
      */
     subRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * list of time interval during which rule must be enforced.
+     * list of source ip groups
      */
     timeWindows?: pulumi.Input<inputs.DLPWebRulesTimeWindows>;
     /**
-     * The list of URL categories to which the DLP policy rule must be applied.
+     * The list of URL categories to which the DLP policy rule must be applied
      */
     urlCategories?: pulumi.Input<inputs.DLPWebRulesUrlCategories>;
     userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Name-ID pairs of users to which the DLP policy rule must be applied.
+     * The Name-ID pairs of users to which the DLP policy rule must be applied
      */
     users?: pulumi.Input<inputs.DLPWebRulesUsers>;
     /**
@@ -654,7 +721,7 @@ export interface DLPWebRulesArgs {
      */
     zccNotificationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+     * Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
      */
     zscalerIncidentReceiver?: pulumi.Input<boolean>;
 }

@@ -23,6 +23,8 @@ import (
 //
 // ### "FTCATEGORY_ALL_OUTBOUND" File Type"
 //
+// ### "FTCATEGORY_ALL_OUTBOUND" File Type - New"
+//
 // ### "Specify Incident Receiver Setting"
 //
 // ### "Creating Parent Rules And SubRules"
@@ -33,11 +35,22 @@ import (
 //	to evaluate all DLP rules in the DLP Advanced Settings.
 //	To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/%22/zia/configuring-dlp-advanced-settings/%22)
 //
+// ### "Configuring Receiver For DLP Policy Rule"
+//
+// ### Configure Cloud To Cloud Forwarding
+//
+// **Note:** The receiver configuration uses values from the C2CIR data source:
+//
+// * `id`: Uses the SMIR bucket configuration ID (converted to string)
+// * `name`: Uses the SMIR bucket configuration name
+// * `type`: Uses the onboardable entity type (e.g., "C2CIR")
+// * `tenant.id`: Uses the C2CIR tenant ID (converted to string)
+// * `tenant.name`: Uses the C2CIR tenant name
+//
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_dlp_web_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -57,42 +70,50 @@ type DLPWebRules struct {
 
 	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringOutput `pulumi:"action"`
-	// The auditor to which the DLP policy rule must be applied.
+	// The auditor to which the DLP policy rule must be applied
 	Auditors DLPWebRulesAuditorArrayOutput `pulumi:"auditors"`
-	// The list of cloud applications to which the DLP policy rule must be applied.
+	// The list of cloud applications to which the DLP policy rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
-	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied
 	Departments DLPWebRulesDepartmentsPtrOutput `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	DlpDownloadScanEnabled pulumi.BoolOutput `pulumi:"dlpDownloadScanEnabled"`
-	// The list of DLP engines to which the DLP policy rule must be applied.
+	// The list of DLP engines to which the DLP policy rule must be applied
 	DlpEngines DLPWebRulesDlpEnginesPtrOutput `pulumi:"dlpEngines"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The EUN template ID associated with the rule
+	EunTemplateId pulumi.IntPtrOutput `pulumi:"eunTemplateId"`
+	// The Name-ID pairs of departments which the DLP policy rule must exclude
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsPtrOutput `pulumi:"excludedDepartments"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesPtrOutput `pulumi:"excludedDomainProfiles"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups which the DLP policy rule must exclude
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrOutput `pulumi:"excludedGroups"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users which the DLP policy rule must exclude
 	ExcludedUsers DLPWebRulesExcludedUsersPtrOutput `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail pulumi.StringPtrOutput `pulumi:"externalAuditorEmail"`
-	// The list of file types for which the DLP policy rule must be applied.
+	// The list of file types to which the rule applies
+	FileTypeCategories DLPWebRulesFileTypeCategoriesPtrOutput `pulumi:"fileTypeCategories"`
+	// The list of file types for which the DLP policy rule must be applied,
+	// 				See the Web DLP Rules API for the list of available File types:
+	// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied
 	Groups DLPWebRulesGroupsPtrOutput `pulumi:"groups"`
-	// The DLP server, using ICAP, to which the transaction content is forwarded.
+	// The DLP server, using ICAP, to which the transaction content is forwarded
 	IcapServers DLPWebRulesIcapServerArrayOutput `pulumi:"icapServers"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesPtrOutput `pulumi:"includedDomainProfiles"`
 	InspectHttpGetEnabled  pulumi.BoolPtrOutput                       `pulumi:"inspectHttpGetEnabled"`
-	// list of Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule
 	Labels DLPWebRulesLabelsPtrOutput `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 	LocationGroups DLPWebRulesLocationGroupsPtrOutput `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied
 	Locations DLPWebRulesLocationsPtrOutput `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolOutput `pulumi:"matchOnly"`
@@ -100,7 +121,7 @@ type DLPWebRules struct {
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// The DLP policy rule name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The template used for DLP notification emails.
+	// The template used for DLP notification emails
 	NotificationTemplates DLPWebRulesNotificationTemplateArrayOutput `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntOutput `pulumi:"order"`
@@ -109,8 +130,10 @@ type DLPWebRules struct {
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
-	Rank   pulumi.IntOutput `pulumi:"rank"`
-	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	Rank pulumi.IntOutput `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver DLPWebRulesReceiverPtrOutput `pulumi:"receiver"`
+	RuleId   pulumi.IntOutput             `pulumi:"ruleId"`
 	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringOutput `pulumi:"severity"`
 	// list of source ip groups
@@ -119,12 +142,12 @@ type DLPWebRules struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayOutput `pulumi:"subRules"`
-	// list of time interval during which rule must be enforced.
+	// list of source ip groups
 	TimeWindows DLPWebRulesTimeWindowsPtrOutput `pulumi:"timeWindows"`
-	// The list of URL categories to which the DLP policy rule must be applied.
+	// The list of URL categories to which the DLP policy rule must be applied
 	UrlCategories       DLPWebRulesUrlCategoriesPtrOutput `pulumi:"urlCategories"`
 	UserRiskScoreLevels pulumi.StringArrayOutput          `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied
 	Users DLPWebRulesUsersPtrOutput `pulumi:"users"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolOutput `pulumi:"withoutContentInspection"`
@@ -132,7 +155,7 @@ type DLPWebRules struct {
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayOutput `pulumi:"workloadGroups"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled pulumi.BoolOutput `pulumi:"zccNotificationsEnabled"`
-	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 	ZscalerIncidentReceiver pulumi.BoolPtrOutput `pulumi:"zscalerIncidentReceiver"`
 }
 
@@ -171,42 +194,50 @@ func GetDLPWebRules(ctx *pulumi.Context,
 type dlpwebRulesState struct {
 	// The action taken when traffic matches the DLP policy rule criteria.
 	Action *string `pulumi:"action"`
-	// The auditor to which the DLP policy rule must be applied.
+	// The auditor to which the DLP policy rule must be applied
 	Auditors []DLPWebRulesAuditor `pulumi:"auditors"`
-	// The list of cloud applications to which the DLP policy rule must be applied.
+	// The list of cloud applications to which the DLP policy rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications []string `pulumi:"cloudApplications"`
-	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied
 	Departments *DLPWebRulesDepartments `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description *string `pulumi:"description"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	DlpDownloadScanEnabled *bool `pulumi:"dlpDownloadScanEnabled"`
-	// The list of DLP engines to which the DLP policy rule must be applied.
+	// The list of DLP engines to which the DLP policy rule must be applied
 	DlpEngines *DLPWebRulesDlpEngines `pulumi:"dlpEngines"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The EUN template ID associated with the rule
+	EunTemplateId *int `pulumi:"eunTemplateId"`
+	// The Name-ID pairs of departments which the DLP policy rule must exclude
 	ExcludedDepartments *DLPWebRulesExcludedDepartments `pulumi:"excludedDepartments"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 	ExcludedDomainProfiles *DLPWebRulesExcludedDomainProfiles `pulumi:"excludedDomainProfiles"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups which the DLP policy rule must exclude
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users which the DLP policy rule must exclude
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
-	// The list of file types for which the DLP policy rule must be applied.
+	// The list of file types to which the rule applies
+	FileTypeCategories *DLPWebRulesFileTypeCategories `pulumi:"fileTypeCategories"`
+	// The list of file types for which the DLP policy rule must be applied,
+	// 				See the Web DLP Rules API for the list of available File types:
+	// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 	FileTypes []string `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied
 	Groups *DLPWebRulesGroups `pulumi:"groups"`
-	// The DLP server, using ICAP, to which the transaction content is forwarded.
+	// The DLP server, using ICAP, to which the transaction content is forwarded
 	IcapServers []DLPWebRulesIcapServer `pulumi:"icapServers"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 	IncludedDomainProfiles *DLPWebRulesIncludedDomainProfiles `pulumi:"includedDomainProfiles"`
 	InspectHttpGetEnabled  *bool                              `pulumi:"inspectHttpGetEnabled"`
-	// list of Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule
 	Labels *DLPWebRulesLabels `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 	LocationGroups *DLPWebRulesLocationGroups `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied
 	Locations *DLPWebRulesLocations `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly *bool `pulumi:"matchOnly"`
@@ -214,7 +245,7 @@ type dlpwebRulesState struct {
 	MinSize *int `pulumi:"minSize"`
 	// The DLP policy rule name.
 	Name *string `pulumi:"name"`
-	// The template used for DLP notification emails.
+	// The template used for DLP notification emails
 	NotificationTemplates []DLPWebRulesNotificationTemplate `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order *int `pulumi:"order"`
@@ -223,8 +254,10 @@ type dlpwebRulesState struct {
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols []string `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
-	Rank   *int `pulumi:"rank"`
-	RuleId *int `pulumi:"ruleId"`
+	Rank *int `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver *DLPWebRulesReceiver `pulumi:"receiver"`
+	RuleId   *int                 `pulumi:"ruleId"`
 	// Indicates the severity selected for the DLP rule violation
 	Severity *string `pulumi:"severity"`
 	// list of source ip groups
@@ -233,12 +266,12 @@ type dlpwebRulesState struct {
 	State *string `pulumi:"state"`
 	// The list of exception rules added to a parent rule
 	SubRules []string `pulumi:"subRules"`
-	// list of time interval during which rule must be enforced.
+	// list of source ip groups
 	TimeWindows *DLPWebRulesTimeWindows `pulumi:"timeWindows"`
-	// The list of URL categories to which the DLP policy rule must be applied.
+	// The list of URL categories to which the DLP policy rule must be applied
 	UrlCategories       *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
 	UserRiskScoreLevels []string                  `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied
 	Users *DLPWebRulesUsers `pulumi:"users"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
@@ -246,49 +279,57 @@ type dlpwebRulesState struct {
 	WorkloadGroups []DLPWebRulesWorkloadGroup `pulumi:"workloadGroups"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled *bool `pulumi:"zccNotificationsEnabled"`
-	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 	ZscalerIncidentReceiver *bool `pulumi:"zscalerIncidentReceiver"`
 }
 
 type DLPWebRulesState struct {
 	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringPtrInput
-	// The auditor to which the DLP policy rule must be applied.
+	// The auditor to which the DLP policy rule must be applied
 	Auditors DLPWebRulesAuditorArrayInput
-	// The list of cloud applications to which the DLP policy rule must be applied.
+	// The list of cloud applications to which the DLP policy rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayInput
-	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied
 	Departments DLPWebRulesDepartmentsPtrInput
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	DlpDownloadScanEnabled pulumi.BoolPtrInput
-	// The list of DLP engines to which the DLP policy rule must be applied.
+	// The list of DLP engines to which the DLP policy rule must be applied
 	DlpEngines DLPWebRulesDlpEnginesPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The EUN template ID associated with the rule
+	EunTemplateId pulumi.IntPtrInput
+	// The Name-ID pairs of departments which the DLP policy rule must exclude
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups which the DLP policy rule must exclude
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users which the DLP policy rule must exclude
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
 	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail pulumi.StringPtrInput
-	// The list of file types for which the DLP policy rule must be applied.
+	// The list of file types to which the rule applies
+	FileTypeCategories DLPWebRulesFileTypeCategoriesPtrInput
+	// The list of file types for which the DLP policy rule must be applied,
+	// 				See the Web DLP Rules API for the list of available File types:
+	// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 	FileTypes pulumi.StringArrayInput
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied
 	Groups DLPWebRulesGroupsPtrInput
-	// The DLP server, using ICAP, to which the transaction content is forwarded.
+	// The DLP server, using ICAP, to which the transaction content is forwarded
 	IcapServers DLPWebRulesIcapServerArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesPtrInput
 	InspectHttpGetEnabled  pulumi.BoolPtrInput
-	// list of Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule
 	Labels DLPWebRulesLabelsPtrInput
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 	LocationGroups DLPWebRulesLocationGroupsPtrInput
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied
 	Locations DLPWebRulesLocationsPtrInput
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolPtrInput
@@ -296,7 +337,7 @@ type DLPWebRulesState struct {
 	MinSize pulumi.IntPtrInput
 	// The DLP policy rule name.
 	Name pulumi.StringPtrInput
-	// The template used for DLP notification emails.
+	// The template used for DLP notification emails
 	NotificationTemplates DLPWebRulesNotificationTemplateArrayInput
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntPtrInput
@@ -305,8 +346,10 @@ type DLPWebRulesState struct {
 	// The protocol criteria specified for the DLP policy rule.
 	Protocols pulumi.StringArrayInput
 	// Admin rank of the admin who creates this rule
-	Rank   pulumi.IntPtrInput
-	RuleId pulumi.IntPtrInput
+	Rank pulumi.IntPtrInput
+	// The receiver information for the DLP policy rule
+	Receiver DLPWebRulesReceiverPtrInput
+	RuleId   pulumi.IntPtrInput
 	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringPtrInput
 	// list of source ip groups
@@ -315,12 +358,12 @@ type DLPWebRulesState struct {
 	State pulumi.StringPtrInput
 	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayInput
-	// list of time interval during which rule must be enforced.
+	// list of source ip groups
 	TimeWindows DLPWebRulesTimeWindowsPtrInput
-	// The list of URL categories to which the DLP policy rule must be applied.
+	// The list of URL categories to which the DLP policy rule must be applied
 	UrlCategories       DLPWebRulesUrlCategoriesPtrInput
 	UserRiskScoreLevels pulumi.StringArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied
 	Users DLPWebRulesUsersPtrInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolPtrInput
@@ -328,7 +371,7 @@ type DLPWebRulesState struct {
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled pulumi.BoolPtrInput
-	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 	ZscalerIncidentReceiver pulumi.BoolPtrInput
 }
 
@@ -339,42 +382,50 @@ func (DLPWebRulesState) ElementType() reflect.Type {
 type dlpwebRulesArgs struct {
 	// The action taken when traffic matches the DLP policy rule criteria.
 	Action *string `pulumi:"action"`
-	// The auditor to which the DLP policy rule must be applied.
+	// The auditor to which the DLP policy rule must be applied
 	Auditors []DLPWebRulesAuditor `pulumi:"auditors"`
-	// The list of cloud applications to which the DLP policy rule must be applied.
+	// The list of cloud applications to which the DLP policy rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications []string `pulumi:"cloudApplications"`
-	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied
 	Departments *DLPWebRulesDepartments `pulumi:"departments"`
 	// The description of the DLP policy rule.
 	Description *string `pulumi:"description"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	DlpDownloadScanEnabled *bool `pulumi:"dlpDownloadScanEnabled"`
-	// The list of DLP engines to which the DLP policy rule must be applied.
+	// The list of DLP engines to which the DLP policy rule must be applied
 	DlpEngines *DLPWebRulesDlpEngines `pulumi:"dlpEngines"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The EUN template ID associated with the rule
+	EunTemplateId *int `pulumi:"eunTemplateId"`
+	// The Name-ID pairs of departments which the DLP policy rule must exclude
 	ExcludedDepartments *DLPWebRulesExcludedDepartments `pulumi:"excludedDepartments"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 	ExcludedDomainProfiles *DLPWebRulesExcludedDomainProfiles `pulumi:"excludedDomainProfiles"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups which the DLP policy rule must exclude
 	ExcludedGroups *DLPWebRulesExcludedGroups `pulumi:"excludedGroups"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users which the DLP policy rule must exclude
 	ExcludedUsers *DLPWebRulesExcludedUsers `pulumi:"excludedUsers"`
 	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
-	// The list of file types for which the DLP policy rule must be applied.
+	// The list of file types to which the rule applies
+	FileTypeCategories *DLPWebRulesFileTypeCategories `pulumi:"fileTypeCategories"`
+	// The list of file types for which the DLP policy rule must be applied,
+	// 				See the Web DLP Rules API for the list of available File types:
+	// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 	FileTypes []string `pulumi:"fileTypes"`
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied
 	Groups *DLPWebRulesGroups `pulumi:"groups"`
-	// The DLP server, using ICAP, to which the transaction content is forwarded.
+	// The DLP server, using ICAP, to which the transaction content is forwarded
 	IcapServers []DLPWebRulesIcapServer `pulumi:"icapServers"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 	IncludedDomainProfiles *DLPWebRulesIncludedDomainProfiles `pulumi:"includedDomainProfiles"`
 	InspectHttpGetEnabled  *bool                              `pulumi:"inspectHttpGetEnabled"`
-	// list of Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule
 	Labels *DLPWebRulesLabels `pulumi:"labels"`
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 	LocationGroups *DLPWebRulesLocationGroups `pulumi:"locationGroups"`
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied
 	Locations *DLPWebRulesLocations `pulumi:"locations"`
 	// The match only criteria for DLP engines.
 	MatchOnly *bool `pulumi:"matchOnly"`
@@ -382,7 +433,7 @@ type dlpwebRulesArgs struct {
 	MinSize *int `pulumi:"minSize"`
 	// The DLP policy rule name.
 	Name *string `pulumi:"name"`
-	// The template used for DLP notification emails.
+	// The template used for DLP notification emails
 	NotificationTemplates []DLPWebRulesNotificationTemplate `pulumi:"notificationTemplates"`
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order int `pulumi:"order"`
@@ -392,6 +443,8 @@ type dlpwebRulesArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// Admin rank of the admin who creates this rule
 	Rank *int `pulumi:"rank"`
+	// The receiver information for the DLP policy rule
+	Receiver *DLPWebRulesReceiver `pulumi:"receiver"`
 	// Indicates the severity selected for the DLP rule violation
 	Severity *string `pulumi:"severity"`
 	// list of source ip groups
@@ -400,12 +453,12 @@ type dlpwebRulesArgs struct {
 	State *string `pulumi:"state"`
 	// The list of exception rules added to a parent rule
 	SubRules []string `pulumi:"subRules"`
-	// list of time interval during which rule must be enforced.
+	// list of source ip groups
 	TimeWindows *DLPWebRulesTimeWindows `pulumi:"timeWindows"`
-	// The list of URL categories to which the DLP policy rule must be applied.
+	// The list of URL categories to which the DLP policy rule must be applied
 	UrlCategories       *DLPWebRulesUrlCategories `pulumi:"urlCategories"`
 	UserRiskScoreLevels []string                  `pulumi:"userRiskScoreLevels"`
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied
 	Users *DLPWebRulesUsers `pulumi:"users"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
@@ -413,7 +466,7 @@ type dlpwebRulesArgs struct {
 	WorkloadGroups []DLPWebRulesWorkloadGroup `pulumi:"workloadGroups"`
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled *bool `pulumi:"zccNotificationsEnabled"`
-	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 	ZscalerIncidentReceiver *bool `pulumi:"zscalerIncidentReceiver"`
 }
 
@@ -421,42 +474,50 @@ type dlpwebRulesArgs struct {
 type DLPWebRulesArgs struct {
 	// The action taken when traffic matches the DLP policy rule criteria.
 	Action pulumi.StringPtrInput
-	// The auditor to which the DLP policy rule must be applied.
+	// The auditor to which the DLP policy rule must be applied
 	Auditors DLPWebRulesAuditorArrayInput
-	// The list of cloud applications to which the DLP policy rule must be applied.
+	// The list of cloud applications to which the DLP policy rule must be applied
+	// 				Use the data source getCloudApplications to get the list of available cloud applications:
+	// 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 	CloudApplications pulumi.StringArrayInput
-	// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+	// The Name-ID pairs of departments to which the DLP policy rule must be applied
 	Departments DLPWebRulesDepartmentsPtrInput
 	// The description of the DLP policy rule.
 	Description pulumi.StringPtrInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	DlpDownloadScanEnabled pulumi.BoolPtrInput
-	// The list of DLP engines to which the DLP policy rule must be applied.
+	// The list of DLP engines to which the DLP policy rule must be applied
 	DlpEngines DLPWebRulesDlpEnginesPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The EUN template ID associated with the rule
+	EunTemplateId pulumi.IntPtrInput
+	// The Name-ID pairs of departments which the DLP policy rule must exclude
 	ExcludedDepartments DLPWebRulesExcludedDepartmentsPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 	ExcludedDomainProfiles DLPWebRulesExcludedDomainProfilesPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups which the DLP policy rule must exclude
 	ExcludedGroups DLPWebRulesExcludedGroupsPtrInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users which the DLP policy rule must exclude
 	ExcludedUsers DLPWebRulesExcludedUsersPtrInput
 	// The email address of an external auditor to whom DLP email notifications are sent
 	ExternalAuditorEmail pulumi.StringPtrInput
-	// The list of file types for which the DLP policy rule must be applied.
+	// The list of file types to which the rule applies
+	FileTypeCategories DLPWebRulesFileTypeCategoriesPtrInput
+	// The list of file types for which the DLP policy rule must be applied,
+	// 				See the Web DLP Rules API for the list of available File types:
+	// 				https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 	FileTypes pulumi.StringArrayInput
-	// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of groups to which the DLP policy rule must be applied
 	Groups DLPWebRulesGroupsPtrInput
-	// The DLP server, using ICAP, to which the transaction content is forwarded.
+	// The DLP server, using ICAP, to which the transaction content is forwarded
 	IcapServers DLPWebRulesIcapServerArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 	IncludedDomainProfiles DLPWebRulesIncludedDomainProfilesPtrInput
 	InspectHttpGetEnabled  pulumi.BoolPtrInput
-	// list of Labels that are applicable to the rule.
+	// list of Labels that are applicable to the rule
 	Labels DLPWebRulesLabelsPtrInput
-	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 	LocationGroups DLPWebRulesLocationGroupsPtrInput
-	// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+	// The Name-ID pairs of locations to which the DLP policy rule must be applied
 	Locations DLPWebRulesLocationsPtrInput
 	// The match only criteria for DLP engines.
 	MatchOnly pulumi.BoolPtrInput
@@ -464,7 +525,7 @@ type DLPWebRulesArgs struct {
 	MinSize pulumi.IntPtrInput
 	// The DLP policy rule name.
 	Name pulumi.StringPtrInput
-	// The template used for DLP notification emails.
+	// The template used for DLP notification emails
 	NotificationTemplates DLPWebRulesNotificationTemplateArrayInput
 	// The rule order of execution for the DLP policy rule with respect to other rules.
 	Order pulumi.IntInput
@@ -474,6 +535,8 @@ type DLPWebRulesArgs struct {
 	Protocols pulumi.StringArrayInput
 	// Admin rank of the admin who creates this rule
 	Rank pulumi.IntPtrInput
+	// The receiver information for the DLP policy rule
+	Receiver DLPWebRulesReceiverPtrInput
 	// Indicates the severity selected for the DLP rule violation
 	Severity pulumi.StringPtrInput
 	// list of source ip groups
@@ -482,12 +545,12 @@ type DLPWebRulesArgs struct {
 	State pulumi.StringPtrInput
 	// The list of exception rules added to a parent rule
 	SubRules pulumi.StringArrayInput
-	// list of time interval during which rule must be enforced.
+	// list of source ip groups
 	TimeWindows DLPWebRulesTimeWindowsPtrInput
-	// The list of URL categories to which the DLP policy rule must be applied.
+	// The list of URL categories to which the DLP policy rule must be applied
 	UrlCategories       DLPWebRulesUrlCategoriesPtrInput
 	UserRiskScoreLevels pulumi.StringArrayInput
-	// The Name-ID pairs of users to which the DLP policy rule must be applied.
+	// The Name-ID pairs of users to which the DLP policy rule must be applied
 	Users DLPWebRulesUsersPtrInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	WithoutContentInspection pulumi.BoolPtrInput
@@ -495,7 +558,7 @@ type DLPWebRulesArgs struct {
 	WorkloadGroups DLPWebRulesWorkloadGroupArrayInput
 	// Indicates a DLP policy rule without content inspection, when the value is set to true.
 	ZccNotificationsEnabled pulumi.BoolPtrInput
-	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+	// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 	ZscalerIncidentReceiver pulumi.BoolPtrInput
 }
 
@@ -591,17 +654,20 @@ func (o DLPWebRulesOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The auditor to which the DLP policy rule must be applied.
+// The auditor to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) Auditors() DLPWebRulesAuditorArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesAuditorArrayOutput { return v.Auditors }).(DLPWebRulesAuditorArrayOutput)
 }
 
-// The list of cloud applications to which the DLP policy rule must be applied.
+// The list of cloud applications to which the DLP policy rule must be applied
+//
+//	Use the data source getCloudApplications to get the list of available cloud applications:
+//	https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
 func (o DLPWebRulesOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of departments to which the DLP policy rule must be applied.
+// The Name-ID pairs of departments to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) Departments() DLPWebRulesDepartmentsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesDepartmentsPtrOutput { return v.Departments }).(DLPWebRulesDepartmentsPtrOutput)
 }
@@ -616,27 +682,32 @@ func (o DLPWebRulesOutput) DlpDownloadScanEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolOutput { return v.DlpDownloadScanEnabled }).(pulumi.BoolOutput)
 }
 
-// The list of DLP engines to which the DLP policy rule must be applied.
+// The list of DLP engines to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) DlpEngines() DLPWebRulesDlpEnginesPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesDlpEnginesPtrOutput { return v.DlpEngines }).(DLPWebRulesDlpEnginesPtrOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The EUN template ID associated with the rule
+func (o DLPWebRulesOutput) EunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DLPWebRules) pulumi.IntPtrOutput { return v.EunTemplateId }).(pulumi.IntPtrOutput)
+}
+
+// The Name-ID pairs of departments which the DLP policy rule must exclude
 func (o DLPWebRulesOutput) ExcludedDepartments() DLPWebRulesExcludedDepartmentsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedDepartmentsPtrOutput { return v.ExcludedDepartments }).(DLPWebRulesExcludedDepartmentsPtrOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The Name-ID pairs of domain profiles to which the DLP policy rule must exclude
 func (o DLPWebRulesOutput) ExcludedDomainProfiles() DLPWebRulesExcludedDomainProfilesPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedDomainProfilesPtrOutput { return v.ExcludedDomainProfiles }).(DLPWebRulesExcludedDomainProfilesPtrOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The Name-ID pairs of groups which the DLP policy rule must exclude
 func (o DLPWebRulesOutput) ExcludedGroups() DLPWebRulesExcludedGroupsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedGroupsPtrOutput { return v.ExcludedGroups }).(DLPWebRulesExcludedGroupsPtrOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The Name-ID pairs of users which the DLP policy rule must exclude
 func (o DLPWebRulesOutput) ExcludedUsers() DLPWebRulesExcludedUsersPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesExcludedUsersPtrOutput { return v.ExcludedUsers }).(DLPWebRulesExcludedUsersPtrOutput)
 }
@@ -646,22 +717,30 @@ func (o DLPWebRulesOutput) ExternalAuditorEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringPtrOutput { return v.ExternalAuditorEmail }).(pulumi.StringPtrOutput)
 }
 
-// The list of file types for which the DLP policy rule must be applied.
+// The list of file types to which the rule applies
+func (o DLPWebRulesOutput) FileTypeCategories() DLPWebRulesFileTypeCategoriesPtrOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesFileTypeCategoriesPtrOutput { return v.FileTypeCategories }).(DLPWebRulesFileTypeCategoriesPtrOutput)
+}
+
+// The list of file types for which the DLP policy rule must be applied,
+//
+//	See the Web DLP Rules API for the list of available File types:
+//	https://help.zscaler.com/zia/data-loss-prevention#/webDlpRules-get
 func (o DLPWebRulesOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of groups to which the DLP policy rule must be applied.
+// The Name-ID pairs of groups to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) Groups() DLPWebRulesGroupsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesGroupsPtrOutput { return v.Groups }).(DLPWebRulesGroupsPtrOutput)
 }
 
-// The DLP server, using ICAP, to which the transaction content is forwarded.
+// The DLP server, using ICAP, to which the transaction content is forwarded
 func (o DLPWebRulesOutput) IcapServers() DLPWebRulesIcapServerArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesIcapServerArrayOutput { return v.IcapServers }).(DLPWebRulesIcapServerArrayOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The Name-ID pairs of domain profiiles which the DLP policy rule must include
 func (o DLPWebRulesOutput) IncludedDomainProfiles() DLPWebRulesIncludedDomainProfilesPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesIncludedDomainProfilesPtrOutput { return v.IncludedDomainProfiles }).(DLPWebRulesIncludedDomainProfilesPtrOutput)
 }
@@ -670,17 +749,17 @@ func (o DLPWebRulesOutput) InspectHttpGetEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolPtrOutput { return v.InspectHttpGetEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// list of Labels that are applicable to the rule.
+// list of Labels that are applicable to the rule
 func (o DLPWebRulesOutput) Labels() DLPWebRulesLabelsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLabelsPtrOutput { return v.Labels }).(DLPWebRulesLabelsPtrOutput)
 }
 
-// The Name-ID pairs of locations groups to which the DLP policy rule must be applied.
+// The Name-ID pairs of locations groups to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) LocationGroups() DLPWebRulesLocationGroupsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLocationGroupsPtrOutput { return v.LocationGroups }).(DLPWebRulesLocationGroupsPtrOutput)
 }
 
-// The Name-ID pairs of locations to which the DLP policy rule must be applied.
+// The Name-ID pairs of locations to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) Locations() DLPWebRulesLocationsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesLocationsPtrOutput { return v.Locations }).(DLPWebRulesLocationsPtrOutput)
 }
@@ -700,7 +779,7 @@ func (o DLPWebRulesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The template used for DLP notification emails.
+// The template used for DLP notification emails
 func (o DLPWebRulesOutput) NotificationTemplates() DLPWebRulesNotificationTemplateArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesNotificationTemplateArrayOutput { return v.NotificationTemplates }).(DLPWebRulesNotificationTemplateArrayOutput)
 }
@@ -723,6 +802,11 @@ func (o DLPWebRulesOutput) Protocols() pulumi.StringArrayOutput {
 // Admin rank of the admin who creates this rule
 func (o DLPWebRulesOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.IntOutput { return v.Rank }).(pulumi.IntOutput)
+}
+
+// The receiver information for the DLP policy rule
+func (o DLPWebRulesOutput) Receiver() DLPWebRulesReceiverPtrOutput {
+	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesReceiverPtrOutput { return v.Receiver }).(DLPWebRulesReceiverPtrOutput)
 }
 
 func (o DLPWebRulesOutput) RuleId() pulumi.IntOutput {
@@ -749,12 +833,12 @@ func (o DLPWebRulesOutput) SubRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.SubRules }).(pulumi.StringArrayOutput)
 }
 
-// list of time interval during which rule must be enforced.
+// list of source ip groups
 func (o DLPWebRulesOutput) TimeWindows() DLPWebRulesTimeWindowsPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesTimeWindowsPtrOutput { return v.TimeWindows }).(DLPWebRulesTimeWindowsPtrOutput)
 }
 
-// The list of URL categories to which the DLP policy rule must be applied.
+// The list of URL categories to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) UrlCategories() DLPWebRulesUrlCategoriesPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesUrlCategoriesPtrOutput { return v.UrlCategories }).(DLPWebRulesUrlCategoriesPtrOutput)
 }
@@ -763,7 +847,7 @@ func (o DLPWebRulesOutput) UserRiskScoreLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.StringArrayOutput { return v.UserRiskScoreLevels }).(pulumi.StringArrayOutput)
 }
 
-// The Name-ID pairs of users to which the DLP policy rule must be applied.
+// The Name-ID pairs of users to which the DLP policy rule must be applied
 func (o DLPWebRulesOutput) Users() DLPWebRulesUsersPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) DLPWebRulesUsersPtrOutput { return v.Users }).(DLPWebRulesUsersPtrOutput)
 }
@@ -783,7 +867,7 @@ func (o DLPWebRulesOutput) ZccNotificationsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolOutput { return v.ZccNotificationsEnabled }).(pulumi.BoolOutput)
 }
 
-// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule.
+// Indicates whether a Zscaler Incident Receiver is associated to the DLP policy rule
 func (o DLPWebRulesOutput) ZscalerIncidentReceiver() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DLPWebRules) pulumi.BoolPtrOutput { return v.ZscalerIncidentReceiver }).(pulumi.BoolPtrOutput)
 }

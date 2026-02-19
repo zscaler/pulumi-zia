@@ -93,7 +93,13 @@ export interface GetDLPDictionariesResult {
      * (Boolean) This field is set to true if the dictionary is cloned from a predefined dictionary. Otherwise, it is set to false.
      */
     readonly predefinedClone: boolean;
+    /**
+     * (Optional, Integer) The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. Supported values between `0` and `10000`
+     */
     readonly proximity: number;
+    /**
+     * (Optional, Boolean) A Boolean constant that indicates whether the proximity length option is supported for a DLP dictionary or not. A true value indicates that the proximity length option is supported, whereas a false value indicates that it is not supported.
+     */
     readonly proximityLengthEnabled: boolean;
     readonly thresholdType: string;
 }

@@ -46,6 +46,7 @@ type LookupDLPWebRulesResult struct {
 	ExcludedGroups           []GetDLPWebRulesExcludedGroup         `pulumi:"excludedGroups"`
 	ExcludedUsers            []GetDLPWebRulesExcludedUser          `pulumi:"excludedUsers"`
 	ExternalAuditorEmail     string                                `pulumi:"externalAuditorEmail"`
+	FileTypeCategories       []GetDLPWebRulesFileTypeCategory      `pulumi:"fileTypeCategories"`
 	FileTypes                []string                              `pulumi:"fileTypes"`
 	Groups                   []GetDLPWebRulesGroup                 `pulumi:"groups"`
 	Id                       *int                                  `pulumi:"id"`
@@ -62,6 +63,7 @@ type LookupDLPWebRulesResult struct {
 	ParentRule               int                                   `pulumi:"parentRule"`
 	Protocols                []string                              `pulumi:"protocols"`
 	Rank                     int                                   `pulumi:"rank"`
+	Receivers                []GetDLPWebRulesReceiver              `pulumi:"receivers"`
 	Severity                 string                                `pulumi:"severity"`
 	SourceIpGroups           []GetDLPWebRulesSourceIpGroup         `pulumi:"sourceIpGroups"`
 	State                    string                                `pulumi:"state"`
@@ -153,6 +155,10 @@ func (o LookupDLPWebRulesResultOutput) ExternalAuditorEmail() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupDLPWebRulesResult) string { return v.ExternalAuditorEmail }).(pulumi.StringOutput)
 }
 
+func (o LookupDLPWebRulesResultOutput) FileTypeCategories() GetDLPWebRulesFileTypeCategoryArrayOutput {
+	return o.ApplyT(func(v LookupDLPWebRulesResult) []GetDLPWebRulesFileTypeCategory { return v.FileTypeCategories }).(GetDLPWebRulesFileTypeCategoryArrayOutput)
+}
+
 func (o LookupDLPWebRulesResultOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDLPWebRulesResult) []string { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
@@ -215,6 +221,10 @@ func (o LookupDLPWebRulesResultOutput) Protocols() pulumi.StringArrayOutput {
 
 func (o LookupDLPWebRulesResultOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDLPWebRulesResult) int { return v.Rank }).(pulumi.IntOutput)
+}
+
+func (o LookupDLPWebRulesResultOutput) Receivers() GetDLPWebRulesReceiverArrayOutput {
+	return o.ApplyT(func(v LookupDLPWebRulesResult) []GetDLPWebRulesReceiver { return v.Receivers }).(GetDLPWebRulesReceiverArrayOutput)
 }
 
 func (o LookupDLPWebRulesResultOutput) Severity() pulumi.StringOutput {

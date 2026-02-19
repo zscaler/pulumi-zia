@@ -15,12 +15,19 @@ namespace zscaler.PulumiPackage.Zia.Inputs
     {
         [Input("extensions")]
         private InputMap<string>? _extensions;
+
+        /// <summary>
+        /// Extensions map
+        /// </summary>
         public InputMap<string> Extensions
         {
             get => _extensions ?? (_extensions = new InputMap<string>());
             set => _extensions = value;
         }
 
+        /// <summary>
+        /// Identifier that uniquely identifies an entity
+        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 

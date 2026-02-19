@@ -21,8 +21,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_firewall_filtering_destination_groups** can be imported by using `<GROUP_ID>` or `<GROUP_NAME>` as the import ID.
 //
@@ -42,8 +41,7 @@ type FirewallFilteringDestinationGroups struct {
 
 	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	Countries pulumi.StringArrayOutput `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -89,8 +87,7 @@ func GetFirewallFilteringDestinationGroups(ctx *pulumi.Context,
 type firewallFilteringDestinationGroupsState struct {
 	// Destination IP addresses within the group
 	Addresses []string `pulumi:"addresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	Countries []string `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description *string `pulumi:"description"`
@@ -107,8 +104,7 @@ type firewallFilteringDestinationGroupsState struct {
 type FirewallFilteringDestinationGroupsState struct {
 	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	Countries pulumi.StringArrayInput
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrInput
@@ -129,8 +125,7 @@ func (FirewallFilteringDestinationGroupsState) ElementType() reflect.Type {
 type firewallFilteringDestinationGroupsArgs struct {
 	// Destination IP addresses within the group
 	Addresses []string `pulumi:"addresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	Countries []string `pulumi:"countries"`
 	// Additional information about the destination IP group
 	Description *string `pulumi:"description"`
@@ -146,8 +141,7 @@ type firewallFilteringDestinationGroupsArgs struct {
 type FirewallFilteringDestinationGroupsArgs struct {
 	// Destination IP addresses within the group
 	Addresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	Countries pulumi.StringArrayInput
 	// Additional information about the destination IP group
 	Description pulumi.StringPtrInput
@@ -251,8 +245,7 @@ func (o FirewallFilteringDestinationGroupsOutput) Addresses() pulumi.StringArray
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 func (o FirewallFilteringDestinationGroupsOutput) Countries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringDestinationGroups) pulumi.StringArrayOutput { return v.Countries }).(pulumi.StringArrayOutput)
 }

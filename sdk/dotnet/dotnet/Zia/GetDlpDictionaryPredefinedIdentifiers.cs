@@ -68,6 +68,12 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetDlpDictionaryPredefinedIdentifiersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (String) The ID of the hierarchical DLP dictionary.
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
         /// The name of the hierarchical DLP dictionary.
         /// </summary>
         [Input("name", required: true)]
@@ -81,6 +87,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDlpDictionaryPredefinedIdentifiersInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (String) The ID of the hierarchical DLP dictionary.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// The name of the hierarchical DLP dictionary.
         /// </summary>

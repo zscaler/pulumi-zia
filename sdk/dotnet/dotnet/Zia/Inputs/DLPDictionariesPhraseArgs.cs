@@ -17,7 +17,7 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// DLP dictionary phrase
+        /// DLP dictionary phrase (0-128 characters)
         /// </summary>
         [Input("phrase")]
         public Input<string>? Phrase { get; set; }

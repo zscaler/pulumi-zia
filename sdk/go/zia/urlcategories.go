@@ -21,8 +21,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_url_categories** can be imported by using `<CATEGORY_ID>` or `<CATEGORY_NAME>` as the import ID.
 //
@@ -44,25 +43,30 @@ type URLCategories struct {
 
 	CategoryId pulumi.StringOutput `pulumi:"categoryId"`
 	// Name of the URL category. This is only required for custom URL categories.
-	ConfiguredName                       pulumi.StringPtrOutput        `pulumi:"configuredName"`
-	CustomCategory                       pulumi.BoolPtrOutput          `pulumi:"customCategory"`
-	CustomIpRangesCount                  pulumi.IntOutput              `pulumi:"customIpRangesCount"`
-	CustomUrlsCount                      pulumi.IntOutput              `pulumi:"customUrlsCount"`
-	DbCategorizedUrls                    pulumi.StringArrayOutput      `pulumi:"dbCategorizedUrls"`
-	Description                          pulumi.StringPtrOutput        `pulumi:"description"`
-	Editable                             pulumi.BoolOutput             `pulumi:"editable"`
-	IpRanges                             pulumi.StringArrayOutput      `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategories    pulumi.StringArrayOutput      `pulumi:"ipRangesRetainingParentCategories"`
-	IpRangesRetainingParentCategoryCount pulumi.IntOutput              `pulumi:"ipRangesRetainingParentCategoryCount"`
-	Keywords                             pulumi.StringArrayOutput      `pulumi:"keywords"`
-	KeywordsRetainingParentCategories    pulumi.StringArrayOutput      `pulumi:"keywordsRetainingParentCategories"`
-	Scopes                               URLCategoriesScopeArrayOutput `pulumi:"scopes"`
-	// Super Category of the URL category. This field is required when creating custom URL categories.
-	SuperCategory                    pulumi.StringPtrOutput              `pulumi:"superCategory"`
+	ConfiguredName                         pulumi.StringPtrOutput        `pulumi:"configuredName"`
+	CustomCategory                         pulumi.BoolPtrOutput          `pulumi:"customCategory"`
+	CustomIpRangesCount                    pulumi.IntOutput              `pulumi:"customIpRangesCount"`
+	CustomUrlsCount                        pulumi.IntOutput              `pulumi:"customUrlsCount"`
+	DbCategorizedUrls                      pulumi.StringArrayOutput      `pulumi:"dbCategorizedUrls"`
+	Description                            pulumi.StringPtrOutput        `pulumi:"description"`
+	Editable                               pulumi.BoolOutput             `pulumi:"editable"`
+	IpRanges                               pulumi.StringArrayOutput      `pulumi:"ipRanges"`
+	IpRangesRetainingParentCategories      pulumi.StringArrayOutput      `pulumi:"ipRangesRetainingParentCategories"`
+	IpRangesRetainingParentCategoryCount   pulumi.IntOutput              `pulumi:"ipRangesRetainingParentCategoryCount"`
+	Keywords                               pulumi.StringArrayOutput      `pulumi:"keywords"`
+	KeywordsRetainingParentCategories      pulumi.StringArrayOutput      `pulumi:"keywordsRetainingParentCategories"`
+	RegexPatterns                          pulumi.StringArrayOutput      `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories pulumi.StringArrayOutput      `pulumi:"regexPatternsRetainingParentCategories"`
+	Scopes                                 URLCategoriesScopeArrayOutput `pulumi:"scopes"`
+	// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
+	SuperCategory                    pulumi.StringOutput                 `pulumi:"superCategory"`
 	Type                             pulumi.StringPtrOutput              `pulumi:"type"`
 	UrlKeywordCounts                 URLCategoriesUrlKeywordCountsOutput `pulumi:"urlKeywordCounts"`
+	UrlType                          pulumi.StringOutput                 `pulumi:"urlType"`
 	Urls                             pulumi.StringArrayOutput            `pulumi:"urls"`
 	UrlsRetainingParentCategoryCount pulumi.IntOutput                    `pulumi:"urlsRetainingParentCategoryCount"`
+	// The unique ID for the URL category.
+	Val pulumi.IntOutput `pulumi:"val"`
 }
 
 // NewURLCategories registers a new resource with the given unique name, arguments, and options.
@@ -97,49 +101,59 @@ func GetURLCategories(ctx *pulumi.Context,
 type urlcategoriesState struct {
 	CategoryId *string `pulumi:"categoryId"`
 	// Name of the URL category. This is only required for custom URL categories.
-	ConfiguredName                       *string              `pulumi:"configuredName"`
-	CustomCategory                       *bool                `pulumi:"customCategory"`
-	CustomIpRangesCount                  *int                 `pulumi:"customIpRangesCount"`
-	CustomUrlsCount                      *int                 `pulumi:"customUrlsCount"`
-	DbCategorizedUrls                    []string             `pulumi:"dbCategorizedUrls"`
-	Description                          *string              `pulumi:"description"`
-	Editable                             *bool                `pulumi:"editable"`
-	IpRanges                             []string             `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategories    []string             `pulumi:"ipRangesRetainingParentCategories"`
-	IpRangesRetainingParentCategoryCount *int                 `pulumi:"ipRangesRetainingParentCategoryCount"`
-	Keywords                             []string             `pulumi:"keywords"`
-	KeywordsRetainingParentCategories    []string             `pulumi:"keywordsRetainingParentCategories"`
-	Scopes                               []URLCategoriesScope `pulumi:"scopes"`
-	// Super Category of the URL category. This field is required when creating custom URL categories.
+	ConfiguredName                         *string              `pulumi:"configuredName"`
+	CustomCategory                         *bool                `pulumi:"customCategory"`
+	CustomIpRangesCount                    *int                 `pulumi:"customIpRangesCount"`
+	CustomUrlsCount                        *int                 `pulumi:"customUrlsCount"`
+	DbCategorizedUrls                      []string             `pulumi:"dbCategorizedUrls"`
+	Description                            *string              `pulumi:"description"`
+	Editable                               *bool                `pulumi:"editable"`
+	IpRanges                               []string             `pulumi:"ipRanges"`
+	IpRangesRetainingParentCategories      []string             `pulumi:"ipRangesRetainingParentCategories"`
+	IpRangesRetainingParentCategoryCount   *int                 `pulumi:"ipRangesRetainingParentCategoryCount"`
+	Keywords                               []string             `pulumi:"keywords"`
+	KeywordsRetainingParentCategories      []string             `pulumi:"keywordsRetainingParentCategories"`
+	RegexPatterns                          []string             `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories []string             `pulumi:"regexPatternsRetainingParentCategories"`
+	Scopes                                 []URLCategoriesScope `pulumi:"scopes"`
+	// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
 	SuperCategory                    *string                        `pulumi:"superCategory"`
 	Type                             *string                        `pulumi:"type"`
 	UrlKeywordCounts                 *URLCategoriesUrlKeywordCounts `pulumi:"urlKeywordCounts"`
+	UrlType                          *string                        `pulumi:"urlType"`
 	Urls                             []string                       `pulumi:"urls"`
 	UrlsRetainingParentCategoryCount *int                           `pulumi:"urlsRetainingParentCategoryCount"`
+	// The unique ID for the URL category.
+	Val *int `pulumi:"val"`
 }
 
 type URLCategoriesState struct {
 	CategoryId pulumi.StringPtrInput
 	// Name of the URL category. This is only required for custom URL categories.
-	ConfiguredName                       pulumi.StringPtrInput
-	CustomCategory                       pulumi.BoolPtrInput
-	CustomIpRangesCount                  pulumi.IntPtrInput
-	CustomUrlsCount                      pulumi.IntPtrInput
-	DbCategorizedUrls                    pulumi.StringArrayInput
-	Description                          pulumi.StringPtrInput
-	Editable                             pulumi.BoolPtrInput
-	IpRanges                             pulumi.StringArrayInput
-	IpRangesRetainingParentCategories    pulumi.StringArrayInput
-	IpRangesRetainingParentCategoryCount pulumi.IntPtrInput
-	Keywords                             pulumi.StringArrayInput
-	KeywordsRetainingParentCategories    pulumi.StringArrayInput
-	Scopes                               URLCategoriesScopeArrayInput
-	// Super Category of the URL category. This field is required when creating custom URL categories.
+	ConfiguredName                         pulumi.StringPtrInput
+	CustomCategory                         pulumi.BoolPtrInput
+	CustomIpRangesCount                    pulumi.IntPtrInput
+	CustomUrlsCount                        pulumi.IntPtrInput
+	DbCategorizedUrls                      pulumi.StringArrayInput
+	Description                            pulumi.StringPtrInput
+	Editable                               pulumi.BoolPtrInput
+	IpRanges                               pulumi.StringArrayInput
+	IpRangesRetainingParentCategories      pulumi.StringArrayInput
+	IpRangesRetainingParentCategoryCount   pulumi.IntPtrInput
+	Keywords                               pulumi.StringArrayInput
+	KeywordsRetainingParentCategories      pulumi.StringArrayInput
+	RegexPatterns                          pulumi.StringArrayInput
+	RegexPatternsRetainingParentCategories pulumi.StringArrayInput
+	Scopes                                 URLCategoriesScopeArrayInput
+	// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
 	SuperCategory                    pulumi.StringPtrInput
 	Type                             pulumi.StringPtrInput
 	UrlKeywordCounts                 URLCategoriesUrlKeywordCountsPtrInput
+	UrlType                          pulumi.StringPtrInput
 	Urls                             pulumi.StringArrayInput
 	UrlsRetainingParentCategoryCount pulumi.IntPtrInput
+	// The unique ID for the URL category.
+	Val pulumi.IntPtrInput
 }
 
 func (URLCategoriesState) ElementType() reflect.Type {
@@ -148,23 +162,26 @@ func (URLCategoriesState) ElementType() reflect.Type {
 
 type urlcategoriesArgs struct {
 	// Name of the URL category. This is only required for custom URL categories.
-	ConfiguredName                       *string              `pulumi:"configuredName"`
-	CustomCategory                       *bool                `pulumi:"customCategory"`
-	CustomIpRangesCount                  *int                 `pulumi:"customIpRangesCount"`
-	CustomUrlsCount                      *int                 `pulumi:"customUrlsCount"`
-	DbCategorizedUrls                    []string             `pulumi:"dbCategorizedUrls"`
-	Description                          *string              `pulumi:"description"`
-	Editable                             *bool                `pulumi:"editable"`
-	IpRanges                             []string             `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategories    []string             `pulumi:"ipRangesRetainingParentCategories"`
-	IpRangesRetainingParentCategoryCount *int                 `pulumi:"ipRangesRetainingParentCategoryCount"`
-	Keywords                             []string             `pulumi:"keywords"`
-	KeywordsRetainingParentCategories    []string             `pulumi:"keywordsRetainingParentCategories"`
-	Scopes                               []URLCategoriesScope `pulumi:"scopes"`
-	// Super Category of the URL category. This field is required when creating custom URL categories.
+	ConfiguredName                         *string              `pulumi:"configuredName"`
+	CustomCategory                         *bool                `pulumi:"customCategory"`
+	CustomIpRangesCount                    *int                 `pulumi:"customIpRangesCount"`
+	CustomUrlsCount                        *int                 `pulumi:"customUrlsCount"`
+	DbCategorizedUrls                      []string             `pulumi:"dbCategorizedUrls"`
+	Description                            *string              `pulumi:"description"`
+	Editable                               *bool                `pulumi:"editable"`
+	IpRanges                               []string             `pulumi:"ipRanges"`
+	IpRangesRetainingParentCategories      []string             `pulumi:"ipRangesRetainingParentCategories"`
+	IpRangesRetainingParentCategoryCount   *int                 `pulumi:"ipRangesRetainingParentCategoryCount"`
+	Keywords                               []string             `pulumi:"keywords"`
+	KeywordsRetainingParentCategories      []string             `pulumi:"keywordsRetainingParentCategories"`
+	RegexPatterns                          []string             `pulumi:"regexPatterns"`
+	RegexPatternsRetainingParentCategories []string             `pulumi:"regexPatternsRetainingParentCategories"`
+	Scopes                                 []URLCategoriesScope `pulumi:"scopes"`
+	// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
 	SuperCategory                    *string                        `pulumi:"superCategory"`
 	Type                             *string                        `pulumi:"type"`
 	UrlKeywordCounts                 *URLCategoriesUrlKeywordCounts `pulumi:"urlKeywordCounts"`
+	UrlType                          *string                        `pulumi:"urlType"`
 	Urls                             []string                       `pulumi:"urls"`
 	UrlsRetainingParentCategoryCount *int                           `pulumi:"urlsRetainingParentCategoryCount"`
 }
@@ -172,23 +189,26 @@ type urlcategoriesArgs struct {
 // The set of arguments for constructing a URLCategories resource.
 type URLCategoriesArgs struct {
 	// Name of the URL category. This is only required for custom URL categories.
-	ConfiguredName                       pulumi.StringPtrInput
-	CustomCategory                       pulumi.BoolPtrInput
-	CustomIpRangesCount                  pulumi.IntPtrInput
-	CustomUrlsCount                      pulumi.IntPtrInput
-	DbCategorizedUrls                    pulumi.StringArrayInput
-	Description                          pulumi.StringPtrInput
-	Editable                             pulumi.BoolPtrInput
-	IpRanges                             pulumi.StringArrayInput
-	IpRangesRetainingParentCategories    pulumi.StringArrayInput
-	IpRangesRetainingParentCategoryCount pulumi.IntPtrInput
-	Keywords                             pulumi.StringArrayInput
-	KeywordsRetainingParentCategories    pulumi.StringArrayInput
-	Scopes                               URLCategoriesScopeArrayInput
-	// Super Category of the URL category. This field is required when creating custom URL categories.
+	ConfiguredName                         pulumi.StringPtrInput
+	CustomCategory                         pulumi.BoolPtrInput
+	CustomIpRangesCount                    pulumi.IntPtrInput
+	CustomUrlsCount                        pulumi.IntPtrInput
+	DbCategorizedUrls                      pulumi.StringArrayInput
+	Description                            pulumi.StringPtrInput
+	Editable                               pulumi.BoolPtrInput
+	IpRanges                               pulumi.StringArrayInput
+	IpRangesRetainingParentCategories      pulumi.StringArrayInput
+	IpRangesRetainingParentCategoryCount   pulumi.IntPtrInput
+	Keywords                               pulumi.StringArrayInput
+	KeywordsRetainingParentCategories      pulumi.StringArrayInput
+	RegexPatterns                          pulumi.StringArrayInput
+	RegexPatternsRetainingParentCategories pulumi.StringArrayInput
+	Scopes                                 URLCategoriesScopeArrayInput
+	// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
 	SuperCategory                    pulumi.StringPtrInput
 	Type                             pulumi.StringPtrInput
 	UrlKeywordCounts                 URLCategoriesUrlKeywordCountsPtrInput
+	UrlType                          pulumi.StringPtrInput
 	Urls                             pulumi.StringArrayInput
 	UrlsRetainingParentCategoryCount pulumi.IntPtrInput
 }
@@ -333,13 +353,21 @@ func (o URLCategoriesOutput) KeywordsRetainingParentCategories() pulumi.StringAr
 	return o.ApplyT(func(v *URLCategories) pulumi.StringArrayOutput { return v.KeywordsRetainingParentCategories }).(pulumi.StringArrayOutput)
 }
 
+func (o URLCategoriesOutput) RegexPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *URLCategories) pulumi.StringArrayOutput { return v.RegexPatterns }).(pulumi.StringArrayOutput)
+}
+
+func (o URLCategoriesOutput) RegexPatternsRetainingParentCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *URLCategories) pulumi.StringArrayOutput { return v.RegexPatternsRetainingParentCategories }).(pulumi.StringArrayOutput)
+}
+
 func (o URLCategoriesOutput) Scopes() URLCategoriesScopeArrayOutput {
 	return o.ApplyT(func(v *URLCategories) URLCategoriesScopeArrayOutput { return v.Scopes }).(URLCategoriesScopeArrayOutput)
 }
 
-// Super Category of the URL category. This field is required when creating custom URL categories.
-func (o URLCategoriesOutput) SuperCategory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *URLCategories) pulumi.StringPtrOutput { return v.SuperCategory }).(pulumi.StringPtrOutput)
+// Super Category of the URL category. This field is required when creating custom URL categories. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available super categories
+func (o URLCategoriesOutput) SuperCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v *URLCategories) pulumi.StringOutput { return v.SuperCategory }).(pulumi.StringOutput)
 }
 
 func (o URLCategoriesOutput) Type() pulumi.StringPtrOutput {
@@ -350,12 +378,21 @@ func (o URLCategoriesOutput) UrlKeywordCounts() URLCategoriesUrlKeywordCountsOut
 	return o.ApplyT(func(v *URLCategories) URLCategoriesUrlKeywordCountsOutput { return v.UrlKeywordCounts }).(URLCategoriesUrlKeywordCountsOutput)
 }
 
+func (o URLCategoriesOutput) UrlType() pulumi.StringOutput {
+	return o.ApplyT(func(v *URLCategories) pulumi.StringOutput { return v.UrlType }).(pulumi.StringOutput)
+}
+
 func (o URLCategoriesOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLCategories) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }
 
 func (o URLCategoriesOutput) UrlsRetainingParentCategoryCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *URLCategories) pulumi.IntOutput { return v.UrlsRetainingParentCategoryCount }).(pulumi.IntOutput)
+}
+
+// The unique ID for the URL category.
+func (o URLCategoriesOutput) Val() pulumi.IntOutput {
+	return o.ApplyT(func(v *URLCategories) pulumi.IntOutput { return v.Val }).(pulumi.IntOutput)
 }
 
 type URLCategoriesArrayOutput struct{ *pulumi.OutputState }

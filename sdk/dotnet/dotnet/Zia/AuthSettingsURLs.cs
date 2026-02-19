@@ -21,10 +21,9 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// **zia_auth_settings_urls** can be imported by using `all_urls` as the import ID.
+    /// **zia_auth_settings_urls** can be imported by using &lt;span pulumi-lang-nodejs="`allUrls`" pulumi-lang-dotnet="`AllUrls`" pulumi-lang-go="`allUrls`" pulumi-lang-python="`all_urls`" pulumi-lang-yaml="`allUrls`" pulumi-lang-java="`allUrls`"&gt;`all_urls`&lt;/span&gt; as the import ID.
     /// 
     /// For example:
     /// 

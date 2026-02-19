@@ -14,6 +14,9 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class GetDLPWebRulesLastModifiedByResult
     {
+        /// <summary>
+        /// Additional properties for the tenant
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Extensions;
         /// <summary>
         /// Identifier that uniquely identifies an entity

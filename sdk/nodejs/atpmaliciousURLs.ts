@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_atp_malicious_urls** can be imported by using `all_urls` as the import ID.
+ * **zia_atp_malicious_urls** can be imported by using `allUrls` as the import ID.
  *
  * For example:
  *
@@ -54,7 +53,7 @@ export class ATPMaliciousURLs extends pulumi.CustomResource {
         return obj['__pulumiType'] === ATPMaliciousURLs.__pulumiType;
     }
 
-    public readonly maliciousUrls!: pulumi.Output<string[]>;
+    declare public readonly maliciousUrls: pulumi.Output<string[]>;
 
     /**
      * Create a ATPMaliciousURLs resource with the given unique name, arguments, and options.
@@ -69,10 +68,10 @@ export class ATPMaliciousURLs extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ATPMaliciousURLsState | undefined;
-            resourceInputs["maliciousUrls"] = state ? state.maliciousUrls : undefined;
+            resourceInputs["maliciousUrls"] = state?.maliciousUrls;
         } else {
             const args = argsOrState as ATPMaliciousURLsArgs | undefined;
-            resourceInputs["maliciousUrls"] = args ? args.maliciousUrls : undefined;
+            resourceInputs["maliciousUrls"] = args?.maliciousUrls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ATPMaliciousURLs.__pulumiType, name, resourceInputs, opts);

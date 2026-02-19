@@ -46,6 +46,7 @@ export interface GetDLPWebRulesResult {
     readonly excludedGroups: outputs.GetDLPWebRulesExcludedGroup[];
     readonly excludedUsers: outputs.GetDLPWebRulesExcludedUser[];
     readonly externalAuditorEmail: string;
+    readonly fileTypeCategories: outputs.GetDLPWebRulesFileTypeCategory[];
     readonly fileTypes: string[];
     readonly groups: outputs.GetDLPWebRulesGroup[];
     readonly id?: number;
@@ -62,6 +63,7 @@ export interface GetDLPWebRulesResult {
     readonly parentRule: number;
     readonly protocols: string[];
     readonly rank: number;
+    readonly receivers: outputs.GetDLPWebRulesReceiver[];
     readonly severity: string;
     readonly sourceIpGroups: outputs.GetDLPWebRulesSourceIpGroup[];
     readonly state: string;

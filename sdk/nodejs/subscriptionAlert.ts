@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_subscription_alert** can be imported by using `<ALERT_ID>` or `<ALERT_EMAIL>` as the import ID.
@@ -63,35 +62,35 @@ export class SubscriptionAlert extends pulumi.CustomResource {
     /**
      * System-generated identifier for the alert subscription
      */
-    public /*out*/ readonly alertId!: pulumi.Output<number>;
+    declare public /*out*/ readonly alertId: pulumi.Output<number>;
     /**
      * (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
      */
-    public readonly complySeverities!: pulumi.Output<string[] | undefined>;
+    declare public readonly complySeverities: pulumi.Output<string[] | undefined>;
     /**
      * (String) Additional comments or information about the alert subscription
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The email address of the alert recipient
      */
-    public readonly email!: pulumi.Output<string | undefined>;
+    declare public readonly email: pulumi.Output<string | undefined>;
     /**
      * (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
      */
-    public readonly manageSeverities!: pulumi.Output<string[] | undefined>;
+    declare public readonly manageSeverities: pulumi.Output<string[] | undefined>;
     /**
      * (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
      */
-    public readonly pt0Severities!: pulumi.Output<string[] | undefined>;
+    declare public readonly pt0Severities: pulumi.Output<string[] | undefined>;
     /**
      * (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
      */
-    public readonly secureSeverities!: pulumi.Output<string[] | undefined>;
+    declare public readonly secureSeverities: pulumi.Output<string[] | undefined>;
     /**
      * (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
      */
-    public readonly systemSeverities!: pulumi.Output<string[] | undefined>;
+    declare public readonly systemSeverities: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SubscriptionAlert resource with the given unique name, arguments, and options.
@@ -106,23 +105,23 @@ export class SubscriptionAlert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionAlertState | undefined;
-            resourceInputs["alertId"] = state ? state.alertId : undefined;
-            resourceInputs["complySeverities"] = state ? state.complySeverities : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["manageSeverities"] = state ? state.manageSeverities : undefined;
-            resourceInputs["pt0Severities"] = state ? state.pt0Severities : undefined;
-            resourceInputs["secureSeverities"] = state ? state.secureSeverities : undefined;
-            resourceInputs["systemSeverities"] = state ? state.systemSeverities : undefined;
+            resourceInputs["alertId"] = state?.alertId;
+            resourceInputs["complySeverities"] = state?.complySeverities;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["manageSeverities"] = state?.manageSeverities;
+            resourceInputs["pt0Severities"] = state?.pt0Severities;
+            resourceInputs["secureSeverities"] = state?.secureSeverities;
+            resourceInputs["systemSeverities"] = state?.systemSeverities;
         } else {
             const args = argsOrState as SubscriptionAlertArgs | undefined;
-            resourceInputs["complySeverities"] = args ? args.complySeverities : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["manageSeverities"] = args ? args.manageSeverities : undefined;
-            resourceInputs["pt0Severities"] = args ? args.pt0Severities : undefined;
-            resourceInputs["secureSeverities"] = args ? args.secureSeverities : undefined;
-            resourceInputs["systemSeverities"] = args ? args.systemSeverities : undefined;
+            resourceInputs["complySeverities"] = args?.complySeverities;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["manageSeverities"] = args?.manageSeverities;
+            resourceInputs["pt0Severities"] = args?.pt0Severities;
+            resourceInputs["secureSeverities"] = args?.secureSeverities;
+            resourceInputs["systemSeverities"] = args?.systemSeverities;
             resourceInputs["alertId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

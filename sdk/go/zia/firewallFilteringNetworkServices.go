@@ -21,8 +21,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_firewall_filtering_network_service** can be imported by using `<SERVICE_ID>` or `<SERVICE_NAME>` as the import ID.
 //

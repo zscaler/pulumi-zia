@@ -29,6 +29,7 @@ func GetIcapServers(ctx *pulumi.Context, args *GetIcapServersArgs, opts ...pulum
 
 // A collection of arguments for invoking getIcapServers.
 type GetIcapServersArgs struct {
+	Id   *int    `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -51,6 +52,7 @@ func GetIcapServersOutput(ctx *pulumi.Context, args GetIcapServersOutputArgs, op
 
 // A collection of arguments for invoking getIcapServers.
 type GetIcapServersOutputArgs struct {
+	Id   pulumi.IntPtrInput    `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

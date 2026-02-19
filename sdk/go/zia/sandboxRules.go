@@ -22,8 +22,7 @@ import (
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_sandbox_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -52,6 +51,7 @@ type SandboxRules struct {
 	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
 	// (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
 	FirstTimeEnable pulumi.BoolOutput `pulumi:"firstTimeEnable"`
@@ -78,7 +78,7 @@ type SandboxRules struct {
 	RuleId pulumi.IntOutput `pulumi:"ruleId"`
 	// (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
 	State pulumi.StringOutput `pulumi:"state"`
-	// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
 	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users SandboxRulesUsersPtrOutput `pulumi:"users"`
@@ -136,6 +136,7 @@ type sandboxRulesState struct {
 	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description *string `pulumi:"description"`
 	// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 	FileTypes []string `pulumi:"fileTypes"`
 	// (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
 	FirstTimeEnable *bool `pulumi:"firstTimeEnable"`
@@ -162,7 +163,7 @@ type sandboxRulesState struct {
 	RuleId *int `pulumi:"ruleId"`
 	// (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
 	State *string `pulumi:"state"`
-	// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories []string `pulumi:"urlCategories"`
 	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *SandboxRulesUsers `pulumi:"users"`
@@ -182,6 +183,7 @@ type SandboxRulesState struct {
 	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrInput
 	// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 	FileTypes pulumi.StringArrayInput
 	// (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
 	FirstTimeEnable pulumi.BoolPtrInput
@@ -208,7 +210,7 @@ type SandboxRulesState struct {
 	RuleId pulumi.IntPtrInput
 	// (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
 	State pulumi.StringPtrInput
-	// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayInput
 	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users SandboxRulesUsersPtrInput
@@ -232,6 +234,7 @@ type sandboxRulesArgs struct {
 	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description *string `pulumi:"description"`
 	// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 	FileTypes []string `pulumi:"fileTypes"`
 	// (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
 	FirstTimeEnable *bool `pulumi:"firstTimeEnable"`
@@ -257,7 +260,7 @@ type sandboxRulesArgs struct {
 	Rank *int `pulumi:"rank"`
 	// (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
 	State *string `pulumi:"state"`
-	// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories []string `pulumi:"urlCategories"`
 	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users *SandboxRulesUsers `pulumi:"users"`
@@ -278,6 +281,7 @@ type SandboxRulesArgs struct {
 	// (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
 	Description pulumi.StringPtrInput
 	// (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+	// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 	FileTypes pulumi.StringArrayInput
 	// (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
 	FirstTimeEnable pulumi.BoolPtrInput
@@ -303,7 +307,7 @@ type SandboxRulesArgs struct {
 	Rank pulumi.IntPtrInput
 	// (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
 	State pulumi.StringPtrInput
-	// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+	// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 	UrlCategories pulumi.StringArrayInput
 	// (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
 	Users SandboxRulesUsersPtrInput
@@ -424,6 +428,7 @@ func (o SandboxRulesOutput) Description() pulumi.StringPtrOutput {
 }
 
 // (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+// See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
 func (o SandboxRulesOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRules) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
@@ -492,7 +497,7 @@ func (o SandboxRulesOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *SandboxRules) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+// (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `URLCategories` to retrieve the list of URL categories.
 func (o SandboxRulesOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRules) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }

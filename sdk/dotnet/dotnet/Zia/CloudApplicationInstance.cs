@@ -21,7 +21,6 @@ namespace zscaler.PulumiPackage.Zia
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
     /// **zia_cloud_application_instance** can be imported by using `&lt;INSTANCE_ID&gt;` or `&lt;INSTANCE_NAME&gt;` as the import ID.

@@ -92,6 +92,12 @@ namespace zscaler.PulumiPackage.Zia
     public sealed class GetDepartmentManagementArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// ID of the user department
+        /// </summary>
+        [Input("id")]
+        public int? Id { get; set; }
+
+        /// <summary>
         /// Name of the user department
         /// </summary>
         [Input("name")]
@@ -105,6 +111,12 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDepartmentManagementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the user department
+        /// </summary>
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         /// <summary>
         /// Name of the user department
         /// </summary>

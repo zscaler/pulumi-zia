@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_dlp_engines** can be imported by using `<ENGINE_ID>` or `<ENGINE_NAME>` as the import ID.
@@ -65,20 +64,20 @@ export class DLPEngines extends pulumi.CustomResource {
     /**
      * Indicates whether this is a custom DLP engine. If this value is set to true, the engine is custom.
      */
-    public readonly customDlpEngine!: pulumi.Output<boolean | undefined>;
+    declare public readonly customDlpEngine: pulumi.Output<boolean | undefined>;
     /**
      * The DLP engine's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The boolean logical operator in which various DLP dictionaries are combined within a DLP engine's expression.
      */
-    public readonly engineExpression!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly engineId!: pulumi.Output<number>;
+    declare public readonly engineExpression: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly engineId: pulumi.Output<number>;
     /**
      * The DLP engine name as configured by the admin.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a DLPEngines resource with the given unique name, arguments, and options.
@@ -93,17 +92,17 @@ export class DLPEngines extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DLPEnginesState | undefined;
-            resourceInputs["customDlpEngine"] = state ? state.customDlpEngine : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["engineExpression"] = state ? state.engineExpression : undefined;
-            resourceInputs["engineId"] = state ? state.engineId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["customDlpEngine"] = state?.customDlpEngine;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["engineExpression"] = state?.engineExpression;
+            resourceInputs["engineId"] = state?.engineId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as DLPEnginesArgs | undefined;
-            resourceInputs["customDlpEngine"] = args ? args.customDlpEngine : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineExpression"] = args ? args.engineExpression : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["customDlpEngine"] = args?.customDlpEngine;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineExpression"] = args?.engineExpression;
+            resourceInputs["name"] = args?.name;
             resourceInputs["engineId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

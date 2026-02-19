@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_sandbox_rules** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
@@ -65,88 +64,89 @@ export class SandboxRules extends pulumi.CustomResource {
     /**
      * The threat categories to which the rule applies
      */
-    public readonly baPolicyCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly baPolicyCategories: pulumi.Output<string[] | undefined>;
     /**
      * (String) The action configured for the rule that must take place if the traffic matches the rule criteria. Supported Values: `ALLOW` or `BLOCK`
      */
-    public readonly baRuleAction!: pulumi.Output<string>;
+    declare public readonly baRuleAction: pulumi.Output<string>;
     /**
      * (Integer)
      */
-    public readonly byThreatScore!: pulumi.Output<number>;
+    declare public readonly byThreatScore: pulumi.Output<number>;
     /**
      * (List of Objects) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
      */
-    public readonly departments!: pulumi.Output<outputs.SandboxRulesDepartments | undefined>;
+    declare public readonly departments: pulumi.Output<outputs.SandboxRulesDepartments | undefined>;
     /**
      * (String) Enter additional notes or information. The description cannot exceed 10,240 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
      */
-    public readonly fileTypes!: pulumi.Output<string[]>;
+    declare public readonly fileTypes: pulumi.Output<string[]>;
     /**
      * (Boolean) A Boolean value indicating whether a First-Time Action is specifically configured for the rule. The First-Time Action takes place when users download unknown files. The action to be applied is specified using the firstTimeOperation field.
      */
-    public readonly firstTimeEnable!: pulumi.Output<boolean>;
+    declare public readonly firstTimeEnable: pulumi.Output<boolean>;
     /**
      * (String) The action that must take place when users download unknown files for the first time. Supported Values: `ALLOW_SCAN`, `QUARANTINE`, `ALLOW_NOSCAN`, `QUARANTINE_ISOLATE`
      */
-    public readonly firstTimeOperation!: pulumi.Output<string>;
+    declare public readonly firstTimeOperation: pulumi.Output<string>;
     /**
      * (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly groups!: pulumi.Output<outputs.SandboxRulesGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.SandboxRulesGroups | undefined>;
     /**
      * (List of Objects) Labels that are applicable to the rule.
      */
-    public readonly labels!: pulumi.Output<outputs.SandboxRulesLabels | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.SandboxRulesLabels | undefined>;
     /**
      * (List of Objects)You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
      */
-    public readonly locationGroups!: pulumi.Output<outputs.SandboxRulesLocationGroups | undefined>;
+    declare public readonly locationGroups: pulumi.Output<outputs.SandboxRulesLocationGroups | undefined>;
     /**
      * (List of Objects) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
      */
-    public readonly locations!: pulumi.Output<outputs.SandboxRulesLocations | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.SandboxRulesLocations | undefined>;
     /**
      * (Boolean) A Boolean value indicating whether to enable or disable the AI Instant Verdict option to have the Zscaler service use AI analysis to instantly assign threat scores to unknown files. This option is available to use only with specific rule actions such as Quarantine and Allow and Scan for First-Time Action.
      */
-    public readonly mlActionEnabled!: pulumi.Output<boolean>;
+    declare public readonly mlActionEnabled: pulumi.Output<boolean>;
     /**
      * The File Type Control policy rule name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Integer) Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule's place in the order.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Protocol for the given rule. This field is not applicable to the Lite API.
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * (Integer) The admin rank specified for the rule based on your assigned admin rank. Admin rank determines the rule order that can be specified for the rule. Admin rank can be configured if it is enabled in the Advanced Settings.
      */
-    public readonly rank!: pulumi.Output<number>;
-    public /*out*/ readonly ruleId!: pulumi.Output<number>;
+    declare public readonly rank: pulumi.Output<number>;
+    declare public /*out*/ readonly ruleId: pulumi.Output<number>;
     /**
      * (String) The state of the rule indicating whether it is enabled or disabled. Supported values: `ENABLED` or `DISABLED`
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
-     * (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
-    public readonly urlCategories!: pulumi.Output<string[] | undefined>;
+    declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
     /**
      * (List of Objects) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
      */
-    public readonly users!: pulumi.Output<outputs.SandboxRulesUsers | undefined>;
+    declare public readonly users: pulumi.Output<outputs.SandboxRulesUsers | undefined>;
     /**
      * (List of Objects) The ZPA application segments to which the rule applies
      */
-    public readonly zpaAppSegments!: pulumi.Output<outputs.SandboxRulesZpaAppSegment[]>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.SandboxRulesZpaAppSegment[]>;
 
     /**
      * Create a SandboxRules resource with the given unique name, arguments, and options.
@@ -161,60 +161,60 @@ export class SandboxRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SandboxRulesState | undefined;
-            resourceInputs["baPolicyCategories"] = state ? state.baPolicyCategories : undefined;
-            resourceInputs["baRuleAction"] = state ? state.baRuleAction : undefined;
-            resourceInputs["byThreatScore"] = state ? state.byThreatScore : undefined;
-            resourceInputs["departments"] = state ? state.departments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
-            resourceInputs["firstTimeEnable"] = state ? state.firstTimeEnable : undefined;
-            resourceInputs["firstTimeOperation"] = state ? state.firstTimeOperation : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["locationGroups"] = state ? state.locationGroups : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
-            resourceInputs["mlActionEnabled"] = state ? state.mlActionEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["rank"] = state ? state.rank : undefined;
-            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["urlCategories"] = state ? state.urlCategories : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
-            resourceInputs["zpaAppSegments"] = state ? state.zpaAppSegments : undefined;
+            resourceInputs["baPolicyCategories"] = state?.baPolicyCategories;
+            resourceInputs["baRuleAction"] = state?.baRuleAction;
+            resourceInputs["byThreatScore"] = state?.byThreatScore;
+            resourceInputs["departments"] = state?.departments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["fileTypes"] = state?.fileTypes;
+            resourceInputs["firstTimeEnable"] = state?.firstTimeEnable;
+            resourceInputs["firstTimeOperation"] = state?.firstTimeOperation;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["locationGroups"] = state?.locationGroups;
+            resourceInputs["locations"] = state?.locations;
+            resourceInputs["mlActionEnabled"] = state?.mlActionEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["rank"] = state?.rank;
+            resourceInputs["ruleId"] = state?.ruleId;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["urlCategories"] = state?.urlCategories;
+            resourceInputs["users"] = state?.users;
+            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
         } else {
             const args = argsOrState as SandboxRulesArgs | undefined;
-            if ((!args || args.fileTypes === undefined) && !opts.urn) {
+            if (args?.fileTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileTypes'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.protocols === undefined) && !opts.urn) {
+            if (args?.protocols === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocols'");
             }
-            resourceInputs["baPolicyCategories"] = args ? args.baPolicyCategories : undefined;
-            resourceInputs["baRuleAction"] = args ? args.baRuleAction : undefined;
-            resourceInputs["byThreatScore"] = args ? args.byThreatScore : undefined;
-            resourceInputs["departments"] = args ? args.departments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
-            resourceInputs["firstTimeEnable"] = args ? args.firstTimeEnable : undefined;
-            resourceInputs["firstTimeOperation"] = args ? args.firstTimeOperation : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["locationGroups"] = args ? args.locationGroups : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["mlActionEnabled"] = args ? args.mlActionEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["rank"] = args ? args.rank : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["urlCategories"] = args ? args.urlCategories : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["zpaAppSegments"] = args ? args.zpaAppSegments : undefined;
+            resourceInputs["baPolicyCategories"] = args?.baPolicyCategories;
+            resourceInputs["baRuleAction"] = args?.baRuleAction;
+            resourceInputs["byThreatScore"] = args?.byThreatScore;
+            resourceInputs["departments"] = args?.departments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileTypes"] = args?.fileTypes;
+            resourceInputs["firstTimeEnable"] = args?.firstTimeEnable;
+            resourceInputs["firstTimeOperation"] = args?.firstTimeOperation;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["locationGroups"] = args?.locationGroups;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["mlActionEnabled"] = args?.mlActionEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["rank"] = args?.rank;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["urlCategories"] = args?.urlCategories;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
             resourceInputs["ruleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -248,6 +248,7 @@ export interface SandboxRulesState {
     description?: pulumi.Input<string>;
     /**
      * (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
      */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -300,7 +301,7 @@ export interface SandboxRulesState {
      */
     state?: pulumi.Input<string>;
     /**
-     * (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -339,6 +340,7 @@ export interface SandboxRulesArgs {
     description?: pulumi.Input<string>;
     /**
      * (List of Strings) File type categories for which the policy is applied. If not set, the rule is applied across all file types.
+     * See the [File Type Control API](https://help.zscaler.com/zia/file-type-control-policy#/fileTypeRules-get).
      */
     fileTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -390,7 +392,7 @@ export interface SandboxRulesArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * (List of Strings) The list of URL categories to which the DLP policy rule must be applied.
+     * (List of Strings) The list of URL categories to which the Sandbox rule must be applied. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for the list of available categories or use the data source `zia.URLCategories` to retrieve the list of URL categories.
      */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**

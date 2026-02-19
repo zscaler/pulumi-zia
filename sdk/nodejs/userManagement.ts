@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_user_management** can be imported by using `<USER_ID>` or `<USERNAME>` as the import ID.
@@ -75,37 +74,36 @@ export class UserManagement extends pulumi.CustomResource {
     /**
      * Accepted Authentication Methods
      */
-    public readonly authMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly authMethods: pulumi.Output<string[] | undefined>;
     /**
      * Additional information about this user.
      */
-    public readonly comments!: pulumi.Output<string | undefined>;
+    declare public readonly comments: pulumi.Output<string | undefined>;
     /**
      * Department a user belongs to
      */
-    public readonly department!: pulumi.Output<outputs.UserManagementDepartment>;
+    declare public readonly department: pulumi.Output<outputs.UserManagementDepartment>;
     /**
      * User email consists of a user name and domain name. It does not have to be a valid email address, but it must be unique and its domain must belong to the organization.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * List of Groups a user belongs to. Groups are used in policies.
      */
-    public readonly groups!: pulumi.Output<outputs.UserManagementGroups | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.UserManagementGroups | undefined>;
     /**
      * User name. This appears when choosing users for policies.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * User's password. Applicable only when authentication type is Hosted DB. Password strength must follow what is defined in the auth settings.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
-     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-     * service sends the tokens or links. If this is empty, the service will send the email to the User email.
+     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
      */
-    public readonly tempAuthEmail!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly userId!: pulumi.Output<number>;
+    declare public readonly tempAuthEmail: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly userId: pulumi.Output<number>;
 
     /**
      * Create a UserManagement resource with the given unique name, arguments, and options.
@@ -120,34 +118,34 @@ export class UserManagement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserManagementState | undefined;
-            resourceInputs["authMethods"] = state ? state.authMethods : undefined;
-            resourceInputs["comments"] = state ? state.comments : undefined;
-            resourceInputs["department"] = state ? state.department : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["tempAuthEmail"] = state ? state.tempAuthEmail : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["authMethods"] = state?.authMethods;
+            resourceInputs["comments"] = state?.comments;
+            resourceInputs["department"] = state?.department;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["tempAuthEmail"] = state?.tempAuthEmail;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserManagementArgs | undefined;
-            if ((!args || args.department === undefined) && !opts.urn) {
+            if (args?.department === undefined && !opts.urn) {
                 throw new Error("Missing required property 'department'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            resourceInputs["authMethods"] = args ? args.authMethods : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["department"] = args ? args.department : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authMethods"] = args?.authMethods;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["department"] = args?.department;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["tempAuthEmail"] = args ? args.tempAuthEmail : undefined;
+            resourceInputs["tempAuthEmail"] = args?.tempAuthEmail;
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -190,8 +188,7 @@ export interface UserManagementState {
      */
     password?: pulumi.Input<string>;
     /**
-     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-     * service sends the tokens or links. If this is empty, the service will send the email to the User email.
+     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
      */
     tempAuthEmail?: pulumi.Input<string>;
     userId?: pulumi.Input<number>;
@@ -230,8 +227,7 @@ export interface UserManagementArgs {
      */
     password: pulumi.Input<string>;
     /**
-     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler
-     * service sends the tokens or links. If this is empty, the service will send the email to the User email.
+     * Temporary Authentication Email. If you enabled one-time tokens or links, enter the email address to which the Zscaler service sends the tokens or links. If this is empty, the service will send the email to the User email.
      */
     tempAuthEmail?: pulumi.Input<string>;
 }

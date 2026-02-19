@@ -157,6 +157,7 @@ export interface GetCasbDlpRulesResult {
      * (int) Rank of the rule.
      */
     readonly rank: number;
+    readonly receivers: outputs.GetCasbDlpRulesReceiver[];
     /**
      * (string) Specifies if the email recipient is internal or external.
      */

@@ -15,6 +15,8 @@ import (
 // * [API documentation](https://help.zscaler.com/zia/service-edges#/virtualZenClusters-get)
 //
 // Use the **zia_virtual_service_edge_cluster** data source to get information about a Virtual Service Edge Cluster information for the specified `Name` or `ID`
+//
+// ## Example Usage
 func LookupVirtualServiceEdgeCluster(ctx *pulumi.Context, args *LookupVirtualServiceEdgeClusterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualServiceEdgeClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualServiceEdgeClusterResult
@@ -27,7 +29,7 @@ func LookupVirtualServiceEdgeCluster(ctx *pulumi.Context, args *LookupVirtualSer
 
 // A collection of arguments for invoking getVirtualServiceEdgeCluster.
 type LookupVirtualServiceEdgeClusterArgs struct {
-	// USystem-generated Virtual Service Edge cluster ID
+	// System-generated Virtual Service Edge cluster ID
 	Id *int `pulumi:"id"`
 	// Name of the Virtual Service Edge cluster
 	Name *string `pulumi:"name"`
@@ -35,31 +37,24 @@ type LookupVirtualServiceEdgeClusterArgs struct {
 
 // A collection of values returned by getVirtualServiceEdgeCluster.
 type LookupVirtualServiceEdgeClusterResult struct {
-	// (String) The IP address of the default gateway to the internet
+	// The IP address of the default gateway to the internet
 	DefaultGateway string `pulumi:"defaultGateway"`
-	// (Number) Identifier that uniquely identifies an entity
+	// System-generated Virtual Service Edge cluster ID
 	Id int `pulumi:"id"`
-	// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+	// The Virtual Service Edge cluster IP address
 	IpAddress string `pulumi:"ipAddress"`
-	// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
-	IpSecEnabled bool `pulumi:"ipSecEnabled"`
-	// (Number) When the cluster was last modified
-	LastModifiedTime int `pulumi:"lastModifiedTime"`
-	// (String) The configured name of the entity
+	// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+	IpSecEnabled     bool `pulumi:"ipSecEnabled"`
+	LastModifiedTime int  `pulumi:"lastModifiedTime"`
+	// Name of the Virtual Service Edge cluster
 	Name string `pulumi:"name"`
-	// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+	// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 	Status string `pulumi:"status"`
-	// (String) The Virtual Service Edge cluster subnet mask
+	// The Virtual Service Edge cluster subnet mask
 	SubnetMask string `pulumi:"subnetMask"`
-	// (String) The Virtual Service Edge cluster type
-	// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-	// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-	// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-	// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`,
-	// `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,
-	// `SMBAM`, `ZWACLT`
+	// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 	Type string `pulumi:"type"`
-	// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+	// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 	VirtualZenNodes []GetVirtualServiceEdgeClusterVirtualZenNode `pulumi:"virtualZenNodes"`
 }
 
@@ -74,7 +69,7 @@ func LookupVirtualServiceEdgeClusterOutput(ctx *pulumi.Context, args LookupVirtu
 
 // A collection of arguments for invoking getVirtualServiceEdgeCluster.
 type LookupVirtualServiceEdgeClusterOutputArgs struct {
-	// USystem-generated Virtual Service Edge cluster ID
+	// System-generated Virtual Service Edge cluster ID
 	Id pulumi.IntPtrInput `pulumi:"id"`
 	// Name of the Virtual Service Edge cluster
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -99,58 +94,51 @@ func (o LookupVirtualServiceEdgeClusterResultOutput) ToLookupVirtualServiceEdgeC
 	return o
 }
 
-// (String) The IP address of the default gateway to the internet
+// The IP address of the default gateway to the internet
 func (o LookupVirtualServiceEdgeClusterResultOutput) DefaultGateway() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.DefaultGateway }).(pulumi.StringOutput)
 }
 
-// (Number) Identifier that uniquely identifies an entity
+// System-generated Virtual Service Edge cluster ID
 func (o LookupVirtualServiceEdgeClusterResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// (String) The Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, the cluster IP address provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+// The Virtual Service Edge cluster IP address
 func (o LookupVirtualServiceEdgeClusterResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// (String) A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
+// A Boolean value that specifies whether to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster
 func (o LookupVirtualServiceEdgeClusterResultOutput) IpSecEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) bool { return v.IpSecEnabled }).(pulumi.BoolOutput)
 }
 
-// (Number) When the cluster was last modified
 func (o LookupVirtualServiceEdgeClusterResultOutput) LastModifiedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
 }
 
-// (String) The configured name of the entity
+// Name of the Virtual Service Edge cluster
 func (o LookupVirtualServiceEdgeClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Number) Specifies the status of the Virtual Service Edge cluster. The status is set to `ENABLED` by default.
+// Specifies the status of the Virtual Service Edge cluster. The status is set to ENABLED by default
 func (o LookupVirtualServiceEdgeClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// (String) The Virtual Service Edge cluster subnet mask
+// The Virtual Service Edge cluster subnet mask
 func (o LookupVirtualServiceEdgeClusterResultOutput) SubnetMask() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
-// (String) The Virtual Service Edge cluster type
-// `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`,`SMQTN`,`VIP`,
-// `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`,
-// `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`,
-// `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`,
-// `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`,
-// `SMBAM`, `ZWACLT`
+// The Virtual Service Edge cluster type. Supported values: `ANY`, `NONE`, `SME`, `SMSM`, `SMCA`, `SMUI`, `SMCDS`, `SMDNSD`, `SMAA`, `SMTP`, `SMQTN`, `VIP`, `UIZ`, `UIAE`, `SITEREVIEW`, `PAC`, `S_RELAY`, `M_RELAY`, `H_MON`, `SMIKE`, `NSS`, `SMEZA`, `SMLB`, `SMFCCLT`, `SMBA`, `SMBAC`, `SMESXI`, `SMBAUI`, `VZEN`, `ZSCMCLT`, `SMDLP`, `ZSQUERY`, `ADP`, `SMCDSDLP`, `SMSCIM`, `ZSAPI`, `ZSCMCDSSCLT`, `LOCAL_MTS`, `SVPN`, `SMCASB`, `SMFALCONUI`, `MOBILEAPP_REG`, `SMRESTSVR`, `FALCONCA`, `MOBILEAPP_NF`, `ZIRSVR`, `SMEDGEUI`, `ALERTEVAL`, `ALERTNOTIF`, `SMPARTNERUI`, `CQM`, `DATAKEEPER`, `SMBAM`, `ZWACLT`
 func (o LookupVirtualServiceEdgeClusterResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// (List of Object) The Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+// List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ECZPA forwarding method (used for Zscaler Cloud Connector)
 func (o LookupVirtualServiceEdgeClusterResultOutput) VirtualZenNodes() GetVirtualServiceEdgeClusterVirtualZenNodeArrayOutput {
 	return o.ApplyT(func(v LookupVirtualServiceEdgeClusterResult) []GetVirtualServiceEdgeClusterVirtualZenNode {
 		return v.VirtualZenNodes

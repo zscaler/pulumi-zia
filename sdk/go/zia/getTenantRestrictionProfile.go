@@ -21,9 +21,9 @@ import (
 // ### By Name
 //
 // ### By ID
-func GetTenantRestrictionProfile(ctx *pulumi.Context, args *GetTenantRestrictionProfileArgs, opts ...pulumi.InvokeOption) (*GetTenantRestrictionProfileResult, error) {
+func LookupTenantRestrictionProfile(ctx *pulumi.Context, args *LookupTenantRestrictionProfileArgs, opts ...pulumi.InvokeOption) (*LookupTenantRestrictionProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetTenantRestrictionProfileResult
+	var rv LookupTenantRestrictionProfileResult
 	err := ctx.Invoke("zia:index/getTenantRestrictionProfile:getTenantRestrictionProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -32,14 +32,14 @@ func GetTenantRestrictionProfile(ctx *pulumi.Context, args *GetTenantRestriction
 }
 
 // A collection of arguments for invoking getTenantRestrictionProfile.
-type GetTenantRestrictionProfileArgs struct {
+type LookupTenantRestrictionProfileArgs struct {
 	Description *string `pulumi:"description"`
 	Id          *int    `pulumi:"id"`
 	Name        *string `pulumi:"name"`
 }
 
 // A collection of values returned by getTenantRestrictionProfile.
-type GetTenantRestrictionProfileResult struct {
+type LookupTenantRestrictionProfileResult struct {
 	AllowGcpCloudStorageRead    bool     `pulumi:"allowGcpCloudStorageRead"`
 	AllowGoogleConsumers        bool     `pulumi:"allowGoogleConsumers"`
 	AllowGoogleVisitors         bool     `pulumi:"allowGoogleVisitors"`
@@ -58,105 +58,105 @@ type GetTenantRestrictionProfileResult struct {
 	RestrictPersonalO365Domains bool     `pulumi:"restrictPersonalO365Domains"`
 }
 
-func GetTenantRestrictionProfileOutput(ctx *pulumi.Context, args GetTenantRestrictionProfileOutputArgs, opts ...pulumi.InvokeOption) GetTenantRestrictionProfileResultOutput {
+func LookupTenantRestrictionProfileOutput(ctx *pulumi.Context, args LookupTenantRestrictionProfileOutputArgs, opts ...pulumi.InvokeOption) LookupTenantRestrictionProfileResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTenantRestrictionProfileResultOutput, error) {
-			args := v.(GetTenantRestrictionProfileArgs)
+		ApplyT(func(v interface{}) (LookupTenantRestrictionProfileResultOutput, error) {
+			args := v.(LookupTenantRestrictionProfileArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index/getTenantRestrictionProfile:getTenantRestrictionProfile", args, GetTenantRestrictionProfileResultOutput{}, options).(GetTenantRestrictionProfileResultOutput), nil
-		}).(GetTenantRestrictionProfileResultOutput)
+			return ctx.InvokeOutput("zia:index/getTenantRestrictionProfile:getTenantRestrictionProfile", args, LookupTenantRestrictionProfileResultOutput{}, options).(LookupTenantRestrictionProfileResultOutput), nil
+		}).(LookupTenantRestrictionProfileResultOutput)
 }
 
 // A collection of arguments for invoking getTenantRestrictionProfile.
-type GetTenantRestrictionProfileOutputArgs struct {
+type LookupTenantRestrictionProfileOutputArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	Id          pulumi.IntPtrInput    `pulumi:"id"`
 	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (GetTenantRestrictionProfileOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTenantRestrictionProfileArgs)(nil)).Elem()
+func (LookupTenantRestrictionProfileOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTenantRestrictionProfileArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getTenantRestrictionProfile.
-type GetTenantRestrictionProfileResultOutput struct{ *pulumi.OutputState }
+type LookupTenantRestrictionProfileResultOutput struct{ *pulumi.OutputState }
 
-func (GetTenantRestrictionProfileResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTenantRestrictionProfileResult)(nil)).Elem()
+func (LookupTenantRestrictionProfileResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTenantRestrictionProfileResult)(nil)).Elem()
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ToGetTenantRestrictionProfileResultOutput() GetTenantRestrictionProfileResultOutput {
+func (o LookupTenantRestrictionProfileResultOutput) ToLookupTenantRestrictionProfileResultOutput() LookupTenantRestrictionProfileResultOutput {
 	return o
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ToGetTenantRestrictionProfileResultOutputWithContext(ctx context.Context) GetTenantRestrictionProfileResultOutput {
+func (o LookupTenantRestrictionProfileResultOutput) ToLookupTenantRestrictionProfileResultOutputWithContext(ctx context.Context) LookupTenantRestrictionProfileResultOutput {
 	return o
 }
 
-func (o GetTenantRestrictionProfileResultOutput) AllowGcpCloudStorageRead() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) bool { return v.AllowGcpCloudStorageRead }).(pulumi.BoolOutput)
+func (o LookupTenantRestrictionProfileResultOutput) AllowGcpCloudStorageRead() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) bool { return v.AllowGcpCloudStorageRead }).(pulumi.BoolOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) AllowGoogleConsumers() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) bool { return v.AllowGoogleConsumers }).(pulumi.BoolOutput)
+func (o LookupTenantRestrictionProfileResultOutput) AllowGoogleConsumers() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) bool { return v.AllowGoogleConsumers }).(pulumi.BoolOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) AllowGoogleVisitors() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) bool { return v.AllowGoogleVisitors }).(pulumi.BoolOutput)
+func (o LookupTenantRestrictionProfileResultOutput) AllowGoogleVisitors() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) bool { return v.AllowGoogleVisitors }).(pulumi.BoolOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) AppType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) string { return v.AppType }).(pulumi.StringOutput)
+func (o LookupTenantRestrictionProfileResultOutput) AppType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) string { return v.AppType }).(pulumi.StringOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupTenantRestrictionProfileResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) int { return v.Id }).(pulumi.IntOutput)
+func (o LookupTenantRestrictionProfileResultOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ItemDataPrimaries() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) []string { return v.ItemDataPrimaries }).(pulumi.StringArrayOutput)
+func (o LookupTenantRestrictionProfileResultOutput) ItemDataPrimaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) []string { return v.ItemDataPrimaries }).(pulumi.StringArrayOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ItemDataSecondaries() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) []string { return v.ItemDataSecondaries }).(pulumi.StringArrayOutput)
+func (o LookupTenantRestrictionProfileResultOutput) ItemDataSecondaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) []string { return v.ItemDataSecondaries }).(pulumi.StringArrayOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ItemTypePrimary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) string { return v.ItemTypePrimary }).(pulumi.StringOutput)
+func (o LookupTenantRestrictionProfileResultOutput) ItemTypePrimary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) string { return v.ItemTypePrimary }).(pulumi.StringOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ItemTypeSecondary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) string { return v.ItemTypeSecondary }).(pulumi.StringOutput)
+func (o LookupTenantRestrictionProfileResultOutput) ItemTypeSecondary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) string { return v.ItemTypeSecondary }).(pulumi.StringOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) ItemValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) []string { return v.ItemValues }).(pulumi.StringArrayOutput)
+func (o LookupTenantRestrictionProfileResultOutput) ItemValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) []string { return v.ItemValues }).(pulumi.StringArrayOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) LastModifiedTime() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+func (o LookupTenantRestrictionProfileResultOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) LastModifiedUserId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) int { return v.LastModifiedUserId }).(pulumi.IntOutput)
+func (o LookupTenantRestrictionProfileResultOutput) LastModifiedUserId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) int { return v.LastModifiedUserId }).(pulumi.IntOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) MsLoginServicesTrV2() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) bool { return v.MsLoginServicesTrV2 }).(pulumi.BoolOutput)
+func (o LookupTenantRestrictionProfileResultOutput) MsLoginServicesTrV2() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) bool { return v.MsLoginServicesTrV2 }).(pulumi.BoolOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupTenantRestrictionProfileResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetTenantRestrictionProfileResultOutput) RestrictPersonalO365Domains() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTenantRestrictionProfileResult) bool { return v.RestrictPersonalO365Domains }).(pulumi.BoolOutput)
+func (o LookupTenantRestrictionProfileResultOutput) RestrictPersonalO365Domains() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTenantRestrictionProfileResult) bool { return v.RestrictPersonalO365Domains }).(pulumi.BoolOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetTenantRestrictionProfileResultOutput{})
+	pulumi.RegisterOutputType(LookupTenantRestrictionProfileResultOutput{})
 }

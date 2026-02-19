@@ -29,8 +29,11 @@ func LookupIPSFirewallRule(ctx *pulumi.Context, args *LookupIPSFirewallRuleArgs,
 
 // A collection of arguments for invoking getIPSFirewallRule.
 type LookupIPSFirewallRuleArgs struct {
+	// (Integer) The EUN template ID associated with the rule
+	EunTemplateId *int `pulumi:"eunTemplateId"`
 	// Unique identifier for the Firewall Filtering policy rule
-	Id *int `pulumi:"id"`
+	Id           *int  `pulumi:"id"`
+	IsEunEnabled *bool `pulumi:"isEunEnabled"`
 	// Name of the Firewall Filtering policy rule
 	Name *string `pulumi:"name"`
 }
@@ -63,10 +66,13 @@ type LookupIPSFirewallRuleResult struct {
 	Devices []GetIPSFirewallRuleDevice `pulumi:"devices"`
 	// (Integer) A Boolean value that indicates whether full logging is enabled. A true value indicates that full logging is enabled, whereas a false value indicates that aggregate logging is enabled.
 	EnableFullLogging bool `pulumi:"enableFullLogging"`
+	// (Integer) The EUN template ID associated with the rule
+	EunTemplateId *int `pulumi:"eunTemplateId"`
 	// (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 	Groups []GetIPSFirewallRuleGroup `pulumi:"groups"`
 	// (Integer) Identifier that uniquely identifies an entity
-	Id int `pulumi:"id"`
+	Id           int   `pulumi:"id"`
+	IsEunEnabled *bool `pulumi:"isEunEnabled"`
 	// (List of Objects) Labels that are applicable to the rule.
 	Labels           []GetIPSFirewallRuleLabel          `pulumi:"labels"`
 	LastModifiedBies []GetIPSFirewallRuleLastModifiedBy `pulumi:"lastModifiedBies"`
@@ -121,8 +127,11 @@ func LookupIPSFirewallRuleOutput(ctx *pulumi.Context, args LookupIPSFirewallRule
 
 // A collection of arguments for invoking getIPSFirewallRule.
 type LookupIPSFirewallRuleOutputArgs struct {
+	// (Integer) The EUN template ID associated with the rule
+	EunTemplateId pulumi.IntPtrInput `pulumi:"eunTemplateId"`
 	// Unique identifier for the Firewall Filtering policy rule
-	Id pulumi.IntPtrInput `pulumi:"id"`
+	Id           pulumi.IntPtrInput  `pulumi:"id"`
+	IsEunEnabled pulumi.BoolPtrInput `pulumi:"isEunEnabled"`
 	// Name of the Firewall Filtering policy rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -211,6 +220,11 @@ func (o LookupIPSFirewallRuleResultOutput) EnableFullLogging() pulumi.BoolOutput
 	return o.ApplyT(func(v LookupIPSFirewallRuleResult) bool { return v.EnableFullLogging }).(pulumi.BoolOutput)
 }
 
+// (Integer) The EUN template ID associated with the rule
+func (o LookupIPSFirewallRuleResultOutput) EunTemplateId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupIPSFirewallRuleResult) *int { return v.EunTemplateId }).(pulumi.IntPtrOutput)
+}
+
 // (List of Objects) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
 func (o LookupIPSFirewallRuleResultOutput) Groups() GetIPSFirewallRuleGroupArrayOutput {
 	return o.ApplyT(func(v LookupIPSFirewallRuleResult) []GetIPSFirewallRuleGroup { return v.Groups }).(GetIPSFirewallRuleGroupArrayOutput)
@@ -219,6 +233,10 @@ func (o LookupIPSFirewallRuleResultOutput) Groups() GetIPSFirewallRuleGroupArray
 // (Integer) Identifier that uniquely identifies an entity
 func (o LookupIPSFirewallRuleResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupIPSFirewallRuleResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o LookupIPSFirewallRuleResultOutput) IsEunEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupIPSFirewallRuleResult) *bool { return v.IsEunEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // (List of Objects) Labels that are applicable to the rule.

@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_nss_server** can be imported by using `<NSS_ID>` or `<NSS_NAME>` as the import ID.
@@ -74,20 +73,20 @@ export class NssServer extends pulumi.CustomResource {
     /**
      * The ICAP server ID
      */
-    public readonly icapSvrId!: pulumi.Output<number | undefined>;
+    declare public readonly icapSvrId: pulumi.Output<number | undefined>;
     /**
      * The name of the devices to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly nssId!: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly nssId: pulumi.Output<number>;
     /**
      * Enables or disables the status of the NSS server
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a NssServer resource with the given unique name, arguments, and options.
@@ -102,17 +101,17 @@ export class NssServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NssServerState | undefined;
-            resourceInputs["icapSvrId"] = state ? state.icapSvrId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nssId"] = state ? state.nssId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["icapSvrId"] = state?.icapSvrId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nssId"] = state?.nssId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as NssServerArgs | undefined;
-            resourceInputs["icapSvrId"] = args ? args.icapSvrId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["icapSvrId"] = args?.icapSvrId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
             resourceInputs["nssId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -106,7 +106,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
         /// 
-        /// &gt; **NOTE** `source_ip` is the public IP address (Static IP) associated with the GRE Tunnel
+        /// &gt; **NOTE** &lt;span pulumi-lang-nodejs="`sourceIp`" pulumi-lang-dotnet="`SourceIp`" pulumi-lang-go="`sourceIp`" pulumi-lang-python="`source_ip`" pulumi-lang-yaml="`sourceIp`" pulumi-lang-java="`sourceIp`"&gt;`source_ip`&lt;/span&gt; is the public IP address (Static IP) associated with the GRE Tunnel
         /// </summary>
         [Input("sourceIp")]
         public string? SourceIp { get; set; }
@@ -128,7 +128,7 @@ namespace zscaler.PulumiPackage.Zia
         /// <summary>
         /// The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
         /// 
-        /// &gt; **NOTE** `source_ip` is the public IP address (Static IP) associated with the GRE Tunnel
+        /// &gt; **NOTE** &lt;span pulumi-lang-nodejs="`sourceIp`" pulumi-lang-dotnet="`SourceIp`" pulumi-lang-go="`sourceIp`" pulumi-lang-python="`source_ip`" pulumi-lang-yaml="`sourceIp`" pulumi-lang-java="`sourceIp`"&gt;`source_ip`&lt;/span&gt; is the public IP address (Static IP) associated with the GRE Tunnel
         /// </summary>
         [Input("sourceIp")]
         public Input<string>? SourceIp { get; set; }
@@ -152,11 +152,11 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         public readonly int? Id;
         /// <summary>
-        /// (String) The start of the internal IP address in /29 CIDR range. Automatically set by the provider if `ip_unnumbered` is set to `false`.
+        /// (String) The start of the internal IP address in /29 CIDR range. Automatically set by the provider if &lt;span pulumi-lang-nodejs="`ipUnnumbered`" pulumi-lang-dotnet="`IpUnnumbered`" pulumi-lang-go="`ipUnnumbered`" pulumi-lang-python="`ip_unnumbered`" pulumi-lang-yaml="`ipUnnumbered`" pulumi-lang-java="`ipUnnumbered`"&gt;`ip_unnumbered`&lt;/span&gt; is set to &lt;span pulumi-lang-nodejs="`false`" pulumi-lang-dotnet="`False`" pulumi-lang-go="`false`" pulumi-lang-python="`false`" pulumi-lang-yaml="`false`" pulumi-lang-java="`false`"&gt;`false`&lt;/span&gt;.
         /// </summary>
         public readonly string InternalIpRange;
         /// <summary>
-        /// (Boolean) This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
+        /// (Boolean) This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true&lt;span pulumi-lang-nodejs=" greTunIp " pulumi-lang-dotnet=" GreTunIp " pulumi-lang-go=" greTunIp " pulumi-lang-python=" gre_tun_ip " pulumi-lang-yaml=" greTunIp " pulumi-lang-java=" greTunIp "&gt; gre_tun_ip &lt;/span&gt;and&lt;span pulumi-lang-nodejs=" greTunId " pulumi-lang-dotnet=" GreTunId " pulumi-lang-go=" greTunId " pulumi-lang-python=" gre_tun_id " pulumi-lang-yaml=" greTunId " pulumi-lang-java=" greTunId "&gt; gre_tun_id &lt;/span&gt;are set to null
         /// </summary>
         public readonly bool IpUnnumbered;
         public readonly int LastModificationTime;

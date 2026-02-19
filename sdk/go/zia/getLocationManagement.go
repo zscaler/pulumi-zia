@@ -82,7 +82,9 @@ type LookupLocationManagementResult struct {
 	// (String) The configured name of the entity
 	Name *string `pulumi:"name"`
 	// (Boolean) Enable Firewall. When set to true, Firewall is enabled for the location.
-	OfwEnabled bool `pulumi:"ofwEnabled"`
+	OfwEnabled        bool `pulumi:"ofwEnabled"`
+	Other6SubLocation bool `pulumi:"other6SubLocation"`
+	OtherSubLocation  bool `pulumi:"otherSubLocation"`
 	// (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
 	ParentId   int     `pulumi:"parentId"`
 	ParentName *string `pulumi:"parentName"`
@@ -92,6 +94,14 @@ type LookupLocationManagementResult struct {
 	Profile string `pulumi:"profile"`
 	// (Boolean) This parameter was deprecated and no longer has an effect on SSL policy. It remains supported in the API payload in order to maintain backwards compatibility with existing scripts, but it will be removed in future.
 	SslScanEnabled bool `pulumi:"sslScanEnabled"`
+	// (List of Strings) Specifies one or more Amazon Web Services (AWS) account IDs. These AWS accounts are associated with the parent location of this sublocation created in the Zscaler Cloud & Branch Connector Admin Portal.
+	SubLocAccIds []string `pulumi:"subLocAccIds"`
+	// (Strings) Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies. This field is only available for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups. The supported options are: `VPC_ENDPOINT`, `VPC`, `NAMESPACE`, `ACCOUNT`
+	SubLocScope string `pulumi:"subLocScope"`
+	// (Boolean) Indicates whether defining scopes is allowed for this sublocation. Sublocation scopes are available only for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups.
+	SubLocScopeEnabled bool `pulumi:"subLocScopeEnabled"`
+	// (List of Strings) Specifies values for the selected sublocation scope type
+	SubLocScopeValues []string `pulumi:"subLocScopeValues"`
 	// (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.
 	SurrogateIp bool `pulumi:"surrogateIp"`
 	// (Boolean) Enforce Surrogate IP for Known Browsers. When set to true, IP Surrogate is enforced for all known browsers.
@@ -268,6 +278,14 @@ func (o LookupLocationManagementResultOutput) OfwEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.OfwEnabled }).(pulumi.BoolOutput)
 }
 
+func (o LookupLocationManagementResultOutput) Other6SubLocation() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.Other6SubLocation }).(pulumi.BoolOutput)
+}
+
+func (o LookupLocationManagementResultOutput) OtherSubLocation() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.OtherSubLocation }).(pulumi.BoolOutput)
+}
+
 // (Number) - Parent Location ID. If this ID does not exist or is `0`, it is implied that it is a parent location. Otherwise, it is a sub-location whose parent has this ID. x-applicableTo: `SUB`
 func (o LookupLocationManagementResultOutput) ParentId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) int { return v.ParentId }).(pulumi.IntOutput)
@@ -290,6 +308,26 @@ func (o LookupLocationManagementResultOutput) Profile() pulumi.StringOutput {
 // (Boolean) This parameter was deprecated and no longer has an effect on SSL policy. It remains supported in the API payload in order to maintain backwards compatibility with existing scripts, but it will be removed in future.
 func (o LookupLocationManagementResultOutput) SslScanEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.SslScanEnabled }).(pulumi.BoolOutput)
+}
+
+// (List of Strings) Specifies one or more Amazon Web Services (AWS) account IDs. These AWS accounts are associated with the parent location of this sublocation created in the Zscaler Cloud & Branch Connector Admin Portal.
+func (o LookupLocationManagementResultOutput) SubLocAccIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) []string { return v.SubLocAccIds }).(pulumi.StringArrayOutput)
+}
+
+// (Strings) Defines a scope for the sublocation from the available types to segregate workload traffic from a single sublocation to apply different Cloud Connector and ZIA security policies. This field is only available for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups. The supported options are: `VPC_ENDPOINT`, `VPC`, `NAMESPACE`, `ACCOUNT`
+func (o LookupLocationManagementResultOutput) SubLocScope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) string { return v.SubLocScope }).(pulumi.StringOutput)
+}
+
+// (Boolean) Indicates whether defining scopes is allowed for this sublocation. Sublocation scopes are available only for the Workload traffic type sublocations whose parent locations are associated with Amazon Web Services (AWS) Cloud Connector groups.
+func (o LookupLocationManagementResultOutput) SubLocScopeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) bool { return v.SubLocScopeEnabled }).(pulumi.BoolOutput)
+}
+
+// (List of Strings) Specifies values for the selected sublocation scope type
+func (o LookupLocationManagementResultOutput) SubLocScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLocationManagementResult) []string { return v.SubLocScopeValues }).(pulumi.StringArrayOutput)
 }
 
 // (Boolean) Enable Surrogate IP. When set to true, users are mapped to internal device IP addresses.

@@ -45,6 +45,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdvancedThreatSettings{}
 	case "zia:index/authSettingsURLs:AuthSettingsURLs":
 		r = &AuthSettingsURLs{}
+	case "zia:index/bandwidthControlClasses:BandwidthControlClasses":
+		r = &BandwidthControlClasses{}
+	case "zia:index/bandwidthControlClassesFileSize:BandwidthControlClassesFileSize":
+		r = &BandwidthControlClassesFileSize{}
+	case "zia:index/bandwidthControlClassesWebConferencing:BandwidthControlClassesWebConferencing":
+		r = &BandwidthControlClassesWebConferencing{}
+	case "zia:index/bandwidthControlRule:BandwidthControlRule":
+		r = &BandwidthControlRule{}
 	case "zia:index/browserControlPolicy:BrowserControlPolicy":
 		r = &BrowserControlPolicy{}
 	case "zia:index/browserControlSettings:BrowserControlSettings":
@@ -61,6 +69,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudAppControlRule{}
 	case "zia:index/cloudApplicationInstance:CloudApplicationInstance":
 		r = &CloudApplicationInstance{}
+	case "zia:index/cloudNSSFeed:CloudNSSFeed":
+		r = &CloudNSSFeed{}
+	case "zia:index/customFileTypes:CustomFileTypes":
+		r = &CustomFileTypes{}
+	case "zia:index/dCExclusions:DCExclusions":
+		r = &DCExclusions{}
 	case "zia:index/dLPDictionaries:DLPDictionaries":
 		r = &DLPDictionaries{}
 	case "zia:index/dLPEngines:DLPEngines":
@@ -71,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DLPWebRules{}
 	case "zia:index/endUserNotification:EndUserNotification":
 		r = &EndUserNotification{}
+	case "zia:index/extranet:Extranet":
+		r = &Extranet{}
 	case "zia:index/fileTypeControlRules:FileTypeControlRules":
 		r = &FileTypeControlRules{}
 	case "zia:index/firewallDNSRule:FirewallDNSRule":
@@ -119,8 +135,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SandboxRules{}
 	case "zia:index/securitySettings:SecuritySettings":
 		r = &SecuritySettings{}
+	case "zia:index/subCloud:SubCloud":
+		r = &SubCloud{}
 	case "zia:index/subscriptionAlert:SubscriptionAlert":
 		r = &SubscriptionAlert{}
+	case "zia:index/tenantRestrictionProfile:TenantRestrictionProfile":
+		r = &TenantRestrictionProfile{}
+	case "zia:index/trafficCaptureRules:TrafficCaptureRules":
+		r = &TrafficCaptureRules{}
 	case "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel":
 		r = &TrafficForwardingGRETunnel{}
 	case "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP":
@@ -129,6 +151,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrafficForwardingVPNCredentials{}
 	case "zia:index/uRLCategories:URLCategories":
 		r = &URLCategories{}
+	case "zia:index/uRLCategoriesPredefined:URLCategoriesPredefined":
+		r = &URLCategoriesPredefined{}
 	case "zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings":
 		r = &URLFilteringCloudAppSettings{}
 	case "zia:index/uRLFilteringRules:URLFilteringRules":
@@ -137,6 +161,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserManagement{}
 	case "zia:index/virtualServiceEdgeCluster:VirtualServiceEdgeCluster":
 		r = &VirtualServiceEdgeCluster{}
+	case "zia:index/virtualServiceEdgeNode:VirtualServiceEdgeNode":
+		r = &VirtualServiceEdgeNode{}
+	case "zia:index/workloadGroups:WorkloadGroups":
+		r = &WorkloadGroups{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -230,6 +258,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/bandwidthControlClasses",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/bandwidthControlClassesFileSize",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/bandwidthControlClassesWebConferencing",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/bandwidthControlRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/browserControlPolicy",
 		&module{version},
 	)
@@ -270,6 +318,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/cloudNSSFeed",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/customFileTypes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/dCExclusions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/dLPDictionaries",
 		&module{version},
 	)
@@ -291,6 +354,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/endUserNotification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/extranet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -415,7 +483,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/subCloud",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/subscriptionAlert",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/tenantRestrictionProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/trafficCaptureRules",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -440,6 +523,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"zia",
+		"index/uRLCategoriesPredefined",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
 		"index/uRLFilteringCloudAppSettings",
 		&module{version},
 	)
@@ -456,6 +544,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"zia",
 		"index/virtualServiceEdgeCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/virtualServiceEdgeNode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"zia",
+		"index/workloadGroups",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

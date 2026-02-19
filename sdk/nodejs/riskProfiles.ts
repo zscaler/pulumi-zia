@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_risk_profiles** can be imported by using `<PROFILE_ID>` or `<PROFILE_NAME>` as the import ID.
@@ -68,139 +67,139 @@ export class RiskProfiles extends pulumi.CustomResource {
     /**
      * (String) Filters based on support for administrative logging. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly adminAuditLogs!: pulumi.Output<string | undefined>;
+    declare public readonly adminAuditLogs: pulumi.Output<string | undefined>;
     /**
      * (Optional) Filters based on supported certifications.
      */
-    public readonly certifications!: pulumi.Output<string[] | undefined>;
+    declare public readonly certifications: pulumi.Output<string[] | undefined>;
     /**
      * (Set) List of custom tags to be included or excluded for the profile.
      */
-    public readonly customTags!: pulumi.Output<outputs.RiskProfilesCustomTags | undefined>;
+    declare public readonly customTags: pulumi.Output<outputs.RiskProfilesCustomTags | undefined>;
     /**
      * (String) Filters based on history of data breaches. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly dataBreach!: pulumi.Output<string | undefined>;
+    declare public readonly dataBreach: pulumi.Output<string | undefined>;
     /**
      * (Optional) Filters based on encryption of data in transit.
      */
-    public readonly dataEncryptionInTransits!: pulumi.Output<string[] | undefined>;
+    declare public readonly dataEncryptionInTransits: pulumi.Output<string[] | undefined>;
     /**
      * (String) Filters based on DNS CAA policy implementation.
      */
-    public readonly dnsCaaPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly dnsCaaPolicy: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on DMARC support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly domainBasedMessageAuth!: pulumi.Output<string | undefined>;
+    declare public readonly domainBasedMessageAuth: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on DKIM authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly domainKeysIdentifiedMail!: pulumi.Output<string | undefined>;
+    declare public readonly domainKeysIdentifiedMail: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on anonymous access support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly evasive!: pulumi.Output<string | undefined>;
+    declare public readonly evasive: pulumi.Output<string | undefined>;
     /**
      * (Int) Indicates if the certificates are included or not.
      */
-    public readonly excludeCertificates!: pulumi.Output<number | undefined>;
+    declare public readonly excludeCertificates: pulumi.Output<number | undefined>;
     /**
      * (String) Filters based on file sharing capability. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly fileSharing!: pulumi.Output<string | undefined>;
+    declare public readonly fileSharing: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on HTTP security headers support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly httpSecurityHeaders!: pulumi.Output<string | undefined>;
+    declare public readonly httpSecurityHeaders: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on content malware scanning. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly malwareScanningForContent!: pulumi.Output<string | undefined>;
+    declare public readonly malwareScanningForContent: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on multi-factor authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly mfaSupport!: pulumi.Output<string | undefined>;
-    /**
-     * Cloud application risk profile name.
-     */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly mfaSupport: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
      */
-    public readonly passwordStrength!: pulumi.Output<string | undefined>;
+    declare public readonly passwordStrength: pulumi.Output<string | undefined>;
     /**
      * (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly poorItemsOfService!: pulumi.Output<string | undefined>;
+    declare public readonly poorItemsOfService: pulumi.Output<string | undefined>;
     /**
      * Unique identifier for the risk profile.
      */
-    public /*out*/ readonly profileId!: pulumi.Output<number>;
+    declare public /*out*/ readonly profileId: pulumi.Output<number>;
+    /**
+     * Cloud application risk profile name.
+     */
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
      */
-    public readonly profileType!: pulumi.Output<string | undefined>;
+    declare public readonly profileType: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on remote screen sharing support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly remoteScreenSharing!: pulumi.Output<string | undefined>;
+    declare public readonly remoteScreenSharing: pulumi.Output<string | undefined>;
     /**
      * (Optional) Filters based on risk index thresholds.
      */
-    public readonly riskIndices!: pulumi.Output<number[] | undefined>;
+    declare public readonly riskIndices: pulumi.Output<number[] | undefined>;
     /**
      * (String) Filters based on SPF authentication support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly senderPolicyFramework!: pulumi.Output<string | undefined>;
+    declare public readonly senderPolicyFramework: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on IP restriction support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly sourceIpRestrictions!: pulumi.Output<string | undefined>;
+    declare public readonly sourceIpRestrictions: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on SSL certificate key size. Supported values: `ANY`, `UN_KNOWN`, `BITS_1024`, `BITS_2048`, `BITS_256`, `BITS_3072`, `BITS_384`, `BITS_4096`, `BITS_8192`.
      */
-    public readonly sslCertKeySize!: pulumi.Output<string | undefined>;
+    declare public readonly sslCertKeySize: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on SSL certificate validity period. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly sslCertValidity!: pulumi.Output<string | undefined>;
+    declare public readonly sslCertValidity: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on use of pinned SSL certificates. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly sslPinned!: pulumi.Output<string | undefined>;
+    declare public readonly sslPinned: pulumi.Output<string | undefined>;
     /**
      * (String) Status of the applications. Supported values: `UN_SANCTIONED`, `SANCTIONED`, `ANY`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on Web Application Firewall (WAF) support. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly supportForWaf!: pulumi.Output<string | undefined>;
+    declare public readonly supportForWaf: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on published CVE vulnerabilities. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly vulnerability!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerability: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on vulnerability disclosure policy. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly vulnerabilityDisclosure!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerabilityDisclosure: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on Heartbleed vulnerability. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly vulnerableToHeartBleed!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerableToHeartBleed: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on Logjam vulnerability. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly vulnerableToLogJam!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerableToLogJam: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on POODLE vulnerability. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly vulnerableToPoodle!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerableToPoodle: pulumi.Output<string | undefined>;
     /**
      * (String) Filters based on weak cipher usage. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
-    public readonly weakCipherSupport!: pulumi.Output<string | undefined>;
+    declare public readonly weakCipherSupport: pulumi.Output<string | undefined>;
 
     /**
      * Create a RiskProfiles resource with the given unique name, arguments, and options.
@@ -209,81 +208,84 @@ export class RiskProfiles extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RiskProfilesArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: RiskProfilesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RiskProfilesArgs | RiskProfilesState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RiskProfilesState | undefined;
-            resourceInputs["adminAuditLogs"] = state ? state.adminAuditLogs : undefined;
-            resourceInputs["certifications"] = state ? state.certifications : undefined;
-            resourceInputs["customTags"] = state ? state.customTags : undefined;
-            resourceInputs["dataBreach"] = state ? state.dataBreach : undefined;
-            resourceInputs["dataEncryptionInTransits"] = state ? state.dataEncryptionInTransits : undefined;
-            resourceInputs["dnsCaaPolicy"] = state ? state.dnsCaaPolicy : undefined;
-            resourceInputs["domainBasedMessageAuth"] = state ? state.domainBasedMessageAuth : undefined;
-            resourceInputs["domainKeysIdentifiedMail"] = state ? state.domainKeysIdentifiedMail : undefined;
-            resourceInputs["evasive"] = state ? state.evasive : undefined;
-            resourceInputs["excludeCertificates"] = state ? state.excludeCertificates : undefined;
-            resourceInputs["fileSharing"] = state ? state.fileSharing : undefined;
-            resourceInputs["httpSecurityHeaders"] = state ? state.httpSecurityHeaders : undefined;
-            resourceInputs["malwareScanningForContent"] = state ? state.malwareScanningForContent : undefined;
-            resourceInputs["mfaSupport"] = state ? state.mfaSupport : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["passwordStrength"] = state ? state.passwordStrength : undefined;
-            resourceInputs["poorItemsOfService"] = state ? state.poorItemsOfService : undefined;
-            resourceInputs["profileId"] = state ? state.profileId : undefined;
-            resourceInputs["profileType"] = state ? state.profileType : undefined;
-            resourceInputs["remoteScreenSharing"] = state ? state.remoteScreenSharing : undefined;
-            resourceInputs["riskIndices"] = state ? state.riskIndices : undefined;
-            resourceInputs["senderPolicyFramework"] = state ? state.senderPolicyFramework : undefined;
-            resourceInputs["sourceIpRestrictions"] = state ? state.sourceIpRestrictions : undefined;
-            resourceInputs["sslCertKeySize"] = state ? state.sslCertKeySize : undefined;
-            resourceInputs["sslCertValidity"] = state ? state.sslCertValidity : undefined;
-            resourceInputs["sslPinned"] = state ? state.sslPinned : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["supportForWaf"] = state ? state.supportForWaf : undefined;
-            resourceInputs["vulnerability"] = state ? state.vulnerability : undefined;
-            resourceInputs["vulnerabilityDisclosure"] = state ? state.vulnerabilityDisclosure : undefined;
-            resourceInputs["vulnerableToHeartBleed"] = state ? state.vulnerableToHeartBleed : undefined;
-            resourceInputs["vulnerableToLogJam"] = state ? state.vulnerableToLogJam : undefined;
-            resourceInputs["vulnerableToPoodle"] = state ? state.vulnerableToPoodle : undefined;
-            resourceInputs["weakCipherSupport"] = state ? state.weakCipherSupport : undefined;
+            resourceInputs["adminAuditLogs"] = state?.adminAuditLogs;
+            resourceInputs["certifications"] = state?.certifications;
+            resourceInputs["customTags"] = state?.customTags;
+            resourceInputs["dataBreach"] = state?.dataBreach;
+            resourceInputs["dataEncryptionInTransits"] = state?.dataEncryptionInTransits;
+            resourceInputs["dnsCaaPolicy"] = state?.dnsCaaPolicy;
+            resourceInputs["domainBasedMessageAuth"] = state?.domainBasedMessageAuth;
+            resourceInputs["domainKeysIdentifiedMail"] = state?.domainKeysIdentifiedMail;
+            resourceInputs["evasive"] = state?.evasive;
+            resourceInputs["excludeCertificates"] = state?.excludeCertificates;
+            resourceInputs["fileSharing"] = state?.fileSharing;
+            resourceInputs["httpSecurityHeaders"] = state?.httpSecurityHeaders;
+            resourceInputs["malwareScanningForContent"] = state?.malwareScanningForContent;
+            resourceInputs["mfaSupport"] = state?.mfaSupport;
+            resourceInputs["passwordStrength"] = state?.passwordStrength;
+            resourceInputs["poorItemsOfService"] = state?.poorItemsOfService;
+            resourceInputs["profileId"] = state?.profileId;
+            resourceInputs["profileName"] = state?.profileName;
+            resourceInputs["profileType"] = state?.profileType;
+            resourceInputs["remoteScreenSharing"] = state?.remoteScreenSharing;
+            resourceInputs["riskIndices"] = state?.riskIndices;
+            resourceInputs["senderPolicyFramework"] = state?.senderPolicyFramework;
+            resourceInputs["sourceIpRestrictions"] = state?.sourceIpRestrictions;
+            resourceInputs["sslCertKeySize"] = state?.sslCertKeySize;
+            resourceInputs["sslCertValidity"] = state?.sslCertValidity;
+            resourceInputs["sslPinned"] = state?.sslPinned;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["supportForWaf"] = state?.supportForWaf;
+            resourceInputs["vulnerability"] = state?.vulnerability;
+            resourceInputs["vulnerabilityDisclosure"] = state?.vulnerabilityDisclosure;
+            resourceInputs["vulnerableToHeartBleed"] = state?.vulnerableToHeartBleed;
+            resourceInputs["vulnerableToLogJam"] = state?.vulnerableToLogJam;
+            resourceInputs["vulnerableToPoodle"] = state?.vulnerableToPoodle;
+            resourceInputs["weakCipherSupport"] = state?.weakCipherSupport;
         } else {
             const args = argsOrState as RiskProfilesArgs | undefined;
-            resourceInputs["adminAuditLogs"] = args ? args.adminAuditLogs : undefined;
-            resourceInputs["certifications"] = args ? args.certifications : undefined;
-            resourceInputs["customTags"] = args ? args.customTags : undefined;
-            resourceInputs["dataBreach"] = args ? args.dataBreach : undefined;
-            resourceInputs["dataEncryptionInTransits"] = args ? args.dataEncryptionInTransits : undefined;
-            resourceInputs["dnsCaaPolicy"] = args ? args.dnsCaaPolicy : undefined;
-            resourceInputs["domainBasedMessageAuth"] = args ? args.domainBasedMessageAuth : undefined;
-            resourceInputs["domainKeysIdentifiedMail"] = args ? args.domainKeysIdentifiedMail : undefined;
-            resourceInputs["evasive"] = args ? args.evasive : undefined;
-            resourceInputs["excludeCertificates"] = args ? args.excludeCertificates : undefined;
-            resourceInputs["fileSharing"] = args ? args.fileSharing : undefined;
-            resourceInputs["httpSecurityHeaders"] = args ? args.httpSecurityHeaders : undefined;
-            resourceInputs["malwareScanningForContent"] = args ? args.malwareScanningForContent : undefined;
-            resourceInputs["mfaSupport"] = args ? args.mfaSupport : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["passwordStrength"] = args ? args.passwordStrength : undefined;
-            resourceInputs["poorItemsOfService"] = args ? args.poorItemsOfService : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["remoteScreenSharing"] = args ? args.remoteScreenSharing : undefined;
-            resourceInputs["riskIndices"] = args ? args.riskIndices : undefined;
-            resourceInputs["senderPolicyFramework"] = args ? args.senderPolicyFramework : undefined;
-            resourceInputs["sourceIpRestrictions"] = args ? args.sourceIpRestrictions : undefined;
-            resourceInputs["sslCertKeySize"] = args ? args.sslCertKeySize : undefined;
-            resourceInputs["sslCertValidity"] = args ? args.sslCertValidity : undefined;
-            resourceInputs["sslPinned"] = args ? args.sslPinned : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["supportForWaf"] = args ? args.supportForWaf : undefined;
-            resourceInputs["vulnerability"] = args ? args.vulnerability : undefined;
-            resourceInputs["vulnerabilityDisclosure"] = args ? args.vulnerabilityDisclosure : undefined;
-            resourceInputs["vulnerableToHeartBleed"] = args ? args.vulnerableToHeartBleed : undefined;
-            resourceInputs["vulnerableToLogJam"] = args ? args.vulnerableToLogJam : undefined;
-            resourceInputs["vulnerableToPoodle"] = args ? args.vulnerableToPoodle : undefined;
-            resourceInputs["weakCipherSupport"] = args ? args.weakCipherSupport : undefined;
+            if (args?.profileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'profileName'");
+            }
+            resourceInputs["adminAuditLogs"] = args?.adminAuditLogs;
+            resourceInputs["certifications"] = args?.certifications;
+            resourceInputs["customTags"] = args?.customTags;
+            resourceInputs["dataBreach"] = args?.dataBreach;
+            resourceInputs["dataEncryptionInTransits"] = args?.dataEncryptionInTransits;
+            resourceInputs["dnsCaaPolicy"] = args?.dnsCaaPolicy;
+            resourceInputs["domainBasedMessageAuth"] = args?.domainBasedMessageAuth;
+            resourceInputs["domainKeysIdentifiedMail"] = args?.domainKeysIdentifiedMail;
+            resourceInputs["evasive"] = args?.evasive;
+            resourceInputs["excludeCertificates"] = args?.excludeCertificates;
+            resourceInputs["fileSharing"] = args?.fileSharing;
+            resourceInputs["httpSecurityHeaders"] = args?.httpSecurityHeaders;
+            resourceInputs["malwareScanningForContent"] = args?.malwareScanningForContent;
+            resourceInputs["mfaSupport"] = args?.mfaSupport;
+            resourceInputs["passwordStrength"] = args?.passwordStrength;
+            resourceInputs["poorItemsOfService"] = args?.poorItemsOfService;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["remoteScreenSharing"] = args?.remoteScreenSharing;
+            resourceInputs["riskIndices"] = args?.riskIndices;
+            resourceInputs["senderPolicyFramework"] = args?.senderPolicyFramework;
+            resourceInputs["sourceIpRestrictions"] = args?.sourceIpRestrictions;
+            resourceInputs["sslCertKeySize"] = args?.sslCertKeySize;
+            resourceInputs["sslCertValidity"] = args?.sslCertValidity;
+            resourceInputs["sslPinned"] = args?.sslPinned;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["supportForWaf"] = args?.supportForWaf;
+            resourceInputs["vulnerability"] = args?.vulnerability;
+            resourceInputs["vulnerabilityDisclosure"] = args?.vulnerabilityDisclosure;
+            resourceInputs["vulnerableToHeartBleed"] = args?.vulnerableToHeartBleed;
+            resourceInputs["vulnerableToLogJam"] = args?.vulnerableToLogJam;
+            resourceInputs["vulnerableToPoodle"] = args?.vulnerableToPoodle;
+            resourceInputs["weakCipherSupport"] = args?.weakCipherSupport;
             resourceInputs["profileId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -352,10 +354,6 @@ export interface RiskProfilesState {
      */
     mfaSupport?: pulumi.Input<string>;
     /**
-     * Cloud application risk profile name.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
      */
     passwordStrength?: pulumi.Input<string>;
@@ -367,6 +365,10 @@ export interface RiskProfilesState {
      * Unique identifier for the risk profile.
      */
     profileId?: pulumi.Input<number>;
+    /**
+     * Cloud application risk profile name.
+     */
+    profileName?: pulumi.Input<string>;
     /**
      * (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
      */
@@ -494,10 +496,6 @@ export interface RiskProfilesArgs {
      */
     mfaSupport?: pulumi.Input<string>;
     /**
-     * Cloud application risk profile name.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * (String) Filters based on password strength policy. Supported values: `ANY`, `GOOD`, `POOR`, `UN_KNOWN`.
      */
     passwordStrength?: pulumi.Input<string>;
@@ -505,6 +503,10 @@ export interface RiskProfilesArgs {
      * (String) Filters applications based on questionable legal terms. Supported values: `ANY`, `YES`, `NO`, `UN_KNOWN`.
      */
     poorItemsOfService?: pulumi.Input<string>;
+    /**
+     * Cloud application risk profile name.
+     */
+    profileName: pulumi.Input<string>;
     /**
      * (String) Risk profile type. Supported value: `CLOUD_APPLICATIONS`. Default is `CLOUD_APPLICATIONS`.
      */

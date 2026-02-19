@@ -14,31 +14,228 @@ namespace zscaler.PulumiPackage.Zia
     /// * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
     /// * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
     /// 
-    /// The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static ip addresses in the Zscaler Internet Access cloud. The resource, can then be associated with other resources such as:
+    /// The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static IP addresses in the Zscaler Internet Access cloud. The resource can then be associated with other resources such as:
     /// 
     /// * VPN Credentials of type `IP`
     /// * Location Management
     /// * GRE Tunnel
     /// 
+    /// ## 🎯 Automatic Coordinate Determination (v4.6.2+)
+    /// 
+    /// Starting with **version 4.6.2**, the provider automatically determines latitude and longitude coordinates from the IP address, even when &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true`. This means:
+    /// 
+    /// * ✅ **No manual coordinate lookups** - Provider handles it automatically
+    /// * ✅ **No drift issues** - State always contains exact API values
+    /// * ✅ **Simpler configuration** - Omit &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; for automatic determination
+    /// * ✅ **Fully backward compatible** - Explicit coordinates still work if provided
+    /// 
+    /// **In short:** You can now use &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true` without specifying coordinates! See examples below.
+    /// 
     /// ## Example Usage
+    /// 
+    /// ### Example 1: Auto-Determined Coordinates (Recommended)
+    /// 
+    /// ### Example 2: User-Specified Coordinates (Optional)
+    /// 
+    /// ### Example 3: Automatic Geolocation (geo_override = false)
+    /// 
+    /// ## How Latitude and Longitude Are Determined
+    /// 
+    /// The provider handles coordinates intelligently based on your configuration:
+    /// 
+    /// ### When &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= false` (or omitted)
+    /// * ✅ **Provider behavior**: Latitude and longitude are automatically determined by the ZIA API based on the IP address
+    /// * ✅ **State file**: Will contain the API-determined coordinates
+    /// * ✅ **User action**: None required - fully automatic
+    /// 
+    /// ### When &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true` WITHOUT coordinates
+    /// * ✅ **Provider behavior**:
+    ///   1. Creates the static IP with &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= false` first
+    ///   2. Retrieves the auto-determined coordinates from the API
+    ///   3. Updates the static IP with &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true` using those coordinates
+    /// * ✅ **State file**: Will contain the auto-determined coordinates
+    /// * ✅ **User action**: None required - provider handles it automatically
+    /// * ✅ **Result**: You get &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true` without manually looking up coordinates
+    /// 
+    /// ### When &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true` WITH coordinates
+    /// * ✅ **Provider behavior**: Uses your specified coordinates
+    /// * ✅ **State file**: Will contain the exact values returned by the API (may have minor precision adjustments)
+    /// * ✅ **User action**: Provide &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; values
+    /// * ✅ **Result**: Your custom coordinates are used
+    /// 
+    /// ### Key Benefits
+    /// * 🎯 **No drift issues** - State always contains exact API values
+    /// * 🎯 **No manual lookups** - API determines accurate coordinates from IP
+    /// * 🎯 **Flexible** - Can override coordinates when needed
+    /// * 🎯 **Always accurate** - Coordinates match the IP address geolocation
+    /// 
+    /// ## Common Use Cases
+    /// 
+    /// ### Use Case 1: GRE Tunnel with Auto-Determined Coordinates
+    /// 
+    /// ### Use Case 2: Multiple Static IPs with&lt;span pulumi-lang-nodejs=" forEach
+    /// " pulumi-lang-dotnet=" ForEach
+    /// " pulumi-lang-go=" forEach
+    /// " pulumi-lang-python=" for_each
+    /// " pulumi-lang-yaml=" forEach
+    /// " pulumi-lang-java=" forEach
+    /// "&gt; for_each
+    /// &lt;/span&gt;
+    /// 
+    /// ### Use Case 3: VPN Credentials Integration
+    /// 
+    /// ## Frequently Asked Questions (FAQ)
+    /// 
+    /// ### Q: Do I need to specify latitude and longitude when using&lt;span pulumi-lang-nodejs=" geoOverride " pulumi-lang-dotnet=" GeoOverride " pulumi-lang-go=" geoOverride " pulumi-lang-python=" geo_override " pulumi-lang-yaml=" geoOverride " pulumi-lang-java=" geoOverride "&gt; geo_override &lt;/span&gt;= true?
+    /// 
+    /// **A:** No! The provider will automatically determine coordinates from the IP address if you don't provide them. This is the **recommended approach** to avoid drift issues.
+    /// 
+    /// ### Q: What if I want to use specific coordinates?
+    /// 
+    /// **A:** You can still provide &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; explicitly. The provider will use your values if provided.
+    /// 
+    /// ### Q: Will there be drift if I don't specify coordinates?
+    /// 
+    /// **A:** No! The state file will contain the exact coordinates returned by the ZIA API. Subsequent `pulumi preview` commands will show no changes.
+    /// 
+    /// ### Q: What happens if I provide coordinates that don't match the IP location?
+    /// 
+    /// **A:** The API will accept your coordinates, but they may be adjusted for precision. The state file will always reflect the actual API response values.
+    /// 
+    /// ### Q: Can I change from auto-determined to custom coordinates later?
+    /// 
+    /// **A:** Yes! Simply add &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; to your configuration and run `pulumi up`. The provider will update the static IP with your custom coordinates.
+    /// 
+    /// ### Q: What precision does the API use for coordinates?
+    /// 
+    /// **A:** The API typically returns 4-7 decimal places depending on the IP location. The provider stores these exact values without rounding.
+    /// 
+    /// ### Q: Why does my state show&lt;span pulumi-lang-nodejs=" geoOverride " pulumi-lang-dotnet=" GeoOverride " pulumi-lang-go=" geoOverride " pulumi-lang-python=" geo_override " pulumi-lang-yaml=" geoOverride " pulumi-lang-java=" geoOverride "&gt; geo_override &lt;/span&gt;= true but I didn't set it?
+    /// 
+    /// **A:** The &lt;span pulumi-lang-nodejs="`geoOverride`" pulumi-lang-dotnet="`GeoOverride`" pulumi-lang-go="`geoOverride`" pulumi-lang-python="`geo_override`" pulumi-lang-yaml="`geoOverride`" pulumi-lang-java="`geoOverride`"&gt;`geo_override`&lt;/span&gt; attribute has `Computed: true`, meaning it's populated from the API response. The API may set it based on other factors.
+    /// 
+    /// ## Troubleshooting
+    /// 
+    /// ### Error: "Missing geo Coordinates"
+    /// 
+    /// This error should no longer occur with the updated provider. If you still see it:
+    /// 
+    /// 1. Ensure you're using provider version 4.6.2 or later
+    /// 2. Check if coordinates are being populated: `terraform state show zia_traffic_forwarding_static_ip.&lt;name&gt;`
+    /// 3. Enable debug logging: `export TF_LOG=DEBUG` and check for auto-population messages
+    /// 
+    /// ### Unexpected Drift Detected
+    /// 
+    /// If `pulumi preview` shows coordinate changes:
+    /// 
+    /// 1. **Solution**: Remove explicit &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; from your configuration
+    /// 2. **Reason**: API values may differ slightly from user-provided values due to precision
+    /// 3. **After removal**: Run `pulumi up` once - state will sync with API values
+    /// 4. **Future plans**: Will show no changes
+    /// 
+    /// ### Coordinates Not in Expected Location
+    /// 
+    /// The coordinates reflect the IP address's actual geolocation as determined by Zscaler's geolocation database. If you need different coordinates:
+    /// 
+    /// 1. Set &lt;span pulumi-lang-nodejs="`geoOverride " pulumi-lang-dotnet="`GeoOverride " pulumi-lang-go="`geoOverride " pulumi-lang-python="`geo_override " pulumi-lang-yaml="`geoOverride " pulumi-lang-java="`geoOverride "&gt;`geo_override &lt;/span&gt;= true`
+    /// 2. Provide your desired &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; explicitly
+    /// 3. The API will use your values
+    /// 
+    /// ## Best Practices
+    /// 
+    /// ### ✅ Recommended: Let the Provider Auto-Determine Coordinates
+    /// 
+    /// **Why this is recommended:**
+    /// 
+    /// * ✅ No manual coordinate lookups required
+    /// * ✅ Zero drift - state always matches API
+    /// * ✅ Accurate - API knows the correct geolocation for each IP
+    /// * ✅ Maintainable - no hardcoded coordinates to update
+    /// 
+    /// ### ⚠️ Use Custom Coordinates Only When Necessary
+    /// 
+    /// Only provide explicit coordinates if you have a specific requirement:
+    /// 
+    /// **When to use custom coordinates:**
+    /// 
+    /// * Testing with specific geographic locations
+    /// * Compliance requirements for specific geo-coordinates
+    /// * Override API's geolocation database for special cases
+    /// 
+    /// ## Migration Guide for Existing Users
+    /// 
+    /// If you're upgrading from an older provider version (&lt; 4.6.2), you may have configurations like this:
+    /// 
+    /// ### Old Configuration (Still Works, But Not Recommended)
+    /// 
+    /// ### Migrating to New Approach (Recommended)
+    /// 
+    /// **Step 1:** Remove &lt;span pulumi-lang-nodejs="`latitude`" pulumi-lang-dotnet="`Latitude`" pulumi-lang-go="`latitude`" pulumi-lang-python="`latitude`" pulumi-lang-yaml="`latitude`" pulumi-lang-java="`latitude`"&gt;`latitude`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`longitude`" pulumi-lang-dotnet="`Longitude`" pulumi-lang-go="`longitude`" pulumi-lang-python="`longitude`" pulumi-lang-yaml="`longitude`" pulumi-lang-java="`longitude`"&gt;`longitude`&lt;/span&gt; from your configuration
+    /// 
+    /// **Step 2:** Run `pulumi preview`
+    /// 
+    /// You'll see Terraform wants to update the resource (to remove explicitly set coordinates from state).
+    /// 
+    /// **Step 3:** Apply the changes
+    /// 
+    /// The provider will:
+    /// 
+    /// * Keep the same static IP (no destruction)
+    /// * Auto-determine coordinates from the IP
+    /// * Update state with API values
+    /// * No infrastructure change - just cleaner config!
+    /// 
+    /// **Step 4:** Verify no drift
+    /// 
+    /// ### Migration Example: Full Before/After
+    /// 
+    /// **Before Migration:**
+    /// 
+    /// **After Migration:**
+    /// 
+    /// **Migration Impact:**
+    /// 
+    /// * Configuration: 8 lines removed (cleaner)
+    /// * API calls: No additional overhead after migration
+    /// * Drift: Eliminated
+    /// * Maintenance: Easier
     /// 
     /// ## Import
     /// 
     /// Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-    /// 
     /// Visit
     /// 
-    /// Static IP resources can be imported by using `&lt;STATIC IP ID&gt;` or `&lt;IP ADDRESS&gt;`as the import ID.
+    /// Static IP resources can be imported by using `&lt;STATIC IP ID&gt;` or `&lt;IP ADDRESS&gt;` as the import ID.
+    /// 
+    /// ### Import by Static IP ID
     /// 
     /// ```sh
     /// $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example &lt;static_ip_id&gt;
     /// ```
     /// 
-    /// or
+    /// Example:
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 3030759
+    /// ```
+    /// 
+    /// ### Import by IP Address
     /// 
     /// ```sh
     /// $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example &lt;ip_address&gt;
     /// ```
+    /// 
+    /// Example:
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 122.164.82.249
+    /// ```
+    /// 
+    /// **After Import:**
+    /// 
+    /// * The state will include all attributes including latitude and longitude
+    /// * You can omit coordinates from your configuration - state will remain accurate
+    /// * Run `pulumi preview` to see what configuration should look like
     /// </summary>
     [ZiaResourceType("zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP")]
     public partial class TrafficForwardingStaticIP : global::Pulumi.CustomResource
@@ -47,11 +244,10 @@ namespace zscaler.PulumiPackage.Zia
         /// Additional information about this static IP address
         /// </summary>
         [Output("comment")]
-        public Output<string> Comment { get; private set; } = null!;
+        public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-        /// and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
         /// </summary>
         [Output("geoOverride")]
         public Output<bool> GeoOverride { get; private set; } = null!;
@@ -63,22 +259,19 @@ namespace zscaler.PulumiPackage.Zia
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-        /// -90 and 90 degrees.
+        /// Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Output("latitude")]
         public Output<double> Latitude { get; private set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-        /// -180 and 180 degrees.
+        /// Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Output("longitude")]
         public Output<double> Longitude { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-        /// Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
         /// </summary>
         [Output("routableIp")]
         public Output<bool> RoutableIp { get; private set; } = null!;
@@ -143,8 +336,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-        /// and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
         /// </summary>
         [Input("geoOverride")]
         public Input<bool>? GeoOverride { get; set; }
@@ -156,22 +348,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string> IpAddress { get; set; } = null!;
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-        /// -90 and 90 degrees.
+        /// Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Input("latitude")]
         public Input<double>? Latitude { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-        /// -180 and 180 degrees.
+        /// Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Input("longitude")]
         public Input<double>? Longitude { get; set; }
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-        /// Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
         /// </summary>
         [Input("routableIp")]
         public Input<bool>? RoutableIp { get; set; }
@@ -191,8 +380,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude
-        /// and longitude coordinates must be provided.
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
         /// </summary>
         [Input("geoOverride")]
         public Input<bool>? GeoOverride { get; set; }
@@ -204,22 +392,19 @@ namespace zscaler.PulumiPackage.Zia
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Latitude with 7 digit precision after decimal point, ranges between
-        /// -90 and 90 degrees.
+        /// Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Input("latitude")]
         public Input<double>? Latitude { get; set; }
 
         /// <summary>
-        /// Required only if the geoOverride attribute is set. Longitude with 7 digit precision after decimal point, ranges between
-        /// -180 and 180 degrees.
+        /// Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
         /// </summary>
         [Input("longitude")]
         public Input<double>? Longitude { get; set; }
 
         /// <summary>
-        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private
-        /// Service Edge associated to the organization.
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
         /// </summary>
         [Input("routableIp")]
         public Input<bool>? RoutableIp { get; set; }

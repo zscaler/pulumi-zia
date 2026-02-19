@@ -94,6 +94,9 @@ namespace zscaler.PulumiPackage.Zia
         [Input("projectName")]
         public string? ProjectName { get; set; }
 
+        [Input("schemaId")]
+        public int? SchemaId { get; set; }
+
         public GetDLPEDMSchemaArgs()
         {
         }
@@ -104,6 +107,9 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
+
+        [Input("schemaId")]
+        public Input<int>? SchemaId { get; set; }
 
         public GetDLPEDMSchemaInvokeArgs()
         {

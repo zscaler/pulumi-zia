@@ -5,7 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * * [Official documentation](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal)
+ * * [API documentation](https://help.zscaler.com/zia/activation#/status-get)
+ *
+ * The **zia_activation_status** resource triggers activation of ZIA pending configuration changes. Use it when you want activation to run as part of your Terraform run, after specific resources are applied — for example, by listing those resources in a `dependsOn` block so that activation runs only after they are created or updated.
+ *
+ * Activation timing is controlled by the ZIA platform, not by Terraform. The provider cannot override ZIA’s native behavior (including auto-activation after inactivity or logout). This resource is one of three ways to activate changes with the provider. For the full picture and recommended options, see the Activation Overview guide.
+ *
+ * > **NOTE** You can also activate in-flight during apply by setting the `ZIA_ACTIVATION` environment variable, or use the recommended out-of-band method with the **ziaActivator** CLI after `pulumi up`. See the Activation Overview guide.
+ *
  * ## Example Usage
+ *
+ * Trigger activation after specific resources are applied using `dependsOn`:
  *
  * ## Import
  *
@@ -42,7 +53,7 @@ export class ActivationStatus extends pulumi.CustomResource {
     /**
      * Organization Policy Edit/Update Activation status
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a ActivationStatus resource with the given unique name, arguments, and options.
@@ -57,13 +68,13 @@ export class ActivationStatus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivationStatusState | undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as ActivationStatusArgs | undefined;
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActivationStatus.__pulumiType, name, resourceInputs, opts);

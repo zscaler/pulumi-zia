@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
  * **zia_firewall_filtering_network_application_groups** can be imported by using `<GROUP_ID>` or `<GROUP_NAME>` as the import ID.
@@ -60,10 +59,10 @@ export class FirewallFilteringApplicationGroups extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringApplicationGroups.__pulumiType;
     }
 
-    public /*out*/ readonly appId!: pulumi.Output<number>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly networkApplications!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly appId: pulumi.Output<number>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly networkApplications: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a FirewallFilteringApplicationGroups resource with the given unique name, arguments, and options.
@@ -78,15 +77,15 @@ export class FirewallFilteringApplicationGroups extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallFilteringApplicationGroupsState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkApplications"] = state ? state.networkApplications : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkApplications"] = state?.networkApplications;
         } else {
             const args = argsOrState as FirewallFilteringApplicationGroupsArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkApplications"] = args ? args.networkApplications : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkApplications"] = args?.networkApplications;
             resourceInputs["appId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

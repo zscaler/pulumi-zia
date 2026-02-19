@@ -91,6 +91,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIncidentReceiverServersArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public int? Id { get; set; }
+
         [Input("name")]
         public string? Name { get; set; }
 
@@ -102,6 +105,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetDLPIncidentReceiverServersInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -7,17 +7,48 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/zia/internal"
 )
 
+// * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+// * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
+//
+// The **zia_firewall_filtering_rule** resource allows the creation and management of ZIA Cloud Firewall filtering rules in the Zscaler Internet Access.
+//
+// **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
+//
+// * Automatically place new rules at the correct position
+// * Handle reordering around predefined rules
+// * Avoid configuration drift
+//
+// Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
+//
+// **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
+//
+// * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+// * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
+// * `order` - (Optional) Rule order number of the Firewall Filtering policy rule
+//
+// * `labels` (list) - Labels that are applicable to the rule.
+//   - `id` - (Integer) Identifier that uniquely identifies an entity
+//
+// **NOTE 3** The following attributes on `predefined` rules **cannot** be updated:
+//
+// * `name` - Name of the Firewall Filtering policy rule
+// * `action` - The action the Firewall Filtering policy rule takes when packets match the rule. Supported Values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
+// * `rank` - (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
+// * Most other attributes that define the rule's behavior
+//
+// **NOTE 4** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
+//
 // ## Example Usage
 //
 // ## Import
 //
 // Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-//
-// # Visit
+// Visit
 //
 // **zia_firewall_filtering_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
 //
@@ -49,21 +80,19 @@ type FirewallFilteringRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayOutput `pulumi:"destCountries"`
 	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
 	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsPtrOutput `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsPtrOutput `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
-	Devices           FirewallFilteringRuleDevicesPtrOutput `pulumi:"devices"`
-	EnableFullLogging pulumi.BoolPtrOutput                  `pulumi:"enableFullLogging"`
+	Devices             FirewallFilteringRuleDevicesPtrOutput `pulumi:"devices"`
+	EnableFullLogging   pulumi.BoolPtrOutput                  `pulumi:"enableFullLogging"`
+	ExcludeSrcCountries pulumi.BoolPtrOutput                  `pulumi:"excludeSrcCountries"`
 	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsPtrOutput `pulumi:"groups"`
 	// list of Labels that are applicable to the rule.
@@ -76,9 +105,7 @@ type FirewallFilteringRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsPtrOutput `pulumi:"nwApplicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
-	NwApplications pulumi.StringArrayOutput `pulumi:"nwApplications"`
+	NwApplications      pulumi.StringArrayOutput                          `pulumi:"nwApplications"`
 	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsPtrOutput `pulumi:"nwServiceGroups"`
 	// list of nw services
@@ -90,13 +117,11 @@ type FirewallFilteringRule struct {
 	// Admin rank of the Firewall Filtering policy rule
 	Rank   pulumi.IntPtrOutput `pulumi:"rank"`
 	RuleId pulumi.IntOutput    `pulumi:"ruleId"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsPtrOutput `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -106,8 +131,7 @@ type FirewallFilteringRule struct {
 	Users FirewallFilteringRuleUsersPtrOutput `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayOutput `pulumi:"workloadGroups"`
-	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-	// Gateway forwarding method.
+	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 	ZpaAppSegments FirewallFilteringRuleZpaAppSegmentArrayOutput `pulumi:"zpaAppSegments"`
 }
 
@@ -115,9 +139,12 @@ type FirewallFilteringRule struct {
 func NewFirewallFilteringRule(ctx *pulumi.Context,
 	name string, args *FirewallFilteringRuleArgs, opts ...pulumi.ResourceOption) (*FirewallFilteringRule, error) {
 	if args == nil {
-		args = &FirewallFilteringRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Order == nil {
+		return nil, errors.New("invalid value for required argument 'Order'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallFilteringRule
 	err := ctx.RegisterResource("zia:index/firewallFilteringRule:FirewallFilteringRule", name, args, &resource, opts...)
@@ -155,21 +182,19 @@ type firewallFilteringRuleState struct {
 	Description *string `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
 	// list of destination ip groups
 	DestIpGroups *FirewallFilteringRuleDestIpGroups `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FirewallFilteringRuleDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
-	Devices           *FirewallFilteringRuleDevices `pulumi:"devices"`
-	EnableFullLogging *bool                         `pulumi:"enableFullLogging"`
+	Devices             *FirewallFilteringRuleDevices `pulumi:"devices"`
+	EnableFullLogging   *bool                         `pulumi:"enableFullLogging"`
+	ExcludeSrcCountries *bool                         `pulumi:"excludeSrcCountries"`
 	// list of groups for which rule must be applied
 	Groups *FirewallFilteringRuleGroups `pulumi:"groups"`
 	// list of Labels that are applicable to the rule.
@@ -182,9 +207,7 @@ type firewallFilteringRuleState struct {
 	Name *string `pulumi:"name"`
 	// list of nw application groups
 	NwApplicationGroups *FirewallFilteringRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
-	NwApplications []string `pulumi:"nwApplications"`
+	NwApplications      []string                                  `pulumi:"nwApplications"`
 	// list of nw service groups
 	NwServiceGroups *FirewallFilteringRuleNwServiceGroups `pulumi:"nwServiceGroups"`
 	// list of nw services
@@ -196,13 +219,11 @@ type firewallFilteringRuleState struct {
 	// Admin rank of the Firewall Filtering policy rule
 	Rank   *int `pulumi:"rank"`
 	RuleId *int `pulumi:"ruleId"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	SourceCountries []string `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SrcIpGroups *FirewallFilteringRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps []string `pulumi:"srcIps"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
@@ -212,8 +233,7 @@ type firewallFilteringRuleState struct {
 	Users *FirewallFilteringRuleUsers `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []FirewallFilteringRuleWorkloadGroup `pulumi:"workloadGroups"`
-	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-	// Gateway forwarding method.
+	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 	ZpaAppSegments []FirewallFilteringRuleZpaAppSegment `pulumi:"zpaAppSegments"`
 }
 
@@ -232,21 +252,19 @@ type FirewallFilteringRuleState struct {
 	Description pulumi.StringPtrInput
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
 	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
-	Devices           FirewallFilteringRuleDevicesPtrInput
-	EnableFullLogging pulumi.BoolPtrInput
+	Devices             FirewallFilteringRuleDevicesPtrInput
+	EnableFullLogging   pulumi.BoolPtrInput
+	ExcludeSrcCountries pulumi.BoolPtrInput
 	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsPtrInput
 	// list of Labels that are applicable to the rule.
@@ -259,9 +277,7 @@ type FirewallFilteringRuleState struct {
 	Name pulumi.StringPtrInput
 	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsPtrInput
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
-	NwApplications pulumi.StringArrayInput
+	NwApplications      pulumi.StringArrayInput
 	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsPtrInput
 	// list of nw services
@@ -273,13 +289,11 @@ type FirewallFilteringRuleState struct {
 	// Admin rank of the Firewall Filtering policy rule
 	Rank   pulumi.IntPtrInput
 	RuleId pulumi.IntPtrInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	SourceCountries pulumi.StringArrayInput
 	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayInput
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
@@ -289,8 +303,7 @@ type FirewallFilteringRuleState struct {
 	Users FirewallFilteringRuleUsersPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayInput
-	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-	// Gateway forwarding method.
+	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 	ZpaAppSegments FirewallFilteringRuleZpaAppSegmentArrayInput
 }
 
@@ -313,21 +326,19 @@ type firewallFilteringRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses []string `pulumi:"destAddresses"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    []string `pulumi:"destCountries"`
 	DestIpCategories []string `pulumi:"destIpCategories"`
 	// list of destination ip groups
 	DestIpGroups *FirewallFilteringRuleDestIpGroups `pulumi:"destIpGroups"`
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups *FirewallFilteringRuleDeviceGroups `pulumi:"deviceGroups"`
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
 	// Name-ID pairs of devices for which rule must be applied.
-	Devices           *FirewallFilteringRuleDevices `pulumi:"devices"`
-	EnableFullLogging *bool                         `pulumi:"enableFullLogging"`
+	Devices             *FirewallFilteringRuleDevices `pulumi:"devices"`
+	EnableFullLogging   *bool                         `pulumi:"enableFullLogging"`
+	ExcludeSrcCountries *bool                         `pulumi:"excludeSrcCountries"`
 	// list of groups for which rule must be applied
 	Groups *FirewallFilteringRuleGroups `pulumi:"groups"`
 	// list of Labels that are applicable to the rule.
@@ -340,26 +351,22 @@ type firewallFilteringRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// list of nw application groups
 	NwApplicationGroups *FirewallFilteringRuleNwApplicationGroups `pulumi:"nwApplicationGroups"`
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
-	NwApplications []string `pulumi:"nwApplications"`
+	NwApplications      []string                                  `pulumi:"nwApplications"`
 	// list of nw service groups
 	NwServiceGroups *FirewallFilteringRuleNwServiceGroups `pulumi:"nwServiceGroups"`
 	// list of nw services
 	NwServices *FirewallFilteringRuleNwServices `pulumi:"nwServices"`
 	// Rule order number. If omitted, the rule will be added to the end of the rule set.
-	Order *int `pulumi:"order"`
+	Order int `pulumi:"order"`
 	// If set to true, a predefined rule is applied
 	Predefined *bool `pulumi:"predefined"`
 	// Admin rank of the Firewall Filtering policy rule
 	Rank *int `pulumi:"rank"`
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	SourceCountries []string `pulumi:"sourceCountries"`
 	// list of source ip groups
 	SrcIpGroups *FirewallFilteringRuleSrcIpGroups `pulumi:"srcIpGroups"`
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps []string `pulumi:"srcIps"`
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State *string `pulumi:"state"`
@@ -369,8 +376,7 @@ type firewallFilteringRuleArgs struct {
 	Users *FirewallFilteringRuleUsers `pulumi:"users"`
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups []FirewallFilteringRuleWorkloadGroup `pulumi:"workloadGroups"`
-	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-	// Gateway forwarding method.
+	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 	ZpaAppSegments []FirewallFilteringRuleZpaAppSegment `pulumi:"zpaAppSegments"`
 }
 
@@ -390,21 +396,19 @@ type FirewallFilteringRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
 	DestAddresses pulumi.StringArrayInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	DestCountries    pulumi.StringArrayInput
 	DestIpCategories pulumi.StringArrayInput
 	// list of destination ip groups
 	DestIpGroups FirewallFilteringRuleDestIpGroupsPtrInput
 	// This field is applicable for devices that are managed using Zscaler Client Connector.
 	DeviceGroups FirewallFilteringRuleDeviceGroupsPtrInput
-	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-	// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-	// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+	// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 	DeviceTrustLevels pulumi.StringArrayInput
 	// Name-ID pairs of devices for which rule must be applied.
-	Devices           FirewallFilteringRuleDevicesPtrInput
-	EnableFullLogging pulumi.BoolPtrInput
+	Devices             FirewallFilteringRuleDevicesPtrInput
+	EnableFullLogging   pulumi.BoolPtrInput
+	ExcludeSrcCountries pulumi.BoolPtrInput
 	// list of groups for which rule must be applied
 	Groups FirewallFilteringRuleGroupsPtrInput
 	// list of Labels that are applicable to the rule.
@@ -417,26 +421,22 @@ type FirewallFilteringRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// list of nw application groups
 	NwApplicationGroups FirewallFilteringRuleNwApplicationGroupsPtrInput
-	// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-	// specific network service application.
-	NwApplications pulumi.StringArrayInput
+	NwApplications      pulumi.StringArrayInput
 	// list of nw service groups
 	NwServiceGroups FirewallFilteringRuleNwServiceGroupsPtrInput
 	// list of nw services
 	NwServices FirewallFilteringRuleNwServicesPtrInput
 	// Rule order number. If omitted, the rule will be added to the end of the rule set.
-	Order pulumi.IntPtrInput
+	Order pulumi.IntInput
 	// If set to true, a predefined rule is applied
 	Predefined pulumi.BoolPtrInput
 	// Admin rank of the Firewall Filtering policy rule
 	Rank pulumi.IntPtrInput
-	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-	// countries.
+	// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 	SourceCountries pulumi.StringArrayInput
 	// list of source ip groups
 	SrcIpGroups FirewallFilteringRuleSrcIpGroupsPtrInput
-	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-	// source IP address.
+	// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 	SrcIps pulumi.StringArrayInput
 	// Determines whether the Firewall Filtering policy rule is enabled or disabled
 	State pulumi.StringPtrInput
@@ -446,8 +446,7 @@ type FirewallFilteringRuleArgs struct {
 	Users FirewallFilteringRuleUsersPtrInput
 	// The list of preconfigured workload groups to which the policy must be applied
 	WorkloadGroups FirewallFilteringRuleWorkloadGroupArrayInput
-	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-	// Gateway forwarding method.
+	// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 	ZpaAppSegments FirewallFilteringRuleZpaAppSegmentArrayInput
 }
 
@@ -575,8 +574,7 @@ func (o FirewallFilteringRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 func (o FirewallFilteringRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
@@ -595,9 +593,7 @@ func (o FirewallFilteringRuleOutput) DeviceGroups() FirewallFilteringRuleDeviceG
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleDeviceGroupsPtrOutput { return v.DeviceGroups }).(FirewallFilteringRuleDeviceGroupsPtrOutput)
 }
 
-// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed
-// using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the
-// Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
+// List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
 func (o FirewallFilteringRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
@@ -609,6 +605,10 @@ func (o FirewallFilteringRuleOutput) Devices() FirewallFilteringRuleDevicesPtrOu
 
 func (o FirewallFilteringRuleOutput) EnableFullLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.EnableFullLogging }).(pulumi.BoolPtrOutput)
+}
+
+func (o FirewallFilteringRuleOutput) ExcludeSrcCountries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.ExcludeSrcCountries }).(pulumi.BoolPtrOutput)
 }
 
 // list of groups for which rule must be applied
@@ -643,8 +643,6 @@ func (o FirewallFilteringRuleOutput) NwApplicationGroups() FirewallFilteringRule
 	}).(FirewallFilteringRuleNwApplicationGroupsPtrOutput)
 }
 
-// User-defined network service applications on which the rule is applied. If not set, the rule is not restricted to a
-// specific network service application.
 func (o FirewallFilteringRuleOutput) NwApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.NwApplications }).(pulumi.StringArrayOutput)
 }
@@ -678,8 +676,7 @@ func (o FirewallFilteringRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
-// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination
-// countries.
+// Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
 func (o FirewallFilteringRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
@@ -689,8 +686,7 @@ func (o FirewallFilteringRuleOutput) SrcIpGroups() FirewallFilteringRuleSrcIpGro
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleSrcIpGroupsPtrOutput { return v.SrcIpGroups }).(FirewallFilteringRuleSrcIpGroupsPtrOutput)
 }
 
-// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific
-// source IP address.
+// User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
 func (o FirewallFilteringRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
@@ -715,8 +711,7 @@ func (o FirewallFilteringRuleOutput) WorkloadGroups() FirewallFilteringRuleWorkl
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleWorkloadGroupArrayOutput { return v.WorkloadGroups }).(FirewallFilteringRuleWorkloadGroupArrayOutput)
 }
 
-// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA
-// Gateway forwarding method.
+// The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
 func (o FirewallFilteringRuleOutput) ZpaAppSegments() FirewallFilteringRuleZpaAppSegmentArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) FirewallFilteringRuleZpaAppSegmentArrayOutput { return v.ZpaAppSegments }).(FirewallFilteringRuleZpaAppSegmentArrayOutput)
 }

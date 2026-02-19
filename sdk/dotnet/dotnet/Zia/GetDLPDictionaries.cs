@@ -157,7 +157,13 @@ namespace zscaler.PulumiPackage.Zia
         /// (Boolean) This field is set to true if the dictionary is cloned from a predefined dictionary. Otherwise, it is set to false.
         /// </summary>
         public readonly bool PredefinedClone;
+        /// <summary>
+        /// (Optional, Integer) The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. Supported values between &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt; and &lt;span pulumi-lang-nodejs="`10000`" pulumi-lang-dotnet="`10000`" pulumi-lang-go="`10000`" pulumi-lang-python="`10000`" pulumi-lang-yaml="`10000`" pulumi-lang-java="`10000`"&gt;`10000`&lt;/span&gt;
+        /// </summary>
         public readonly int Proximity;
+        /// <summary>
+        /// (Optional, Boolean) A Boolean constant that indicates whether the proximity length option is supported for a DLP dictionary or not. A true value indicates that the proximity length option is supported, whereas a false value indicates that it is not supported.
+        /// </summary>
         public readonly bool ProximityLengthEnabled;
         public readonly string ThresholdType;
 

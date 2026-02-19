@@ -66,8 +66,10 @@ type LookupDLPDictionariesResult struct {
 	Patterns    []GetDLPDictionariesPattern `pulumi:"patterns"`
 	Phrases     []GetDLPDictionariesPhrase  `pulumi:"phrases"`
 	// (Boolean) This field is set to true if the dictionary is cloned from a predefined dictionary. Otherwise, it is set to false.
-	PredefinedClone        bool   `pulumi:"predefinedClone"`
-	Proximity              int    `pulumi:"proximity"`
+	PredefinedClone bool `pulumi:"predefinedClone"`
+	// (Optional, Integer) The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. Supported values between `0` and `10000`
+	Proximity int `pulumi:"proximity"`
+	// (Optional, Boolean) A Boolean constant that indicates whether the proximity length option is supported for a DLP dictionary or not. A true value indicates that the proximity length option is supported, whereas a false value indicates that it is not supported.
 	ProximityLengthEnabled bool   `pulumi:"proximityLengthEnabled"`
 	ThresholdType          string `pulumi:"thresholdType"`
 }
@@ -198,10 +200,12 @@ func (o LookupDLPDictionariesResultOutput) PredefinedClone() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDLPDictionariesResult) bool { return v.PredefinedClone }).(pulumi.BoolOutput)
 }
 
+// (Optional, Integer) The DLP dictionary proximity length that defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. Supported values between `0` and `10000`
 func (o LookupDLPDictionariesResultOutput) Proximity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDLPDictionariesResult) int { return v.Proximity }).(pulumi.IntOutput)
 }
 
+// (Optional, Boolean) A Boolean constant that indicates whether the proximity length option is supported for a DLP dictionary or not. A true value indicates that the proximity length option is supported, whereas a false value indicates that it is not supported.
 func (o LookupDLPDictionariesResultOutput) ProximityLengthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDLPDictionariesResult) bool { return v.ProximityLengthEnabled }).(pulumi.BoolOutput)
 }

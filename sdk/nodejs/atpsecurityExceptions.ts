@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- *
  * Visit
  *
- * **zia_atp_security_exceptions** can be imported by using `all_urls` as the import ID.
+ * **zia_atp_security_exceptions** can be imported by using `allUrls` as the import ID.
  *
  * For example:
  *
@@ -54,7 +53,7 @@ export class ATPSecurityExceptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === ATPSecurityExceptions.__pulumiType;
     }
 
-    public readonly bypassUrls!: pulumi.Output<string[]>;
+    declare public readonly bypassUrls: pulumi.Output<string[]>;
 
     /**
      * Create a ATPSecurityExceptions resource with the given unique name, arguments, and options.
@@ -69,10 +68,10 @@ export class ATPSecurityExceptions extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ATPSecurityExceptionsState | undefined;
-            resourceInputs["bypassUrls"] = state ? state.bypassUrls : undefined;
+            resourceInputs["bypassUrls"] = state?.bypassUrls;
         } else {
             const args = argsOrState as ATPSecurityExceptionsArgs | undefined;
-            resourceInputs["bypassUrls"] = args ? args.bypassUrls : undefined;
+            resourceInputs["bypassUrls"] = args?.bypassUrls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ATPSecurityExceptions.__pulumiType, name, resourceInputs, opts);

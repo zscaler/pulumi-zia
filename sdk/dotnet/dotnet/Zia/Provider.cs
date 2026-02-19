@@ -172,8 +172,7 @@ namespace zscaler.PulumiPackage.Zia
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-        /// https://help.zscaler.com/oneapi/understanding-rate-limiting.
+        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
         /// </summary>
         [Input("parallelism", json: true)]
         public Input<int>? Parallelism { get; set; }
@@ -207,8 +206,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The
-        /// maximum value can be `300`.
+        /// Timeout for single request (in seconds) which is made to Zscaler, the default is &lt;span pulumi-lang-nodejs="`0`" pulumi-lang-dotnet="`0`" pulumi-lang-go="`0`" pulumi-lang-python="`0`" pulumi-lang-yaml="`0`" pulumi-lang-java="`0`"&gt;`0`&lt;/span&gt; (means no limit is set). The maximum value can be &lt;span pulumi-lang-nodejs="`300`" pulumi-lang-dotnet="`300`" pulumi-lang-go="`300`" pulumi-lang-python="`300`" pulumi-lang-yaml="`300`" pulumi-lang-java="`300`"&gt;`300`&lt;/span&gt;.
         /// </summary>
         [Input("requestTimeout", json: true)]
         public Input<int>? RequestTimeout { get; set; }
