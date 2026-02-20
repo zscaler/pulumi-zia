@@ -106,6 +106,9 @@ jobs:
         uses: actions/setup-python@v4.7.1
         with:
           python-version: ${{ env.PYTHONVERSION }}
+      - name: Pin setuptools for PyPI metadata compatibility
+        if: ${{ matrix.language == 'python' }}
+        run: pip install "setuptools<69"
       - name: Build SDK
         run: make build_${{ matrix.language }}
       # - name: Check worktree clean
@@ -123,8 +126,7 @@ jobs:
         with:
           user: ${{ env.PYPI_USERNAME }}
           password: ${{ env.PYPI_PASSWORD }}
-          packages_dir: ${{github.workspace}}/sdk/python/bin/dist
-          verify-metadata: false
+          packages-dir: ${{ github.workspace }}/sdk/python/bin/dist
       - if: ${{ matrix.language == 'nodejs' && env.PUBLISH_NPM == 'true' }}
         uses: JS-DevTools/npm-publish@v2.2.2
         with:
