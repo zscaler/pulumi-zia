@@ -1,0 +1,39 @@
+name: url-categories-e2e
+runtime: yaml
+description: E2E test for zia:index:UrlCategory resource
+
+config:
+  configuredName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: ""
+  customCategory:
+    type: boolean
+    default: true
+
+resources:
+  urlCategory:
+    type: zia:index:UrlCategory
+    properties:
+      superCategory: "USER_DEFINED"
+      configuredName: ${configuredName}
+      description: ${description}
+      customCategory: ${customCategory}
+      keywords:
+        - "microsoft"
+      dbCategorizedUrls:
+        - ".creditkarma.com"
+        - ".youku.com"
+      type: "URL_CATEGORY"
+
+outputs:
+  categoryId: ${urlCategory.categoryId}
+  configuredName: ${urlCategory.configuredName}
+  description: ${urlCategory.description}
+  customCategory: ${urlCategory.customCategory}
+  type: ${urlCategory.type}
+  val: ${urlCategory.val}
+  keywords: ${urlCategory.keywords}
+  dbCategorizedUrls: ${urlCategory.dbCategorizedUrls}

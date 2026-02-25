@@ -1,29 +1,47 @@
-version: 2
-archives:
-- id: archive
-  name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
-before:
-  hooks:
-  - make tfgen
+project_name: pulumi-zia
 builds:
-- binary: pulumi-resource-zia
+- id: build-provider
   dir: provider
   env:
   - CGO_ENABLED=0
   - GO111MODULE=on
+  goos:
+  - darwin
+  - linux
   goarch:
   - amd64
   - arm64
-  goos:
-  - darwin
-  - windows
-  - linux
-  ldflags:
-  - -s
-  - -w
-  - -X github.com/zscaler/pulumi-zia/provider/pkg/version.Version={{.Tag}}
+  ignore: &a1 []
   main: ./cmd/pulumi-resource-zia/
+  ldflags: &a2
+    - -s
+    - -w
+    - -X
+      github.com/zscaler/pulumi-zia/provider/version.Version={{.Tag}}
+  binary: pulumi-resource-zia
+- id: build-provider-sign-windows
+  dir: provider
+  env:
+  - CGO_ENABLED=0
+  - GO111MODULE=on
+  goos:
+  - windows
+  goarch:
+  - amd64
+  - arm64
+  ignore: *a1
+  main: ./cmd/pulumi-resource-zia/
+  ldflags: *a2
+  binary: pulumi-resource-zia
+  hooks:
+    post:
+    - make sign-goreleaser-exe-{{ .Arch }}
+archives:
+- name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
+  id: archive
+snapshot:
+  name_template: "{{ .Tag }}-SNAPSHOT"
+changelog:
+  skip: true
 release:
   disable: false
-snapshot:
-  name_template: '{{ .Tag }}-SNAPSHOT'

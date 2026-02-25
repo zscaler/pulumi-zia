@@ -1,0 +1,28 @@
+name: fw-ip-source-groups-e2e
+runtime: yaml
+description: E2E test for zia:index:FwIpSourceGroup resource
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+
+resources:
+  fwIpSourceGroup:
+    type: zia:index:FwIpSourceGroup
+    properties:
+      name: ${name}
+      description: ${description}
+      ipAddresses:
+        - "192.168.1.1"
+        - "192.168.1.2"
+        - "192.168.1.3"
+
+outputs:
+  groupId: ${fwIpSourceGroup.groupId}
+  name: ${fwIpSourceGroup.name}
+  description: ${fwIpSourceGroup.description}
+  ipAddresses: ${fwIpSourceGroup.ipAddresses}

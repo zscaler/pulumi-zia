@@ -6,136 +6,54 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
- * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
- *
- * The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
- *
- * > **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The attribute can be overriden if needed by setting the parameters: `primaryDestVip` and `secondaryDestVip`.
- *
- * ## Example Usage
- *
- * ### Unnumbered
- *
- * > **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the primaryDestVip and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the available VIP.
- *
- * > **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
- *
- * > **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
- *
- * ### Numbered
- *
- * > **Note:** When configuring a numbered GRE Tunnel where the attribute `internalIpRange` is defined, we must set the lifecycle block to ignore changes to the ``internalIpRange`` attribute unless it is explicitly changed in the Terraform configuration.
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_traffic_forwarding_gre_tunnel** can be imported by using `<TUNNEL_ID>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <tunnel_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <engine_name>
- * ```
- */
-export class TrafficForwardingGRETunnel extends pulumi.CustomResource {
+export class TrafficForwardingGreTunnel extends pulumi.CustomResource {
     /**
-     * Get an existing TrafficForwardingGRETunnel resource's state with the given name, ID, and optional extra
+     * Get an existing TrafficForwardingGreTunnel resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrafficForwardingGRETunnelState, opts?: pulumi.CustomResourceOptions): TrafficForwardingGRETunnel {
-        return new TrafficForwardingGRETunnel(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TrafficForwardingGreTunnel {
+        return new TrafficForwardingGreTunnel(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel';
+    public static readonly __pulumiType = 'zia:index:TrafficForwardingGreTunnel';
 
     /**
-     * Returns true if the given object is an instance of TrafficForwardingGRETunnel.  This is designed to work even
+     * Returns true if the given object is an instance of TrafficForwardingGreTunnel.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is TrafficForwardingGRETunnel {
+    public static isInstance(obj: any): obj is TrafficForwardingGreTunnel {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === TrafficForwardingGRETunnel.__pulumiType;
+        return obj['__pulumiType'] === TrafficForwardingGreTunnel.__pulumiType;
     }
 
-    /**
-     * Additional information about this GRE tunnel
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * When withinCountry is enabled, you must set this to the country code.
-     */
-    declare public readonly countryCode: pulumi.Output<string>;
-    /**
-     * The start of the internal IP address in /29 CIDR range
-     */
+    declare public readonly countryCode: pulumi.Output<string | undefined>;
     declare public readonly internalIpRange: pulumi.Output<string | undefined>;
-    /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
-     */
-    declare public readonly ipUnnumbered: pulumi.Output<boolean>;
-    /**
-     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    declare public readonly primaryDestVips: pulumi.Output<outputs.TrafficForwardingGRETunnelPrimaryDestVip[]>;
-    /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    declare public readonly secondaryDestVips: pulumi.Output<outputs.TrafficForwardingGRETunnelSecondaryDestVip[]>;
-    /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-     */
+    declare public readonly ipUnnumbered: pulumi.Output<boolean | undefined>;
+    declare public readonly primaryDestVip: pulumi.Output<outputs.GreTunnelDestVipOutput | undefined>;
+    declare public readonly secondaryDestVip: pulumi.Output<outputs.GreTunnelDestVipOutput | undefined>;
     declare public readonly sourceIp: pulumi.Output<string>;
-    /**
-     * The ID of the GRE tunnel.
-     */
     declare public /*out*/ readonly tunnelId: pulumi.Output<number>;
-    /**
-     * Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-     */
-    declare public readonly withinCountry: pulumi.Output<boolean>;
+    declare public readonly withinCountry: pulumi.Output<boolean | undefined>;
 
     /**
-     * Create a TrafficForwardingGRETunnel resource with the given unique name, arguments, and options.
+     * Create a TrafficForwardingGreTunnel resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TrafficForwardingGRETunnelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TrafficForwardingGRETunnelArgs | TrafficForwardingGRETunnelState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TrafficForwardingGreTunnelArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as TrafficForwardingGRETunnelState | undefined;
-            resourceInputs["comment"] = state?.comment;
-            resourceInputs["countryCode"] = state?.countryCode;
-            resourceInputs["internalIpRange"] = state?.internalIpRange;
-            resourceInputs["ipUnnumbered"] = state?.ipUnnumbered;
-            resourceInputs["primaryDestVips"] = state?.primaryDestVips;
-            resourceInputs["secondaryDestVips"] = state?.secondaryDestVips;
-            resourceInputs["sourceIp"] = state?.sourceIp;
-            resourceInputs["tunnelId"] = state?.tunnelId;
-            resourceInputs["withinCountry"] = state?.withinCountry;
-        } else {
-            const args = argsOrState as TrafficForwardingGRETunnelArgs | undefined;
+        if (!opts.id) {
             if (args?.sourceIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceIp'");
             }
@@ -143,93 +61,37 @@ export class TrafficForwardingGRETunnel extends pulumi.CustomResource {
             resourceInputs["countryCode"] = args?.countryCode;
             resourceInputs["internalIpRange"] = args?.internalIpRange;
             resourceInputs["ipUnnumbered"] = args?.ipUnnumbered;
-            resourceInputs["primaryDestVips"] = args?.primaryDestVips;
-            resourceInputs["secondaryDestVips"] = args?.secondaryDestVips;
+            resourceInputs["primaryDestVip"] = args?.primaryDestVip;
+            resourceInputs["secondaryDestVip"] = args?.secondaryDestVip;
             resourceInputs["sourceIp"] = args?.sourceIp;
             resourceInputs["withinCountry"] = args?.withinCountry;
             resourceInputs["tunnelId"] = undefined /*out*/;
+        } else {
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["countryCode"] = undefined /*out*/;
+            resourceInputs["internalIpRange"] = undefined /*out*/;
+            resourceInputs["ipUnnumbered"] = undefined /*out*/;
+            resourceInputs["primaryDestVip"] = undefined /*out*/;
+            resourceInputs["secondaryDestVip"] = undefined /*out*/;
+            resourceInputs["sourceIp"] = undefined /*out*/;
+            resourceInputs["tunnelId"] = undefined /*out*/;
+            resourceInputs["withinCountry"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficForwardingGRETunnel.__pulumiType, name, resourceInputs, opts);
+        super(TrafficForwardingGreTunnel.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering TrafficForwardingGRETunnel resources.
+ * The set of arguments for constructing a TrafficForwardingGreTunnel resource.
  */
-export interface TrafficForwardingGRETunnelState {
-    /**
-     * Additional information about this GRE tunnel
-     */
+export interface TrafficForwardingGreTunnelArgs {
     comment?: pulumi.Input<string>;
-    /**
-     * When withinCountry is enabled, you must set this to the country code.
-     */
     countryCode?: pulumi.Input<string>;
-    /**
-     * The start of the internal IP address in /29 CIDR range
-     */
     internalIpRange?: pulumi.Input<string>;
-    /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
-     */
     ipUnnumbered?: pulumi.Input<boolean>;
-    /**
-     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    primaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelPrimaryDestVip>[]>;
-    /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    secondaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelSecondaryDestVip>[]>;
-    /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-     */
-    sourceIp?: pulumi.Input<string>;
-    /**
-     * The ID of the GRE tunnel.
-     */
-    tunnelId?: pulumi.Input<number>;
-    /**
-     * Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-     */
-    withinCountry?: pulumi.Input<boolean>;
-}
-
-/**
- * The set of arguments for constructing a TrafficForwardingGRETunnel resource.
- */
-export interface TrafficForwardingGRETunnelArgs {
-    /**
-     * Additional information about this GRE tunnel
-     */
-    comment?: pulumi.Input<string>;
-    /**
-     * When withinCountry is enabled, you must set this to the country code.
-     */
-    countryCode?: pulumi.Input<string>;
-    /**
-     * The start of the internal IP address in /29 CIDR range
-     */
-    internalIpRange?: pulumi.Input<string>;
-    /**
-     * This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true greTunIp and greTunId are set to null
-     */
-    ipUnnumbered?: pulumi.Input<boolean>;
-    /**
-     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    primaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelPrimaryDestVip>[]>;
-    /**
-     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-     */
-    secondaryDestVips?: pulumi.Input<pulumi.Input<inputs.TrafficForwardingGRETunnelSecondaryDestVip>[]>;
-    /**
-     * The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-     */
+    primaryDestVip?: pulumi.Input<inputs.GreTunnelDestVipInputArgs>;
+    secondaryDestVip?: pulumi.Input<inputs.GreTunnelDestVipInputArgs>;
     sourceIp: pulumi.Input<string>;
-    /**
-     * Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-     */
     withinCountry?: pulumi.Input<boolean>;
 }

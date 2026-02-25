@@ -24,7 +24,7 @@ class AdminUsersArgs:
                  email: pulumi.Input[_builtins.str],
                  login_name: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 admin_scope_entities: Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']] = None,
+                 admin_scope_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  admin_scope_type: Optional[pulumi.Input[_builtins.str]] = None,
                  comments: Optional[pulumi.Input[_builtins.str]] = None,
                  disabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -37,15 +37,9 @@ class AdminUsersArgs:
                  is_security_report_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_service_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]] = None):
+                 role: Optional[pulumi.Input['AdminUserRoleInputArgs']] = None):
         """
         The set of arguments for constructing a AdminUsers resource.
-        :param pulumi.Input[_builtins.str] email: Admin or auditor's email address.
-        :param pulumi.Input[_builtins.str] username: Admin or auditor's username.
-        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: list of destination ip groups
-        :param pulumi.Input[_builtins.str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[_builtins.str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        :param pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]] roles: Role of the admin. This is not required for an auditor.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "login_name", login_name)
@@ -76,15 +70,12 @@ class AdminUsersArgs:
             pulumi.set(__self__, "is_service_update_comm_enabled", is_service_update_comm_enabled)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        Admin or auditor's email address.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -103,9 +94,6 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Admin or auditor's username.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -114,14 +102,11 @@ class AdminUsersArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminScopeEntities")
-    def admin_scope_entities(self) -> Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]:
-        """
-        list of destination ip groups
-        """
+    def admin_scope_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "admin_scope_entities")
 
     @admin_scope_entities.setter
-    def admin_scope_entities(self, value: Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]):
+    def admin_scope_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "admin_scope_entities", value)
 
     @_builtins.property
@@ -136,9 +121,6 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the admin or auditor.
-        """
         return pulumi.get(self, "comments")
 
     @comments.setter
@@ -229,9 +211,6 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -240,272 +219,21 @@ class AdminUsersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]]:
-        """
-        Role of the admin. This is not required for an auditor.
-        """
-        return pulumi.get(self, "roles")
+    def role(self) -> Optional[pulumi.Input['AdminUserRoleInputArgs']]:
+        return pulumi.get(self, "role")
 
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]]):
-        pulumi.set(self, "roles", value)
+    @role.setter
+    def role(self, value: Optional[pulumi.Input['AdminUserRoleInputArgs']]):
+        pulumi.set(self, "role", value)
 
 
-@pulumi.input_type
-class _AdminUsersState:
-    def __init__(__self__, *,
-                 admin_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 admin_scope_entities: Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']] = None,
-                 admin_scope_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_auditor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_exec_mobile_app_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_non_editable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_password_expired: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_password_login_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_product_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_security_report_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_service_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering AdminUsers resources.
-        :param pulumi.Input['AdminUsersAdminScopeEntitiesArgs'] admin_scope_entities: list of destination ip groups
-        :param pulumi.Input[_builtins.str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[_builtins.str] email: Admin or auditor's email address.
-        :param pulumi.Input[_builtins.str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        :param pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[_builtins.str] username: Admin or auditor's username.
-        """
-        if admin_id is not None:
-            pulumi.set(__self__, "admin_id", admin_id)
-        if admin_scope_entities is not None:
-            pulumi.set(__self__, "admin_scope_entities", admin_scope_entities)
-        if admin_scope_type is not None:
-            pulumi.set(__self__, "admin_scope_type", admin_scope_type)
-        if comments is not None:
-            pulumi.set(__self__, "comments", comments)
-        if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if is_auditor is not None:
-            pulumi.set(__self__, "is_auditor", is_auditor)
-        if is_exec_mobile_app_enabled is not None:
-            pulumi.set(__self__, "is_exec_mobile_app_enabled", is_exec_mobile_app_enabled)
-        if is_non_editable is not None:
-            pulumi.set(__self__, "is_non_editable", is_non_editable)
-        if is_password_expired is not None:
-            pulumi.set(__self__, "is_password_expired", is_password_expired)
-        if is_password_login_allowed is not None:
-            pulumi.set(__self__, "is_password_login_allowed", is_password_login_allowed)
-        if is_product_update_comm_enabled is not None:
-            pulumi.set(__self__, "is_product_update_comm_enabled", is_product_update_comm_enabled)
-        if is_security_report_comm_enabled is not None:
-            pulumi.set(__self__, "is_security_report_comm_enabled", is_security_report_comm_enabled)
-        if is_service_update_comm_enabled is not None:
-            pulumi.set(__self__, "is_service_update_comm_enabled", is_service_update_comm_enabled)
-        if login_name is not None:
-            pulumi.set(__self__, "login_name", login_name)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @_builtins.property
-    @pulumi.getter(name="adminId")
-    def admin_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "admin_id")
-
-    @admin_id.setter
-    def admin_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "admin_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="adminScopeEntities")
-    def admin_scope_entities(self) -> Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]:
-        """
-        list of destination ip groups
-        """
-        return pulumi.get(self, "admin_scope_entities")
-
-    @admin_scope_entities.setter
-    def admin_scope_entities(self, value: Optional[pulumi.Input['AdminUsersAdminScopeEntitiesArgs']]):
-        pulumi.set(self, "admin_scope_entities", value)
-
-    @_builtins.property
-    @pulumi.getter(name="adminScopeType")
-    def admin_scope_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "admin_scope_type")
-
-    @admin_scope_type.setter
-    def admin_scope_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "admin_scope_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the admin or auditor.
-        """
-        return pulumi.get(self, "comments")
-
-    @comments.setter
-    def comments(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "comments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "disabled")
-
-    @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "disabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Admin or auditor's email address.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isAuditor")
-    def is_auditor(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_auditor")
-
-    @is_auditor.setter
-    def is_auditor(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_auditor", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isExecMobileAppEnabled")
-    def is_exec_mobile_app_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_exec_mobile_app_enabled")
-
-    @is_exec_mobile_app_enabled.setter
-    def is_exec_mobile_app_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_exec_mobile_app_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isNonEditable")
-    def is_non_editable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_non_editable")
-
-    @is_non_editable.setter
-    def is_non_editable(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_non_editable", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isPasswordExpired")
-    def is_password_expired(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_password_expired")
-
-    @is_password_expired.setter
-    def is_password_expired(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_password_expired", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isPasswordLoginAllowed")
-    def is_password_login_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_password_login_allowed")
-
-    @is_password_login_allowed.setter
-    def is_password_login_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_password_login_allowed", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isProductUpdateCommEnabled")
-    def is_product_update_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_product_update_comm_enabled")
-
-    @is_product_update_comm_enabled.setter
-    def is_product_update_comm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_product_update_comm_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isSecurityReportCommEnabled")
-    def is_security_report_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_security_report_comm_enabled")
-
-    @is_security_report_comm_enabled.setter
-    def is_security_report_comm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_security_report_comm_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isServiceUpdateCommEnabled")
-    def is_service_update_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "is_service_update_comm_enabled")
-
-    @is_service_update_comm_enabled.setter
-    def is_service_update_comm_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_service_update_comm_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loginName")
-    def login_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "login_name")
-
-    @login_name.setter
-    def login_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "login_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]]:
-        """
-        Role of the admin. This is not required for an auditor.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdminUsersRoleArgs']]]]):
-        pulumi.set(self, "roles", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Admin or auditor's username.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "username", value)
-
-
-@pulumi.type_token("zia:index/adminUsers:AdminUsers")
+@pulumi.type_token("zia:index:AdminUsers")
 class AdminUsers(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_scope_entities: Optional[pulumi.Input[Union['AdminUsersAdminScopeEntitiesArgs', 'AdminUsersAdminScopeEntitiesArgsDict']]] = None,
+                 admin_scope_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  admin_scope_type: Optional[pulumi.Input[_builtins.str]] = None,
                  comments: Optional[pulumi.Input[_builtins.str]] = None,
                  disabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -520,54 +248,13 @@ class AdminUsers(pulumi.CustomResource):
                  is_service_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdminUsersRoleArgs', 'AdminUsersRoleArgsDict']]]]] = None,
+                 role: Optional[pulumi.Input[Union['AdminUserRoleInputArgs', 'AdminUserRoleInputArgsDict']]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-administrators)
-        * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
-
-        The **zia_admin_users** resource allows the creation and management of ZIA admin user account created in the Zscaler Internet Access cloud or via the API.
-
-        ## Example Usage
-
-        ### Organization Scope
-
-        ### Department Scope
-
-        ### Location Scope
-
-        ### Location Group Scope
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_admin_users** can be imported by using `<ADMIN ID>` or `<LOGIN NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/adminUsers:AdminUsers example <admin_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/adminUsers:AdminUsers example <login_name>
-        ```
-
-        ⚠️ **NOTE :**:  This provider do not import the password attribute value during the importing process.
-
+        Create a AdminUsers resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AdminUsersAdminScopeEntitiesArgs', 'AdminUsersAdminScopeEntitiesArgsDict']] admin_scope_entities: list of destination ip groups
-        :param pulumi.Input[_builtins.str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[_builtins.str] email: Admin or auditor's email address.
-        :param pulumi.Input[_builtins.str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AdminUsersRoleArgs', 'AdminUsersRoleArgsDict']]]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[_builtins.str] username: Admin or auditor's username.
         """
         ...
     @overload
@@ -576,42 +263,7 @@ class AdminUsers(pulumi.CustomResource):
                  args: AdminUsersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-administrators)
-        * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
-
-        The **zia_admin_users** resource allows the creation and management of ZIA admin user account created in the Zscaler Internet Access cloud or via the API.
-
-        ## Example Usage
-
-        ### Organization Scope
-
-        ### Department Scope
-
-        ### Location Scope
-
-        ### Location Group Scope
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_admin_users** can be imported by using `<ADMIN ID>` or `<LOGIN NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/adminUsers:AdminUsers example <admin_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/adminUsers:AdminUsers example <login_name>
-        ```
-
-        ⚠️ **NOTE :**:  This provider do not import the password attribute value during the importing process.
-
+        Create a AdminUsers resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AdminUsersArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -627,7 +279,7 @@ class AdminUsers(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_scope_entities: Optional[pulumi.Input[Union['AdminUsersAdminScopeEntitiesArgs', 'AdminUsersAdminScopeEntitiesArgsDict']]] = None,
+                 admin_scope_entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  admin_scope_type: Optional[pulumi.Input[_builtins.str]] = None,
                  comments: Optional[pulumi.Input[_builtins.str]] = None,
                  disabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -642,7 +294,7 @@ class AdminUsers(pulumi.CustomResource):
                  is_service_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdminUsersRoleArgs', 'AdminUsersRoleArgsDict']]]]] = None,
+                 role: Optional[pulumi.Input[Union['AdminUserRoleInputArgs', 'AdminUserRoleInputArgsDict']]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -672,7 +324,7 @@ class AdminUsers(pulumi.CustomResource):
                 raise TypeError("Missing required property 'login_name'")
             __props__.__dict__["login_name"] = login_name
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
-            __props__.__dict__["roles"] = roles
+            __props__.__dict__["role"] = role
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -680,7 +332,7 @@ class AdminUsers(pulumi.CustomResource):
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AdminUsers, __self__).__init__(
-            'zia:index/adminUsers:AdminUsers',
+            'zia:index:AdminUsers',
             resource_name,
             __props__,
             opts)
@@ -688,25 +340,7 @@ class AdminUsers(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            admin_id: Optional[pulumi.Input[_builtins.int]] = None,
-            admin_scope_entities: Optional[pulumi.Input[Union['AdminUsersAdminScopeEntitiesArgs', 'AdminUsersAdminScopeEntitiesArgsDict']]] = None,
-            admin_scope_type: Optional[pulumi.Input[_builtins.str]] = None,
-            comments: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            is_auditor: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_exec_mobile_app_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_non_editable: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_password_expired: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_password_login_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_product_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_security_report_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_service_update_comm_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            login_name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdminUsersRoleArgs', 'AdminUsersRoleArgsDict']]]]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'AdminUsers':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AdminUsers':
         """
         Get an existing AdminUsers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -714,35 +348,29 @@ class AdminUsers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AdminUsersAdminScopeEntitiesArgs', 'AdminUsersAdminScopeEntitiesArgsDict']] admin_scope_entities: list of destination ip groups
-        :param pulumi.Input[_builtins.str] comments: Additional information about the admin or auditor.
-        :param pulumi.Input[_builtins.str] email: Admin or auditor's email address.
-        :param pulumi.Input[_builtins.str] password: The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AdminUsersRoleArgs', 'AdminUsersRoleArgsDict']]]] roles: Role of the admin. This is not required for an auditor.
-        :param pulumi.Input[_builtins.str] username: Admin or auditor's username.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _AdminUsersState.__new__(_AdminUsersState)
+        __props__ = AdminUsersArgs.__new__(AdminUsersArgs)
 
-        __props__.__dict__["admin_id"] = admin_id
-        __props__.__dict__["admin_scope_entities"] = admin_scope_entities
-        __props__.__dict__["admin_scope_type"] = admin_scope_type
-        __props__.__dict__["comments"] = comments
-        __props__.__dict__["disabled"] = disabled
-        __props__.__dict__["email"] = email
-        __props__.__dict__["is_auditor"] = is_auditor
-        __props__.__dict__["is_exec_mobile_app_enabled"] = is_exec_mobile_app_enabled
-        __props__.__dict__["is_non_editable"] = is_non_editable
-        __props__.__dict__["is_password_expired"] = is_password_expired
-        __props__.__dict__["is_password_login_allowed"] = is_password_login_allowed
-        __props__.__dict__["is_product_update_comm_enabled"] = is_product_update_comm_enabled
-        __props__.__dict__["is_security_report_comm_enabled"] = is_security_report_comm_enabled
-        __props__.__dict__["is_service_update_comm_enabled"] = is_service_update_comm_enabled
-        __props__.__dict__["login_name"] = login_name
-        __props__.__dict__["password"] = password
-        __props__.__dict__["roles"] = roles
-        __props__.__dict__["username"] = username
+        __props__.__dict__["admin_id"] = None
+        __props__.__dict__["admin_scope_entities"] = None
+        __props__.__dict__["admin_scope_type"] = None
+        __props__.__dict__["comments"] = None
+        __props__.__dict__["disabled"] = None
+        __props__.__dict__["email"] = None
+        __props__.__dict__["is_auditor"] = None
+        __props__.__dict__["is_exec_mobile_app_enabled"] = None
+        __props__.__dict__["is_non_editable"] = None
+        __props__.__dict__["is_password_expired"] = None
+        __props__.__dict__["is_password_login_allowed"] = None
+        __props__.__dict__["is_product_update_comm_enabled"] = None
+        __props__.__dict__["is_security_report_comm_enabled"] = None
+        __props__.__dict__["is_service_update_comm_enabled"] = None
+        __props__.__dict__["login_name"] = None
+        __props__.__dict__["password"] = None
+        __props__.__dict__["role"] = None
+        __props__.__dict__["username"] = None
         return AdminUsers(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -752,23 +380,17 @@ class AdminUsers(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="adminScopeEntities")
-    def admin_scope_entities(self) -> pulumi.Output[Optional['outputs.AdminUsersAdminScopeEntities']]:
-        """
-        list of destination ip groups
-        """
+    def admin_scope_entities(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "admin_scope_entities")
 
     @_builtins.property
     @pulumi.getter(name="adminScopeType")
-    def admin_scope_type(self) -> pulumi.Output[_builtins.str]:
+    def admin_scope_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "admin_scope_type")
 
     @_builtins.property
     @pulumi.getter
     def comments(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Additional information about the admin or auditor.
-        """
         return pulumi.get(self, "comments")
 
     @_builtins.property
@@ -779,9 +401,6 @@ class AdminUsers(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
-        """
-        Admin or auditor's email address.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
@@ -832,24 +451,15 @@ class AdminUsers(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[Sequence['outputs.AdminUsersRole']]]:
-        """
-        Role of the admin. This is not required for an auditor.
-        """
-        return pulumi.get(self, "roles")
+    def role(self) -> pulumi.Output[Optional['outputs.AdminUserRoleInput']]:
+        return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
-        """
-        Admin or auditor's username.
-        """
         return pulumi.get(self, "username")
 

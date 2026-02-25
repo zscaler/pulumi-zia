@@ -1,0 +1,36 @@
+name: ftp-control-policy-e2e
+runtime: yaml
+description: E2E test for zia:index:FtpControlPolicy resource (singleton)
+
+config:
+  ftpEnabled:
+    type: boolean
+    default: false
+  ftpOverHttpEnabled:
+    type: boolean
+    default: false
+  urlCategories:
+    type: array
+    items:
+      type: string
+    default: []
+  urls:
+    type: array
+    items:
+      type: string
+    default: []
+
+resources:
+  ftpControlPolicy:
+    type: zia:index:FtpControlPolicy
+    properties:
+      ftpEnabled: ${ftpEnabled}
+      ftpOverHttpEnabled: ${ftpOverHttpEnabled}
+      urlCategories: ${urlCategories}
+      urls: ${urls}
+
+outputs:
+  ftpEnabled: ${ftpControlPolicy.ftpEnabled}
+  ftpOverHttpEnabled: ${ftpControlPolicy.ftpOverHttpEnabled}
+  urlCategories: ${ftpControlPolicy.urlCategories}
+  urls: ${ftpControlPolicy.urls}

@@ -1,0 +1,12 @@
+name: zia-simple
+runtime: nodejs
+description: Simple ZIA RuleLabel example
+config:
+  zia:clientId:
+    default: ${ZSCALER_CLIENT_ID}
+  zia:clientSecret:
+    default: ${ZSCALER_CLIENT_SECRET}
+    secret: true
+  zia:vanityDomain:
+    default: ${ZSCALER_VANITY_DOMAIN}
+    secret: true

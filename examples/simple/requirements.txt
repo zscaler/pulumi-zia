@@ -1,0 +1,2 @@
+pulumi>=3.165.0
+zia_zia

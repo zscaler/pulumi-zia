@@ -1,0 +1,64 @@
+name: end-user-notification-e2e
+runtime: yaml
+description: E2E test for zia:index:EndUserNotification resource (same values as Terraform testAccResourceEndUserNotificationConfig)
+
+resources:
+  endUserNotification:
+    type: zia:index:EndUserNotification
+    properties:
+      aupCustomFrequency: 0
+      aupDayOffset: 0
+      aupFrequency: "NEVER"
+      cautionAgainAfter: 300
+      cautionCustomText: "Proceeding to visit the site may violate your company policy. Press the \"Continue\" button to access the site anyway or press the \"Back\" button on your browser to go back"
+      cautionPerDomain: true
+      customText: "Website blocked"
+      displayCompanyLogo: true
+      displayCompanyName: true
+      displayReason: true
+      notificationType: "DEFAULT"
+      redirectUrl: "https://redirect.acme.com"
+      orgPolicyLink: "http://24326813.zscalerthree.net/policy.html"
+      quarantineCustomNotificationText: |
+        We are checking this file for a potential security risk. The file you attempted to download is being analyzed for your protection.
+        It is not blocked. The analysis can take up to 10 minutes, depending on the size and type of the file. If safe, your file downloads automatically.
+        If unsafe, the file will be blocked.
+      securityReviewCustomLocation: "https://redirect.acme.com"
+      securityReviewEnabled: true
+      securityReviewSubmitToSecurityCloud: true
+      securityReviewText: "Click to request security review."
+      supportEmail: "support@24326813.zscalerthree.net"
+      supportPhone: "+91-9000000000"
+      urlCatReviewEnabled: true
+      urlCatReviewSubmitToSecurityCloud: false
+      urlCatReviewText: "If you believe you received this message in error, please click here to request a review of this site."
+      urlCatReviewCustomLocation: "https://redirect.acme.com"
+      webDlpReviewCustomLocation: "https://redirect.acme.com"
+      webDlpReviewEnabled: true
+      webDlpReviewSubmitToSecurityCloud: false
+      webDlpReviewText: "Click to request policy review."
+
+outputs:
+  aupFrequency: ${endUserNotification.aupFrequency}
+  aupCustomFrequency: ${endUserNotification.aupCustomFrequency}
+  aupDayOffset: ${endUserNotification.aupDayOffset}
+  cautionAgainAfter: ${endUserNotification.cautionAgainAfter}
+  cautionPerDomain: ${endUserNotification.cautionPerDomain}
+  customText: ${endUserNotification.customText}
+  displayCompanyLogo: ${endUserNotification.displayCompanyLogo}
+  displayCompanyName: ${endUserNotification.displayCompanyName}
+  displayReason: ${endUserNotification.displayReason}
+  notificationType: ${endUserNotification.notificationType}
+  orgPolicyLink: ${endUserNotification.orgPolicyLink}
+  redirectUrl: ${endUserNotification.redirectUrl}
+  securityReviewEnabled: ${endUserNotification.securityReviewEnabled}
+  securityReviewSubmitToSecurityCloud: ${endUserNotification.securityReviewSubmitToSecurityCloud}
+  securityReviewText: ${endUserNotification.securityReviewText}
+  supportEmail: ${endUserNotification.supportEmail}
+  supportPhone: ${endUserNotification.supportPhone}
+  urlCatReviewEnabled: ${endUserNotification.urlCatReviewEnabled}
+  urlCatReviewSubmitToSecurityCloud: ${endUserNotification.urlCatReviewSubmitToSecurityCloud}
+  urlCatReviewText: ${endUserNotification.urlCatReviewText}
+  webDlpReviewEnabled: ${endUserNotification.webDlpReviewEnabled}
+  webDlpReviewSubmitToSecurityCloud: ${endUserNotification.webDlpReviewSubmitToSecurityCloud}
+  webDlpReviewText: ${endUserNotification.webDlpReviewText}

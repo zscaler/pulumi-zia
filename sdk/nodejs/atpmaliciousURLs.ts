@@ -4,90 +4,61 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
- * * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
- *
- * The **zia_atp_malicious_urls** resource alows you to Updates the malicious URLs added to the denylist in ATP policy. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_atp_malicious_urls** can be imported by using `allUrls` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/aTPMaliciousURLs:ATPMaliciousURLs this all_urls
- * ```
- */
-export class ATPMaliciousURLs extends pulumi.CustomResource {
+export class AtpMaliciousUrls extends pulumi.CustomResource {
     /**
-     * Get an existing ATPMaliciousURLs resource's state with the given name, ID, and optional extra
+     * Get an existing AtpMaliciousUrls resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ATPMaliciousURLsState, opts?: pulumi.CustomResourceOptions): ATPMaliciousURLs {
-        return new ATPMaliciousURLs(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AtpMaliciousUrls {
+        return new AtpMaliciousUrls(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/aTPMaliciousURLs:ATPMaliciousURLs';
+    public static readonly __pulumiType = 'zia:index:AtpMaliciousUrls';
 
     /**
-     * Returns true if the given object is an instance of ATPMaliciousURLs.  This is designed to work even
+     * Returns true if the given object is an instance of AtpMaliciousUrls.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is ATPMaliciousURLs {
+    public static isInstance(obj: any): obj is AtpMaliciousUrls {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === ATPMaliciousURLs.__pulumiType;
+        return obj['__pulumiType'] === AtpMaliciousUrls.__pulumiType;
     }
 
-    declare public readonly maliciousUrls: pulumi.Output<string[]>;
+    declare public readonly maliciousUrls: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
-     * Create a ATPMaliciousURLs resource with the given unique name, arguments, and options.
+     * Create a AtpMaliciousUrls resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ATPMaliciousURLsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ATPMaliciousURLsArgs | ATPMaliciousURLsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AtpMaliciousUrlsArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as ATPMaliciousURLsState | undefined;
-            resourceInputs["maliciousUrls"] = state?.maliciousUrls;
-        } else {
-            const args = argsOrState as ATPMaliciousURLsArgs | undefined;
+        if (!opts.id) {
             resourceInputs["maliciousUrls"] = args?.maliciousUrls;
+            resourceInputs["resourceId"] = undefined /*out*/;
+        } else {
+            resourceInputs["maliciousUrls"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ATPMaliciousURLs.__pulumiType, name, resourceInputs, opts);
+        super(AtpMaliciousUrls.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering ATPMaliciousURLs resources.
+ * The set of arguments for constructing a AtpMaliciousUrls resource.
  */
-export interface ATPMaliciousURLsState {
-    maliciousUrls?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-/**
- * The set of arguments for constructing a ATPMaliciousURLs resource.
- */
-export interface ATPMaliciousURLsArgs {
+export interface AtpMaliciousUrlsArgs {
     maliciousUrls?: pulumi.Input<pulumi.Input<string>[]>;
 }

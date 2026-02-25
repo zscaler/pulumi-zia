@@ -14,10 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
-__all__ = ['TrafficForwardingStaticIPArgs', 'TrafficForwardingStaticIP']
+__all__ = ['TrafficForwardingStaticIpArgs', 'TrafficForwardingStaticIp']
 
 @pulumi.input_type
-class TrafficForwardingStaticIPArgs:
+class TrafficForwardingStaticIpArgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[_builtins.str],
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
@@ -26,13 +26,7 @@ class TrafficForwardingStaticIPArgs:
                  longitude: Optional[pulumi.Input[_builtins.float]] = None,
                  routable_ip: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        The set of arguments for constructing a TrafficForwardingStaticIP resource.
-        :param pulumi.Input[_builtins.str] ip_address: The static IP address
-        :param pulumi.Input[_builtins.str] comment: Additional information about this static IP address
-        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        :param pulumi.Input[_builtins.float] latitude: Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.float] longitude: Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
+        The set of arguments for constructing a TrafficForwardingStaticIp resource.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         if comment is not None:
@@ -49,9 +43,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The static IP address
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -61,9 +52,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about this static IP address
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -73,9 +61,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        """
         return pulumi.get(self, "geo_override")
 
     @geo_override.setter
@@ -85,9 +70,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
@@ -97,9 +79,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
@@ -109,9 +88,6 @@ class TrafficForwardingStaticIPArgs:
     @_builtins.property
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
-        """
         return pulumi.get(self, "routable_ip")
 
     @routable_ip.setter
@@ -119,128 +95,8 @@ class TrafficForwardingStaticIPArgs:
         pulumi.set(self, "routable_ip", value)
 
 
-@pulumi.input_type
-class _TrafficForwardingStaticIPState:
-    def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude: Optional[pulumi.Input[_builtins.float]] = None,
-                 longitude: Optional[pulumi.Input[_builtins.float]] = None,
-                 routable_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 static_ip_id: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Input properties used for looking up and filtering TrafficForwardingStaticIP resources.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this static IP address
-        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        :param pulumi.Input[_builtins.str] ip_address: The static IP address
-        :param pulumi.Input[_builtins.float] latitude: Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.float] longitude: Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
-        :param pulumi.Input[_builtins.int] static_ip_id: The ID of the Static IP.
-        """
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-        if geo_override is not None:
-            pulumi.set(__self__, "geo_override", geo_override)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-        if latitude is not None:
-            pulumi.set(__self__, "latitude", latitude)
-        if longitude is not None:
-            pulumi.set(__self__, "longitude", longitude)
-        if routable_ip is not None:
-            pulumi.set(__self__, "routable_ip", routable_ip)
-        if static_ip_id is not None:
-            pulumi.set(__self__, "static_ip_id", static_ip_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about this static IP address
-        """
-        return pulumi.get(self, "comment")
-
-    @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "comment", value)
-
-    @_builtins.property
-    @pulumi.getter(name="geoOverride")
-    def geo_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        """
-        return pulumi.get(self, "geo_override")
-
-    @geo_override.setter
-    def geo_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "geo_override", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The static IP address
-        """
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def latitude(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
-        return pulumi.get(self, "latitude")
-
-    @latitude.setter
-    def latitude(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "latitude", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def longitude(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
-        return pulumi.get(self, "longitude")
-
-    @longitude.setter
-    def longitude(self, value: Optional[pulumi.Input[_builtins.float]]):
-        pulumi.set(self, "longitude", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routableIp")
-    def routable_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
-        """
-        return pulumi.get(self, "routable_ip")
-
-    @routable_ip.setter
-    def routable_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "routable_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="staticIpId")
-    def static_ip_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The ID of the Static IP.
-        """
-        return pulumi.get(self, "static_ip_id")
-
-    @static_ip_id.setter
-    def static_ip_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "static_ip_id", value)
-
-
-@pulumi.type_token("zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP")
-class TrafficForwardingStaticIP(pulumi.CustomResource):
+@pulumi.type_token("zia:index:TrafficForwardingStaticIp")
+class TrafficForwardingStaticIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -253,467 +109,25 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
                  routable_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
-
-        The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static IP addresses in the Zscaler Internet Access cloud. The resource can then be associated with other resources such as:
-
-        * VPN Credentials of type `IP`
-        * Location Management
-        * GRE Tunnel
-
-        ## 🎯 Automatic Coordinate Determination (v4.6.2+)
-
-        Starting with **version 4.6.2**, the provider automatically determines latitude and longitude coordinates from the IP address, even when `geo_override = true`. This means:
-
-        * ✅ **No manual coordinate lookups** - Provider handles it automatically
-        * ✅ **No drift issues** - State always contains exact API values
-        * ✅ **Simpler configuration** - Omit `latitude` and `longitude` for automatic determination
-        * ✅ **Fully backward compatible** - Explicit coordinates still work if provided
-
-        **In short:** You can now use `geo_override = true` without specifying coordinates! See examples below.
-
-        ## Example Usage
-
-        ### Example 1: Auto-Determined Coordinates (Recommended)
-
-        ### Example 2: User-Specified Coordinates (Optional)
-
-        ### Example 3: Automatic Geolocation (geo_override = false)
-
-        ## How Latitude and Longitude Are Determined
-
-        The provider handles coordinates intelligently based on your configuration:
-
-        ### When `geo_override = false` (or omitted)
-        * ✅ **Provider behavior**: Latitude and longitude are automatically determined by the ZIA API based on the IP address
-        * ✅ **State file**: Will contain the API-determined coordinates
-        * ✅ **User action**: None required - fully automatic
-
-        ### When `geo_override = true` WITHOUT coordinates
-        * ✅ **Provider behavior**:
-          1. Creates the static IP with `geo_override = false` first
-          2. Retrieves the auto-determined coordinates from the API
-          3. Updates the static IP with `geo_override = true` using those coordinates
-        * ✅ **State file**: Will contain the auto-determined coordinates
-        * ✅ **User action**: None required - provider handles it automatically
-        * ✅ **Result**: You get `geo_override = true` without manually looking up coordinates
-
-        ### When `geo_override = true` WITH coordinates
-        * ✅ **Provider behavior**: Uses your specified coordinates
-        * ✅ **State file**: Will contain the exact values returned by the API (may have minor precision adjustments)
-        * ✅ **User action**: Provide `latitude` and `longitude` values
-        * ✅ **Result**: Your custom coordinates are used
-
-        ### Key Benefits
-        * 🎯 **No drift issues** - State always contains exact API values
-        * 🎯 **No manual lookups** - API determines accurate coordinates from IP
-        * 🎯 **Flexible** - Can override coordinates when needed
-        * 🎯 **Always accurate** - Coordinates match the IP address geolocation
-
-        ## Common Use Cases
-
-        ### Use Case 1: GRE Tunnel with Auto-Determined Coordinates
-
-        ### Use Case 2: Multiple Static IPs with for_each
-
-        ### Use Case 3: VPN Credentials Integration
-
-        ## Frequently Asked Questions (FAQ)
-
-        ### Q: Do I need to specify latitude and longitude when using geo_override = true?
-
-        **A:** No! The provider will automatically determine coordinates from the IP address if you don't provide them. This is the **recommended approach** to avoid drift issues.
-
-        ### Q: What if I want to use specific coordinates?
-
-        **A:** You can still provide `latitude` and `longitude` explicitly. The provider will use your values if provided.
-
-        ### Q: Will there be drift if I don't specify coordinates?
-
-        **A:** No! The state file will contain the exact coordinates returned by the ZIA API. Subsequent `pulumi preview` commands will show no changes.
-
-        ### Q: What happens if I provide coordinates that don't match the IP location?
-
-        **A:** The API will accept your coordinates, but they may be adjusted for precision. The state file will always reflect the actual API response values.
-
-        ### Q: Can I change from auto-determined to custom coordinates later?
-
-        **A:** Yes! Simply add `latitude` and `longitude` to your configuration and run `pulumi up`. The provider will update the static IP with your custom coordinates.
-
-        ### Q: What precision does the API use for coordinates?
-
-        **A:** The API typically returns 4-7 decimal places depending on the IP location. The provider stores these exact values without rounding.
-
-        ### Q: Why does my state show geo_override = true but I didn't set it?
-
-        **A:** The `geo_override` attribute has `Computed: true`, meaning it's populated from the API response. The API may set it based on other factors.
-
-        ## Troubleshooting
-
-        ### Error: "Missing geo Coordinates"
-
-        This error should no longer occur with the updated provider. If you still see it:
-
-        1. Ensure you're using provider version 4.6.2 or later
-        2. Check if coordinates are being populated: `terraform state show zia_traffic_forwarding_static_ip.<name>`
-        3. Enable debug logging: `export TF_LOG=DEBUG` and check for auto-population messages
-
-        ### Unexpected Drift Detected
-
-        If `pulumi preview` shows coordinate changes:
-
-        1. **Solution**: Remove explicit `latitude` and `longitude` from your configuration
-        2. **Reason**: API values may differ slightly from user-provided values due to precision
-        3. **After removal**: Run `pulumi up` once - state will sync with API values
-        4. **Future plans**: Will show no changes
-
-        ### Coordinates Not in Expected Location
-
-        The coordinates reflect the IP address's actual geolocation as determined by Zscaler's geolocation database. If you need different coordinates:
-
-        1. Set `geo_override = true`
-        2. Provide your desired `latitude` and `longitude` explicitly
-        3. The API will use your values
-
-        ## Best Practices
-
-        ### ✅ Recommended: Let the Provider Auto-Determine Coordinates
-
-        **Why this is recommended:**
-
-        * ✅ No manual coordinate lookups required
-        * ✅ Zero drift - state always matches API
-        * ✅ Accurate - API knows the correct geolocation for each IP
-        * ✅ Maintainable - no hardcoded coordinates to update
-
-        ### ⚠️ Use Custom Coordinates Only When Necessary
-
-        Only provide explicit coordinates if you have a specific requirement:
-
-        **When to use custom coordinates:**
-
-        * Testing with specific geographic locations
-        * Compliance requirements for specific geo-coordinates
-        * Override API's geolocation database for special cases
-
-        ## Migration Guide for Existing Users
-
-        If you're upgrading from an older provider version (< 4.6.2), you may have configurations like this:
-
-        ### Old Configuration (Still Works, But Not Recommended)
-
-        ### Migrating to New Approach (Recommended)
-
-        **Step 1:** Remove `latitude` and `longitude` from your configuration
-
-        **Step 2:** Run `pulumi preview`
-
-        You'll see Terraform wants to update the resource (to remove explicitly set coordinates from state).
-
-        **Step 3:** Apply the changes
-
-        The provider will:
-
-        * Keep the same static IP (no destruction)
-        * Auto-determine coordinates from the IP
-        * Update state with API values
-        * No infrastructure change - just cleaner config!
-
-        **Step 4:** Verify no drift
-
-        ### Migration Example: Full Before/After
-
-        **Before Migration:**
-
-        **After Migration:**
-
-        **Migration Impact:**
-
-        * Configuration: 8 lines removed (cleaner)
-        * API calls: No additional overhead after migration
-        * Drift: Eliminated
-        * Maintenance: Easier
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        Static IP resources can be imported by using `<STATIC IP ID>` or `<IP ADDRESS>` as the import ID.
-
-        ### Import by Static IP ID
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <static_ip_id>
-        ```
-
-        Example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 3030759
-        ```
-
-        ### Import by IP Address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <ip_address>
-        ```
-
-        Example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 122.164.82.249
-        ```
-
-        **After Import:**
-
-        * The state will include all attributes including latitude and longitude
-        * You can omit coordinates from your configuration - state will remain accurate
-        * Run `pulumi preview` to see what configuration should look like
-
+        Create a TrafficForwardingStaticIp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this static IP address
-        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        :param pulumi.Input[_builtins.str] ip_address: The static IP address
-        :param pulumi.Input[_builtins.float] latitude: Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.float] longitude: Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficForwardingStaticIPArgs,
+                 args: TrafficForwardingStaticIpArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-static-ip)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/staticIP-get)
-
-        The **zia_traffic_forwarding_static_ip** resource allows the creation and management of static IP addresses in the Zscaler Internet Access cloud. The resource can then be associated with other resources such as:
-
-        * VPN Credentials of type `IP`
-        * Location Management
-        * GRE Tunnel
-
-        ## 🎯 Automatic Coordinate Determination (v4.6.2+)
-
-        Starting with **version 4.6.2**, the provider automatically determines latitude and longitude coordinates from the IP address, even when `geo_override = true`. This means:
-
-        * ✅ **No manual coordinate lookups** - Provider handles it automatically
-        * ✅ **No drift issues** - State always contains exact API values
-        * ✅ **Simpler configuration** - Omit `latitude` and `longitude` for automatic determination
-        * ✅ **Fully backward compatible** - Explicit coordinates still work if provided
-
-        **In short:** You can now use `geo_override = true` without specifying coordinates! See examples below.
-
-        ## Example Usage
-
-        ### Example 1: Auto-Determined Coordinates (Recommended)
-
-        ### Example 2: User-Specified Coordinates (Optional)
-
-        ### Example 3: Automatic Geolocation (geo_override = false)
-
-        ## How Latitude and Longitude Are Determined
-
-        The provider handles coordinates intelligently based on your configuration:
-
-        ### When `geo_override = false` (or omitted)
-        * ✅ **Provider behavior**: Latitude and longitude are automatically determined by the ZIA API based on the IP address
-        * ✅ **State file**: Will contain the API-determined coordinates
-        * ✅ **User action**: None required - fully automatic
-
-        ### When `geo_override = true` WITHOUT coordinates
-        * ✅ **Provider behavior**:
-          1. Creates the static IP with `geo_override = false` first
-          2. Retrieves the auto-determined coordinates from the API
-          3. Updates the static IP with `geo_override = true` using those coordinates
-        * ✅ **State file**: Will contain the auto-determined coordinates
-        * ✅ **User action**: None required - provider handles it automatically
-        * ✅ **Result**: You get `geo_override = true` without manually looking up coordinates
-
-        ### When `geo_override = true` WITH coordinates
-        * ✅ **Provider behavior**: Uses your specified coordinates
-        * ✅ **State file**: Will contain the exact values returned by the API (may have minor precision adjustments)
-        * ✅ **User action**: Provide `latitude` and `longitude` values
-        * ✅ **Result**: Your custom coordinates are used
-
-        ### Key Benefits
-        * 🎯 **No drift issues** - State always contains exact API values
-        * 🎯 **No manual lookups** - API determines accurate coordinates from IP
-        * 🎯 **Flexible** - Can override coordinates when needed
-        * 🎯 **Always accurate** - Coordinates match the IP address geolocation
-
-        ## Common Use Cases
-
-        ### Use Case 1: GRE Tunnel with Auto-Determined Coordinates
-
-        ### Use Case 2: Multiple Static IPs with for_each
-
-        ### Use Case 3: VPN Credentials Integration
-
-        ## Frequently Asked Questions (FAQ)
-
-        ### Q: Do I need to specify latitude and longitude when using geo_override = true?
-
-        **A:** No! The provider will automatically determine coordinates from the IP address if you don't provide them. This is the **recommended approach** to avoid drift issues.
-
-        ### Q: What if I want to use specific coordinates?
-
-        **A:** You can still provide `latitude` and `longitude` explicitly. The provider will use your values if provided.
-
-        ### Q: Will there be drift if I don't specify coordinates?
-
-        **A:** No! The state file will contain the exact coordinates returned by the ZIA API. Subsequent `pulumi preview` commands will show no changes.
-
-        ### Q: What happens if I provide coordinates that don't match the IP location?
-
-        **A:** The API will accept your coordinates, but they may be adjusted for precision. The state file will always reflect the actual API response values.
-
-        ### Q: Can I change from auto-determined to custom coordinates later?
-
-        **A:** Yes! Simply add `latitude` and `longitude` to your configuration and run `pulumi up`. The provider will update the static IP with your custom coordinates.
-
-        ### Q: What precision does the API use for coordinates?
-
-        **A:** The API typically returns 4-7 decimal places depending on the IP location. The provider stores these exact values without rounding.
-
-        ### Q: Why does my state show geo_override = true but I didn't set it?
-
-        **A:** The `geo_override` attribute has `Computed: true`, meaning it's populated from the API response. The API may set it based on other factors.
-
-        ## Troubleshooting
-
-        ### Error: "Missing geo Coordinates"
-
-        This error should no longer occur with the updated provider. If you still see it:
-
-        1. Ensure you're using provider version 4.6.2 or later
-        2. Check if coordinates are being populated: `terraform state show zia_traffic_forwarding_static_ip.<name>`
-        3. Enable debug logging: `export TF_LOG=DEBUG` and check for auto-population messages
-
-        ### Unexpected Drift Detected
-
-        If `pulumi preview` shows coordinate changes:
-
-        1. **Solution**: Remove explicit `latitude` and `longitude` from your configuration
-        2. **Reason**: API values may differ slightly from user-provided values due to precision
-        3. **After removal**: Run `pulumi up` once - state will sync with API values
-        4. **Future plans**: Will show no changes
-
-        ### Coordinates Not in Expected Location
-
-        The coordinates reflect the IP address's actual geolocation as determined by Zscaler's geolocation database. If you need different coordinates:
-
-        1. Set `geo_override = true`
-        2. Provide your desired `latitude` and `longitude` explicitly
-        3. The API will use your values
-
-        ## Best Practices
-
-        ### ✅ Recommended: Let the Provider Auto-Determine Coordinates
-
-        **Why this is recommended:**
-
-        * ✅ No manual coordinate lookups required
-        * ✅ Zero drift - state always matches API
-        * ✅ Accurate - API knows the correct geolocation for each IP
-        * ✅ Maintainable - no hardcoded coordinates to update
-
-        ### ⚠️ Use Custom Coordinates Only When Necessary
-
-        Only provide explicit coordinates if you have a specific requirement:
-
-        **When to use custom coordinates:**
-
-        * Testing with specific geographic locations
-        * Compliance requirements for specific geo-coordinates
-        * Override API's geolocation database for special cases
-
-        ## Migration Guide for Existing Users
-
-        If you're upgrading from an older provider version (< 4.6.2), you may have configurations like this:
-
-        ### Old Configuration (Still Works, But Not Recommended)
-
-        ### Migrating to New Approach (Recommended)
-
-        **Step 1:** Remove `latitude` and `longitude` from your configuration
-
-        **Step 2:** Run `pulumi preview`
-
-        You'll see Terraform wants to update the resource (to remove explicitly set coordinates from state).
-
-        **Step 3:** Apply the changes
-
-        The provider will:
-
-        * Keep the same static IP (no destruction)
-        * Auto-determine coordinates from the IP
-        * Update state with API values
-        * No infrastructure change - just cleaner config!
-
-        **Step 4:** Verify no drift
-
-        ### Migration Example: Full Before/After
-
-        **Before Migration:**
-
-        **After Migration:**
-
-        **Migration Impact:**
-
-        * Configuration: 8 lines removed (cleaner)
-        * API calls: No additional overhead after migration
-        * Drift: Eliminated
-        * Maintenance: Easier
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        Static IP resources can be imported by using `<STATIC IP ID>` or `<IP ADDRESS>` as the import ID.
-
-        ### Import by Static IP ID
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <static_ip_id>
-        ```
-
-        Example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 3030759
-        ```
-
-        ### Import by IP Address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP example <ip_address>
-        ```
-
-        Example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP chennai 122.164.82.249
-        ```
-
-        **After Import:**
-
-        * The state will include all attributes including latitude and longitude
-        * You can omit coordinates from your configuration - state will remain accurate
-        * Run `pulumi preview` to see what configuration should look like
-
+        Create a TrafficForwardingStaticIp resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param TrafficForwardingStaticIPArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficForwardingStaticIpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingStaticIPArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingStaticIpArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -735,7 +149,7 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficForwardingStaticIPArgs.__new__(TrafficForwardingStaticIPArgs)
+            __props__ = TrafficForwardingStaticIpArgs.__new__(TrafficForwardingStaticIpArgs)
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["geo_override"] = geo_override
@@ -746,8 +160,8 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
             __props__.__dict__["longitude"] = longitude
             __props__.__dict__["routable_ip"] = routable_ip
             __props__.__dict__["static_ip_id"] = None
-        super(TrafficForwardingStaticIP, __self__).__init__(
-            'zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP',
+        super(TrafficForwardingStaticIp, __self__).__init__(
+            'zia:index:TrafficForwardingStaticIp',
             resource_name,
             __props__,
             opts)
@@ -755,95 +169,60 @@ class TrafficForwardingStaticIP(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            geo_override: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            latitude: Optional[pulumi.Input[_builtins.float]] = None,
-            longitude: Optional[pulumi.Input[_builtins.float]] = None,
-            routable_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-            static_ip_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficForwardingStaticIP':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'TrafficForwardingStaticIp':
         """
-        Get an existing TrafficForwardingStaticIP resource's state with the given name, id, and optional extra
+        Get an existing TrafficForwardingStaticIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this static IP address
-        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        :param pulumi.Input[_builtins.str] ip_address: The static IP address
-        :param pulumi.Input[_builtins.float] latitude: Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.float] longitude: Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
-        :param pulumi.Input[_builtins.int] static_ip_id: The ID of the Static IP.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _TrafficForwardingStaticIPState.__new__(_TrafficForwardingStaticIPState)
+        __props__ = TrafficForwardingStaticIpArgs.__new__(TrafficForwardingStaticIpArgs)
 
-        __props__.__dict__["comment"] = comment
-        __props__.__dict__["geo_override"] = geo_override
-        __props__.__dict__["ip_address"] = ip_address
-        __props__.__dict__["latitude"] = latitude
-        __props__.__dict__["longitude"] = longitude
-        __props__.__dict__["routable_ip"] = routable_ip
-        __props__.__dict__["static_ip_id"] = static_ip_id
-        return TrafficForwardingStaticIP(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["comment"] = None
+        __props__.__dict__["geo_override"] = None
+        __props__.__dict__["ip_address"] = None
+        __props__.__dict__["latitude"] = None
+        __props__.__dict__["longitude"] = None
+        __props__.__dict__["routable_ip"] = None
+        __props__.__dict__["static_ip_id"] = None
+        return TrafficForwardingStaticIp(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Additional information about this static IP address
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="geoOverride")
-    def geo_override(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If not set, geographic coordinates and city are automatically determined from the IP address. Otherwise, the latitude and longitude coordinates must be provided.
-        """
+    def geo_override(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "geo_override")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[_builtins.str]:
-        """
-        The static IP address
-        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter
-    def latitude(self) -> pulumi.Output[_builtins.float]:
-        """
-        Latitude with 7 digit precision after decimal point, ranges between -90 and 90 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
+    def latitude(self) -> pulumi.Output[Optional[_builtins.float]]:
         return pulumi.get(self, "latitude")
 
     @_builtins.property
     @pulumi.getter
-    def longitude(self) -> pulumi.Output[_builtins.float]:
-        """
-        Longitude with 7 digit precision after decimal point, ranges between -180 and 180 degrees. If not provided, the API will automatically determine it from the IP address.
-        """
+    def longitude(self) -> pulumi.Output[Optional[_builtins.float]]:
         return pulumi.get(self, "longitude")
 
     @_builtins.property
     @pulumi.getter(name="routableIp")
-    def routable_ip(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether a non-RFC 1918 IP address is publicly routable. This attribute is ignored if there is no ZIA Private Service Edge associated to the organization.
-        """
+    def routable_ip(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "routable_ip")
 
     @_builtins.property
     @pulumi.getter(name="staticIpId")
     def static_ip_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        The ID of the Static IP.
-        """
         return pulumi.get(self, "static_ip_id")
 

@@ -1,0 +1,50 @@
+---
+description: Testing conventions for the pulumi-zia provider
+globs: tests/**/*.go
+alwaysApply: false
+---
+
+# Testing Conventions
+
+## Unit Tests
+
+```bash
+make test_provider
+```
+
+Runs `go test -short` in the provider directory.
+
+## E2E Tests
+
+```bash
+# All e2e tests
+make test
+
+# Specific test
+cd examples && go test -v -run TestUrlFilteringRule -tags=all -timeout 2h
+```
+
+## Required Environment Variables
+
+- `ZSCALER_CLIENT_ID`
+- `ZSCALER_CLIENT_SECRET`
+- `ZSCALER_VANITY_DOMAIN`
+- `ZSCALER_CLOUD`
+
+## E2E Test Pattern
+
+Tests are in `tests/` with build tag `//go:build !unit`. Each test file follows:
+
+```go
+//go:build !unit
+
+package tests
+
+func TestResourceName(t *testing.T) {
+    // Setup, create resource, verify, cleanup
+}
+```
+
+## License Header
+
+All test files use the MIT license header.

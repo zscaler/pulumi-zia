@@ -2,37 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy)
- * * [API documentation](https://help.zscaler.com/zia/saas-security-api#/casbDlpRules-post)
- *
- * The **zia_casb_dlp_rules** resource Adds a new SaaS Security Data at Rest Scanning DLP rule in the Zscaler Internet Access.
- *
- * ## Example Usage
- *
- * ### Configure Cloud To Cloud Forwarding
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_casb_dlp_rules** can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <rule_type:rule_id>
- * ```
- *
- * ```sh
- * $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <"rule_type:rule_name">
- * ```
- */
 export class CasbDlpRule extends pulumi.CustomResource {
     /**
      * Get an existing CasbDlpRule resource's state with the given name, ID, and optional extra
@@ -40,15 +11,14 @@ export class CasbDlpRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CasbDlpRuleState, opts?: pulumi.CustomResourceOptions): CasbDlpRule {
-        return new CasbDlpRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CasbDlpRule {
+        return new CasbDlpRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/casbDlpRule:CasbDlpRule';
+    public static readonly __pulumiType = 'zia:index:CasbDlpRule';
 
     /**
      * Returns true if the given object is an instance of CasbDlpRule.  This is designed to work even
@@ -61,182 +31,42 @@ export class CasbDlpRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === CasbDlpRule.__pulumiType;
     }
 
-    /**
-     * The configured action for the policy rule
-     */
     declare public readonly action: pulumi.Output<string | undefined>;
-    /**
-     * Notification template used for DLP email alerts sent to the auditor
-     */
-    declare public readonly auditorNotifications: pulumi.Output<outputs.CasbDlpRuleAuditorNotification[] | undefined>;
-    /**
-     * A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-     */
     declare public readonly bucketOwner: pulumi.Output<string | undefined>;
-    /**
-     * The buckets for the Zscaler service to inspect for sensitive data
-     */
-    declare public readonly buckets: pulumi.Output<outputs.CasbDlpRuleBuckets | undefined>;
-    /**
-     * Name-ID of the email label associated with the rule
-     */
-    declare public readonly casbEmailLabels: pulumi.Output<outputs.CasbDlpRuleCasbEmailLabel[] | undefined>;
-    /**
-     * Name-ID of the quarantine tombstone template associated with the rule
-     */
-    declare public readonly casbTombstoneTemplates: pulumi.Output<outputs.CasbDlpRuleCasbTombstoneTemplate[] | undefined>;
-    /**
-     * Name-ID pairs of the cloud application tenants for which the rule is applied
-     */
-    declare public readonly cloudAppTenants: pulumi.Output<outputs.CasbDlpRuleCloudAppTenants | undefined>;
-    /**
-     * Collaboration scope for the rule
-     */
-    declare public readonly collaborationScopes: pulumi.Output<string[] | undefined>;
-    /**
-     * List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-     */
+    declare public readonly buckets: pulumi.Output<number[] | undefined>;
+    declare public readonly cloudAppTenants: pulumi.Output<number[] | undefined>;
+    declare public readonly collaborationScope: pulumi.Output<string[] | undefined>;
     declare public readonly components: pulumi.Output<string[] | undefined>;
-    /**
-     * The location for the content that the Zscaler service inspects for sensitive data
-     */
     declare public readonly contentLocation: pulumi.Output<string | undefined>;
-    /**
-     * Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-     */
-    declare public readonly criteriaDomainProfiles: pulumi.Output<outputs.CasbDlpRuleCriteriaDomainProfiles | undefined>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    declare public readonly departments: pulumi.Output<outputs.CasbDlpRuleDepartments | undefined>;
-    /**
-     * An admin editable text-based description of the rule
-     */
+    declare public readonly criteriaDomainProfiles: pulumi.Output<number[] | undefined>;
+    declare public readonly departments: pulumi.Output<number[] | undefined>;
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The list of DLP engines to which the DLP policy rule must be applied
-     */
-    declare public readonly dlpEngines: pulumi.Output<outputs.CasbDlpRuleDlpEngines | undefined>;
-    /**
-     * The domain for the external organization sharing the channel
-     */
+    declare public readonly dlpEngines: pulumi.Output<number[] | undefined>;
     declare public readonly domains: pulumi.Output<string[] | undefined>;
-    /**
-     * Name-ID pairs of recipient profiles for which the rule is applied
-     */
-    declare public readonly emailRecipientProfiles: pulumi.Output<outputs.CasbDlpRuleEmailRecipientProfiles | undefined>;
-    /**
-     * Name-ID pairs of entity groups that are part of the rule criteria
-     */
-    declare public readonly entityGroups: pulumi.Output<outputs.CasbDlpRuleEntityGroups | undefined>;
-    /**
-     * Name-ID pairs of domain profiles excluded in the criteria for the rule
-     */
-    declare public readonly excludedDomainProfiles: pulumi.Output<outputs.CasbDlpRuleExcludedDomainProfiles | undefined>;
-    /**
-     * Email address of the external auditor to whom the DLP email alerts are sent
-     */
+    declare public readonly emailRecipientProfiles: pulumi.Output<number[] | undefined>;
+    declare public readonly entityGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly excludedDomainProfiles: pulumi.Output<number[] | undefined>;
     declare public readonly externalAuditorEmail: pulumi.Output<string | undefined>;
-    /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-     */
     declare public readonly fileTypes: pulumi.Output<string[] | undefined>;
-    /**
-     * Name-ID pairs of groups for which the rule is applied
-     */
-    declare public readonly groups: pulumi.Output<outputs.CasbDlpRuleGroups | undefined>;
-    /**
-     * If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
+    declare public readonly groups: pulumi.Output<number[] | undefined>;
     declare public readonly includeCriteriaDomainProfile: pulumi.Output<boolean | undefined>;
-    /**
-     * If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
     declare public readonly includeEmailRecipientProfile: pulumi.Output<boolean | undefined>;
-    /**
-     * If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-     */
-    declare public readonly includeEntityGroups: pulumi.Output<boolean>;
-    /**
-     * Name-ID pairs of domain profiles included in the criteria for the rule
-     */
-    declare public readonly includedDomainProfiles: pulumi.Output<outputs.CasbDlpRuleIncludedDomainProfiles | undefined>;
-    /**
-     * Name-ID pairs of rule labels associated with the rule
-     */
-    declare public readonly labels: pulumi.Output<outputs.CasbDlpRuleLabels | undefined>;
-    /**
-     * Rule name
-     */
+    declare public readonly includeEntityGroups: pulumi.Output<boolean | undefined>;
+    declare public readonly includedDomainProfiles: pulumi.Output<number[] | undefined>;
+    declare public readonly labels: pulumi.Output<number[] | undefined>;
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * List of object types for which the rule is applied
-     */
-    declare public readonly objectTypes: pulumi.Output<outputs.CasbDlpRuleObjectTypes | undefined>;
-    /**
-     * Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-     */
+    declare public readonly objectTypes: pulumi.Output<number[] | undefined>;
     declare public readonly order: pulumi.Output<number>;
-    /**
-     * Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-     */
     declare public readonly quarantineLocation: pulumi.Output<string | undefined>;
-    /**
-     * Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-     */
     declare public readonly rank: pulumi.Output<number | undefined>;
-    /**
-     * The receiver information for the DLP policy rule
-     */
-    declare public readonly receiver: pulumi.Output<outputs.CasbDlpRuleReceiver | undefined>;
-    /**
-     * Specifies if the email recipient is internal or external
-     */
     declare public readonly recipient: pulumi.Output<string | undefined>;
-    /**
-     * Name-ID of the redaction profile in the criteria
-     */
-    declare public readonly redactionProfiles: pulumi.Output<outputs.CasbDlpRuleRedactionProfile[] | undefined>;
-    /**
-     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
-    /**
-     * The severity level of the incidents that match the policy rule
-     */
     declare public readonly severity: pulumi.Output<string | undefined>;
-    /**
-     * Administrative state of the rule
-     */
     declare public readonly state: pulumi.Output<string | undefined>;
-    /**
-     * Tag applied to the rule
-     */
-    declare public readonly tags: pulumi.Output<outputs.CasbDlpRuleTag[] | undefined>;
-    /**
-     * The type of SaaS Security Data at Rest Scanning DLP rule
-     */
-    declare public readonly type: pulumi.Output<string | undefined>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    declare public readonly users: pulumi.Output<outputs.CasbDlpRuleUsers | undefined>;
-    /**
-     * Specifies whether to delete an old version of the watermarked file
-     */
+    declare public readonly type: pulumi.Output<string>;
+    declare public readonly users: pulumi.Output<number[] | undefined>;
     declare public readonly watermarkDeleteOldVersion: pulumi.Output<boolean | undefined>;
-    /**
-     * Watermark profile applied to the rule
-     */
-    declare public readonly watermarkProfiles: pulumi.Output<outputs.CasbDlpRuleWatermarkProfile[] | undefined>;
-    /**
-     * If true, Content Matching is set to None
-     */
     declare public readonly withoutContentInspection: pulumi.Output<boolean | undefined>;
-    /**
-     * The Zscaler Incident Receiver details
-     */
-    declare public readonly zscalerIncidentReceivers: pulumi.Output<outputs.CasbDlpRuleZscalerIncidentReceiver[] | undefined>;
 
     /**
      * Create a CasbDlpRule resource with the given unique name, arguments, and options.
@@ -245,69 +75,24 @@ export class CasbDlpRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CasbDlpRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CasbDlpRuleArgs | CasbDlpRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CasbDlpRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as CasbDlpRuleState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["auditorNotifications"] = state?.auditorNotifications;
-            resourceInputs["bucketOwner"] = state?.bucketOwner;
-            resourceInputs["buckets"] = state?.buckets;
-            resourceInputs["casbEmailLabels"] = state?.casbEmailLabels;
-            resourceInputs["casbTombstoneTemplates"] = state?.casbTombstoneTemplates;
-            resourceInputs["cloudAppTenants"] = state?.cloudAppTenants;
-            resourceInputs["collaborationScopes"] = state?.collaborationScopes;
-            resourceInputs["components"] = state?.components;
-            resourceInputs["contentLocation"] = state?.contentLocation;
-            resourceInputs["criteriaDomainProfiles"] = state?.criteriaDomainProfiles;
-            resourceInputs["departments"] = state?.departments;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["dlpEngines"] = state?.dlpEngines;
-            resourceInputs["domains"] = state?.domains;
-            resourceInputs["emailRecipientProfiles"] = state?.emailRecipientProfiles;
-            resourceInputs["entityGroups"] = state?.entityGroups;
-            resourceInputs["excludedDomainProfiles"] = state?.excludedDomainProfiles;
-            resourceInputs["externalAuditorEmail"] = state?.externalAuditorEmail;
-            resourceInputs["fileTypes"] = state?.fileTypes;
-            resourceInputs["groups"] = state?.groups;
-            resourceInputs["includeCriteriaDomainProfile"] = state?.includeCriteriaDomainProfile;
-            resourceInputs["includeEmailRecipientProfile"] = state?.includeEmailRecipientProfile;
-            resourceInputs["includeEntityGroups"] = state?.includeEntityGroups;
-            resourceInputs["includedDomainProfiles"] = state?.includedDomainProfiles;
-            resourceInputs["labels"] = state?.labels;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["objectTypes"] = state?.objectTypes;
-            resourceInputs["order"] = state?.order;
-            resourceInputs["quarantineLocation"] = state?.quarantineLocation;
-            resourceInputs["rank"] = state?.rank;
-            resourceInputs["receiver"] = state?.receiver;
-            resourceInputs["recipient"] = state?.recipient;
-            resourceInputs["redactionProfiles"] = state?.redactionProfiles;
-            resourceInputs["ruleId"] = state?.ruleId;
-            resourceInputs["severity"] = state?.severity;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tags"] = state?.tags;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["users"] = state?.users;
-            resourceInputs["watermarkDeleteOldVersion"] = state?.watermarkDeleteOldVersion;
-            resourceInputs["watermarkProfiles"] = state?.watermarkProfiles;
-            resourceInputs["withoutContentInspection"] = state?.withoutContentInspection;
-            resourceInputs["zscalerIncidentReceivers"] = state?.zscalerIncidentReceivers;
-        } else {
-            const args = argsOrState as CasbDlpRuleArgs | undefined;
+        if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
+            if (args?.type === undefined && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
             resourceInputs["action"] = args?.action;
-            resourceInputs["auditorNotifications"] = args?.auditorNotifications;
             resourceInputs["bucketOwner"] = args?.bucketOwner;
             resourceInputs["buckets"] = args?.buckets;
-            resourceInputs["casbEmailLabels"] = args?.casbEmailLabels;
-            resourceInputs["casbTombstoneTemplates"] = args?.casbTombstoneTemplates;
             resourceInputs["cloudAppTenants"] = args?.cloudAppTenants;
-            resourceInputs["collaborationScopes"] = args?.collaborationScopes;
+            resourceInputs["collaborationScope"] = args?.collaborationScope;
             resourceInputs["components"] = args?.components;
             resourceInputs["contentLocation"] = args?.contentLocation;
             resourceInputs["criteriaDomainProfiles"] = args?.criteriaDomainProfiles;
@@ -331,383 +116,94 @@ export class CasbDlpRule extends pulumi.CustomResource {
             resourceInputs["order"] = args?.order;
             resourceInputs["quarantineLocation"] = args?.quarantineLocation;
             resourceInputs["rank"] = args?.rank;
-            resourceInputs["receiver"] = args?.receiver;
             resourceInputs["recipient"] = args?.recipient;
-            resourceInputs["redactionProfiles"] = args?.redactionProfiles;
             resourceInputs["severity"] = args?.severity;
             resourceInputs["state"] = args?.state;
-            resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
             resourceInputs["users"] = args?.users;
             resourceInputs["watermarkDeleteOldVersion"] = args?.watermarkDeleteOldVersion;
-            resourceInputs["watermarkProfiles"] = args?.watermarkProfiles;
             resourceInputs["withoutContentInspection"] = args?.withoutContentInspection;
-            resourceInputs["zscalerIncidentReceivers"] = args?.zscalerIncidentReceivers;
             resourceInputs["ruleId"] = undefined /*out*/;
+        } else {
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["bucketOwner"] = undefined /*out*/;
+            resourceInputs["buckets"] = undefined /*out*/;
+            resourceInputs["cloudAppTenants"] = undefined /*out*/;
+            resourceInputs["collaborationScope"] = undefined /*out*/;
+            resourceInputs["components"] = undefined /*out*/;
+            resourceInputs["contentLocation"] = undefined /*out*/;
+            resourceInputs["criteriaDomainProfiles"] = undefined /*out*/;
+            resourceInputs["departments"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["dlpEngines"] = undefined /*out*/;
+            resourceInputs["domains"] = undefined /*out*/;
+            resourceInputs["emailRecipientProfiles"] = undefined /*out*/;
+            resourceInputs["entityGroups"] = undefined /*out*/;
+            resourceInputs["excludedDomainProfiles"] = undefined /*out*/;
+            resourceInputs["externalAuditorEmail"] = undefined /*out*/;
+            resourceInputs["fileTypes"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["includeCriteriaDomainProfile"] = undefined /*out*/;
+            resourceInputs["includeEmailRecipientProfile"] = undefined /*out*/;
+            resourceInputs["includeEntityGroups"] = undefined /*out*/;
+            resourceInputs["includedDomainProfiles"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectTypes"] = undefined /*out*/;
+            resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["quarantineLocation"] = undefined /*out*/;
+            resourceInputs["rank"] = undefined /*out*/;
+            resourceInputs["recipient"] = undefined /*out*/;
+            resourceInputs["ruleId"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
+            resourceInputs["watermarkDeleteOldVersion"] = undefined /*out*/;
+            resourceInputs["withoutContentInspection"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "zia:index/casbDlpRules:CasbDlpRules" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CasbDlpRule.__pulumiType, name, resourceInputs, opts);
     }
-}
-
-/**
- * Input properties used for looking up and filtering CasbDlpRule resources.
- */
-export interface CasbDlpRuleState {
-    /**
-     * The configured action for the policy rule
-     */
-    action?: pulumi.Input<string>;
-    /**
-     * Notification template used for DLP email alerts sent to the auditor
-     */
-    auditorNotifications?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleAuditorNotification>[]>;
-    /**
-     * A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-     */
-    bucketOwner?: pulumi.Input<string>;
-    /**
-     * The buckets for the Zscaler service to inspect for sensitive data
-     */
-    buckets?: pulumi.Input<inputs.CasbDlpRuleBuckets>;
-    /**
-     * Name-ID of the email label associated with the rule
-     */
-    casbEmailLabels?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleCasbEmailLabel>[]>;
-    /**
-     * Name-ID of the quarantine tombstone template associated with the rule
-     */
-    casbTombstoneTemplates?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleCasbTombstoneTemplate>[]>;
-    /**
-     * Name-ID pairs of the cloud application tenants for which the rule is applied
-     */
-    cloudAppTenants?: pulumi.Input<inputs.CasbDlpRuleCloudAppTenants>;
-    /**
-     * Collaboration scope for the rule
-     */
-    collaborationScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-     */
-    components?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The location for the content that the Zscaler service inspects for sensitive data
-     */
-    contentLocation?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-     */
-    criteriaDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleCriteriaDomainProfiles>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.CasbDlpRuleDepartments>;
-    /**
-     * An admin editable text-based description of the rule
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The list of DLP engines to which the DLP policy rule must be applied
-     */
-    dlpEngines?: pulumi.Input<inputs.CasbDlpRuleDlpEngines>;
-    /**
-     * The domain for the external organization sharing the channel
-     */
-    domains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of recipient profiles for which the rule is applied
-     */
-    emailRecipientProfiles?: pulumi.Input<inputs.CasbDlpRuleEmailRecipientProfiles>;
-    /**
-     * Name-ID pairs of entity groups that are part of the rule criteria
-     */
-    entityGroups?: pulumi.Input<inputs.CasbDlpRuleEntityGroups>;
-    /**
-     * Name-ID pairs of domain profiles excluded in the criteria for the rule
-     */
-    excludedDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleExcludedDomainProfiles>;
-    /**
-     * Email address of the external auditor to whom the DLP email alerts are sent
-     */
-    externalAuditorEmail?: pulumi.Input<string>;
-    /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-     */
-    fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of groups for which the rule is applied
-     */
-    groups?: pulumi.Input<inputs.CasbDlpRuleGroups>;
-    /**
-     * If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
-    includeCriteriaDomainProfile?: pulumi.Input<boolean>;
-    /**
-     * If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
-    includeEmailRecipientProfile?: pulumi.Input<boolean>;
-    /**
-     * If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-     */
-    includeEntityGroups?: pulumi.Input<boolean>;
-    /**
-     * Name-ID pairs of domain profiles included in the criteria for the rule
-     */
-    includedDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleIncludedDomainProfiles>;
-    /**
-     * Name-ID pairs of rule labels associated with the rule
-     */
-    labels?: pulumi.Input<inputs.CasbDlpRuleLabels>;
-    /**
-     * Rule name
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * List of object types for which the rule is applied
-     */
-    objectTypes?: pulumi.Input<inputs.CasbDlpRuleObjectTypes>;
-    /**
-     * Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-     */
-    order?: pulumi.Input<number>;
-    /**
-     * Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-     */
-    quarantineLocation?: pulumi.Input<string>;
-    /**
-     * Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-     */
-    rank?: pulumi.Input<number>;
-    /**
-     * The receiver information for the DLP policy rule
-     */
-    receiver?: pulumi.Input<inputs.CasbDlpRuleReceiver>;
-    /**
-     * Specifies if the email recipient is internal or external
-     */
-    recipient?: pulumi.Input<string>;
-    /**
-     * Name-ID of the redaction profile in the criteria
-     */
-    redactionProfiles?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleRedactionProfile>[]>;
-    /**
-     * System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-     */
-    ruleId?: pulumi.Input<number>;
-    /**
-     * The severity level of the incidents that match the policy rule
-     */
-    severity?: pulumi.Input<string>;
-    /**
-     * Administrative state of the rule
-     */
-    state?: pulumi.Input<string>;
-    /**
-     * Tag applied to the rule
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleTag>[]>;
-    /**
-     * The type of SaaS Security Data at Rest Scanning DLP rule
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.CasbDlpRuleUsers>;
-    /**
-     * Specifies whether to delete an old version of the watermarked file
-     */
-    watermarkDeleteOldVersion?: pulumi.Input<boolean>;
-    /**
-     * Watermark profile applied to the rule
-     */
-    watermarkProfiles?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleWatermarkProfile>[]>;
-    /**
-     * If true, Content Matching is set to None
-     */
-    withoutContentInspection?: pulumi.Input<boolean>;
-    /**
-     * The Zscaler Incident Receiver details
-     */
-    zscalerIncidentReceivers?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleZscalerIncidentReceiver>[]>;
 }
 
 /**
  * The set of arguments for constructing a CasbDlpRule resource.
  */
 export interface CasbDlpRuleArgs {
-    /**
-     * The configured action for the policy rule
-     */
     action?: pulumi.Input<string>;
-    /**
-     * Notification template used for DLP email alerts sent to the auditor
-     */
-    auditorNotifications?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleAuditorNotification>[]>;
-    /**
-     * A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-     */
     bucketOwner?: pulumi.Input<string>;
-    /**
-     * The buckets for the Zscaler service to inspect for sensitive data
-     */
-    buckets?: pulumi.Input<inputs.CasbDlpRuleBuckets>;
-    /**
-     * Name-ID of the email label associated with the rule
-     */
-    casbEmailLabels?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleCasbEmailLabel>[]>;
-    /**
-     * Name-ID of the quarantine tombstone template associated with the rule
-     */
-    casbTombstoneTemplates?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleCasbTombstoneTemplate>[]>;
-    /**
-     * Name-ID pairs of the cloud application tenants for which the rule is applied
-     */
-    cloudAppTenants?: pulumi.Input<inputs.CasbDlpRuleCloudAppTenants>;
-    /**
-     * Collaboration scope for the rule
-     */
-    collaborationScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-     */
+    buckets?: pulumi.Input<pulumi.Input<number>[]>;
+    cloudAppTenants?: pulumi.Input<pulumi.Input<number>[]>;
+    collaborationScope?: pulumi.Input<pulumi.Input<string>[]>;
     components?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The location for the content that the Zscaler service inspects for sensitive data
-     */
     contentLocation?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-     */
-    criteriaDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleCriteriaDomainProfiles>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.CasbDlpRuleDepartments>;
-    /**
-     * An admin editable text-based description of the rule
-     */
+    criteriaDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    departments?: pulumi.Input<pulumi.Input<number>[]>;
     description?: pulumi.Input<string>;
-    /**
-     * The list of DLP engines to which the DLP policy rule must be applied
-     */
-    dlpEngines?: pulumi.Input<inputs.CasbDlpRuleDlpEngines>;
-    /**
-     * The domain for the external organization sharing the channel
-     */
+    dlpEngines?: pulumi.Input<pulumi.Input<number>[]>;
     domains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of recipient profiles for which the rule is applied
-     */
-    emailRecipientProfiles?: pulumi.Input<inputs.CasbDlpRuleEmailRecipientProfiles>;
-    /**
-     * Name-ID pairs of entity groups that are part of the rule criteria
-     */
-    entityGroups?: pulumi.Input<inputs.CasbDlpRuleEntityGroups>;
-    /**
-     * Name-ID pairs of domain profiles excluded in the criteria for the rule
-     */
-    excludedDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleExcludedDomainProfiles>;
-    /**
-     * Email address of the external auditor to whom the DLP email alerts are sent
-     */
+    emailRecipientProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    entityGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    excludedDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
     externalAuditorEmail?: pulumi.Input<string>;
-    /**
-     * File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-     */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of groups for which the rule is applied
-     */
-    groups?: pulumi.Input<inputs.CasbDlpRuleGroups>;
-    /**
-     * If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
+    groups?: pulumi.Input<pulumi.Input<number>[]>;
     includeCriteriaDomainProfile?: pulumi.Input<boolean>;
-    /**
-     * If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-     */
     includeEmailRecipientProfile?: pulumi.Input<boolean>;
-    /**
-     * If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-     */
     includeEntityGroups?: pulumi.Input<boolean>;
-    /**
-     * Name-ID pairs of domain profiles included in the criteria for the rule
-     */
-    includedDomainProfiles?: pulumi.Input<inputs.CasbDlpRuleIncludedDomainProfiles>;
-    /**
-     * Name-ID pairs of rule labels associated with the rule
-     */
-    labels?: pulumi.Input<inputs.CasbDlpRuleLabels>;
-    /**
-     * Rule name
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * List of object types for which the rule is applied
-     */
-    objectTypes?: pulumi.Input<inputs.CasbDlpRuleObjectTypes>;
-    /**
-     * Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-     */
+    includedDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    labels?: pulumi.Input<pulumi.Input<number>[]>;
+    name: pulumi.Input<string>;
+    objectTypes?: pulumi.Input<pulumi.Input<number>[]>;
     order: pulumi.Input<number>;
-    /**
-     * Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-     */
     quarantineLocation?: pulumi.Input<string>;
-    /**
-     * Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-     */
     rank?: pulumi.Input<number>;
-    /**
-     * The receiver information for the DLP policy rule
-     */
-    receiver?: pulumi.Input<inputs.CasbDlpRuleReceiver>;
-    /**
-     * Specifies if the email recipient is internal or external
-     */
     recipient?: pulumi.Input<string>;
-    /**
-     * Name-ID of the redaction profile in the criteria
-     */
-    redactionProfiles?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleRedactionProfile>[]>;
-    /**
-     * The severity level of the incidents that match the policy rule
-     */
     severity?: pulumi.Input<string>;
-    /**
-     * Administrative state of the rule
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Tag applied to the rule
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleTag>[]>;
-    /**
-     * The type of SaaS Security Data at Rest Scanning DLP rule
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.CasbDlpRuleUsers>;
-    /**
-     * Specifies whether to delete an old version of the watermarked file
-     */
+    type: pulumi.Input<string>;
+    users?: pulumi.Input<pulumi.Input<number>[]>;
     watermarkDeleteOldVersion?: pulumi.Input<boolean>;
-    /**
-     * Watermark profile applied to the rule
-     */
-    watermarkProfiles?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleWatermarkProfile>[]>;
-    /**
-     * If true, Content Matching is set to None
-     */
     withoutContentInspection?: pulumi.Input<boolean>;
-    /**
-     * The Zscaler Incident Receiver details
-     */
-    zscalerIncidentReceivers?: pulumi.Input<pulumi.Input<inputs.CasbDlpRuleZscalerIncidentReceiver>[]>;
 }

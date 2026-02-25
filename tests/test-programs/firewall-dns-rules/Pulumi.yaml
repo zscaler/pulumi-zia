@@ -1,0 +1,63 @@
+name: firewall-dns-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:FirewallDNSRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "testAcc_firewall_dns_rule"
+  action:
+    type: string
+    default: "REDIR_RES"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E DNS label "
+        - ${labelName}
+
+resources:
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  firewallDnsRule:
+    type: zia:index:FirewallDNSRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      action: ${action}
+      state: ${state}
+      order: 1
+      redirectIp: "1.2.3.4"
+      destCountries:
+        - "CA"
+        - "US"
+      sourceCountries:
+        - "CA"
+        - "US"
+      protocols:
+        - "ANY_RULE"
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${firewallDnsRule.ruleId}
+  name: ${firewallDnsRule.name}
+  description: ${firewallDnsRule.description}
+  action: ${firewallDnsRule.action}
+  state: ${firewallDnsRule.state}
+  order: ${firewallDnsRule.order}
+  labels: ${firewallDnsRule.labels}

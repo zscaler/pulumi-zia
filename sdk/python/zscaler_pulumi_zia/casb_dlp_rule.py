@@ -13,120 +13,63 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['CasbDlpRuleArgs', 'CasbDlpRule']
 
 @pulumi.input_type
 class CasbDlpRuleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
+                 type: pulumi.Input[_builtins.str],
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 auditor_notifications: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]] = None,
                  bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 buckets: Optional[pulumi.Input['CasbDlpRuleBucketsArgs']] = None,
-                 casb_email_labels: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]] = None,
-                 casb_tombstone_templates: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]] = None,
-                 cloud_app_tenants: Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']] = None,
-                 collaboration_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 buckets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cloud_app_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 collaboration_scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 criteria_domain_profiles: Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']] = None,
-                 departments: Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']] = None,
+                 criteria_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dlp_engines: Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']] = None,
+                 dlp_engines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_recipient_profiles: Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']] = None,
-                 entity_groups: Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']] = None,
-                 excluded_domain_profiles: Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']] = None,
+                 email_recipient_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 entity_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  external_auditor_email: Optional[pulumi.Input[_builtins.str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups: Optional[pulumi.Input['CasbDlpRuleGroupsArgs']] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  include_criteria_domain_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_email_recipient_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_entity_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 included_domain_profiles: Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']] = None,
-                 labels: Optional[pulumi.Input['CasbDlpRuleLabelsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_types: Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']] = None,
+                 included_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 object_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  quarantine_location: Optional[pulumi.Input[_builtins.str]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 receiver: Optional[pulumi.Input['CasbDlpRuleReceiverArgs']] = None,
                  recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 redaction_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]] = None,
                  severity: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input['CasbDlpRuleUsersArgs']] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  watermark_delete_old_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]] = None,
-                 without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]] = None):
+                 without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CasbDlpRule resource.
-        :param pulumi.Input[_builtins.int] order: Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        :param pulumi.Input[_builtins.str] action: The configured action for the policy rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]] auditor_notifications: Notification template used for DLP email alerts sent to the auditor
-        :param pulumi.Input[_builtins.str] bucket_owner: A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        :param pulumi.Input['CasbDlpRuleBucketsArgs'] buckets: The buckets for the Zscaler service to inspect for sensitive data
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]] casb_email_labels: Name-ID of the email label associated with the rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]] casb_tombstone_templates: Name-ID of the quarantine tombstone template associated with the rule
-        :param pulumi.Input['CasbDlpRuleCloudAppTenantsArgs'] cloud_app_tenants: Name-ID pairs of the cloud application tenants for which the rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collaboration_scopes: Collaboration scope for the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] components: List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        :param pulumi.Input[_builtins.str] content_location: The location for the content that the Zscaler service inspects for sensitive data
-        :param pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs'] criteria_domain_profiles: Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        :param pulumi.Input['CasbDlpRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: An admin editable text-based description of the rule
-        :param pulumi.Input['CasbDlpRuleDlpEnginesArgs'] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domain for the external organization sharing the channel
-        :param pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs'] email_recipient_profiles: Name-ID pairs of recipient profiles for which the rule is applied
-        :param pulumi.Input['CasbDlpRuleEntityGroupsArgs'] entity_groups: Name-ID pairs of entity groups that are part of the rule criteria
-        :param pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs'] excluded_domain_profiles: Name-ID pairs of domain profiles excluded in the criteria for the rule
-        :param pulumi.Input[_builtins.str] external_auditor_email: Email address of the external auditor to whom the DLP email alerts are sent
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        :param pulumi.Input['CasbDlpRuleGroupsArgs'] groups: Name-ID pairs of groups for which the rule is applied
-        :param pulumi.Input[_builtins.bool] include_criteria_domain_profile: If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_email_recipient_profile: If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_entity_groups: If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        :param pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs'] included_domain_profiles: Name-ID pairs of domain profiles included in the criteria for the rule
-        :param pulumi.Input['CasbDlpRuleLabelsArgs'] labels: Name-ID pairs of rule labels associated with the rule
-        :param pulumi.Input[_builtins.str] name: Rule name
-        :param pulumi.Input['CasbDlpRuleObjectTypesArgs'] object_types: List of object types for which the rule is applied
-        :param pulumi.Input[_builtins.str] quarantine_location: Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        :param pulumi.Input[_builtins.int] rank: Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        :param pulumi.Input['CasbDlpRuleReceiverArgs'] receiver: The receiver information for the DLP policy rule
-        :param pulumi.Input[_builtins.str] recipient: Specifies if the email recipient is internal or external
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]] redaction_profiles: Name-ID of the redaction profile in the criteria
-        :param pulumi.Input[_builtins.str] severity: The severity level of the incidents that match the policy rule
-        :param pulumi.Input[_builtins.str] state: Administrative state of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]] tags: Tag applied to the rule
-        :param pulumi.Input[_builtins.str] type: The type of SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input['CasbDlpRuleUsersArgs'] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.bool] watermark_delete_old_version: Specifies whether to delete an old version of the watermarked file
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]] watermark_profiles: Watermark profile applied to the rule
-        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, Content Matching is set to None
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]] zscaler_incident_receivers: The Zscaler Incident Receiver details
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "type", type)
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if auditor_notifications is not None:
-            pulumi.set(__self__, "auditor_notifications", auditor_notifications)
         if bucket_owner is not None:
             pulumi.set(__self__, "bucket_owner", bucket_owner)
         if buckets is not None:
             pulumi.set(__self__, "buckets", buckets)
-        if casb_email_labels is not None:
-            pulumi.set(__self__, "casb_email_labels", casb_email_labels)
-        if casb_tombstone_templates is not None:
-            pulumi.set(__self__, "casb_tombstone_templates", casb_tombstone_templates)
         if cloud_app_tenants is not None:
             pulumi.set(__self__, "cloud_app_tenants", cloud_app_tenants)
-        if collaboration_scopes is not None:
-            pulumi.set(__self__, "collaboration_scopes", collaboration_scopes)
+        if collaboration_scope is not None:
+            pulumi.set(__self__, "collaboration_scope", collaboration_scope)
         if components is not None:
             pulumi.set(__self__, "components", components)
         if content_location is not None:
@@ -163,45 +106,37 @@ class CasbDlpRuleArgs:
             pulumi.set(__self__, "included_domain_profiles", included_domain_profiles)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if object_types is not None:
             pulumi.set(__self__, "object_types", object_types)
         if quarantine_location is not None:
             pulumi.set(__self__, "quarantine_location", quarantine_location)
         if rank is not None:
             pulumi.set(__self__, "rank", rank)
-        if receiver is not None:
-            pulumi.set(__self__, "receiver", receiver)
         if recipient is not None:
             pulumi.set(__self__, "recipient", recipient)
-        if redaction_profiles is not None:
-            pulumi.set(__self__, "redaction_profiles", redaction_profiles)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if state is not None:
             pulumi.set(__self__, "state", state)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if users is not None:
             pulumi.set(__self__, "users", users)
         if watermark_delete_old_version is not None:
             pulumi.set(__self__, "watermark_delete_old_version", watermark_delete_old_version)
-        if watermark_profiles is not None:
-            pulumi.set(__self__, "watermark_profiles", watermark_profiles)
         if without_content_inspection is not None:
             pulumi.set(__self__, "without_content_inspection", without_content_inspection)
-        if zscaler_incident_receivers is not None:
-            pulumi.set(__self__, "zscaler_incident_receivers", zscaler_incident_receivers)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
-        """
-        Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -210,10 +145,16 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The configured action for the policy rule
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -221,23 +162,8 @@ class CasbDlpRuleArgs:
         pulumi.set(self, "action", value)
 
     @_builtins.property
-    @pulumi.getter(name="auditorNotifications")
-    def auditor_notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]]:
-        """
-        Notification template used for DLP email alerts sent to the auditor
-        """
-        return pulumi.get(self, "auditor_notifications")
-
-    @auditor_notifications.setter
-    def auditor_notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]]):
-        pulumi.set(self, "auditor_notifications", value)
-
-    @_builtins.property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
@@ -246,70 +172,34 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def buckets(self) -> Optional[pulumi.Input['CasbDlpRuleBucketsArgs']]:
-        """
-        The buckets for the Zscaler service to inspect for sensitive data
-        """
+    def buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "buckets")
 
     @buckets.setter
-    def buckets(self, value: Optional[pulumi.Input['CasbDlpRuleBucketsArgs']]):
+    def buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "buckets", value)
 
     @_builtins.property
-    @pulumi.getter(name="casbEmailLabels")
-    def casb_email_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]]:
-        """
-        Name-ID of the email label associated with the rule
-        """
-        return pulumi.get(self, "casb_email_labels")
-
-    @casb_email_labels.setter
-    def casb_email_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]]):
-        pulumi.set(self, "casb_email_labels", value)
-
-    @_builtins.property
-    @pulumi.getter(name="casbTombstoneTemplates")
-    def casb_tombstone_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]]:
-        """
-        Name-ID of the quarantine tombstone template associated with the rule
-        """
-        return pulumi.get(self, "casb_tombstone_templates")
-
-    @casb_tombstone_templates.setter
-    def casb_tombstone_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]]):
-        pulumi.set(self, "casb_tombstone_templates", value)
-
-    @_builtins.property
     @pulumi.getter(name="cloudAppTenants")
-    def cloud_app_tenants(self) -> Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']]:
-        """
-        Name-ID pairs of the cloud application tenants for which the rule is applied
-        """
+    def cloud_app_tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "cloud_app_tenants")
 
     @cloud_app_tenants.setter
-    def cloud_app_tenants(self, value: Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']]):
+    def cloud_app_tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "cloud_app_tenants", value)
 
     @_builtins.property
-    @pulumi.getter(name="collaborationScopes")
-    def collaboration_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Collaboration scope for the rule
-        """
-        return pulumi.get(self, "collaboration_scopes")
+    @pulumi.getter(name="collaborationScope")
+    def collaboration_scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "collaboration_scope")
 
-    @collaboration_scopes.setter
-    def collaboration_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "collaboration_scopes", value)
+    @collaboration_scope.setter
+    def collaboration_scope(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "collaboration_scope", value)
 
     @_builtins.property
     @pulumi.getter
     def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        """
         return pulumi.get(self, "components")
 
     @components.setter
@@ -319,9 +209,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter(name="contentLocation")
     def content_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The location for the content that the Zscaler service inspects for sensitive data
-        """
         return pulumi.get(self, "content_location")
 
     @content_location.setter
@@ -330,34 +217,25 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="criteriaDomainProfiles")
-    def criteria_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        """
+    def criteria_domain_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "criteria_domain_profiles")
 
     @criteria_domain_profiles.setter
-    def criteria_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']]):
+    def criteria_domain_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "criteria_domain_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
+    def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "departments")
 
     @departments.setter
-    def departments(self, value: Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']]):
+    def departments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "departments", value)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An admin editable text-based description of the rule
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -366,22 +244,16 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="dlpEngines")
-    def dlp_engines(self) -> Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']]:
-        """
-        The list of DLP engines to which the DLP policy rule must be applied
-        """
+    def dlp_engines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "dlp_engines")
 
     @dlp_engines.setter
-    def dlp_engines(self, value: Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']]):
+    def dlp_engines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dlp_engines", value)
 
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The domain for the external organization sharing the channel
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -390,46 +262,34 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailRecipientProfiles")
-    def email_recipient_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']]:
-        """
-        Name-ID pairs of recipient profiles for which the rule is applied
-        """
+    def email_recipient_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "email_recipient_profiles")
 
     @email_recipient_profiles.setter
-    def email_recipient_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']]):
+    def email_recipient_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "email_recipient_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="entityGroups")
-    def entity_groups(self) -> Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']]:
-        """
-        Name-ID pairs of entity groups that are part of the rule criteria
-        """
+    def entity_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "entity_groups")
 
     @entity_groups.setter
-    def entity_groups(self, value: Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']]):
+    def entity_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "entity_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedDomainProfiles")
-    def excluded_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles excluded in the criteria for the rule
-        """
+    def excluded_domain_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "excluded_domain_profiles")
 
     @excluded_domain_profiles.setter
-    def excluded_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']]):
+    def excluded_domain_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "excluded_domain_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the external auditor to whom the DLP email alerts are sent
-        """
         return pulumi.get(self, "external_auditor_email")
 
     @external_auditor_email.setter
@@ -439,9 +299,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        """
         return pulumi.get(self, "file_types")
 
     @file_types.setter
@@ -450,22 +307,16 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['CasbDlpRuleGroupsArgs']]:
-        """
-        Name-ID pairs of groups for which the rule is applied
-        """
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input['CasbDlpRuleGroupsArgs']]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="includeCriteriaDomainProfile")
     def include_criteria_domain_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
         return pulumi.get(self, "include_criteria_domain_profile")
 
     @include_criteria_domain_profile.setter
@@ -475,9 +326,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter(name="includeEmailRecipientProfile")
     def include_email_recipient_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
         return pulumi.get(self, "include_email_recipient_profile")
 
     @include_email_recipient_profile.setter
@@ -487,9 +335,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter(name="includeEntityGroups")
     def include_entity_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        """
         return pulumi.get(self, "include_entity_groups")
 
     @include_entity_groups.setter
@@ -498,58 +343,34 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="includedDomainProfiles")
-    def included_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles included in the criteria for the rule
-        """
+    def included_domain_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "included_domain_profiles")
 
     @included_domain_profiles.setter
-    def included_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']]):
+    def included_domain_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "included_domain_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['CasbDlpRuleLabelsArgs']]:
-        """
-        Name-ID pairs of rule labels associated with the rule
-        """
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input['CasbDlpRuleLabelsArgs']]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Rule name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="objectTypes")
-    def object_types(self) -> Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']]:
-        """
-        List of object types for which the rule is applied
-        """
+    def object_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "object_types")
 
     @object_types.setter
-    def object_types(self, value: Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']]):
+    def object_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "object_types", value)
 
     @_builtins.property
     @pulumi.getter(name="quarantineLocation")
     def quarantine_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        """
         return pulumi.get(self, "quarantine_location")
 
     @quarantine_location.setter
@@ -559,9 +380,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -570,22 +388,7 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def receiver(self) -> Optional[pulumi.Input['CasbDlpRuleReceiverArgs']]:
-        """
-        The receiver information for the DLP policy rule
-        """
-        return pulumi.get(self, "receiver")
-
-    @receiver.setter
-    def receiver(self, value: Optional[pulumi.Input['CasbDlpRuleReceiverArgs']]):
-        pulumi.set(self, "receiver", value)
-
-    @_builtins.property
-    @pulumi.getter
     def recipient(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies if the email recipient is internal or external
-        """
         return pulumi.get(self, "recipient")
 
     @recipient.setter
@@ -593,23 +396,8 @@ class CasbDlpRuleArgs:
         pulumi.set(self, "recipient", value)
 
     @_builtins.property
-    @pulumi.getter(name="redactionProfiles")
-    def redaction_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]]:
-        """
-        Name-ID of the redaction profile in the criteria
-        """
-        return pulumi.get(self, "redaction_profiles")
-
-    @redaction_profiles.setter
-    def redaction_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]]):
-        pulumi.set(self, "redaction_profiles", value)
-
-    @_builtins.property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The severity level of the incidents that match the policy rule
-        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -619,9 +407,6 @@ class CasbDlpRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Administrative state of the rule
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -630,46 +415,16 @@ class CasbDlpRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]]:
-        """
-        Tag applied to the rule
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of SaaS Security Data at Rest Scanning DLP rule
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['CasbDlpRuleUsersArgs']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input['CasbDlpRuleUsersArgs']]):
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "users", value)
 
     @_builtins.property
     @pulumi.getter(name="watermarkDeleteOldVersion")
     def watermark_delete_old_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to delete an old version of the watermarked file
-        """
         return pulumi.get(self, "watermark_delete_old_version")
 
     @watermark_delete_old_version.setter
@@ -677,876 +432,61 @@ class CasbDlpRuleArgs:
         pulumi.set(self, "watermark_delete_old_version", value)
 
     @_builtins.property
-    @pulumi.getter(name="watermarkProfiles")
-    def watermark_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]]:
-        """
-        Watermark profile applied to the rule
-        """
-        return pulumi.get(self, "watermark_profiles")
-
-    @watermark_profiles.setter
-    def watermark_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]]):
-        pulumi.set(self, "watermark_profiles", value)
-
-    @_builtins.property
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, Content Matching is set to None
-        """
         return pulumi.get(self, "without_content_inspection")
 
     @without_content_inspection.setter
     def without_content_inspection(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "without_content_inspection", value)
 
-    @_builtins.property
-    @pulumi.getter(name="zscalerIncidentReceivers")
-    def zscaler_incident_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]]:
-        """
-        The Zscaler Incident Receiver details
-        """
-        return pulumi.get(self, "zscaler_incident_receivers")
 
-    @zscaler_incident_receivers.setter
-    def zscaler_incident_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]]):
-        pulumi.set(self, "zscaler_incident_receivers", value)
-
-
-@pulumi.input_type
-class _CasbDlpRuleState:
-    def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 auditor_notifications: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]] = None,
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 buckets: Optional[pulumi.Input['CasbDlpRuleBucketsArgs']] = None,
-                 casb_email_labels: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]] = None,
-                 casb_tombstone_templates: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]] = None,
-                 cloud_app_tenants: Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']] = None,
-                 collaboration_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 criteria_domain_profiles: Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']] = None,
-                 departments: Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dlp_engines: Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_recipient_profiles: Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']] = None,
-                 entity_groups: Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']] = None,
-                 excluded_domain_profiles: Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']] = None,
-                 external_auditor_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups: Optional[pulumi.Input['CasbDlpRuleGroupsArgs']] = None,
-                 include_criteria_domain_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_email_recipient_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_entity_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 included_domain_profiles: Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']] = None,
-                 labels: Optional[pulumi.Input['CasbDlpRuleLabelsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_types: Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 quarantine_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 receiver: Optional[pulumi.Input['CasbDlpRuleReceiverArgs']] = None,
-                 recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 redaction_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input['CasbDlpRuleUsersArgs']] = None,
-                 watermark_delete_old_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]] = None,
-                 without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]] = None):
-        """
-        Input properties used for looking up and filtering CasbDlpRule resources.
-        :param pulumi.Input[_builtins.str] action: The configured action for the policy rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]] auditor_notifications: Notification template used for DLP email alerts sent to the auditor
-        :param pulumi.Input[_builtins.str] bucket_owner: A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        :param pulumi.Input['CasbDlpRuleBucketsArgs'] buckets: The buckets for the Zscaler service to inspect for sensitive data
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]] casb_email_labels: Name-ID of the email label associated with the rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]] casb_tombstone_templates: Name-ID of the quarantine tombstone template associated with the rule
-        :param pulumi.Input['CasbDlpRuleCloudAppTenantsArgs'] cloud_app_tenants: Name-ID pairs of the cloud application tenants for which the rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collaboration_scopes: Collaboration scope for the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] components: List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        :param pulumi.Input[_builtins.str] content_location: The location for the content that the Zscaler service inspects for sensitive data
-        :param pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs'] criteria_domain_profiles: Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        :param pulumi.Input['CasbDlpRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: An admin editable text-based description of the rule
-        :param pulumi.Input['CasbDlpRuleDlpEnginesArgs'] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domain for the external organization sharing the channel
-        :param pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs'] email_recipient_profiles: Name-ID pairs of recipient profiles for which the rule is applied
-        :param pulumi.Input['CasbDlpRuleEntityGroupsArgs'] entity_groups: Name-ID pairs of entity groups that are part of the rule criteria
-        :param pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs'] excluded_domain_profiles: Name-ID pairs of domain profiles excluded in the criteria for the rule
-        :param pulumi.Input[_builtins.str] external_auditor_email: Email address of the external auditor to whom the DLP email alerts are sent
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        :param pulumi.Input['CasbDlpRuleGroupsArgs'] groups: Name-ID pairs of groups for which the rule is applied
-        :param pulumi.Input[_builtins.bool] include_criteria_domain_profile: If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_email_recipient_profile: If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_entity_groups: If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        :param pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs'] included_domain_profiles: Name-ID pairs of domain profiles included in the criteria for the rule
-        :param pulumi.Input['CasbDlpRuleLabelsArgs'] labels: Name-ID pairs of rule labels associated with the rule
-        :param pulumi.Input[_builtins.str] name: Rule name
-        :param pulumi.Input['CasbDlpRuleObjectTypesArgs'] object_types: List of object types for which the rule is applied
-        :param pulumi.Input[_builtins.int] order: Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        :param pulumi.Input[_builtins.str] quarantine_location: Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        :param pulumi.Input[_builtins.int] rank: Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        :param pulumi.Input['CasbDlpRuleReceiverArgs'] receiver: The receiver information for the DLP policy rule
-        :param pulumi.Input[_builtins.str] recipient: Specifies if the email recipient is internal or external
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]] redaction_profiles: Name-ID of the redaction profile in the criteria
-        :param pulumi.Input[_builtins.int] rule_id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input[_builtins.str] severity: The severity level of the incidents that match the policy rule
-        :param pulumi.Input[_builtins.str] state: Administrative state of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]] tags: Tag applied to the rule
-        :param pulumi.Input[_builtins.str] type: The type of SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input['CasbDlpRuleUsersArgs'] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.bool] watermark_delete_old_version: Specifies whether to delete an old version of the watermarked file
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]] watermark_profiles: Watermark profile applied to the rule
-        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, Content Matching is set to None
-        :param pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]] zscaler_incident_receivers: The Zscaler Incident Receiver details
-        """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if auditor_notifications is not None:
-            pulumi.set(__self__, "auditor_notifications", auditor_notifications)
-        if bucket_owner is not None:
-            pulumi.set(__self__, "bucket_owner", bucket_owner)
-        if buckets is not None:
-            pulumi.set(__self__, "buckets", buckets)
-        if casb_email_labels is not None:
-            pulumi.set(__self__, "casb_email_labels", casb_email_labels)
-        if casb_tombstone_templates is not None:
-            pulumi.set(__self__, "casb_tombstone_templates", casb_tombstone_templates)
-        if cloud_app_tenants is not None:
-            pulumi.set(__self__, "cloud_app_tenants", cloud_app_tenants)
-        if collaboration_scopes is not None:
-            pulumi.set(__self__, "collaboration_scopes", collaboration_scopes)
-        if components is not None:
-            pulumi.set(__self__, "components", components)
-        if content_location is not None:
-            pulumi.set(__self__, "content_location", content_location)
-        if criteria_domain_profiles is not None:
-            pulumi.set(__self__, "criteria_domain_profiles", criteria_domain_profiles)
-        if departments is not None:
-            pulumi.set(__self__, "departments", departments)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if dlp_engines is not None:
-            pulumi.set(__self__, "dlp_engines", dlp_engines)
-        if domains is not None:
-            pulumi.set(__self__, "domains", domains)
-        if email_recipient_profiles is not None:
-            pulumi.set(__self__, "email_recipient_profiles", email_recipient_profiles)
-        if entity_groups is not None:
-            pulumi.set(__self__, "entity_groups", entity_groups)
-        if excluded_domain_profiles is not None:
-            pulumi.set(__self__, "excluded_domain_profiles", excluded_domain_profiles)
-        if external_auditor_email is not None:
-            pulumi.set(__self__, "external_auditor_email", external_auditor_email)
-        if file_types is not None:
-            pulumi.set(__self__, "file_types", file_types)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if include_criteria_domain_profile is not None:
-            pulumi.set(__self__, "include_criteria_domain_profile", include_criteria_domain_profile)
-        if include_email_recipient_profile is not None:
-            pulumi.set(__self__, "include_email_recipient_profile", include_email_recipient_profile)
-        if include_entity_groups is not None:
-            pulumi.set(__self__, "include_entity_groups", include_entity_groups)
-        if included_domain_profiles is not None:
-            pulumi.set(__self__, "included_domain_profiles", included_domain_profiles)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if object_types is not None:
-            pulumi.set(__self__, "object_types", object_types)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if quarantine_location is not None:
-            pulumi.set(__self__, "quarantine_location", quarantine_location)
-        if rank is not None:
-            pulumi.set(__self__, "rank", rank)
-        if receiver is not None:
-            pulumi.set(__self__, "receiver", receiver)
-        if recipient is not None:
-            pulumi.set(__self__, "recipient", recipient)
-        if redaction_profiles is not None:
-            pulumi.set(__self__, "redaction_profiles", redaction_profiles)
-        if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-        if watermark_delete_old_version is not None:
-            pulumi.set(__self__, "watermark_delete_old_version", watermark_delete_old_version)
-        if watermark_profiles is not None:
-            pulumi.set(__self__, "watermark_profiles", watermark_profiles)
-        if without_content_inspection is not None:
-            pulumi.set(__self__, "without_content_inspection", without_content_inspection)
-        if zscaler_incident_receivers is not None:
-            pulumi.set(__self__, "zscaler_incident_receivers", zscaler_incident_receivers)
-
-    @_builtins.property
-    @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The configured action for the policy rule
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "action", value)
-
-    @_builtins.property
-    @pulumi.getter(name="auditorNotifications")
-    def auditor_notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]]:
-        """
-        Notification template used for DLP email alerts sent to the auditor
-        """
-        return pulumi.get(self, "auditor_notifications")
-
-    @auditor_notifications.setter
-    def auditor_notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleAuditorNotificationArgs']]]]):
-        pulumi.set(self, "auditor_notifications", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        """
-        return pulumi.get(self, "bucket_owner")
-
-    @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "bucket_owner", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def buckets(self) -> Optional[pulumi.Input['CasbDlpRuleBucketsArgs']]:
-        """
-        The buckets for the Zscaler service to inspect for sensitive data
-        """
-        return pulumi.get(self, "buckets")
-
-    @buckets.setter
-    def buckets(self, value: Optional[pulumi.Input['CasbDlpRuleBucketsArgs']]):
-        pulumi.set(self, "buckets", value)
-
-    @_builtins.property
-    @pulumi.getter(name="casbEmailLabels")
-    def casb_email_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]]:
-        """
-        Name-ID of the email label associated with the rule
-        """
-        return pulumi.get(self, "casb_email_labels")
-
-    @casb_email_labels.setter
-    def casb_email_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbEmailLabelArgs']]]]):
-        pulumi.set(self, "casb_email_labels", value)
-
-    @_builtins.property
-    @pulumi.getter(name="casbTombstoneTemplates")
-    def casb_tombstone_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]]:
-        """
-        Name-ID of the quarantine tombstone template associated with the rule
-        """
-        return pulumi.get(self, "casb_tombstone_templates")
-
-    @casb_tombstone_templates.setter
-    def casb_tombstone_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleCasbTombstoneTemplateArgs']]]]):
-        pulumi.set(self, "casb_tombstone_templates", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudAppTenants")
-    def cloud_app_tenants(self) -> Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']]:
-        """
-        Name-ID pairs of the cloud application tenants for which the rule is applied
-        """
-        return pulumi.get(self, "cloud_app_tenants")
-
-    @cloud_app_tenants.setter
-    def cloud_app_tenants(self, value: Optional[pulumi.Input['CasbDlpRuleCloudAppTenantsArgs']]):
-        pulumi.set(self, "cloud_app_tenants", value)
-
-    @_builtins.property
-    @pulumi.getter(name="collaborationScopes")
-    def collaboration_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Collaboration scope for the rule
-        """
-        return pulumi.get(self, "collaboration_scopes")
-
-    @collaboration_scopes.setter
-    def collaboration_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "collaboration_scopes", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        """
-        return pulumi.get(self, "components")
-
-    @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "components", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contentLocation")
-    def content_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The location for the content that the Zscaler service inspects for sensitive data
-        """
-        return pulumi.get(self, "content_location")
-
-    @content_location.setter
-    def content_location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "content_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="criteriaDomainProfiles")
-    def criteria_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        """
-        return pulumi.get(self, "criteria_domain_profiles")
-
-    @criteria_domain_profiles.setter
-    def criteria_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleCriteriaDomainProfilesArgs']]):
-        pulumi.set(self, "criteria_domain_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
-        return pulumi.get(self, "departments")
-
-    @departments.setter
-    def departments(self, value: Optional[pulumi.Input['CasbDlpRuleDepartmentsArgs']]):
-        pulumi.set(self, "departments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An admin editable text-based description of the rule
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dlpEngines")
-    def dlp_engines(self) -> Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']]:
-        """
-        The list of DLP engines to which the DLP policy rule must be applied
-        """
-        return pulumi.get(self, "dlp_engines")
-
-    @dlp_engines.setter
-    def dlp_engines(self, value: Optional[pulumi.Input['CasbDlpRuleDlpEnginesArgs']]):
-        pulumi.set(self, "dlp_engines", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The domain for the external organization sharing the channel
-        """
-        return pulumi.get(self, "domains")
-
-    @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "domains", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emailRecipientProfiles")
-    def email_recipient_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']]:
-        """
-        Name-ID pairs of recipient profiles for which the rule is applied
-        """
-        return pulumi.get(self, "email_recipient_profiles")
-
-    @email_recipient_profiles.setter
-    def email_recipient_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleEmailRecipientProfilesArgs']]):
-        pulumi.set(self, "email_recipient_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="entityGroups")
-    def entity_groups(self) -> Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']]:
-        """
-        Name-ID pairs of entity groups that are part of the rule criteria
-        """
-        return pulumi.get(self, "entity_groups")
-
-    @entity_groups.setter
-    def entity_groups(self, value: Optional[pulumi.Input['CasbDlpRuleEntityGroupsArgs']]):
-        pulumi.set(self, "entity_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="excludedDomainProfiles")
-    def excluded_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles excluded in the criteria for the rule
-        """
-        return pulumi.get(self, "excluded_domain_profiles")
-
-    @excluded_domain_profiles.setter
-    def excluded_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleExcludedDomainProfilesArgs']]):
-        pulumi.set(self, "excluded_domain_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="externalAuditorEmail")
-    def external_auditor_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the external auditor to whom the DLP email alerts are sent
-        """
-        return pulumi.get(self, "external_auditor_email")
-
-    @external_auditor_email.setter
-    def external_auditor_email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "external_auditor_email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fileTypes")
-    def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        """
-        return pulumi.get(self, "file_types")
-
-    @file_types.setter
-    def file_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "file_types", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['CasbDlpRuleGroupsArgs']]:
-        """
-        Name-ID pairs of groups for which the rule is applied
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input['CasbDlpRuleGroupsArgs']]):
-        pulumi.set(self, "groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="includeCriteriaDomainProfile")
-    def include_criteria_domain_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
-        return pulumi.get(self, "include_criteria_domain_profile")
-
-    @include_criteria_domain_profile.setter
-    def include_criteria_domain_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "include_criteria_domain_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="includeEmailRecipientProfile")
-    def include_email_recipient_profile(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
-        return pulumi.get(self, "include_email_recipient_profile")
-
-    @include_email_recipient_profile.setter
-    def include_email_recipient_profile(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "include_email_recipient_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="includeEntityGroups")
-    def include_entity_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        """
-        return pulumi.get(self, "include_entity_groups")
-
-    @include_entity_groups.setter
-    def include_entity_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "include_entity_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="includedDomainProfiles")
-    def included_domain_profiles(self) -> Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']]:
-        """
-        Name-ID pairs of domain profiles included in the criteria for the rule
-        """
-        return pulumi.get(self, "included_domain_profiles")
-
-    @included_domain_profiles.setter
-    def included_domain_profiles(self, value: Optional[pulumi.Input['CasbDlpRuleIncludedDomainProfilesArgs']]):
-        pulumi.set(self, "included_domain_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['CasbDlpRuleLabelsArgs']]:
-        """
-        Name-ID pairs of rule labels associated with the rule
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input['CasbDlpRuleLabelsArgs']]):
-        pulumi.set(self, "labels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Rule name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="objectTypes")
-    def object_types(self) -> Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']]:
-        """
-        List of object types for which the rule is applied
-        """
-        return pulumi.get(self, "object_types")
-
-    @object_types.setter
-    def object_types(self, value: Optional[pulumi.Input['CasbDlpRuleObjectTypesArgs']]):
-        pulumi.set(self, "object_types", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "order", value)
-
-    @_builtins.property
-    @pulumi.getter(name="quarantineLocation")
-    def quarantine_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        """
-        return pulumi.get(self, "quarantine_location")
-
-    @quarantine_location.setter
-    def quarantine_location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "quarantine_location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def receiver(self) -> Optional[pulumi.Input['CasbDlpRuleReceiverArgs']]:
-        """
-        The receiver information for the DLP policy rule
-        """
-        return pulumi.get(self, "receiver")
-
-    @receiver.setter
-    def receiver(self, value: Optional[pulumi.Input['CasbDlpRuleReceiverArgs']]):
-        pulumi.set(self, "receiver", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def recipient(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies if the email recipient is internal or external
-        """
-        return pulumi.get(self, "recipient")
-
-    @recipient.setter
-    def recipient(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "recipient", value)
-
-    @_builtins.property
-    @pulumi.getter(name="redactionProfiles")
-    def redaction_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]]:
-        """
-        Name-ID of the redaction profile in the criteria
-        """
-        return pulumi.get(self, "redaction_profiles")
-
-    @redaction_profiles.setter
-    def redaction_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleRedactionProfileArgs']]]]):
-        pulumi.set(self, "redaction_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rule_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The severity level of the incidents that match the policy rule
-        """
-        return pulumi.get(self, "severity")
-
-    @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "severity", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Administrative state of the rule
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]]:
-        """
-        Tag applied to the rule
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleTagArgs']]]]):
-        pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of SaaS Security Data at Rest Scanning DLP rule
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['CasbDlpRuleUsersArgs']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input['CasbDlpRuleUsersArgs']]):
-        pulumi.set(self, "users", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watermarkDeleteOldVersion")
-    def watermark_delete_old_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to delete an old version of the watermarked file
-        """
-        return pulumi.get(self, "watermark_delete_old_version")
-
-    @watermark_delete_old_version.setter
-    def watermark_delete_old_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "watermark_delete_old_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watermarkProfiles")
-    def watermark_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]]:
-        """
-        Watermark profile applied to the rule
-        """
-        return pulumi.get(self, "watermark_profiles")
-
-    @watermark_profiles.setter
-    def watermark_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleWatermarkProfileArgs']]]]):
-        pulumi.set(self, "watermark_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="withoutContentInspection")
-    def without_content_inspection(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, Content Matching is set to None
-        """
-        return pulumi.get(self, "without_content_inspection")
-
-    @without_content_inspection.setter
-    def without_content_inspection(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "without_content_inspection", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zscalerIncidentReceivers")
-    def zscaler_incident_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]]:
-        """
-        The Zscaler Incident Receiver details
-        """
-        return pulumi.get(self, "zscaler_incident_receivers")
-
-    @zscaler_incident_receivers.setter
-    def zscaler_incident_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CasbDlpRuleZscalerIncidentReceiverArgs']]]]):
-        pulumi.set(self, "zscaler_incident_receivers", value)
-
-
-@pulumi.type_token("zia:index/casbDlpRule:CasbDlpRule")
+@pulumi.type_token("zia:index:CasbDlpRule")
 class CasbDlpRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 auditor_notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleAuditorNotificationArgs', 'CasbDlpRuleAuditorNotificationArgsDict']]]]] = None,
                  bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 buckets: Optional[pulumi.Input[Union['CasbDlpRuleBucketsArgs', 'CasbDlpRuleBucketsArgsDict']]] = None,
-                 casb_email_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbEmailLabelArgs', 'CasbDlpRuleCasbEmailLabelArgsDict']]]]] = None,
-                 casb_tombstone_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbTombstoneTemplateArgs', 'CasbDlpRuleCasbTombstoneTemplateArgsDict']]]]] = None,
-                 cloud_app_tenants: Optional[pulumi.Input[Union['CasbDlpRuleCloudAppTenantsArgs', 'CasbDlpRuleCloudAppTenantsArgsDict']]] = None,
-                 collaboration_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 buckets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cloud_app_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 collaboration_scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 criteria_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleCriteriaDomainProfilesArgs', 'CasbDlpRuleCriteriaDomainProfilesArgsDict']]] = None,
-                 departments: Optional[pulumi.Input[Union['CasbDlpRuleDepartmentsArgs', 'CasbDlpRuleDepartmentsArgsDict']]] = None,
+                 criteria_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dlp_engines: Optional[pulumi.Input[Union['CasbDlpRuleDlpEnginesArgs', 'CasbDlpRuleDlpEnginesArgsDict']]] = None,
+                 dlp_engines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_recipient_profiles: Optional[pulumi.Input[Union['CasbDlpRuleEmailRecipientProfilesArgs', 'CasbDlpRuleEmailRecipientProfilesArgsDict']]] = None,
-                 entity_groups: Optional[pulumi.Input[Union['CasbDlpRuleEntityGroupsArgs', 'CasbDlpRuleEntityGroupsArgsDict']]] = None,
-                 excluded_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleExcludedDomainProfilesArgs', 'CasbDlpRuleExcludedDomainProfilesArgsDict']]] = None,
+                 email_recipient_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 entity_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  external_auditor_email: Optional[pulumi.Input[_builtins.str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups: Optional[pulumi.Input[Union['CasbDlpRuleGroupsArgs', 'CasbDlpRuleGroupsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  include_criteria_domain_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_email_recipient_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_entity_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 included_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleIncludedDomainProfilesArgs', 'CasbDlpRuleIncludedDomainProfilesArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['CasbDlpRuleLabelsArgs', 'CasbDlpRuleLabelsArgsDict']]] = None,
+                 included_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_types: Optional[pulumi.Input[Union['CasbDlpRuleObjectTypesArgs', 'CasbDlpRuleObjectTypesArgsDict']]] = None,
+                 object_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  quarantine_location: Optional[pulumi.Input[_builtins.str]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 receiver: Optional[pulumi.Input[Union['CasbDlpRuleReceiverArgs', 'CasbDlpRuleReceiverArgsDict']]] = None,
                  recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 redaction_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleRedactionProfileArgs', 'CasbDlpRuleRedactionProfileArgsDict']]]]] = None,
                  severity: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleTagArgs', 'CasbDlpRuleTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input[Union['CasbDlpRuleUsersArgs', 'CasbDlpRuleUsersArgsDict']]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  watermark_delete_old_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleWatermarkProfileArgs', 'CasbDlpRuleWatermarkProfileArgsDict']]]]] = None,
                  without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleZscalerIncidentReceiverArgs', 'CasbDlpRuleZscalerIncidentReceiverArgsDict']]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy)
-        * [API documentation](https://help.zscaler.com/zia/saas-security-api#/casbDlpRules-post)
-
-        The **zia_casb_dlp_rules** resource Adds a new SaaS Security Data at Rest Scanning DLP rule in the Zscaler Internet Access.
-
-        ## Example Usage
-
-        ### Configure Cloud To Cloud Forwarding
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_casb_dlp_rules** can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <rule_type:rule_id>
-        ```
-
-        ```sh
-        $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <"rule_type:rule_name">
-        ```
-
+        Create a CasbDlpRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: The configured action for the policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleAuditorNotificationArgs', 'CasbDlpRuleAuditorNotificationArgsDict']]]] auditor_notifications: Notification template used for DLP email alerts sent to the auditor
-        :param pulumi.Input[_builtins.str] bucket_owner: A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        :param pulumi.Input[Union['CasbDlpRuleBucketsArgs', 'CasbDlpRuleBucketsArgsDict']] buckets: The buckets for the Zscaler service to inspect for sensitive data
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbEmailLabelArgs', 'CasbDlpRuleCasbEmailLabelArgsDict']]]] casb_email_labels: Name-ID of the email label associated with the rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbTombstoneTemplateArgs', 'CasbDlpRuleCasbTombstoneTemplateArgsDict']]]] casb_tombstone_templates: Name-ID of the quarantine tombstone template associated with the rule
-        :param pulumi.Input[Union['CasbDlpRuleCloudAppTenantsArgs', 'CasbDlpRuleCloudAppTenantsArgsDict']] cloud_app_tenants: Name-ID pairs of the cloud application tenants for which the rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collaboration_scopes: Collaboration scope for the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] components: List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        :param pulumi.Input[_builtins.str] content_location: The location for the content that the Zscaler service inspects for sensitive data
-        :param pulumi.Input[Union['CasbDlpRuleCriteriaDomainProfilesArgs', 'CasbDlpRuleCriteriaDomainProfilesArgsDict']] criteria_domain_profiles: Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        :param pulumi.Input[Union['CasbDlpRuleDepartmentsArgs', 'CasbDlpRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: An admin editable text-based description of the rule
-        :param pulumi.Input[Union['CasbDlpRuleDlpEnginesArgs', 'CasbDlpRuleDlpEnginesArgsDict']] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domain for the external organization sharing the channel
-        :param pulumi.Input[Union['CasbDlpRuleEmailRecipientProfilesArgs', 'CasbDlpRuleEmailRecipientProfilesArgsDict']] email_recipient_profiles: Name-ID pairs of recipient profiles for which the rule is applied
-        :param pulumi.Input[Union['CasbDlpRuleEntityGroupsArgs', 'CasbDlpRuleEntityGroupsArgsDict']] entity_groups: Name-ID pairs of entity groups that are part of the rule criteria
-        :param pulumi.Input[Union['CasbDlpRuleExcludedDomainProfilesArgs', 'CasbDlpRuleExcludedDomainProfilesArgsDict']] excluded_domain_profiles: Name-ID pairs of domain profiles excluded in the criteria for the rule
-        :param pulumi.Input[_builtins.str] external_auditor_email: Email address of the external auditor to whom the DLP email alerts are sent
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        :param pulumi.Input[Union['CasbDlpRuleGroupsArgs', 'CasbDlpRuleGroupsArgsDict']] groups: Name-ID pairs of groups for which the rule is applied
-        :param pulumi.Input[_builtins.bool] include_criteria_domain_profile: If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_email_recipient_profile: If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_entity_groups: If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        :param pulumi.Input[Union['CasbDlpRuleIncludedDomainProfilesArgs', 'CasbDlpRuleIncludedDomainProfilesArgsDict']] included_domain_profiles: Name-ID pairs of domain profiles included in the criteria for the rule
-        :param pulumi.Input[Union['CasbDlpRuleLabelsArgs', 'CasbDlpRuleLabelsArgsDict']] labels: Name-ID pairs of rule labels associated with the rule
-        :param pulumi.Input[_builtins.str] name: Rule name
-        :param pulumi.Input[Union['CasbDlpRuleObjectTypesArgs', 'CasbDlpRuleObjectTypesArgsDict']] object_types: List of object types for which the rule is applied
-        :param pulumi.Input[_builtins.int] order: Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        :param pulumi.Input[_builtins.str] quarantine_location: Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        :param pulumi.Input[_builtins.int] rank: Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        :param pulumi.Input[Union['CasbDlpRuleReceiverArgs', 'CasbDlpRuleReceiverArgsDict']] receiver: The receiver information for the DLP policy rule
-        :param pulumi.Input[_builtins.str] recipient: Specifies if the email recipient is internal or external
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleRedactionProfileArgs', 'CasbDlpRuleRedactionProfileArgsDict']]]] redaction_profiles: Name-ID of the redaction profile in the criteria
-        :param pulumi.Input[_builtins.str] severity: The severity level of the incidents that match the policy rule
-        :param pulumi.Input[_builtins.str] state: Administrative state of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleTagArgs', 'CasbDlpRuleTagArgsDict']]]] tags: Tag applied to the rule
-        :param pulumi.Input[_builtins.str] type: The type of SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input[Union['CasbDlpRuleUsersArgs', 'CasbDlpRuleUsersArgsDict']] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.bool] watermark_delete_old_version: Specifies whether to delete an old version of the watermarked file
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleWatermarkProfileArgs', 'CasbDlpRuleWatermarkProfileArgsDict']]]] watermark_profiles: Watermark profile applied to the rule
-        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, Content Matching is set to None
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleZscalerIncidentReceiverArgs', 'CasbDlpRuleZscalerIncidentReceiverArgsDict']]]] zscaler_incident_receivers: The Zscaler Incident Receiver details
         """
         ...
     @overload
@@ -1555,32 +495,7 @@ class CasbDlpRule(pulumi.CustomResource):
                  args: CasbDlpRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy)
-        * [API documentation](https://help.zscaler.com/zia/saas-security-api#/casbDlpRules-post)
-
-        The **zia_casb_dlp_rules** resource Adds a new SaaS Security Data at Rest Scanning DLP rule in the Zscaler Internet Access.
-
-        ## Example Usage
-
-        ### Configure Cloud To Cloud Forwarding
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_casb_dlp_rules** can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <rule_type:rule_id>
-        ```
-
-        ```sh
-        $ pulumi import zia:index/casbDlpRule:CasbDlpRule this <"rule_type:rule_name">
-        ```
-
+        Create a CasbDlpRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CasbDlpRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1597,48 +512,40 @@ class CasbDlpRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 auditor_notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleAuditorNotificationArgs', 'CasbDlpRuleAuditorNotificationArgsDict']]]]] = None,
                  bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 buckets: Optional[pulumi.Input[Union['CasbDlpRuleBucketsArgs', 'CasbDlpRuleBucketsArgsDict']]] = None,
-                 casb_email_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbEmailLabelArgs', 'CasbDlpRuleCasbEmailLabelArgsDict']]]]] = None,
-                 casb_tombstone_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbTombstoneTemplateArgs', 'CasbDlpRuleCasbTombstoneTemplateArgsDict']]]]] = None,
-                 cloud_app_tenants: Optional[pulumi.Input[Union['CasbDlpRuleCloudAppTenantsArgs', 'CasbDlpRuleCloudAppTenantsArgsDict']]] = None,
-                 collaboration_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 buckets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cloud_app_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 collaboration_scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 criteria_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleCriteriaDomainProfilesArgs', 'CasbDlpRuleCriteriaDomainProfilesArgsDict']]] = None,
-                 departments: Optional[pulumi.Input[Union['CasbDlpRuleDepartmentsArgs', 'CasbDlpRuleDepartmentsArgsDict']]] = None,
+                 criteria_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dlp_engines: Optional[pulumi.Input[Union['CasbDlpRuleDlpEnginesArgs', 'CasbDlpRuleDlpEnginesArgsDict']]] = None,
+                 dlp_engines: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_recipient_profiles: Optional[pulumi.Input[Union['CasbDlpRuleEmailRecipientProfilesArgs', 'CasbDlpRuleEmailRecipientProfilesArgsDict']]] = None,
-                 entity_groups: Optional[pulumi.Input[Union['CasbDlpRuleEntityGroupsArgs', 'CasbDlpRuleEntityGroupsArgsDict']]] = None,
-                 excluded_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleExcludedDomainProfilesArgs', 'CasbDlpRuleExcludedDomainProfilesArgsDict']]] = None,
+                 email_recipient_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 entity_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 excluded_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  external_auditor_email: Optional[pulumi.Input[_builtins.str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups: Optional[pulumi.Input[Union['CasbDlpRuleGroupsArgs', 'CasbDlpRuleGroupsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  include_criteria_domain_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_email_recipient_profile: Optional[pulumi.Input[_builtins.bool]] = None,
                  include_entity_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 included_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleIncludedDomainProfilesArgs', 'CasbDlpRuleIncludedDomainProfilesArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['CasbDlpRuleLabelsArgs', 'CasbDlpRuleLabelsArgsDict']]] = None,
+                 included_domain_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_types: Optional[pulumi.Input[Union['CasbDlpRuleObjectTypesArgs', 'CasbDlpRuleObjectTypesArgsDict']]] = None,
+                 object_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  quarantine_location: Optional[pulumi.Input[_builtins.str]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 receiver: Optional[pulumi.Input[Union['CasbDlpRuleReceiverArgs', 'CasbDlpRuleReceiverArgsDict']]] = None,
                  recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 redaction_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleRedactionProfileArgs', 'CasbDlpRuleRedactionProfileArgsDict']]]]] = None,
                  severity: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleTagArgs', 'CasbDlpRuleTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input[Union['CasbDlpRuleUsersArgs', 'CasbDlpRuleUsersArgsDict']]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  watermark_delete_old_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleWatermarkProfileArgs', 'CasbDlpRuleWatermarkProfileArgsDict']]]]] = None,
                  without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleZscalerIncidentReceiverArgs', 'CasbDlpRuleZscalerIncidentReceiverArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1649,13 +556,10 @@ class CasbDlpRule(pulumi.CustomResource):
             __props__ = CasbDlpRuleArgs.__new__(CasbDlpRuleArgs)
 
             __props__.__dict__["action"] = action
-            __props__.__dict__["auditor_notifications"] = auditor_notifications
             __props__.__dict__["bucket_owner"] = bucket_owner
             __props__.__dict__["buckets"] = buckets
-            __props__.__dict__["casb_email_labels"] = casb_email_labels
-            __props__.__dict__["casb_tombstone_templates"] = casb_tombstone_templates
             __props__.__dict__["cloud_app_tenants"] = cloud_app_tenants
-            __props__.__dict__["collaboration_scopes"] = collaboration_scopes
+            __props__.__dict__["collaboration_scope"] = collaboration_scope
             __props__.__dict__["components"] = components
             __props__.__dict__["content_location"] = content_location
             __props__.__dict__["criteria_domain_profiles"] = criteria_domain_profiles
@@ -1674,6 +578,8 @@ class CasbDlpRule(pulumi.CustomResource):
             __props__.__dict__["include_entity_groups"] = include_entity_groups
             __props__.__dict__["included_domain_profiles"] = included_domain_profiles
             __props__.__dict__["labels"] = labels
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["object_types"] = object_types
             if order is None and not opts.urn:
@@ -1681,23 +587,18 @@ class CasbDlpRule(pulumi.CustomResource):
             __props__.__dict__["order"] = order
             __props__.__dict__["quarantine_location"] = quarantine_location
             __props__.__dict__["rank"] = rank
-            __props__.__dict__["receiver"] = receiver
             __props__.__dict__["recipient"] = recipient
-            __props__.__dict__["redaction_profiles"] = redaction_profiles
             __props__.__dict__["severity"] = severity
             __props__.__dict__["state"] = state
-            __props__.__dict__["tags"] = tags
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["users"] = users
             __props__.__dict__["watermark_delete_old_version"] = watermark_delete_old_version
-            __props__.__dict__["watermark_profiles"] = watermark_profiles
             __props__.__dict__["without_content_inspection"] = without_content_inspection
-            __props__.__dict__["zscaler_incident_receivers"] = zscaler_incident_receivers
             __props__.__dict__["rule_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="zia:index/casbDlpRules:CasbDlpRules")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CasbDlpRule, __self__).__init__(
-            'zia:index/casbDlpRule:CasbDlpRule',
+            'zia:index:CasbDlpRule',
             resource_name,
             __props__,
             opts)
@@ -1705,51 +606,7 @@ class CasbDlpRule(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            auditor_notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleAuditorNotificationArgs', 'CasbDlpRuleAuditorNotificationArgsDict']]]]] = None,
-            bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            buckets: Optional[pulumi.Input[Union['CasbDlpRuleBucketsArgs', 'CasbDlpRuleBucketsArgsDict']]] = None,
-            casb_email_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbEmailLabelArgs', 'CasbDlpRuleCasbEmailLabelArgsDict']]]]] = None,
-            casb_tombstone_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbTombstoneTemplateArgs', 'CasbDlpRuleCasbTombstoneTemplateArgsDict']]]]] = None,
-            cloud_app_tenants: Optional[pulumi.Input[Union['CasbDlpRuleCloudAppTenantsArgs', 'CasbDlpRuleCloudAppTenantsArgsDict']]] = None,
-            collaboration_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            components: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            content_location: Optional[pulumi.Input[_builtins.str]] = None,
-            criteria_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleCriteriaDomainProfilesArgs', 'CasbDlpRuleCriteriaDomainProfilesArgsDict']]] = None,
-            departments: Optional[pulumi.Input[Union['CasbDlpRuleDepartmentsArgs', 'CasbDlpRuleDepartmentsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dlp_engines: Optional[pulumi.Input[Union['CasbDlpRuleDlpEnginesArgs', 'CasbDlpRuleDlpEnginesArgsDict']]] = None,
-            domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_recipient_profiles: Optional[pulumi.Input[Union['CasbDlpRuleEmailRecipientProfilesArgs', 'CasbDlpRuleEmailRecipientProfilesArgsDict']]] = None,
-            entity_groups: Optional[pulumi.Input[Union['CasbDlpRuleEntityGroupsArgs', 'CasbDlpRuleEntityGroupsArgsDict']]] = None,
-            excluded_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleExcludedDomainProfilesArgs', 'CasbDlpRuleExcludedDomainProfilesArgsDict']]] = None,
-            external_auditor_email: Optional[pulumi.Input[_builtins.str]] = None,
-            file_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups: Optional[pulumi.Input[Union['CasbDlpRuleGroupsArgs', 'CasbDlpRuleGroupsArgsDict']]] = None,
-            include_criteria_domain_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_email_recipient_profile: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_entity_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-            included_domain_profiles: Optional[pulumi.Input[Union['CasbDlpRuleIncludedDomainProfilesArgs', 'CasbDlpRuleIncludedDomainProfilesArgsDict']]] = None,
-            labels: Optional[pulumi.Input[Union['CasbDlpRuleLabelsArgs', 'CasbDlpRuleLabelsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            object_types: Optional[pulumi.Input[Union['CasbDlpRuleObjectTypesArgs', 'CasbDlpRuleObjectTypesArgsDict']]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            quarantine_location: Optional[pulumi.Input[_builtins.str]] = None,
-            rank: Optional[pulumi.Input[_builtins.int]] = None,
-            receiver: Optional[pulumi.Input[Union['CasbDlpRuleReceiverArgs', 'CasbDlpRuleReceiverArgsDict']]] = None,
-            recipient: Optional[pulumi.Input[_builtins.str]] = None,
-            redaction_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleRedactionProfileArgs', 'CasbDlpRuleRedactionProfileArgsDict']]]]] = None,
-            rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-            severity: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleTagArgs', 'CasbDlpRuleTagArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            users: Optional[pulumi.Input[Union['CasbDlpRuleUsersArgs', 'CasbDlpRuleUsersArgsDict']]] = None,
-            watermark_delete_old_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            watermark_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleWatermarkProfileArgs', 'CasbDlpRuleWatermarkProfileArgsDict']]]]] = None,
-            without_content_inspection: Optional[pulumi.Input[_builtins.bool]] = None,
-            zscaler_incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleZscalerIncidentReceiverArgs', 'CasbDlpRuleZscalerIncidentReceiverArgsDict']]]]] = None) -> 'CasbDlpRule':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CasbDlpRule':
         """
         Get an existing CasbDlpRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1757,450 +614,226 @@ class CasbDlpRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: The configured action for the policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleAuditorNotificationArgs', 'CasbDlpRuleAuditorNotificationArgsDict']]]] auditor_notifications: Notification template used for DLP email alerts sent to the auditor
-        :param pulumi.Input[_builtins.str] bucket_owner: A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        :param pulumi.Input[Union['CasbDlpRuleBucketsArgs', 'CasbDlpRuleBucketsArgsDict']] buckets: The buckets for the Zscaler service to inspect for sensitive data
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbEmailLabelArgs', 'CasbDlpRuleCasbEmailLabelArgsDict']]]] casb_email_labels: Name-ID of the email label associated with the rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleCasbTombstoneTemplateArgs', 'CasbDlpRuleCasbTombstoneTemplateArgsDict']]]] casb_tombstone_templates: Name-ID of the quarantine tombstone template associated with the rule
-        :param pulumi.Input[Union['CasbDlpRuleCloudAppTenantsArgs', 'CasbDlpRuleCloudAppTenantsArgsDict']] cloud_app_tenants: Name-ID pairs of the cloud application tenants for which the rule is applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collaboration_scopes: Collaboration scope for the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] components: List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        :param pulumi.Input[_builtins.str] content_location: The location for the content that the Zscaler service inspects for sensitive data
-        :param pulumi.Input[Union['CasbDlpRuleCriteriaDomainProfilesArgs', 'CasbDlpRuleCriteriaDomainProfilesArgsDict']] criteria_domain_profiles: Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        :param pulumi.Input[Union['CasbDlpRuleDepartmentsArgs', 'CasbDlpRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: An admin editable text-based description of the rule
-        :param pulumi.Input[Union['CasbDlpRuleDlpEnginesArgs', 'CasbDlpRuleDlpEnginesArgsDict']] dlp_engines: The list of DLP engines to which the DLP policy rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domain for the external organization sharing the channel
-        :param pulumi.Input[Union['CasbDlpRuleEmailRecipientProfilesArgs', 'CasbDlpRuleEmailRecipientProfilesArgsDict']] email_recipient_profiles: Name-ID pairs of recipient profiles for which the rule is applied
-        :param pulumi.Input[Union['CasbDlpRuleEntityGroupsArgs', 'CasbDlpRuleEntityGroupsArgsDict']] entity_groups: Name-ID pairs of entity groups that are part of the rule criteria
-        :param pulumi.Input[Union['CasbDlpRuleExcludedDomainProfilesArgs', 'CasbDlpRuleExcludedDomainProfilesArgsDict']] excluded_domain_profiles: Name-ID pairs of domain profiles excluded in the criteria for the rule
-        :param pulumi.Input[_builtins.str] external_auditor_email: Email address of the external auditor to whom the DLP email alerts are sent
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        :param pulumi.Input[Union['CasbDlpRuleGroupsArgs', 'CasbDlpRuleGroupsArgsDict']] groups: Name-ID pairs of groups for which the rule is applied
-        :param pulumi.Input[_builtins.bool] include_criteria_domain_profile: If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_email_recipient_profile: If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        :param pulumi.Input[_builtins.bool] include_entity_groups: If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        :param pulumi.Input[Union['CasbDlpRuleIncludedDomainProfilesArgs', 'CasbDlpRuleIncludedDomainProfilesArgsDict']] included_domain_profiles: Name-ID pairs of domain profiles included in the criteria for the rule
-        :param pulumi.Input[Union['CasbDlpRuleLabelsArgs', 'CasbDlpRuleLabelsArgsDict']] labels: Name-ID pairs of rule labels associated with the rule
-        :param pulumi.Input[_builtins.str] name: Rule name
-        :param pulumi.Input[Union['CasbDlpRuleObjectTypesArgs', 'CasbDlpRuleObjectTypesArgsDict']] object_types: List of object types for which the rule is applied
-        :param pulumi.Input[_builtins.int] order: Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        :param pulumi.Input[_builtins.str] quarantine_location: Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        :param pulumi.Input[_builtins.int] rank: Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        :param pulumi.Input[Union['CasbDlpRuleReceiverArgs', 'CasbDlpRuleReceiverArgsDict']] receiver: The receiver information for the DLP policy rule
-        :param pulumi.Input[_builtins.str] recipient: Specifies if the email recipient is internal or external
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleRedactionProfileArgs', 'CasbDlpRuleRedactionProfileArgsDict']]]] redaction_profiles: Name-ID of the redaction profile in the criteria
-        :param pulumi.Input[_builtins.int] rule_id: System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input[_builtins.str] severity: The severity level of the incidents that match the policy rule
-        :param pulumi.Input[_builtins.str] state: Administrative state of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleTagArgs', 'CasbDlpRuleTagArgsDict']]]] tags: Tag applied to the rule
-        :param pulumi.Input[_builtins.str] type: The type of SaaS Security Data at Rest Scanning DLP rule
-        :param pulumi.Input[Union['CasbDlpRuleUsersArgs', 'CasbDlpRuleUsersArgsDict']] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.bool] watermark_delete_old_version: Specifies whether to delete an old version of the watermarked file
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleWatermarkProfileArgs', 'CasbDlpRuleWatermarkProfileArgsDict']]]] watermark_profiles: Watermark profile applied to the rule
-        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, Content Matching is set to None
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CasbDlpRuleZscalerIncidentReceiverArgs', 'CasbDlpRuleZscalerIncidentReceiverArgsDict']]]] zscaler_incident_receivers: The Zscaler Incident Receiver details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _CasbDlpRuleState.__new__(_CasbDlpRuleState)
+        __props__ = CasbDlpRuleArgs.__new__(CasbDlpRuleArgs)
 
-        __props__.__dict__["action"] = action
-        __props__.__dict__["auditor_notifications"] = auditor_notifications
-        __props__.__dict__["bucket_owner"] = bucket_owner
-        __props__.__dict__["buckets"] = buckets
-        __props__.__dict__["casb_email_labels"] = casb_email_labels
-        __props__.__dict__["casb_tombstone_templates"] = casb_tombstone_templates
-        __props__.__dict__["cloud_app_tenants"] = cloud_app_tenants
-        __props__.__dict__["collaboration_scopes"] = collaboration_scopes
-        __props__.__dict__["components"] = components
-        __props__.__dict__["content_location"] = content_location
-        __props__.__dict__["criteria_domain_profiles"] = criteria_domain_profiles
-        __props__.__dict__["departments"] = departments
-        __props__.__dict__["description"] = description
-        __props__.__dict__["dlp_engines"] = dlp_engines
-        __props__.__dict__["domains"] = domains
-        __props__.__dict__["email_recipient_profiles"] = email_recipient_profiles
-        __props__.__dict__["entity_groups"] = entity_groups
-        __props__.__dict__["excluded_domain_profiles"] = excluded_domain_profiles
-        __props__.__dict__["external_auditor_email"] = external_auditor_email
-        __props__.__dict__["file_types"] = file_types
-        __props__.__dict__["groups"] = groups
-        __props__.__dict__["include_criteria_domain_profile"] = include_criteria_domain_profile
-        __props__.__dict__["include_email_recipient_profile"] = include_email_recipient_profile
-        __props__.__dict__["include_entity_groups"] = include_entity_groups
-        __props__.__dict__["included_domain_profiles"] = included_domain_profiles
-        __props__.__dict__["labels"] = labels
-        __props__.__dict__["name"] = name
-        __props__.__dict__["object_types"] = object_types
-        __props__.__dict__["order"] = order
-        __props__.__dict__["quarantine_location"] = quarantine_location
-        __props__.__dict__["rank"] = rank
-        __props__.__dict__["receiver"] = receiver
-        __props__.__dict__["recipient"] = recipient
-        __props__.__dict__["redaction_profiles"] = redaction_profiles
-        __props__.__dict__["rule_id"] = rule_id
-        __props__.__dict__["severity"] = severity
-        __props__.__dict__["state"] = state
-        __props__.__dict__["tags"] = tags
-        __props__.__dict__["type"] = type
-        __props__.__dict__["users"] = users
-        __props__.__dict__["watermark_delete_old_version"] = watermark_delete_old_version
-        __props__.__dict__["watermark_profiles"] = watermark_profiles
-        __props__.__dict__["without_content_inspection"] = without_content_inspection
-        __props__.__dict__["zscaler_incident_receivers"] = zscaler_incident_receivers
+        __props__.__dict__["action"] = None
+        __props__.__dict__["bucket_owner"] = None
+        __props__.__dict__["buckets"] = None
+        __props__.__dict__["cloud_app_tenants"] = None
+        __props__.__dict__["collaboration_scope"] = None
+        __props__.__dict__["components"] = None
+        __props__.__dict__["content_location"] = None
+        __props__.__dict__["criteria_domain_profiles"] = None
+        __props__.__dict__["departments"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["dlp_engines"] = None
+        __props__.__dict__["domains"] = None
+        __props__.__dict__["email_recipient_profiles"] = None
+        __props__.__dict__["entity_groups"] = None
+        __props__.__dict__["excluded_domain_profiles"] = None
+        __props__.__dict__["external_auditor_email"] = None
+        __props__.__dict__["file_types"] = None
+        __props__.__dict__["groups"] = None
+        __props__.__dict__["include_criteria_domain_profile"] = None
+        __props__.__dict__["include_email_recipient_profile"] = None
+        __props__.__dict__["include_entity_groups"] = None
+        __props__.__dict__["included_domain_profiles"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["object_types"] = None
+        __props__.__dict__["order"] = None
+        __props__.__dict__["quarantine_location"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["recipient"] = None
+        __props__.__dict__["rule_id"] = None
+        __props__.__dict__["severity"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["users"] = None
+        __props__.__dict__["watermark_delete_old_version"] = None
+        __props__.__dict__["without_content_inspection"] = None
         return CasbDlpRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The configured action for the policy rule
-        """
         return pulumi.get(self, "action")
-
-    @_builtins.property
-    @pulumi.getter(name="auditorNotifications")
-    def auditor_notifications(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleAuditorNotification']]]:
-        """
-        Notification template used for DLP email alerts sent to the auditor
-        """
-        return pulumi.get(self, "auditor_notifications")
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A user who inspect their buckets for sensitive data. When you choose a user, their buckets are available in the Buckets field
-        """
         return pulumi.get(self, "bucket_owner")
 
     @_builtins.property
     @pulumi.getter
-    def buckets(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleBuckets']]:
-        """
-        The buckets for the Zscaler service to inspect for sensitive data
-        """
+    def buckets(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "buckets")
 
     @_builtins.property
-    @pulumi.getter(name="casbEmailLabels")
-    def casb_email_labels(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleCasbEmailLabel']]]:
-        """
-        Name-ID of the email label associated with the rule
-        """
-        return pulumi.get(self, "casb_email_labels")
-
-    @_builtins.property
-    @pulumi.getter(name="casbTombstoneTemplates")
-    def casb_tombstone_templates(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleCasbTombstoneTemplate']]]:
-        """
-        Name-ID of the quarantine tombstone template associated with the rule
-        """
-        return pulumi.get(self, "casb_tombstone_templates")
-
-    @_builtins.property
     @pulumi.getter(name="cloudAppTenants")
-    def cloud_app_tenants(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleCloudAppTenants']]:
-        """
-        Name-ID pairs of the cloud application tenants for which the rule is applied
-        """
+    def cloud_app_tenants(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "cloud_app_tenants")
 
     @_builtins.property
-    @pulumi.getter(name="collaborationScopes")
-    def collaboration_scopes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Collaboration scope for the rule
-        """
-        return pulumi.get(self, "collaboration_scopes")
+    @pulumi.getter(name="collaborationScope")
+    def collaboration_scope(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "collaboration_scope")
 
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of components for which the rule is applied. Zscaler service inspects these components for sensitive data.
-        """
         return pulumi.get(self, "components")
 
     @_builtins.property
     @pulumi.getter(name="contentLocation")
     def content_location(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The location for the content that the Zscaler service inspects for sensitive data
-        """
         return pulumi.get(self, "content_location")
 
     @_builtins.property
     @pulumi.getter(name="criteriaDomainProfiles")
-    def criteria_domain_profiles(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleCriteriaDomainProfiles']]:
-        """
-        Name-ID pairs of domain profiles that are mandatory in the criteria for the rule
-        """
+    def criteria_domain_profiles(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "criteria_domain_profiles")
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleDepartments']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
+    def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        An admin editable text-based description of the rule
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dlpEngines")
-    def dlp_engines(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleDlpEngines']]:
-        """
-        The list of DLP engines to which the DLP policy rule must be applied
-        """
+    def dlp_engines(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "dlp_engines")
 
     @_builtins.property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The domain for the external organization sharing the channel
-        """
         return pulumi.get(self, "domains")
 
     @_builtins.property
     @pulumi.getter(name="emailRecipientProfiles")
-    def email_recipient_profiles(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleEmailRecipientProfiles']]:
-        """
-        Name-ID pairs of recipient profiles for which the rule is applied
-        """
+    def email_recipient_profiles(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "email_recipient_profiles")
 
     @_builtins.property
     @pulumi.getter(name="entityGroups")
-    def entity_groups(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleEntityGroups']]:
-        """
-        Name-ID pairs of entity groups that are part of the rule criteria
-        """
+    def entity_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "entity_groups")
 
     @_builtins.property
     @pulumi.getter(name="excludedDomainProfiles")
-    def excluded_domain_profiles(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleExcludedDomainProfiles']]:
-        """
-        Name-ID pairs of domain profiles excluded in the criteria for the rule
-        """
+    def excluded_domain_profiles(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "excluded_domain_profiles")
 
     @_builtins.property
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Email address of the external auditor to whom the DLP email alerts are sent
-        """
         return pulumi.get(self, "external_auditor_email")
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        File type categories for which the policy is applied. If not set, the rule is applied across all file types.
-        """
         return pulumi.get(self, "file_types")
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleGroups']]:
-        """
-        Name-ID pairs of groups for which the rule is applied
-        """
+    def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter(name="includeCriteriaDomainProfile")
     def include_criteria_domain_profile(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, criteriaDomainProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
         return pulumi.get(self, "include_criteria_domain_profile")
 
     @_builtins.property
     @pulumi.getter(name="includeEmailRecipientProfile")
     def include_email_recipient_profile(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, emailRecipientProfiles is included as part of the criteria, else they are excluded from the criteria.
-        """
         return pulumi.get(self, "include_email_recipient_profile")
 
     @_builtins.property
     @pulumi.getter(name="includeEntityGroups")
-    def include_entity_groups(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true, entityGroups is included as part of the criteria, else are excluded from the criteria
-        """
+    def include_entity_groups(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "include_entity_groups")
 
     @_builtins.property
     @pulumi.getter(name="includedDomainProfiles")
-    def included_domain_profiles(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleIncludedDomainProfiles']]:
-        """
-        Name-ID pairs of domain profiles included in the criteria for the rule
-        """
+    def included_domain_profiles(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "included_domain_profiles")
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleLabels']]:
-        """
-        Name-ID pairs of rule labels associated with the rule
-        """
+    def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Rule name
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="objectTypes")
-    def object_types(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleObjectTypes']]:
-        """
-        List of object types for which the rule is applied
-        """
+    def object_types(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "object_types")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
-        """
-        Order of rule execution with respect to other SaaS Security Data at Rest Scanning DLP rules
-        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter(name="quarantineLocation")
     def quarantine_location(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Location where all the quarantined files are moved and necessary actions are taken by either deleting or restoring the data
-        """
         return pulumi.get(self, "quarantine_location")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Admin rank that is assigned to this rule. Mandatory when admin rank-based access restriction is enabled
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter
-    def receiver(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleReceiver']]:
-        """
-        The receiver information for the DLP policy rule
-        """
-        return pulumi.get(self, "receiver")
-
-    @_builtins.property
-    @pulumi.getter
     def recipient(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies if the email recipient is internal or external
-        """
         return pulumi.get(self, "recipient")
-
-    @_builtins.property
-    @pulumi.getter(name="redactionProfiles")
-    def redaction_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleRedactionProfile']]]:
-        """
-        Name-ID of the redaction profile in the criteria
-        """
-        return pulumi.get(self, "redaction_profiles")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        System-generated identifier for the SaaS Security Data at Rest Scanning DLP rule
-        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The severity level of the incidents that match the policy rule
-        """
         return pulumi.get(self, "severity")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Administrative state of the rule
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleTag']]]:
-        """
-        Tag applied to the rule
-        """
-        return pulumi.get(self, "tags")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of SaaS Security Data at Rest Scanning DLP rule
-        """
+    def type(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional['outputs.CasbDlpRuleUsers']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
+    def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="watermarkDeleteOldVersion")
     def watermark_delete_old_version(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether to delete an old version of the watermarked file
-        """
         return pulumi.get(self, "watermark_delete_old_version")
-
-    @_builtins.property
-    @pulumi.getter(name="watermarkProfiles")
-    def watermark_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleWatermarkProfile']]]:
-        """
-        Watermark profile applied to the rule
-        """
-        return pulumi.get(self, "watermark_profiles")
 
     @_builtins.property
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, Content Matching is set to None
-        """
         return pulumi.get(self, "without_content_inspection")
-
-    @_builtins.property
-    @pulumi.getter(name="zscalerIncidentReceivers")
-    def zscaler_incident_receivers(self) -> pulumi.Output[Optional[Sequence['outputs.CasbDlpRuleZscalerIncidentReceiver']]]:
-        """
-        The Zscaler Incident Receiver details
-        """
-        return pulumi.get(self, "zscaler_incident_receivers")
 

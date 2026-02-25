@@ -1,0 +1,20 @@
+name: auth-settings-urls-e2e
+runtime: yaml
+description: E2E test for zia:index:AuthSettingsUrls resource
+
+config:
+  urls:
+    type: array
+    items:
+      type: string
+    default: [".example.com", ".test.com"]
+
+resources:
+  authSettingsUrls:
+    type: zia:index:AuthSettingsUrls
+    properties:
+      urls: ${urls}
+
+outputs:
+  resourceId: ${authSettingsUrls.resourceId}
+  urls: ${authSettingsUrls.urls}

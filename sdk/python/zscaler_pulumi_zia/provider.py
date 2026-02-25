@@ -22,9 +22,9 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -33,78 +33,40 @@ class ProviderArgs:
                  use_legacy_client: Optional[pulumi.Input[_builtins.bool]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  vanity_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 zia_cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 zscaler_cloud: Optional[pulumi.Input[_builtins.str]] = None):
+                 zia_cloud: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[_builtins.str] client_id: zpa client id
-        :param pulumi.Input[_builtins.str] client_secret: zpa client secret
-        :param pulumi.Input[_builtins.str] http_proxy: Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-        :param pulumi.Input[_builtins.int] max_retries: maximum number of retries to attempt before erroring out.
-        :param pulumi.Input[_builtins.int] parallelism: Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-        :param pulumi.Input[_builtins.str] private_key: zpa private key
-        :param pulumi.Input[_builtins.int] request_timeout: Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-        :param pulumi.Input[_builtins.str] sandbox_cloud: Zscaler Sandbox Cloud
-        :param pulumi.Input[_builtins.str] sandbox_token: Zscaler Sandbox Token
-        :param pulumi.Input[_builtins.str] vanity_domain: Zscaler Vanity Domain
-        :param pulumi.Input[_builtins.str] zscaler_cloud: Zscaler Cloud Name
         """
-        if api_key is None:
-            api_key = _utilities.get_env('ZIA_API_KEY')
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
-        if client_id is None:
-            client_id = _utilities.get_env('ZSCALER_CLIENT_ID')
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
-        if client_secret is None:
-            client_secret = _utilities.get_env('ZSCALER_CLIENT_SECRET')
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
         if http_proxy is not None:
             pulumi.set(__self__, "http_proxy", http_proxy)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
-        if parallelism is not None:
-            pulumi.set(__self__, "parallelism", parallelism)
-        if password is None:
-            password = _utilities.get_env('ZIA_PASSWORD')
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if private_key is None:
-            private_key = _utilities.get_env('ZSCALER_PRIVATE_KEY')
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
         if request_timeout is not None:
             pulumi.set(__self__, "request_timeout", request_timeout)
-        if sandbox_cloud is None:
-            sandbox_cloud = _utilities.get_env('ZSCALER_SANDBOX_CLOUD')
         if sandbox_cloud is not None:
             pulumi.set(__self__, "sandbox_cloud", sandbox_cloud)
-        if sandbox_token is None:
-            sandbox_token = _utilities.get_env('ZSCALER_SANDBOX_TOKEN')
         if sandbox_token is not None:
             pulumi.set(__self__, "sandbox_token", sandbox_token)
-        if use_legacy_client is None:
-            use_legacy_client = _utilities.get_env_bool('ZSCALER_USE_LEGACY_CLIENT')
         if use_legacy_client is not None:
             pulumi.set(__self__, "use_legacy_client", use_legacy_client)
-        if username is None:
-            username = _utilities.get_env('ZIA_USERNAME')
         if username is not None:
             pulumi.set(__self__, "username", username)
-        if vanity_domain is None:
-            vanity_domain = _utilities.get_env('ZSCALER_VANITY_DOMAIN')
         if vanity_domain is not None:
             pulumi.set(__self__, "vanity_domain", vanity_domain)
-        if zia_cloud is None:
-            zia_cloud = _utilities.get_env('ZIA_CLOUD')
         if zia_cloud is not None:
             pulumi.set(__self__, "zia_cloud", zia_cloud)
-        if zscaler_cloud is None:
-            zscaler_cloud = _utilities.get_env('ZSCALER_CLOUD')
-        if zscaler_cloud is not None:
-            pulumi.set(__self__, "zscaler_cloud", zscaler_cloud)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -118,9 +80,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        zpa client id
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -130,9 +89,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        zpa client secret
-        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -140,11 +96,17 @@ class ProviderArgs:
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "cloud")
+
+    @cloud.setter
+    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud", value)
+
+    @_builtins.property
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-        """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
@@ -154,26 +116,11 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        maximum number of retries to attempt before erroring out.
-        """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-        """
-        return pulumi.get(self, "parallelism")
-
-    @parallelism.setter
-    def parallelism(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "parallelism", value)
 
     @_builtins.property
     @pulumi.getter
@@ -187,9 +134,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        zpa private key
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -199,9 +143,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-        """
         return pulumi.get(self, "request_timeout")
 
     @request_timeout.setter
@@ -211,9 +152,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="sandboxCloud")
     def sandbox_cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Zscaler Sandbox Cloud
-        """
         return pulumi.get(self, "sandbox_cloud")
 
     @sandbox_cloud.setter
@@ -223,9 +161,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="sandboxToken")
     def sandbox_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Zscaler Sandbox Token
-        """
         return pulumi.get(self, "sandbox_token")
 
     @sandbox_token.setter
@@ -253,9 +188,6 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="vanityDomain")
     def vanity_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Zscaler Vanity Domain
-        """
         return pulumi.get(self, "vanity_domain")
 
     @vanity_domain.setter
@@ -271,18 +203,6 @@ class ProviderArgs:
     def zia_cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "zia_cloud", value)
 
-    @_builtins.property
-    @pulumi.getter(name="zscalerCloud")
-    def zscaler_cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Zscaler Cloud Name
-        """
-        return pulumi.get(self, "zscaler_cloud")
-
-    @zscaler_cloud.setter
-    def zscaler_cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "zscaler_cloud", value)
-
 
 @pulumi.type_token("pulumi:providers:zia")
 class Provider(pulumi.ProviderResource):
@@ -293,9 +213,9 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -305,27 +225,11 @@ class Provider(pulumi.ProviderResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  vanity_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  zia_cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 zscaler_cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        The provider type for the zia package. By default, resources use package-wide configuration
-        settings, however an explicit `Provider` instance may be created and passed during resource
-        construction to achieve fine-grained programmatic control over provider settings. See the
-        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-
+        Create a Zia resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_id: zpa client id
-        :param pulumi.Input[_builtins.str] client_secret: zpa client secret
-        :param pulumi.Input[_builtins.str] http_proxy: Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-        :param pulumi.Input[_builtins.int] max_retries: maximum number of retries to attempt before erroring out.
-        :param pulumi.Input[_builtins.int] parallelism: Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-        :param pulumi.Input[_builtins.str] private_key: zpa private key
-        :param pulumi.Input[_builtins.int] request_timeout: Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-        :param pulumi.Input[_builtins.str] sandbox_cloud: Zscaler Sandbox Cloud
-        :param pulumi.Input[_builtins.str] sandbox_token: Zscaler Sandbox Token
-        :param pulumi.Input[_builtins.str] vanity_domain: Zscaler Vanity Domain
-        :param pulumi.Input[_builtins.str] zscaler_cloud: Zscaler Cloud Name
         """
         ...
     @overload
@@ -334,11 +238,7 @@ class Provider(pulumi.ProviderResource):
                  args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The provider type for the zia package. By default, resources use package-wide configuration
-        settings, however an explicit `Provider` instance may be created and passed during resource
-        construction to achieve fine-grained programmatic control over provider settings. See the
-        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-
+        Create a Zia resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,9 +257,9 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  private_key: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -369,7 +269,6 @@ class Provider(pulumi.ProviderResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  vanity_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  zia_cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 zscaler_cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,47 +278,22 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            if api_key is None:
-                api_key = _utilities.get_env('ZIA_API_KEY')
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
-            if client_id is None:
-                client_id = _utilities.get_env('ZSCALER_CLIENT_ID')
             __props__.__dict__["client_id"] = client_id
-            if client_secret is None:
-                client_secret = _utilities.get_env('ZSCALER_CLIENT_SECRET')
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
+            __props__.__dict__["cloud"] = None if cloud is None else pulumi.Output.secret(cloud)
             __props__.__dict__["http_proxy"] = http_proxy
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
-            __props__.__dict__["parallelism"] = pulumi.Output.from_input(parallelism).apply(pulumi.runtime.to_json) if parallelism is not None else None
-            if password is None:
-                password = _utilities.get_env('ZIA_PASSWORD')
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
-            if private_key is None:
-                private_key = _utilities.get_env('ZSCALER_PRIVATE_KEY')
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["request_timeout"] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
-            if sandbox_cloud is None:
-                sandbox_cloud = _utilities.get_env('ZSCALER_SANDBOX_CLOUD')
             __props__.__dict__["sandbox_cloud"] = None if sandbox_cloud is None else pulumi.Output.secret(sandbox_cloud)
-            if sandbox_token is None:
-                sandbox_token = _utilities.get_env('ZSCALER_SANDBOX_TOKEN')
             __props__.__dict__["sandbox_token"] = None if sandbox_token is None else pulumi.Output.secret(sandbox_token)
-            if use_legacy_client is None:
-                use_legacy_client = _utilities.get_env_bool('ZSCALER_USE_LEGACY_CLIENT')
             __props__.__dict__["use_legacy_client"] = pulumi.Output.from_input(use_legacy_client).apply(pulumi.runtime.to_json) if use_legacy_client is not None else None
-            if username is None:
-                username = _utilities.get_env('ZIA_USERNAME')
             __props__.__dict__["username"] = username
-            if vanity_domain is None:
-                vanity_domain = _utilities.get_env('ZSCALER_VANITY_DOMAIN')
             __props__.__dict__["vanity_domain"] = None if vanity_domain is None else pulumi.Output.secret(vanity_domain)
-            if zia_cloud is None:
-                zia_cloud = _utilities.get_env('ZIA_CLOUD')
             __props__.__dict__["zia_cloud"] = zia_cloud
-            if zscaler_cloud is None:
-                zscaler_cloud = _utilities.get_env('ZSCALER_CLOUD')
-            __props__.__dict__["zscaler_cloud"] = None if zscaler_cloud is None else pulumi.Output.secret(zscaler_cloud)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "clientSecret", "password", "privateKey", "sandboxCloud", "sandboxToken", "vanityDomain", "zscalerCloud"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "clientSecret", "cloud", "password", "privateKey", "sandboxCloud", "sandboxToken", "vanityDomain"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'zia',
@@ -435,25 +309,21 @@ class Provider(pulumi.ProviderResource):
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        zpa client id
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        zpa client secret
-        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "cloud")
 
     @_builtins.property
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-        """
         return pulumi.get(self, "http_proxy")
 
     @_builtins.property
@@ -464,25 +334,16 @@ class Provider(pulumi.ProviderResource):
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        zpa private key
-        """
         return pulumi.get(self, "private_key")
 
     @_builtins.property
     @pulumi.getter(name="sandboxCloud")
     def sandbox_cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Zscaler Sandbox Cloud
-        """
         return pulumi.get(self, "sandbox_cloud")
 
     @_builtins.property
     @pulumi.getter(name="sandboxToken")
     def sandbox_token(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Zscaler Sandbox Token
-        """
         return pulumi.get(self, "sandbox_token")
 
     @_builtins.property
@@ -493,41 +354,10 @@ class Provider(pulumi.ProviderResource):
     @_builtins.property
     @pulumi.getter(name="vanityDomain")
     def vanity_domain(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Zscaler Vanity Domain
-        """
         return pulumi.get(self, "vanity_domain")
 
     @_builtins.property
     @pulumi.getter(name="ziaCloud")
     def zia_cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "zia_cloud")
-
-    @_builtins.property
-    @pulumi.getter(name="zscalerCloud")
-    def zscaler_cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Zscaler Cloud Name
-        """
-        return pulumi.get(self, "zscaler_cloud")
-
-    @pulumi.output_type
-    class TerraformConfigResult:
-        def __init__(__self__, result=None):
-            if result and not isinstance(result, dict):
-                raise TypeError("Expected argument 'result' to be a dict")
-            pulumi.set(__self__, "result", result)
-
-        @_builtins.property
-        @pulumi.getter
-        def result(self) -> Mapping[str, Any]:
-            return pulumi.get(self, "result")
-
-    def terraform_config(__self__) -> pulumi.Output['Provider.TerraformConfigResult']:
-        """
-        This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
-        """
-        __args__ = dict()
-        __args__['__self__'] = __self__
-        return pulumi.runtime.call('pulumi:providers:zia/terraformConfig', __args__, res=__self__, typ=Provider.TerraformConfigResult)
 

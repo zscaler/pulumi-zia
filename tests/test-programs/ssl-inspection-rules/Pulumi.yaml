@@ -1,0 +1,71 @@
+name: ssl-inspection-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:SslInspectionRule resource
+
+config:
+  ruleName:
+    type: string
+    default: "tf-acc-test-ssl"
+  description:
+    type: string
+    default: "testAcc_ssl_rule"
+  state:
+    type: string
+    default: "ENABLED"
+  labelName:
+    type: string
+    default: "e2e-ssl-label"
+  labelDescription:
+    type: string
+    default: "E2E test label for SSL inspection rule"
+
+resources:
+  # Rule label - required for labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # SSL Inspection rule - same attribute values as Terraform test
+  sslInspectionRule:
+    type: zia:index:SslInspectionRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      state: ${state}
+      order: 1
+      rank: 7
+      roadWarriorForKerberos: true
+      cloudApplications:
+        - CHATGPT_AI
+        - ANDI
+      platforms:
+        - SCAN_IOS
+        - SCAN_ANDROID
+        - SCAN_MACOS
+        - SCAN_WINDOWS
+        - NO_CLIENT_CONNECTOR
+        - SCAN_LINUX
+      action:
+        type: "DECRYPT"
+        decryptSubActions:
+          serverCertificates: "ALLOW"
+          ocspCheck: true
+          blockSslTrafficWithNoSniEnabled: true
+          minClientTlsVersion: "CLIENT_TLS_1_0"
+          minServerTlsVersion: "SERVER_TLS_1_0"
+          blockUndecrypt: true
+          http2Enabled: false
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${sslInspectionRule.ruleId}
+  name: ${sslInspectionRule.name}
+  description: ${sslInspectionRule.description}
+  state: ${sslInspectionRule.state}
+  roadWarriorForKerberos: ${sslInspectionRule.roadWarriorForKerberos}
+  cloudApplications: ${sslInspectionRule.cloudApplications}
+  platforms: ${sslInspectionRule.platforms}
+  labels: ${sslInspectionRule.labels}

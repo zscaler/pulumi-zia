@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/about-nss-servers)
- * * [API documentation](https://help.zscaler.com/zia/cloud-nanolog-streaming-service-nss#/nssServers-get)
- *
- * The **zia_nss_server** resource allows the creation and management of NSS Server Objects in the Zscaler Internet Access cloud or via the API.
- * See [Adding NSS Servers](https://help.zscaler.com/zia/adding-nss-servers) for more details.
- *
- * ## Example Usage
- *
- * ### Type NSS_FOR_FIREWALL
- *
- * ### Type NSS_FOR_WEB
- *
- * resource "zia.NssServer" "this" {
- *     name = "NSSServer01"
- *     status = "ENABLED"
- *     type = "NSS_FOR_WEB"
- * }
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_nss_server** can be imported by using `<NSS_ID>` or `<NSS_NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/nssServer:NssServer example <nss_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/nssServer:NssServer example <nss_name>
- * ```
- */
 export class NssServer extends pulumi.CustomResource {
     /**
      * Get an existing NssServer resource's state with the given name, ID, and optional extra
@@ -49,15 +11,14 @@ export class NssServer extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NssServerState, opts?: pulumi.CustomResourceOptions): NssServer {
-        return new NssServer(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NssServer {
+        return new NssServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/nssServer:NssServer';
+    public static readonly __pulumiType = 'zia:index:NssServer';
 
     /**
      * Returns true if the given object is an instance of NssServer.  This is designed to work even
@@ -70,22 +31,10 @@ export class NssServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === NssServer.__pulumiType;
     }
 
-    /**
-     * The ICAP server ID
-     */
     declare public readonly icapSvrId: pulumi.Output<number | undefined>;
-    /**
-     * The name of the devices to be created.
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly nssId: pulumi.Output<number>;
-    /**
-     * Enables or disables the status of the NSS server
-     */
     declare public readonly status: pulumi.Output<string | undefined>;
-    /**
-     * Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-     */
     declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
@@ -95,24 +44,24 @@ export class NssServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NssServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NssServerArgs | NssServerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NssServerArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as NssServerState | undefined;
-            resourceInputs["icapSvrId"] = state?.icapSvrId;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nssId"] = state?.nssId;
-            resourceInputs["status"] = state?.status;
-            resourceInputs["type"] = state?.type;
-        } else {
-            const args = argsOrState as NssServerArgs | undefined;
+        if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["icapSvrId"] = args?.icapSvrId;
             resourceInputs["name"] = args?.name;
             resourceInputs["status"] = args?.status;
             resourceInputs["type"] = args?.type;
             resourceInputs["nssId"] = undefined /*out*/;
+        } else {
+            resourceInputs["icapSvrId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nssId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NssServer.__pulumiType, name, resourceInputs, opts);
@@ -120,46 +69,11 @@ export class NssServer extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering NssServer resources.
- */
-export interface NssServerState {
-    /**
-     * The ICAP server ID
-     */
-    icapSvrId?: pulumi.Input<number>;
-    /**
-     * The name of the devices to be created.
-     */
-    name?: pulumi.Input<string>;
-    nssId?: pulumi.Input<number>;
-    /**
-     * Enables or disables the status of the NSS server
-     */
-    status?: pulumi.Input<string>;
-    /**
-     * Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-     */
-    type?: pulumi.Input<string>;
-}
-
-/**
  * The set of arguments for constructing a NssServer resource.
  */
 export interface NssServerArgs {
-    /**
-     * The ICAP server ID
-     */
     icapSvrId?: pulumi.Input<number>;
-    /**
-     * The name of the devices to be created.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Enables or disables the status of the NSS server
-     */
+    name: pulumi.Input<string>;
     status?: pulumi.Input<string>;
-    /**
-     * Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-     */
     type?: pulumi.Input<string>;
 }

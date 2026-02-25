@@ -4,168 +4,79 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
- * * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
- *
- * The **zia_traffic_forwarding_vpn_credentials** creates and manages VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-site IPSec VPN credentials can be identified by the cloud through one of the following methods:
- *
- * * Common Name (CN) of IPSec Certificate
- * * VPN User FQDN - requires VPN_SITE_TO_SITE subscription
- * * VPN IP Address - requires VPN_SITE_TO_SITE subscription
- * * Extended Authentication (XAUTH) or hosted mobile UserID - requires VPN_MOBILE subscription
- *
- * ## Example Usage
- *
- * > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_traffic_forwarding_vpn_credentials** can be imported by using one of the following prefixes as the import ID:
- *
- * * `'IP'` - Imports all VPN Credentials of type IP
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'IP'
- * ```
- *
- * * `'UFQDN'` - Imports all VPN Credentials of type UFQDN
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials this 'UFQDN'
- * ```
- *
- * * `UFQDN'` - Imports a VPN Credentials of type UFQDN containing a specific UFQDN address
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'testvpn@example.com'
- * ```
- *
- * * `IP Address'` - Imports a VPN Credentials of type IP containing a specific IP address
- *
- * ```sh
- * $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example '1.1.1.1'
- * ```
- */
-export class TrafficForwardingVPNCredentials extends pulumi.CustomResource {
+export class TrafficForwardingVpnCredentials extends pulumi.CustomResource {
     /**
-     * Get an existing TrafficForwardingVPNCredentials resource's state with the given name, ID, and optional extra
+     * Get an existing TrafficForwardingVpnCredentials resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrafficForwardingVPNCredentialsState, opts?: pulumi.CustomResourceOptions): TrafficForwardingVPNCredentials {
-        return new TrafficForwardingVPNCredentials(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TrafficForwardingVpnCredentials {
+        return new TrafficForwardingVpnCredentials(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials';
+    public static readonly __pulumiType = 'zia:index:TrafficForwardingVpnCredentials';
 
     /**
-     * Returns true if the given object is an instance of TrafficForwardingVPNCredentials.  This is designed to work even
+     * Returns true if the given object is an instance of TrafficForwardingVpnCredentials.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is TrafficForwardingVPNCredentials {
+    public static isInstance(obj: any): obj is TrafficForwardingVpnCredentials {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === TrafficForwardingVPNCredentials.__pulumiType;
+        return obj['__pulumiType'] === TrafficForwardingVpnCredentials.__pulumiType;
     }
 
     declare public readonly comments: pulumi.Output<string | undefined>;
-    /**
-     * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-     */
     declare public readonly fqdn: pulumi.Output<string | undefined>;
     declare public readonly ipAddress: pulumi.Output<string | undefined>;
-    /**
-     * Pre-shared key. This is a required field for UFQDN and IP auth type.
-     */
     declare public readonly preSharedKey: pulumi.Output<string | undefined>;
-    /**
-     * VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-     */
     declare public readonly type: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly vpnId: pulumi.Output<number>;
 
     /**
-     * Create a TrafficForwardingVPNCredentials resource with the given unique name, arguments, and options.
+     * Create a TrafficForwardingVpnCredentials resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TrafficForwardingVPNCredentialsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TrafficForwardingVPNCredentialsArgs | TrafficForwardingVPNCredentialsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TrafficForwardingVpnCredentialsArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as TrafficForwardingVPNCredentialsState | undefined;
-            resourceInputs["comments"] = state?.comments;
-            resourceInputs["fqdn"] = state?.fqdn;
-            resourceInputs["ipAddress"] = state?.ipAddress;
-            resourceInputs["preSharedKey"] = state?.preSharedKey;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["vpnId"] = state?.vpnId;
-        } else {
-            const args = argsOrState as TrafficForwardingVPNCredentialsArgs | undefined;
+        if (!opts.id) {
             resourceInputs["comments"] = args?.comments;
             resourceInputs["fqdn"] = args?.fqdn;
             resourceInputs["ipAddress"] = args?.ipAddress;
             resourceInputs["preSharedKey"] = args?.preSharedKey ? pulumi.secret(args.preSharedKey) : undefined;
             resourceInputs["type"] = args?.type;
             resourceInputs["vpnId"] = undefined /*out*/;
+        } else {
+            resourceInputs["comments"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["preSharedKey"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["preSharedKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(TrafficForwardingVPNCredentials.__pulumiType, name, resourceInputs, opts);
+        super(TrafficForwardingVpnCredentials.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering TrafficForwardingVPNCredentials resources.
+ * The set of arguments for constructing a TrafficForwardingVpnCredentials resource.
  */
-export interface TrafficForwardingVPNCredentialsState {
+export interface TrafficForwardingVpnCredentialsArgs {
     comments?: pulumi.Input<string>;
-    /**
-     * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-     */
     fqdn?: pulumi.Input<string>;
     ipAddress?: pulumi.Input<string>;
-    /**
-     * Pre-shared key. This is a required field for UFQDN and IP auth type.
-     */
     preSharedKey?: pulumi.Input<string>;
-    /**
-     * VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-     */
-    type?: pulumi.Input<string>;
-    vpnId?: pulumi.Input<number>;
-}
-
-/**
- * The set of arguments for constructing a TrafficForwardingVPNCredentials resource.
- */
-export interface TrafficForwardingVPNCredentialsArgs {
-    comments?: pulumi.Input<string>;
-    /**
-     * Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-     */
-    fqdn?: pulumi.Input<string>;
-    ipAddress?: pulumi.Input<string>;
-    /**
-     * Pre-shared key. This is a required field for UFQDN and IP auth type.
-     */
-    preSharedKey?: pulumi.Input<string>;
-    /**
-     * VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-     */
     type?: pulumi.Input<string>;
 }

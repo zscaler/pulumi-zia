@@ -17,65 +17,30 @@ from .. import _utilities
 apiKey: Optional[str]
 
 clientId: Optional[str]
-"""
-zpa client id
-"""
 
 clientSecret: Optional[str]
-"""
-zpa client secret
-"""
+
+cloud: Optional[str]
 
 httpProxy: Optional[str]
-"""
-Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-"""
 
 maxRetries: Optional[int]
-"""
-maximum number of retries to attempt before erroring out.
-"""
-
-parallelism: Optional[int]
-"""
-Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-"""
 
 password: Optional[str]
 
 privateKey: Optional[str]
-"""
-zpa private key
-"""
 
 requestTimeout: Optional[int]
-"""
-Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-"""
 
 sandboxCloud: Optional[str]
-"""
-Zscaler Sandbox Cloud
-"""
 
 sandboxToken: Optional[str]
-"""
-Zscaler Sandbox Token
-"""
 
 useLegacyClient: Optional[bool]
 
 username: Optional[str]
 
 vanityDomain: Optional[str]
-"""
-Zscaler Vanity Domain
-"""
 
 ziaCloud: Optional[str]
-
-zscalerCloud: Optional[str]
-"""
-Zscaler Cloud Name
-"""
 

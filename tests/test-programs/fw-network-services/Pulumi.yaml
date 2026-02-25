@@ -1,0 +1,40 @@
+name: fw-network-services-e2e
+runtime: yaml
+description: E2E test for zia:index:FwNetworkService resource
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+  type:
+    type: string
+    default: "CUSTOM"
+
+resources:
+  fwNetworkService:
+    type: zia:index:FwNetworkService
+    properties:
+      name: ${name}
+      description: ${description}
+      type: ${type}
+      srcTcpPorts:
+        - start: 5000
+        - start: 5001
+        - start: 5002
+          end: 5005
+      destTcpPorts:
+        - start: 5000
+        - start: 5001
+        - start: 5003
+          end: 5005
+
+outputs:
+  networkServiceId: ${fwNetworkService.networkServiceId}
+  name: ${fwNetworkService.name}
+  description: ${fwNetworkService.description}
+  type: ${fwNetworkService.type}
+  srcTcpPorts: ${fwNetworkService.srcTcpPorts}
+  destTcpPorts: ${fwNetworkService.destTcpPorts}

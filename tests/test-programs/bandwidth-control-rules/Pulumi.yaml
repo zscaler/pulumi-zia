@@ -1,0 +1,62 @@
+name: bandwidth-control-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:BandwidthControlRule resource
+
+config:
+  ruleName:
+    type: string
+    default: "tf-acc-test-bandwidth-control-rule"
+  description:
+    type: string
+    default: "tf-acc-test-cloud-app-control"
+  state:
+    type: string
+    default: "ENABLED"
+  labelName:
+    type: string
+    default: "e2e-bw-control-label"
+  labelDescription:
+    type: string
+    default: "E2E test label for bandwidth control rule"
+
+resources:
+  # Rule label - required for the bandwidth control rule labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # Bandwidth class (BANDWIDTH_CAT_WEBCONF) - same as Terraform test
+  bandwidthClass:
+    type: zia:index:BandwidthClassWebConferencing
+    properties:
+      name: "BANDWIDTH_CAT_WEBCONF"
+      type: "BANDWIDTH_CAT_WEBCONF"
+      applications: ["CONNECT", "INTERCALL"]
+
+  # Bandwidth control rule - references ruleLabel and bandwidthClass
+  bandwidthControlRule:
+    type: zia:index:BandwidthControlRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      state: ${state}
+      order: 1
+      rank: 7
+      minBandwidth: 5
+      maxBandwidth: 100
+      protocols: ["ANY_RULE"]
+      bandwidthClasses:
+        - ${bandwidthClass.classId}
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${bandwidthControlRule.ruleId}
+  name: ${bandwidthControlRule.name}
+  description: ${bandwidthControlRule.description}
+  state: ${bandwidthControlRule.state}
+  order: ${bandwidthControlRule.order}
+  bandwidthClasses: ${bandwidthControlRule.bandwidthClasses}
+  labels: ${bandwidthControlRule.labels}

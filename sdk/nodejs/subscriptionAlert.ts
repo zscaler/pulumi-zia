@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/about-alert-subscriptions)
- * * [API documentation](https://help.zscaler.com/zia/alerts#/alertSubscriptions-get)
- *
- * Use the **zia_subscription_alert** resource allows the creation and management of Alert Subscriptions in the Zscaler Internet Access.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_subscription_alert** can be imported by using `<ALERT_ID>` or `<ALERT_EMAIL>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_email>
- * ```
- */
 export class SubscriptionAlert extends pulumi.CustomResource {
     /**
      * Get an existing SubscriptionAlert resource's state with the given name, ID, and optional extra
@@ -38,15 +11,14 @@ export class SubscriptionAlert extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubscriptionAlertState, opts?: pulumi.CustomResourceOptions): SubscriptionAlert {
-        return new SubscriptionAlert(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SubscriptionAlert {
+        return new SubscriptionAlert(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/subscriptionAlert:SubscriptionAlert';
+    public static readonly __pulumiType = 'zia:index:SubscriptionAlert';
 
     /**
      * Returns true if the given object is an instance of SubscriptionAlert.  This is designed to work even
@@ -59,37 +31,13 @@ export class SubscriptionAlert extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubscriptionAlert.__pulumiType;
     }
 
-    /**
-     * System-generated identifier for the alert subscription
-     */
     declare public /*out*/ readonly alertId: pulumi.Output<number>;
-    /**
-     * (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     declare public readonly complySeverities: pulumi.Output<string[] | undefined>;
-    /**
-     * (String) Additional comments or information about the alert subscription
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The email address of the alert recipient
-     */
     declare public readonly email: pulumi.Output<string | undefined>;
-    /**
-     * (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     declare public readonly manageSeverities: pulumi.Output<string[] | undefined>;
-    /**
-     * (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     declare public readonly pt0Severities: pulumi.Output<string[] | undefined>;
-    /**
-     * (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     declare public readonly secureSeverities: pulumi.Output<string[] | undefined>;
-    /**
-     * (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     declare public readonly systemSeverities: pulumi.Output<string[] | undefined>;
 
     /**
@@ -99,22 +47,10 @@ export class SubscriptionAlert extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubscriptionAlertArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubscriptionAlertArgs | SubscriptionAlertState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SubscriptionAlertArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as SubscriptionAlertState | undefined;
-            resourceInputs["alertId"] = state?.alertId;
-            resourceInputs["complySeverities"] = state?.complySeverities;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["manageSeverities"] = state?.manageSeverities;
-            resourceInputs["pt0Severities"] = state?.pt0Severities;
-            resourceInputs["secureSeverities"] = state?.secureSeverities;
-            resourceInputs["systemSeverities"] = state?.systemSeverities;
-        } else {
-            const args = argsOrState as SubscriptionAlertArgs | undefined;
+        if (!opts.id) {
             resourceInputs["complySeverities"] = args?.complySeverities;
             resourceInputs["description"] = args?.description;
             resourceInputs["email"] = args?.email;
@@ -123,6 +59,15 @@ export class SubscriptionAlert extends pulumi.CustomResource {
             resourceInputs["secureSeverities"] = args?.secureSeverities;
             resourceInputs["systemSeverities"] = args?.systemSeverities;
             resourceInputs["alertId"] = undefined /*out*/;
+        } else {
+            resourceInputs["alertId"] = undefined /*out*/;
+            resourceInputs["complySeverities"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["manageSeverities"] = undefined /*out*/;
+            resourceInputs["pt0Severities"] = undefined /*out*/;
+            resourceInputs["secureSeverities"] = undefined /*out*/;
+            resourceInputs["systemSeverities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionAlert.__pulumiType, name, resourceInputs, opts);
@@ -130,73 +75,14 @@ export class SubscriptionAlert extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering SubscriptionAlert resources.
- */
-export interface SubscriptionAlertState {
-    /**
-     * System-generated identifier for the alert subscription
-     */
-    alertId?: pulumi.Input<number>;
-    /**
-     * (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
-    complySeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (String) Additional comments or information about the alert subscription
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * The email address of the alert recipient
-     */
-    email?: pulumi.Input<string>;
-    /**
-     * (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
-    manageSeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
-    pt0Severities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
-    secureSeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
-    systemSeverities?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-/**
  * The set of arguments for constructing a SubscriptionAlert resource.
  */
 export interface SubscriptionAlertArgs {
-    /**
-     * (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     complySeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (String) Additional comments or information about the alert subscription
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The email address of the alert recipient
-     */
     email?: pulumi.Input<string>;
-    /**
-     * (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     manageSeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     pt0Severities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     secureSeverities?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-     */
     systemSeverities?: pulumi.Input<pulumi.Input<string>[]>;
 }

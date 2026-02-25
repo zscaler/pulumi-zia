@@ -21,75 +21,39 @@ __all__ = ['CloudAppControlRuleArgs', 'CloudAppControlRule']
 @pulumi.input_type
 class CloudAppControlRuleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
+                 type: pulumi.Input[_builtins.str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  browser_eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
                  cascading_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]] = None,
-                 cloud_app_instances: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']] = None,
-                 cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]] = None,
-                 departments: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']] = None,
+                 cbi_profile: Optional[pulumi.Input['CBIProfileInputArgs']] = None,
+                 cloud_app_risk_profile_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_groups: Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']] = None,
-                 device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enforce_time_validity: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  size_quota: Optional[pulumi.Input[_builtins.int]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenancy_profile_ids: Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']] = None,
+                 tenancy_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_windows: Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_agent_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_risk_score_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input['CloudAppControlRuleUsersArgs']] = None,
-                 validity_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_time_zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a CloudAppControlRule resource.
-        :param pulumi.Input[_builtins.int] order: The order of execution for the forwarding rule order
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions allowed for the specified type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: The list of cloud applications to which the cloud app control rule must be applied
-               				Use the data source get_cloud_applications to get the list of available cloud applications:
-               				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        :param pulumi.Input[_builtins.bool] cascading_enabled: Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        :param pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs'] cloud_app_instances: The cloud application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input['CloudAppControlRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding rule
-        :param pulumi.Input['CloudAppControlRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['CloudAppControlRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set a validity time period for the URL Filtering rule.
-        :param pulumi.Input['CloudAppControlRuleGroupsArgs'] groups: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input['CloudAppControlRuleLabelsArgs'] labels: The URL Filtering rule's label.
-        :param pulumi.Input['CloudAppControlRuleLocationGroupsArgs'] location_groups: Name-ID pairs of the location groups to which the rule must be applied.
-        :param pulumi.Input['CloudAppControlRuleLocationsArgs'] locations: Name-ID pairs of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: The name of the forwarding rule
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs'] tenancy_profile_ids: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input['CloudAppControlRuleTimeWindowsArgs'] time_windows: Name-ID pairs of time interval during which rule must be enforced.
-        :param pulumi.Input[_builtins.str] type: Supported App Control Types
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: Supported User Agent Types
-        :param pulumi.Input['CloudAppControlRuleUsersArgs'] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "type", type)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if applications is not None:
@@ -98,20 +62,16 @@ class CloudAppControlRuleArgs:
             pulumi.set(__self__, "browser_eun_template_id", browser_eun_template_id)
         if cascading_enabled is not None:
             pulumi.set(__self__, "cascading_enabled", cascading_enabled)
-        if cbi_profiles is not None:
-            pulumi.set(__self__, "cbi_profiles", cbi_profiles)
-        if cloud_app_instances is not None:
-            pulumi.set(__self__, "cloud_app_instances", cloud_app_instances)
-        if cloud_app_risk_profiles is not None:
-            pulumi.set(__self__, "cloud_app_risk_profiles", cloud_app_risk_profiles)
+        if cbi_profile is not None:
+            pulumi.set(__self__, "cbi_profile", cbi_profile)
+        if cloud_app_risk_profile_id is not None:
+            pulumi.set(__self__, "cloud_app_risk_profile_id", cloud_app_risk_profile_id)
         if departments is not None:
             pulumi.set(__self__, "departments", departments)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if device_groups is not None:
             pulumi.set(__self__, "device_groups", device_groups)
-        if device_trust_levels is not None:
-            pulumi.set(__self__, "device_trust_levels", device_trust_levels)
         if devices is not None:
             pulumi.set(__self__, "devices", devices)
         if enforce_time_validity is not None:
@@ -128,8 +88,6 @@ class CloudAppControlRuleArgs:
             pulumi.set(__self__, "location_groups", location_groups)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if rank is not None:
             pulumi.set(__self__, "rank", rank)
         if size_quota is not None:
@@ -142,27 +100,21 @@ class CloudAppControlRuleArgs:
             pulumi.set(__self__, "time_quota", time_quota)
         if time_windows is not None:
             pulumi.set(__self__, "time_windows", time_windows)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_agent_types is not None:
-            pulumi.set(__self__, "user_agent_types", user_agent_types)
-        if user_risk_score_levels is not None:
-            pulumi.set(__self__, "user_risk_score_levels", user_risk_score_levels)
         if users is not None:
             pulumi.set(__self__, "users", users)
-        if validity_end_time is not None:
-            pulumi.set(__self__, "validity_end_time", validity_end_time)
-        if validity_start_time is not None:
-            pulumi.set(__self__, "validity_start_time", validity_start_time)
-        if validity_time_zone_id is not None:
-            pulumi.set(__self__, "validity_time_zone_id", validity_time_zone_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
-        """
-        The order of execution for the forwarding rule order
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -171,10 +123,16 @@ class CloudAppControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Actions allowed for the specified type.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -184,11 +142,6 @@ class CloudAppControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of cloud applications to which the cloud app control rule must be applied
-        				Use the data source get_cloud_applications to get the list of available cloud applications:
-        				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        """
         return pulumi.get(self, "applications")
 
     @applications.setter
@@ -207,9 +160,6 @@ class CloudAppControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cascadingEnabled")
     def cascading_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        """
         return pulumi.get(self, "cascading_enabled")
 
     @cascading_enabled.setter
@@ -217,56 +167,35 @@ class CloudAppControlRuleArgs:
         pulumi.set(self, "cascading_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="cbiProfiles")
-    def cbi_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]:
-        return pulumi.get(self, "cbi_profiles")
+    @pulumi.getter(name="cbiProfile")
+    def cbi_profile(self) -> Optional[pulumi.Input['CBIProfileInputArgs']]:
+        return pulumi.get(self, "cbi_profile")
 
-    @cbi_profiles.setter
-    def cbi_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]):
-        pulumi.set(self, "cbi_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudAppInstances")
-    def cloud_app_instances(self) -> Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]:
-        """
-        The cloud application instance ID.
-        """
-        return pulumi.get(self, "cloud_app_instances")
-
-    @cloud_app_instances.setter
-    def cloud_app_instances(self, value: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]):
-        pulumi.set(self, "cloud_app_instances", value)
+    @cbi_profile.setter
+    def cbi_profile(self, value: Optional[pulumi.Input['CBIProfileInputArgs']]):
+        pulumi.set(self, "cbi_profile", value)
 
     @_builtins.property
-    @pulumi.getter(name="cloudAppRiskProfiles")
-    def cloud_app_risk_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]]:
-        """
-        The DLP server, using ICAP, to which the transaction content is forwarded.
-        """
-        return pulumi.get(self, "cloud_app_risk_profiles")
+    @pulumi.getter(name="cloudAppRiskProfileId")
+    def cloud_app_risk_profile_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "cloud_app_risk_profile_id")
 
-    @cloud_app_risk_profiles.setter
-    def cloud_app_risk_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]]):
-        pulumi.set(self, "cloud_app_risk_profiles", value)
+    @cloud_app_risk_profile_id.setter
+    def cloud_app_risk_profile_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "cloud_app_risk_profile_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
+    def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "departments")
 
     @departments.setter
-    def departments(self, value: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']]):
+    def departments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "departments", value)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the forwarding rule
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -275,46 +204,25 @@ class CloudAppControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
+    def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']]):
+    def device_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "device_groups", value)
 
     @_builtins.property
-    @pulumi.getter(name="deviceTrustLevels")
-    def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
-        return pulumi.get(self, "device_trust_levels")
-
-    @device_trust_levels.setter
-    def device_trust_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "device_trust_levels", value)
-
-    @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
+    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']]):
+    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceTimeValidity")
     def enforce_time_validity(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enforce a set a validity time period for the URL Filtering rule.
-        """
         return pulumi.get(self, "enforce_time_validity")
 
     @enforce_time_validity.setter
@@ -341,70 +249,43 @@ class CloudAppControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']]:
-        """
-        The URL Filtering rule's label.
-        """
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']]:
-        """
-        Name-ID pairs of the location groups to which the rule must be applied.
-        """
+    def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']]):
+    def location_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "location_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']]:
-        """
-        Name-ID pairs of locations for which rule must be applied
-        """
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the forwarding rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -414,9 +295,6 @@ class CloudAppControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
         return pulumi.get(self, "size_quota")
 
     @size_quota.setter
@@ -426,9 +304,6 @@ class CloudAppControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -437,22 +312,16 @@ class CloudAppControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenancyProfileIds")
-    def tenancy_profile_ids(self) -> Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
+    def tenancy_profile_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "tenancy_profile_ids")
 
     @tenancy_profile_ids.setter
-    def tenancy_profile_ids(self, value: Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']]):
+    def tenancy_profile_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "tenancy_profile_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
         return pulumi.get(self, "time_quota")
 
     @time_quota.setter
@@ -461,651 +330,24 @@ class CloudAppControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']]:
-        """
-        Name-ID pairs of time interval during which rule must be enforced.
-        """
+    def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
-    def time_windows(self, value: Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']]):
+    def time_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "time_windows", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Supported App Control Types
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAgentTypes")
-    def user_agent_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Supported User Agent Types
-        """
-        return pulumi.get(self, "user_agent_types")
-
-    @user_agent_types.setter
-    def user_agent_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_agent_types", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userRiskScoreLevels")
-    def user_risk_score_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "user_risk_score_levels")
-
-    @user_risk_score_levels.setter
-    def user_risk_score_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_risk_score_levels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['CloudAppControlRuleUsersArgs']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input['CloudAppControlRuleUsersArgs']]):
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "users", value)
 
-    @_builtins.property
-    @pulumi.getter(name="validityEndTime")
-    def validity_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        """
-        return pulumi.get(self, "validity_end_time")
 
-    @validity_end_time.setter
-    def validity_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_end_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validityStartTime")
-    def validity_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        """
-        return pulumi.get(self, "validity_start_time")
-
-    @validity_start_time.setter
-    def validity_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_start_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validityTimeZoneId")
-    def validity_time_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-        """
-        return pulumi.get(self, "validity_time_zone_id")
-
-    @validity_time_zone_id.setter
-    def validity_time_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_time_zone_id", value)
-
-
-@pulumi.input_type
-class _CloudAppControlRuleState:
-    def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 browser_eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 cascading_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]] = None,
-                 cloud_app_instances: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']] = None,
-                 cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]] = None,
-                 departments: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_groups: Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']] = None,
-                 device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']] = None,
-                 enforce_time_validity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eun_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 size_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenancy_profile_ids: Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']] = None,
-                 time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_windows: Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_agent_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_risk_score_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input['CloudAppControlRuleUsersArgs']] = None,
-                 validity_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_time_zone_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering CloudAppControlRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions allowed for the specified type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: The list of cloud applications to which the cloud app control rule must be applied
-               				Use the data source get_cloud_applications to get the list of available cloud applications:
-               				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        :param pulumi.Input[_builtins.bool] cascading_enabled: Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        :param pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs'] cloud_app_instances: The cloud application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input['CloudAppControlRuleDepartmentsArgs'] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding rule
-        :param pulumi.Input['CloudAppControlRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['CloudAppControlRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set a validity time period for the URL Filtering rule.
-        :param pulumi.Input['CloudAppControlRuleGroupsArgs'] groups: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input['CloudAppControlRuleLabelsArgs'] labels: The URL Filtering rule's label.
-        :param pulumi.Input['CloudAppControlRuleLocationGroupsArgs'] location_groups: Name-ID pairs of the location groups to which the rule must be applied.
-        :param pulumi.Input['CloudAppControlRuleLocationsArgs'] locations: Name-ID pairs of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: The name of the forwarding rule
-        :param pulumi.Input[_builtins.int] order: The order of execution for the forwarding rule order
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] rule_id: A unique identifier assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs'] tenancy_profile_ids: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input['CloudAppControlRuleTimeWindowsArgs'] time_windows: Name-ID pairs of time interval during which rule must be enforced.
-        :param pulumi.Input[_builtins.str] type: Supported App Control Types
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: Supported User Agent Types
-        :param pulumi.Input['CloudAppControlRuleUsersArgs'] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-        """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if applications is not None:
-            pulumi.set(__self__, "applications", applications)
-        if browser_eun_template_id is not None:
-            pulumi.set(__self__, "browser_eun_template_id", browser_eun_template_id)
-        if cascading_enabled is not None:
-            pulumi.set(__self__, "cascading_enabled", cascading_enabled)
-        if cbi_profiles is not None:
-            pulumi.set(__self__, "cbi_profiles", cbi_profiles)
-        if cloud_app_instances is not None:
-            pulumi.set(__self__, "cloud_app_instances", cloud_app_instances)
-        if cloud_app_risk_profiles is not None:
-            pulumi.set(__self__, "cloud_app_risk_profiles", cloud_app_risk_profiles)
-        if departments is not None:
-            pulumi.set(__self__, "departments", departments)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if device_groups is not None:
-            pulumi.set(__self__, "device_groups", device_groups)
-        if device_trust_levels is not None:
-            pulumi.set(__self__, "device_trust_levels", device_trust_levels)
-        if devices is not None:
-            pulumi.set(__self__, "devices", devices)
-        if enforce_time_validity is not None:
-            pulumi.set(__self__, "enforce_time_validity", enforce_time_validity)
-        if eun_enabled is not None:
-            pulumi.set(__self__, "eun_enabled", eun_enabled)
-        if eun_template_id is not None:
-            pulumi.set(__self__, "eun_template_id", eun_template_id)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if location_groups is not None:
-            pulumi.set(__self__, "location_groups", location_groups)
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if rank is not None:
-            pulumi.set(__self__, "rank", rank)
-        if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
-        if size_quota is not None:
-            pulumi.set(__self__, "size_quota", size_quota)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if tenancy_profile_ids is not None:
-            pulumi.set(__self__, "tenancy_profile_ids", tenancy_profile_ids)
-        if time_quota is not None:
-            pulumi.set(__self__, "time_quota", time_quota)
-        if time_windows is not None:
-            pulumi.set(__self__, "time_windows", time_windows)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_agent_types is not None:
-            pulumi.set(__self__, "user_agent_types", user_agent_types)
-        if user_risk_score_levels is not None:
-            pulumi.set(__self__, "user_risk_score_levels", user_risk_score_levels)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-        if validity_end_time is not None:
-            pulumi.set(__self__, "validity_end_time", validity_end_time)
-        if validity_start_time is not None:
-            pulumi.set(__self__, "validity_start_time", validity_start_time)
-        if validity_time_zone_id is not None:
-            pulumi.set(__self__, "validity_time_zone_id", validity_time_zone_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Actions allowed for the specified type.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of cloud applications to which the cloud app control rule must be applied
-        				Use the data source get_cloud_applications to get the list of available cloud applications:
-        				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        """
-        return pulumi.get(self, "applications")
-
-    @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "applications", value)
-
-    @_builtins.property
-    @pulumi.getter(name="browserEunTemplateId")
-    def browser_eun_template_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "browser_eun_template_id")
-
-    @browser_eun_template_id.setter
-    def browser_eun_template_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "browser_eun_template_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cascadingEnabled")
-    def cascading_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        """
-        return pulumi.get(self, "cascading_enabled")
-
-    @cascading_enabled.setter
-    def cascading_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "cascading_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cbiProfiles")
-    def cbi_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]:
-        return pulumi.get(self, "cbi_profiles")
-
-    @cbi_profiles.setter
-    def cbi_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCbiProfileArgs']]]]):
-        pulumi.set(self, "cbi_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudAppInstances")
-    def cloud_app_instances(self) -> Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]:
-        """
-        The cloud application instance ID.
-        """
-        return pulumi.get(self, "cloud_app_instances")
-
-    @cloud_app_instances.setter
-    def cloud_app_instances(self, value: Optional[pulumi.Input['CloudAppControlRuleCloudAppInstancesArgs']]):
-        pulumi.set(self, "cloud_app_instances", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudAppRiskProfiles")
-    def cloud_app_risk_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]]:
-        """
-        The DLP server, using ICAP, to which the transaction content is forwarded.
-        """
-        return pulumi.get(self, "cloud_app_risk_profiles")
-
-    @cloud_app_risk_profiles.setter
-    def cloud_app_risk_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAppControlRuleCloudAppRiskProfileArgs']]]]):
-        pulumi.set(self, "cloud_app_risk_profiles", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
-        return pulumi.get(self, "departments")
-
-    @departments.setter
-    def departments(self, value: Optional[pulumi.Input['CloudAppControlRuleDepartmentsArgs']]):
-        pulumi.set(self, "departments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the forwarding rule
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
-        return pulumi.get(self, "device_groups")
-
-    @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['CloudAppControlRuleDeviceGroupsArgs']]):
-        pulumi.set(self, "device_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceTrustLevels")
-    def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
-        return pulumi.get(self, "device_trust_levels")
-
-    @device_trust_levels.setter
-    def device_trust_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "device_trust_levels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
-        return pulumi.get(self, "devices")
-
-    @devices.setter
-    def devices(self, value: Optional[pulumi.Input['CloudAppControlRuleDevicesArgs']]):
-        pulumi.set(self, "devices", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enforceTimeValidity")
-    def enforce_time_validity(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enforce a set a validity time period for the URL Filtering rule.
-        """
-        return pulumi.get(self, "enforce_time_validity")
-
-    @enforce_time_validity.setter
-    def enforce_time_validity(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enforce_time_validity", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eunEnabled")
-    def eun_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "eun_enabled")
-
-    @eun_enabled.setter
-    def eun_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "eun_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eunTemplateId")
-    def eun_template_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "eun_template_id")
-
-    @eun_template_id.setter
-    def eun_template_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "eun_template_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input['CloudAppControlRuleGroupsArgs']]):
-        pulumi.set(self, "groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']]:
-        """
-        The URL Filtering rule's label.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input['CloudAppControlRuleLabelsArgs']]):
-        pulumi.set(self, "labels", value)
-
-    @_builtins.property
-    @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']]:
-        """
-        Name-ID pairs of the location groups to which the rule must be applied.
-        """
-        return pulumi.get(self, "location_groups")
-
-    @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['CloudAppControlRuleLocationGroupsArgs']]):
-        pulumi.set(self, "location_groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']]:
-        """
-        Name-ID pairs of locations for which rule must be applied
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: Optional[pulumi.Input['CloudAppControlRuleLocationsArgs']]):
-        pulumi.set(self, "locations", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the forwarding rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The order of execution for the forwarding rule order
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "order", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A unique identifier assigned to the forwarding rule
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rule_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sizeQuota")
-    def size_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
-        return pulumi.get(self, "size_quota")
-
-    @size_quota.setter
-    def size_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "size_quota", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenancyProfileIds")
-    def tenancy_profile_ids(self) -> Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
-        return pulumi.get(self, "tenancy_profile_ids")
-
-    @tenancy_profile_ids.setter
-    def tenancy_profile_ids(self, value: Optional[pulumi.Input['CloudAppControlRuleTenancyProfileIdsArgs']]):
-        pulumi.set(self, "tenancy_profile_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeQuota")
-    def time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
-        return pulumi.get(self, "time_quota")
-
-    @time_quota.setter
-    def time_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "time_quota", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']]:
-        """
-        Name-ID pairs of time interval during which rule must be enforced.
-        """
-        return pulumi.get(self, "time_windows")
-
-    @time_windows.setter
-    def time_windows(self, value: Optional[pulumi.Input['CloudAppControlRuleTimeWindowsArgs']]):
-        pulumi.set(self, "time_windows", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Supported App Control Types
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userAgentTypes")
-    def user_agent_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Supported User Agent Types
-        """
-        return pulumi.get(self, "user_agent_types")
-
-    @user_agent_types.setter
-    def user_agent_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_agent_types", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userRiskScoreLevels")
-    def user_risk_score_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "user_risk_score_levels")
-
-    @user_risk_score_levels.setter
-    def user_risk_score_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "user_risk_score_levels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['CloudAppControlRuleUsersArgs']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input['CloudAppControlRuleUsersArgs']]):
-        pulumi.set(self, "users", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validityEndTime")
-    def validity_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        """
-        return pulumi.get(self, "validity_end_time")
-
-    @validity_end_time.setter
-    def validity_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_end_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validityStartTime")
-    def validity_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        """
-        return pulumi.get(self, "validity_start_time")
-
-    @validity_start_time.setter
-    def validity_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_start_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validityTimeZoneId")
-    def validity_time_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-        """
-        return pulumi.get(self, "validity_time_zone_id")
-
-    @validity_time_zone_id.setter
-    def validity_time_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "validity_time_zone_id", value)
-
-
-@pulumi.type_token("zia:index/cloudAppControlRule:CloudAppControlRule")
+@pulumi.type_token("zia:index:CloudAppControlRule")
 class CloudAppControlRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -1115,145 +357,34 @@ class CloudAppControlRule(pulumi.CustomResource):
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  browser_eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
                  cascading_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
-                 cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
-                 cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
-                 departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
+                 cbi_profile: Optional[pulumi.Input[Union['CBIProfileInputArgs', 'CBIProfileInputArgsDict']]] = None,
+                 cloud_app_risk_profile_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_groups: Optional[pulumi.Input[Union['CloudAppControlRuleDeviceGroupsArgs', 'CloudAppControlRuleDeviceGroupsArgsDict']]] = None,
-                 device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input[Union['CloudAppControlRuleDevicesArgs', 'CloudAppControlRuleDevicesArgsDict']]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enforce_time_validity: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input[Union['CloudAppControlRuleGroupsArgs', 'CloudAppControlRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['CloudAppControlRuleLabelsArgs', 'CloudAppControlRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['CloudAppControlRuleLocationGroupsArgs', 'CloudAppControlRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['CloudAppControlRuleLocationsArgs', 'CloudAppControlRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  size_quota: Optional[pulumi.Input[_builtins.int]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenancy_profile_ids: Optional[pulumi.Input[Union['CloudAppControlRuleTenancyProfileIdsArgs', 'CloudAppControlRuleTenancyProfileIdsArgsDict']]] = None,
+                 tenancy_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_windows: Optional[pulumi.Input[Union['CloudAppControlRuleTimeWindowsArgs', 'CloudAppControlRuleTimeWindowsArgsDict']]] = None,
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_agent_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_risk_score_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Union['CloudAppControlRuleUsersArgs', 'CloudAppControlRuleUsersArgsDict']]] = None,
-                 validity_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
-        * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
-
-        The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
-
-        **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
-
-        ## Example Usage
-
-        ### Using Data Source For Actions (Recommended)
-
-        ### AI/ML Application Control
-
-        ### File Sharing Controls
-
-        ### Cloud Browser Isolation (ISOLATE Actions)
-
-        ISOLATE actions require Cloud Browser Isolation subscription and must be used alone (cannot mix with other actions):
-
-        ### Filtered Actions (ALLOW Only)
-
-        ### With Time Validity
-
-        ## Important Notes
-
-        ### Using the Data Source for Actions
-
-        **Best Practice**: Always use the `get_cloud_app_control_rule_actions` data source to retrieve valid actions for your applications. The data source automatically handles:
-
-        * Application-specific action support
-        * Action intersections when multiple applications are configured
-        * Separation of ISOLATE actions from standard actions
-
-        ### ISOLATE Actions Requirements
-
-        When using ISOLATE actions:
-
-        * ISOLATE actions **cannot be mixed** with other action types (ALLOW, DENY, BLOCK, CAUTION)
-        * ISOLATE actions **require** `cbi_profile` block with a valid Cloud Browser Isolation profile
-        * ISOLATE actions **cannot** have `browser_eun_template_id` set
-        * Create separate rules for ISOLATE vs non-ISOLATE actions
-
-        ### Multiple Applications
-
-        When configuring multiple applications in a single rule, only actions supported by ALL applications are valid. The data source automatically computes this intersection when you specify multiple cloud_apps.
-
-        ### Action Validation
-
-        The resource validates actions during `pulumi preview`. If invalid actions are detected, an error message will show:
-
-        * Which actions are invalid
-
-        * List of valid actions for your configuration
-        * Suggestion to use the data source
-
-        For more information, see the get_cloud_app_control_rule_actions data source documentation.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZPA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        Policy access rule can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <rule_type:rule_id>
-        ```
-
-        ```sh
-        $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <"rule_type:rule_name">
-        ```
-
+        Create a CloudAppControlRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions allowed for the specified type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: The list of cloud applications to which the cloud app control rule must be applied
-               				Use the data source get_cloud_applications to get the list of available cloud applications:
-               				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        :param pulumi.Input[_builtins.bool] cascading_enabled: Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        :param pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']] cloud_app_instances: The cloud application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding rule
-        :param pulumi.Input[Union['CloudAppControlRuleDeviceGroupsArgs', 'CloudAppControlRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['CloudAppControlRuleDevicesArgs', 'CloudAppControlRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set a validity time period for the URL Filtering rule.
-        :param pulumi.Input[Union['CloudAppControlRuleGroupsArgs', 'CloudAppControlRuleGroupsArgsDict']] groups: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[Union['CloudAppControlRuleLabelsArgs', 'CloudAppControlRuleLabelsArgsDict']] labels: The URL Filtering rule's label.
-        :param pulumi.Input[Union['CloudAppControlRuleLocationGroupsArgs', 'CloudAppControlRuleLocationGroupsArgsDict']] location_groups: Name-ID pairs of the location groups to which the rule must be applied.
-        :param pulumi.Input[Union['CloudAppControlRuleLocationsArgs', 'CloudAppControlRuleLocationsArgsDict']] locations: Name-ID pairs of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: The name of the forwarding rule
-        :param pulumi.Input[_builtins.int] order: The order of execution for the forwarding rule order
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input[Union['CloudAppControlRuleTenancyProfileIdsArgs', 'CloudAppControlRuleTenancyProfileIdsArgsDict']] tenancy_profile_ids: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[Union['CloudAppControlRuleTimeWindowsArgs', 'CloudAppControlRuleTimeWindowsArgsDict']] time_windows: Name-ID pairs of time interval during which rule must be enforced.
-        :param pulumi.Input[_builtins.str] type: Supported App Control Types
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: Supported User Agent Types
-        :param pulumi.Input[Union['CloudAppControlRuleUsersArgs', 'CloudAppControlRuleUsersArgsDict']] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
         """
         ...
     @overload
@@ -1262,80 +393,7 @@ class CloudAppControlRule(pulumi.CustomResource):
                  args: CloudAppControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
-        * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
-
-        The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
-
-        **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
-
-        ## Example Usage
-
-        ### Using Data Source For Actions (Recommended)
-
-        ### AI/ML Application Control
-
-        ### File Sharing Controls
-
-        ### Cloud Browser Isolation (ISOLATE Actions)
-
-        ISOLATE actions require Cloud Browser Isolation subscription and must be used alone (cannot mix with other actions):
-
-        ### Filtered Actions (ALLOW Only)
-
-        ### With Time Validity
-
-        ## Important Notes
-
-        ### Using the Data Source for Actions
-
-        **Best Practice**: Always use the `get_cloud_app_control_rule_actions` data source to retrieve valid actions for your applications. The data source automatically handles:
-
-        * Application-specific action support
-        * Action intersections when multiple applications are configured
-        * Separation of ISOLATE actions from standard actions
-
-        ### ISOLATE Actions Requirements
-
-        When using ISOLATE actions:
-
-        * ISOLATE actions **cannot be mixed** with other action types (ALLOW, DENY, BLOCK, CAUTION)
-        * ISOLATE actions **require** `cbi_profile` block with a valid Cloud Browser Isolation profile
-        * ISOLATE actions **cannot** have `browser_eun_template_id` set
-        * Create separate rules for ISOLATE vs non-ISOLATE actions
-
-        ### Multiple Applications
-
-        When configuring multiple applications in a single rule, only actions supported by ALL applications are valid. The data source automatically computes this intersection when you specify multiple cloud_apps.
-
-        ### Action Validation
-
-        The resource validates actions during `pulumi preview`. If invalid actions are detected, an error message will show:
-
-        * Which actions are invalid
-
-        * List of valid actions for your configuration
-        * Suggestion to use the data source
-
-        For more information, see the get_cloud_app_control_rule_actions data source documentation.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZPA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        Policy access rule can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <rule_type:rule_id>
-        ```
-
-        ```sh
-        $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <"rule_type:rule_name">
-        ```
-
+        Create a CloudAppControlRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudAppControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1355,36 +413,29 @@ class CloudAppControlRule(pulumi.CustomResource):
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  browser_eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
                  cascading_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
-                 cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
-                 cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
-                 departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
+                 cbi_profile: Optional[pulumi.Input[Union['CBIProfileInputArgs', 'CBIProfileInputArgsDict']]] = None,
+                 cloud_app_risk_profile_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_groups: Optional[pulumi.Input[Union['CloudAppControlRuleDeviceGroupsArgs', 'CloudAppControlRuleDeviceGroupsArgsDict']]] = None,
-                 device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input[Union['CloudAppControlRuleDevicesArgs', 'CloudAppControlRuleDevicesArgsDict']]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enforce_time_validity: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 groups: Optional[pulumi.Input[Union['CloudAppControlRuleGroupsArgs', 'CloudAppControlRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['CloudAppControlRuleLabelsArgs', 'CloudAppControlRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['CloudAppControlRuleLocationGroupsArgs', 'CloudAppControlRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['CloudAppControlRuleLocationsArgs', 'CloudAppControlRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  size_quota: Optional[pulumi.Input[_builtins.int]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenancy_profile_ids: Optional[pulumi.Input[Union['CloudAppControlRuleTenancyProfileIdsArgs', 'CloudAppControlRuleTenancyProfileIdsArgsDict']]] = None,
+                 tenancy_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_windows: Optional[pulumi.Input[Union['CloudAppControlRuleTimeWindowsArgs', 'CloudAppControlRuleTimeWindowsArgsDict']]] = None,
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_agent_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_risk_score_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Union['CloudAppControlRuleUsersArgs', 'CloudAppControlRuleUsersArgsDict']]] = None,
-                 validity_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity_time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1398,13 +449,11 @@ class CloudAppControlRule(pulumi.CustomResource):
             __props__.__dict__["applications"] = applications
             __props__.__dict__["browser_eun_template_id"] = browser_eun_template_id
             __props__.__dict__["cascading_enabled"] = cascading_enabled
-            __props__.__dict__["cbi_profiles"] = cbi_profiles
-            __props__.__dict__["cloud_app_instances"] = cloud_app_instances
-            __props__.__dict__["cloud_app_risk_profiles"] = cloud_app_risk_profiles
+            __props__.__dict__["cbi_profile"] = cbi_profile
+            __props__.__dict__["cloud_app_risk_profile_id"] = cloud_app_risk_profile_id
             __props__.__dict__["departments"] = departments
             __props__.__dict__["description"] = description
             __props__.__dict__["device_groups"] = device_groups
-            __props__.__dict__["device_trust_levels"] = device_trust_levels
             __props__.__dict__["devices"] = devices
             __props__.__dict__["enforce_time_validity"] = enforce_time_validity
             __props__.__dict__["eun_enabled"] = eun_enabled
@@ -1413,6 +462,8 @@ class CloudAppControlRule(pulumi.CustomResource):
             __props__.__dict__["labels"] = labels
             __props__.__dict__["location_groups"] = location_groups
             __props__.__dict__["locations"] = locations
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
@@ -1423,16 +474,13 @@ class CloudAppControlRule(pulumi.CustomResource):
             __props__.__dict__["tenancy_profile_ids"] = tenancy_profile_ids
             __props__.__dict__["time_quota"] = time_quota
             __props__.__dict__["time_windows"] = time_windows
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-            __props__.__dict__["user_agent_types"] = user_agent_types
-            __props__.__dict__["user_risk_score_levels"] = user_risk_score_levels
             __props__.__dict__["users"] = users
-            __props__.__dict__["validity_end_time"] = validity_end_time
-            __props__.__dict__["validity_start_time"] = validity_start_time
-            __props__.__dict__["validity_time_zone_id"] = validity_time_zone_id
             __props__.__dict__["rule_id"] = None
         super(CloudAppControlRule, __self__).__init__(
-            'zia:index/cloudAppControlRule:CloudAppControlRule',
+            'zia:index:CloudAppControlRule',
             resource_name,
             __props__,
             opts)
@@ -1440,42 +488,7 @@ class CloudAppControlRule(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            browser_eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-            cascading_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            cbi_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCbiProfileArgs', 'CloudAppControlRuleCbiProfileArgsDict']]]]] = None,
-            cloud_app_instances: Optional[pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']]] = None,
-            cloud_app_risk_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]]] = None,
-            departments: Optional[pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            device_groups: Optional[pulumi.Input[Union['CloudAppControlRuleDeviceGroupsArgs', 'CloudAppControlRuleDeviceGroupsArgsDict']]] = None,
-            device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            devices: Optional[pulumi.Input[Union['CloudAppControlRuleDevicesArgs', 'CloudAppControlRuleDevicesArgsDict']]] = None,
-            enforce_time_validity: Optional[pulumi.Input[_builtins.bool]] = None,
-            eun_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            eun_template_id: Optional[pulumi.Input[_builtins.int]] = None,
-            groups: Optional[pulumi.Input[Union['CloudAppControlRuleGroupsArgs', 'CloudAppControlRuleGroupsArgsDict']]] = None,
-            labels: Optional[pulumi.Input[Union['CloudAppControlRuleLabelsArgs', 'CloudAppControlRuleLabelsArgsDict']]] = None,
-            location_groups: Optional[pulumi.Input[Union['CloudAppControlRuleLocationGroupsArgs', 'CloudAppControlRuleLocationGroupsArgsDict']]] = None,
-            locations: Optional[pulumi.Input[Union['CloudAppControlRuleLocationsArgs', 'CloudAppControlRuleLocationsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            rank: Optional[pulumi.Input[_builtins.int]] = None,
-            rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-            size_quota: Optional[pulumi.Input[_builtins.int]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tenancy_profile_ids: Optional[pulumi.Input[Union['CloudAppControlRuleTenancyProfileIdsArgs', 'CloudAppControlRuleTenancyProfileIdsArgsDict']]] = None,
-            time_quota: Optional[pulumi.Input[_builtins.int]] = None,
-            time_windows: Optional[pulumi.Input[Union['CloudAppControlRuleTimeWindowsArgs', 'CloudAppControlRuleTimeWindowsArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_agent_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_risk_score_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            users: Optional[pulumi.Input[Union['CloudAppControlRuleUsersArgs', 'CloudAppControlRuleUsersArgsDict']]] = None,
-            validity_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            validity_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            validity_time_zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'CloudAppControlRule':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'CloudAppControlRule':
         """
         Get an existing CloudAppControlRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1483,96 +496,49 @@ class CloudAppControlRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions allowed for the specified type.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: The list of cloud applications to which the cloud app control rule must be applied
-               				Use the data source get_cloud_applications to get the list of available cloud applications:
-               				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        :param pulumi.Input[_builtins.bool] cascading_enabled: Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        :param pulumi.Input[Union['CloudAppControlRuleCloudAppInstancesArgs', 'CloudAppControlRuleCloudAppInstancesArgsDict']] cloud_app_instances: The cloud application instance ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudAppControlRuleCloudAppRiskProfileArgs', 'CloudAppControlRuleCloudAppRiskProfileArgsDict']]]] cloud_app_risk_profiles: The DLP server, using ICAP, to which the transaction content is forwarded.
-        :param pulumi.Input[Union['CloudAppControlRuleDepartmentsArgs', 'CloudAppControlRuleDepartmentsArgsDict']] departments: Name-ID pairs of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding rule
-        :param pulumi.Input[Union['CloudAppControlRuleDeviceGroupsArgs', 'CloudAppControlRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['CloudAppControlRuleDevicesArgs', 'CloudAppControlRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set a validity time period for the URL Filtering rule.
-        :param pulumi.Input[Union['CloudAppControlRuleGroupsArgs', 'CloudAppControlRuleGroupsArgsDict']] groups: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[Union['CloudAppControlRuleLabelsArgs', 'CloudAppControlRuleLabelsArgsDict']] labels: The URL Filtering rule's label.
-        :param pulumi.Input[Union['CloudAppControlRuleLocationGroupsArgs', 'CloudAppControlRuleLocationGroupsArgsDict']] location_groups: Name-ID pairs of the location groups to which the rule must be applied.
-        :param pulumi.Input[Union['CloudAppControlRuleLocationsArgs', 'CloudAppControlRuleLocationsArgsDict']] locations: Name-ID pairs of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: The name of the forwarding rule
-        :param pulumi.Input[_builtins.int] order: The order of execution for the forwarding rule order
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] rule_id: A unique identifier assigned to the forwarding rule
-        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input[Union['CloudAppControlRuleTenancyProfileIdsArgs', 'CloudAppControlRuleTenancyProfileIdsArgsDict']] tenancy_profile_ids: Name-ID pairs of groups for which rule must be applied
-        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        :param pulumi.Input[Union['CloudAppControlRuleTimeWindowsArgs', 'CloudAppControlRuleTimeWindowsArgsDict']] time_windows: Name-ID pairs of time interval during which rule must be enforced.
-        :param pulumi.Input[_builtins.str] type: Supported App Control Types
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: Supported User Agent Types
-        :param pulumi.Input[Union['CloudAppControlRuleUsersArgs', 'CloudAppControlRuleUsersArgsDict']] users: Name-ID pairs of users for which rule must be applied
-        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _CloudAppControlRuleState.__new__(_CloudAppControlRuleState)
+        __props__ = CloudAppControlRuleArgs.__new__(CloudAppControlRuleArgs)
 
-        __props__.__dict__["actions"] = actions
-        __props__.__dict__["applications"] = applications
-        __props__.__dict__["browser_eun_template_id"] = browser_eun_template_id
-        __props__.__dict__["cascading_enabled"] = cascading_enabled
-        __props__.__dict__["cbi_profiles"] = cbi_profiles
-        __props__.__dict__["cloud_app_instances"] = cloud_app_instances
-        __props__.__dict__["cloud_app_risk_profiles"] = cloud_app_risk_profiles
-        __props__.__dict__["departments"] = departments
-        __props__.__dict__["description"] = description
-        __props__.__dict__["device_groups"] = device_groups
-        __props__.__dict__["device_trust_levels"] = device_trust_levels
-        __props__.__dict__["devices"] = devices
-        __props__.__dict__["enforce_time_validity"] = enforce_time_validity
-        __props__.__dict__["eun_enabled"] = eun_enabled
-        __props__.__dict__["eun_template_id"] = eun_template_id
-        __props__.__dict__["groups"] = groups
-        __props__.__dict__["labels"] = labels
-        __props__.__dict__["location_groups"] = location_groups
-        __props__.__dict__["locations"] = locations
-        __props__.__dict__["name"] = name
-        __props__.__dict__["order"] = order
-        __props__.__dict__["rank"] = rank
-        __props__.__dict__["rule_id"] = rule_id
-        __props__.__dict__["size_quota"] = size_quota
-        __props__.__dict__["state"] = state
-        __props__.__dict__["tenancy_profile_ids"] = tenancy_profile_ids
-        __props__.__dict__["time_quota"] = time_quota
-        __props__.__dict__["time_windows"] = time_windows
-        __props__.__dict__["type"] = type
-        __props__.__dict__["user_agent_types"] = user_agent_types
-        __props__.__dict__["user_risk_score_levels"] = user_risk_score_levels
-        __props__.__dict__["users"] = users
-        __props__.__dict__["validity_end_time"] = validity_end_time
-        __props__.__dict__["validity_start_time"] = validity_start_time
-        __props__.__dict__["validity_time_zone_id"] = validity_time_zone_id
+        __props__.__dict__["actions"] = None
+        __props__.__dict__["applications"] = None
+        __props__.__dict__["browser_eun_template_id"] = None
+        __props__.__dict__["cascading_enabled"] = None
+        __props__.__dict__["cbi_profile"] = None
+        __props__.__dict__["cloud_app_risk_profile_id"] = None
+        __props__.__dict__["departments"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["device_groups"] = None
+        __props__.__dict__["devices"] = None
+        __props__.__dict__["enforce_time_validity"] = None
+        __props__.__dict__["eun_enabled"] = None
+        __props__.__dict__["eun_template_id"] = None
+        __props__.__dict__["groups"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["location_groups"] = None
+        __props__.__dict__["locations"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["order"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["rule_id"] = None
+        __props__.__dict__["size_quota"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tenancy_profile_ids"] = None
+        __props__.__dict__["time_quota"] = None
+        __props__.__dict__["time_windows"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["users"] = None
         return CloudAppControlRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Actions allowed for the specified type.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The list of cloud applications to which the cloud app control rule must be applied
-        				Use the data source get_cloud_applications to get the list of available cloud applications:
-        				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-        """
         return pulumi.get(self, "applications")
 
     @_builtins.property
@@ -1583,78 +549,41 @@ class CloudAppControlRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cascadingEnabled")
     def cascading_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-        """
         return pulumi.get(self, "cascading_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="cbiProfiles")
-    def cbi_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.CloudAppControlRuleCbiProfile']]]:
-        return pulumi.get(self, "cbi_profiles")
+    @pulumi.getter(name="cbiProfile")
+    def cbi_profile(self) -> pulumi.Output[Optional['outputs.CBIProfileInput']]:
+        return pulumi.get(self, "cbi_profile")
 
     @_builtins.property
-    @pulumi.getter(name="cloudAppInstances")
-    def cloud_app_instances(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleCloudAppInstances']]:
-        """
-        The cloud application instance ID.
-        """
-        return pulumi.get(self, "cloud_app_instances")
-
-    @_builtins.property
-    @pulumi.getter(name="cloudAppRiskProfiles")
-    def cloud_app_risk_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.CloudAppControlRuleCloudAppRiskProfile']]]:
-        """
-        The DLP server, using ICAP, to which the transaction content is forwarded.
-        """
-        return pulumi.get(self, "cloud_app_risk_profiles")
+    @pulumi.getter(name="cloudAppRiskProfileId")
+    def cloud_app_risk_profile_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "cloud_app_risk_profile_id")
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleDepartments']]:
-        """
-        Name-ID pairs of departments for which rule must be applied
-        """
+    def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Additional information about the forwarding rule
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleDeviceGroups']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
+    def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
-    @pulumi.getter(name="deviceTrustLevels")
-    def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
-        return pulumi.get(self, "device_trust_levels")
-
-    @_builtins.property
     @pulumi.getter
-    def devices(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleDevices']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
+    def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="enforceTimeValidity")
     def enforce_time_validity(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enforce a set a validity time period for the URL Filtering rule.
-        """
         return pulumi.get(self, "enforce_time_validity")
 
     @_builtins.property
@@ -1669,158 +598,76 @@ class CloudAppControlRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleGroups']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
+    def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleLabels']]:
-        """
-        The URL Filtering rule's label.
-        """
+    def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleLocationGroups']]:
-        """
-        Name-ID pairs of the location groups to which the rule must be applied.
-        """
+    def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleLocations']]:
-        """
-        Name-ID pairs of locations for which rule must be applied
-        """
+    def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the forwarding rule
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
-        """
-        The order of execution for the forwarding rule order
-        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        A unique identifier assigned to the forwarding rule
-        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
         return pulumi.get(self, "size_quota")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="tenancyProfileIds")
-    def tenancy_profile_ids(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleTenancyProfileIds']]:
-        """
-        Name-ID pairs of groups for which rule must be applied
-        """
+    def tenancy_profile_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "tenancy_profile_ids")
 
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-        """
         return pulumi.get(self, "time_quota")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleTimeWindows']]:
-        """
-        Name-ID pairs of time interval during which rule must be enforced.
-        """
+    def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Supported App Control Types
-        """
+    def type(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "type")
 
     @_builtins.property
-    @pulumi.getter(name="userAgentTypes")
-    def user_agent_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Supported User Agent Types
-        """
-        return pulumi.get(self, "user_agent_types")
-
-    @_builtins.property
-    @pulumi.getter(name="userRiskScoreLevels")
-    def user_risk_score_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        return pulumi.get(self, "user_risk_score_levels")
-
-    @_builtins.property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional['outputs.CloudAppControlRuleUsers']]:
-        """
-        Name-ID pairs of users for which rule must be applied
-        """
+    def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "users")
-
-    @_builtins.property
-    @pulumi.getter(name="validityEndTime")
-    def validity_end_time(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-        """
-        return pulumi.get(self, "validity_end_time")
-
-    @_builtins.property
-    @pulumi.getter(name="validityStartTime")
-    def validity_start_time(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-        """
-        return pulumi.get(self, "validity_start_time")
-
-    @_builtins.property
-    @pulumi.getter(name="validityTimeZoneId")
-    def validity_time_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-        """
-        return pulumi.get(self, "validity_time_zone_id")
 

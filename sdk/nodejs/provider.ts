@@ -4,12 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * The provider type for the zia package. By default, resources use package-wide configuration
- * settings, however an explicit `Provider` instance may be created and passed during resource
- * construction to achieve fine-grained programmatic control over provider settings. See the
- * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
- */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
     public static readonly __pulumiType = 'zia';
@@ -26,41 +20,17 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     declare public readonly apiKey: pulumi.Output<string | undefined>;
-    /**
-     * zpa client id
-     */
     declare public readonly clientId: pulumi.Output<string | undefined>;
-    /**
-     * zpa client secret
-     */
     declare public readonly clientSecret: pulumi.Output<string | undefined>;
-    /**
-     * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-     */
+    declare public readonly cloud: pulumi.Output<string | undefined>;
     declare public readonly httpProxy: pulumi.Output<string | undefined>;
     declare public readonly password: pulumi.Output<string | undefined>;
-    /**
-     * zpa private key
-     */
     declare public readonly privateKey: pulumi.Output<string | undefined>;
-    /**
-     * Zscaler Sandbox Cloud
-     */
     declare public readonly sandboxCloud: pulumi.Output<string | undefined>;
-    /**
-     * Zscaler Sandbox Token
-     */
     declare public readonly sandboxToken: pulumi.Output<string | undefined>;
     declare public readonly username: pulumi.Output<string | undefined>;
-    /**
-     * Zscaler Vanity Domain
-     */
     declare public readonly vanityDomain: pulumi.Output<string | undefined>;
     declare public readonly ziaCloud: pulumi.Output<string | undefined>;
-    /**
-     * Zscaler Cloud Name
-     */
-    declare public readonly zscalerCloud: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -73,36 +43,26 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiKey"] = (args?.apiKey ? pulumi.secret(args.apiKey) : undefined) ?? utilities.getEnv("ZIA_API_KEY");
-            resourceInputs["clientId"] = (args?.clientId) ?? utilities.getEnv("ZSCALER_CLIENT_ID");
-            resourceInputs["clientSecret"] = (args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined) ?? utilities.getEnv("ZSCALER_CLIENT_SECRET");
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["cloud"] = args?.cloud ? pulumi.secret(args.cloud) : undefined;
             resourceInputs["httpProxy"] = args?.httpProxy;
             resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
-            resourceInputs["parallelism"] = pulumi.output(args?.parallelism).apply(JSON.stringify);
-            resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("ZIA_PASSWORD");
-            resourceInputs["privateKey"] = (args?.privateKey ? pulumi.secret(args.privateKey) : undefined) ?? utilities.getEnv("ZSCALER_PRIVATE_KEY");
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["requestTimeout"] = pulumi.output(args?.requestTimeout).apply(JSON.stringify);
-            resourceInputs["sandboxCloud"] = (args?.sandboxCloud ? pulumi.secret(args.sandboxCloud) : undefined) ?? utilities.getEnv("ZSCALER_SANDBOX_CLOUD");
-            resourceInputs["sandboxToken"] = (args?.sandboxToken ? pulumi.secret(args.sandboxToken) : undefined) ?? utilities.getEnv("ZSCALER_SANDBOX_TOKEN");
-            resourceInputs["useLegacyClient"] = pulumi.output((args?.useLegacyClient) ?? utilities.getEnvBoolean("ZSCALER_USE_LEGACY_CLIENT")).apply(JSON.stringify);
-            resourceInputs["username"] = (args?.username) ?? utilities.getEnv("ZIA_USERNAME");
-            resourceInputs["vanityDomain"] = (args?.vanityDomain ? pulumi.secret(args.vanityDomain) : undefined) ?? utilities.getEnv("ZSCALER_VANITY_DOMAIN");
-            resourceInputs["ziaCloud"] = (args?.ziaCloud) ?? utilities.getEnv("ZIA_CLOUD");
-            resourceInputs["zscalerCloud"] = (args?.zscalerCloud ? pulumi.secret(args.zscalerCloud) : undefined) ?? utilities.getEnv("ZSCALER_CLOUD");
+            resourceInputs["sandboxCloud"] = args?.sandboxCloud ? pulumi.secret(args.sandboxCloud) : undefined;
+            resourceInputs["sandboxToken"] = args?.sandboxToken ? pulumi.secret(args.sandboxToken) : undefined;
+            resourceInputs["useLegacyClient"] = pulumi.output(args?.useLegacyClient).apply(JSON.stringify);
+            resourceInputs["username"] = args?.username;
+            resourceInputs["vanityDomain"] = args?.vanityDomain ? pulumi.secret(args.vanityDomain) : undefined;
+            resourceInputs["ziaCloud"] = args?.ziaCloud;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "clientSecret", "password", "privateKey", "sandboxCloud", "sandboxToken", "vanityDomain", "zscalerCloud"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "clientSecret", "cloud", "password", "privateKey", "sandboxCloud", "sandboxToken", "vanityDomain"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
-    }
-
-    /**
-     * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
-     */
-    terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
-        return pulumi.runtime.call("pulumi:providers:zia/terraformConfig", {
-            "__self__": this,
-        }, this);
     }
 }
 
@@ -111,62 +71,18 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     apiKey?: pulumi.Input<string>;
-    /**
-     * zpa client id
-     */
     clientId?: pulumi.Input<string>;
-    /**
-     * zpa client secret
-     */
     clientSecret?: pulumi.Input<string>;
-    /**
-     * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-     */
+    cloud?: pulumi.Input<string>;
     httpProxy?: pulumi.Input<string>;
-    /**
-     * maximum number of retries to attempt before erroring out.
-     */
     maxRetries?: pulumi.Input<number>;
-    /**
-     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-     */
-    parallelism?: pulumi.Input<number>;
     password?: pulumi.Input<string>;
-    /**
-     * zpa private key
-     */
     privateKey?: pulumi.Input<string>;
-    /**
-     * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-     */
     requestTimeout?: pulumi.Input<number>;
-    /**
-     * Zscaler Sandbox Cloud
-     */
     sandboxCloud?: pulumi.Input<string>;
-    /**
-     * Zscaler Sandbox Token
-     */
     sandboxToken?: pulumi.Input<string>;
     useLegacyClient?: pulumi.Input<boolean>;
     username?: pulumi.Input<string>;
-    /**
-     * Zscaler Vanity Domain
-     */
     vanityDomain?: pulumi.Input<string>;
     ziaCloud?: pulumi.Input<string>;
-    /**
-     * Zscaler Cloud Name
-     */
-    zscalerCloud?: pulumi.Input<string>;
-}
-
-export namespace Provider {
-    /**
-     * The results of the Provider.terraformConfig method.
-     */
-    export interface TerraformConfigResult {
-        readonly result: {[key: string]: any};
-    }
-
 }

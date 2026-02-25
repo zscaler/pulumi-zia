@@ -1,0 +1,20 @@
+name: atp-malicious-urls-e2e
+runtime: yaml
+description: E2E test for zia:index:AtpMaliciousUrls resource
+
+config:
+  maliciousUrls:
+    type: array
+    items:
+      type: string
+    default: [".example.com", ".test.com"]
+
+resources:
+  atpMaliciousUrls:
+    type: zia:index:AtpMaliciousUrls
+    properties:
+      maliciousUrls: ${maliciousUrls}
+
+outputs:
+  resourceId: ${atpMaliciousUrls.resourceId}
+  maliciousUrls: ${atpMaliciousUrls.maliciousUrls}

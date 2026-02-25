@@ -1,0 +1,30 @@
+name: bandwidth-classes-web-conferencing-e2e
+runtime: yaml
+description: E2E test for zia:index:BandwidthClassWebConferencing resource
+
+config:
+  name:
+    type: string
+    default: "BANDWIDTH_CAT_VOIP"
+  type:
+    type: string
+    default: "BANDWIDTH_CAT_VOIP"
+  applications:
+    type: array
+    items:
+      type: string
+    default: ["SKYPE"]
+
+resources:
+  bandwidthClassWebConferencing:
+    type: zia:index:BandwidthClassWebConferencing
+    properties:
+      name: ${name}
+      type: ${type}
+      applications: ${applications}
+
+outputs:
+  classId: ${bandwidthClassWebConferencing.classId}
+  name: ${bandwidthClassWebConferencing.name}
+  type: ${bandwidthClassWebConferencing.type}
+  applications: ${bandwidthClassWebConferencing.applications}

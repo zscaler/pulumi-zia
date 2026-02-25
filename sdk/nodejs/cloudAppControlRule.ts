@@ -6,81 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy)
- * * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/webApplicationRules/{rule_type}-get)
- *
- * The **zia_cloud_app_control_rule** resource allows the creation and management of ZIA Cloud Application Control rules in the Zscaler Internet Access.
- *
- * **NOTE** Resources or DataSources to retrieve Tenant Profile or Cloud Application Risk Profile ID information are not currently available.
- *
- * ## Example Usage
- *
- * ### Using Data Source For Actions (Recommended)
- *
- * ### AI/ML Application Control
- *
- * ### File Sharing Controls
- *
- * ### Cloud Browser Isolation (ISOLATE Actions)
- *
- * ISOLATE actions require Cloud Browser Isolation subscription and must be used alone (cannot mix with other actions):
- *
- * ### Filtered Actions (ALLOW Only)
- *
- * ### With Time Validity
- *
- * ## Important Notes
- *
- * ### Using the Data Source for Actions
- *
- * **Best Practice**: Always use the `zia.getCloudAppControlRuleActions` data source to retrieve valid actions for your applications. The data source automatically handles:
- *
- * * Application-specific action support
- * * Action intersections when multiple applications are configured
- * * Separation of ISOLATE actions from standard actions
- *
- * ### ISOLATE Actions Requirements
- *
- * When using ISOLATE actions:
- *
- * * ISOLATE actions **cannot be mixed** with other action types (ALLOW, DENY, BLOCK, CAUTION)
- * * ISOLATE actions **require** `cbiProfile` block with a valid Cloud Browser Isolation profile
- * * ISOLATE actions **cannot** have `browserEunTemplateId` set
- * * Create separate rules for ISOLATE vs non-ISOLATE actions
- *
- * ### Multiple Applications
- *
- * When configuring multiple applications in a single rule, only actions supported by ALL applications are valid. The data source automatically computes this intersection when you specify multiple cloud_apps.
- *
- * ### Action Validation
- *
- * The resource validates actions during `pulumi preview`. If invalid actions are detected, an error message will show:
- *
- * * Which actions are invalid
- *
- * * List of valid actions for your configuration
- * * Suggestion to use the data source
- *
- * For more information, see the zia.getCloudAppControlRuleActions data source documentation.
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZPA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * Policy access rule can be imported by using `<RULE_TYPE:RULE_ID>` or `<RULE_TYPE:RULE_NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <rule_type:rule_id>
- * ```
- *
- * ```sh
- * $ pulumi import zia:index/cloudAppControlRule:CloudAppControlRule this <"rule_type:rule_name">
- * ```
- */
 export class CloudAppControlRule extends pulumi.CustomResource {
     /**
      * Get an existing CloudAppControlRule resource's state with the given name, ID, and optional extra
@@ -88,15 +13,14 @@ export class CloudAppControlRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CloudAppControlRuleState, opts?: pulumi.CustomResourceOptions): CloudAppControlRule {
-        return new CloudAppControlRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CloudAppControlRule {
+        return new CloudAppControlRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/cloudAppControlRule:CloudAppControlRule';
+    public static readonly __pulumiType = 'zia:index:CloudAppControlRule';
 
     /**
      * Returns true if the given object is an instance of CloudAppControlRule.  This is designed to work even
@@ -109,133 +33,34 @@ export class CloudAppControlRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudAppControlRule.__pulumiType;
     }
 
-    /**
-     * Actions allowed for the specified type.
-     */
     declare public readonly actions: pulumi.Output<string[] | undefined>;
-    /**
-     * The list of cloud applications to which the cloud app control rule must be applied
-     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
-     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-     */
     declare public readonly applications: pulumi.Output<string[] | undefined>;
     declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
-    /**
-     * Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-     */
     declare public readonly cascadingEnabled: pulumi.Output<boolean | undefined>;
-    declare public readonly cbiProfiles: pulumi.Output<outputs.CloudAppControlRuleCbiProfile[] | undefined>;
-    /**
-     * The cloud application instance ID.
-     */
-    declare public readonly cloudAppInstances: pulumi.Output<outputs.CloudAppControlRuleCloudAppInstances | undefined>;
-    /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
-     */
-    declare public readonly cloudAppRiskProfiles: pulumi.Output<outputs.CloudAppControlRuleCloudAppRiskProfile[] | undefined>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    declare public readonly departments: pulumi.Output<outputs.CloudAppControlRuleDepartments | undefined>;
-    /**
-     * Additional information about the forwarding rule
-     */
+    declare public readonly cbiProfile: pulumi.Output<outputs.CBIProfileInput | undefined>;
+    declare public readonly cloudAppRiskProfileId: pulumi.Output<number | undefined>;
+    declare public readonly departments: pulumi.Output<number[] | undefined>;
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    declare public readonly deviceGroups: pulumi.Output<outputs.CloudAppControlRuleDeviceGroups | undefined>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
-    declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    declare public readonly devices: pulumi.Output<outputs.CloudAppControlRuleDevices | undefined>;
-    /**
-     * Enforce a set a validity time period for the URL Filtering rule.
-     */
+    declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly devices: pulumi.Output<number[] | undefined>;
     declare public readonly enforceTimeValidity: pulumi.Output<boolean | undefined>;
     declare public readonly eunEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly eunTemplateId: pulumi.Output<number | undefined>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    declare public readonly groups: pulumi.Output<outputs.CloudAppControlRuleGroups | undefined>;
-    /**
-     * The URL Filtering rule's label.
-     */
-    declare public readonly labels: pulumi.Output<outputs.CloudAppControlRuleLabels | undefined>;
-    /**
-     * Name-ID pairs of the location groups to which the rule must be applied.
-     */
-    declare public readonly locationGroups: pulumi.Output<outputs.CloudAppControlRuleLocationGroups | undefined>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    declare public readonly locations: pulumi.Output<outputs.CloudAppControlRuleLocations | undefined>;
-    /**
-     * The name of the forwarding rule
-     */
+    declare public readonly groups: pulumi.Output<number[] | undefined>;
+    declare public readonly labels: pulumi.Output<number[] | undefined>;
+    declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly locations: pulumi.Output<number[] | undefined>;
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The order of execution for the forwarding rule order
-     */
     declare public readonly order: pulumi.Output<number>;
-    /**
-     * Admin rank assigned to the forwarding rule
-     */
     declare public readonly rank: pulumi.Output<number | undefined>;
-    /**
-     * A unique identifier assigned to the forwarding rule
-     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
-    /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
     declare public readonly sizeQuota: pulumi.Output<number | undefined>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
     declare public readonly state: pulumi.Output<string | undefined>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    declare public readonly tenancyProfileIds: pulumi.Output<outputs.CloudAppControlRuleTenancyProfileIds | undefined>;
-    /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
+    declare public readonly tenancyProfileIds: pulumi.Output<number[] | undefined>;
     declare public readonly timeQuota: pulumi.Output<number | undefined>;
-    /**
-     * Name-ID pairs of time interval during which rule must be enforced.
-     */
-    declare public readonly timeWindows: pulumi.Output<outputs.CloudAppControlRuleTimeWindows | undefined>;
-    /**
-     * Supported App Control Types
-     */
-    declare public readonly type: pulumi.Output<string | undefined>;
-    /**
-     * Supported User Agent Types
-     */
-    declare public readonly userAgentTypes: pulumi.Output<string[] | undefined>;
-    declare public readonly userRiskScoreLevels: pulumi.Output<string[] | undefined>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    declare public readonly users: pulumi.Output<outputs.CloudAppControlRuleUsers | undefined>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-     */
-    declare public readonly validityEndTime: pulumi.Output<string | undefined>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-     */
-    declare public readonly validityStartTime: pulumi.Output<string | undefined>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-     */
-    declare public readonly validityTimeZoneId: pulumi.Output<string | undefined>;
+    declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    declare public readonly type: pulumi.Output<string>;
+    declare public readonly users: pulumi.Output<number[] | undefined>;
 
     /**
      * Create a CloudAppControlRule resource with the given unique name, arguments, and options.
@@ -244,63 +69,28 @@ export class CloudAppControlRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CloudAppControlRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CloudAppControlRuleArgs | CloudAppControlRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CloudAppControlRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as CloudAppControlRuleState | undefined;
-            resourceInputs["actions"] = state?.actions;
-            resourceInputs["applications"] = state?.applications;
-            resourceInputs["browserEunTemplateId"] = state?.browserEunTemplateId;
-            resourceInputs["cascadingEnabled"] = state?.cascadingEnabled;
-            resourceInputs["cbiProfiles"] = state?.cbiProfiles;
-            resourceInputs["cloudAppInstances"] = state?.cloudAppInstances;
-            resourceInputs["cloudAppRiskProfiles"] = state?.cloudAppRiskProfiles;
-            resourceInputs["departments"] = state?.departments;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["deviceGroups"] = state?.deviceGroups;
-            resourceInputs["deviceTrustLevels"] = state?.deviceTrustLevels;
-            resourceInputs["devices"] = state?.devices;
-            resourceInputs["enforceTimeValidity"] = state?.enforceTimeValidity;
-            resourceInputs["eunEnabled"] = state?.eunEnabled;
-            resourceInputs["eunTemplateId"] = state?.eunTemplateId;
-            resourceInputs["groups"] = state?.groups;
-            resourceInputs["labels"] = state?.labels;
-            resourceInputs["locationGroups"] = state?.locationGroups;
-            resourceInputs["locations"] = state?.locations;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["order"] = state?.order;
-            resourceInputs["rank"] = state?.rank;
-            resourceInputs["ruleId"] = state?.ruleId;
-            resourceInputs["sizeQuota"] = state?.sizeQuota;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["tenancyProfileIds"] = state?.tenancyProfileIds;
-            resourceInputs["timeQuota"] = state?.timeQuota;
-            resourceInputs["timeWindows"] = state?.timeWindows;
-            resourceInputs["type"] = state?.type;
-            resourceInputs["userAgentTypes"] = state?.userAgentTypes;
-            resourceInputs["userRiskScoreLevels"] = state?.userRiskScoreLevels;
-            resourceInputs["users"] = state?.users;
-            resourceInputs["validityEndTime"] = state?.validityEndTime;
-            resourceInputs["validityStartTime"] = state?.validityStartTime;
-            resourceInputs["validityTimeZoneId"] = state?.validityTimeZoneId;
-        } else {
-            const args = argsOrState as CloudAppControlRuleArgs | undefined;
+        if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
+            }
+            if (args?.type === undefined && !opts.urn) {
+                throw new Error("Missing required property 'type'");
             }
             resourceInputs["actions"] = args?.actions;
             resourceInputs["applications"] = args?.applications;
             resourceInputs["browserEunTemplateId"] = args?.browserEunTemplateId;
             resourceInputs["cascadingEnabled"] = args?.cascadingEnabled;
-            resourceInputs["cbiProfiles"] = args?.cbiProfiles;
-            resourceInputs["cloudAppInstances"] = args?.cloudAppInstances;
-            resourceInputs["cloudAppRiskProfiles"] = args?.cloudAppRiskProfiles;
+            resourceInputs["cbiProfile"] = args?.cbiProfile;
+            resourceInputs["cloudAppRiskProfileId"] = args?.cloudAppRiskProfileId;
             resourceInputs["departments"] = args?.departments;
             resourceInputs["description"] = args?.description;
             resourceInputs["deviceGroups"] = args?.deviceGroups;
-            resourceInputs["deviceTrustLevels"] = args?.deviceTrustLevels;
             resourceInputs["devices"] = args?.devices;
             resourceInputs["enforceTimeValidity"] = args?.enforceTimeValidity;
             resourceInputs["eunEnabled"] = args?.eunEnabled;
@@ -318,13 +108,37 @@ export class CloudAppControlRule extends pulumi.CustomResource {
             resourceInputs["timeQuota"] = args?.timeQuota;
             resourceInputs["timeWindows"] = args?.timeWindows;
             resourceInputs["type"] = args?.type;
-            resourceInputs["userAgentTypes"] = args?.userAgentTypes;
-            resourceInputs["userRiskScoreLevels"] = args?.userRiskScoreLevels;
             resourceInputs["users"] = args?.users;
-            resourceInputs["validityEndTime"] = args?.validityEndTime;
-            resourceInputs["validityStartTime"] = args?.validityStartTime;
-            resourceInputs["validityTimeZoneId"] = args?.validityTimeZoneId;
             resourceInputs["ruleId"] = undefined /*out*/;
+        } else {
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["applications"] = undefined /*out*/;
+            resourceInputs["browserEunTemplateId"] = undefined /*out*/;
+            resourceInputs["cascadingEnabled"] = undefined /*out*/;
+            resourceInputs["cbiProfile"] = undefined /*out*/;
+            resourceInputs["cloudAppRiskProfileId"] = undefined /*out*/;
+            resourceInputs["departments"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceGroups"] = undefined /*out*/;
+            resourceInputs["devices"] = undefined /*out*/;
+            resourceInputs["enforceTimeValidity"] = undefined /*out*/;
+            resourceInputs["eunEnabled"] = undefined /*out*/;
+            resourceInputs["eunTemplateId"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["locationGroups"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["rank"] = undefined /*out*/;
+            resourceInputs["ruleId"] = undefined /*out*/;
+            resourceInputs["sizeQuota"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenancyProfileIds"] = undefined /*out*/;
+            resourceInputs["timeQuota"] = undefined /*out*/;
+            resourceInputs["timeWindows"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CloudAppControlRule.__pulumiType, name, resourceInputs, opts);
@@ -332,263 +146,34 @@ export class CloudAppControlRule extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering CloudAppControlRule resources.
- */
-export interface CloudAppControlRuleState {
-    /**
-     * Actions allowed for the specified type.
-     */
-    actions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The list of cloud applications to which the cloud app control rule must be applied
-     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
-     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-     */
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
-    browserEunTemplateId?: pulumi.Input<number>;
-    /**
-     * Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-     */
-    cascadingEnabled?: pulumi.Input<boolean>;
-    cbiProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCbiProfile>[]>;
-    /**
-     * The cloud application instance ID.
-     */
-    cloudAppInstances?: pulumi.Input<inputs.CloudAppControlRuleCloudAppInstances>;
-    /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
-     */
-    cloudAppRiskProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCloudAppRiskProfile>[]>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.CloudAppControlRuleDepartments>;
-    /**
-     * Additional information about the forwarding rule
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    deviceGroups?: pulumi.Input<inputs.CloudAppControlRuleDeviceGroups>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
-    deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    devices?: pulumi.Input<inputs.CloudAppControlRuleDevices>;
-    /**
-     * Enforce a set a validity time period for the URL Filtering rule.
-     */
-    enforceTimeValidity?: pulumi.Input<boolean>;
-    eunEnabled?: pulumi.Input<boolean>;
-    eunTemplateId?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    groups?: pulumi.Input<inputs.CloudAppControlRuleGroups>;
-    /**
-     * The URL Filtering rule's label.
-     */
-    labels?: pulumi.Input<inputs.CloudAppControlRuleLabels>;
-    /**
-     * Name-ID pairs of the location groups to which the rule must be applied.
-     */
-    locationGroups?: pulumi.Input<inputs.CloudAppControlRuleLocationGroups>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    locations?: pulumi.Input<inputs.CloudAppControlRuleLocations>;
-    /**
-     * The name of the forwarding rule
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * The order of execution for the forwarding rule order
-     */
-    order?: pulumi.Input<number>;
-    /**
-     * Admin rank assigned to the forwarding rule
-     */
-    rank?: pulumi.Input<number>;
-    /**
-     * A unique identifier assigned to the forwarding rule
-     */
-    ruleId?: pulumi.Input<number>;
-    /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
-    sizeQuota?: pulumi.Input<number>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
-    state?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    tenancyProfileIds?: pulumi.Input<inputs.CloudAppControlRuleTenancyProfileIds>;
-    /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
-    timeQuota?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of time interval during which rule must be enforced.
-     */
-    timeWindows?: pulumi.Input<inputs.CloudAppControlRuleTimeWindows>;
-    /**
-     * Supported App Control Types
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Supported User Agent Types
-     */
-    userAgentTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.CloudAppControlRuleUsers>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-     */
-    validityEndTime?: pulumi.Input<string>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-     */
-    validityStartTime?: pulumi.Input<string>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-     */
-    validityTimeZoneId?: pulumi.Input<string>;
-}
-
-/**
  * The set of arguments for constructing a CloudAppControlRule resource.
  */
 export interface CloudAppControlRuleArgs {
-    /**
-     * Actions allowed for the specified type.
-     */
     actions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The list of cloud applications to which the cloud app control rule must be applied
-     * 				Use the data source zia.getCloudApplications to get the list of available cloud applications:
-     * 				https://registry.terraform.io/providers/zscaler/zia/latest/docs/data-sources/zia_cloud_applications
-     */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
     browserEunTemplateId?: pulumi.Input<number>;
-    /**
-     * Enforce the URL Filtering policy on a transaction, even after it is explicitly allowed by the Cloud App Control policy.
-     */
     cascadingEnabled?: pulumi.Input<boolean>;
-    cbiProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCbiProfile>[]>;
-    /**
-     * The cloud application instance ID.
-     */
-    cloudAppInstances?: pulumi.Input<inputs.CloudAppControlRuleCloudAppInstances>;
-    /**
-     * The DLP server, using ICAP, to which the transaction content is forwarded.
-     */
-    cloudAppRiskProfiles?: pulumi.Input<pulumi.Input<inputs.CloudAppControlRuleCloudAppRiskProfile>[]>;
-    /**
-     * Name-ID pairs of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.CloudAppControlRuleDepartments>;
-    /**
-     * Additional information about the forwarding rule
-     */
+    cbiProfile?: pulumi.Input<inputs.CBIProfileInputArgs>;
+    cloudAppRiskProfileId?: pulumi.Input<number>;
+    departments?: pulumi.Input<pulumi.Input<number>[]>;
     description?: pulumi.Input<string>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    deviceGroups?: pulumi.Input<inputs.CloudAppControlRuleDeviceGroups>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
-    deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    devices?: pulumi.Input<inputs.CloudAppControlRuleDevices>;
-    /**
-     * Enforce a set a validity time period for the URL Filtering rule.
-     */
+    deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    devices?: pulumi.Input<pulumi.Input<number>[]>;
     enforceTimeValidity?: pulumi.Input<boolean>;
     eunEnabled?: pulumi.Input<boolean>;
     eunTemplateId?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    groups?: pulumi.Input<inputs.CloudAppControlRuleGroups>;
-    /**
-     * The URL Filtering rule's label.
-     */
-    labels?: pulumi.Input<inputs.CloudAppControlRuleLabels>;
-    /**
-     * Name-ID pairs of the location groups to which the rule must be applied.
-     */
-    locationGroups?: pulumi.Input<inputs.CloudAppControlRuleLocationGroups>;
-    /**
-     * Name-ID pairs of locations for which rule must be applied
-     */
-    locations?: pulumi.Input<inputs.CloudAppControlRuleLocations>;
-    /**
-     * The name of the forwarding rule
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * The order of execution for the forwarding rule order
-     */
+    groups?: pulumi.Input<pulumi.Input<number>[]>;
+    labels?: pulumi.Input<pulumi.Input<number>[]>;
+    locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    locations?: pulumi.Input<pulumi.Input<number>[]>;
+    name: pulumi.Input<string>;
     order: pulumi.Input<number>;
-    /**
-     * Admin rank assigned to the forwarding rule
-     */
     rank?: pulumi.Input<number>;
-    /**
-     * Size quota in KB beyond which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
     sizeQuota?: pulumi.Input<number>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Name-ID pairs of groups for which rule must be applied
-     */
-    tenancyProfileIds?: pulumi.Input<inputs.CloudAppControlRuleTenancyProfileIds>;
-    /**
-     * Time quota in minutes, after which the URL Filtering rule is applied. If not set, no quota is enforced. If a policy rule action is set to 'BLOCK', this field is not applicable.
-     */
+    tenancyProfileIds?: pulumi.Input<pulumi.Input<number>[]>;
     timeQuota?: pulumi.Input<number>;
-    /**
-     * Name-ID pairs of time interval during which rule must be enforced.
-     */
-    timeWindows?: pulumi.Input<inputs.CloudAppControlRuleTimeWindows>;
-    /**
-     * Supported App Control Types
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Supported User Agent Types
-     */
-    userAgentTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.CloudAppControlRuleUsers>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule ceases to be valid on this end date and time.
-     */
-    validityEndTime?: pulumi.Input<string>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule is valid starting on this date and time.
-     */
-    validityStartTime?: pulumi.Input<string>;
-    /**
-     * If enforceTimeValidity is set to true, the URL Filtering rule date and time is valid based on this time zone ID. Use IANA Format TimeZone.
-     */
-    validityTimeZoneId?: pulumi.Input<string>;
+    timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    type: pulumi.Input<string>;
+    users?: pulumi.Input<pulumi.Input<number>[]>;
 }

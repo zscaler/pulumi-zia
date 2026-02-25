@@ -1,0 +1,68 @@
+name: firewall-filtering-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:FirewallFilteringRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+  action:
+    type: string
+    default: "ALLOW"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E FW filtering label "
+        - ${labelName}
+  nwService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "ZSCALER_PROXY_NW_SERVICES"
+
+resources:
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  firewallFilteringRule:
+    type: zia:index:FirewallFilteringRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      action: ${action}
+      state: ${state}
+      order: 4
+      enableFullLogging: false
+      deviceTrustLevels:
+        - "UNKNOWN_DEVICETRUSTLEVEL"
+        - "LOW_TRUST"
+        - "MEDIUM_TRUST"
+        - "HIGH_TRUST"
+      nwServices:
+        - ${nwService.networkServiceId}
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${firewallFilteringRule.ruleId}
+  name: ${firewallFilteringRule.name}
+  description: ${firewallFilteringRule.description}
+  action: ${firewallFilteringRule.action}
+  state: ${firewallFilteringRule.state}
+  order: ${firewallFilteringRule.order}
+  labels: ${firewallFilteringRule.labels}
+  nwServices: ${firewallFilteringRule.nwServices}

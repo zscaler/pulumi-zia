@@ -14,14 +14,14 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
-__all__ = ['AuthSettingsURLsArgs', 'AuthSettingsURLs']
+__all__ = ['AuthSettingsUrlsArgs', 'AuthSettingsUrls']
 
 @pulumi.input_type
-class AuthSettingsURLsArgs:
+class AuthSettingsUrlsArgs:
     def __init__(__self__, *,
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        The set of arguments for constructing a AuthSettingsURLs resource.
+        The set of arguments for constructing a AuthSettingsUrls resource.
         """
         if urls is not None:
             pulumi.set(__self__, "urls", urls)
@@ -36,28 +36,8 @@ class AuthSettingsURLsArgs:
         pulumi.set(self, "urls", value)
 
 
-@pulumi.input_type
-class _AuthSettingsURLsState:
-    def __init__(__self__, *,
-                 urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Input properties used for looking up and filtering AuthSettingsURLs resources.
-        """
-        if urls is not None:
-            pulumi.set(__self__, "urls", urls)
-
-    @_builtins.property
-    @pulumi.getter
-    def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "urls")
-
-    @urls.setter
-    def urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "urls", value)
-
-
-@pulumi.type_token("zia:index/authSettingsURLs:AuthSettingsURLs")
-class AuthSettingsURLs(pulumi.CustomResource):
+@pulumi.type_token("zia:index:AuthSettingsUrls")
+class AuthSettingsUrls(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -65,26 +45,7 @@ class AuthSettingsURLs(pulumi.CustomResource):
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/url-format-guidelines)
-        * [API documentation](https://help.zscaler.com/zia/user-authentication-settings#/authSettings/exemptedUrls-get)
-
-        The **zia_auth_settings_urls** resource alows you to add or remove a URL from the cookie authentication exempt list in the Zscaler Internet Access cloud or via the API. To learn more see [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_auth_settings_urls** can be imported by using `all_urls` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/authSettingsURLs:AuthSettingsURLs example all_urls
-        ```
-
+        Create a AuthSettingsUrls resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -92,36 +53,17 @@ class AuthSettingsURLs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AuthSettingsURLsArgs] = None,
+                 args: Optional[AuthSettingsUrlsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/url-format-guidelines)
-        * [API documentation](https://help.zscaler.com/zia/user-authentication-settings#/authSettings/exemptedUrls-get)
-
-        The **zia_auth_settings_urls** resource alows you to add or remove a URL from the cookie authentication exempt list in the Zscaler Internet Access cloud or via the API. To learn more see [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_auth_settings_urls** can be imported by using `all_urls` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/authSettingsURLs:AuthSettingsURLs example all_urls
-        ```
-
+        Create a AuthSettingsUrls resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param AuthSettingsURLsArgs args: The arguments to use to populate this resource's properties.
+        :param AuthSettingsUrlsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AuthSettingsURLsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AuthSettingsUrlsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -138,11 +80,12 @@ class AuthSettingsURLs(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AuthSettingsURLsArgs.__new__(AuthSettingsURLsArgs)
+            __props__ = AuthSettingsUrlsArgs.__new__(AuthSettingsUrlsArgs)
 
             __props__.__dict__["urls"] = urls
-        super(AuthSettingsURLs, __self__).__init__(
-            'zia:index/authSettingsURLs:AuthSettingsURLs',
+            __props__.__dict__["resource_id"] = None
+        super(AuthSettingsUrls, __self__).__init__(
+            'zia:index:AuthSettingsUrls',
             resource_name,
             __props__,
             opts)
@@ -150,10 +93,9 @@ class AuthSettingsURLs(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AuthSettingsURLs':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AuthSettingsUrls':
         """
-        Get an existing AuthSettingsURLs resource's state with the given name, id, and optional extra
+        Get an existing AuthSettingsUrls resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -162,13 +104,19 @@ class AuthSettingsURLs(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _AuthSettingsURLsState.__new__(_AuthSettingsURLsState)
+        __props__ = AuthSettingsUrlsArgs.__new__(AuthSettingsUrlsArgs)
 
-        __props__.__dict__["urls"] = urls
-        return AuthSettingsURLs(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["urls"] = None
+        return AuthSettingsUrls(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
-    def urls(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "urls")
 

@@ -1,0 +1,48 @@
+name: vzen-cluster-e2e
+runtime: yaml
+description: E2E test for zia:index:VzenCluster resource (same values as Terraform testAccCheckVZENClusterConfigure)
+
+config:
+  name:
+    type: string
+    default: ""
+  status:
+    type: string
+    default: "ENABLED"
+  type:
+    type: string
+    default: "VIP"
+  ipAddress:
+    type: string
+    default: "10.0.0.2"
+  subnetMask:
+    type: string
+    default: "255.255.255.0"
+  defaultGateway:
+    type: string
+    default: "10.0.0.3"
+  ipSecEnabled:
+    type: boolean
+    default: true
+
+resources:
+  vzenCluster:
+    type: zia:index:VzenCluster
+    properties:
+      name: ${name}
+      status: ${status}
+      type: ${type}
+      ipAddress: ${ipAddress}
+      subnetMask: ${subnetMask}
+      defaultGateway: ${defaultGateway}
+      ipSecEnabled: ${ipSecEnabled}
+
+outputs:
+  clusterId: ${vzenCluster.clusterId}
+  name: ${vzenCluster.name}
+  status: ${vzenCluster.status}
+  type: ${vzenCluster.type}
+  ipAddress: ${vzenCluster.ipAddress}
+  subnetMask: ${vzenCluster.subnetMask}
+  defaultGateway: ${vzenCluster.defaultGateway}
+  ipSecEnabled: ${vzenCluster.ipSecEnabled}

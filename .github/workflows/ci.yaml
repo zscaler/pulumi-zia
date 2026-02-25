@@ -11,19 +11,27 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  GOVERSION: "1.24"
+  DOTNETVERSION: |
+    6.0.x
+    3.1.301
+  NODEVERSION: 20.x
+  PYTHONVERSION: "3.9"
+
 jobs:
-  metadata:
+  build_provider:
+    name: Build provider
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # - name: Unshallow clone for tags
-      #   run: git fetch --prune --unshallow
+        with:
+          fetch-depth: 0
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: 'provider/go.mod'
-          cache-dependency-path: 'provider/go.sum'
+          go-version: ${{ env.GOVERSION }}
           cache: true
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v1.12.0
@@ -31,6 +39,71 @@ jobs:
           repo: pulumi/pulumictl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: dirty-check
-      #   run: |
-      #     make check-dirty
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@v4
+      - name: Build provider binary
+        run: make provider
+      - name: Generate schema
+        run: make generate_schema
+      - name: Unit tests
+        run: make test_provider
+      - name: Upload provider binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: pulumi-resource-zia
+          path: bin/pulumi-resource-zia
+
+  build_sdks:
+    name: Build ${{ matrix.language }} SDK
+    runs-on: ubuntu-latest
+    needs: build_provider
+    strategy:
+      fail-fast: true
+      matrix:
+        language:
+          - nodejs
+          - python
+          - dotnet
+          - go
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GOVERSION }}
+          cache: true
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.12.0
+        with:
+          repo: pulumi/pulumictl
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@v4
+      - name: Setup Node
+        if: ${{ matrix.language == 'nodejs' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODEVERSION }}
+      - name: Setup DotNet
+        if: ${{ matrix.language == 'dotnet' }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNETVERSION }}
+      - name: Setup Python
+        if: ${{ matrix.language == 'python' }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHONVERSION }}
+      - name: Download provider binary
+        uses: actions/download-artifact@v4
+        with:
+          name: pulumi-resource-zia
+          path: bin
+      - name: Restore binary permissions
+        run: chmod +x bin/pulumi-resource-zia
+      - name: Generate and build SDK
+        run: make build_${{ matrix.language }}

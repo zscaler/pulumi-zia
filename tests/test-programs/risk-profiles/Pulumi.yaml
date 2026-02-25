@@ -1,0 +1,22 @@
+name: risk-profiles-e2e
+runtime: yaml
+description: E2E test for zia:index:RiskProfile resource
+
+config:
+  profileName:
+    type: string
+    default: ""
+
+resources:
+  riskProfile:
+    type: zia:index:RiskProfile
+    properties:
+      profileName: ${profileName}
+      profileType: "CLOUD_APPLICATIONS"
+      status: "ANY"
+
+outputs:
+  profileId: ${riskProfile.profileId}
+  profileName: ${riskProfile.profileName}
+  profileType: ${riskProfile.profileType}
+  status: ${riskProfile.status}

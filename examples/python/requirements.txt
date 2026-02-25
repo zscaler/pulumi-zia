@@ -1,0 +1,4 @@
+pulumi>=3.165.0,<4.0.0
+# ZIA SDK: install from local path before running (from repo root):
+#   pip install -e sdk/python
+-e ../../sdk/python

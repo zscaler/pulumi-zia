@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/adding-tenant-profiles)
- * * [API documentation](https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-post)
- *
- * Use the **zia_tenant_restriction_profile** resource creates and manages tenant retriction profiles in the Zscaler Internet Access cloud.
- *
- * ## Example Usage
- *
- * ### Create O365 Tenant Restriction Profile
- *
- * ### Create O365 V2 Tenant Restriction Profile
- *
- * ### Create YouTube Tenant Restriction Profile
- *
- * ### Create Dropbox Tenant Restriction Profile
- *
- * ### Create Google Tenant Restriction Profile
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_tenant_restriction_profile** can be imported by using `<PROFILE ID>` or `<PROFILE NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/tenantRestrictionProfile:TenantRestrictionProfile example <profile_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/tenantRestrictionProfile:TenantRestrictionProfile example <profile_name>
- * ```
- */
 export class TenantRestrictionProfile extends pulumi.CustomResource {
     /**
      * Get an existing TenantRestrictionProfile resource's state with the given name, ID, and optional extra
@@ -48,15 +11,14 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TenantRestrictionProfileState, opts?: pulumi.CustomResourceOptions): TenantRestrictionProfile {
-        return new TenantRestrictionProfile(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TenantRestrictionProfile {
+        return new TenantRestrictionProfile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/tenantRestrictionProfile:TenantRestrictionProfile';
+    public static readonly __pulumiType = 'zia:index:TenantRestrictionProfile';
 
     /**
      * Returns true if the given object is an instance of TenantRestrictionProfile.  This is designed to work even
@@ -69,69 +31,19 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === TenantRestrictionProfile.__pulumiType;
     }
 
-    /**
-     * Flag to allow or disallow cloud storage resources for GCP
-     */
     declare public readonly allowGcpCloudStorageRead: pulumi.Output<boolean | undefined>;
-    /**
-     * Flag to allow Google consumers
-     */
     declare public readonly allowGoogleConsumers: pulumi.Output<boolean | undefined>;
-    /**
-     * Flag to allow Google visitors
-     */
     declare public readonly allowGoogleVisitors: pulumi.Output<boolean | undefined>;
-    /**
-     * Restricted tenant profile application type.
-     * 				See the Tenancy Restriction Profile API for the list of available application types:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
     declare public readonly appType: pulumi.Output<string | undefined>;
-    /**
-     * Additional information about the profile
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Tenant profile primary item data
-     */
-    declare public readonly itemDataPrimaries: pulumi.Output<string[] | undefined>;
-    /**
-     * List of certifications to be included or excluded for the profile.
-     */
-    declare public readonly itemDataSecondaries: pulumi.Output<string[] | undefined>;
-    /**
-     * Tenant profile primary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
+    declare public readonly itemDataPrimary: pulumi.Output<string[] | undefined>;
+    declare public readonly itemDataSecondary: pulumi.Output<string[] | undefined>;
     declare public readonly itemTypePrimary: pulumi.Output<string | undefined>;
-    /**
-     * Tenant profile secondary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
     declare public readonly itemTypeSecondary: pulumi.Output<string | undefined>;
-    /**
-     * Tenant profile item value for YouTube category.
-     * 				See the Tenancy Restriction Profile API for the list of available item values:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    declare public readonly itemValues: pulumi.Output<string[] | undefined>;
-    /**
-     * Flag to decide between v1 and v2 for tenant restriction on MSLOGINSERVICES
-     */
+    declare public readonly itemValue: pulumi.Output<string[] | undefined>;
     declare public readonly msLoginServicesTrV2: pulumi.Output<boolean | undefined>;
-    /**
-     * The tenant restriction profile name
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * System-generated tenant profile ID
-     */
     declare public /*out*/ readonly profileId: pulumi.Output<number>;
-    /**
-     * Flag to restrict personal domains for Office 365
-     */
     declare public readonly restrictPersonalO365Domains: pulumi.Output<boolean | undefined>;
 
     /**
@@ -141,42 +53,42 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TenantRestrictionProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TenantRestrictionProfileArgs | TenantRestrictionProfileState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TenantRestrictionProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as TenantRestrictionProfileState | undefined;
-            resourceInputs["allowGcpCloudStorageRead"] = state?.allowGcpCloudStorageRead;
-            resourceInputs["allowGoogleConsumers"] = state?.allowGoogleConsumers;
-            resourceInputs["allowGoogleVisitors"] = state?.allowGoogleVisitors;
-            resourceInputs["appType"] = state?.appType;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["itemDataPrimaries"] = state?.itemDataPrimaries;
-            resourceInputs["itemDataSecondaries"] = state?.itemDataSecondaries;
-            resourceInputs["itemTypePrimary"] = state?.itemTypePrimary;
-            resourceInputs["itemTypeSecondary"] = state?.itemTypeSecondary;
-            resourceInputs["itemValues"] = state?.itemValues;
-            resourceInputs["msLoginServicesTrV2"] = state?.msLoginServicesTrV2;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["profileId"] = state?.profileId;
-            resourceInputs["restrictPersonalO365Domains"] = state?.restrictPersonalO365Domains;
-        } else {
-            const args = argsOrState as TenantRestrictionProfileArgs | undefined;
+        if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["allowGcpCloudStorageRead"] = args?.allowGcpCloudStorageRead;
             resourceInputs["allowGoogleConsumers"] = args?.allowGoogleConsumers;
             resourceInputs["allowGoogleVisitors"] = args?.allowGoogleVisitors;
             resourceInputs["appType"] = args?.appType;
             resourceInputs["description"] = args?.description;
-            resourceInputs["itemDataPrimaries"] = args?.itemDataPrimaries;
-            resourceInputs["itemDataSecondaries"] = args?.itemDataSecondaries;
+            resourceInputs["itemDataPrimary"] = args?.itemDataPrimary;
+            resourceInputs["itemDataSecondary"] = args?.itemDataSecondary;
             resourceInputs["itemTypePrimary"] = args?.itemTypePrimary;
             resourceInputs["itemTypeSecondary"] = args?.itemTypeSecondary;
-            resourceInputs["itemValues"] = args?.itemValues;
+            resourceInputs["itemValue"] = args?.itemValue;
             resourceInputs["msLoginServicesTrV2"] = args?.msLoginServicesTrV2;
             resourceInputs["name"] = args?.name;
             resourceInputs["restrictPersonalO365Domains"] = args?.restrictPersonalO365Domains;
             resourceInputs["profileId"] = undefined /*out*/;
+        } else {
+            resourceInputs["allowGcpCloudStorageRead"] = undefined /*out*/;
+            resourceInputs["allowGoogleConsumers"] = undefined /*out*/;
+            resourceInputs["allowGoogleVisitors"] = undefined /*out*/;
+            resourceInputs["appType"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["itemDataPrimary"] = undefined /*out*/;
+            resourceInputs["itemDataSecondary"] = undefined /*out*/;
+            resourceInputs["itemTypePrimary"] = undefined /*out*/;
+            resourceInputs["itemTypeSecondary"] = undefined /*out*/;
+            resourceInputs["itemValue"] = undefined /*out*/;
+            resourceInputs["msLoginServicesTrV2"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["profileId"] = undefined /*out*/;
+            resourceInputs["restrictPersonalO365Domains"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TenantRestrictionProfile.__pulumiType, name, resourceInputs, opts);
@@ -184,137 +96,20 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering TenantRestrictionProfile resources.
- */
-export interface TenantRestrictionProfileState {
-    /**
-     * Flag to allow or disallow cloud storage resources for GCP
-     */
-    allowGcpCloudStorageRead?: pulumi.Input<boolean>;
-    /**
-     * Flag to allow Google consumers
-     */
-    allowGoogleConsumers?: pulumi.Input<boolean>;
-    /**
-     * Flag to allow Google visitors
-     */
-    allowGoogleVisitors?: pulumi.Input<boolean>;
-    /**
-     * Restricted tenant profile application type.
-     * 				See the Tenancy Restriction Profile API for the list of available application types:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    appType?: pulumi.Input<string>;
-    /**
-     * Additional information about the profile
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Tenant profile primary item data
-     */
-    itemDataPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of certifications to be included or excluded for the profile.
-     */
-    itemDataSecondaries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Tenant profile primary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    itemTypePrimary?: pulumi.Input<string>;
-    /**
-     * Tenant profile secondary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    itemTypeSecondary?: pulumi.Input<string>;
-    /**
-     * Tenant profile item value for YouTube category.
-     * 				See the Tenancy Restriction Profile API for the list of available item values:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    itemValues?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Flag to decide between v1 and v2 for tenant restriction on MSLOGINSERVICES
-     */
-    msLoginServicesTrV2?: pulumi.Input<boolean>;
-    /**
-     * The tenant restriction profile name
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * System-generated tenant profile ID
-     */
-    profileId?: pulumi.Input<number>;
-    /**
-     * Flag to restrict personal domains for Office 365
-     */
-    restrictPersonalO365Domains?: pulumi.Input<boolean>;
-}
-
-/**
  * The set of arguments for constructing a TenantRestrictionProfile resource.
  */
 export interface TenantRestrictionProfileArgs {
-    /**
-     * Flag to allow or disallow cloud storage resources for GCP
-     */
     allowGcpCloudStorageRead?: pulumi.Input<boolean>;
-    /**
-     * Flag to allow Google consumers
-     */
     allowGoogleConsumers?: pulumi.Input<boolean>;
-    /**
-     * Flag to allow Google visitors
-     */
     allowGoogleVisitors?: pulumi.Input<boolean>;
-    /**
-     * Restricted tenant profile application type.
-     * 				See the Tenancy Restriction Profile API for the list of available application types:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
     appType?: pulumi.Input<string>;
-    /**
-     * Additional information about the profile
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Tenant profile primary item data
-     */
-    itemDataPrimaries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of certifications to be included or excluded for the profile.
-     */
-    itemDataSecondaries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Tenant profile primary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
+    itemDataPrimary?: pulumi.Input<pulumi.Input<string>[]>;
+    itemDataSecondary?: pulumi.Input<pulumi.Input<string>[]>;
     itemTypePrimary?: pulumi.Input<string>;
-    /**
-     * Tenant profile secondary item type.
-     * 				See the Tenancy Restriction Profile API for the list of available items:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
     itemTypeSecondary?: pulumi.Input<string>;
-    /**
-     * Tenant profile item value for YouTube category.
-     * 				See the Tenancy Restriction Profile API for the list of available item values:
-     * 				https://help.zscaler.com/zia/cloud-app-control-policy#/tenancyRestrictionProfile-get
-     */
-    itemValues?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Flag to decide between v1 and v2 for tenant restriction on MSLOGINSERVICES
-     */
+    itemValue?: pulumi.Input<pulumi.Input<string>[]>;
     msLoginServicesTrV2?: pulumi.Input<boolean>;
-    /**
-     * The tenant restriction profile name
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Flag to restrict personal domains for Office 365
-     */
+    name: pulumi.Input<string>;
     restrictPersonalO365Domains?: pulumi.Input<boolean>;
 }

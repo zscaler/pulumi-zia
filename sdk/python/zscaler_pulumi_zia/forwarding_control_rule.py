@@ -22,75 +22,41 @@ __all__ = ['ForwardingControlRuleArgs', 'ForwardingControlRule']
 class ForwardingControlRuleArgs:
     def __init__(__self__, *,
                  forward_method: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 app_service_groups: Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']] = None,
-                 departments: Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']] = None,
-                 dest_ipv6_groups: Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']] = None,
-                 device_groups: Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']] = None,
-                 ec_groups: Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']] = None,
-                 groups: Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']] = None,
-                 nw_service_groups: Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']] = None,
-                 nw_services: Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']] = None,
-                 proxy_gateway: Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dest_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ec_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 proxy_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  res_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ipv6_groups: Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']] = None,
+                 src_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input['ForwardingControlRuleUsersArgs']] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]] = None,
-                 zpa_application_segment_groups: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']] = None,
-                 zpa_application_segments: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']] = None,
-                 zpa_gateway: Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']] = None):
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]] = None,
+                 zpa_gateway_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ForwardingControlRule resource.
-        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method selected from the available options
-        :param pulumi.Input[_builtins.int] order: (int) - The order of execution for the forwarding rule order.
-        :param pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs'] app_service_groups: (list) - Application service groups on which this rule is applied
-        :param pulumi.Input['ForwardingControlRuleDepartmentsArgs'] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        :param pulumi.Input[_builtins.str] description: (string) - Additional information about the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        :param pulumi.Input['ForwardingControlRuleDestIpGroupsArgs'] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        :param pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs'] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input['ForwardingControlRuleDeviceGroupsArgs'] device_groups: (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['ForwardingControlRuleEcGroupsArgs'] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input['ForwardingControlRuleGroupsArgs'] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input['ForwardingControlRuleLabelsArgs'] labels: (list) Labels that are applicable to the rule.
-        :param pulumi.Input['ForwardingControlRuleLocationGroupsArgs'] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input['ForwardingControlRuleLocationsArgs'] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[_builtins.str] name: (string) The configured name of the entity
-        :param pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs'] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        :param pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs'] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
-        :param pulumi.Input['ForwardingControlRuleNwServicesArgs'] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input['ForwardingControlRuleProxyGatewayArgs'] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
-        :param pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs'] src_ip_groups: (list) Any number of source IP address groups that you want to control with this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        :param pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[_builtins.str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] type: The rule type selected from the available options
-        :param pulumi.Input['ForwardingControlRuleUsersArgs'] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs'] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs'] zpa_application_segments: (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input['ForwardingControlRuleZpaGatewayArgs'] zpa_gateway: (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
         """
         pulumi.set(__self__, "forward_method", forward_method)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
         if app_service_groups is not None:
             pulumi.set(__self__, "app_service_groups", app_service_groups)
@@ -120,16 +86,14 @@ class ForwardingControlRuleArgs:
             pulumi.set(__self__, "location_groups", location_groups)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nw_application_groups is not None:
             pulumi.set(__self__, "nw_application_groups", nw_application_groups)
         if nw_service_groups is not None:
             pulumi.set(__self__, "nw_service_groups", nw_service_groups)
         if nw_services is not None:
             pulumi.set(__self__, "nw_services", nw_services)
-        if proxy_gateway is not None:
-            pulumi.set(__self__, "proxy_gateway", proxy_gateway)
+        if proxy_gateway_id is not None:
+            pulumi.set(__self__, "proxy_gateway_id", proxy_gateway_id)
         if rank is not None:
             pulumi.set(__self__, "rank", rank)
         if res_categories is not None:
@@ -148,19 +112,12 @@ class ForwardingControlRuleArgs:
             pulumi.set(__self__, "users", users)
         if zpa_app_segments is not None:
             pulumi.set(__self__, "zpa_app_segments", zpa_app_segments)
-        if zpa_application_segment_groups is not None:
-            pulumi.set(__self__, "zpa_application_segment_groups", zpa_application_segment_groups)
-        if zpa_application_segments is not None:
-            pulumi.set(__self__, "zpa_application_segments", zpa_application_segments)
-        if zpa_gateway is not None:
-            pulumi.set(__self__, "zpa_gateway", zpa_gateway)
+        if zpa_gateway_id is not None:
+            pulumi.set(__self__, "zpa_gateway_id", zpa_gateway_id)
 
     @_builtins.property
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of traffic forwarding method selected from the available options
-        """
         return pulumi.get(self, "forward_method")
 
     @forward_method.setter
@@ -169,10 +126,16 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
-        """
-        (int) - The order of execution for the forwarding rule order.
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -181,34 +144,25 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']]:
-        """
-        (list) - Application service groups on which this rule is applied
-        """
+    def app_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "app_service_groups")
 
     @app_service_groups.setter
-    def app_service_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']]):
+    def app_service_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "app_service_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']]:
-        """
-        (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        """
+    def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "departments")
 
     @departments.setter
-    def departments(self, value: Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']]):
+    def departments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "departments", value)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) - Additional information about the forwarding rule
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -218,9 +172,6 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -230,9 +181,6 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -242,9 +190,6 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -253,166 +198,115 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']]:
-        """
-        ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        """
+    def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
-    def dest_ip_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']]):
+    def dest_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dest_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
-    def dest_ipv6_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']]:
-        """
-        ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
+    def dest_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "dest_ipv6_groups")
 
     @dest_ipv6_groups.setter
-    def dest_ipv6_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']]):
+    def dest_ipv6_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dest_ipv6_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']]:
-        """
-        (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        """
+    def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']]):
+    def device_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "device_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="ecGroups")
-    def ec_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']]:
-        """
-        (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        """
+    def ec_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "ec_groups")
 
     @ec_groups.setter
-    def ec_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']]):
+    def ec_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "ec_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']]:
-        """
-        (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        """
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']]:
-        """
-        (list) Labels that are applicable to the rule.
-        """
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']]:
-        """
-        (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        """
+    def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']]):
+    def location_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "location_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']]:
-        """
-        (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        """
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) The configured name of the entity
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']]:
-        """
-        (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        """
+    def nw_application_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_application_groups")
 
     @nw_application_groups.setter
-    def nw_application_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']]):
+    def nw_application_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_application_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']]:
-        """
-        (list) Any number of predefined or custom network service groups to which the rule applies.
-        """
+    def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
-    def nw_service_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']]):
+    def nw_service_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_service_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
-    def nw_services(self) -> Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']]:
-        """
-        (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        """
+    def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
-    def nw_services(self, value: Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']]):
+    def nw_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_services", value)
 
     @_builtins.property
-    @pulumi.getter(name="proxyGateway")
-    def proxy_gateway(self) -> Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']]:
-        """
-        (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        """
-        return pulumi.get(self, "proxy_gateway")
+    @pulumi.getter(name="proxyGatewayId")
+    def proxy_gateway_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "proxy_gateway_id")
 
-    @proxy_gateway.setter
-    def proxy_gateway(self, value: Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']]):
-        pulumi.set(self, "proxy_gateway", value)
+    @proxy_gateway_id.setter
+    def proxy_gateway_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "proxy_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -422,9 +316,6 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) List of destination domain categories to which the rule applies.
-        """
         return pulumi.get(self, "res_categories")
 
     @res_categories.setter
@@ -433,22 +324,16 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']]:
-        """
-        (list) Any number of source IP address groups that you want to control with this rule.
-        """
+    def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
-    def src_ip_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']]):
+    def src_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "src_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -457,22 +342,16 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
-    def src_ipv6_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']]:
-        """
-        (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
+    def src_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "src_ipv6_groups")
 
     @src_ipv6_groups.setter
-    def src_ipv6_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']]):
+    def src_ipv6_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "src_ipv6_groups", value)
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -482,9 +361,6 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The rule type selected from the available options
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -493,733 +369,74 @@ class ForwardingControlRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['ForwardingControlRuleUsersArgs']]:
-        """
-        (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        """
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input['ForwardingControlRuleUsersArgs']]):
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "users", value)
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]]:
-        """
-        (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        """
+    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
-    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]]):
+    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]):
         pulumi.set(self, "zpa_app_segments", value)
 
     @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegmentGroups")
-    def zpa_application_segment_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']]:
-        """
-        (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segment_groups")
+    @pulumi.getter(name="zpaGatewayId")
+    def zpa_gateway_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "zpa_gateway_id")
 
-    @zpa_application_segment_groups.setter
-    def zpa_application_segment_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']]):
-        pulumi.set(self, "zpa_application_segment_groups", value)
+    @zpa_gateway_id.setter
+    def zpa_gateway_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "zpa_gateway_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegments")
-    def zpa_application_segments(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']]:
-        """
-        (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segments")
 
-    @zpa_application_segments.setter
-    def zpa_application_segments(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']]):
-        pulumi.set(self, "zpa_application_segments", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaGateway")
-    def zpa_gateway(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']]:
-        """
-        (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
-        """
-        return pulumi.get(self, "zpa_gateway")
-
-    @zpa_gateway.setter
-    def zpa_gateway(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']]):
-        pulumi.set(self, "zpa_gateway", value)
-
-
-@pulumi.input_type
-class _ForwardingControlRuleState:
-    def __init__(__self__, *,
-                 app_service_groups: Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']] = None,
-                 departments: Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']] = None,
-                 dest_ipv6_groups: Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']] = None,
-                 device_groups: Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']] = None,
-                 ec_groups: Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']] = None,
-                 forward_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']] = None,
-                 nw_service_groups: Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']] = None,
-                 nw_services: Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxy_gateway: Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']] = None,
-                 rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 res_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 src_ip_groups: Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']] = None,
-                 src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ipv6_groups: Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input['ForwardingControlRuleUsersArgs']] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]] = None,
-                 zpa_application_segment_groups: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']] = None,
-                 zpa_application_segments: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']] = None,
-                 zpa_gateway: Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']] = None):
-        """
-        Input properties used for looking up and filtering ForwardingControlRule resources.
-        :param pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs'] app_service_groups: (list) - Application service groups on which this rule is applied
-        :param pulumi.Input['ForwardingControlRuleDepartmentsArgs'] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        :param pulumi.Input[_builtins.str] description: (string) - Additional information about the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        :param pulumi.Input['ForwardingControlRuleDestIpGroupsArgs'] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        :param pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs'] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input['ForwardingControlRuleDeviceGroupsArgs'] device_groups: (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['ForwardingControlRuleEcGroupsArgs'] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method selected from the available options
-        :param pulumi.Input['ForwardingControlRuleGroupsArgs'] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input['ForwardingControlRuleLabelsArgs'] labels: (list) Labels that are applicable to the rule.
-        :param pulumi.Input['ForwardingControlRuleLocationGroupsArgs'] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input['ForwardingControlRuleLocationsArgs'] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[_builtins.str] name: (string) The configured name of the entity
-        :param pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs'] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        :param pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs'] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
-        :param pulumi.Input['ForwardingControlRuleNwServicesArgs'] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[_builtins.int] order: (int) - The order of execution for the forwarding rule order.
-        :param pulumi.Input['ForwardingControlRuleProxyGatewayArgs'] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
-        :param pulumi.Input[_builtins.int] rule_id: A unique identifier assigned to the forwarding rule
-        :param pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs'] src_ip_groups: (list) Any number of source IP address groups that you want to control with this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        :param pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs'] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[_builtins.str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] type: The rule type selected from the available options
-        :param pulumi.Input['ForwardingControlRuleUsersArgs'] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs'] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs'] zpa_application_segments: (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input['ForwardingControlRuleZpaGatewayArgs'] zpa_gateway: (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
-        """
-        if app_service_groups is not None:
-            pulumi.set(__self__, "app_service_groups", app_service_groups)
-        if departments is not None:
-            pulumi.set(__self__, "departments", departments)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if dest_addresses is not None:
-            pulumi.set(__self__, "dest_addresses", dest_addresses)
-        if dest_countries is not None:
-            pulumi.set(__self__, "dest_countries", dest_countries)
-        if dest_ip_categories is not None:
-            pulumi.set(__self__, "dest_ip_categories", dest_ip_categories)
-        if dest_ip_groups is not None:
-            pulumi.set(__self__, "dest_ip_groups", dest_ip_groups)
-        if dest_ipv6_groups is not None:
-            pulumi.set(__self__, "dest_ipv6_groups", dest_ipv6_groups)
-        if device_groups is not None:
-            pulumi.set(__self__, "device_groups", device_groups)
-        if ec_groups is not None:
-            pulumi.set(__self__, "ec_groups", ec_groups)
-        if forward_method is not None:
-            pulumi.set(__self__, "forward_method", forward_method)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if location_groups is not None:
-            pulumi.set(__self__, "location_groups", location_groups)
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if nw_application_groups is not None:
-            pulumi.set(__self__, "nw_application_groups", nw_application_groups)
-        if nw_service_groups is not None:
-            pulumi.set(__self__, "nw_service_groups", nw_service_groups)
-        if nw_services is not None:
-            pulumi.set(__self__, "nw_services", nw_services)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if proxy_gateway is not None:
-            pulumi.set(__self__, "proxy_gateway", proxy_gateway)
-        if rank is not None:
-            pulumi.set(__self__, "rank", rank)
-        if res_categories is not None:
-            pulumi.set(__self__, "res_categories", res_categories)
-        if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
-        if src_ip_groups is not None:
-            pulumi.set(__self__, "src_ip_groups", src_ip_groups)
-        if src_ips is not None:
-            pulumi.set(__self__, "src_ips", src_ips)
-        if src_ipv6_groups is not None:
-            pulumi.set(__self__, "src_ipv6_groups", src_ipv6_groups)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-        if zpa_app_segments is not None:
-            pulumi.set(__self__, "zpa_app_segments", zpa_app_segments)
-        if zpa_application_segment_groups is not None:
-            pulumi.set(__self__, "zpa_application_segment_groups", zpa_application_segment_groups)
-        if zpa_application_segments is not None:
-            pulumi.set(__self__, "zpa_application_segments", zpa_application_segments)
-        if zpa_gateway is not None:
-            pulumi.set(__self__, "zpa_gateway", zpa_gateway)
-
-    @_builtins.property
-    @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']]:
-        """
-        (list) - Application service groups on which this rule is applied
-        """
-        return pulumi.get(self, "app_service_groups")
-
-    @app_service_groups.setter
-    def app_service_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleAppServiceGroupsArgs']]):
-        pulumi.set(self, "app_service_groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']]:
-        """
-        (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        """
-        return pulumi.get(self, "departments")
-
-    @departments.setter
-    def departments(self, value: Optional[pulumi.Input['ForwardingControlRuleDepartmentsArgs']]):
-        pulumi.set(self, "departments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) - Additional information about the forwarding rule
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destAddresses")
-    def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        """
-        return pulumi.get(self, "dest_addresses")
-
-    @dest_addresses.setter
-    def dest_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_addresses", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destCountries")
-    def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        """
-        return pulumi.get(self, "dest_countries")
-
-    @dest_countries.setter
-    def dest_countries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_countries", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destIpCategories")
-    def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        """
-        return pulumi.get(self, "dest_ip_categories")
-
-    @dest_ip_categories.setter
-    def dest_ip_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_ip_categories", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']]:
-        """
-        ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        """
-        return pulumi.get(self, "dest_ip_groups")
-
-    @dest_ip_groups.setter
-    def dest_ip_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDestIpGroupsArgs']]):
-        pulumi.set(self, "dest_ip_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destIpv6Groups")
-    def dest_ipv6_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']]:
-        """
-        ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
-        return pulumi.get(self, "dest_ipv6_groups")
-
-    @dest_ipv6_groups.setter
-    def dest_ipv6_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDestIpv6GroupsArgs']]):
-        pulumi.set(self, "dest_ipv6_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']]:
-        """
-        (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        """
-        return pulumi.get(self, "device_groups")
-
-    @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleDeviceGroupsArgs']]):
-        pulumi.set(self, "device_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ecGroups")
-    def ec_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']]:
-        """
-        (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        """
-        return pulumi.get(self, "ec_groups")
-
-    @ec_groups.setter
-    def ec_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleEcGroupsArgs']]):
-        pulumi.set(self, "ec_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="forwardMethod")
-    def forward_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of traffic forwarding method selected from the available options
-        """
-        return pulumi.get(self, "forward_method")
-
-    @forward_method.setter
-    def forward_method(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "forward_method", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']]:
-        """
-        (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input['ForwardingControlRuleGroupsArgs']]):
-        pulumi.set(self, "groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']]:
-        """
-        (list) Labels that are applicable to the rule.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input['ForwardingControlRuleLabelsArgs']]):
-        pulumi.set(self, "labels", value)
-
-    @_builtins.property
-    @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']]:
-        """
-        (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        """
-        return pulumi.get(self, "location_groups")
-
-    @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleLocationGroupsArgs']]):
-        pulumi.set(self, "location_groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']]:
-        """
-        (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: Optional[pulumi.Input['ForwardingControlRuleLocationsArgs']]):
-        pulumi.set(self, "locations", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) The configured name of the entity
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']]:
-        """
-        (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        """
-        return pulumi.get(self, "nw_application_groups")
-
-    @nw_application_groups.setter
-    def nw_application_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleNwApplicationGroupsArgs']]):
-        pulumi.set(self, "nw_application_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']]:
-        """
-        (list) Any number of predefined or custom network service groups to which the rule applies.
-        """
-        return pulumi.get(self, "nw_service_groups")
-
-    @nw_service_groups.setter
-    def nw_service_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleNwServiceGroupsArgs']]):
-        pulumi.set(self, "nw_service_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwServices")
-    def nw_services(self) -> Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']]:
-        """
-        (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        """
-        return pulumi.get(self, "nw_services")
-
-    @nw_services.setter
-    def nw_services(self, value: Optional[pulumi.Input['ForwardingControlRuleNwServicesArgs']]):
-        pulumi.set(self, "nw_services", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        (int) - The order of execution for the forwarding rule order.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "order", value)
-
-    @_builtins.property
-    @pulumi.getter(name="proxyGateway")
-    def proxy_gateway(self) -> Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']]:
-        """
-        (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        """
-        return pulumi.get(self, "proxy_gateway")
-
-    @proxy_gateway.setter
-    def proxy_gateway(self, value: Optional[pulumi.Input['ForwardingControlRuleProxyGatewayArgs']]):
-        pulumi.set(self, "proxy_gateway", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resCategories")
-    def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        ** - (list) List of destination domain categories to which the rule applies.
-        """
-        return pulumi.get(self, "res_categories")
-
-    @res_categories.setter
-    def res_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "res_categories", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A unique identifier assigned to the forwarding rule
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rule_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']]:
-        """
-        (list) Any number of source IP address groups that you want to control with this rule.
-        """
-        return pulumi.get(self, "src_ip_groups")
-
-    @src_ip_groups.setter
-    def src_ip_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleSrcIpGroupsArgs']]):
-        pulumi.set(self, "src_ip_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="srcIps")
-    def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        """
-        return pulumi.get(self, "src_ips")
-
-    @src_ips.setter
-    def src_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "src_ips", value)
-
-    @_builtins.property
-    @pulumi.getter(name="srcIpv6Groups")
-    def src_ipv6_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']]:
-        """
-        (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
-        return pulumi.get(self, "src_ipv6_groups")
-
-    @src_ipv6_groups.setter
-    def src_ipv6_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleSrcIpv6GroupsArgs']]):
-        pulumi.set(self, "src_ipv6_groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The rule type selected from the available options
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['ForwardingControlRuleUsersArgs']]:
-        """
-        (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input['ForwardingControlRuleUsersArgs']]):
-        pulumi.set(self, "users", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]]:
-        """
-        (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        """
-        return pulumi.get(self, "zpa_app_segments")
-
-    @zpa_app_segments.setter
-    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ForwardingControlRuleZpaAppSegmentArgs']]]]):
-        pulumi.set(self, "zpa_app_segments", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegmentGroups")
-    def zpa_application_segment_groups(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']]:
-        """
-        (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segment_groups")
-
-    @zpa_application_segment_groups.setter
-    def zpa_application_segment_groups(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentGroupsArgs']]):
-        pulumi.set(self, "zpa_application_segment_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegments")
-    def zpa_application_segments(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']]:
-        """
-        (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segments")
-
-    @zpa_application_segments.setter
-    def zpa_application_segments(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaApplicationSegmentsArgs']]):
-        pulumi.set(self, "zpa_application_segments", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaGateway")
-    def zpa_gateway(self) -> Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']]:
-        """
-        (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
-        """
-        return pulumi.get(self, "zpa_gateway")
-
-    @zpa_gateway.setter
-    def zpa_gateway(self, value: Optional[pulumi.Input['ForwardingControlRuleZpaGatewayArgs']]):
-        pulumi.set(self, "zpa_gateway", value)
-
-
-@pulumi.type_token("zia:index/forwardingControlRule:ForwardingControlRule")
+@pulumi.type_token("zia:index:ForwardingControlRule")
 class ForwardingControlRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleAppServiceGroupsArgs', 'ForwardingControlRuleAppServiceGroupsArgsDict']]] = None,
-                 departments: Optional[pulumi.Input[Union['ForwardingControlRuleDepartmentsArgs', 'ForwardingControlRuleDepartmentsArgsDict']]] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpGroupsArgs', 'ForwardingControlRuleDestIpGroupsArgsDict']]] = None,
-                 dest_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpv6GroupsArgs', 'ForwardingControlRuleDestIpv6GroupsArgsDict']]] = None,
-                 device_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDeviceGroupsArgs', 'ForwardingControlRuleDeviceGroupsArgsDict']]] = None,
-                 ec_groups: Optional[pulumi.Input[Union['ForwardingControlRuleEcGroupsArgs', 'ForwardingControlRuleEcGroupsArgsDict']]] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dest_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ec_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  forward_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Union['ForwardingControlRuleGroupsArgs', 'ForwardingControlRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['ForwardingControlRuleLabelsArgs', 'ForwardingControlRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['ForwardingControlRuleLocationGroupsArgs', 'ForwardingControlRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['ForwardingControlRuleLocationsArgs', 'ForwardingControlRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwApplicationGroupsArgs', 'ForwardingControlRuleNwApplicationGroupsArgsDict']]] = None,
-                 nw_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwServiceGroupsArgs', 'ForwardingControlRuleNwServiceGroupsArgsDict']]] = None,
-                 nw_services: Optional[pulumi.Input[Union['ForwardingControlRuleNwServicesArgs', 'ForwardingControlRuleNwServicesArgsDict']]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxy_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleProxyGatewayArgs', 'ForwardingControlRuleProxyGatewayArgsDict']]] = None,
+                 proxy_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  res_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpGroupsArgs', 'ForwardingControlRuleSrcIpGroupsArgsDict']]] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpv6GroupsArgs', 'ForwardingControlRuleSrcIpv6GroupsArgsDict']]] = None,
+                 src_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input[Union['ForwardingControlRuleUsersArgs', 'ForwardingControlRuleUsersArgsDict']]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ForwardingControlRuleZpaAppSegmentArgs', 'ForwardingControlRuleZpaAppSegmentArgsDict']]]]] = None,
-                 zpa_application_segment_groups: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentGroupsArgs', 'ForwardingControlRuleZpaApplicationSegmentGroupsArgsDict']]] = None,
-                 zpa_application_segments: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentsArgs', 'ForwardingControlRuleZpaApplicationSegmentsArgsDict']]] = None,
-                 zpa_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleZpaGatewayArgs', 'ForwardingControlRuleZpaGatewayArgsDict']]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
+                 zpa_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
-        * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
-
-        The **zia_forwarding_control_rule** resource allows the creation and management of ZIA Forwarding Control rules in the Zscaler Internet Access.
-
-        ⚠️ **WARNING:**  - PR #373 - The resource `ForwardingControlRule` now pauses for 60 seconds before proceeding with the create or update process whenever the `forward_method` attribute is set to `ZPA`. In case of a failure related to resource synchronization, the provider will retry the resource creation or update up to 3 times, waiting 30 seconds between each retry. This behavior ensures that ZIA and ZPA have sufficient time to synchronize and replicate the necessary resource IDs, reducing the risk of transient errors during provisioning.
-
-          **NOTE**: This retry mechanism helps to automatically overcome temporary latency without manual intervention. This behavior does not affect forwarding rules configured with other forward_methods such as `DIRECT`.
-
-        ## Example Usage
-
-        ### DIRECT Forwarding Method
-
-        ### ZPA Forwarding Method
-
-          ⚠️ **WARNING:**: You must use the ZPA provider in combination with the ZIA Terraform Provider to successfully configure a Forwarding control rule where the `forward_method` is `ZPA`
-
-        ### PROXYCHAIN Forwarding Method
-
-          ⚠️ **WARNING:**: Creating or retrieving a Proxy Gateway via API is not currently supported; hence, the `id` and `name` for the `proxy_gateway` must be passed manually to the `proxy_gateway` block in the below configuration.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_forwarding_control_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/forwardingControlRule:ForwardingControlRule example <rule_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/forwardingControlRule:ForwardingControlRule example <rule_name>
-        ```
-
+        Create a ForwardingControlRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ForwardingControlRuleAppServiceGroupsArgs', 'ForwardingControlRuleAppServiceGroupsArgsDict']] app_service_groups: (list) - Application service groups on which this rule is applied
-        :param pulumi.Input[Union['ForwardingControlRuleDepartmentsArgs', 'ForwardingControlRuleDepartmentsArgsDict']] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        :param pulumi.Input[_builtins.str] description: (string) - Additional information about the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        :param pulumi.Input[Union['ForwardingControlRuleDestIpGroupsArgs', 'ForwardingControlRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        :param pulumi.Input[Union['ForwardingControlRuleDestIpv6GroupsArgs', 'ForwardingControlRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[Union['ForwardingControlRuleDeviceGroupsArgs', 'ForwardingControlRuleDeviceGroupsArgsDict']] device_groups: (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['ForwardingControlRuleEcGroupsArgs', 'ForwardingControlRuleEcGroupsArgsDict']] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method selected from the available options
-        :param pulumi.Input[Union['ForwardingControlRuleGroupsArgs', 'ForwardingControlRuleGroupsArgsDict']] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[Union['ForwardingControlRuleLabelsArgs', 'ForwardingControlRuleLabelsArgsDict']] labels: (list) Labels that are applicable to the rule.
-        :param pulumi.Input[Union['ForwardingControlRuleLocationGroupsArgs', 'ForwardingControlRuleLocationGroupsArgsDict']] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input[Union['ForwardingControlRuleLocationsArgs', 'ForwardingControlRuleLocationsArgsDict']] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[_builtins.str] name: (string) The configured name of the entity
-        :param pulumi.Input[Union['ForwardingControlRuleNwApplicationGroupsArgs', 'ForwardingControlRuleNwApplicationGroupsArgsDict']] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        :param pulumi.Input[Union['ForwardingControlRuleNwServiceGroupsArgs', 'ForwardingControlRuleNwServiceGroupsArgsDict']] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
-        :param pulumi.Input[Union['ForwardingControlRuleNwServicesArgs', 'ForwardingControlRuleNwServicesArgsDict']] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[_builtins.int] order: (int) - The order of execution for the forwarding rule order.
-        :param pulumi.Input[Union['ForwardingControlRuleProxyGatewayArgs', 'ForwardingControlRuleProxyGatewayArgsDict']] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
-        :param pulumi.Input[Union['ForwardingControlRuleSrcIpGroupsArgs', 'ForwardingControlRuleSrcIpGroupsArgsDict']] src_ip_groups: (list) Any number of source IP address groups that you want to control with this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        :param pulumi.Input[Union['ForwardingControlRuleSrcIpv6GroupsArgs', 'ForwardingControlRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[_builtins.str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] type: The rule type selected from the available options
-        :param pulumi.Input[Union['ForwardingControlRuleUsersArgs', 'ForwardingControlRuleUsersArgsDict']] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ForwardingControlRuleZpaAppSegmentArgs', 'ForwardingControlRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        :param pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentGroupsArgs', 'ForwardingControlRuleZpaApplicationSegmentGroupsArgsDict']] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentsArgs', 'ForwardingControlRuleZpaApplicationSegmentsArgsDict']] zpa_application_segments: (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input[Union['ForwardingControlRuleZpaGatewayArgs', 'ForwardingControlRuleZpaGatewayArgsDict']] zpa_gateway: (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
         """
         ...
     @overload
@@ -1228,46 +445,7 @@ class ForwardingControlRule(pulumi.CustomResource):
                  args: ForwardingControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-forwarding-policy)
-        * [API documentation](https://help.zscaler.com/zia/forwarding-control-policy#/forwardingRules-get)
-
-        The **zia_forwarding_control_rule** resource allows the creation and management of ZIA Forwarding Control rules in the Zscaler Internet Access.
-
-        ⚠️ **WARNING:**  - PR #373 - The resource `ForwardingControlRule` now pauses for 60 seconds before proceeding with the create or update process whenever the `forward_method` attribute is set to `ZPA`. In case of a failure related to resource synchronization, the provider will retry the resource creation or update up to 3 times, waiting 30 seconds between each retry. This behavior ensures that ZIA and ZPA have sufficient time to synchronize and replicate the necessary resource IDs, reducing the risk of transient errors during provisioning.
-
-          **NOTE**: This retry mechanism helps to automatically overcome temporary latency without manual intervention. This behavior does not affect forwarding rules configured with other forward_methods such as `DIRECT`.
-
-        ## Example Usage
-
-        ### DIRECT Forwarding Method
-
-        ### ZPA Forwarding Method
-
-          ⚠️ **WARNING:**: You must use the ZPA provider in combination with the ZIA Terraform Provider to successfully configure a Forwarding control rule where the `forward_method` is `ZPA`
-
-        ### PROXYCHAIN Forwarding Method
-
-          ⚠️ **WARNING:**: Creating or retrieving a Proxy Gateway via API is not currently supported; hence, the `id` and `name` for the `proxy_gateway` must be passed manually to the `proxy_gateway` block in the below configuration.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_forwarding_control_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/forwardingControlRule:ForwardingControlRule example <rule_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/forwardingControlRule:ForwardingControlRule example <rule_name>
-        ```
-
+        Create a ForwardingControlRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ForwardingControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1283,39 +461,37 @@ class ForwardingControlRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleAppServiceGroupsArgs', 'ForwardingControlRuleAppServiceGroupsArgsDict']]] = None,
-                 departments: Optional[pulumi.Input[Union['ForwardingControlRuleDepartmentsArgs', 'ForwardingControlRuleDepartmentsArgsDict']]] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpGroupsArgs', 'ForwardingControlRuleDestIpGroupsArgsDict']]] = None,
-                 dest_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpv6GroupsArgs', 'ForwardingControlRuleDestIpv6GroupsArgsDict']]] = None,
-                 device_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDeviceGroupsArgs', 'ForwardingControlRuleDeviceGroupsArgsDict']]] = None,
-                 ec_groups: Optional[pulumi.Input[Union['ForwardingControlRuleEcGroupsArgs', 'ForwardingControlRuleEcGroupsArgsDict']]] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dest_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 ec_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  forward_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Union['ForwardingControlRuleGroupsArgs', 'ForwardingControlRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['ForwardingControlRuleLabelsArgs', 'ForwardingControlRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['ForwardingControlRuleLocationGroupsArgs', 'ForwardingControlRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['ForwardingControlRuleLocationsArgs', 'ForwardingControlRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwApplicationGroupsArgs', 'ForwardingControlRuleNwApplicationGroupsArgsDict']]] = None,
-                 nw_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwServiceGroupsArgs', 'ForwardingControlRuleNwServiceGroupsArgsDict']]] = None,
-                 nw_services: Optional[pulumi.Input[Union['ForwardingControlRuleNwServicesArgs', 'ForwardingControlRuleNwServicesArgsDict']]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
-                 proxy_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleProxyGatewayArgs', 'ForwardingControlRuleProxyGatewayArgsDict']]] = None,
+                 proxy_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  res_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpGroupsArgs', 'ForwardingControlRuleSrcIpGroupsArgsDict']]] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpv6GroupsArgs', 'ForwardingControlRuleSrcIpv6GroupsArgsDict']]] = None,
+                 src_ipv6_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
-                 users: Optional[pulumi.Input[Union['ForwardingControlRuleUsersArgs', 'ForwardingControlRuleUsersArgsDict']]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ForwardingControlRuleZpaAppSegmentArgs', 'ForwardingControlRuleZpaAppSegmentArgsDict']]]]] = None,
-                 zpa_application_segment_groups: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentGroupsArgs', 'ForwardingControlRuleZpaApplicationSegmentGroupsArgsDict']]] = None,
-                 zpa_application_segments: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentsArgs', 'ForwardingControlRuleZpaApplicationSegmentsArgsDict']]] = None,
-                 zpa_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleZpaGatewayArgs', 'ForwardingControlRuleZpaGatewayArgsDict']]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
+                 zpa_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1342,6 +518,8 @@ class ForwardingControlRule(pulumi.CustomResource):
             __props__.__dict__["labels"] = labels
             __props__.__dict__["location_groups"] = location_groups
             __props__.__dict__["locations"] = locations
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["nw_application_groups"] = nw_application_groups
             __props__.__dict__["nw_service_groups"] = nw_service_groups
@@ -1349,7 +527,7 @@ class ForwardingControlRule(pulumi.CustomResource):
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
             __props__.__dict__["order"] = order
-            __props__.__dict__["proxy_gateway"] = proxy_gateway
+            __props__.__dict__["proxy_gateway_id"] = proxy_gateway_id
             __props__.__dict__["rank"] = rank
             __props__.__dict__["res_categories"] = res_categories
             __props__.__dict__["src_ip_groups"] = src_ip_groups
@@ -1359,12 +537,10 @@ class ForwardingControlRule(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["users"] = users
             __props__.__dict__["zpa_app_segments"] = zpa_app_segments
-            __props__.__dict__["zpa_application_segment_groups"] = zpa_application_segment_groups
-            __props__.__dict__["zpa_application_segments"] = zpa_application_segments
-            __props__.__dict__["zpa_gateway"] = zpa_gateway
+            __props__.__dict__["zpa_gateway_id"] = zpa_gateway_id
             __props__.__dict__["rule_id"] = None
         super(ForwardingControlRule, __self__).__init__(
-            'zia:index/forwardingControlRule:ForwardingControlRule',
+            'zia:index:ForwardingControlRule',
             resource_name,
             __props__,
             opts)
@@ -1372,41 +548,7 @@ class ForwardingControlRule(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            app_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleAppServiceGroupsArgs', 'ForwardingControlRuleAppServiceGroupsArgsDict']]] = None,
-            departments: Optional[pulumi.Input[Union['ForwardingControlRuleDepartmentsArgs', 'ForwardingControlRuleDepartmentsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpGroupsArgs', 'ForwardingControlRuleDestIpGroupsArgsDict']]] = None,
-            dest_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDestIpv6GroupsArgs', 'ForwardingControlRuleDestIpv6GroupsArgsDict']]] = None,
-            device_groups: Optional[pulumi.Input[Union['ForwardingControlRuleDeviceGroupsArgs', 'ForwardingControlRuleDeviceGroupsArgsDict']]] = None,
-            ec_groups: Optional[pulumi.Input[Union['ForwardingControlRuleEcGroupsArgs', 'ForwardingControlRuleEcGroupsArgsDict']]] = None,
-            forward_method: Optional[pulumi.Input[_builtins.str]] = None,
-            groups: Optional[pulumi.Input[Union['ForwardingControlRuleGroupsArgs', 'ForwardingControlRuleGroupsArgsDict']]] = None,
-            labels: Optional[pulumi.Input[Union['ForwardingControlRuleLabelsArgs', 'ForwardingControlRuleLabelsArgsDict']]] = None,
-            location_groups: Optional[pulumi.Input[Union['ForwardingControlRuleLocationGroupsArgs', 'ForwardingControlRuleLocationGroupsArgsDict']]] = None,
-            locations: Optional[pulumi.Input[Union['ForwardingControlRuleLocationsArgs', 'ForwardingControlRuleLocationsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nw_application_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwApplicationGroupsArgs', 'ForwardingControlRuleNwApplicationGroupsArgsDict']]] = None,
-            nw_service_groups: Optional[pulumi.Input[Union['ForwardingControlRuleNwServiceGroupsArgs', 'ForwardingControlRuleNwServiceGroupsArgsDict']]] = None,
-            nw_services: Optional[pulumi.Input[Union['ForwardingControlRuleNwServicesArgs', 'ForwardingControlRuleNwServicesArgsDict']]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            proxy_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleProxyGatewayArgs', 'ForwardingControlRuleProxyGatewayArgsDict']]] = None,
-            rank: Optional[pulumi.Input[_builtins.int]] = None,
-            res_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-            src_ip_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpGroupsArgs', 'ForwardingControlRuleSrcIpGroupsArgsDict']]] = None,
-            src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            src_ipv6_groups: Optional[pulumi.Input[Union['ForwardingControlRuleSrcIpv6GroupsArgs', 'ForwardingControlRuleSrcIpv6GroupsArgsDict']]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            users: Optional[pulumi.Input[Union['ForwardingControlRuleUsersArgs', 'ForwardingControlRuleUsersArgsDict']]] = None,
-            zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ForwardingControlRuleZpaAppSegmentArgs', 'ForwardingControlRuleZpaAppSegmentArgsDict']]]]] = None,
-            zpa_application_segment_groups: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentGroupsArgs', 'ForwardingControlRuleZpaApplicationSegmentGroupsArgsDict']]] = None,
-            zpa_application_segments: Optional[pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentsArgs', 'ForwardingControlRuleZpaApplicationSegmentsArgsDict']]] = None,
-            zpa_gateway: Optional[pulumi.Input[Union['ForwardingControlRuleZpaGatewayArgs', 'ForwardingControlRuleZpaGatewayArgsDict']]] = None) -> 'ForwardingControlRule':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'ForwardingControlRule':
         """
         Get an existing ForwardingControlRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1414,350 +556,202 @@ class ForwardingControlRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ForwardingControlRuleAppServiceGroupsArgs', 'ForwardingControlRuleAppServiceGroupsArgsDict']] app_service_groups: (list) - Application service groups on which this rule is applied
-        :param pulumi.Input[Union['ForwardingControlRuleDepartmentsArgs', 'ForwardingControlRuleDepartmentsArgsDict']] departments: (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        :param pulumi.Input[_builtins.str] description: (string) - Additional information about the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        :param pulumi.Input[Union['ForwardingControlRuleDestIpGroupsArgs', 'ForwardingControlRuleDestIpGroupsArgsDict']] dest_ip_groups: ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        :param pulumi.Input[Union['ForwardingControlRuleDestIpv6GroupsArgs', 'ForwardingControlRuleDestIpv6GroupsArgsDict']] dest_ipv6_groups: ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[Union['ForwardingControlRuleDeviceGroupsArgs', 'ForwardingControlRuleDeviceGroupsArgsDict']] device_groups: (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['ForwardingControlRuleEcGroupsArgs', 'ForwardingControlRuleEcGroupsArgsDict']] ec_groups: (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method selected from the available options
-        :param pulumi.Input[Union['ForwardingControlRuleGroupsArgs', 'ForwardingControlRuleGroupsArgsDict']] groups: (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[Union['ForwardingControlRuleLabelsArgs', 'ForwardingControlRuleLabelsArgsDict']] labels: (list) Labels that are applicable to the rule.
-        :param pulumi.Input[Union['ForwardingControlRuleLocationGroupsArgs', 'ForwardingControlRuleLocationGroupsArgsDict']] location_groups: (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        :param pulumi.Input[Union['ForwardingControlRuleLocationsArgs', 'ForwardingControlRuleLocationsArgsDict']] locations: (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        :param pulumi.Input[_builtins.str] name: (string) The configured name of the entity
-        :param pulumi.Input[Union['ForwardingControlRuleNwApplicationGroupsArgs', 'ForwardingControlRuleNwApplicationGroupsArgsDict']] nw_application_groups: (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        :param pulumi.Input[Union['ForwardingControlRuleNwServiceGroupsArgs', 'ForwardingControlRuleNwServiceGroupsArgsDict']] nw_service_groups: (list) Any number of predefined or custom network service groups to which the rule applies.
-        :param pulumi.Input[Union['ForwardingControlRuleNwServicesArgs', 'ForwardingControlRuleNwServicesArgsDict']] nw_services: (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        :param pulumi.Input[_builtins.int] order: (int) - The order of execution for the forwarding rule order.
-        :param pulumi.Input[Union['ForwardingControlRuleProxyGatewayArgs', 'ForwardingControlRuleProxyGatewayArgsDict']] proxy_gateway: (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        :param pulumi.Input[_builtins.int] rank: Admin rank assigned to the forwarding rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: ** - (list) List of destination domain categories to which the rule applies.
-        :param pulumi.Input[_builtins.int] rule_id: A unique identifier assigned to the forwarding rule
-        :param pulumi.Input[Union['ForwardingControlRuleSrcIpGroupsArgs', 'ForwardingControlRuleSrcIpGroupsArgsDict']] src_ip_groups: (list) Any number of source IP address groups that you want to control with this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        :param pulumi.Input[Union['ForwardingControlRuleSrcIpv6GroupsArgs', 'ForwardingControlRuleSrcIpv6GroupsArgsDict']] src_ipv6_groups: (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        :param pulumi.Input[_builtins.str] state: (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] type: The rule type selected from the available options
-        :param pulumi.Input[Union['ForwardingControlRuleUsersArgs', 'ForwardingControlRuleUsersArgsDict']] users: (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ForwardingControlRuleZpaAppSegmentArgs', 'ForwardingControlRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        :param pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentGroupsArgs', 'ForwardingControlRuleZpaApplicationSegmentGroupsArgsDict']] zpa_application_segment_groups: (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input[Union['ForwardingControlRuleZpaApplicationSegmentsArgs', 'ForwardingControlRuleZpaApplicationSegmentsArgsDict']] zpa_application_segments: (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        :param pulumi.Input[Union['ForwardingControlRuleZpaGatewayArgs', 'ForwardingControlRuleZpaGatewayArgsDict']] zpa_gateway: (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _ForwardingControlRuleState.__new__(_ForwardingControlRuleState)
+        __props__ = ForwardingControlRuleArgs.__new__(ForwardingControlRuleArgs)
 
-        __props__.__dict__["app_service_groups"] = app_service_groups
-        __props__.__dict__["departments"] = departments
-        __props__.__dict__["description"] = description
-        __props__.__dict__["dest_addresses"] = dest_addresses
-        __props__.__dict__["dest_countries"] = dest_countries
-        __props__.__dict__["dest_ip_categories"] = dest_ip_categories
-        __props__.__dict__["dest_ip_groups"] = dest_ip_groups
-        __props__.__dict__["dest_ipv6_groups"] = dest_ipv6_groups
-        __props__.__dict__["device_groups"] = device_groups
-        __props__.__dict__["ec_groups"] = ec_groups
-        __props__.__dict__["forward_method"] = forward_method
-        __props__.__dict__["groups"] = groups
-        __props__.__dict__["labels"] = labels
-        __props__.__dict__["location_groups"] = location_groups
-        __props__.__dict__["locations"] = locations
-        __props__.__dict__["name"] = name
-        __props__.__dict__["nw_application_groups"] = nw_application_groups
-        __props__.__dict__["nw_service_groups"] = nw_service_groups
-        __props__.__dict__["nw_services"] = nw_services
-        __props__.__dict__["order"] = order
-        __props__.__dict__["proxy_gateway"] = proxy_gateway
-        __props__.__dict__["rank"] = rank
-        __props__.__dict__["res_categories"] = res_categories
-        __props__.__dict__["rule_id"] = rule_id
-        __props__.__dict__["src_ip_groups"] = src_ip_groups
-        __props__.__dict__["src_ips"] = src_ips
-        __props__.__dict__["src_ipv6_groups"] = src_ipv6_groups
-        __props__.__dict__["state"] = state
-        __props__.__dict__["type"] = type
-        __props__.__dict__["users"] = users
-        __props__.__dict__["zpa_app_segments"] = zpa_app_segments
-        __props__.__dict__["zpa_application_segment_groups"] = zpa_application_segment_groups
-        __props__.__dict__["zpa_application_segments"] = zpa_application_segments
-        __props__.__dict__["zpa_gateway"] = zpa_gateway
+        __props__.__dict__["app_service_groups"] = None
+        __props__.__dict__["departments"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["dest_addresses"] = None
+        __props__.__dict__["dest_countries"] = None
+        __props__.__dict__["dest_ip_categories"] = None
+        __props__.__dict__["dest_ip_groups"] = None
+        __props__.__dict__["dest_ipv6_groups"] = None
+        __props__.__dict__["device_groups"] = None
+        __props__.__dict__["ec_groups"] = None
+        __props__.__dict__["forward_method"] = None
+        __props__.__dict__["groups"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["location_groups"] = None
+        __props__.__dict__["locations"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["nw_application_groups"] = None
+        __props__.__dict__["nw_service_groups"] = None
+        __props__.__dict__["nw_services"] = None
+        __props__.__dict__["order"] = None
+        __props__.__dict__["proxy_gateway_id"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["res_categories"] = None
+        __props__.__dict__["rule_id"] = None
+        __props__.__dict__["src_ip_groups"] = None
+        __props__.__dict__["src_ips"] = None
+        __props__.__dict__["src_ipv6_groups"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["users"] = None
+        __props__.__dict__["zpa_app_segments"] = None
+        __props__.__dict__["zpa_gateway_id"] = None
         return ForwardingControlRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleAppServiceGroups']]:
-        """
-        (list) - Application service groups on which this rule is applied
-        """
+    def app_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "app_service_groups")
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleDepartments']]:
-        """
-        (list) Apply to any number of departments When not used it implies `Any` to apply the rule to all departments.
-        """
+    def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        (string) - Additional information about the forwarding rule
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        ** - (list) -  IP addresses and fully qualified domain names (FQDNs), if the domain has multiple destination IP addresses or if its IP addresses may change. For IP addresses, you can enter individual IP addresses, subnets, or address ranges. If adding multiple items, hit Enter after each entry.
-        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
-    def dest_countries(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        ** - (list) destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries. Provide a 2 letter [ISO3166 Alpha2 Country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-        """
+    def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        ** - (list) identify destinations based on the URL category of the domain, select Any to apply the rule to all categories or select the specific categories you want to control.
-        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleDestIpGroups']]:
-        """
-        ** - (list) Any number of destination IP address groups that you want to control with this rule.
-        """
+    def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
-    def dest_ipv6_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleDestIpv6Groups']]:
-        """
-        ** - (list) Destination IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
+    def dest_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "dest_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleDeviceGroups']]:
-        """
-        (list) Name-ID pairs of device groups for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. If no value is set, this field is ignored during the policy evaluation.
-        """
+    def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="ecGroups")
-    def ec_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleEcGroups']]:
-        """
-        (list) - Name-ID pairs of the Zscaler Cloud Connector groups to which the forwarding rule applies
-        """
+    def ec_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "ec_groups")
 
     @_builtins.property
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of traffic forwarding method selected from the available options
-        """
         return pulumi.get(self, "forward_method")
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleGroups']]:
-        """
-        (list) You can manually select up to `8` groups. When not used it implies `Any` to apply the rule to all groups.
-        """
+    def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleLabels']]:
-        """
-        (list) Labels that are applicable to the rule.
-        """
+    def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleLocationGroups']]:
-        """
-        (Optional) You can manually select up to `32` location groups. When not used it implies `Any` to apply the rule to all location groups.
-        """
+    def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleLocations']]:
-        """
-        (Optional) You can manually select up to `8` locations. When not used it implies `Any` to apply the rule to all groups.
-        """
+    def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        (string) The configured name of the entity
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleNwApplicationGroups']]:
-        """
-        (list) Any number of application groups that you want to control with this rule. The service provides predefined applications that you can group, but not modify
-        """
+    def nw_application_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_application_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleNwServiceGroups']]:
-        """
-        (list) Any number of predefined or custom network service groups to which the rule applies.
-        """
+    def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
-    def nw_services(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleNwServices']]:
-        """
-        (list) When not used it applies the rule to all network services or you can select specific network services. The Zscaler firewall has predefined services and you can configure up to `1,024` additional custom services.
-        """
+    def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
-        """
-        (int) - The order of execution for the forwarding rule order.
-        """
         return pulumi.get(self, "order")
 
     @_builtins.property
-    @pulumi.getter(name="proxyGateway")
-    def proxy_gateway(self) -> pulumi.Output['outputs.ForwardingControlRuleProxyGateway']:
-        """
-        (set) The proxy gateway for which the rule is applicable. This field is applicable only for the `PROXYCHAIN` forwarding method.
-        """
-        return pulumi.get(self, "proxy_gateway")
+    @pulumi.getter(name="proxyGatewayId")
+    def proxy_gateway_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "proxy_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Admin rank assigned to the forwarding rule
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        ** - (list) List of destination domain categories to which the rule applies.
-        """
         return pulumi.get(self, "res_categories")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        A unique identifier assigned to the forwarding rule
-        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleSrcIpGroups']]:
-        """
-        (list) Any number of source IP address groups that you want to control with this rule.
-        """
+    def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (Optional) You can enter individual IP addresses, subnets, or address ranges.
-        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
-    def src_ipv6_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleSrcIpv6Groups']]:
-        """
-        (list) Source IPv6 address groups for which the rule is applicable. If not set, the rule is not restricted to a specific source IPv6 address group.
-        """
+    def src_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "src_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        (string) - Indicates whether the forwarding rule is enabled or disabled. Supported values are: `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The rule type selected from the available options
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleUsers']]:
-        """
-        (list) You can manually select up to `4` general and/or special users. When not used it implies `Any` to apply the rule to all users.
-        """
+    def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> pulumi.Output[Sequence['outputs.ForwardingControlRuleZpaAppSegment']]:
-        """
-        (set) The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ZPA` Gateway forwarding method.
-        """
+    def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
         return pulumi.get(self, "zpa_app_segments")
 
     @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegmentGroups")
-    def zpa_application_segment_groups(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleZpaApplicationSegmentGroups']]:
-        """
-        (set) List of ZPA Application Segment Groups for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segment_groups")
-
-    @_builtins.property
-    @pulumi.getter(name="zpaApplicationSegments")
-    def zpa_application_segments(self) -> pulumi.Output[Optional['outputs.ForwardingControlRuleZpaApplicationSegments']]:
-        """
-        (set) List of ZPA Application Segments for which this rule is applicable. This field is applicable only for the `ECZPA` forwarding method (used for Zscaler Cloud Connector).
-        """
-        return pulumi.get(self, "zpa_application_segments")
-
-    @_builtins.property
-    @pulumi.getter(name="zpaGateway")
-    def zpa_gateway(self) -> pulumi.Output['outputs.ForwardingControlRuleZpaGateway']:
-        """
-        (set) The ZPA Gateway for which this rule is applicable. This field is applicable only for the `ZPA` forwarding method.
-        """
-        return pulumi.get(self, "zpa_gateway")
+    @pulumi.getter(name="zpaGatewayId")
+    def zpa_gateway_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "zpa_gateway_id")
 

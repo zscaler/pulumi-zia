@@ -1,0 +1,12 @@
+{
+  "name": "zia-simple",
+  "runtime": "nodejs",
+  "dependencies": {
+    "@pulumi/pulumi": "^3.0.0",
+    "@bdzscaler/pulumi-zia": "file:../../sdk/nodejs"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "@types/node": "^20"
+  }
+}

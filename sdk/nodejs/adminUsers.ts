@@ -6,43 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/about-administrators)
- * * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminUsers-get)
- *
- * The **zia_admin_users** resource allows the creation and management of ZIA admin user account created in the Zscaler Internet Access cloud or via the API.
- *
- * ## Example Usage
- *
- * ### Organization Scope
- *
- * ### Department Scope
- *
- * ### Location Scope
- *
- * ### Location Group Scope
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_admin_users** can be imported by using `<ADMIN ID>` or `<LOGIN NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/adminUsers:AdminUsers example <admin_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/adminUsers:AdminUsers example <login_name>
- * ```
- *
- * ⚠️ **NOTE :**:  This provider do not import the password attribute value during the importing process.
- */
 export class AdminUsers extends pulumi.CustomResource {
     /**
      * Get an existing AdminUsers resource's state with the given name, ID, and optional extra
@@ -50,15 +13,14 @@ export class AdminUsers extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AdminUsersState, opts?: pulumi.CustomResourceOptions): AdminUsers {
-        return new AdminUsers(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdminUsers {
+        return new AdminUsers(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/adminUsers:AdminUsers';
+    public static readonly __pulumiType = 'zia:index:AdminUsers';
 
     /**
      * Returns true if the given object is an instance of AdminUsers.  This is designed to work even
@@ -72,19 +34,10 @@ export class AdminUsers extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly adminId: pulumi.Output<number>;
-    /**
-     * list of destination ip groups
-     */
-    declare public readonly adminScopeEntities: pulumi.Output<outputs.AdminUsersAdminScopeEntities | undefined>;
-    declare public readonly adminScopeType: pulumi.Output<string>;
-    /**
-     * Additional information about the admin or auditor.
-     */
+    declare public readonly adminScopeEntities: pulumi.Output<number[] | undefined>;
+    declare public readonly adminScopeType: pulumi.Output<string | undefined>;
     declare public readonly comments: pulumi.Output<string | undefined>;
     declare public readonly disabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Admin or auditor's email address.
-     */
     declare public readonly email: pulumi.Output<string>;
     declare public readonly isAuditor: pulumi.Output<boolean | undefined>;
     declare public readonly isExecMobileAppEnabled: pulumi.Output<boolean | undefined>;
@@ -95,17 +48,8 @@ export class AdminUsers extends pulumi.CustomResource {
     declare public readonly isSecurityReportCommEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly isServiceUpdateCommEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly loginName: pulumi.Output<string>;
-    /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-     */
     declare public readonly password: pulumi.Output<string | undefined>;
-    /**
-     * Role of the admin. This is not required for an auditor.
-     */
-    declare public readonly roles: pulumi.Output<outputs.AdminUsersRole[] | undefined>;
-    /**
-     * Admin or auditor's username.
-     */
+    declare public readonly role: pulumi.Output<outputs.AdminUserRoleInput | undefined>;
     declare public readonly username: pulumi.Output<string>;
 
     /**
@@ -115,32 +59,10 @@ export class AdminUsers extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AdminUsersArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdminUsersArgs | AdminUsersState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AdminUsersArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as AdminUsersState | undefined;
-            resourceInputs["adminId"] = state?.adminId;
-            resourceInputs["adminScopeEntities"] = state?.adminScopeEntities;
-            resourceInputs["adminScopeType"] = state?.adminScopeType;
-            resourceInputs["comments"] = state?.comments;
-            resourceInputs["disabled"] = state?.disabled;
-            resourceInputs["email"] = state?.email;
-            resourceInputs["isAuditor"] = state?.isAuditor;
-            resourceInputs["isExecMobileAppEnabled"] = state?.isExecMobileAppEnabled;
-            resourceInputs["isNonEditable"] = state?.isNonEditable;
-            resourceInputs["isPasswordExpired"] = state?.isPasswordExpired;
-            resourceInputs["isPasswordLoginAllowed"] = state?.isPasswordLoginAllowed;
-            resourceInputs["isProductUpdateCommEnabled"] = state?.isProductUpdateCommEnabled;
-            resourceInputs["isSecurityReportCommEnabled"] = state?.isSecurityReportCommEnabled;
-            resourceInputs["isServiceUpdateCommEnabled"] = state?.isServiceUpdateCommEnabled;
-            resourceInputs["loginName"] = state?.loginName;
-            resourceInputs["password"] = state?.password;
-            resourceInputs["roles"] = state?.roles;
-            resourceInputs["username"] = state?.username;
-        } else {
-            const args = argsOrState as AdminUsersArgs | undefined;
+        if (!opts.id) {
             if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
@@ -165,9 +87,28 @@ export class AdminUsers extends pulumi.CustomResource {
             resourceInputs["isServiceUpdateCommEnabled"] = args?.isServiceUpdateCommEnabled;
             resourceInputs["loginName"] = args?.loginName;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["roles"] = args?.roles;
+            resourceInputs["role"] = args?.role;
             resourceInputs["username"] = args?.username;
             resourceInputs["adminId"] = undefined /*out*/;
+        } else {
+            resourceInputs["adminId"] = undefined /*out*/;
+            resourceInputs["adminScopeEntities"] = undefined /*out*/;
+            resourceInputs["adminScopeType"] = undefined /*out*/;
+            resourceInputs["comments"] = undefined /*out*/;
+            resourceInputs["disabled"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["isAuditor"] = undefined /*out*/;
+            resourceInputs["isExecMobileAppEnabled"] = undefined /*out*/;
+            resourceInputs["isNonEditable"] = undefined /*out*/;
+            resourceInputs["isPasswordExpired"] = undefined /*out*/;
+            resourceInputs["isPasswordLoginAllowed"] = undefined /*out*/;
+            resourceInputs["isProductUpdateCommEnabled"] = undefined /*out*/;
+            resourceInputs["isSecurityReportCommEnabled"] = undefined /*out*/;
+            resourceInputs["isServiceUpdateCommEnabled"] = undefined /*out*/;
+            resourceInputs["loginName"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -177,64 +118,13 @@ export class AdminUsers extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering AdminUsers resources.
- */
-export interface AdminUsersState {
-    adminId?: pulumi.Input<number>;
-    /**
-     * list of destination ip groups
-     */
-    adminScopeEntities?: pulumi.Input<inputs.AdminUsersAdminScopeEntities>;
-    adminScopeType?: pulumi.Input<string>;
-    /**
-     * Additional information about the admin or auditor.
-     */
-    comments?: pulumi.Input<string>;
-    disabled?: pulumi.Input<boolean>;
-    /**
-     * Admin or auditor's email address.
-     */
-    email?: pulumi.Input<string>;
-    isAuditor?: pulumi.Input<boolean>;
-    isExecMobileAppEnabled?: pulumi.Input<boolean>;
-    isNonEditable?: pulumi.Input<boolean>;
-    isPasswordExpired?: pulumi.Input<boolean>;
-    isPasswordLoginAllowed?: pulumi.Input<boolean>;
-    isProductUpdateCommEnabled?: pulumi.Input<boolean>;
-    isSecurityReportCommEnabled?: pulumi.Input<boolean>;
-    isServiceUpdateCommEnabled?: pulumi.Input<boolean>;
-    loginName?: pulumi.Input<string>;
-    /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-     */
-    password?: pulumi.Input<string>;
-    /**
-     * Role of the admin. This is not required for an auditor.
-     */
-    roles?: pulumi.Input<pulumi.Input<inputs.AdminUsersRole>[]>;
-    /**
-     * Admin or auditor's username.
-     */
-    username?: pulumi.Input<string>;
-}
-
-/**
  * The set of arguments for constructing a AdminUsers resource.
  */
 export interface AdminUsersArgs {
-    /**
-     * list of destination ip groups
-     */
-    adminScopeEntities?: pulumi.Input<inputs.AdminUsersAdminScopeEntities>;
+    adminScopeEntities?: pulumi.Input<pulumi.Input<number>[]>;
     adminScopeType?: pulumi.Input<string>;
-    /**
-     * Additional information about the admin or auditor.
-     */
     comments?: pulumi.Input<string>;
     disabled?: pulumi.Input<boolean>;
-    /**
-     * Admin or auditor's email address.
-     */
     email: pulumi.Input<string>;
     isAuditor?: pulumi.Input<boolean>;
     isExecMobileAppEnabled?: pulumi.Input<boolean>;
@@ -245,16 +135,7 @@ export interface AdminUsersArgs {
     isSecurityReportCommEnabled?: pulumi.Input<boolean>;
     isServiceUpdateCommEnabled?: pulumi.Input<boolean>;
     loginName: pulumi.Input<string>;
-    /**
-     * The admin's password. If admin single sign-on (SSO) is disabled, then this field is mandatory for POST requests. This information is not provided in a GET response.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Role of the admin. This is not required for an auditor.
-     */
-    roles?: pulumi.Input<pulumi.Input<inputs.AdminUsersRole>[]>;
-    /**
-     * Admin or auditor's username.
-     */
+    role?: pulumi.Input<inputs.AdminUserRoleInputArgs>;
     username: pulumi.Input<string>;
 }

@@ -21,75 +21,45 @@ __all__ = ['FirewallFilteringRuleArgs', 'FirewallFilteringRule']
 @pulumi.input_type
 class FirewallFilteringRuleArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_groups: Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']] = None,
-                 app_services: Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 app_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  default_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-                 departments: Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']] = None,
-                 device_groups: Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enable_full_logging: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_src_countries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  nw_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nw_service_groups: Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']] = None,
-                 nw_services: Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  predefined: Optional[pulumi.Input[_builtins.bool]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  source_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_windows: Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']] = None,
-                 users: Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']] = None,
-                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]] = None):
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallFilteringRule resource.
-        :param pulumi.Input[_builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[_builtins.str] action: The action the Firewall Filtering policy rule takes when packets match the rule
-        :param pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs'] app_service_groups: list of application service groups
-        :param pulumi.Input['FirewallFilteringRuleAppServicesArgs'] app_services: list of application services
-        :param pulumi.Input[_builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallFilteringRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
-        :param pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['FirewallFilteringRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input['FirewallFilteringRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallFilteringRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallFilteringRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallFilteringRuleLocationsArgs'] locations: list of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: Name of the Firewall Filtering policy rule
-        :param pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs'] nw_application_groups: list of nw application groups
-        :param pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs'] nw_service_groups: list of nw service groups
-        :param pulumi.Input['FirewallFilteringRuleNwServicesArgs'] nw_services: list of nw services
-        :param pulumi.Input[_builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[_builtins.int] rank: Admin rank of the Firewall Filtering policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs'] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input['FirewallFilteringRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallFilteringRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -129,8 +99,6 @@ class FirewallFilteringRuleArgs:
             pulumi.set(__self__, "location_groups", location_groups)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nw_application_groups is not None:
             pulumi.set(__self__, "nw_application_groups", nw_application_groups)
         if nw_applications is not None:
@@ -162,10 +130,16 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
-        """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
-        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -175,9 +149,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action the Firewall Filtering policy rule takes when packets match the rule
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -186,34 +157,25 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']]:
-        """
-        list of application service groups
-        """
+    def app_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "app_service_groups")
 
     @app_service_groups.setter
-    def app_service_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']]):
+    def app_service_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "app_service_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="appServices")
-    def app_services(self) -> Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']]:
-        """
-        list of application services
-        """
+    def app_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "app_services")
 
     @app_services.setter
-    def app_services(self, value: Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']]):
+    def app_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "app_services", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set to true, the default rule is applied
-        """
         return pulumi.get(self, "default_rule")
 
     @default_rule.setter
@@ -222,22 +184,16 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']]:
-        """
-        list of departments for which rule must be applied
-        """
+    def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "departments")
 
     @departments.setter
-    def departments(self, value: Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']]):
+    def departments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "departments", value)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the rule
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -247,9 +203,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -259,9 +212,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -279,34 +229,25 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']]:
-        """
-        list of destination ip groups
-        """
+    def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
-    def dest_ip_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']]):
+    def dest_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dest_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
+    def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']]):
+    def device_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "device_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -315,14 +256,11 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
+    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']]):
+    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
@@ -345,74 +283,47 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']]:
-        """
-        list of groups for which rule must be applied
-        """
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']]:
-        """
-        list of Labels that are applicable to the rule.
-        """
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']]:
-        """
-        list of locations groups
-        """
+    def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']]):
+    def location_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "location_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']]:
-        """
-        list of locations for which rule must be applied
-        """
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "locations", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']]:
-        """
-        list of nw application groups
-        """
+    def nw_application_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_application_groups")
 
     @nw_application_groups.setter
-    def nw_application_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']]):
+    def nw_application_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_application_groups", value)
 
     @_builtins.property
@@ -426,34 +337,25 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']]:
-        """
-        list of nw service groups
-        """
+    def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
-    def nw_service_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']]):
+    def nw_service_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_service_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
-    def nw_services(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']]:
-        """
-        list of nw services
-        """
+    def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
-    def nw_services(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']]):
+    def nw_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "nw_services", value)
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set to true, a predefined rule is applied
-        """
         return pulumi.get(self, "predefined")
 
     @predefined.setter
@@ -463,9 +365,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank of the Firewall Filtering policy rule
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -475,9 +374,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
         return pulumi.get(self, "source_countries")
 
     @source_countries.setter
@@ -486,22 +382,16 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']]:
-        """
-        list of source ip groups
-        """
+    def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
-    def src_ip_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']]):
+    def src_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "src_ip_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -511,9 +401,6 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -522,745 +409,87 @@ class FirewallFilteringRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']]:
-        """
-        The time interval in which the Firewall Filtering policy rule applies
-        """
+    def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
-    def time_windows(self, value: Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']]):
+    def time_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "time_windows", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']]:
-        """
-        list of users for which rule must be applied
-        """
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']]):
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "users", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
-    def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]]:
-        """
-        The list of preconfigured workload groups to which the policy must be applied
-        """
+    def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]:
         return pulumi.get(self, "workload_groups")
 
     @workload_groups.setter
-    def workload_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]]):
+    def workload_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]):
         pulumi.set(self, "workload_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]]:
-        """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-        """
+    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
-    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]]):
+    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]):
         pulumi.set(self, "zpa_app_segments", value)
 
 
-@pulumi.input_type
-class _FirewallFilteringRuleState:
-    def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_groups: Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']] = None,
-                 app_services: Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']] = None,
-                 default_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-                 departments: Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']] = None,
-                 device_groups: Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']] = None,
-                 device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']] = None,
-                 enable_full_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exclude_src_countries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']] = None,
-                 labels: Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']] = None,
-                 location_groups: Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']] = None,
-                 locations: Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']] = None,
-                 nw_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nw_service_groups: Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']] = None,
-                 nw_services: Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 predefined: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']] = None,
-                 src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_windows: Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']] = None,
-                 users: Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']] = None,
-                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]] = None):
-        """
-        Input properties used for looking up and filtering FirewallFilteringRule resources.
-        :param pulumi.Input[_builtins.str] action: The action the Firewall Filtering policy rule takes when packets match the rule
-        :param pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs'] app_service_groups: list of application service groups
-        :param pulumi.Input['FirewallFilteringRuleAppServicesArgs'] app_services: list of application services
-        :param pulumi.Input[_builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input['FirewallFilteringRuleDepartmentsArgs'] departments: list of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs'] dest_ip_groups: list of destination ip groups
-        :param pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs'] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input['FirewallFilteringRuleDevicesArgs'] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input['FirewallFilteringRuleGroupsArgs'] groups: list of groups for which rule must be applied
-        :param pulumi.Input['FirewallFilteringRuleLabelsArgs'] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input['FirewallFilteringRuleLocationGroupsArgs'] location_groups: list of locations groups
-        :param pulumi.Input['FirewallFilteringRuleLocationsArgs'] locations: list of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: Name of the Firewall Filtering policy rule
-        :param pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs'] nw_application_groups: list of nw application groups
-        :param pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs'] nw_service_groups: list of nw service groups
-        :param pulumi.Input['FirewallFilteringRuleNwServicesArgs'] nw_services: list of nw services
-        :param pulumi.Input[_builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[_builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[_builtins.int] rank: Admin rank of the Firewall Filtering policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs'] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input['FirewallFilteringRuleTimeWindowsArgs'] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input['FirewallFilteringRuleUsersArgs'] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-        """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if app_service_groups is not None:
-            pulumi.set(__self__, "app_service_groups", app_service_groups)
-        if app_services is not None:
-            pulumi.set(__self__, "app_services", app_services)
-        if default_rule is not None:
-            pulumi.set(__self__, "default_rule", default_rule)
-        if departments is not None:
-            pulumi.set(__self__, "departments", departments)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if dest_addresses is not None:
-            pulumi.set(__self__, "dest_addresses", dest_addresses)
-        if dest_countries is not None:
-            pulumi.set(__self__, "dest_countries", dest_countries)
-        if dest_ip_categories is not None:
-            pulumi.set(__self__, "dest_ip_categories", dest_ip_categories)
-        if dest_ip_groups is not None:
-            pulumi.set(__self__, "dest_ip_groups", dest_ip_groups)
-        if device_groups is not None:
-            pulumi.set(__self__, "device_groups", device_groups)
-        if device_trust_levels is not None:
-            pulumi.set(__self__, "device_trust_levels", device_trust_levels)
-        if devices is not None:
-            pulumi.set(__self__, "devices", devices)
-        if enable_full_logging is not None:
-            pulumi.set(__self__, "enable_full_logging", enable_full_logging)
-        if exclude_src_countries is not None:
-            pulumi.set(__self__, "exclude_src_countries", exclude_src_countries)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if location_groups is not None:
-            pulumi.set(__self__, "location_groups", location_groups)
-        if locations is not None:
-            pulumi.set(__self__, "locations", locations)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if nw_application_groups is not None:
-            pulumi.set(__self__, "nw_application_groups", nw_application_groups)
-        if nw_applications is not None:
-            pulumi.set(__self__, "nw_applications", nw_applications)
-        if nw_service_groups is not None:
-            pulumi.set(__self__, "nw_service_groups", nw_service_groups)
-        if nw_services is not None:
-            pulumi.set(__self__, "nw_services", nw_services)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if predefined is not None:
-            pulumi.set(__self__, "predefined", predefined)
-        if rank is not None:
-            pulumi.set(__self__, "rank", rank)
-        if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
-        if source_countries is not None:
-            pulumi.set(__self__, "source_countries", source_countries)
-        if src_ip_groups is not None:
-            pulumi.set(__self__, "src_ip_groups", src_ip_groups)
-        if src_ips is not None:
-            pulumi.set(__self__, "src_ips", src_ips)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if time_windows is not None:
-            pulumi.set(__self__, "time_windows", time_windows)
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-        if workload_groups is not None:
-            pulumi.set(__self__, "workload_groups", workload_groups)
-        if zpa_app_segments is not None:
-            pulumi.set(__self__, "zpa_app_segments", zpa_app_segments)
-
-    @_builtins.property
-    @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The action the Firewall Filtering policy rule takes when packets match the rule
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "action", value)
-
-    @_builtins.property
-    @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']]:
-        """
-        list of application service groups
-        """
-        return pulumi.get(self, "app_service_groups")
-
-    @app_service_groups.setter
-    def app_service_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleAppServiceGroupsArgs']]):
-        pulumi.set(self, "app_service_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="appServices")
-    def app_services(self) -> Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']]:
-        """
-        list of application services
-        """
-        return pulumi.get(self, "app_services")
-
-    @app_services.setter
-    def app_services(self, value: Optional[pulumi.Input['FirewallFilteringRuleAppServicesArgs']]):
-        pulumi.set(self, "app_services", value)
-
-    @_builtins.property
-    @pulumi.getter(name="defaultRule")
-    def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set to true, the default rule is applied
-        """
-        return pulumi.get(self, "default_rule")
-
-    @default_rule.setter
-    def default_rule(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "default_rule", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def departments(self) -> Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']]:
-        """
-        list of departments for which rule must be applied
-        """
-        return pulumi.get(self, "departments")
-
-    @departments.setter
-    def departments(self, value: Optional[pulumi.Input['FirewallFilteringRuleDepartmentsArgs']]):
-        pulumi.set(self, "departments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about the rule
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destAddresses")
-    def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        """
-        return pulumi.get(self, "dest_addresses")
-
-    @dest_addresses.setter
-    def dest_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_addresses", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destCountries")
-    def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
-        return pulumi.get(self, "dest_countries")
-
-    @dest_countries.setter
-    def dest_countries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_countries", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destIpCategories")
-    def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "dest_ip_categories")
-
-    @dest_ip_categories.setter
-    def dest_ip_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "dest_ip_categories", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']]:
-        """
-        list of destination ip groups
-        """
-        return pulumi.get(self, "dest_ip_groups")
-
-    @dest_ip_groups.setter
-    def dest_ip_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleDestIpGroupsArgs']]):
-        pulumi.set(self, "dest_ip_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
-        return pulumi.get(self, "device_groups")
-
-    @device_groups.setter
-    def device_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleDeviceGroupsArgs']]):
-        pulumi.set(self, "device_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceTrustLevels")
-    def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
-        return pulumi.get(self, "device_trust_levels")
-
-    @device_trust_levels.setter
-    def device_trust_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "device_trust_levels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
-        return pulumi.get(self, "devices")
-
-    @devices.setter
-    def devices(self, value: Optional[pulumi.Input['FirewallFilteringRuleDevicesArgs']]):
-        pulumi.set(self, "devices", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableFullLogging")
-    def enable_full_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "enable_full_logging")
-
-    @enable_full_logging.setter
-    def enable_full_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_full_logging", value)
-
-    @_builtins.property
-    @pulumi.getter(name="excludeSrcCountries")
-    def exclude_src_countries(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        return pulumi.get(self, "exclude_src_countries")
-
-    @exclude_src_countries.setter
-    def exclude_src_countries(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "exclude_src_countries", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']]:
-        """
-        list of groups for which rule must be applied
-        """
-        return pulumi.get(self, "groups")
-
-    @groups.setter
-    def groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleGroupsArgs']]):
-        pulumi.set(self, "groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']]:
-        """
-        list of Labels that are applicable to the rule.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input['FirewallFilteringRuleLabelsArgs']]):
-        pulumi.set(self, "labels", value)
-
-    @_builtins.property
-    @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']]:
-        """
-        list of locations groups
-        """
-        return pulumi.get(self, "location_groups")
-
-    @location_groups.setter
-    def location_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleLocationGroupsArgs']]):
-        pulumi.set(self, "location_groups", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']]:
-        """
-        list of locations for which rule must be applied
-        """
-        return pulumi.get(self, "locations")
-
-    @locations.setter
-    def locations(self, value: Optional[pulumi.Input['FirewallFilteringRuleLocationsArgs']]):
-        pulumi.set(self, "locations", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']]:
-        """
-        list of nw application groups
-        """
-        return pulumi.get(self, "nw_application_groups")
-
-    @nw_application_groups.setter
-    def nw_application_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwApplicationGroupsArgs']]):
-        pulumi.set(self, "nw_application_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwApplications")
-    def nw_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "nw_applications")
-
-    @nw_applications.setter
-    def nw_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "nw_applications", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']]:
-        """
-        list of nw service groups
-        """
-        return pulumi.get(self, "nw_service_groups")
-
-    @nw_service_groups.setter
-    def nw_service_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwServiceGroupsArgs']]):
-        pulumi.set(self, "nw_service_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nwServices")
-    def nw_services(self) -> Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']]:
-        """
-        list of nw services
-        """
-        return pulumi.get(self, "nw_services")
-
-    @nw_services.setter
-    def nw_services(self, value: Optional[pulumi.Input['FirewallFilteringRuleNwServicesArgs']]):
-        pulumi.set(self, "nw_services", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "order", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If set to true, a predefined rule is applied
-        """
-        return pulumi.get(self, "predefined")
-
-    @predefined.setter
-    def predefined(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "predefined", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank of the Firewall Filtering policy rule
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rule_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceCountries")
-    def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
-        return pulumi.get(self, "source_countries")
-
-    @source_countries.setter
-    def source_countries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "source_countries", value)
-
-    @_builtins.property
-    @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']]:
-        """
-        list of source ip groups
-        """
-        return pulumi.get(self, "src_ip_groups")
-
-    @src_ip_groups.setter
-    def src_ip_groups(self, value: Optional[pulumi.Input['FirewallFilteringRuleSrcIpGroupsArgs']]):
-        pulumi.set(self, "src_ip_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="srcIps")
-    def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        """
-        return pulumi.get(self, "src_ips")
-
-    @src_ips.setter
-    def src_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "src_ips", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']]:
-        """
-        The time interval in which the Firewall Filtering policy rule applies
-        """
-        return pulumi.get(self, "time_windows")
-
-    @time_windows.setter
-    def time_windows(self, value: Optional[pulumi.Input['FirewallFilteringRuleTimeWindowsArgs']]):
-        pulumi.set(self, "time_windows", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']]:
-        """
-        list of users for which rule must be applied
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: Optional[pulumi.Input['FirewallFilteringRuleUsersArgs']]):
-        pulumi.set(self, "users", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadGroups")
-    def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]]:
-        """
-        The list of preconfigured workload groups to which the policy must be applied
-        """
-        return pulumi.get(self, "workload_groups")
-
-    @workload_groups.setter
-    def workload_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleWorkloadGroupArgs']]]]):
-        pulumi.set(self, "workload_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]]:
-        """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-        """
-        return pulumi.get(self, "zpa_app_segments")
-
-    @zpa_app_segments.setter
-    def zpa_app_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFilteringRuleZpaAppSegmentArgs']]]]):
-        pulumi.set(self, "zpa_app_segments", value)
-
-
-@pulumi.type_token("zia:index/firewallFilteringRule:FirewallFilteringRule")
+@pulumi.type_token("zia:index:FirewallFilteringRule")
 class FirewallFilteringRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServiceGroupsArgs', 'FirewallFilteringRuleAppServiceGroupsArgsDict']]] = None,
-                 app_services: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServicesArgs', 'FirewallFilteringRuleAppServicesArgsDict']]] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 app_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  default_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-                 departments: Optional[pulumi.Input[Union['FirewallFilteringRuleDepartmentsArgs', 'FirewallFilteringRuleDepartmentsArgsDict']]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDestIpGroupsArgs', 'FirewallFilteringRuleDestIpGroupsArgsDict']]] = None,
-                 device_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDeviceGroupsArgs', 'FirewallFilteringRuleDeviceGroupsArgsDict']]] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input[Union['FirewallFilteringRuleDevicesArgs', 'FirewallFilteringRuleDevicesArgsDict']]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enable_full_logging: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_src_countries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Union['FirewallFilteringRuleGroupsArgs', 'FirewallFilteringRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['FirewallFilteringRuleLabelsArgs', 'FirewallFilteringRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationGroupsArgs', 'FirewallFilteringRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationsArgs', 'FirewallFilteringRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwApplicationGroupsArgs', 'FirewallFilteringRuleNwApplicationGroupsArgsDict']]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  nw_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nw_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServiceGroupsArgs', 'FirewallFilteringRuleNwServiceGroupsArgsDict']]] = None,
-                 nw_services: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServicesArgs', 'FirewallFilteringRuleNwServicesArgsDict']]] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  predefined: Optional[pulumi.Input[_builtins.bool]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  source_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleSrcIpGroupsArgs', 'FirewallFilteringRuleSrcIpGroupsArgsDict']]] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_windows: Optional[pulumi.Input[Union['FirewallFilteringRuleTimeWindowsArgs', 'FirewallFilteringRuleTimeWindowsArgsDict']]] = None,
-                 users: Optional[pulumi.Input[Union['FirewallFilteringRuleUsersArgs', 'FirewallFilteringRuleUsersArgsDict']]] = None,
-                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleWorkloadGroupArgs', 'FirewallFilteringRuleWorkloadGroupArgsDict']]]]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleZpaAppSegmentArgs', 'FirewallFilteringRuleZpaAppSegmentArgsDict']]]]] = None,
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
-        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
-
-        The **zia_firewall_filtering_rule** resource allows the creation and management of ZIA Cloud Firewall filtering rules in the Zscaler Internet Access.
-
-        **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
-
-        * Automatically place new rules at the correct position
-        * Handle reordering around predefined rules
-        * Avoid configuration drift
-
-        Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
-
-        **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
-
-        * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-        * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
-        * `order` - (Optional) Rule order number of the Firewall Filtering policy rule
-
-        * `labels` (list) - Labels that are applicable to the rule.
-            * `id` - (Integer) Identifier that uniquely identifies an entity
-
-        **NOTE 3** The following attributes on `predefined` rules **cannot** be updated:
-
-        * `name` - Name of the Firewall Filtering policy rule
-        * `action` - The action the Firewall Filtering policy rule takes when packets match the rule. Supported Values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
-        * `rank` - (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
-        * Most other attributes that define the rule's behavior
-
-        **NOTE 4** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_firewall_filtering_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_name>
-        ```
-
+        Create a FirewallFilteringRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: The action the Firewall Filtering policy rule takes when packets match the rule
-        :param pulumi.Input[Union['FirewallFilteringRuleAppServiceGroupsArgs', 'FirewallFilteringRuleAppServiceGroupsArgsDict']] app_service_groups: list of application service groups
-        :param pulumi.Input[Union['FirewallFilteringRuleAppServicesArgs', 'FirewallFilteringRuleAppServicesArgsDict']] app_services: list of application services
-        :param pulumi.Input[_builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallFilteringRuleDepartmentsArgs', 'FirewallFilteringRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input[Union['FirewallFilteringRuleDestIpGroupsArgs', 'FirewallFilteringRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallFilteringRuleDeviceGroupsArgs', 'FirewallFilteringRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['FirewallFilteringRuleDevicesArgs', 'FirewallFilteringRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[Union['FirewallFilteringRuleGroupsArgs', 'FirewallFilteringRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallFilteringRuleLabelsArgs', 'FirewallFilteringRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallFilteringRuleLocationGroupsArgs', 'FirewallFilteringRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallFilteringRuleLocationsArgs', 'FirewallFilteringRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: Name of the Firewall Filtering policy rule
-        :param pulumi.Input[Union['FirewallFilteringRuleNwApplicationGroupsArgs', 'FirewallFilteringRuleNwApplicationGroupsArgsDict']] nw_application_groups: list of nw application groups
-        :param pulumi.Input[Union['FirewallFilteringRuleNwServiceGroupsArgs', 'FirewallFilteringRuleNwServiceGroupsArgsDict']] nw_service_groups: list of nw service groups
-        :param pulumi.Input[Union['FirewallFilteringRuleNwServicesArgs', 'FirewallFilteringRuleNwServicesArgsDict']] nw_services: list of nw services
-        :param pulumi.Input[_builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[_builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[_builtins.int] rank: Admin rank of the Firewall Filtering policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input[Union['FirewallFilteringRuleSrcIpGroupsArgs', 'FirewallFilteringRuleSrcIpGroupsArgsDict']] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input[Union['FirewallFilteringRuleTimeWindowsArgs', 'FirewallFilteringRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallFilteringRuleUsersArgs', 'FirewallFilteringRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleWorkloadGroupArgs', 'FirewallFilteringRuleWorkloadGroupArgsDict']]]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleZpaAppSegmentArgs', 'FirewallFilteringRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         """
         ...
     @overload
@@ -1269,58 +498,7 @@ class FirewallFilteringRule(pulumi.CustomResource):
                  args: FirewallFilteringRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
-        * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
-
-        The **zia_firewall_filtering_rule** resource allows the creation and management of ZIA Cloud Firewall filtering rules in the Zscaler Internet Access.
-
-        **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
-
-        * Automatically place new rules at the correct position
-        * Handle reordering around predefined rules
-        * Avoid configuration drift
-
-        Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
-
-        **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
-
-        * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-        * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
-        * `order` - (Optional) Rule order number of the Firewall Filtering policy rule
-
-        * `labels` (list) - Labels that are applicable to the rule.
-            * `id` - (Integer) Identifier that uniquely identifies an entity
-
-        **NOTE 3** The following attributes on `predefined` rules **cannot** be updated:
-
-        * `name` - Name of the Firewall Filtering policy rule
-        * `action` - The action the Firewall Filtering policy rule takes when packets match the rule. Supported Values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
-        * `rank` - (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
-        * Most other attributes that define the rule's behavior
-
-        **NOTE 4** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_firewall_filtering_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_name>
-        ```
-
+        Create a FirewallFilteringRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FirewallFilteringRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1337,40 +515,40 @@ class FirewallFilteringRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServiceGroupsArgs', 'FirewallFilteringRuleAppServiceGroupsArgsDict']]] = None,
-                 app_services: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServicesArgs', 'FirewallFilteringRuleAppServicesArgsDict']]] = None,
+                 app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 app_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  default_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-                 departments: Optional[pulumi.Input[Union['FirewallFilteringRuleDepartmentsArgs', 'FirewallFilteringRuleDepartmentsArgsDict']]] = None,
+                 departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dest_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDestIpGroupsArgs', 'FirewallFilteringRuleDestIpGroupsArgsDict']]] = None,
-                 device_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDeviceGroupsArgs', 'FirewallFilteringRuleDeviceGroupsArgsDict']]] = None,
+                 dest_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 device_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 devices: Optional[pulumi.Input[Union['FirewallFilteringRuleDevicesArgs', 'FirewallFilteringRuleDevicesArgsDict']]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  enable_full_logging: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_src_countries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Union['FirewallFilteringRuleGroupsArgs', 'FirewallFilteringRuleGroupsArgsDict']]] = None,
-                 labels: Optional[pulumi.Input[Union['FirewallFilteringRuleLabelsArgs', 'FirewallFilteringRuleLabelsArgsDict']]] = None,
-                 location_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationGroupsArgs', 'FirewallFilteringRuleLocationGroupsArgsDict']]] = None,
-                 locations: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationsArgs', 'FirewallFilteringRuleLocationsArgsDict']]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 location_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nw_application_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwApplicationGroupsArgs', 'FirewallFilteringRuleNwApplicationGroupsArgsDict']]] = None,
+                 nw_application_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  nw_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 nw_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServiceGroupsArgs', 'FirewallFilteringRuleNwServiceGroupsArgsDict']]] = None,
-                 nw_services: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServicesArgs', 'FirewallFilteringRuleNwServicesArgsDict']]] = None,
+                 nw_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 nw_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  order: Optional[pulumi.Input[_builtins.int]] = None,
                  predefined: Optional[pulumi.Input[_builtins.bool]] = None,
                  rank: Optional[pulumi.Input[_builtins.int]] = None,
                  source_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 src_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleSrcIpGroupsArgs', 'FirewallFilteringRuleSrcIpGroupsArgsDict']]] = None,
+                 src_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_windows: Optional[pulumi.Input[Union['FirewallFilteringRuleTimeWindowsArgs', 'FirewallFilteringRuleTimeWindowsArgsDict']]] = None,
-                 users: Optional[pulumi.Input[Union['FirewallFilteringRuleUsersArgs', 'FirewallFilteringRuleUsersArgsDict']]] = None,
-                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleWorkloadGroupArgs', 'FirewallFilteringRuleWorkloadGroupArgsDict']]]]] = None,
-                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleZpaAppSegmentArgs', 'FirewallFilteringRuleZpaAppSegmentArgsDict']]]]] = None,
+                 time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]]] = None,
+                 zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1399,6 +577,8 @@ class FirewallFilteringRule(pulumi.CustomResource):
             __props__.__dict__["labels"] = labels
             __props__.__dict__["location_groups"] = location_groups
             __props__.__dict__["locations"] = locations
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["nw_application_groups"] = nw_application_groups
             __props__.__dict__["nw_applications"] = nw_applications
@@ -1419,7 +599,7 @@ class FirewallFilteringRule(pulumi.CustomResource):
             __props__.__dict__["zpa_app_segments"] = zpa_app_segments
             __props__.__dict__["rule_id"] = None
         super(FirewallFilteringRule, __self__).__init__(
-            'zia:index/firewallFilteringRule:FirewallFilteringRule',
+            'zia:index:FirewallFilteringRule',
             resource_name,
             __props__,
             opts)
@@ -1427,43 +607,7 @@ class FirewallFilteringRule(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            app_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServiceGroupsArgs', 'FirewallFilteringRuleAppServiceGroupsArgsDict']]] = None,
-            app_services: Optional[pulumi.Input[Union['FirewallFilteringRuleAppServicesArgs', 'FirewallFilteringRuleAppServicesArgsDict']]] = None,
-            default_rule: Optional[pulumi.Input[_builtins.bool]] = None,
-            departments: Optional[pulumi.Input[Union['FirewallFilteringRuleDepartmentsArgs', 'FirewallFilteringRuleDepartmentsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_ip_categories: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dest_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDestIpGroupsArgs', 'FirewallFilteringRuleDestIpGroupsArgsDict']]] = None,
-            device_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleDeviceGroupsArgs', 'FirewallFilteringRuleDeviceGroupsArgsDict']]] = None,
-            device_trust_levels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            devices: Optional[pulumi.Input[Union['FirewallFilteringRuleDevicesArgs', 'FirewallFilteringRuleDevicesArgsDict']]] = None,
-            enable_full_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-            exclude_src_countries: Optional[pulumi.Input[_builtins.bool]] = None,
-            groups: Optional[pulumi.Input[Union['FirewallFilteringRuleGroupsArgs', 'FirewallFilteringRuleGroupsArgsDict']]] = None,
-            labels: Optional[pulumi.Input[Union['FirewallFilteringRuleLabelsArgs', 'FirewallFilteringRuleLabelsArgsDict']]] = None,
-            location_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationGroupsArgs', 'FirewallFilteringRuleLocationGroupsArgsDict']]] = None,
-            locations: Optional[pulumi.Input[Union['FirewallFilteringRuleLocationsArgs', 'FirewallFilteringRuleLocationsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nw_application_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwApplicationGroupsArgs', 'FirewallFilteringRuleNwApplicationGroupsArgsDict']]] = None,
-            nw_applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            nw_service_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServiceGroupsArgs', 'FirewallFilteringRuleNwServiceGroupsArgsDict']]] = None,
-            nw_services: Optional[pulumi.Input[Union['FirewallFilteringRuleNwServicesArgs', 'FirewallFilteringRuleNwServicesArgsDict']]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            predefined: Optional[pulumi.Input[_builtins.bool]] = None,
-            rank: Optional[pulumi.Input[_builtins.int]] = None,
-            rule_id: Optional[pulumi.Input[_builtins.int]] = None,
-            source_countries: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            src_ip_groups: Optional[pulumi.Input[Union['FirewallFilteringRuleSrcIpGroupsArgs', 'FirewallFilteringRuleSrcIpGroupsArgsDict']]] = None,
-            src_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            time_windows: Optional[pulumi.Input[Union['FirewallFilteringRuleTimeWindowsArgs', 'FirewallFilteringRuleTimeWindowsArgsDict']]] = None,
-            users: Optional[pulumi.Input[Union['FirewallFilteringRuleUsersArgs', 'FirewallFilteringRuleUsersArgsDict']]] = None,
-            workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleWorkloadGroupArgs', 'FirewallFilteringRuleWorkloadGroupArgsDict']]]]] = None,
-            zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleZpaAppSegmentArgs', 'FirewallFilteringRuleZpaAppSegmentArgsDict']]]]] = None) -> 'FirewallFilteringRule':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'FirewallFilteringRule':
         """
         Get an existing FirewallFilteringRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1471,142 +615,87 @@ class FirewallFilteringRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: The action the Firewall Filtering policy rule takes when packets match the rule
-        :param pulumi.Input[Union['FirewallFilteringRuleAppServiceGroupsArgs', 'FirewallFilteringRuleAppServiceGroupsArgsDict']] app_service_groups: list of application service groups
-        :param pulumi.Input[Union['FirewallFilteringRuleAppServicesArgs', 'FirewallFilteringRuleAppServicesArgsDict']] app_services: list of application services
-        :param pulumi.Input[_builtins.bool] default_rule: If set to true, the default rule is applied
-        :param pulumi.Input[Union['FirewallFilteringRuleDepartmentsArgs', 'FirewallFilteringRuleDepartmentsArgsDict']] departments: list of departments for which rule must be applied
-        :param pulumi.Input[_builtins.str] description: Additional information about the rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input[Union['FirewallFilteringRuleDestIpGroupsArgs', 'FirewallFilteringRuleDestIpGroupsArgsDict']] dest_ip_groups: list of destination ip groups
-        :param pulumi.Input[Union['FirewallFilteringRuleDeviceGroupsArgs', 'FirewallFilteringRuleDeviceGroupsArgsDict']] device_groups: This field is applicable for devices that are managed using Zscaler Client Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        :param pulumi.Input[Union['FirewallFilteringRuleDevicesArgs', 'FirewallFilteringRuleDevicesArgsDict']] devices: Name-ID pairs of devices for which rule must be applied.
-        :param pulumi.Input[Union['FirewallFilteringRuleGroupsArgs', 'FirewallFilteringRuleGroupsArgsDict']] groups: list of groups for which rule must be applied
-        :param pulumi.Input[Union['FirewallFilteringRuleLabelsArgs', 'FirewallFilteringRuleLabelsArgsDict']] labels: list of Labels that are applicable to the rule.
-        :param pulumi.Input[Union['FirewallFilteringRuleLocationGroupsArgs', 'FirewallFilteringRuleLocationGroupsArgsDict']] location_groups: list of locations groups
-        :param pulumi.Input[Union['FirewallFilteringRuleLocationsArgs', 'FirewallFilteringRuleLocationsArgsDict']] locations: list of locations for which rule must be applied
-        :param pulumi.Input[_builtins.str] name: Name of the Firewall Filtering policy rule
-        :param pulumi.Input[Union['FirewallFilteringRuleNwApplicationGroupsArgs', 'FirewallFilteringRuleNwApplicationGroupsArgsDict']] nw_application_groups: list of nw application groups
-        :param pulumi.Input[Union['FirewallFilteringRuleNwServiceGroupsArgs', 'FirewallFilteringRuleNwServiceGroupsArgsDict']] nw_service_groups: list of nw service groups
-        :param pulumi.Input[Union['FirewallFilteringRuleNwServicesArgs', 'FirewallFilteringRuleNwServicesArgsDict']] nw_services: list of nw services
-        :param pulumi.Input[_builtins.int] order: Rule order number. If omitted, the rule will be added to the end of the rule set.
-        :param pulumi.Input[_builtins.bool] predefined: If set to true, a predefined rule is applied
-        :param pulumi.Input[_builtins.int] rank: Admin rank of the Firewall Filtering policy rule
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        :param pulumi.Input[Union['FirewallFilteringRuleSrcIpGroupsArgs', 'FirewallFilteringRuleSrcIpGroupsArgsDict']] src_ip_groups: list of source ip groups
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        :param pulumi.Input[_builtins.str] state: Determines whether the Firewall Filtering policy rule is enabled or disabled
-        :param pulumi.Input[Union['FirewallFilteringRuleTimeWindowsArgs', 'FirewallFilteringRuleTimeWindowsArgsDict']] time_windows: The time interval in which the Firewall Filtering policy rule applies
-        :param pulumi.Input[Union['FirewallFilteringRuleUsersArgs', 'FirewallFilteringRuleUsersArgsDict']] users: list of users for which rule must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleWorkloadGroupArgs', 'FirewallFilteringRuleWorkloadGroupArgsDict']]]] workload_groups: The list of preconfigured workload groups to which the policy must be applied
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallFilteringRuleZpaAppSegmentArgs', 'FirewallFilteringRuleZpaAppSegmentArgsDict']]]] zpa_app_segments: The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _FirewallFilteringRuleState.__new__(_FirewallFilteringRuleState)
+        __props__ = FirewallFilteringRuleArgs.__new__(FirewallFilteringRuleArgs)
 
-        __props__.__dict__["action"] = action
-        __props__.__dict__["app_service_groups"] = app_service_groups
-        __props__.__dict__["app_services"] = app_services
-        __props__.__dict__["default_rule"] = default_rule
-        __props__.__dict__["departments"] = departments
-        __props__.__dict__["description"] = description
-        __props__.__dict__["dest_addresses"] = dest_addresses
-        __props__.__dict__["dest_countries"] = dest_countries
-        __props__.__dict__["dest_ip_categories"] = dest_ip_categories
-        __props__.__dict__["dest_ip_groups"] = dest_ip_groups
-        __props__.__dict__["device_groups"] = device_groups
-        __props__.__dict__["device_trust_levels"] = device_trust_levels
-        __props__.__dict__["devices"] = devices
-        __props__.__dict__["enable_full_logging"] = enable_full_logging
-        __props__.__dict__["exclude_src_countries"] = exclude_src_countries
-        __props__.__dict__["groups"] = groups
-        __props__.__dict__["labels"] = labels
-        __props__.__dict__["location_groups"] = location_groups
-        __props__.__dict__["locations"] = locations
-        __props__.__dict__["name"] = name
-        __props__.__dict__["nw_application_groups"] = nw_application_groups
-        __props__.__dict__["nw_applications"] = nw_applications
-        __props__.__dict__["nw_service_groups"] = nw_service_groups
-        __props__.__dict__["nw_services"] = nw_services
-        __props__.__dict__["order"] = order
-        __props__.__dict__["predefined"] = predefined
-        __props__.__dict__["rank"] = rank
-        __props__.__dict__["rule_id"] = rule_id
-        __props__.__dict__["source_countries"] = source_countries
-        __props__.__dict__["src_ip_groups"] = src_ip_groups
-        __props__.__dict__["src_ips"] = src_ips
-        __props__.__dict__["state"] = state
-        __props__.__dict__["time_windows"] = time_windows
-        __props__.__dict__["users"] = users
-        __props__.__dict__["workload_groups"] = workload_groups
-        __props__.__dict__["zpa_app_segments"] = zpa_app_segments
+        __props__.__dict__["action"] = None
+        __props__.__dict__["app_service_groups"] = None
+        __props__.__dict__["app_services"] = None
+        __props__.__dict__["default_rule"] = None
+        __props__.__dict__["departments"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["dest_addresses"] = None
+        __props__.__dict__["dest_countries"] = None
+        __props__.__dict__["dest_ip_categories"] = None
+        __props__.__dict__["dest_ip_groups"] = None
+        __props__.__dict__["device_groups"] = None
+        __props__.__dict__["device_trust_levels"] = None
+        __props__.__dict__["devices"] = None
+        __props__.__dict__["enable_full_logging"] = None
+        __props__.__dict__["exclude_src_countries"] = None
+        __props__.__dict__["groups"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["location_groups"] = None
+        __props__.__dict__["locations"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["nw_application_groups"] = None
+        __props__.__dict__["nw_applications"] = None
+        __props__.__dict__["nw_service_groups"] = None
+        __props__.__dict__["nw_services"] = None
+        __props__.__dict__["order"] = None
+        __props__.__dict__["predefined"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["rule_id"] = None
+        __props__.__dict__["source_countries"] = None
+        __props__.__dict__["src_ip_groups"] = None
+        __props__.__dict__["src_ips"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["time_windows"] = None
+        __props__.__dict__["users"] = None
+        __props__.__dict__["workload_groups"] = None
+        __props__.__dict__["zpa_app_segments"] = None
         return FirewallFilteringRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The action the Firewall Filtering policy rule takes when packets match the rule
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
-    def app_service_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleAppServiceGroups']]:
-        """
-        list of application service groups
-        """
+    def app_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "app_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="appServices")
-    def app_services(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleAppServices']]:
-        """
-        list of application services
-        """
+    def app_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "app_services")
 
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If set to true, the default rule is applied
-        """
         return pulumi.get(self, "default_rule")
 
     @_builtins.property
     @pulumi.getter
-    def departments(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleDepartments']]:
-        """
-        list of departments for which rule must be applied
-        """
+    def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Additional information about the rule
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
-    def dest_countries(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
+    def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
@@ -1616,34 +705,22 @@ class FirewallFilteringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
-    def dest_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleDestIpGroups']]:
-        """
-        list of destination ip groups
-        """
+    def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
-    def device_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleDeviceGroups']]:
-        """
-        This field is applicable for devices that are managed using Zscaler Client Connector.
-        """
+    def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleDevices']]:
-        """
-        Name-ID pairs of devices for which rule must be applied.
-        """
+    def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "devices")
 
     @_builtins.property
@@ -1658,50 +735,32 @@ class FirewallFilteringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleGroups']]:
-        """
-        list of groups for which rule must be applied
-        """
+    def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleLabels']]:
-        """
-        list of Labels that are applicable to the rule.
-        """
+    def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
-    def location_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleLocationGroups']]:
-        """
-        list of locations groups
-        """
+    def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleLocations']]:
-        """
-        list of locations for which rule must be applied
-        """
+    def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Firewall Filtering policy rule
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
-    def nw_application_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleNwApplicationGroups']]:
-        """
-        list of nw application groups
-        """
+    def nw_application_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_application_groups")
 
     @_builtins.property
@@ -1711,42 +770,27 @@ class FirewallFilteringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
-    def nw_service_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleNwServiceGroups']]:
-        """
-        list of nw service groups
-        """
+    def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
-    def nw_services(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleNwServices']]:
-        """
-        list of nw services
-        """
+    def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
-        """
-        Rule order number. If omitted, the rule will be added to the end of the rule set.
-        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If set to true, a predefined rule is applied
-        """
         return pulumi.get(self, "predefined")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Admin rank of the Firewall Filtering policy rule
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
@@ -1756,65 +800,41 @@ class FirewallFilteringRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
-    def source_countries(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-        """
+    def source_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "source_countries")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
-    def src_ip_groups(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleSrcIpGroups']]:
-        """
-        list of source ip groups
-        """
+    def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Determines whether the Firewall Filtering policy rule is enabled or disabled
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleTimeWindows']]:
-        """
-        The time interval in which the Firewall Filtering policy rule applies
-        """
+    def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional['outputs.FirewallFilteringRuleUsers']]:
-        """
-        list of users for which rule must be applied
-        """
+    def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
-    def workload_groups(self) -> pulumi.Output[Sequence['outputs.FirewallFilteringRuleWorkloadGroup']]:
-        """
-        The list of preconfigured workload groups to which the policy must be applied
-        """
+    def workload_groups(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadGroupInput']]]:
         return pulumi.get(self, "workload_groups")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
-    def zpa_app_segments(self) -> pulumi.Output[Sequence['outputs.FirewallFilteringRuleZpaAppSegment']]:
-        """
-        The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-        """
+    def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
         return pulumi.get(self, "zpa_app_segments")
 

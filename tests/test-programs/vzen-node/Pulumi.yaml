@@ -1,0 +1,73 @@
+name: vzen-node-e2e
+runtime: yaml
+description: E2E test for zia:index:VzenNode resource (same values as Terraform testAccCheckVZENNodeConfigure and HCL example)
+
+config:
+  name:
+    type: string
+    default: ""
+  status:
+    type: string
+    default: "ENABLED"
+  # type:
+  #   type: string
+  #   default: "VZEN"
+  ipAddress:
+    type: string
+    default: "10.0.0.10"
+  subnetMask:
+    type: string
+    default: "255.255.255.0"
+  defaultGateway:
+    type: string
+    default: "10.0.0.20"
+  ipSecEnabled:
+    type: boolean
+    default: false
+  inProduction:
+    type: boolean
+    default: true
+  deploymentMode:
+    type: string
+    default: "STANDALONE"
+  vzenSkuType:
+    type: string
+    default: "LARGE"
+  onDemandSupportTunnelEnabled:
+    type: boolean
+    default: true
+  establishSupportTunnelEnabled:
+    type: boolean
+    default: false
+
+resources:
+  vzenNode:
+    type: zia:index:VzenNode
+    properties:
+      name: ${name}
+      status: ${status}
+      # type: ${type}
+      ipAddress: ${ipAddress}
+      subnetMask: ${subnetMask}
+      defaultGateway: ${defaultGateway}
+      inProduction: ${inProduction}
+      deploymentMode: ${deploymentMode}
+      vzenSkuType: ${vzenSkuType}
+      onDemandSupportTunnelEnabled: ${onDemandSupportTunnelEnabled}
+      establishSupportTunnelEnabled: ${establishSupportTunnelEnabled}
+      ipSecEnabled: ${ipSecEnabled}
+
+outputs:
+  nodeId: ${vzenNode.nodeId}
+  name: ${vzenNode.name}
+  status: ${vzenNode.status}
+  # type: ${vzenNode.type}
+  ipAddress: ${vzenNode.ipAddress}
+  ipSecEnabled: ${vzenNode.ipSecEnabled}
+  subnetMask: ${vzenNode.subnetMask}
+  defaultGateway: ${vzenNode.defaultGateway}
+  inProduction: ${vzenNode.inProduction}
+  deploymentMode: ${vzenNode.deploymentMode}
+  vzenSkuType: ${vzenNode.vzenSkuType}
+  onDemandSupportTunnelEnabled: ${vzenNode.onDemandSupportTunnelEnabled}
+  establishSupportTunnelEnabled: ${vzenNode.establishSupportTunnelEnabled}

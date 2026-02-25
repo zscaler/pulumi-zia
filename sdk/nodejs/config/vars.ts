@@ -10,36 +10,35 @@ const __config = new pulumi.Config("zia");
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
     get() {
-        return __config.get("apiKey") ?? utilities.getEnv("ZIA_API_KEY");
+        return __config.get("apiKey");
     },
     enumerable: true,
 });
 
-/**
- * zpa client id
- */
 export declare const clientId: string | undefined;
 Object.defineProperty(exports, "clientId", {
     get() {
-        return __config.get("clientId") ?? utilities.getEnv("ZSCALER_CLIENT_ID");
+        return __config.get("clientId");
     },
     enumerable: true,
 });
 
-/**
- * zpa client secret
- */
 export declare const clientSecret: string | undefined;
 Object.defineProperty(exports, "clientSecret", {
     get() {
-        return __config.get("clientSecret") ?? utilities.getEnv("ZSCALER_CLIENT_SECRET");
+        return __config.get("clientSecret");
     },
     enumerable: true,
 });
 
-/**
- * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
- */
+export declare const cloud: string | undefined;
+Object.defineProperty(exports, "cloud", {
+    get() {
+        return __config.get("cloud");
+    },
+    enumerable: true,
+});
+
 export declare const httpProxy: string | undefined;
 Object.defineProperty(exports, "httpProxy", {
     get() {
@@ -48,9 +47,6 @@ Object.defineProperty(exports, "httpProxy", {
     enumerable: true,
 });
 
-/**
- * maximum number of retries to attempt before erroring out.
- */
 export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
@@ -59,39 +55,22 @@ Object.defineProperty(exports, "maxRetries", {
     enumerable: true,
 });
 
-/**
- * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
- */
-export declare const parallelism: number | undefined;
-Object.defineProperty(exports, "parallelism", {
-    get() {
-        return __config.getObject<number>("parallelism");
-    },
-    enumerable: true,
-});
-
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
     get() {
-        return __config.get("password") ?? utilities.getEnv("ZIA_PASSWORD");
+        return __config.get("password");
     },
     enumerable: true,
 });
 
-/**
- * zpa private key
- */
 export declare const privateKey: string | undefined;
 Object.defineProperty(exports, "privateKey", {
     get() {
-        return __config.get("privateKey") ?? utilities.getEnv("ZSCALER_PRIVATE_KEY");
+        return __config.get("privateKey");
     },
     enumerable: true,
 });
 
-/**
- * Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
- */
 export declare const requestTimeout: number | undefined;
 Object.defineProperty(exports, "requestTimeout", {
     get() {
@@ -100,24 +79,18 @@ Object.defineProperty(exports, "requestTimeout", {
     enumerable: true,
 });
 
-/**
- * Zscaler Sandbox Cloud
- */
 export declare const sandboxCloud: string | undefined;
 Object.defineProperty(exports, "sandboxCloud", {
     get() {
-        return __config.get("sandboxCloud") ?? utilities.getEnv("ZSCALER_SANDBOX_CLOUD");
+        return __config.get("sandboxCloud");
     },
     enumerable: true,
 });
 
-/**
- * Zscaler Sandbox Token
- */
 export declare const sandboxToken: string | undefined;
 Object.defineProperty(exports, "sandboxToken", {
     get() {
-        return __config.get("sandboxToken") ?? utilities.getEnv("ZSCALER_SANDBOX_TOKEN");
+        return __config.get("sandboxToken");
     },
     enumerable: true,
 });
@@ -125,7 +98,7 @@ Object.defineProperty(exports, "sandboxToken", {
 export declare const useLegacyClient: boolean | undefined;
 Object.defineProperty(exports, "useLegacyClient", {
     get() {
-        return __config.getObject<boolean>("useLegacyClient") ?? utilities.getEnvBoolean("ZSCALER_USE_LEGACY_CLIENT");
+        return __config.getObject<boolean>("useLegacyClient");
     },
     enumerable: true,
 });
@@ -133,18 +106,15 @@ Object.defineProperty(exports, "useLegacyClient", {
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {
     get() {
-        return __config.get("username") ?? utilities.getEnv("ZIA_USERNAME");
+        return __config.get("username");
     },
     enumerable: true,
 });
 
-/**
- * Zscaler Vanity Domain
- */
 export declare const vanityDomain: string | undefined;
 Object.defineProperty(exports, "vanityDomain", {
     get() {
-        return __config.get("vanityDomain") ?? utilities.getEnv("ZSCALER_VANITY_DOMAIN");
+        return __config.get("vanityDomain");
     },
     enumerable: true,
 });
@@ -152,18 +122,7 @@ Object.defineProperty(exports, "vanityDomain", {
 export declare const ziaCloud: string | undefined;
 Object.defineProperty(exports, "ziaCloud", {
     get() {
-        return __config.get("ziaCloud") ?? utilities.getEnv("ZIA_CLOUD");
-    },
-    enumerable: true,
-});
-
-/**
- * Zscaler Cloud Name
- */
-export declare const zscalerCloud: string | undefined;
-Object.defineProperty(exports, "zscalerCloud", {
-    get() {
-        return __config.get("zscalerCloud") ?? utilities.getEnv("ZSCALER_CLOUD");
+        return __config.get("ziaCloud");
     },
     enumerable: true,
 });

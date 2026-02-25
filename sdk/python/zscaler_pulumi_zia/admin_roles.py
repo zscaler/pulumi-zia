@@ -39,24 +39,6 @@ class AdminRolesArgs:
                  username_access: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdminRoles resource.
-        :param pulumi.Input[_builtins.str] admin_acct_access: Admin and role management access permission.
-        :param pulumi.Input[_builtins.str] alerting_access: Alerting access permission
-        :param pulumi.Input[_builtins.str] analysis_access: Insights logs access permission.
-        :param pulumi.Input[_builtins.str] dashboard_access: Dashboard access permission.
-        :param pulumi.Input[_builtins.str] device_info_access: Device information access permission. When set to NONE, device information is obfuscated.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ext_feature_permissions: External feature access permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] feature_permissions: Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether this is an auditor role.
-        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether or not this admin user is editable/deletable.
-        :param pulumi.Input[_builtins.str] logs_limit: Log range limit.
-        :param pulumi.Input[_builtins.str] name: The Name of the admin role
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        :param pulumi.Input[_builtins.str] policy_access: Policy access permission.
-        :param pulumi.Input[_builtins.int] rank: Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        :param pulumi.Input[_builtins.str] report_access: Report access permission.
-        :param pulumi.Input[_builtins.int] report_time_duration: Time duration allocated to the report dashboard.
-        :param pulumi.Input[_builtins.str] role_type: The admin role type. ()This attribute is subject to change.)
-        :param pulumi.Input[_builtins.str] username_access: Username access permission. When set to NONE, the username will be obfuscated.
         """
         if admin_acct_access is not None:
             pulumi.set(__self__, "admin_acct_access", admin_acct_access)
@@ -98,9 +80,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="adminAcctAccess")
     def admin_acct_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Admin and role management access permission.
-        """
         return pulumi.get(self, "admin_acct_access")
 
     @admin_acct_access.setter
@@ -110,9 +89,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="alertingAccess")
     def alerting_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Alerting access permission
-        """
         return pulumi.get(self, "alerting_access")
 
     @alerting_access.setter
@@ -122,9 +98,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="analysisAccess")
     def analysis_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Insights logs access permission.
-        """
         return pulumi.get(self, "analysis_access")
 
     @analysis_access.setter
@@ -134,9 +107,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="dashboardAccess")
     def dashboard_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Dashboard access permission.
-        """
         return pulumi.get(self, "dashboard_access")
 
     @dashboard_access.setter
@@ -146,9 +116,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="deviceInfoAccess")
     def device_info_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Device information access permission. When set to NONE, device information is obfuscated.
-        """
         return pulumi.get(self, "device_info_access")
 
     @device_info_access.setter
@@ -158,9 +125,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="extFeaturePermissions")
     def ext_feature_permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        External feature access permission.
-        """
         return pulumi.get(self, "ext_feature_permissions")
 
     @ext_feature_permissions.setter
@@ -170,9 +134,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="featurePermissions")
     def feature_permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        """
         return pulumi.get(self, "feature_permissions")
 
     @feature_permissions.setter
@@ -182,9 +143,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this is an auditor role.
-        """
         return pulumi.get(self, "is_auditor")
 
     @is_auditor.setter
@@ -194,9 +152,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether or not this admin user is editable/deletable.
-        """
         return pulumi.get(self, "is_non_editable")
 
     @is_non_editable.setter
@@ -206,9 +161,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="logsLimit")
     def logs_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log range limit.
-        """
         return pulumi.get(self, "logs_limit")
 
     @logs_limit.setter
@@ -218,9 +170,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Name of the admin role
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -230,9 +179,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -242,9 +188,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="policyAccess")
     def policy_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Policy access permission.
-        """
         return pulumi.get(self, "policy_access")
 
     @policy_access.setter
@@ -254,9 +197,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -266,9 +206,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="reportAccess")
     def report_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Report access permission.
-        """
         return pulumi.get(self, "report_access")
 
     @report_access.setter
@@ -278,9 +215,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="reportTimeDuration")
     def report_time_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time duration allocated to the report dashboard.
-        """
         return pulumi.get(self, "report_time_duration")
 
     @report_time_duration.setter
@@ -290,9 +224,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The admin role type. ()This attribute is subject to change.)
-        """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
@@ -302,9 +233,6 @@ class AdminRolesArgs:
     @_builtins.property
     @pulumi.getter(name="usernameAccess")
     def username_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username access permission. When set to NONE, the username will be obfuscated.
-        """
         return pulumi.get(self, "username_access")
 
     @username_access.setter
@@ -312,315 +240,7 @@ class AdminRolesArgs:
         pulumi.set(self, "username_access", value)
 
 
-@pulumi.input_type
-class _AdminRolesState:
-    def __init__(__self__, *,
-                 admin_acct_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 alerting_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 analysis_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_info_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 ext_feature_permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 feature_permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 is_auditor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_non_editable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logs_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 rank: Optional[pulumi.Input[_builtins.int]] = None,
-                 report_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_time_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_access: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering AdminRoles resources.
-        :param pulumi.Input[_builtins.str] admin_acct_access: Admin and role management access permission.
-        :param pulumi.Input[_builtins.str] alerting_access: Alerting access permission
-        :param pulumi.Input[_builtins.str] analysis_access: Insights logs access permission.
-        :param pulumi.Input[_builtins.str] dashboard_access: Dashboard access permission.
-        :param pulumi.Input[_builtins.str] device_info_access: Device information access permission. When set to NONE, device information is obfuscated.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ext_feature_permissions: External feature access permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] feature_permissions: Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether this is an auditor role.
-        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether or not this admin user is editable/deletable.
-        :param pulumi.Input[_builtins.str] logs_limit: Log range limit.
-        :param pulumi.Input[_builtins.str] name: The Name of the admin role
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        :param pulumi.Input[_builtins.str] policy_access: Policy access permission.
-        :param pulumi.Input[_builtins.int] rank: Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        :param pulumi.Input[_builtins.str] report_access: Report access permission.
-        :param pulumi.Input[_builtins.int] report_time_duration: Time duration allocated to the report dashboard.
-        :param pulumi.Input[_builtins.str] role_type: The admin role type. ()This attribute is subject to change.)
-        :param pulumi.Input[_builtins.str] username_access: Username access permission. When set to NONE, the username will be obfuscated.
-        """
-        if admin_acct_access is not None:
-            pulumi.set(__self__, "admin_acct_access", admin_acct_access)
-        if alerting_access is not None:
-            pulumi.set(__self__, "alerting_access", alerting_access)
-        if analysis_access is not None:
-            pulumi.set(__self__, "analysis_access", analysis_access)
-        if dashboard_access is not None:
-            pulumi.set(__self__, "dashboard_access", dashboard_access)
-        if device_info_access is not None:
-            pulumi.set(__self__, "device_info_access", device_info_access)
-        if ext_feature_permissions is not None:
-            pulumi.set(__self__, "ext_feature_permissions", ext_feature_permissions)
-        if feature_permissions is not None:
-            pulumi.set(__self__, "feature_permissions", feature_permissions)
-        if is_auditor is not None:
-            pulumi.set(__self__, "is_auditor", is_auditor)
-        if is_non_editable is not None:
-            pulumi.set(__self__, "is_non_editable", is_non_editable)
-        if logs_limit is not None:
-            pulumi.set(__self__, "logs_limit", logs_limit)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
-        if policy_access is not None:
-            pulumi.set(__self__, "policy_access", policy_access)
-        if rank is not None:
-            pulumi.set(__self__, "rank", rank)
-        if report_access is not None:
-            pulumi.set(__self__, "report_access", report_access)
-        if report_time_duration is not None:
-            pulumi.set(__self__, "report_time_duration", report_time_duration)
-        if role_id is not None:
-            pulumi.set(__self__, "role_id", role_id)
-        if role_type is not None:
-            pulumi.set(__self__, "role_type", role_type)
-        if username_access is not None:
-            pulumi.set(__self__, "username_access", username_access)
-
-    @_builtins.property
-    @pulumi.getter(name="adminAcctAccess")
-    def admin_acct_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Admin and role management access permission.
-        """
-        return pulumi.get(self, "admin_acct_access")
-
-    @admin_acct_access.setter
-    def admin_acct_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "admin_acct_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="alertingAccess")
-    def alerting_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Alerting access permission
-        """
-        return pulumi.get(self, "alerting_access")
-
-    @alerting_access.setter
-    def alerting_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "alerting_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="analysisAccess")
-    def analysis_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Insights logs access permission.
-        """
-        return pulumi.get(self, "analysis_access")
-
-    @analysis_access.setter
-    def analysis_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "analysis_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dashboardAccess")
-    def dashboard_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Dashboard access permission.
-        """
-        return pulumi.get(self, "dashboard_access")
-
-    @dashboard_access.setter
-    def dashboard_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "dashboard_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceInfoAccess")
-    def device_info_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Device information access permission. When set to NONE, device information is obfuscated.
-        """
-        return pulumi.get(self, "device_info_access")
-
-    @device_info_access.setter
-    def device_info_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "device_info_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extFeaturePermissions")
-    def ext_feature_permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        External feature access permission.
-        """
-        return pulumi.get(self, "ext_feature_permissions")
-
-    @ext_feature_permissions.setter
-    def ext_feature_permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "ext_feature_permissions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="featurePermissions")
-    def feature_permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        """
-        return pulumi.get(self, "feature_permissions")
-
-    @feature_permissions.setter
-    def feature_permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "feature_permissions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isAuditor")
-    def is_auditor(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this is an auditor role.
-        """
-        return pulumi.get(self, "is_auditor")
-
-    @is_auditor.setter
-    def is_auditor(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_auditor", value)
-
-    @_builtins.property
-    @pulumi.getter(name="isNonEditable")
-    def is_non_editable(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether or not this admin user is editable/deletable.
-        """
-        return pulumi.get(self, "is_non_editable")
-
-    @is_non_editable.setter
-    def is_non_editable(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "is_non_editable", value)
-
-    @_builtins.property
-    @pulumi.getter(name="logsLimit")
-    def logs_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log range limit.
-        """
-        return pulumi.get(self, "logs_limit")
-
-    @logs_limit.setter
-    def logs_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "logs_limit", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Name of the admin role
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        """
-        return pulumi.get(self, "permissions")
-
-    @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "permissions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyAccess")
-    def policy_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Policy access permission.
-        """
-        return pulumi.get(self, "policy_access")
-
-    @policy_access.setter
-    def policy_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "policy_access", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        """
-        return pulumi.get(self, "rank")
-
-    @rank.setter
-    def rank(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "rank", value)
-
-    @_builtins.property
-    @pulumi.getter(name="reportAccess")
-    def report_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Report access permission.
-        """
-        return pulumi.get(self, "report_access")
-
-    @report_access.setter
-    def report_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "report_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="reportTimeDuration")
-    def report_time_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time duration allocated to the report dashboard.
-        """
-        return pulumi.get(self, "report_time_duration")
-
-    @report_time_duration.setter
-    def report_time_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "report_time_duration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleId")
-    def role_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "role_id")
-
-    @role_id.setter
-    def role_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "role_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The admin role type. ()This attribute is subject to change.)
-        """
-        return pulumi.get(self, "role_type")
-
-    @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "role_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="usernameAccess")
-    def username_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username access permission. When set to NONE, the username will be obfuscated.
-        """
-        return pulumi.get(self, "username_access")
-
-    @username_access.setter
-    def username_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "username_access", value)
-
-
-@pulumi.type_token("zia:index/adminRoles:AdminRoles")
+@pulumi.type_token("zia:index:AdminRoles")
 class AdminRoles(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -646,56 +266,9 @@ class AdminRoles(pulumi.CustomResource):
                  username_access: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-role-management)
-        * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminRoles-get)
-
-        The **zia_admin_roles** resource allows the creation and management of admin roles in the Zscaler Internet Access cloud or via the API.
-
-        ## Example Usage
-
-        ### Create Admin Role
-
-        ### Create Admin SDWAN Role
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_rule_labels** can be imported by using `<LABEL_ID>` or `<LABEL_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/adminRoles:AdminRoles example <label_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/adminRoles:AdminRoles example <label_name>
-        ```
-
+        Create a AdminRoles resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_acct_access: Admin and role management access permission.
-        :param pulumi.Input[_builtins.str] alerting_access: Alerting access permission
-        :param pulumi.Input[_builtins.str] analysis_access: Insights logs access permission.
-        :param pulumi.Input[_builtins.str] dashboard_access: Dashboard access permission.
-        :param pulumi.Input[_builtins.str] device_info_access: Device information access permission. When set to NONE, device information is obfuscated.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ext_feature_permissions: External feature access permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] feature_permissions: Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether this is an auditor role.
-        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether or not this admin user is editable/deletable.
-        :param pulumi.Input[_builtins.str] logs_limit: Log range limit.
-        :param pulumi.Input[_builtins.str] name: The Name of the admin role
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        :param pulumi.Input[_builtins.str] policy_access: Policy access permission.
-        :param pulumi.Input[_builtins.int] rank: Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        :param pulumi.Input[_builtins.str] report_access: Report access permission.
-        :param pulumi.Input[_builtins.int] report_time_duration: Time duration allocated to the report dashboard.
-        :param pulumi.Input[_builtins.str] role_type: The admin role type. ()This attribute is subject to change.)
-        :param pulumi.Input[_builtins.str] username_access: Username access permission. When set to NONE, the username will be obfuscated.
         """
         ...
     @overload
@@ -704,36 +277,7 @@ class AdminRoles(pulumi.CustomResource):
                  args: Optional[AdminRolesArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-role-management)
-        * [API documentation](https://help.zscaler.com/zia/admin-role-management#/adminRoles-get)
-
-        The **zia_admin_roles** resource allows the creation and management of admin roles in the Zscaler Internet Access cloud or via the API.
-
-        ## Example Usage
-
-        ### Create Admin Role
-
-        ### Create Admin SDWAN Role
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_rule_labels** can be imported by using `<LABEL_ID>` or `<LABEL_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/adminRoles:AdminRoles example <label_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/adminRoles:AdminRoles example <label_name>
-        ```
-
+        Create a AdminRoles resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AdminRolesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -796,7 +340,7 @@ class AdminRoles(pulumi.CustomResource):
             __props__.__dict__["username_access"] = username_access
             __props__.__dict__["role_id"] = None
         super(AdminRoles, __self__).__init__(
-            'zia:index/adminRoles:AdminRoles',
+            'zia:index:AdminRoles',
             resource_name,
             __props__,
             opts)
@@ -804,26 +348,7 @@ class AdminRoles(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            admin_acct_access: Optional[pulumi.Input[_builtins.str]] = None,
-            alerting_access: Optional[pulumi.Input[_builtins.str]] = None,
-            analysis_access: Optional[pulumi.Input[_builtins.str]] = None,
-            dashboard_access: Optional[pulumi.Input[_builtins.str]] = None,
-            device_info_access: Optional[pulumi.Input[_builtins.str]] = None,
-            ext_feature_permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            feature_permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            is_auditor: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_non_editable: Optional[pulumi.Input[_builtins.bool]] = None,
-            logs_limit: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_access: Optional[pulumi.Input[_builtins.str]] = None,
-            rank: Optional[pulumi.Input[_builtins.int]] = None,
-            report_access: Optional[pulumi.Input[_builtins.str]] = None,
-            report_time_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            role_id: Optional[pulumi.Input[_builtins.int]] = None,
-            role_type: Optional[pulumi.Input[_builtins.str]] = None,
-            username_access: Optional[pulumi.Input[_builtins.str]] = None) -> 'AdminRoles':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AdminRoles':
         """
         Get an existing AdminRoles resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -831,176 +356,110 @@ class AdminRoles(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_acct_access: Admin and role management access permission.
-        :param pulumi.Input[_builtins.str] alerting_access: Alerting access permission
-        :param pulumi.Input[_builtins.str] analysis_access: Insights logs access permission.
-        :param pulumi.Input[_builtins.str] dashboard_access: Dashboard access permission.
-        :param pulumi.Input[_builtins.str] device_info_access: Device information access permission. When set to NONE, device information is obfuscated.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ext_feature_permissions: External feature access permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] feature_permissions: Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether this is an auditor role.
-        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether or not this admin user is editable/deletable.
-        :param pulumi.Input[_builtins.str] logs_limit: Log range limit.
-        :param pulumi.Input[_builtins.str] name: The Name of the admin role
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        :param pulumi.Input[_builtins.str] policy_access: Policy access permission.
-        :param pulumi.Input[_builtins.int] rank: Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        :param pulumi.Input[_builtins.str] report_access: Report access permission.
-        :param pulumi.Input[_builtins.int] report_time_duration: Time duration allocated to the report dashboard.
-        :param pulumi.Input[_builtins.str] role_type: The admin role type. ()This attribute is subject to change.)
-        :param pulumi.Input[_builtins.str] username_access: Username access permission. When set to NONE, the username will be obfuscated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _AdminRolesState.__new__(_AdminRolesState)
+        __props__ = AdminRolesArgs.__new__(AdminRolesArgs)
 
-        __props__.__dict__["admin_acct_access"] = admin_acct_access
-        __props__.__dict__["alerting_access"] = alerting_access
-        __props__.__dict__["analysis_access"] = analysis_access
-        __props__.__dict__["dashboard_access"] = dashboard_access
-        __props__.__dict__["device_info_access"] = device_info_access
-        __props__.__dict__["ext_feature_permissions"] = ext_feature_permissions
-        __props__.__dict__["feature_permissions"] = feature_permissions
-        __props__.__dict__["is_auditor"] = is_auditor
-        __props__.__dict__["is_non_editable"] = is_non_editable
-        __props__.__dict__["logs_limit"] = logs_limit
-        __props__.__dict__["name"] = name
-        __props__.__dict__["permissions"] = permissions
-        __props__.__dict__["policy_access"] = policy_access
-        __props__.__dict__["rank"] = rank
-        __props__.__dict__["report_access"] = report_access
-        __props__.__dict__["report_time_duration"] = report_time_duration
-        __props__.__dict__["role_id"] = role_id
-        __props__.__dict__["role_type"] = role_type
-        __props__.__dict__["username_access"] = username_access
+        __props__.__dict__["admin_acct_access"] = None
+        __props__.__dict__["alerting_access"] = None
+        __props__.__dict__["analysis_access"] = None
+        __props__.__dict__["dashboard_access"] = None
+        __props__.__dict__["device_info_access"] = None
+        __props__.__dict__["ext_feature_permissions"] = None
+        __props__.__dict__["feature_permissions"] = None
+        __props__.__dict__["is_auditor"] = None
+        __props__.__dict__["is_non_editable"] = None
+        __props__.__dict__["logs_limit"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["permissions"] = None
+        __props__.__dict__["policy_access"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["report_access"] = None
+        __props__.__dict__["report_time_duration"] = None
+        __props__.__dict__["role_id"] = None
+        __props__.__dict__["role_type"] = None
+        __props__.__dict__["username_access"] = None
         return AdminRoles(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="adminAcctAccess")
-    def admin_acct_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Admin and role management access permission.
-        """
+    def admin_acct_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "admin_acct_access")
 
     @_builtins.property
     @pulumi.getter(name="alertingAccess")
-    def alerting_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Alerting access permission
-        """
+    def alerting_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "alerting_access")
 
     @_builtins.property
     @pulumi.getter(name="analysisAccess")
-    def analysis_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Insights logs access permission.
-        """
+    def analysis_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "analysis_access")
 
     @_builtins.property
     @pulumi.getter(name="dashboardAccess")
-    def dashboard_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Dashboard access permission.
-        """
+    def dashboard_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "dashboard_access")
 
     @_builtins.property
     @pulumi.getter(name="deviceInfoAccess")
-    def device_info_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Device information access permission. When set to NONE, device information is obfuscated.
-        """
+    def device_info_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "device_info_access")
 
     @_builtins.property
     @pulumi.getter(name="extFeaturePermissions")
     def ext_feature_permissions(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        External feature access permission.
-        """
         return pulumi.get(self, "ext_feature_permissions")
 
     @_builtins.property
     @pulumi.getter(name="featurePermissions")
     def feature_permissions(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Feature access permission. Indicates which features an admin role can access and if the admin has both read and write access, or read-only access.
-        """
         return pulumi.get(self, "feature_permissions")
 
     @_builtins.property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether this is an auditor role.
-        """
         return pulumi.get(self, "is_auditor")
 
     @_builtins.property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether or not this admin user is editable/deletable.
-        """
         return pulumi.get(self, "is_non_editable")
 
     @_builtins.property
     @pulumi.getter(name="logsLimit")
     def logs_limit(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Log range limit.
-        """
         return pulumi.get(self, "logs_limit")
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Name of the admin role
-        """
+    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Request method for which the rule must be applied. If not set, rule will be applied to all methods
-        """
+    def permissions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "permissions")
 
     @_builtins.property
     @pulumi.getter(name="policyAccess")
-    def policy_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Policy access permission.
-        """
+    def policy_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "policy_access")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Admin rank of this admin role. This is applicable only when admin rank is enabled in the advanced settings. Default value is 7 (the lowest rank). The assigned admin rank determines the roles or admin users this user can manage, and which rule orders this admin can access.
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="reportAccess")
-    def report_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Report access permission.
-        """
+    def report_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "report_access")
 
     @_builtins.property
     @pulumi.getter(name="reportTimeDuration")
-    def report_time_duration(self) -> pulumi.Output[_builtins.int]:
-        """
-        Time duration allocated to the report dashboard.
-        """
+    def report_time_duration(self) -> pulumi.Output[Optional[_builtins.int]]:
         return pulumi.get(self, "report_time_duration")
 
     @_builtins.property
@@ -1011,16 +470,10 @@ class AdminRoles(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The admin role type. ()This attribute is subject to change.)
-        """
         return pulumi.get(self, "role_type")
 
     @_builtins.property
     @pulumi.getter(name="usernameAccess")
-    def username_access(self) -> pulumi.Output[_builtins.str]:
-        """
-        Username access permission. When set to NONE, the username will be obfuscated.
-        """
+    def username_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "username_access")
 

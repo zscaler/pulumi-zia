@@ -1,0 +1,29 @@
+name: nss-servers-e2e
+runtime: yaml
+description: E2E test for zia:index:NssServer resource
+
+config:
+  name:
+    type: string
+    default: ""
+  status:
+    type: string
+    default: "ENABLED"
+  type:
+    type: string
+    default: "NSS_FOR_FIREWALL"
+
+resources:
+  nssServer:
+    type: zia:index:NssServer
+    properties:
+      name: ${name}
+      status: ${status}
+      type: ${type}
+      icapSvrId: 0
+
+outputs:
+  nssId: ${nssServer.nssId}
+  name: ${nssServer.name}
+  status: ${nssServer.status}
+  type: ${nssServer.type}

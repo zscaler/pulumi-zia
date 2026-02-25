@@ -1,0 +1,95 @@
+name: url-filtering-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:URLFilteringRule resource
+
+config:
+  ruleName:
+    type: string
+    default: "tf-acc-test-url-filtering-rule"
+  description:
+    type: string
+    default: "testAcc_url_filtering_rule"
+  action:
+    type: string
+    default: "ALLOW"
+  state:
+    type: string
+    default: "ENABLED"
+  labelName:
+    type: string
+    default: "e2e-url-filtering-label"
+  labelDescription:
+    type: string
+    default: "E2E test label for URL filtering rule"
+  validityStartTime:
+    type: string
+    default: ""
+  validityEndTime:
+    type: string
+    default: ""
+
+resources:
+  # Rule label - required for the URL filtering rule labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # URL Filtering Rule - same attribute values as Terraform test
+  urlFilteringRule:
+    type: zia:index:URLFilteringRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      action: ${action}
+      state: ${state}
+      order: 1
+      urlCategories: ["ANY"]
+      protocols: ["ANY_RULE"]
+      deviceTrustLevels:
+        - UNKNOWN_DEVICETRUSTLEVEL
+        - LOW_TRUST
+        - MEDIUM_TRUST
+        - HIGH_TRUST
+      userAgentTypes:
+        - OPERA
+        - FIREFOX
+        - MSIE
+        - MSEDGE
+        - CHROME
+        - SAFARI
+        - MSCHREDGE
+        - OTHER
+      userRiskScoreLevels:
+        - LOW
+        - MEDIUM
+        - HIGH
+        - CRITICAL
+      requestMethods:
+        - CONNECT
+        - DELETE
+        - GET
+        - HEAD
+        - OPTIONS
+        - OTHER
+        - POST
+        - PUT
+        - TRACE
+      labels:
+        - ${ruleLabel.ruleLabelId}
+      enforceTimeValidity: true
+      validityTimeZoneId: "US/Pacific"
+      validityStartTime: ${validityStartTime}
+      validityEndTime: ${validityEndTime}
+
+outputs:
+  ruleId: ${urlFilteringRule.ruleId}
+  name: ${urlFilteringRule.name}
+  description: ${urlFilteringRule.description}
+  action: ${urlFilteringRule.action}
+  state: ${urlFilteringRule.state}
+  urlCategories: ${urlFilteringRule.urlCategories}
+  protocols: ${urlFilteringRule.protocols}
+  labels: ${urlFilteringRule.labels}
+  requestMethods: ${urlFilteringRule.requestMethods}

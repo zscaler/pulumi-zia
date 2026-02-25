@@ -14,14 +14,14 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
-__all__ = ['ATPMaliciousURLsArgs', 'ATPMaliciousURLs']
+__all__ = ['AtpMaliciousUrlsArgs', 'AtpMaliciousUrls']
 
 @pulumi.input_type
-class ATPMaliciousURLsArgs:
+class AtpMaliciousUrlsArgs:
     def __init__(__self__, *,
                  malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        The set of arguments for constructing a ATPMaliciousURLs resource.
+        The set of arguments for constructing a AtpMaliciousUrls resource.
         """
         if malicious_urls is not None:
             pulumi.set(__self__, "malicious_urls", malicious_urls)
@@ -36,28 +36,8 @@ class ATPMaliciousURLsArgs:
         pulumi.set(self, "malicious_urls", value)
 
 
-@pulumi.input_type
-class _ATPMaliciousURLsState:
-    def __init__(__self__, *,
-                 malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Input properties used for looking up and filtering ATPMaliciousURLs resources.
-        """
-        if malicious_urls is not None:
-            pulumi.set(__self__, "malicious_urls", malicious_urls)
-
-    @_builtins.property
-    @pulumi.getter(name="maliciousUrls")
-    def malicious_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "malicious_urls")
-
-    @malicious_urls.setter
-    def malicious_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "malicious_urls", value)
-
-
-@pulumi.type_token("zia:index/aTPMaliciousURLs:ATPMaliciousURLs")
-class ATPMaliciousURLs(pulumi.CustomResource):
+@pulumi.type_token("zia:index:AtpMaliciousUrls")
+class AtpMaliciousUrls(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -65,26 +45,7 @@ class ATPMaliciousURLs(pulumi.CustomResource):
                  malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
-        * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
-
-        The **zia_atp_malicious_urls** resource alows you to Updates the malicious URLs added to the denylist in ATP policy. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_atp_malicious_urls** can be imported by using `all_urls` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/aTPMaliciousURLs:ATPMaliciousURLs this all_urls
-        ```
-
+        Create a AtpMaliciousUrls resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -92,36 +53,17 @@ class ATPMaliciousURLs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ATPMaliciousURLsArgs] = None,
+                 args: Optional[AtpMaliciousUrlsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
-        * [API documentation](https://help.zscaler.com/zia/advanced-threat-protection-policy#/)
-
-        The **zia_atp_malicious_urls** resource alows you to Updates the malicious URLs added to the denylist in ATP policy. To learn more see [Advanced Threat Protection](https://help.zscaler.com/unified/configuring-security-exceptions-advanced-threat-protection-policy)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_atp_malicious_urls** can be imported by using `all_urls` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/aTPMaliciousURLs:ATPMaliciousURLs this all_urls
-        ```
-
+        Create a AtpMaliciousUrls resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param ATPMaliciousURLsArgs args: The arguments to use to populate this resource's properties.
+        :param AtpMaliciousUrlsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ATPMaliciousURLsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AtpMaliciousUrlsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -138,11 +80,12 @@ class ATPMaliciousURLs(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ATPMaliciousURLsArgs.__new__(ATPMaliciousURLsArgs)
+            __props__ = AtpMaliciousUrlsArgs.__new__(AtpMaliciousUrlsArgs)
 
             __props__.__dict__["malicious_urls"] = malicious_urls
-        super(ATPMaliciousURLs, __self__).__init__(
-            'zia:index/aTPMaliciousURLs:ATPMaliciousURLs',
+            __props__.__dict__["resource_id"] = None
+        super(AtpMaliciousUrls, __self__).__init__(
+            'zia:index:AtpMaliciousUrls',
             resource_name,
             __props__,
             opts)
@@ -150,10 +93,9 @@ class ATPMaliciousURLs(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ATPMaliciousURLs':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'AtpMaliciousUrls':
         """
-        Get an existing ATPMaliciousURLs resource's state with the given name, id, and optional extra
+        Get an existing AtpMaliciousUrls resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -162,13 +104,19 @@ class ATPMaliciousURLs(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _ATPMaliciousURLsState.__new__(_ATPMaliciousURLsState)
+        __props__ = AtpMaliciousUrlsArgs.__new__(AtpMaliciousUrlsArgs)
 
-        __props__.__dict__["malicious_urls"] = malicious_urls
-        return ATPMaliciousURLs(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["malicious_urls"] = None
+        __props__.__dict__["resource_id"] = None
+        return AtpMaliciousUrls(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="maliciousUrls")
-    def malicious_urls(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def malicious_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         return pulumi.get(self, "malicious_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "resource_id")
 

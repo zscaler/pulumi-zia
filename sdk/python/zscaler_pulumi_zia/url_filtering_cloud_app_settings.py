@@ -14,10 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
-__all__ = ['URLFilteringCloudAppSettingsArgs', 'URLFilteringCloudAppSettings']
+__all__ = ['UrlFilteringCloudAppSettingsArgs', 'UrlFilteringCloudAppSettings']
 
 @pulumi.input_type
-class URLFilteringCloudAppSettingsArgs:
+class UrlFilteringCloudAppSettingsArgs:
     def __init__(__self__, *,
                  block_skype: Optional[pulumi.Input[_builtins.bool]] = None,
                  consider_embedded_sites: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -41,30 +41,7 @@ class URLFilteringCloudAppSettingsArgs:
                  enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
                  safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        The set of arguments for constructing a URLFilteringCloudAppSettings resource.
-        :param pulumi.Input[_builtins.bool] block_skype: A Boolean value indicating whether access to Skype is blocked or not.
-        :param pulumi.Input[_builtins.bool] consider_embedded_sites: A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_meta_prompt: A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_msft_o365: A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        :param pulumi.Input[_builtins.bool] enable_office365: A Boolean value that enables or disables Microsoft Office 365 configuration.
-        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_poep_prompt: A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enforce_safe_search: A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-               				See the URL & Cloud App Control Policy Settings for the list of available apps:
-               				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
+        The set of arguments for constructing a UrlFilteringCloudAppSettings resource.
         """
         if block_skype is not None:
             pulumi.set(__self__, "block_skype", block_skype)
@@ -112,9 +89,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockSkype")
     def block_skype(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating whether access to Skype is blocked or not.
-        """
         return pulumi.get(self, "block_skype")
 
     @block_skype.setter
@@ -124,9 +98,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="considerEmbeddedSites")
     def consider_embedded_sites(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        """
         return pulumi.get(self, "consider_embedded_sites")
 
     @consider_embedded_sites.setter
@@ -136,9 +107,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableBlockOverrideForNonAuthUser")
     def enable_block_override_for_non_auth_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        """
         return pulumi.get(self, "enable_block_override_for_non_auth_user")
 
     @enable_block_override_for_non_auth_user.setter
@@ -148,9 +116,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableChatgptPrompt")
     def enable_chatgpt_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_chatgpt_prompt")
 
     @enable_chatgpt_prompt.setter
@@ -160,9 +125,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableCipaCompliance")
     def enable_cipa_compliance(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        """
         return pulumi.get(self, "enable_cipa_compliance")
 
     @enable_cipa_compliance.setter
@@ -172,9 +134,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableDynamicContentCat")
     def enable_dynamic_content_cat(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        """
         return pulumi.get(self, "enable_dynamic_content_cat")
 
     @enable_dynamic_content_cat.setter
@@ -184,9 +143,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableGeminiPrompt")
     def enable_gemini_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_gemini_prompt")
 
     @enable_gemini_prompt.setter
@@ -196,9 +152,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableMetaPrompt")
     def enable_meta_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_meta_prompt")
 
     @enable_meta_prompt.setter
@@ -208,9 +161,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableMicrosoftCopilotPrompt")
     def enable_microsoft_copilot_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_microsoft_copilot_prompt")
 
     @enable_microsoft_copilot_prompt.setter
@@ -220,9 +170,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableMsftO365")
     def enable_msft_o365(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_msft_o365")
 
     @enable_msft_o365.setter
@@ -232,9 +179,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableNewlyRegisteredDomains")
     def enable_newly_registered_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        """
         return pulumi.get(self, "enable_newly_registered_domains")
 
     @enable_newly_registered_domains.setter
@@ -244,9 +188,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that enables or disables Microsoft Office 365 configuration.
-        """
         return pulumi.get(self, "enable_office365")
 
     @enable_office365.setter
@@ -256,9 +197,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enablePerPlexityPrompt")
     def enable_per_plexity_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_per_plexity_prompt")
 
     @enable_per_plexity_prompt.setter
@@ -268,9 +206,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enablePoepPrompt")
     def enable_poep_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        """
         return pulumi.get(self, "enable_poep_prompt")
 
     @enable_poep_prompt.setter
@@ -280,9 +215,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasLogmein")
     def enable_ucaas_logmein(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_ucaas_logmein")
 
     @enable_ucaas_logmein.setter
@@ -292,9 +224,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasRingCentral")
     def enable_ucaas_ring_central(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_ucaas_ring_central")
 
     @enable_ucaas_ring_central.setter
@@ -304,9 +233,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasTalkdesk")
     def enable_ucaas_talkdesk(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        """
         return pulumi.get(self, "enable_ucaas_talkdesk")
 
     @enable_ucaas_talkdesk.setter
@@ -316,9 +242,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasWebex")
     def enable_ucaas_webex(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_ucaas_webex")
 
     @enable_ucaas_webex.setter
@@ -328,9 +251,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasZoom")
     def enable_ucaas_zoom(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_ucaas_zoom")
 
     @enable_ucaas_zoom.setter
@@ -340,9 +260,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enforceSafeSearch")
     def enforce_safe_search(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        """
         return pulumi.get(self, "enforce_safe_search")
 
     @enforce_safe_search.setter
@@ -352,11 +269,6 @@ class URLFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="safeSearchApps")
     def safe_search_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-        				See the URL & Cloud App Control Policy Settings for the list of available apps:
-        				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
-        """
         return pulumi.get(self, "safe_search_apps")
 
     @safe_search_apps.setter
@@ -364,356 +276,8 @@ class URLFilteringCloudAppSettingsArgs:
         pulumi.set(self, "safe_search_apps", value)
 
 
-@pulumi.input_type
-class _URLFilteringCloudAppSettingsState:
-    def __init__(__self__, *,
-                 block_skype: Optional[pulumi.Input[_builtins.bool]] = None,
-                 consider_embedded_sites: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_block_override_for_non_auth_user: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_chatgpt_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cipa_compliance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_dynamic_content_cat: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_gemini_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_meta_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_microsoft_copilot_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_msft_o365: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_newly_registered_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_office365: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_per_plexity_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_poep_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ucaas_logmein: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ucaas_ring_central: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ucaas_talkdesk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ucaas_webex: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_ucaas_zoom: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Input properties used for looking up and filtering URLFilteringCloudAppSettings resources.
-        :param pulumi.Input[_builtins.bool] block_skype: A Boolean value indicating whether access to Skype is blocked or not.
-        :param pulumi.Input[_builtins.bool] consider_embedded_sites: A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_meta_prompt: A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_msft_o365: A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        :param pulumi.Input[_builtins.bool] enable_office365: A Boolean value that enables or disables Microsoft Office 365 configuration.
-        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_poep_prompt: A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enforce_safe_search: A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-               				See the URL & Cloud App Control Policy Settings for the list of available apps:
-               				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
-        """
-        if block_skype is not None:
-            pulumi.set(__self__, "block_skype", block_skype)
-        if consider_embedded_sites is not None:
-            pulumi.set(__self__, "consider_embedded_sites", consider_embedded_sites)
-        if enable_block_override_for_non_auth_user is not None:
-            pulumi.set(__self__, "enable_block_override_for_non_auth_user", enable_block_override_for_non_auth_user)
-        if enable_chatgpt_prompt is not None:
-            pulumi.set(__self__, "enable_chatgpt_prompt", enable_chatgpt_prompt)
-        if enable_cipa_compliance is not None:
-            pulumi.set(__self__, "enable_cipa_compliance", enable_cipa_compliance)
-        if enable_dynamic_content_cat is not None:
-            pulumi.set(__self__, "enable_dynamic_content_cat", enable_dynamic_content_cat)
-        if enable_gemini_prompt is not None:
-            pulumi.set(__self__, "enable_gemini_prompt", enable_gemini_prompt)
-        if enable_meta_prompt is not None:
-            pulumi.set(__self__, "enable_meta_prompt", enable_meta_prompt)
-        if enable_microsoft_copilot_prompt is not None:
-            pulumi.set(__self__, "enable_microsoft_copilot_prompt", enable_microsoft_copilot_prompt)
-        if enable_msft_o365 is not None:
-            pulumi.set(__self__, "enable_msft_o365", enable_msft_o365)
-        if enable_newly_registered_domains is not None:
-            pulumi.set(__self__, "enable_newly_registered_domains", enable_newly_registered_domains)
-        if enable_office365 is not None:
-            pulumi.set(__self__, "enable_office365", enable_office365)
-        if enable_per_plexity_prompt is not None:
-            pulumi.set(__self__, "enable_per_plexity_prompt", enable_per_plexity_prompt)
-        if enable_poep_prompt is not None:
-            pulumi.set(__self__, "enable_poep_prompt", enable_poep_prompt)
-        if enable_ucaas_logmein is not None:
-            pulumi.set(__self__, "enable_ucaas_logmein", enable_ucaas_logmein)
-        if enable_ucaas_ring_central is not None:
-            pulumi.set(__self__, "enable_ucaas_ring_central", enable_ucaas_ring_central)
-        if enable_ucaas_talkdesk is not None:
-            pulumi.set(__self__, "enable_ucaas_talkdesk", enable_ucaas_talkdesk)
-        if enable_ucaas_webex is not None:
-            pulumi.set(__self__, "enable_ucaas_webex", enable_ucaas_webex)
-        if enable_ucaas_zoom is not None:
-            pulumi.set(__self__, "enable_ucaas_zoom", enable_ucaas_zoom)
-        if enforce_safe_search is not None:
-            pulumi.set(__self__, "enforce_safe_search", enforce_safe_search)
-        if safe_search_apps is not None:
-            pulumi.set(__self__, "safe_search_apps", safe_search_apps)
-
-    @_builtins.property
-    @pulumi.getter(name="blockSkype")
-    def block_skype(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating whether access to Skype is blocked or not.
-        """
-        return pulumi.get(self, "block_skype")
-
-    @block_skype.setter
-    def block_skype(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "block_skype", value)
-
-    @_builtins.property
-    @pulumi.getter(name="considerEmbeddedSites")
-    def consider_embedded_sites(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        """
-        return pulumi.get(self, "consider_embedded_sites")
-
-    @consider_embedded_sites.setter
-    def consider_embedded_sites(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "consider_embedded_sites", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBlockOverrideForNonAuthUser")
-    def enable_block_override_for_non_auth_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        """
-        return pulumi.get(self, "enable_block_override_for_non_auth_user")
-
-    @enable_block_override_for_non_auth_user.setter
-    def enable_block_override_for_non_auth_user(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_block_override_for_non_auth_user", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableChatgptPrompt")
-    def enable_chatgpt_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_chatgpt_prompt")
-
-    @enable_chatgpt_prompt.setter
-    def enable_chatgpt_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_chatgpt_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableCipaCompliance")
-    def enable_cipa_compliance(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        """
-        return pulumi.get(self, "enable_cipa_compliance")
-
-    @enable_cipa_compliance.setter
-    def enable_cipa_compliance(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_cipa_compliance", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableDynamicContentCat")
-    def enable_dynamic_content_cat(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        """
-        return pulumi.get(self, "enable_dynamic_content_cat")
-
-    @enable_dynamic_content_cat.setter
-    def enable_dynamic_content_cat(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_dynamic_content_cat", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableGeminiPrompt")
-    def enable_gemini_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_gemini_prompt")
-
-    @enable_gemini_prompt.setter
-    def enable_gemini_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_gemini_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableMetaPrompt")
-    def enable_meta_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_meta_prompt")
-
-    @enable_meta_prompt.setter
-    def enable_meta_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_meta_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableMicrosoftCopilotPrompt")
-    def enable_microsoft_copilot_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_microsoft_copilot_prompt")
-
-    @enable_microsoft_copilot_prompt.setter
-    def enable_microsoft_copilot_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_microsoft_copilot_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableMsftO365")
-    def enable_msft_o365(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        """
-        return pulumi.get(self, "enable_msft_o365")
-
-    @enable_msft_o365.setter
-    def enable_msft_o365(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_msft_o365", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableNewlyRegisteredDomains")
-    def enable_newly_registered_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        """
-        return pulumi.get(self, "enable_newly_registered_domains")
-
-    @enable_newly_registered_domains.setter
-    def enable_newly_registered_domains(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_newly_registered_domains", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableOffice365")
-    def enable_office365(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that enables or disables Microsoft Office 365 configuration.
-        """
-        return pulumi.get(self, "enable_office365")
-
-    @enable_office365.setter
-    def enable_office365(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_office365", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enablePerPlexityPrompt")
-    def enable_per_plexity_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_per_plexity_prompt")
-
-    @enable_per_plexity_prompt.setter
-    def enable_per_plexity_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_per_plexity_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enablePoepPrompt")
-    def enable_poep_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        """
-        return pulumi.get(self, "enable_poep_prompt")
-
-    @enable_poep_prompt.setter
-    def enable_poep_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_poep_prompt", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableUcaasLogmein")
-    def enable_ucaas_logmein(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        """
-        return pulumi.get(self, "enable_ucaas_logmein")
-
-    @enable_ucaas_logmein.setter
-    def enable_ucaas_logmein(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ucaas_logmein", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableUcaasRingCentral")
-    def enable_ucaas_ring_central(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        """
-        return pulumi.get(self, "enable_ucaas_ring_central")
-
-    @enable_ucaas_ring_central.setter
-    def enable_ucaas_ring_central(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ucaas_ring_central", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableUcaasTalkdesk")
-    def enable_ucaas_talkdesk(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        """
-        return pulumi.get(self, "enable_ucaas_talkdesk")
-
-    @enable_ucaas_talkdesk.setter
-    def enable_ucaas_talkdesk(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ucaas_talkdesk", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableUcaasWebex")
-    def enable_ucaas_webex(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        """
-        return pulumi.get(self, "enable_ucaas_webex")
-
-    @enable_ucaas_webex.setter
-    def enable_ucaas_webex(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ucaas_webex", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableUcaasZoom")
-    def enable_ucaas_zoom(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        """
-        return pulumi.get(self, "enable_ucaas_zoom")
-
-    @enable_ucaas_zoom.setter
-    def enable_ucaas_zoom(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_ucaas_zoom", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enforceSafeSearch")
-    def enforce_safe_search(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        """
-        return pulumi.get(self, "enforce_safe_search")
-
-    @enforce_safe_search.setter
-    def enforce_safe_search(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enforce_safe_search", value)
-
-    @_builtins.property
-    @pulumi.getter(name="safeSearchApps")
-    def safe_search_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-        				See the URL & Cloud App Control Policy Settings for the list of available apps:
-        				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
-        """
-        return pulumi.get(self, "safe_search_apps")
-
-    @safe_search_apps.setter
-    def safe_search_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "safe_search_apps", value)
-
-
-@pulumi.type_token("zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings")
-class URLFilteringCloudAppSettings(pulumi.CustomResource):
+@pulumi.type_token("zia:index:UrlFilteringCloudAppSettings")
+class UrlFilteringCloudAppSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -741,86 +305,25 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
                  safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
-        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
-
-        The **zia_url_filtering_and_cloud_app_settings** resource allows you to updates the the URL and Cloud App Control advanced policy settings To learn more see [Configuring Advanced Policy Settings](https://help.zscaler.com/unified/configuring-advanced-policy-settings)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_url_filtering_and_cloud_app_settings** can be imported by using `app_setting` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings this "app_setting"
-        ```
-
+        Create a UrlFilteringCloudAppSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] block_skype: A Boolean value indicating whether access to Skype is blocked or not.
-        :param pulumi.Input[_builtins.bool] consider_embedded_sites: A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_meta_prompt: A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_msft_o365: A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        :param pulumi.Input[_builtins.bool] enable_office365: A Boolean value that enables or disables Microsoft Office 365 configuration.
-        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_poep_prompt: A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enforce_safe_search: A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-               				See the URL & Cloud App Control Policy Settings for the list of available apps:
-               				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[URLFilteringCloudAppSettingsArgs] = None,
+                 args: Optional[UrlFilteringCloudAppSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-url-categories)
-        * [API documentation](https://help.zscaler.com/zia/url-categories#/urlCategories-get)
-
-        The **zia_url_filtering_and_cloud_app_settings** resource allows you to updates the the URL and Cloud App Control advanced policy settings To learn more see [Configuring Advanced Policy Settings](https://help.zscaler.com/unified/configuring-advanced-policy-settings)
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_url_filtering_and_cloud_app_settings** can be imported by using `app_setting` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings this "app_setting"
-        ```
-
+        Create a UrlFilteringCloudAppSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param URLFilteringCloudAppSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param UrlFilteringCloudAppSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(URLFilteringCloudAppSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UrlFilteringCloudAppSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -857,7 +360,7 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = URLFilteringCloudAppSettingsArgs.__new__(URLFilteringCloudAppSettingsArgs)
+            __props__ = UrlFilteringCloudAppSettingsArgs.__new__(UrlFilteringCloudAppSettingsArgs)
 
             __props__.__dict__["block_skype"] = block_skype
             __props__.__dict__["consider_embedded_sites"] = consider_embedded_sites
@@ -880,8 +383,9 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
             __props__.__dict__["enable_ucaas_zoom"] = enable_ucaas_zoom
             __props__.__dict__["enforce_safe_search"] = enforce_safe_search
             __props__.__dict__["safe_search_apps"] = safe_search_apps
-        super(URLFilteringCloudAppSettings, __self__).__init__(
-            'zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings',
+            __props__.__dict__["resource_id"] = None
+        super(UrlFilteringCloudAppSettings, __self__).__init__(
+            'zia:index:UrlFilteringCloudAppSettings',
             resource_name,
             __props__,
             opts)
@@ -889,253 +393,150 @@ class URLFilteringCloudAppSettings(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            block_skype: Optional[pulumi.Input[_builtins.bool]] = None,
-            consider_embedded_sites: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_block_override_for_non_auth_user: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_chatgpt_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_cipa_compliance: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_dynamic_content_cat: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_gemini_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_meta_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_microsoft_copilot_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_msft_o365: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_newly_registered_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_office365: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_per_plexity_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_poep_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_ucaas_logmein: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_ucaas_ring_central: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_ucaas_talkdesk: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_ucaas_webex: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_ucaas_zoom: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
-            safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'URLFilteringCloudAppSettings':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'UrlFilteringCloudAppSettings':
         """
-        Get an existing URLFilteringCloudAppSettings resource's state with the given name, id, and optional extra
+        Get an existing UrlFilteringCloudAppSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] block_skype: A Boolean value indicating whether access to Skype is blocked or not.
-        :param pulumi.Input[_builtins.bool] consider_embedded_sites: A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_meta_prompt: A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_msft_o365: A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        :param pulumi.Input[_builtins.bool] enable_office365: A Boolean value that enables or disables Microsoft Office 365 configuration.
-        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_poep_prompt: A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        :param pulumi.Input[_builtins.bool] enforce_safe_search: A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-               				See the URL & Cloud App Control Policy Settings for the list of available apps:
-               				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _URLFilteringCloudAppSettingsState.__new__(_URLFilteringCloudAppSettingsState)
+        __props__ = UrlFilteringCloudAppSettingsArgs.__new__(UrlFilteringCloudAppSettingsArgs)
 
-        __props__.__dict__["block_skype"] = block_skype
-        __props__.__dict__["consider_embedded_sites"] = consider_embedded_sites
-        __props__.__dict__["enable_block_override_for_non_auth_user"] = enable_block_override_for_non_auth_user
-        __props__.__dict__["enable_chatgpt_prompt"] = enable_chatgpt_prompt
-        __props__.__dict__["enable_cipa_compliance"] = enable_cipa_compliance
-        __props__.__dict__["enable_dynamic_content_cat"] = enable_dynamic_content_cat
-        __props__.__dict__["enable_gemini_prompt"] = enable_gemini_prompt
-        __props__.__dict__["enable_meta_prompt"] = enable_meta_prompt
-        __props__.__dict__["enable_microsoft_copilot_prompt"] = enable_microsoft_copilot_prompt
-        __props__.__dict__["enable_msft_o365"] = enable_msft_o365
-        __props__.__dict__["enable_newly_registered_domains"] = enable_newly_registered_domains
-        __props__.__dict__["enable_office365"] = enable_office365
-        __props__.__dict__["enable_per_plexity_prompt"] = enable_per_plexity_prompt
-        __props__.__dict__["enable_poep_prompt"] = enable_poep_prompt
-        __props__.__dict__["enable_ucaas_logmein"] = enable_ucaas_logmein
-        __props__.__dict__["enable_ucaas_ring_central"] = enable_ucaas_ring_central
-        __props__.__dict__["enable_ucaas_talkdesk"] = enable_ucaas_talkdesk
-        __props__.__dict__["enable_ucaas_webex"] = enable_ucaas_webex
-        __props__.__dict__["enable_ucaas_zoom"] = enable_ucaas_zoom
-        __props__.__dict__["enforce_safe_search"] = enforce_safe_search
-        __props__.__dict__["safe_search_apps"] = safe_search_apps
-        return URLFilteringCloudAppSettings(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["block_skype"] = None
+        __props__.__dict__["consider_embedded_sites"] = None
+        __props__.__dict__["enable_block_override_for_non_auth_user"] = None
+        __props__.__dict__["enable_chatgpt_prompt"] = None
+        __props__.__dict__["enable_cipa_compliance"] = None
+        __props__.__dict__["enable_dynamic_content_cat"] = None
+        __props__.__dict__["enable_gemini_prompt"] = None
+        __props__.__dict__["enable_meta_prompt"] = None
+        __props__.__dict__["enable_microsoft_copilot_prompt"] = None
+        __props__.__dict__["enable_msft_o365"] = None
+        __props__.__dict__["enable_newly_registered_domains"] = None
+        __props__.__dict__["enable_office365"] = None
+        __props__.__dict__["enable_per_plexity_prompt"] = None
+        __props__.__dict__["enable_poep_prompt"] = None
+        __props__.__dict__["enable_ucaas_logmein"] = None
+        __props__.__dict__["enable_ucaas_ring_central"] = None
+        __props__.__dict__["enable_ucaas_talkdesk"] = None
+        __props__.__dict__["enable_ucaas_webex"] = None
+        __props__.__dict__["enable_ucaas_zoom"] = None
+        __props__.__dict__["enforce_safe_search"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["safe_search_apps"] = None
+        return UrlFilteringCloudAppSettings(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="blockSkype")
-    def block_skype(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating whether access to Skype is blocked or not.
-        """
+    def block_skype(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "block_skype")
 
     @_builtins.property
     @pulumi.getter(name="considerEmbeddedSites")
-    def consider_embedded_sites(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value that indicates if URL filtering rules must be applied to sites that are translated using translation services or not.
-        """
+    def consider_embedded_sites(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "consider_embedded_sites")
 
     @_builtins.property
     @pulumi.getter(name="enableBlockOverrideForNonAuthUser")
-    def enable_block_override_for_non_auth_user(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if authorized users can temporarily override block action on websites by providing their authentication information
-        """
+    def enable_block_override_for_non_auth_user(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_block_override_for_non_auth_user")
 
     @_builtins.property
     @pulumi.getter(name="enableChatgptPrompt")
-    def enable_chatgpt_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with ChatGPT by users should be categorized and logged
-        """
+    def enable_chatgpt_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_chatgpt_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableCipaCompliance")
-    def enable_cipa_compliance(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the predefined CIPA Compliance Rule is enabled or not.
-        """
+    def enable_cipa_compliance(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_cipa_compliance")
 
     @_builtins.property
     @pulumi.getter(name="enableDynamicContentCat")
-    def enable_dynamic_content_cat(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value that indicates if dynamic categorization of URLs by analyzing content of uncategorized websites using AI/ML tools is enabled or not.
-        """
+    def enable_dynamic_content_cat(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_dynamic_content_cat")
 
     @_builtins.property
     @pulumi.getter(name="enableGeminiPrompt")
-    def enable_gemini_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Google Gemini by users should be categorized and logged
-        """
+    def enable_gemini_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_gemini_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMetaPrompt")
-    def enable_meta_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Meta AI by users should be categorized and logged
-        """
+    def enable_meta_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_meta_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMicrosoftCopilotPrompt")
-    def enable_microsoft_copilot_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Microsoft Copilot by users should be categorized and logged
-        """
+    def enable_microsoft_copilot_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_microsoft_copilot_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMsftO365")
     def enable_msft_o365(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to permit secure local breakout for Office 365 traffic automatically without any manual configuration needed.
-        """
         return pulumi.get(self, "enable_msft_o365")
 
     @_builtins.property
     @pulumi.getter(name="enableNewlyRegisteredDomains")
-    def enable_newly_registered_domains(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating whether newly registered and observed domains that are identified within hours of going live are allowed or blocked
-        """
+    def enable_newly_registered_domains(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_newly_registered_domains")
 
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A Boolean value that enables or disables Microsoft Office 365 configuration.
-        """
         return pulumi.get(self, "enable_office365")
 
     @_builtins.property
     @pulumi.getter(name="enablePerPlexityPrompt")
-    def enable_per_plexity_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Perplexity by users should be categorized and logged
-        """
+    def enable_per_plexity_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_per_plexity_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enablePoepPrompt")
-    def enable_poep_prompt(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the use of generative AI prompts with Poe by users should be categorized and logged
-        """
+    def enable_poep_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_poep_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasLogmein")
-    def enable_ucaas_logmein(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for GoTo traffic, without any manual configuration needed.
-        """
+    def enable_ucaas_logmein(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_ucaas_logmein")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasRingCentral")
-    def enable_ucaas_ring_central(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for RingCentral traffic, without any manual configuration needed.
-        """
+    def enable_ucaas_ring_central(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_ucaas_ring_central")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasTalkdesk")
-    def enable_ucaas_talkdesk(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Talkdesk traffic, with minimal or no manual configuration needed.
-        """
+    def enable_ucaas_talkdesk(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_ucaas_talkdesk")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasWebex")
-    def enable_ucaas_webex(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Webex traffic, without any manual configuration needed.
-        """
+    def enable_ucaas_webex(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_ucaas_webex")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasZoom")
-    def enable_ucaas_zoom(self) -> pulumi.Output[_builtins.bool]:
-        """
-        A Boolean value indicating if the Zscaler service is allowed to automatically permit secure local breakout for Zoom traffic, without any manual configuration needed.
-        """
+    def enable_ucaas_zoom(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_ucaas_zoom")
 
     @_builtins.property
     @pulumi.getter(name="enforceSafeSearch")
     def enforce_safe_search(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A Boolean value that indicates whether only safe content must be returned for web, image, and video search.
-        """
         return pulumi.get(self, "enforce_safe_search")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="safeSearchApps")
     def safe_search_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A list of applications for which the SafeSearch enforcement applies. You cannot modify this field when the enforceSafeSearch field is disabled.
-        				See the URL & Cloud App Control Policy Settings for the list of available apps:
-        				https://help.zscaler.com/zia/url-cloud-app-control-policy-settings#/advancedUrlFilterAndCloudAppSettings-get
-        """
         return pulumi.get(self, "safe_search_apps")
 
