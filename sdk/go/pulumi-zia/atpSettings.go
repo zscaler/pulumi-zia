@@ -11,58 +11,114 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+//
+// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+//
+// ## Example Usage
+//
+// > This is a singleton resource. Import is not applicable.
 type AtpSettings struct {
 	pulumi.CustomResourceState
 
-	ActivexBlocked                     pulumi.BoolPtrOutput     `pulumi:"activexBlocked"`
-	ActivexCapture                     pulumi.BoolPtrOutput     `pulumi:"activexCapture"`
-	AdSpywareSitesBlocked              pulumi.BoolPtrOutput     `pulumi:"adSpywareSitesBlocked"`
-	AdSpywareSitesCapture              pulumi.BoolPtrOutput     `pulumi:"adSpywareSitesCapture"`
-	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrOutput     `pulumi:"alertForUnknownSuspiciousC2Traffic"`
-	AnonymizerBlocked                  pulumi.BoolPtrOutput     `pulumi:"anonymizerBlocked"`
-	AnonymizerCapture                  pulumi.BoolPtrOutput     `pulumi:"anonymizerCapture"`
-	BitTorrentBlocked                  pulumi.BoolPtrOutput     `pulumi:"bitTorrentBlocked"`
-	BitTorrentCapture                  pulumi.BoolPtrOutput     `pulumi:"bitTorrentCapture"`
-	BlockCountriesCapture              pulumi.BoolPtrOutput     `pulumi:"blockCountriesCapture"`
-	BlockedCountries                   pulumi.StringArrayOutput `pulumi:"blockedCountries"`
-	BrowserExploitsBlocked             pulumi.BoolPtrOutput     `pulumi:"browserExploitsBlocked"`
-	BrowserExploitsCapture             pulumi.BoolPtrOutput     `pulumi:"browserExploitsCapture"`
-	CmdCtlServerBlocked                pulumi.BoolPtrOutput     `pulumi:"cmdCtlServerBlocked"`
-	CmdCtlServerCapture                pulumi.BoolPtrOutput     `pulumi:"cmdCtlServerCapture"`
-	CmdCtlTrafficBlocked               pulumi.BoolPtrOutput     `pulumi:"cmdCtlTrafficBlocked"`
-	CmdCtlTrafficCapture               pulumi.BoolPtrOutput     `pulumi:"cmdCtlTrafficCapture"`
-	CookieStealingBlocked              pulumi.BoolPtrOutput     `pulumi:"cookieStealingBlocked"`
-	CookieStealingPcapEnabled          pulumi.BoolPtrOutput     `pulumi:"cookieStealingPcapEnabled"`
-	CryptoMiningBlocked                pulumi.BoolPtrOutput     `pulumi:"cryptoMiningBlocked"`
-	CryptoMiningCapture                pulumi.BoolPtrOutput     `pulumi:"cryptoMiningCapture"`
-	DgaDomainsBlocked                  pulumi.BoolPtrOutput     `pulumi:"dgaDomainsBlocked"`
-	DgaDomainsCapture                  pulumi.BoolPtrOutput     `pulumi:"dgaDomainsCapture"`
-	FileFormatVunerabilitesBlocked     pulumi.BoolPtrOutput     `pulumi:"fileFormatVunerabilitesBlocked"`
-	FileFormatVunerabilitesCapture     pulumi.BoolPtrOutput     `pulumi:"fileFormatVunerabilitesCapture"`
-	GoogleTalkBlocked                  pulumi.BoolPtrOutput     `pulumi:"googleTalkBlocked"`
-	GoogleTalkCapture                  pulumi.BoolPtrOutput     `pulumi:"googleTalkCapture"`
-	IrcTunnellingBlocked               pulumi.BoolPtrOutput     `pulumi:"ircTunnellingBlocked"`
-	IrcTunnellingCapture               pulumi.BoolPtrOutput     `pulumi:"ircTunnellingCapture"`
-	KnownPhishingSitesBlocked          pulumi.BoolPtrOutput     `pulumi:"knownPhishingSitesBlocked"`
-	KnownPhishingSitesCapture          pulumi.BoolPtrOutput     `pulumi:"knownPhishingSitesCapture"`
-	MaliciousUrlsCapture               pulumi.BoolPtrOutput     `pulumi:"maliciousUrlsCapture"`
-	MalwareSitesBlocked                pulumi.BoolPtrOutput     `pulumi:"malwareSitesBlocked"`
-	MalwareSitesCapture                pulumi.BoolPtrOutput     `pulumi:"malwareSitesCapture"`
-	PotentialMaliciousRequestsBlocked  pulumi.BoolPtrOutput     `pulumi:"potentialMaliciousRequestsBlocked"`
-	PotentialMaliciousRequestsCapture  pulumi.BoolPtrOutput     `pulumi:"potentialMaliciousRequestsCapture"`
-	ResourceId                         pulumi.StringOutput      `pulumi:"resourceId"`
-	RiskTolerance                      pulumi.IntPtrOutput      `pulumi:"riskTolerance"`
-	RiskToleranceCapture               pulumi.BoolPtrOutput     `pulumi:"riskToleranceCapture"`
-	SshTunnellingBlocked               pulumi.BoolPtrOutput     `pulumi:"sshTunnellingBlocked"`
-	SshTunnellingCapture               pulumi.BoolPtrOutput     `pulumi:"sshTunnellingCapture"`
-	SuspectAdwareSpywareSitesBlocked   pulumi.BoolPtrOutput     `pulumi:"suspectAdwareSpywareSitesBlocked"`
-	SuspectAdwareSpywareSitesCapture   pulumi.BoolPtrOutput     `pulumi:"suspectAdwareSpywareSitesCapture"`
-	SuspectedPhishingSitesBlocked      pulumi.BoolPtrOutput     `pulumi:"suspectedPhishingSitesBlocked"`
-	SuspectedPhishingSitesCapture      pulumi.BoolPtrOutput     `pulumi:"suspectedPhishingSitesCapture"`
-	TorBlocked                         pulumi.BoolPtrOutput     `pulumi:"torBlocked"`
-	TorCapture                         pulumi.BoolPtrOutput     `pulumi:"torCapture"`
-	WebSpamBlocked                     pulumi.BoolPtrOutput     `pulumi:"webSpamBlocked"`
-	WebSpamCapture                     pulumi.BoolPtrOutput     `pulumi:"webSpamCapture"`
+	// Block ActiveX controls.
+	ActivexBlocked pulumi.BoolPtrOutput `pulumi:"activexBlocked"`
+	// Enable packet capture for ActiveX events.
+	ActivexCapture pulumi.BoolPtrOutput `pulumi:"activexCapture"`
+	// Block adware/spyware sites.
+	AdSpywareSitesBlocked pulumi.BoolPtrOutput `pulumi:"adSpywareSitesBlocked"`
+	// Enable packet capture for adware/spyware site events.
+	AdSpywareSitesCapture pulumi.BoolPtrOutput `pulumi:"adSpywareSitesCapture"`
+	// Enable alerts for unknown or suspicious C2 traffic.
+	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrOutput `pulumi:"alertForUnknownSuspiciousC2Traffic"`
+	// Block anonymizers.
+	AnonymizerBlocked pulumi.BoolPtrOutput `pulumi:"anonymizerBlocked"`
+	// Enable packet capture for anonymizer events.
+	AnonymizerCapture pulumi.BoolPtrOutput `pulumi:"anonymizerCapture"`
+	// Block BitTorrent traffic.
+	BitTorrentBlocked pulumi.BoolPtrOutput `pulumi:"bitTorrentBlocked"`
+	// Enable packet capture for BitTorrent events.
+	BitTorrentCapture pulumi.BoolPtrOutput `pulumi:"bitTorrentCapture"`
+	// Enable packet capture for blocked countries events.
+	BlockCountriesCapture pulumi.BoolPtrOutput `pulumi:"blockCountriesCapture"`
+	// List of countries (ISO 3166-1 alpha-2 codes) to block.
+	BlockedCountries pulumi.StringArrayOutput `pulumi:"blockedCountries"`
+	// Block browser exploits.
+	BrowserExploitsBlocked pulumi.BoolPtrOutput `pulumi:"browserExploitsBlocked"`
+	// Enable packet capture for browser exploit events.
+	BrowserExploitsCapture pulumi.BoolPtrOutput `pulumi:"browserExploitsCapture"`
+	// Block known command-and-control servers.
+	CmdCtlServerBlocked pulumi.BoolPtrOutput `pulumi:"cmdCtlServerBlocked"`
+	// Enable packet capture for command-and-control server events.
+	CmdCtlServerCapture pulumi.BoolPtrOutput `pulumi:"cmdCtlServerCapture"`
+	// Block command-and-control traffic.
+	CmdCtlTrafficBlocked pulumi.BoolPtrOutput `pulumi:"cmdCtlTrafficBlocked"`
+	// Enable packet capture for command-and-control traffic events.
+	CmdCtlTrafficCapture pulumi.BoolPtrOutput `pulumi:"cmdCtlTrafficCapture"`
+	// Block cookie stealing attempts.
+	CookieStealingBlocked pulumi.BoolPtrOutput `pulumi:"cookieStealingBlocked"`
+	// Enable packet capture for cookie stealing events.
+	CookieStealingPcapEnabled pulumi.BoolPtrOutput `pulumi:"cookieStealingPcapEnabled"`
+	// Block crypto mining traffic.
+	CryptoMiningBlocked pulumi.BoolPtrOutput `pulumi:"cryptoMiningBlocked"`
+	// Enable packet capture for crypto mining events.
+	CryptoMiningCapture pulumi.BoolPtrOutput `pulumi:"cryptoMiningCapture"`
+	// Block domain generation algorithm (DGA) domains.
+	DgaDomainsBlocked pulumi.BoolPtrOutput `pulumi:"dgaDomainsBlocked"`
+	// Enable packet capture for DGA domain events.
+	DgaDomainsCapture pulumi.BoolPtrOutput `pulumi:"dgaDomainsCapture"`
+	// Block file format vulnerabilities.
+	FileFormatVunerabilitesBlocked pulumi.BoolPtrOutput `pulumi:"fileFormatVunerabilitesBlocked"`
+	// Enable packet capture for file format vulnerability events.
+	FileFormatVunerabilitesCapture pulumi.BoolPtrOutput `pulumi:"fileFormatVunerabilitesCapture"`
+	// Block Google Talk traffic.
+	GoogleTalkBlocked pulumi.BoolPtrOutput `pulumi:"googleTalkBlocked"`
+	// Enable packet capture for Google Talk events.
+	GoogleTalkCapture pulumi.BoolPtrOutput `pulumi:"googleTalkCapture"`
+	// Block IRC tunnelling.
+	IrcTunnellingBlocked pulumi.BoolPtrOutput `pulumi:"ircTunnellingBlocked"`
+	// Enable packet capture for IRC tunnelling events.
+	IrcTunnellingCapture pulumi.BoolPtrOutput `pulumi:"ircTunnellingCapture"`
+	// Block known phishing sites.
+	KnownPhishingSitesBlocked pulumi.BoolPtrOutput `pulumi:"knownPhishingSitesBlocked"`
+	// Enable packet capture for known phishing site events.
+	KnownPhishingSitesCapture pulumi.BoolPtrOutput `pulumi:"knownPhishingSitesCapture"`
+	// Enable packet capture for malicious URL events.
+	MaliciousUrlsCapture pulumi.BoolPtrOutput `pulumi:"maliciousUrlsCapture"`
+	// Block known malware sites.
+	MalwareSitesBlocked pulumi.BoolPtrOutput `pulumi:"malwareSitesBlocked"`
+	// Enable packet capture for malware site events.
+	MalwareSitesCapture pulumi.BoolPtrOutput `pulumi:"malwareSitesCapture"`
+	// Block potentially malicious requests.
+	PotentialMaliciousRequestsBlocked pulumi.BoolPtrOutput `pulumi:"potentialMaliciousRequestsBlocked"`
+	// Enable packet capture for potentially malicious request events.
+	PotentialMaliciousRequestsCapture pulumi.BoolPtrOutput `pulumi:"potentialMaliciousRequestsCapture"`
+	// The internal resource identifier for the ATP settings.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// Risk tolerance level. Controls the sensitivity for detecting threats.
+	RiskTolerance pulumi.IntPtrOutput `pulumi:"riskTolerance"`
+	// Enable packet capture for risk tolerance events.
+	RiskToleranceCapture pulumi.BoolPtrOutput `pulumi:"riskToleranceCapture"`
+	// Block SSH tunnelling.
+	SshTunnellingBlocked pulumi.BoolPtrOutput `pulumi:"sshTunnellingBlocked"`
+	// Enable packet capture for SSH tunnelling events.
+	SshTunnellingCapture pulumi.BoolPtrOutput `pulumi:"sshTunnellingCapture"`
+	// Block suspect adware/spyware sites.
+	SuspectAdwareSpywareSitesBlocked pulumi.BoolPtrOutput `pulumi:"suspectAdwareSpywareSitesBlocked"`
+	// Enable packet capture for suspect adware/spyware site events.
+	SuspectAdwareSpywareSitesCapture pulumi.BoolPtrOutput `pulumi:"suspectAdwareSpywareSitesCapture"`
+	// Block suspected phishing sites.
+	SuspectedPhishingSitesBlocked pulumi.BoolPtrOutput `pulumi:"suspectedPhishingSitesBlocked"`
+	// Enable packet capture for suspected phishing site events.
+	SuspectedPhishingSitesCapture pulumi.BoolPtrOutput `pulumi:"suspectedPhishingSitesCapture"`
+	// Block Tor traffic.
+	TorBlocked pulumi.BoolPtrOutput `pulumi:"torBlocked"`
+	// Enable packet capture for Tor events.
+	TorCapture pulumi.BoolPtrOutput `pulumi:"torCapture"`
+	// Block web spam.
+	WebSpamBlocked pulumi.BoolPtrOutput `pulumi:"webSpamBlocked"`
+	// Enable packet capture for web spam events.
+	WebSpamCapture pulumi.BoolPtrOutput `pulumi:"webSpamCapture"`
 }
 
 // NewAtpSettings registers a new resource with the given unique name, arguments, and options.
@@ -105,106 +161,202 @@ func (AtpSettingsState) ElementType() reflect.Type {
 }
 
 type atpSettingsArgs struct {
-	ActivexBlocked                     *bool    `pulumi:"activexBlocked"`
-	ActivexCapture                     *bool    `pulumi:"activexCapture"`
-	AdSpywareSitesBlocked              *bool    `pulumi:"adSpywareSitesBlocked"`
-	AdSpywareSitesCapture              *bool    `pulumi:"adSpywareSitesCapture"`
-	AlertForUnknownSuspiciousC2Traffic *bool    `pulumi:"alertForUnknownSuspiciousC2Traffic"`
-	AnonymizerBlocked                  *bool    `pulumi:"anonymizerBlocked"`
-	AnonymizerCapture                  *bool    `pulumi:"anonymizerCapture"`
-	BitTorrentBlocked                  *bool    `pulumi:"bitTorrentBlocked"`
-	BitTorrentCapture                  *bool    `pulumi:"bitTorrentCapture"`
-	BlockCountriesCapture              *bool    `pulumi:"blockCountriesCapture"`
-	BlockedCountries                   []string `pulumi:"blockedCountries"`
-	BrowserExploitsBlocked             *bool    `pulumi:"browserExploitsBlocked"`
-	BrowserExploitsCapture             *bool    `pulumi:"browserExploitsCapture"`
-	CmdCtlServerBlocked                *bool    `pulumi:"cmdCtlServerBlocked"`
-	CmdCtlServerCapture                *bool    `pulumi:"cmdCtlServerCapture"`
-	CmdCtlTrafficBlocked               *bool    `pulumi:"cmdCtlTrafficBlocked"`
-	CmdCtlTrafficCapture               *bool    `pulumi:"cmdCtlTrafficCapture"`
-	CookieStealingBlocked              *bool    `pulumi:"cookieStealingBlocked"`
-	CookieStealingPcapEnabled          *bool    `pulumi:"cookieStealingPcapEnabled"`
-	CryptoMiningBlocked                *bool    `pulumi:"cryptoMiningBlocked"`
-	CryptoMiningCapture                *bool    `pulumi:"cryptoMiningCapture"`
-	DgaDomainsBlocked                  *bool    `pulumi:"dgaDomainsBlocked"`
-	DgaDomainsCapture                  *bool    `pulumi:"dgaDomainsCapture"`
-	FileFormatVunerabilitesBlocked     *bool    `pulumi:"fileFormatVunerabilitesBlocked"`
-	FileFormatVunerabilitesCapture     *bool    `pulumi:"fileFormatVunerabilitesCapture"`
-	GoogleTalkBlocked                  *bool    `pulumi:"googleTalkBlocked"`
-	GoogleTalkCapture                  *bool    `pulumi:"googleTalkCapture"`
-	IrcTunnellingBlocked               *bool    `pulumi:"ircTunnellingBlocked"`
-	IrcTunnellingCapture               *bool    `pulumi:"ircTunnellingCapture"`
-	KnownPhishingSitesBlocked          *bool    `pulumi:"knownPhishingSitesBlocked"`
-	KnownPhishingSitesCapture          *bool    `pulumi:"knownPhishingSitesCapture"`
-	MaliciousUrlsCapture               *bool    `pulumi:"maliciousUrlsCapture"`
-	MalwareSitesBlocked                *bool    `pulumi:"malwareSitesBlocked"`
-	MalwareSitesCapture                *bool    `pulumi:"malwareSitesCapture"`
-	PotentialMaliciousRequestsBlocked  *bool    `pulumi:"potentialMaliciousRequestsBlocked"`
-	PotentialMaliciousRequestsCapture  *bool    `pulumi:"potentialMaliciousRequestsCapture"`
-	RiskTolerance                      *int     `pulumi:"riskTolerance"`
-	RiskToleranceCapture               *bool    `pulumi:"riskToleranceCapture"`
-	SshTunnellingBlocked               *bool    `pulumi:"sshTunnellingBlocked"`
-	SshTunnellingCapture               *bool    `pulumi:"sshTunnellingCapture"`
-	SuspectAdwareSpywareSitesBlocked   *bool    `pulumi:"suspectAdwareSpywareSitesBlocked"`
-	SuspectAdwareSpywareSitesCapture   *bool    `pulumi:"suspectAdwareSpywareSitesCapture"`
-	SuspectedPhishingSitesBlocked      *bool    `pulumi:"suspectedPhishingSitesBlocked"`
-	SuspectedPhishingSitesCapture      *bool    `pulumi:"suspectedPhishingSitesCapture"`
-	TorBlocked                         *bool    `pulumi:"torBlocked"`
-	TorCapture                         *bool    `pulumi:"torCapture"`
-	WebSpamBlocked                     *bool    `pulumi:"webSpamBlocked"`
-	WebSpamCapture                     *bool    `pulumi:"webSpamCapture"`
+	// Block ActiveX controls.
+	ActivexBlocked *bool `pulumi:"activexBlocked"`
+	// Enable packet capture for ActiveX events.
+	ActivexCapture *bool `pulumi:"activexCapture"`
+	// Block adware/spyware sites.
+	AdSpywareSitesBlocked *bool `pulumi:"adSpywareSitesBlocked"`
+	// Enable packet capture for adware/spyware site events.
+	AdSpywareSitesCapture *bool `pulumi:"adSpywareSitesCapture"`
+	// Enable alerts for unknown or suspicious C2 traffic.
+	AlertForUnknownSuspiciousC2Traffic *bool `pulumi:"alertForUnknownSuspiciousC2Traffic"`
+	// Block anonymizers.
+	AnonymizerBlocked *bool `pulumi:"anonymizerBlocked"`
+	// Enable packet capture for anonymizer events.
+	AnonymizerCapture *bool `pulumi:"anonymizerCapture"`
+	// Block BitTorrent traffic.
+	BitTorrentBlocked *bool `pulumi:"bitTorrentBlocked"`
+	// Enable packet capture for BitTorrent events.
+	BitTorrentCapture *bool `pulumi:"bitTorrentCapture"`
+	// Enable packet capture for blocked countries events.
+	BlockCountriesCapture *bool `pulumi:"blockCountriesCapture"`
+	// List of countries (ISO 3166-1 alpha-2 codes) to block.
+	BlockedCountries []string `pulumi:"blockedCountries"`
+	// Block browser exploits.
+	BrowserExploitsBlocked *bool `pulumi:"browserExploitsBlocked"`
+	// Enable packet capture for browser exploit events.
+	BrowserExploitsCapture *bool `pulumi:"browserExploitsCapture"`
+	// Block known command-and-control servers.
+	CmdCtlServerBlocked *bool `pulumi:"cmdCtlServerBlocked"`
+	// Enable packet capture for command-and-control server events.
+	CmdCtlServerCapture *bool `pulumi:"cmdCtlServerCapture"`
+	// Block command-and-control traffic.
+	CmdCtlTrafficBlocked *bool `pulumi:"cmdCtlTrafficBlocked"`
+	// Enable packet capture for command-and-control traffic events.
+	CmdCtlTrafficCapture *bool `pulumi:"cmdCtlTrafficCapture"`
+	// Block cookie stealing attempts.
+	CookieStealingBlocked *bool `pulumi:"cookieStealingBlocked"`
+	// Enable packet capture for cookie stealing events.
+	CookieStealingPcapEnabled *bool `pulumi:"cookieStealingPcapEnabled"`
+	// Block crypto mining traffic.
+	CryptoMiningBlocked *bool `pulumi:"cryptoMiningBlocked"`
+	// Enable packet capture for crypto mining events.
+	CryptoMiningCapture *bool `pulumi:"cryptoMiningCapture"`
+	// Block domain generation algorithm (DGA) domains.
+	DgaDomainsBlocked *bool `pulumi:"dgaDomainsBlocked"`
+	// Enable packet capture for DGA domain events.
+	DgaDomainsCapture *bool `pulumi:"dgaDomainsCapture"`
+	// Block file format vulnerabilities.
+	FileFormatVunerabilitesBlocked *bool `pulumi:"fileFormatVunerabilitesBlocked"`
+	// Enable packet capture for file format vulnerability events.
+	FileFormatVunerabilitesCapture *bool `pulumi:"fileFormatVunerabilitesCapture"`
+	// Block Google Talk traffic.
+	GoogleTalkBlocked *bool `pulumi:"googleTalkBlocked"`
+	// Enable packet capture for Google Talk events.
+	GoogleTalkCapture *bool `pulumi:"googleTalkCapture"`
+	// Block IRC tunnelling.
+	IrcTunnellingBlocked *bool `pulumi:"ircTunnellingBlocked"`
+	// Enable packet capture for IRC tunnelling events.
+	IrcTunnellingCapture *bool `pulumi:"ircTunnellingCapture"`
+	// Block known phishing sites.
+	KnownPhishingSitesBlocked *bool `pulumi:"knownPhishingSitesBlocked"`
+	// Enable packet capture for known phishing site events.
+	KnownPhishingSitesCapture *bool `pulumi:"knownPhishingSitesCapture"`
+	// Enable packet capture for malicious URL events.
+	MaliciousUrlsCapture *bool `pulumi:"maliciousUrlsCapture"`
+	// Block known malware sites.
+	MalwareSitesBlocked *bool `pulumi:"malwareSitesBlocked"`
+	// Enable packet capture for malware site events.
+	MalwareSitesCapture *bool `pulumi:"malwareSitesCapture"`
+	// Block potentially malicious requests.
+	PotentialMaliciousRequestsBlocked *bool `pulumi:"potentialMaliciousRequestsBlocked"`
+	// Enable packet capture for potentially malicious request events.
+	PotentialMaliciousRequestsCapture *bool `pulumi:"potentialMaliciousRequestsCapture"`
+	// Risk tolerance level. Controls the sensitivity for detecting threats.
+	RiskTolerance *int `pulumi:"riskTolerance"`
+	// Enable packet capture for risk tolerance events.
+	RiskToleranceCapture *bool `pulumi:"riskToleranceCapture"`
+	// Block SSH tunnelling.
+	SshTunnellingBlocked *bool `pulumi:"sshTunnellingBlocked"`
+	// Enable packet capture for SSH tunnelling events.
+	SshTunnellingCapture *bool `pulumi:"sshTunnellingCapture"`
+	// Block suspect adware/spyware sites.
+	SuspectAdwareSpywareSitesBlocked *bool `pulumi:"suspectAdwareSpywareSitesBlocked"`
+	// Enable packet capture for suspect adware/spyware site events.
+	SuspectAdwareSpywareSitesCapture *bool `pulumi:"suspectAdwareSpywareSitesCapture"`
+	// Block suspected phishing sites.
+	SuspectedPhishingSitesBlocked *bool `pulumi:"suspectedPhishingSitesBlocked"`
+	// Enable packet capture for suspected phishing site events.
+	SuspectedPhishingSitesCapture *bool `pulumi:"suspectedPhishingSitesCapture"`
+	// Block Tor traffic.
+	TorBlocked *bool `pulumi:"torBlocked"`
+	// Enable packet capture for Tor events.
+	TorCapture *bool `pulumi:"torCapture"`
+	// Block web spam.
+	WebSpamBlocked *bool `pulumi:"webSpamBlocked"`
+	// Enable packet capture for web spam events.
+	WebSpamCapture *bool `pulumi:"webSpamCapture"`
 }
 
 // The set of arguments for constructing a AtpSettings resource.
 type AtpSettingsArgs struct {
-	ActivexBlocked                     pulumi.BoolPtrInput
-	ActivexCapture                     pulumi.BoolPtrInput
-	AdSpywareSitesBlocked              pulumi.BoolPtrInput
-	AdSpywareSitesCapture              pulumi.BoolPtrInput
+	// Block ActiveX controls.
+	ActivexBlocked pulumi.BoolPtrInput
+	// Enable packet capture for ActiveX events.
+	ActivexCapture pulumi.BoolPtrInput
+	// Block adware/spyware sites.
+	AdSpywareSitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for adware/spyware site events.
+	AdSpywareSitesCapture pulumi.BoolPtrInput
+	// Enable alerts for unknown or suspicious C2 traffic.
 	AlertForUnknownSuspiciousC2Traffic pulumi.BoolPtrInput
-	AnonymizerBlocked                  pulumi.BoolPtrInput
-	AnonymizerCapture                  pulumi.BoolPtrInput
-	BitTorrentBlocked                  pulumi.BoolPtrInput
-	BitTorrentCapture                  pulumi.BoolPtrInput
-	BlockCountriesCapture              pulumi.BoolPtrInput
-	BlockedCountries                   pulumi.StringArrayInput
-	BrowserExploitsBlocked             pulumi.BoolPtrInput
-	BrowserExploitsCapture             pulumi.BoolPtrInput
-	CmdCtlServerBlocked                pulumi.BoolPtrInput
-	CmdCtlServerCapture                pulumi.BoolPtrInput
-	CmdCtlTrafficBlocked               pulumi.BoolPtrInput
-	CmdCtlTrafficCapture               pulumi.BoolPtrInput
-	CookieStealingBlocked              pulumi.BoolPtrInput
-	CookieStealingPcapEnabled          pulumi.BoolPtrInput
-	CryptoMiningBlocked                pulumi.BoolPtrInput
-	CryptoMiningCapture                pulumi.BoolPtrInput
-	DgaDomainsBlocked                  pulumi.BoolPtrInput
-	DgaDomainsCapture                  pulumi.BoolPtrInput
-	FileFormatVunerabilitesBlocked     pulumi.BoolPtrInput
-	FileFormatVunerabilitesCapture     pulumi.BoolPtrInput
-	GoogleTalkBlocked                  pulumi.BoolPtrInput
-	GoogleTalkCapture                  pulumi.BoolPtrInput
-	IrcTunnellingBlocked               pulumi.BoolPtrInput
-	IrcTunnellingCapture               pulumi.BoolPtrInput
-	KnownPhishingSitesBlocked          pulumi.BoolPtrInput
-	KnownPhishingSitesCapture          pulumi.BoolPtrInput
-	MaliciousUrlsCapture               pulumi.BoolPtrInput
-	MalwareSitesBlocked                pulumi.BoolPtrInput
-	MalwareSitesCapture                pulumi.BoolPtrInput
-	PotentialMaliciousRequestsBlocked  pulumi.BoolPtrInput
-	PotentialMaliciousRequestsCapture  pulumi.BoolPtrInput
-	RiskTolerance                      pulumi.IntPtrInput
-	RiskToleranceCapture               pulumi.BoolPtrInput
-	SshTunnellingBlocked               pulumi.BoolPtrInput
-	SshTunnellingCapture               pulumi.BoolPtrInput
-	SuspectAdwareSpywareSitesBlocked   pulumi.BoolPtrInput
-	SuspectAdwareSpywareSitesCapture   pulumi.BoolPtrInput
-	SuspectedPhishingSitesBlocked      pulumi.BoolPtrInput
-	SuspectedPhishingSitesCapture      pulumi.BoolPtrInput
-	TorBlocked                         pulumi.BoolPtrInput
-	TorCapture                         pulumi.BoolPtrInput
-	WebSpamBlocked                     pulumi.BoolPtrInput
-	WebSpamCapture                     pulumi.BoolPtrInput
+	// Block anonymizers.
+	AnonymizerBlocked pulumi.BoolPtrInput
+	// Enable packet capture for anonymizer events.
+	AnonymizerCapture pulumi.BoolPtrInput
+	// Block BitTorrent traffic.
+	BitTorrentBlocked pulumi.BoolPtrInput
+	// Enable packet capture for BitTorrent events.
+	BitTorrentCapture pulumi.BoolPtrInput
+	// Enable packet capture for blocked countries events.
+	BlockCountriesCapture pulumi.BoolPtrInput
+	// List of countries (ISO 3166-1 alpha-2 codes) to block.
+	BlockedCountries pulumi.StringArrayInput
+	// Block browser exploits.
+	BrowserExploitsBlocked pulumi.BoolPtrInput
+	// Enable packet capture for browser exploit events.
+	BrowserExploitsCapture pulumi.BoolPtrInput
+	// Block known command-and-control servers.
+	CmdCtlServerBlocked pulumi.BoolPtrInput
+	// Enable packet capture for command-and-control server events.
+	CmdCtlServerCapture pulumi.BoolPtrInput
+	// Block command-and-control traffic.
+	CmdCtlTrafficBlocked pulumi.BoolPtrInput
+	// Enable packet capture for command-and-control traffic events.
+	CmdCtlTrafficCapture pulumi.BoolPtrInput
+	// Block cookie stealing attempts.
+	CookieStealingBlocked pulumi.BoolPtrInput
+	// Enable packet capture for cookie stealing events.
+	CookieStealingPcapEnabled pulumi.BoolPtrInput
+	// Block crypto mining traffic.
+	CryptoMiningBlocked pulumi.BoolPtrInput
+	// Enable packet capture for crypto mining events.
+	CryptoMiningCapture pulumi.BoolPtrInput
+	// Block domain generation algorithm (DGA) domains.
+	DgaDomainsBlocked pulumi.BoolPtrInput
+	// Enable packet capture for DGA domain events.
+	DgaDomainsCapture pulumi.BoolPtrInput
+	// Block file format vulnerabilities.
+	FileFormatVunerabilitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for file format vulnerability events.
+	FileFormatVunerabilitesCapture pulumi.BoolPtrInput
+	// Block Google Talk traffic.
+	GoogleTalkBlocked pulumi.BoolPtrInput
+	// Enable packet capture for Google Talk events.
+	GoogleTalkCapture pulumi.BoolPtrInput
+	// Block IRC tunnelling.
+	IrcTunnellingBlocked pulumi.BoolPtrInput
+	// Enable packet capture for IRC tunnelling events.
+	IrcTunnellingCapture pulumi.BoolPtrInput
+	// Block known phishing sites.
+	KnownPhishingSitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for known phishing site events.
+	KnownPhishingSitesCapture pulumi.BoolPtrInput
+	// Enable packet capture for malicious URL events.
+	MaliciousUrlsCapture pulumi.BoolPtrInput
+	// Block known malware sites.
+	MalwareSitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for malware site events.
+	MalwareSitesCapture pulumi.BoolPtrInput
+	// Block potentially malicious requests.
+	PotentialMaliciousRequestsBlocked pulumi.BoolPtrInput
+	// Enable packet capture for potentially malicious request events.
+	PotentialMaliciousRequestsCapture pulumi.BoolPtrInput
+	// Risk tolerance level. Controls the sensitivity for detecting threats.
+	RiskTolerance pulumi.IntPtrInput
+	// Enable packet capture for risk tolerance events.
+	RiskToleranceCapture pulumi.BoolPtrInput
+	// Block SSH tunnelling.
+	SshTunnellingBlocked pulumi.BoolPtrInput
+	// Enable packet capture for SSH tunnelling events.
+	SshTunnellingCapture pulumi.BoolPtrInput
+	// Block suspect adware/spyware sites.
+	SuspectAdwareSpywareSitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for suspect adware/spyware site events.
+	SuspectAdwareSpywareSitesCapture pulumi.BoolPtrInput
+	// Block suspected phishing sites.
+	SuspectedPhishingSitesBlocked pulumi.BoolPtrInput
+	// Enable packet capture for suspected phishing site events.
+	SuspectedPhishingSitesCapture pulumi.BoolPtrInput
+	// Block Tor traffic.
+	TorBlocked pulumi.BoolPtrInput
+	// Enable packet capture for Tor events.
+	TorCapture pulumi.BoolPtrInput
+	// Block web spam.
+	WebSpamBlocked pulumi.BoolPtrInput
+	// Enable packet capture for web spam events.
+	WebSpamCapture pulumi.BoolPtrInput
 }
 
 func (AtpSettingsArgs) ElementType() reflect.Type {
@@ -294,198 +446,247 @@ func (o AtpSettingsOutput) ToAtpSettingsOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Block ActiveX controls.
 func (o AtpSettingsOutput) ActivexBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.ActivexBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for ActiveX events.
 func (o AtpSettingsOutput) ActivexCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.ActivexCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block adware/spyware sites.
 func (o AtpSettingsOutput) AdSpywareSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.AdSpywareSitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for adware/spyware site events.
 func (o AtpSettingsOutput) AdSpywareSitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.AdSpywareSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Enable alerts for unknown or suspicious C2 traffic.
 func (o AtpSettingsOutput) AlertForUnknownSuspiciousC2Traffic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.AlertForUnknownSuspiciousC2Traffic }).(pulumi.BoolPtrOutput)
 }
 
+// Block anonymizers.
 func (o AtpSettingsOutput) AnonymizerBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.AnonymizerBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for anonymizer events.
 func (o AtpSettingsOutput) AnonymizerCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.AnonymizerCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block BitTorrent traffic.
 func (o AtpSettingsOutput) BitTorrentBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.BitTorrentBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for BitTorrent events.
 func (o AtpSettingsOutput) BitTorrentCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.BitTorrentCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for blocked countries events.
 func (o AtpSettingsOutput) BlockCountriesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.BlockCountriesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// List of countries (ISO 3166-1 alpha-2 codes) to block.
 func (o AtpSettingsOutput) BlockedCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.StringArrayOutput { return v.BlockedCountries }).(pulumi.StringArrayOutput)
 }
 
+// Block browser exploits.
 func (o AtpSettingsOutput) BrowserExploitsBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.BrowserExploitsBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for browser exploit events.
 func (o AtpSettingsOutput) BrowserExploitsCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.BrowserExploitsCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block known command-and-control servers.
 func (o AtpSettingsOutput) CmdCtlServerBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CmdCtlServerBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for command-and-control server events.
 func (o AtpSettingsOutput) CmdCtlServerCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CmdCtlServerCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block command-and-control traffic.
 func (o AtpSettingsOutput) CmdCtlTrafficBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CmdCtlTrafficBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for command-and-control traffic events.
 func (o AtpSettingsOutput) CmdCtlTrafficCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CmdCtlTrafficCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block cookie stealing attempts.
 func (o AtpSettingsOutput) CookieStealingBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CookieStealingBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for cookie stealing events.
 func (o AtpSettingsOutput) CookieStealingPcapEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CookieStealingPcapEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Block crypto mining traffic.
 func (o AtpSettingsOutput) CryptoMiningBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CryptoMiningBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for crypto mining events.
 func (o AtpSettingsOutput) CryptoMiningCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.CryptoMiningCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block domain generation algorithm (DGA) domains.
 func (o AtpSettingsOutput) DgaDomainsBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.DgaDomainsBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for DGA domain events.
 func (o AtpSettingsOutput) DgaDomainsCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.DgaDomainsCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block file format vulnerabilities.
 func (o AtpSettingsOutput) FileFormatVunerabilitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.FileFormatVunerabilitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for file format vulnerability events.
 func (o AtpSettingsOutput) FileFormatVunerabilitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.FileFormatVunerabilitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block Google Talk traffic.
 func (o AtpSettingsOutput) GoogleTalkBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.GoogleTalkBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for Google Talk events.
 func (o AtpSettingsOutput) GoogleTalkCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.GoogleTalkCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block IRC tunnelling.
 func (o AtpSettingsOutput) IrcTunnellingBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.IrcTunnellingBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for IRC tunnelling events.
 func (o AtpSettingsOutput) IrcTunnellingCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.IrcTunnellingCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block known phishing sites.
 func (o AtpSettingsOutput) KnownPhishingSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.KnownPhishingSitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for known phishing site events.
 func (o AtpSettingsOutput) KnownPhishingSitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.KnownPhishingSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for malicious URL events.
 func (o AtpSettingsOutput) MaliciousUrlsCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.MaliciousUrlsCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block known malware sites.
 func (o AtpSettingsOutput) MalwareSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.MalwareSitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for malware site events.
 func (o AtpSettingsOutput) MalwareSitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.MalwareSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block potentially malicious requests.
 func (o AtpSettingsOutput) PotentialMaliciousRequestsBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.PotentialMaliciousRequestsBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for potentially malicious request events.
 func (o AtpSettingsOutput) PotentialMaliciousRequestsCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.PotentialMaliciousRequestsCapture }).(pulumi.BoolPtrOutput)
 }
 
+// The internal resource identifier for the ATP settings.
 func (o AtpSettingsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// Risk tolerance level. Controls the sensitivity for detecting threats.
 func (o AtpSettingsOutput) RiskTolerance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.IntPtrOutput { return v.RiskTolerance }).(pulumi.IntPtrOutput)
 }
 
+// Enable packet capture for risk tolerance events.
 func (o AtpSettingsOutput) RiskToleranceCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.RiskToleranceCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block SSH tunnelling.
 func (o AtpSettingsOutput) SshTunnellingBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SshTunnellingBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for SSH tunnelling events.
 func (o AtpSettingsOutput) SshTunnellingCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SshTunnellingCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block suspect adware/spyware sites.
 func (o AtpSettingsOutput) SuspectAdwareSpywareSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SuspectAdwareSpywareSitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for suspect adware/spyware site events.
 func (o AtpSettingsOutput) SuspectAdwareSpywareSitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SuspectAdwareSpywareSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block suspected phishing sites.
 func (o AtpSettingsOutput) SuspectedPhishingSitesBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SuspectedPhishingSitesBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for suspected phishing site events.
 func (o AtpSettingsOutput) SuspectedPhishingSitesCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.SuspectedPhishingSitesCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block Tor traffic.
 func (o AtpSettingsOutput) TorBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.TorBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for Tor events.
 func (o AtpSettingsOutput) TorCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.TorCapture }).(pulumi.BoolPtrOutput)
 }
 
+// Block web spam.
 func (o AtpSettingsOutput) WebSpamBlocked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.WebSpamBlocked }).(pulumi.BoolPtrOutput)
 }
 
+// Enable packet capture for web spam events.
 func (o AtpSettingsOutput) WebSpamCapture() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AtpSettings) pulumi.BoolPtrOutput { return v.WebSpamCapture }).(pulumi.BoolPtrOutput)
 }

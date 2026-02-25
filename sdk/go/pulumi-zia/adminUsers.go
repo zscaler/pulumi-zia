@@ -8,32 +8,62 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+//
+// For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing admin user can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:AdminUsers example 12345
+// ```
 type AdminUsers struct {
 	pulumi.CustomResourceState
 
-	AdminId                     pulumi.IntOutput            `pulumi:"adminId"`
-	AdminScopeEntities          pulumi.IntArrayOutput       `pulumi:"adminScopeEntities"`
-	AdminScopeType              pulumi.StringPtrOutput      `pulumi:"adminScopeType"`
-	Comments                    pulumi.StringPtrOutput      `pulumi:"comments"`
-	Disabled                    pulumi.BoolPtrOutput        `pulumi:"disabled"`
-	Email                       pulumi.StringOutput         `pulumi:"email"`
-	IsAuditor                   pulumi.BoolPtrOutput        `pulumi:"isAuditor"`
-	IsExecMobileAppEnabled      pulumi.BoolPtrOutput        `pulumi:"isExecMobileAppEnabled"`
-	IsNonEditable               pulumi.BoolPtrOutput        `pulumi:"isNonEditable"`
-	IsPasswordExpired           pulumi.BoolPtrOutput        `pulumi:"isPasswordExpired"`
-	IsPasswordLoginAllowed      pulumi.BoolPtrOutput        `pulumi:"isPasswordLoginAllowed"`
-	IsProductUpdateCommEnabled  pulumi.BoolPtrOutput        `pulumi:"isProductUpdateCommEnabled"`
-	IsSecurityReportCommEnabled pulumi.BoolPtrOutput        `pulumi:"isSecurityReportCommEnabled"`
-	IsServiceUpdateCommEnabled  pulumi.BoolPtrOutput        `pulumi:"isServiceUpdateCommEnabled"`
-	LoginName                   pulumi.StringOutput         `pulumi:"loginName"`
-	Password                    pulumi.StringPtrOutput      `pulumi:"password"`
-	Role                        AdminUserRoleInputPtrOutput `pulumi:"role"`
-	Username                    pulumi.StringOutput         `pulumi:"username"`
+	// The system-generated ID of the admin user.
+	AdminId pulumi.IntOutput `pulumi:"adminId"`
+	// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+	AdminScopeEntities pulumi.IntArrayOutput `pulumi:"adminScopeEntities"`
+	// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+	AdminScopeType pulumi.StringPtrOutput `pulumi:"adminScopeType"`
+	// Additional information about the admin user.
+	Comments pulumi.StringPtrOutput `pulumi:"comments"`
+	// Whether the admin account is disabled.
+	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	// The admin user's email address.
+	Email pulumi.StringOutput `pulumi:"email"`
+	// Indicates whether the admin is an auditor.
+	IsAuditor pulumi.BoolPtrOutput `pulumi:"isAuditor"`
+	// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+	IsExecMobileAppEnabled pulumi.BoolPtrOutput `pulumi:"isExecMobileAppEnabled"`
+	// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+	IsNonEditable pulumi.BoolPtrOutput `pulumi:"isNonEditable"`
+	// Indicates whether the admin user's password has expired.
+	IsPasswordExpired pulumi.BoolPtrOutput `pulumi:"isPasswordExpired"`
+	// Whether password-based login is allowed for the admin user.
+	IsPasswordLoginAllowed pulumi.BoolPtrOutput `pulumi:"isPasswordLoginAllowed"`
+	// Whether the admin can receive product update communications.
+	IsProductUpdateCommEnabled pulumi.BoolPtrOutput `pulumi:"isProductUpdateCommEnabled"`
+	// Whether the admin can receive security report communications.
+	IsSecurityReportCommEnabled pulumi.BoolPtrOutput `pulumi:"isSecurityReportCommEnabled"`
+	// Whether the admin can receive service update communications.
+	IsServiceUpdateCommEnabled pulumi.BoolPtrOutput `pulumi:"isServiceUpdateCommEnabled"`
+	// The admin user's login name (email format). Must be unique.
+	LoginName pulumi.StringOutput `pulumi:"loginName"`
+	// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The role assigned to the admin user. Provide the role ID.
+	Role AdminUserRoleInputPtrOutput `pulumi:"role"`
+	// The admin user's display name.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewAdminUsers registers a new resource with the given unique name, arguments, and options.
@@ -92,44 +122,78 @@ func (AdminUsersState) ElementType() reflect.Type {
 }
 
 type adminUsersArgs struct {
-	AdminScopeEntities          []int               `pulumi:"adminScopeEntities"`
-	AdminScopeType              *string             `pulumi:"adminScopeType"`
-	Comments                    *string             `pulumi:"comments"`
-	Disabled                    *bool               `pulumi:"disabled"`
-	Email                       string              `pulumi:"email"`
-	IsAuditor                   *bool               `pulumi:"isAuditor"`
-	IsExecMobileAppEnabled      *bool               `pulumi:"isExecMobileAppEnabled"`
-	IsNonEditable               *bool               `pulumi:"isNonEditable"`
-	IsPasswordExpired           *bool               `pulumi:"isPasswordExpired"`
-	IsPasswordLoginAllowed      *bool               `pulumi:"isPasswordLoginAllowed"`
-	IsProductUpdateCommEnabled  *bool               `pulumi:"isProductUpdateCommEnabled"`
-	IsSecurityReportCommEnabled *bool               `pulumi:"isSecurityReportCommEnabled"`
-	IsServiceUpdateCommEnabled  *bool               `pulumi:"isServiceUpdateCommEnabled"`
-	LoginName                   string              `pulumi:"loginName"`
-	Password                    *string             `pulumi:"password"`
-	Role                        *AdminUserRoleInput `pulumi:"role"`
-	Username                    string              `pulumi:"username"`
+	// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+	AdminScopeEntities []int `pulumi:"adminScopeEntities"`
+	// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+	AdminScopeType *string `pulumi:"adminScopeType"`
+	// Additional information about the admin user.
+	Comments *string `pulumi:"comments"`
+	// Whether the admin account is disabled.
+	Disabled *bool `pulumi:"disabled"`
+	// The admin user's email address.
+	Email string `pulumi:"email"`
+	// Indicates whether the admin is an auditor.
+	IsAuditor *bool `pulumi:"isAuditor"`
+	// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+	IsExecMobileAppEnabled *bool `pulumi:"isExecMobileAppEnabled"`
+	// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+	IsNonEditable *bool `pulumi:"isNonEditable"`
+	// Indicates whether the admin user's password has expired.
+	IsPasswordExpired *bool `pulumi:"isPasswordExpired"`
+	// Whether password-based login is allowed for the admin user.
+	IsPasswordLoginAllowed *bool `pulumi:"isPasswordLoginAllowed"`
+	// Whether the admin can receive product update communications.
+	IsProductUpdateCommEnabled *bool `pulumi:"isProductUpdateCommEnabled"`
+	// Whether the admin can receive security report communications.
+	IsSecurityReportCommEnabled *bool `pulumi:"isSecurityReportCommEnabled"`
+	// Whether the admin can receive service update communications.
+	IsServiceUpdateCommEnabled *bool `pulumi:"isServiceUpdateCommEnabled"`
+	// The admin user's login name (email format). Must be unique.
+	LoginName string `pulumi:"loginName"`
+	// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+	Password *string `pulumi:"password"`
+	// The role assigned to the admin user. Provide the role ID.
+	Role *AdminUserRoleInput `pulumi:"role"`
+	// The admin user's display name.
+	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a AdminUsers resource.
 type AdminUsersArgs struct {
-	AdminScopeEntities          pulumi.IntArrayInput
-	AdminScopeType              pulumi.StringPtrInput
-	Comments                    pulumi.StringPtrInput
-	Disabled                    pulumi.BoolPtrInput
-	Email                       pulumi.StringInput
-	IsAuditor                   pulumi.BoolPtrInput
-	IsExecMobileAppEnabled      pulumi.BoolPtrInput
-	IsNonEditable               pulumi.BoolPtrInput
-	IsPasswordExpired           pulumi.BoolPtrInput
-	IsPasswordLoginAllowed      pulumi.BoolPtrInput
-	IsProductUpdateCommEnabled  pulumi.BoolPtrInput
+	// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+	AdminScopeEntities pulumi.IntArrayInput
+	// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+	AdminScopeType pulumi.StringPtrInput
+	// Additional information about the admin user.
+	Comments pulumi.StringPtrInput
+	// Whether the admin account is disabled.
+	Disabled pulumi.BoolPtrInput
+	// The admin user's email address.
+	Email pulumi.StringInput
+	// Indicates whether the admin is an auditor.
+	IsAuditor pulumi.BoolPtrInput
+	// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+	IsExecMobileAppEnabled pulumi.BoolPtrInput
+	// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+	IsNonEditable pulumi.BoolPtrInput
+	// Indicates whether the admin user's password has expired.
+	IsPasswordExpired pulumi.BoolPtrInput
+	// Whether password-based login is allowed for the admin user.
+	IsPasswordLoginAllowed pulumi.BoolPtrInput
+	// Whether the admin can receive product update communications.
+	IsProductUpdateCommEnabled pulumi.BoolPtrInput
+	// Whether the admin can receive security report communications.
 	IsSecurityReportCommEnabled pulumi.BoolPtrInput
-	IsServiceUpdateCommEnabled  pulumi.BoolPtrInput
-	LoginName                   pulumi.StringInput
-	Password                    pulumi.StringPtrInput
-	Role                        AdminUserRoleInputPtrInput
-	Username                    pulumi.StringInput
+	// Whether the admin can receive service update communications.
+	IsServiceUpdateCommEnabled pulumi.BoolPtrInput
+	// The admin user's login name (email format). Must be unique.
+	LoginName pulumi.StringInput
+	// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+	Password pulumi.StringPtrInput
+	// The role assigned to the admin user. Provide the role ID.
+	Role AdminUserRoleInputPtrInput
+	// The admin user's display name.
+	Username pulumi.StringInput
 }
 
 func (AdminUsersArgs) ElementType() reflect.Type {
@@ -219,74 +283,92 @@ func (o AdminUsersOutput) ToAdminUsersOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
+// The system-generated ID of the admin user.
 func (o AdminUsersOutput) AdminId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.IntOutput { return v.AdminId }).(pulumi.IntOutput)
 }
 
+// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
 func (o AdminUsersOutput) AdminScopeEntities() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.IntArrayOutput { return v.AdminScopeEntities }).(pulumi.IntArrayOutput)
 }
 
+// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
 func (o AdminUsersOutput) AdminScopeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.AdminScopeType }).(pulumi.StringPtrOutput)
 }
 
+// Additional information about the admin user.
 func (o AdminUsersOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
+// Whether the admin account is disabled.
 func (o AdminUsersOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
+// The admin user's email address.
 func (o AdminUsersOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
+// Indicates whether the admin is an auditor.
 func (o AdminUsersOutput) IsAuditor() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsAuditor }).(pulumi.BoolPtrOutput)
 }
 
+// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
 func (o AdminUsersOutput) IsExecMobileAppEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsExecMobileAppEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
 func (o AdminUsersOutput) IsNonEditable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsNonEditable }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the admin user's password has expired.
 func (o AdminUsersOutput) IsPasswordExpired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsPasswordExpired }).(pulumi.BoolPtrOutput)
 }
 
+// Whether password-based login is allowed for the admin user.
 func (o AdminUsersOutput) IsPasswordLoginAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsPasswordLoginAllowed }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the admin can receive product update communications.
 func (o AdminUsersOutput) IsProductUpdateCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsProductUpdateCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the admin can receive security report communications.
 func (o AdminUsersOutput) IsSecurityReportCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsSecurityReportCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the admin can receive service update communications.
 func (o AdminUsersOutput) IsServiceUpdateCommEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.BoolPtrOutput { return v.IsServiceUpdateCommEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The admin user's login name (email format). Must be unique.
 func (o AdminUsersOutput) LoginName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.LoginName }).(pulumi.StringOutput)
 }
 
+// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
 func (o AdminUsersOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The role assigned to the admin user. Provide the role ID.
 func (o AdminUsersOutput) Role() AdminUserRoleInputPtrOutput {
 	return o.ApplyT(func(v *AdminUsers) AdminUserRoleInputPtrOutput { return v.Role }).(AdminUserRoleInputPtrOutput)
 }
 
+// The admin user's display name.
 func (o AdminUsersOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminUsers) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

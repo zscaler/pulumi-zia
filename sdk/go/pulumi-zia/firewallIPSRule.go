@@ -8,50 +8,122 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_firewall_ips_rule resource manages firewall IPS (Intrusion Prevention System) rules in the Zscaler Internet Access (ZIA) cloud service. IPS rules allow you to detect and prevent network intrusions by inspecting traffic for known threat signatures and anomalous patterns.
+//
+// For more information, see the [ZIA IPS Control Policies documentation](https://help.zscaler.com/zia/ips-control-policies).
+//
+// ## Example Usage
+// ### Basic Firewall IPS Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewFirewallIPSRule(ctx, "example", &zia.FirewallIPSRuleArgs{
+//				Name:        pulumi.String("Example IPS Rule"),
+//				Description: pulumi.StringRef("Block intrusion attempts"),
+//				Order:       pulumi.Int(1),
+//				State:       pulumi.StringRef("ENABLED"),
+//				Action:      pulumi.StringRef("BLOCK_DROP"),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing Firewall IPS Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:FirewallIPSRule example 12345
+// ```
 type FirewallIPSRule struct {
 	pulumi.CustomResourceState
 
-	Action            pulumi.StringPtrOutput        `pulumi:"action"`
-	CapturePcap       pulumi.BoolPtrOutput          `pulumi:"capturePcap"`
-	DefaultRule       pulumi.BoolPtrOutput          `pulumi:"defaultRule"`
-	Departments       pulumi.IntArrayOutput         `pulumi:"departments"`
-	Description       pulumi.StringPtrOutput        `pulumi:"description"`
-	DestAddresses     pulumi.StringArrayOutput      `pulumi:"destAddresses"`
-	DestCountries     pulumi.StringArrayOutput      `pulumi:"destCountries"`
-	DestIpCategories  pulumi.StringArrayOutput      `pulumi:"destIpCategories"`
-	DestIpGroups      pulumi.IntArrayOutput         `pulumi:"destIpGroups"`
-	DestIpv6Groups    pulumi.IntArrayOutput         `pulumi:"destIpv6Groups"`
-	DeviceGroups      pulumi.IntArrayOutput         `pulumi:"deviceGroups"`
-	Devices           pulumi.IntArrayOutput         `pulumi:"devices"`
-	EnableFullLogging pulumi.BoolPtrOutput          `pulumi:"enableFullLogging"`
-	EunTemplateId     pulumi.IntPtrOutput           `pulumi:"eunTemplateId"`
-	Groups            pulumi.IntArrayOutput         `pulumi:"groups"`
-	IsEunEnabled      pulumi.BoolPtrOutput          `pulumi:"isEunEnabled"`
-	Labels            pulumi.IntArrayOutput         `pulumi:"labels"`
-	LocationGroups    pulumi.IntArrayOutput         `pulumi:"locationGroups"`
-	Locations         pulumi.IntArrayOutput         `pulumi:"locations"`
-	Name              pulumi.StringOutput           `pulumi:"name"`
-	NwServiceGroups   pulumi.IntArrayOutput         `pulumi:"nwServiceGroups"`
-	NwServices        pulumi.IntArrayOutput         `pulumi:"nwServices"`
-	Order             pulumi.IntOutput              `pulumi:"order"`
-	Predefined        pulumi.BoolPtrOutput          `pulumi:"predefined"`
-	Rank              pulumi.IntPtrOutput           `pulumi:"rank"`
-	ResCategories     pulumi.StringArrayOutput      `pulumi:"resCategories"`
-	RuleId            pulumi.IntOutput              `pulumi:"ruleId"`
-	SourceCountries   pulumi.StringArrayOutput      `pulumi:"sourceCountries"`
-	SrcIpGroups       pulumi.IntArrayOutput         `pulumi:"srcIpGroups"`
-	SrcIps            pulumi.StringArrayOutput      `pulumi:"srcIps"`
-	SrcIpv6Groups     pulumi.IntArrayOutput         `pulumi:"srcIpv6Groups"`
-	State             pulumi.StringPtrOutput        `pulumi:"state"`
-	ThreatCategories  pulumi.IntArrayOutput         `pulumi:"threatCategories"`
-	TimeWindows       pulumi.IntArrayOutput         `pulumi:"timeWindows"`
-	Users             pulumi.IntArrayOutput         `pulumi:"users"`
-	ZpaAppSegments    ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// If set to true, enables packet capture (PCAP) for the rule.
+	CapturePcap pulumi.BoolPtrOutput `pulumi:"capturePcap"`
+	// Indicates whether this is the default firewall IPS rule.
+	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the firewall IPS rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
+	// Destination IP address URL categories for the rule.
+	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayOutput `pulumi:"destIpGroups"`
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups pulumi.IntArrayOutput `pulumi:"destIpv6Groups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// If set to true, enables full logging for the rule.
+	EnableFullLogging pulumi.BoolPtrOutput `pulumi:"enableFullLogging"`
+	// The ID of the end user notification template associated with the rule.
+	EunTemplateId pulumi.IntPtrOutput `pulumi:"eunTemplateId"`
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// If set to true, enables end user notification for the rule.
+	IsEunEnabled pulumi.BoolPtrOutput `pulumi:"isEunEnabled"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the firewall IPS rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayOutput `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayOutput `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other firewall IPS rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Indicates whether this is a predefined rule.
+	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
+	// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// URL categories that apply to the response for the rule.
+	ResCategories pulumi.StringArrayOutput `pulumi:"resCategories"`
+	// The system-generated ID of the firewall IPS rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayOutput `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups pulumi.IntArrayOutput `pulumi:"srcIpv6Groups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of threat categories to which the rule applies.
+	ThreatCategories pulumi.IntArrayOutput `pulumi:"threatCategories"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
 }
 
 // NewFirewallIPSRule registers a new resource with the given unique name, arguments, and options.
@@ -100,80 +172,150 @@ func (FirewallIPSRuleState) ElementType() reflect.Type {
 }
 
 type firewallIPSRuleArgs struct {
-	Action            *string              `pulumi:"action"`
-	CapturePcap       *bool                `pulumi:"capturePcap"`
-	DefaultRule       *bool                `pulumi:"defaultRule"`
-	Departments       []int                `pulumi:"departments"`
-	Description       *string              `pulumi:"description"`
-	DestAddresses     []string             `pulumi:"destAddresses"`
-	DestCountries     []string             `pulumi:"destCountries"`
-	DestIpCategories  []string             `pulumi:"destIpCategories"`
-	DestIpGroups      []int                `pulumi:"destIpGroups"`
-	DestIpv6Groups    []int                `pulumi:"destIpv6Groups"`
-	DeviceGroups      []int                `pulumi:"deviceGroups"`
-	Devices           []int                `pulumi:"devices"`
-	EnableFullLogging *bool                `pulumi:"enableFullLogging"`
-	EunTemplateId     *int                 `pulumi:"eunTemplateId"`
-	Groups            []int                `pulumi:"groups"`
-	IsEunEnabled      *bool                `pulumi:"isEunEnabled"`
-	Labels            []int                `pulumi:"labels"`
-	LocationGroups    []int                `pulumi:"locationGroups"`
-	Locations         []int                `pulumi:"locations"`
-	Name              string               `pulumi:"name"`
-	NwServiceGroups   []int                `pulumi:"nwServiceGroups"`
-	NwServices        []int                `pulumi:"nwServices"`
-	Order             int                  `pulumi:"order"`
-	Predefined        *bool                `pulumi:"predefined"`
-	Rank              *int                 `pulumi:"rank"`
-	ResCategories     []string             `pulumi:"resCategories"`
-	SourceCountries   []string             `pulumi:"sourceCountries"`
-	SrcIpGroups       []int                `pulumi:"srcIpGroups"`
-	SrcIps            []string             `pulumi:"srcIps"`
-	SrcIpv6Groups     []int                `pulumi:"srcIpv6Groups"`
-	State             *string              `pulumi:"state"`
-	ThreatCategories  []int                `pulumi:"threatCategories"`
-	TimeWindows       []int                `pulumi:"timeWindows"`
-	Users             []int                `pulumi:"users"`
-	ZpaAppSegments    []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+	Action *string `pulumi:"action"`
+	// If set to true, enables packet capture (PCAP) for the rule.
+	CapturePcap *bool `pulumi:"capturePcap"`
+	// Indicates whether this is the default firewall IPS rule.
+	DefaultRule *bool `pulumi:"defaultRule"`
+	// IDs of departments to which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the firewall IPS rule.
+	Description *string `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses []string `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries []string `pulumi:"destCountries"`
+	// Destination IP address URL categories for the rule.
+	DestIpCategories []string `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups []int `pulumi:"destIpGroups"`
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups []int `pulumi:"destIpv6Groups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// IDs of devices for which the rule must be applied.
+	Devices []int `pulumi:"devices"`
+	// If set to true, enables full logging for the rule.
+	EnableFullLogging *bool `pulumi:"enableFullLogging"`
+	// The ID of the end user notification template associated with the rule.
+	EunTemplateId *int `pulumi:"eunTemplateId"`
+	// IDs of groups to which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// If set to true, enables end user notification for the rule.
+	IsEunEnabled *bool `pulumi:"isEunEnabled"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The name of the firewall IPS rule. Must be unique.
+	Name string `pulumi:"name"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups []int `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices []int `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other firewall IPS rules.
+	Order int `pulumi:"order"`
+	// Indicates whether this is a predefined rule.
+	Predefined *bool `pulumi:"predefined"`
+	// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// URL categories that apply to the response for the rule.
+	ResCategories []string `pulumi:"resCategories"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries []string `pulumi:"sourceCountries"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups []int `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps []string `pulumi:"srcIps"`
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups []int `pulumi:"srcIpv6Groups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of threat categories to which the rule applies.
+	ThreatCategories []int `pulumi:"threatCategories"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// IDs of users to which the rule must be applied.
+	Users []int `pulumi:"users"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
 }
 
 // The set of arguments for constructing a FirewallIPSRule resource.
 type FirewallIPSRuleArgs struct {
-	Action            pulumi.StringPtrInput
-	CapturePcap       pulumi.BoolPtrInput
-	DefaultRule       pulumi.BoolPtrInput
-	Departments       pulumi.IntArrayInput
-	Description       pulumi.StringPtrInput
-	DestAddresses     pulumi.StringArrayInput
-	DestCountries     pulumi.StringArrayInput
-	DestIpCategories  pulumi.StringArrayInput
-	DestIpGroups      pulumi.IntArrayInput
-	DestIpv6Groups    pulumi.IntArrayInput
-	DeviceGroups      pulumi.IntArrayInput
-	Devices           pulumi.IntArrayInput
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+	Action pulumi.StringPtrInput
+	// If set to true, enables packet capture (PCAP) for the rule.
+	CapturePcap pulumi.BoolPtrInput
+	// Indicates whether this is the default firewall IPS rule.
+	DefaultRule pulumi.BoolPtrInput
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the firewall IPS rule.
+	Description pulumi.StringPtrInput
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayInput
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayInput
+	// Destination IP address URL categories for the rule.
+	DestIpCategories pulumi.StringArrayInput
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayInput
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups pulumi.IntArrayInput
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayInput
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayInput
+	// If set to true, enables full logging for the rule.
 	EnableFullLogging pulumi.BoolPtrInput
-	EunTemplateId     pulumi.IntPtrInput
-	Groups            pulumi.IntArrayInput
-	IsEunEnabled      pulumi.BoolPtrInput
-	Labels            pulumi.IntArrayInput
-	LocationGroups    pulumi.IntArrayInput
-	Locations         pulumi.IntArrayInput
-	Name              pulumi.StringInput
-	NwServiceGroups   pulumi.IntArrayInput
-	NwServices        pulumi.IntArrayInput
-	Order             pulumi.IntInput
-	Predefined        pulumi.BoolPtrInput
-	Rank              pulumi.IntPtrInput
-	ResCategories     pulumi.StringArrayInput
-	SourceCountries   pulumi.StringArrayInput
-	SrcIpGroups       pulumi.IntArrayInput
-	SrcIps            pulumi.StringArrayInput
-	SrcIpv6Groups     pulumi.IntArrayInput
-	State             pulumi.StringPtrInput
-	ThreatCategories  pulumi.IntArrayInput
-	TimeWindows       pulumi.IntArrayInput
-	Users             pulumi.IntArrayInput
-	ZpaAppSegments    ZPAAppSegmentInputArrayInput
+	// The ID of the end user notification template associated with the rule.
+	EunTemplateId pulumi.IntPtrInput
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// If set to true, enables end user notification for the rule.
+	IsEunEnabled pulumi.BoolPtrInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The name of the firewall IPS rule. Must be unique.
+	Name pulumi.StringInput
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayInput
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayInput
+	// The order of execution of the rule with respect to other firewall IPS rules.
+	Order pulumi.IntInput
+	// Indicates whether this is a predefined rule.
+	Predefined pulumi.BoolPtrInput
+	// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// URL categories that apply to the response for the rule.
+	ResCategories pulumi.StringArrayInput
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayInput
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayInput
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayInput
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups pulumi.IntArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of threat categories to which the rule applies.
+	ThreatCategories pulumi.IntArrayInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayInput
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments ZPAAppSegmentInputArrayInput
 }
 
 func (FirewallIPSRuleArgs) ElementType() reflect.Type {
@@ -263,146 +405,182 @@ func (o FirewallIPSRuleOutput) ToFirewallIPSRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
 func (o FirewallIPSRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// If set to true, enables packet capture (PCAP) for the rule.
 func (o FirewallIPSRuleOutput) CapturePcap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.BoolPtrOutput { return v.CapturePcap }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether this is the default firewall IPS rule.
 func (o FirewallIPSRuleOutput) DefaultRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.BoolPtrOutput { return v.DefaultRule }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of departments to which the rule must be applied.
 func (o FirewallIPSRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the firewall IPS rule.
 func (o FirewallIPSRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
 func (o FirewallIPSRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o FirewallIPSRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
+// Destination IP address URL categories for the rule.
 func (o FirewallIPSRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
+// IDs of destination IP address groups for the rule.
 func (o FirewallIPSRuleOutput) DestIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.DestIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of destination IPv6 address groups for the rule.
 func (o FirewallIPSRuleOutput) DestIpv6Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.DestIpv6Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
 func (o FirewallIPSRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of devices for which the rule must be applied.
 func (o FirewallIPSRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// If set to true, enables full logging for the rule.
 func (o FirewallIPSRuleOutput) EnableFullLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.BoolPtrOutput { return v.EnableFullLogging }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the end user notification template associated with the rule.
 func (o FirewallIPSRuleOutput) EunTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntPtrOutput { return v.EunTemplateId }).(pulumi.IntPtrOutput)
 }
 
+// IDs of groups to which the rule must be applied.
 func (o FirewallIPSRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// If set to true, enables end user notification for the rule.
 func (o FirewallIPSRuleOutput) IsEunEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.BoolPtrOutput { return v.IsEunEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o FirewallIPSRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule must be applied.
 func (o FirewallIPSRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations to which the rule must be applied.
 func (o FirewallIPSRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the firewall IPS rule. Must be unique.
 func (o FirewallIPSRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// IDs of network service groups to which the rule applies.
 func (o FirewallIPSRuleOutput) NwServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.NwServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of network services to which the rule applies.
 func (o FirewallIPSRuleOutput) NwServices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.NwServices }).(pulumi.IntArrayOutput)
 }
 
+// The order of execution of the rule with respect to other firewall IPS rules.
 func (o FirewallIPSRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Indicates whether this is a predefined rule.
 func (o FirewallIPSRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
+// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
 func (o FirewallIPSRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// URL categories that apply to the response for the rule.
 func (o FirewallIPSRuleOutput) ResCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.ResCategories }).(pulumi.StringArrayOutput)
 }
 
+// The system-generated ID of the firewall IPS rule.
 func (o FirewallIPSRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o FirewallIPSRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
+// IDs of source IP address groups for the rule.
 func (o FirewallIPSRuleOutput) SrcIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.SrcIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Source IP addresses or CIDR ranges for the rule.
 func (o FirewallIPSRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
+// IDs of source IPv6 address groups for the rule.
 func (o FirewallIPSRuleOutput) SrcIpv6Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.SrcIpv6Groups }).(pulumi.IntArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o FirewallIPSRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of threat categories to which the rule applies.
 func (o FirewallIPSRuleOutput) ThreatCategories() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.ThreatCategories }).(pulumi.IntArrayOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o FirewallIPSRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// IDs of users to which the rule must be applied.
 func (o FirewallIPSRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
 func (o FirewallIPSRuleOutput) ZpaAppSegments() ZPAAppSegmentInputArrayOutput {
 	return o.ApplyT(func(v *FirewallIPSRule) ZPAAppSegmentInputArrayOutput { return v.ZpaAppSegments }).(ZPAAppSegmentInputArrayOutput)
 }

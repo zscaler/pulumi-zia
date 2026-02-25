@@ -8,46 +8,114 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_forwarding_control_rule resource manages forwarding control rules in the Zscaler Internet Access (ZIA) cloud service. Forwarding control rules determine how traffic is forwarded — directly to the internet, via an explicit proxy, or through Zscaler Private Access (ZPA).
+//
+// For more information, see the [ZIA Forwarding Control documentation](https://help.zscaler.com/zia/forwarding-control-policies).
+//
+// ## Example Usage
+// ### Basic Forwarding Control Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewForwardingControlRule(ctx, "example", &zia.ForwardingControlRuleArgs{
+//				Name:          pulumi.String("Example Forwarding Rule"),
+//				Description:   pulumi.StringRef("Forward traffic directly"),
+//				Order:         pulumi.Int(1),
+//				State:         pulumi.StringRef("ENABLED"),
+//				ForwardMethod: pulumi.String("DIRECT"),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing Forwarding Control Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:ForwardingControlRule example 12345
+// ```
 type ForwardingControlRule struct {
 	pulumi.CustomResourceState
 
-	AppServiceGroups    pulumi.IntArrayOutput         `pulumi:"appServiceGroups"`
-	Departments         pulumi.IntArrayOutput         `pulumi:"departments"`
-	Description         pulumi.StringPtrOutput        `pulumi:"description"`
-	DestAddresses       pulumi.StringArrayOutput      `pulumi:"destAddresses"`
-	DestCountries       pulumi.StringArrayOutput      `pulumi:"destCountries"`
-	DestIpCategories    pulumi.StringArrayOutput      `pulumi:"destIpCategories"`
-	DestIpGroups        pulumi.IntArrayOutput         `pulumi:"destIpGroups"`
-	DestIpv6Groups      pulumi.IntArrayOutput         `pulumi:"destIpv6Groups"`
-	DeviceGroups        pulumi.IntArrayOutput         `pulumi:"deviceGroups"`
-	EcGroups            pulumi.IntArrayOutput         `pulumi:"ecGroups"`
-	ForwardMethod       pulumi.StringOutput           `pulumi:"forwardMethod"`
-	Groups              pulumi.IntArrayOutput         `pulumi:"groups"`
-	Labels              pulumi.IntArrayOutput         `pulumi:"labels"`
-	LocationGroups      pulumi.IntArrayOutput         `pulumi:"locationGroups"`
-	Locations           pulumi.IntArrayOutput         `pulumi:"locations"`
-	Name                pulumi.StringOutput           `pulumi:"name"`
-	NwApplicationGroups pulumi.IntArrayOutput         `pulumi:"nwApplicationGroups"`
-	NwServiceGroups     pulumi.IntArrayOutput         `pulumi:"nwServiceGroups"`
-	NwServices          pulumi.IntArrayOutput         `pulumi:"nwServices"`
-	Order               pulumi.IntOutput              `pulumi:"order"`
-	ProxyGatewayId      pulumi.IntPtrOutput           `pulumi:"proxyGatewayId"`
-	Rank                pulumi.IntPtrOutput           `pulumi:"rank"`
-	ResCategories       pulumi.StringArrayOutput      `pulumi:"resCategories"`
-	RuleId              pulumi.IntOutput              `pulumi:"ruleId"`
-	SrcIpGroups         pulumi.IntArrayOutput         `pulumi:"srcIpGroups"`
-	SrcIps              pulumi.StringArrayOutput      `pulumi:"srcIps"`
-	SrcIpv6Groups       pulumi.IntArrayOutput         `pulumi:"srcIpv6Groups"`
-	State               pulumi.StringPtrOutput        `pulumi:"state"`
-	Type                pulumi.StringPtrOutput        `pulumi:"type"`
-	Users               pulumi.IntArrayOutput         `pulumi:"users"`
-	ZpaAppSegments      ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
-	ZpaGatewayId        pulumi.IntPtrOutput           `pulumi:"zpaGatewayId"`
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups pulumi.IntArrayOutput `pulumi:"appServiceGroups"`
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the forwarding control rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
+	// Destination IP address URL categories for the rule.
+	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayOutput `pulumi:"destIpGroups"`
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups pulumi.IntArrayOutput `pulumi:"destIpv6Groups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// IDs of Zscaler Edge Connector groups to which the rule applies.
+	EcGroups pulumi.IntArrayOutput `pulumi:"ecGroups"`
+	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	ForwardMethod pulumi.StringOutput `pulumi:"forwardMethod"`
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the forwarding control rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// IDs of network application groups to which the rule applies.
+	NwApplicationGroups pulumi.IntArrayOutput `pulumi:"nwApplicationGroups"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayOutput `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayOutput `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other forwarding control rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+	ProxyGatewayId pulumi.IntPtrOutput `pulumi:"proxyGatewayId"`
+	// Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// URL categories that apply to the response for the rule.
+	ResCategories pulumi.StringArrayOutput `pulumi:"resCategories"`
+	// The system-generated ID of the forwarding control rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayOutput `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups pulumi.IntArrayOutput `pulumi:"srcIpv6Groups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// The rule type. Valid values: `FORWARDING`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+	ZpaAppSegments ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
+	// The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+	ZpaGatewayId pulumi.IntPtrOutput `pulumi:"zpaGatewayId"`
 }
 
 // NewForwardingControlRule registers a new resource with the given unique name, arguments, and options.
@@ -99,72 +167,134 @@ func (ForwardingControlRuleState) ElementType() reflect.Type {
 }
 
 type forwardingControlRuleArgs struct {
-	AppServiceGroups    []int                `pulumi:"appServiceGroups"`
-	Departments         []int                `pulumi:"departments"`
-	Description         *string              `pulumi:"description"`
-	DestAddresses       []string             `pulumi:"destAddresses"`
-	DestCountries       []string             `pulumi:"destCountries"`
-	DestIpCategories    []string             `pulumi:"destIpCategories"`
-	DestIpGroups        []int                `pulumi:"destIpGroups"`
-	DestIpv6Groups      []int                `pulumi:"destIpv6Groups"`
-	DeviceGroups        []int                `pulumi:"deviceGroups"`
-	EcGroups            []int                `pulumi:"ecGroups"`
-	ForwardMethod       string               `pulumi:"forwardMethod"`
-	Groups              []int                `pulumi:"groups"`
-	Labels              []int                `pulumi:"labels"`
-	LocationGroups      []int                `pulumi:"locationGroups"`
-	Locations           []int                `pulumi:"locations"`
-	Name                string               `pulumi:"name"`
-	NwApplicationGroups []int                `pulumi:"nwApplicationGroups"`
-	NwServiceGroups     []int                `pulumi:"nwServiceGroups"`
-	NwServices          []int                `pulumi:"nwServices"`
-	Order               int                  `pulumi:"order"`
-	ProxyGatewayId      *int                 `pulumi:"proxyGatewayId"`
-	Rank                *int                 `pulumi:"rank"`
-	ResCategories       []string             `pulumi:"resCategories"`
-	SrcIpGroups         []int                `pulumi:"srcIpGroups"`
-	SrcIps              []string             `pulumi:"srcIps"`
-	SrcIpv6Groups       []int                `pulumi:"srcIpv6Groups"`
-	State               *string              `pulumi:"state"`
-	Type                *string              `pulumi:"type"`
-	Users               []int                `pulumi:"users"`
-	ZpaAppSegments      []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
-	ZpaGatewayId        *int                 `pulumi:"zpaGatewayId"`
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups []int `pulumi:"appServiceGroups"`
+	// IDs of departments to which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the forwarding control rule.
+	Description *string `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses []string `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries []string `pulumi:"destCountries"`
+	// Destination IP address URL categories for the rule.
+	DestIpCategories []string `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups []int `pulumi:"destIpGroups"`
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups []int `pulumi:"destIpv6Groups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// IDs of Zscaler Edge Connector groups to which the rule applies.
+	EcGroups []int `pulumi:"ecGroups"`
+	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	ForwardMethod string `pulumi:"forwardMethod"`
+	// IDs of groups to which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The name of the forwarding control rule. Must be unique.
+	Name string `pulumi:"name"`
+	// IDs of network application groups to which the rule applies.
+	NwApplicationGroups []int `pulumi:"nwApplicationGroups"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups []int `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices []int `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other forwarding control rules.
+	Order int `pulumi:"order"`
+	// The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+	ProxyGatewayId *int `pulumi:"proxyGatewayId"`
+	// Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// URL categories that apply to the response for the rule.
+	ResCategories []string `pulumi:"resCategories"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups []int `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps []string `pulumi:"srcIps"`
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups []int `pulumi:"srcIpv6Groups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// The rule type. Valid values: `FORWARDING`.
+	Type *string `pulumi:"type"`
+	// IDs of users to which the rule must be applied.
+	Users []int `pulumi:"users"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+	ZpaAppSegments []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
+	// The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+	ZpaGatewayId *int `pulumi:"zpaGatewayId"`
 }
 
 // The set of arguments for constructing a ForwardingControlRule resource.
 type ForwardingControlRuleArgs struct {
-	AppServiceGroups    pulumi.IntArrayInput
-	Departments         pulumi.IntArrayInput
-	Description         pulumi.StringPtrInput
-	DestAddresses       pulumi.StringArrayInput
-	DestCountries       pulumi.StringArrayInput
-	DestIpCategories    pulumi.StringArrayInput
-	DestIpGroups        pulumi.IntArrayInput
-	DestIpv6Groups      pulumi.IntArrayInput
-	DeviceGroups        pulumi.IntArrayInput
-	EcGroups            pulumi.IntArrayInput
-	ForwardMethod       pulumi.StringInput
-	Groups              pulumi.IntArrayInput
-	Labels              pulumi.IntArrayInput
-	LocationGroups      pulumi.IntArrayInput
-	Locations           pulumi.IntArrayInput
-	Name                pulumi.StringInput
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups pulumi.IntArrayInput
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the forwarding control rule.
+	Description pulumi.StringPtrInput
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayInput
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayInput
+	// Destination IP address URL categories for the rule.
+	DestIpCategories pulumi.StringArrayInput
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayInput
+	// IDs of destination IPv6 address groups for the rule.
+	DestIpv6Groups pulumi.IntArrayInput
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayInput
+	// IDs of Zscaler Edge Connector groups to which the rule applies.
+	EcGroups pulumi.IntArrayInput
+	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	ForwardMethod pulumi.StringInput
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The name of the forwarding control rule. Must be unique.
+	Name pulumi.StringInput
+	// IDs of network application groups to which the rule applies.
 	NwApplicationGroups pulumi.IntArrayInput
-	NwServiceGroups     pulumi.IntArrayInput
-	NwServices          pulumi.IntArrayInput
-	Order               pulumi.IntInput
-	ProxyGatewayId      pulumi.IntPtrInput
-	Rank                pulumi.IntPtrInput
-	ResCategories       pulumi.StringArrayInput
-	SrcIpGroups         pulumi.IntArrayInput
-	SrcIps              pulumi.StringArrayInput
-	SrcIpv6Groups       pulumi.IntArrayInput
-	State               pulumi.StringPtrInput
-	Type                pulumi.StringPtrInput
-	Users               pulumi.IntArrayInput
-	ZpaAppSegments      ZPAAppSegmentInputArrayInput
-	ZpaGatewayId        pulumi.IntPtrInput
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayInput
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayInput
+	// The order of execution of the rule with respect to other forwarding control rules.
+	Order pulumi.IntInput
+	// The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+	ProxyGatewayId pulumi.IntPtrInput
+	// Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// URL categories that apply to the response for the rule.
+	ResCategories pulumi.StringArrayInput
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayInput
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayInput
+	// IDs of source IPv6 address groups for the rule.
+	SrcIpv6Groups pulumi.IntArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// The rule type. Valid values: `FORWARDING`.
+	Type pulumi.StringPtrInput
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayInput
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+	ZpaAppSegments ZPAAppSegmentInputArrayInput
+	// The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+	ZpaGatewayId pulumi.IntPtrInput
 }
 
 func (ForwardingControlRuleArgs) ElementType() reflect.Type {
@@ -254,130 +384,162 @@ func (o ForwardingControlRuleOutput) ToForwardingControlRuleOutputWithContext(ct
 	return o
 }
 
+// IDs of application service groups to which the rule applies.
 func (o ForwardingControlRuleOutput) AppServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.AppServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of departments to which the rule must be applied.
 func (o ForwardingControlRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the forwarding control rule.
 func (o ForwardingControlRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
 func (o ForwardingControlRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o ForwardingControlRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
+// Destination IP address URL categories for the rule.
 func (o ForwardingControlRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
+// IDs of destination IP address groups for the rule.
 func (o ForwardingControlRuleOutput) DestIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.DestIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of destination IPv6 address groups for the rule.
 func (o ForwardingControlRuleOutput) DestIpv6Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.DestIpv6Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
 func (o ForwardingControlRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of Zscaler Edge Connector groups to which the rule applies.
 func (o ForwardingControlRuleOutput) EcGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.EcGroups }).(pulumi.IntArrayOutput)
 }
 
+// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
 func (o ForwardingControlRuleOutput) ForwardMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringOutput { return v.ForwardMethod }).(pulumi.StringOutput)
 }
 
+// IDs of groups to which the rule must be applied.
 func (o ForwardingControlRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o ForwardingControlRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule must be applied.
 func (o ForwardingControlRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations to which the rule must be applied.
 func (o ForwardingControlRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the forwarding control rule. Must be unique.
 func (o ForwardingControlRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// IDs of network application groups to which the rule applies.
 func (o ForwardingControlRuleOutput) NwApplicationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.NwApplicationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of network service groups to which the rule applies.
 func (o ForwardingControlRuleOutput) NwServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.NwServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of network services to which the rule applies.
 func (o ForwardingControlRuleOutput) NwServices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.NwServices }).(pulumi.IntArrayOutput)
 }
 
+// The order of execution of the rule with respect to other forwarding control rules.
 func (o ForwardingControlRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
 func (o ForwardingControlRuleOutput) ProxyGatewayId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntPtrOutput { return v.ProxyGatewayId }).(pulumi.IntPtrOutput)
 }
 
+// Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
 func (o ForwardingControlRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// URL categories that apply to the response for the rule.
 func (o ForwardingControlRuleOutput) ResCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.ResCategories }).(pulumi.StringArrayOutput)
 }
 
+// The system-generated ID of the forwarding control rule.
 func (o ForwardingControlRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// IDs of source IP address groups for the rule.
 func (o ForwardingControlRuleOutput) SrcIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.SrcIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Source IP addresses or CIDR ranges for the rule.
 func (o ForwardingControlRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
+// IDs of source IPv6 address groups for the rule.
 func (o ForwardingControlRuleOutput) SrcIpv6Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.SrcIpv6Groups }).(pulumi.IntArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o ForwardingControlRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// The rule type. Valid values: `FORWARDING`.
 func (o ForwardingControlRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// IDs of users to which the rule must be applied.
 func (o ForwardingControlRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
 func (o ForwardingControlRuleOutput) ZpaAppSegments() ZPAAppSegmentInputArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) ZPAAppSegmentInputArrayOutput { return v.ZpaAppSegments }).(ZPAAppSegmentInputArrayOutput)
 }
 
+// The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
 func (o ForwardingControlRuleOutput) ZpaGatewayId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntPtrOutput { return v.ZpaGatewayId }).(pulumi.IntPtrOutput)
 }

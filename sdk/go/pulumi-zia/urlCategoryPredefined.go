@@ -8,32 +8,84 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+//
+// For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+//
+// ## Example Usage
+// ### Override a Predefined URL Category
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewUrlCategoryPredefined(ctx, "example", &zia.UrlCategoryPredefinedArgs{
+//				Name:     pulumi.String("FINANCE"),
+//				Urls:     pulumi.ToStringArray([]string{"finance.example.com", "banking.example.com"}),
+//				Keywords: pulumi.ToStringArray([]string{"financial-portal"}),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing Predefined URL Category override can be imported using its category ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+// ```
 type UrlCategoryPredefined struct {
 	pulumi.CustomResourceState
 
-	CategoryId                           pulumi.StringOutput      `pulumi:"categoryId"`
-	ConfiguredName                       pulumi.StringPtrOutput   `pulumi:"configuredName"`
-	CustomIpRangesCount                  pulumi.IntPtrOutput      `pulumi:"customIpRangesCount"`
-	CustomUrlsCount                      pulumi.IntPtrOutput      `pulumi:"customUrlsCount"`
-	DbCategorizedUrls                    pulumi.StringArrayOutput `pulumi:"dbCategorizedUrls"`
-	Editable                             pulumi.BoolPtrOutput     `pulumi:"editable"`
-	IpRanges                             pulumi.StringArrayOutput `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategory      pulumi.StringArrayOutput `pulumi:"ipRangesRetainingParentCategory"`
-	IpRangesRetainingParentCategoryCount pulumi.IntPtrOutput      `pulumi:"ipRangesRetainingParentCategoryCount"`
-	Keywords                             pulumi.StringArrayOutput `pulumi:"keywords"`
-	KeywordsRetainingParentCategory      pulumi.StringArrayOutput `pulumi:"keywordsRetainingParentCategory"`
-	Name                                 pulumi.StringOutput      `pulumi:"name"`
-	SuperCategory                        pulumi.StringPtrOutput   `pulumi:"superCategory"`
-	Type                                 pulumi.StringPtrOutput   `pulumi:"type"`
-	UrlType                              pulumi.StringPtrOutput   `pulumi:"urlType"`
-	Urls                                 pulumi.StringArrayOutput `pulumi:"urls"`
-	UrlsRetainingParentCategoryCount     pulumi.IntPtrOutput      `pulumi:"urlsRetainingParentCategoryCount"`
-	Val                                  pulumi.IntPtrOutput      `pulumi:"val"`
+	// The system-generated ID of the predefined URL category.
+	CategoryId pulumi.StringOutput `pulumi:"categoryId"`
+	// The configured display name of the predefined URL category.
+	ConfiguredName pulumi.StringPtrOutput `pulumi:"configuredName"`
+	// The number of custom IP ranges in the category.
+	CustomIpRangesCount pulumi.IntPtrOutput `pulumi:"customIpRangesCount"`
+	// The number of custom URLs in the category.
+	CustomUrlsCount pulumi.IntPtrOutput `pulumi:"customUrlsCount"`
+	// URLs in this category that have been categorized by the Zscaler database.
+	DbCategorizedUrls pulumi.StringArrayOutput `pulumi:"dbCategorizedUrls"`
+	// Whether the predefined URL category is editable.
+	Editable pulumi.BoolPtrOutput `pulumi:"editable"`
+	// List of custom IP address ranges to add to the predefined category.
+	IpRanges pulumi.StringArrayOutput `pulumi:"ipRanges"`
+	// List of IP ranges that retain their parent category classification.
+	IpRangesRetainingParentCategory pulumi.StringArrayOutput `pulumi:"ipRangesRetainingParentCategory"`
+	// The number of IP ranges retaining parent category.
+	IpRangesRetainingParentCategoryCount pulumi.IntPtrOutput `pulumi:"ipRangesRetainingParentCategoryCount"`
+	// List of custom keywords to add to the predefined category.
+	Keywords pulumi.StringArrayOutput `pulumi:"keywords"`
+	// List of keywords that retain their parent category classification.
+	KeywordsRetainingParentCategory pulumi.StringArrayOutput `pulumi:"keywordsRetainingParentCategory"`
+	// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The super category of the predefined URL category.
+	SuperCategory pulumi.StringPtrOutput `pulumi:"superCategory"`
+	// The type of the URL category.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The URL type of the predefined category.
+	UrlType pulumi.StringPtrOutput `pulumi:"urlType"`
+	// List of custom URLs to add to the predefined category.
+	Urls pulumi.StringArrayOutput `pulumi:"urls"`
+	// The number of URLs retaining parent category.
+	UrlsRetainingParentCategoryCount pulumi.IntPtrOutput `pulumi:"urlsRetainingParentCategoryCount"`
+	// The internal numeric value of the URL category.
+	Val pulumi.IntPtrOutput `pulumi:"val"`
 }
 
 // NewUrlCategoryPredefined registers a new resource with the given unique name, arguments, and options.
@@ -79,22 +131,34 @@ func (UrlCategoryPredefinedState) ElementType() reflect.Type {
 }
 
 type urlCategoryPredefinedArgs struct {
-	IpRanges                        []string `pulumi:"ipRanges"`
+	// List of custom IP address ranges to add to the predefined category.
+	IpRanges []string `pulumi:"ipRanges"`
+	// List of IP ranges that retain their parent category classification.
 	IpRangesRetainingParentCategory []string `pulumi:"ipRangesRetainingParentCategory"`
-	Keywords                        []string `pulumi:"keywords"`
+	// List of custom keywords to add to the predefined category.
+	Keywords []string `pulumi:"keywords"`
+	// List of keywords that retain their parent category classification.
 	KeywordsRetainingParentCategory []string `pulumi:"keywordsRetainingParentCategory"`
-	Name                            string   `pulumi:"name"`
-	Urls                            []string `pulumi:"urls"`
+	// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+	Name string `pulumi:"name"`
+	// List of custom URLs to add to the predefined category.
+	Urls []string `pulumi:"urls"`
 }
 
 // The set of arguments for constructing a UrlCategoryPredefined resource.
 type UrlCategoryPredefinedArgs struct {
-	IpRanges                        pulumi.StringArrayInput
+	// List of custom IP address ranges to add to the predefined category.
+	IpRanges pulumi.StringArrayInput
+	// List of IP ranges that retain their parent category classification.
 	IpRangesRetainingParentCategory pulumi.StringArrayInput
-	Keywords                        pulumi.StringArrayInput
+	// List of custom keywords to add to the predefined category.
+	Keywords pulumi.StringArrayInput
+	// List of keywords that retain their parent category classification.
 	KeywordsRetainingParentCategory pulumi.StringArrayInput
-	Name                            pulumi.StringInput
-	Urls                            pulumi.StringArrayInput
+	// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+	Name pulumi.StringInput
+	// List of custom URLs to add to the predefined category.
+	Urls pulumi.StringArrayInput
 }
 
 func (UrlCategoryPredefinedArgs) ElementType() reflect.Type {
@@ -184,74 +248,92 @@ func (o UrlCategoryPredefinedOutput) ToUrlCategoryPredefinedOutputWithContext(ct
 	return o
 }
 
+// The system-generated ID of the predefined URL category.
 func (o UrlCategoryPredefinedOutput) CategoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringOutput { return v.CategoryId }).(pulumi.StringOutput)
 }
 
+// The configured display name of the predefined URL category.
 func (o UrlCategoryPredefinedOutput) ConfiguredName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringPtrOutput { return v.ConfiguredName }).(pulumi.StringPtrOutput)
 }
 
+// The number of custom IP ranges in the category.
 func (o UrlCategoryPredefinedOutput) CustomIpRangesCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.IntPtrOutput { return v.CustomIpRangesCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of custom URLs in the category.
 func (o UrlCategoryPredefinedOutput) CustomUrlsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.IntPtrOutput { return v.CustomUrlsCount }).(pulumi.IntPtrOutput)
 }
 
+// URLs in this category that have been categorized by the Zscaler database.
 func (o UrlCategoryPredefinedOutput) DbCategorizedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.DbCategorizedUrls }).(pulumi.StringArrayOutput)
 }
 
+// Whether the predefined URL category is editable.
 func (o UrlCategoryPredefinedOutput) Editable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.BoolPtrOutput { return v.Editable }).(pulumi.BoolPtrOutput)
 }
 
+// List of custom IP address ranges to add to the predefined category.
 func (o UrlCategoryPredefinedOutput) IpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.IpRanges }).(pulumi.StringArrayOutput)
 }
 
+// List of IP ranges that retain their parent category classification.
 func (o UrlCategoryPredefinedOutput) IpRangesRetainingParentCategory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.IpRangesRetainingParentCategory }).(pulumi.StringArrayOutput)
 }
 
+// The number of IP ranges retaining parent category.
 func (o UrlCategoryPredefinedOutput) IpRangesRetainingParentCategoryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.IntPtrOutput { return v.IpRangesRetainingParentCategoryCount }).(pulumi.IntPtrOutput)
 }
 
+// List of custom keywords to add to the predefined category.
 func (o UrlCategoryPredefinedOutput) Keywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.Keywords }).(pulumi.StringArrayOutput)
 }
 
+// List of keywords that retain their parent category classification.
 func (o UrlCategoryPredefinedOutput) KeywordsRetainingParentCategory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.KeywordsRetainingParentCategory }).(pulumi.StringArrayOutput)
 }
 
+// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
 func (o UrlCategoryPredefinedOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The super category of the predefined URL category.
 func (o UrlCategoryPredefinedOutput) SuperCategory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringPtrOutput { return v.SuperCategory }).(pulumi.StringPtrOutput)
 }
 
+// The type of the URL category.
 func (o UrlCategoryPredefinedOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The URL type of the predefined category.
 func (o UrlCategoryPredefinedOutput) UrlType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringPtrOutput { return v.UrlType }).(pulumi.StringPtrOutput)
 }
 
+// List of custom URLs to add to the predefined category.
 func (o UrlCategoryPredefinedOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }
 
+// The number of URLs retaining parent category.
 func (o UrlCategoryPredefinedOutput) UrlsRetainingParentCategoryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.IntPtrOutput { return v.UrlsRetainingParentCategoryCount }).(pulumi.IntPtrOutput)
 }
 
+// The internal numeric value of the URL category.
 func (o UrlCategoryPredefinedOutput) Val() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategoryPredefined) pulumi.IntPtrOutput { return v.Val }).(pulumi.IntPtrOutput)
 }

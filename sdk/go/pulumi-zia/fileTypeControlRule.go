@@ -8,46 +8,90 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+// File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+// protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing file type control rule can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:FileTypeControlRule example 12345
+// ```
 type FileTypeControlRule struct {
 	pulumi.CustomResourceState
 
-	ActiveContent        pulumi.BoolPtrOutput          `pulumi:"activeContent"`
-	BrowserEunTemplateId pulumi.IntPtrOutput           `pulumi:"browserEunTemplateId"`
-	CapturePcap          pulumi.BoolPtrOutput          `pulumi:"capturePcap"`
-	CloudApplications    pulumi.StringArrayOutput      `pulumi:"cloudApplications"`
-	Departments          pulumi.IntArrayOutput         `pulumi:"departments"`
-	Description          pulumi.StringPtrOutput        `pulumi:"description"`
-	DeviceGroups         pulumi.IntArrayOutput         `pulumi:"deviceGroups"`
-	DeviceTrustLevels    pulumi.StringArrayOutput      `pulumi:"deviceTrustLevels"`
-	Devices              pulumi.IntArrayOutput         `pulumi:"devices"`
-	FileTypes            pulumi.StringArrayOutput      `pulumi:"fileTypes"`
-	FilteringAction      pulumi.StringPtrOutput        `pulumi:"filteringAction"`
-	Groups               pulumi.IntArrayOutput         `pulumi:"groups"`
-	Labels               pulumi.IntArrayOutput         `pulumi:"labels"`
-	LocationGroups       pulumi.IntArrayOutput         `pulumi:"locationGroups"`
-	Locations            pulumi.IntArrayOutput         `pulumi:"locations"`
-	MaxSize              pulumi.IntPtrOutput           `pulumi:"maxSize"`
-	MinSize              pulumi.IntPtrOutput           `pulumi:"minSize"`
-	Name                 pulumi.StringOutput           `pulumi:"name"`
-	Operation            pulumi.StringPtrOutput        `pulumi:"operation"`
-	Order                pulumi.IntOutput              `pulumi:"order"`
-	PasswordProtected    pulumi.BoolPtrOutput          `pulumi:"passwordProtected"`
-	Protocols            pulumi.StringArrayOutput      `pulumi:"protocols"`
-	Rank                 pulumi.IntPtrOutput           `pulumi:"rank"`
-	RuleId               pulumi.IntOutput              `pulumi:"ruleId"`
-	SizeQuota            pulumi.IntPtrOutput           `pulumi:"sizeQuota"`
-	State                pulumi.StringPtrOutput        `pulumi:"state"`
-	TimeQuota            pulumi.IntPtrOutput           `pulumi:"timeQuota"`
-	TimeWindows          pulumi.IntArrayOutput         `pulumi:"timeWindows"`
-	Unscannable          pulumi.BoolPtrOutput          `pulumi:"unscannable"`
-	UrlCategories        pulumi.StringArrayOutput      `pulumi:"urlCategories"`
-	Users                pulumi.IntArrayOutput         `pulumi:"users"`
-	ZpaAppSegments       ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
+	// Whether the rule applies to files with active content.
+	ActiveContent pulumi.BoolPtrOutput `pulumi:"activeContent"`
+	// The browser end-user notification template ID.
+	BrowserEunTemplateId pulumi.IntPtrOutput `pulumi:"browserEunTemplateId"`
+	// Whether to capture PCAP data for the rule.
+	CapturePcap pulumi.BoolPtrOutput `pulumi:"capturePcap"`
+	// List of cloud applications to which the rule applies.
+	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
+	// List of department IDs to which the rule applies.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Description of the file type control rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of device group IDs to which the rule applies.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// List of device trust levels for the rule.
+	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
+	// List of device IDs to which the rule applies.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
+	// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+	FilteringAction pulumi.StringPtrOutput `pulumi:"filteringAction"`
+	// List of group IDs to which the rule applies.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// List of label IDs associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// List of location group IDs to which the rule applies.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// List of location IDs to which the rule applies.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// Maximum file size in bytes for the rule to apply.
+	MaxSize pulumi.IntPtrOutput `pulumi:"maxSize"`
+	// Minimum file size in bytes for the rule to apply.
+	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
+	// Name of the file type control rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+	Operation pulumi.StringPtrOutput `pulumi:"operation"`
+	// The rule order of execution for the file type control rule.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Whether the rule applies to password-protected files.
+	PasswordProtected pulumi.BoolPtrOutput `pulumi:"passwordProtected"`
+	// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// The admin rank of the rule. Default is 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The unique identifier for the file type control rule assigned by the ZIA cloud.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Size quota in KB beyond which the URL filtering rule is applied.
+	SizeQuota pulumi.IntPtrOutput `pulumi:"sizeQuota"`
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// Time quota in minutes after which the URL filtering rule is applied.
+	TimeQuota pulumi.IntPtrOutput `pulumi:"timeQuota"`
+	// List of time window IDs during which the rule is active.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// Whether the rule applies to unscannable files.
+	Unscannable pulumi.BoolPtrOutput `pulumi:"unscannable"`
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
+	// List of user IDs to which the rule applies.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of ZPA application segments for the rule.
+	ZpaAppSegments ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
 }
 
 // NewFileTypeControlRule registers a new resource with the given unique name, arguments, and options.
@@ -96,72 +140,134 @@ func (FileTypeControlRuleState) ElementType() reflect.Type {
 }
 
 type fileTypeControlRuleArgs struct {
-	ActiveContent        *bool                `pulumi:"activeContent"`
-	BrowserEunTemplateId *int                 `pulumi:"browserEunTemplateId"`
-	CapturePcap          *bool                `pulumi:"capturePcap"`
-	CloudApplications    []string             `pulumi:"cloudApplications"`
-	Departments          []int                `pulumi:"departments"`
-	Description          *string              `pulumi:"description"`
-	DeviceGroups         []int                `pulumi:"deviceGroups"`
-	DeviceTrustLevels    []string             `pulumi:"deviceTrustLevels"`
-	Devices              []int                `pulumi:"devices"`
-	FileTypes            []string             `pulumi:"fileTypes"`
-	FilteringAction      *string              `pulumi:"filteringAction"`
-	Groups               []int                `pulumi:"groups"`
-	Labels               []int                `pulumi:"labels"`
-	LocationGroups       []int                `pulumi:"locationGroups"`
-	Locations            []int                `pulumi:"locations"`
-	MaxSize              *int                 `pulumi:"maxSize"`
-	MinSize              *int                 `pulumi:"minSize"`
-	Name                 string               `pulumi:"name"`
-	Operation            *string              `pulumi:"operation"`
-	Order                int                  `pulumi:"order"`
-	PasswordProtected    *bool                `pulumi:"passwordProtected"`
-	Protocols            []string             `pulumi:"protocols"`
-	Rank                 *int                 `pulumi:"rank"`
-	SizeQuota            *int                 `pulumi:"sizeQuota"`
-	State                *string              `pulumi:"state"`
-	TimeQuota            *int                 `pulumi:"timeQuota"`
-	TimeWindows          []int                `pulumi:"timeWindows"`
-	Unscannable          *bool                `pulumi:"unscannable"`
-	UrlCategories        []string             `pulumi:"urlCategories"`
-	Users                []int                `pulumi:"users"`
-	ZpaAppSegments       []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
+	// Whether the rule applies to files with active content.
+	ActiveContent *bool `pulumi:"activeContent"`
+	// The browser end-user notification template ID.
+	BrowserEunTemplateId *int `pulumi:"browserEunTemplateId"`
+	// Whether to capture PCAP data for the rule.
+	CapturePcap *bool `pulumi:"capturePcap"`
+	// List of cloud applications to which the rule applies.
+	CloudApplications []string `pulumi:"cloudApplications"`
+	// List of department IDs to which the rule applies.
+	Departments []int `pulumi:"departments"`
+	// Description of the file type control rule.
+	Description *string `pulumi:"description"`
+	// List of device group IDs to which the rule applies.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// List of device trust levels for the rule.
+	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
+	// List of device IDs to which the rule applies.
+	Devices []int `pulumi:"devices"`
+	// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+	FileTypes []string `pulumi:"fileTypes"`
+	// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+	FilteringAction *string `pulumi:"filteringAction"`
+	// List of group IDs to which the rule applies.
+	Groups []int `pulumi:"groups"`
+	// List of label IDs associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// List of location group IDs to which the rule applies.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// List of location IDs to which the rule applies.
+	Locations []int `pulumi:"locations"`
+	// Maximum file size in bytes for the rule to apply.
+	MaxSize *int `pulumi:"maxSize"`
+	// Minimum file size in bytes for the rule to apply.
+	MinSize *int `pulumi:"minSize"`
+	// Name of the file type control rule.
+	Name string `pulumi:"name"`
+	// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+	Operation *string `pulumi:"operation"`
+	// The rule order of execution for the file type control rule.
+	Order int `pulumi:"order"`
+	// Whether the rule applies to password-protected files.
+	PasswordProtected *bool `pulumi:"passwordProtected"`
+	// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+	Protocols []string `pulumi:"protocols"`
+	// The admin rank of the rule. Default is 7.
+	Rank *int `pulumi:"rank"`
+	// Size quota in KB beyond which the URL filtering rule is applied.
+	SizeQuota *int `pulumi:"sizeQuota"`
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+	State *string `pulumi:"state"`
+	// Time quota in minutes after which the URL filtering rule is applied.
+	TimeQuota *int `pulumi:"timeQuota"`
+	// List of time window IDs during which the rule is active.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// Whether the rule applies to unscannable files.
+	Unscannable *bool `pulumi:"unscannable"`
+	// List of URL categories to which the rule applies.
+	UrlCategories []string `pulumi:"urlCategories"`
+	// List of user IDs to which the rule applies.
+	Users []int `pulumi:"users"`
+	// List of ZPA application segments for the rule.
+	ZpaAppSegments []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
 }
 
 // The set of arguments for constructing a FileTypeControlRule resource.
 type FileTypeControlRuleArgs struct {
-	ActiveContent        pulumi.BoolPtrInput
+	// Whether the rule applies to files with active content.
+	ActiveContent pulumi.BoolPtrInput
+	// The browser end-user notification template ID.
 	BrowserEunTemplateId pulumi.IntPtrInput
-	CapturePcap          pulumi.BoolPtrInput
-	CloudApplications    pulumi.StringArrayInput
-	Departments          pulumi.IntArrayInput
-	Description          pulumi.StringPtrInput
-	DeviceGroups         pulumi.IntArrayInput
-	DeviceTrustLevels    pulumi.StringArrayInput
-	Devices              pulumi.IntArrayInput
-	FileTypes            pulumi.StringArrayInput
-	FilteringAction      pulumi.StringPtrInput
-	Groups               pulumi.IntArrayInput
-	Labels               pulumi.IntArrayInput
-	LocationGroups       pulumi.IntArrayInput
-	Locations            pulumi.IntArrayInput
-	MaxSize              pulumi.IntPtrInput
-	MinSize              pulumi.IntPtrInput
-	Name                 pulumi.StringInput
-	Operation            pulumi.StringPtrInput
-	Order                pulumi.IntInput
-	PasswordProtected    pulumi.BoolPtrInput
-	Protocols            pulumi.StringArrayInput
-	Rank                 pulumi.IntPtrInput
-	SizeQuota            pulumi.IntPtrInput
-	State                pulumi.StringPtrInput
-	TimeQuota            pulumi.IntPtrInput
-	TimeWindows          pulumi.IntArrayInput
-	Unscannable          pulumi.BoolPtrInput
-	UrlCategories        pulumi.StringArrayInput
-	Users                pulumi.IntArrayInput
-	ZpaAppSegments       ZPAAppSegmentInputArrayInput
+	// Whether to capture PCAP data for the rule.
+	CapturePcap pulumi.BoolPtrInput
+	// List of cloud applications to which the rule applies.
+	CloudApplications pulumi.StringArrayInput
+	// List of department IDs to which the rule applies.
+	Departments pulumi.IntArrayInput
+	// Description of the file type control rule.
+	Description pulumi.StringPtrInput
+	// List of device group IDs to which the rule applies.
+	DeviceGroups pulumi.IntArrayInput
+	// List of device trust levels for the rule.
+	DeviceTrustLevels pulumi.StringArrayInput
+	// List of device IDs to which the rule applies.
+	Devices pulumi.IntArrayInput
+	// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+	FileTypes pulumi.StringArrayInput
+	// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+	FilteringAction pulumi.StringPtrInput
+	// List of group IDs to which the rule applies.
+	Groups pulumi.IntArrayInput
+	// List of label IDs associated with the rule.
+	Labels pulumi.IntArrayInput
+	// List of location group IDs to which the rule applies.
+	LocationGroups pulumi.IntArrayInput
+	// List of location IDs to which the rule applies.
+	Locations pulumi.IntArrayInput
+	// Maximum file size in bytes for the rule to apply.
+	MaxSize pulumi.IntPtrInput
+	// Minimum file size in bytes for the rule to apply.
+	MinSize pulumi.IntPtrInput
+	// Name of the file type control rule.
+	Name pulumi.StringInput
+	// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+	Operation pulumi.StringPtrInput
+	// The rule order of execution for the file type control rule.
+	Order pulumi.IntInput
+	// Whether the rule applies to password-protected files.
+	PasswordProtected pulumi.BoolPtrInput
+	// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+	Protocols pulumi.StringArrayInput
+	// The admin rank of the rule. Default is 7.
+	Rank pulumi.IntPtrInput
+	// Size quota in KB beyond which the URL filtering rule is applied.
+	SizeQuota pulumi.IntPtrInput
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+	State pulumi.StringPtrInput
+	// Time quota in minutes after which the URL filtering rule is applied.
+	TimeQuota pulumi.IntPtrInput
+	// List of time window IDs during which the rule is active.
+	TimeWindows pulumi.IntArrayInput
+	// Whether the rule applies to unscannable files.
+	Unscannable pulumi.BoolPtrInput
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayInput
+	// List of user IDs to which the rule applies.
+	Users pulumi.IntArrayInput
+	// List of ZPA application segments for the rule.
+	ZpaAppSegments ZPAAppSegmentInputArrayInput
 }
 
 func (FileTypeControlRuleArgs) ElementType() reflect.Type {
@@ -251,130 +357,162 @@ func (o FileTypeControlRuleOutput) ToFileTypeControlRuleOutputWithContext(ctx co
 	return o
 }
 
+// Whether the rule applies to files with active content.
 func (o FileTypeControlRuleOutput) ActiveContent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.BoolPtrOutput { return v.ActiveContent }).(pulumi.BoolPtrOutput)
 }
 
+// The browser end-user notification template ID.
 func (o FileTypeControlRuleOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
 }
 
+// Whether to capture PCAP data for the rule.
 func (o FileTypeControlRuleOutput) CapturePcap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.BoolPtrOutput { return v.CapturePcap }).(pulumi.BoolPtrOutput)
 }
 
+// List of cloud applications to which the rule applies.
 func (o FileTypeControlRuleOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
 
+// List of department IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Description of the file type control rule.
 func (o FileTypeControlRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of device group IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of device trust levels for the rule.
 func (o FileTypeControlRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
 
+// List of device IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
 func (o FileTypeControlRuleOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
+// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
 func (o FileTypeControlRuleOutput) FilteringAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringPtrOutput { return v.FilteringAction }).(pulumi.StringPtrOutput)
 }
 
+// List of group IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// List of label IDs associated with the rule.
 func (o FileTypeControlRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// List of location group IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of location IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// Maximum file size in bytes for the rule to apply.
 func (o FileTypeControlRuleOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
+// Minimum file size in bytes for the rule to apply.
 func (o FileTypeControlRuleOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
+// Name of the file type control rule.
 func (o FileTypeControlRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
 func (o FileTypeControlRuleOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringPtrOutput { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
+// The rule order of execution for the file type control rule.
 func (o FileTypeControlRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Whether the rule applies to password-protected files.
 func (o FileTypeControlRuleOutput) PasswordProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.BoolPtrOutput { return v.PasswordProtected }).(pulumi.BoolPtrOutput)
 }
 
+// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
 func (o FileTypeControlRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// The admin rank of the rule. Default is 7.
 func (o FileTypeControlRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The unique identifier for the file type control rule assigned by the ZIA cloud.
 func (o FileTypeControlRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Size quota in KB beyond which the URL filtering rule is applied.
 func (o FileTypeControlRuleOutput) SizeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.SizeQuota }).(pulumi.IntPtrOutput)
 }
 
+// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
 func (o FileTypeControlRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// Time quota in minutes after which the URL filtering rule is applied.
 func (o FileTypeControlRuleOutput) TimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntPtrOutput { return v.TimeQuota }).(pulumi.IntPtrOutput)
 }
 
+// List of time window IDs during which the rule is active.
 func (o FileTypeControlRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// Whether the rule applies to unscannable files.
 func (o FileTypeControlRuleOutput) Unscannable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.BoolPtrOutput { return v.Unscannable }).(pulumi.BoolPtrOutput)
 }
 
+// List of URL categories to which the rule applies.
 func (o FileTypeControlRuleOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }
 
+// List of user IDs to which the rule applies.
 func (o FileTypeControlRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of ZPA application segments for the rule.
 func (o FileTypeControlRuleOutput) ZpaAppSegments() ZPAAppSegmentInputArrayOutput {
 	return o.ApplyT(func(v *FileTypeControlRule) ZPAAppSegmentInputArrayOutput { return v.ZpaAppSegments }).(ZPAAppSegmentInputArrayOutput)
 }

@@ -8,50 +8,96 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_casb_dlp_rules resource manages CASB (Cloud Access Security Broker) DLP rules in the Zscaler Internet Access (ZIA) cloud service. CASB DLP rules define data loss prevention policies for SaaS applications to protect sensitive data from unauthorized access or sharing.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing CASB DLP Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:CasbDlpRule example 12345
+// ```
 type CasbDlpRule struct {
 	pulumi.CustomResourceState
 
-	Action                       pulumi.StringPtrOutput   `pulumi:"action"`
-	BucketOwner                  pulumi.StringPtrOutput   `pulumi:"bucketOwner"`
-	Buckets                      pulumi.IntArrayOutput    `pulumi:"buckets"`
-	CloudAppTenants              pulumi.IntArrayOutput    `pulumi:"cloudAppTenants"`
-	CollaborationScope           pulumi.StringArrayOutput `pulumi:"collaborationScope"`
-	Components                   pulumi.StringArrayOutput `pulumi:"components"`
-	ContentLocation              pulumi.StringPtrOutput   `pulumi:"contentLocation"`
-	CriteriaDomainProfiles       pulumi.IntArrayOutput    `pulumi:"criteriaDomainProfiles"`
-	Departments                  pulumi.IntArrayOutput    `pulumi:"departments"`
-	Description                  pulumi.StringPtrOutput   `pulumi:"description"`
-	DlpEngines                   pulumi.IntArrayOutput    `pulumi:"dlpEngines"`
-	Domains                      pulumi.StringArrayOutput `pulumi:"domains"`
-	EmailRecipientProfiles       pulumi.IntArrayOutput    `pulumi:"emailRecipientProfiles"`
-	EntityGroups                 pulumi.IntArrayOutput    `pulumi:"entityGroups"`
-	ExcludedDomainProfiles       pulumi.IntArrayOutput    `pulumi:"excludedDomainProfiles"`
-	ExternalAuditorEmail         pulumi.StringPtrOutput   `pulumi:"externalAuditorEmail"`
-	FileTypes                    pulumi.StringArrayOutput `pulumi:"fileTypes"`
-	Groups                       pulumi.IntArrayOutput    `pulumi:"groups"`
-	IncludeCriteriaDomainProfile pulumi.BoolPtrOutput     `pulumi:"includeCriteriaDomainProfile"`
-	IncludeEmailRecipientProfile pulumi.BoolPtrOutput     `pulumi:"includeEmailRecipientProfile"`
-	IncludeEntityGroups          pulumi.BoolPtrOutput     `pulumi:"includeEntityGroups"`
-	IncludedDomainProfiles       pulumi.IntArrayOutput    `pulumi:"includedDomainProfiles"`
-	Labels                       pulumi.IntArrayOutput    `pulumi:"labels"`
-	Name                         pulumi.StringOutput      `pulumi:"name"`
-	ObjectTypes                  pulumi.IntArrayOutput    `pulumi:"objectTypes"`
-	Order                        pulumi.IntOutput         `pulumi:"order"`
-	QuarantineLocation           pulumi.StringPtrOutput   `pulumi:"quarantineLocation"`
-	Rank                         pulumi.IntPtrOutput      `pulumi:"rank"`
-	Recipient                    pulumi.StringPtrOutput   `pulumi:"recipient"`
-	RuleId                       pulumi.IntOutput         `pulumi:"ruleId"`
-	Severity                     pulumi.StringPtrOutput   `pulumi:"severity"`
-	State                        pulumi.StringPtrOutput   `pulumi:"state"`
-	Type                         pulumi.StringOutput      `pulumi:"type"`
-	Users                        pulumi.IntArrayOutput    `pulumi:"users"`
-	WatermarkDeleteOldVersion    pulumi.BoolPtrOutput     `pulumi:"watermarkDeleteOldVersion"`
-	WithoutContentInspection     pulumi.BoolPtrOutput     `pulumi:"withoutContentInspection"`
+	// Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// The bucket owner identifier.
+	BucketOwner pulumi.StringPtrOutput `pulumi:"bucketOwner"`
+	// IDs of buckets.
+	Buckets pulumi.IntArrayOutput `pulumi:"buckets"`
+	// IDs of cloud application tenants.
+	CloudAppTenants pulumi.IntArrayOutput `pulumi:"cloudAppTenants"`
+	// Collaboration scope for the rule.
+	CollaborationScope pulumi.StringArrayOutput `pulumi:"collaborationScope"`
+	// List of components for the rule.
+	Components pulumi.StringArrayOutput `pulumi:"components"`
+	// Content location scope for the rule.
+	ContentLocation pulumi.StringPtrOutput `pulumi:"contentLocation"`
+	// IDs of criteria-based domain profiles.
+	CriteriaDomainProfiles pulumi.IntArrayOutput `pulumi:"criteriaDomainProfiles"`
+	// IDs of departments for which the rule applies.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the CASB DLP rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// IDs of DLP engines.
+	DlpEngines pulumi.IntArrayOutput `pulumi:"dlpEngines"`
+	// List of domains for the rule.
+	Domains pulumi.StringArrayOutput `pulumi:"domains"`
+	// IDs of email recipient profiles.
+	EmailRecipientProfiles pulumi.IntArrayOutput `pulumi:"emailRecipientProfiles"`
+	// IDs of entity groups.
+	EntityGroups pulumi.IntArrayOutput `pulumi:"entityGroups"`
+	// IDs of excluded domain profiles.
+	ExcludedDomainProfiles pulumi.IntArrayOutput `pulumi:"excludedDomainProfiles"`
+	// Email address of the external auditor.
+	ExternalAuditorEmail pulumi.StringPtrOutput `pulumi:"externalAuditorEmail"`
+	// List of file types the rule applies to.
+	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
+	// IDs of groups for which the rule applies.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// Whether to include criteria based on domain profiles.
+	IncludeCriteriaDomainProfile pulumi.BoolPtrOutput `pulumi:"includeCriteriaDomainProfile"`
+	// Whether to include email recipient profile criteria.
+	IncludeEmailRecipientProfile pulumi.BoolPtrOutput `pulumi:"includeEmailRecipientProfile"`
+	// Whether to include entity groups in the rule criteria.
+	IncludeEntityGroups pulumi.BoolPtrOutput `pulumi:"includeEntityGroups"`
+	// IDs of included domain profiles.
+	IncludedDomainProfiles pulumi.IntArrayOutput `pulumi:"includedDomainProfiles"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// The name of the CASB DLP rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// IDs of object types.
+	ObjectTypes pulumi.IntArrayOutput `pulumi:"objectTypes"`
+	// The order of execution of the rule with respect to other CASB DLP rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Quarantine location for matched content.
+	QuarantineLocation pulumi.StringPtrOutput `pulumi:"quarantineLocation"`
+	// Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// Notification recipient.
+	Recipient pulumi.StringPtrOutput `pulumi:"recipient"`
+	// The system-generated ID of the CASB DLP rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+	Severity pulumi.StringPtrOutput `pulumi:"severity"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// The rule type (e.g. `CASB_DLP`).
+	Type pulumi.StringOutput `pulumi:"type"`
+	// IDs of users for which the rule applies.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// Whether to delete old versions when watermarking.
+	WatermarkDeleteOldVersion pulumi.BoolPtrOutput `pulumi:"watermarkDeleteOldVersion"`
+	// Whether the rule applies without content inspection.
+	WithoutContentInspection pulumi.BoolPtrOutput `pulumi:"withoutContentInspection"`
 }
 
 // NewCasbDlpRule registers a new resource with the given unique name, arguments, and options.
@@ -103,80 +149,150 @@ func (CasbDlpRuleState) ElementType() reflect.Type {
 }
 
 type casbDlpRuleArgs struct {
-	Action                       *string  `pulumi:"action"`
-	BucketOwner                  *string  `pulumi:"bucketOwner"`
-	Buckets                      []int    `pulumi:"buckets"`
-	CloudAppTenants              []int    `pulumi:"cloudAppTenants"`
-	CollaborationScope           []string `pulumi:"collaborationScope"`
-	Components                   []string `pulumi:"components"`
-	ContentLocation              *string  `pulumi:"contentLocation"`
-	CriteriaDomainProfiles       []int    `pulumi:"criteriaDomainProfiles"`
-	Departments                  []int    `pulumi:"departments"`
-	Description                  *string  `pulumi:"description"`
-	DlpEngines                   []int    `pulumi:"dlpEngines"`
-	Domains                      []string `pulumi:"domains"`
-	EmailRecipientProfiles       []int    `pulumi:"emailRecipientProfiles"`
-	EntityGroups                 []int    `pulumi:"entityGroups"`
-	ExcludedDomainProfiles       []int    `pulumi:"excludedDomainProfiles"`
-	ExternalAuditorEmail         *string  `pulumi:"externalAuditorEmail"`
-	FileTypes                    []string `pulumi:"fileTypes"`
-	Groups                       []int    `pulumi:"groups"`
-	IncludeCriteriaDomainProfile *bool    `pulumi:"includeCriteriaDomainProfile"`
-	IncludeEmailRecipientProfile *bool    `pulumi:"includeEmailRecipientProfile"`
-	IncludeEntityGroups          *bool    `pulumi:"includeEntityGroups"`
-	IncludedDomainProfiles       []int    `pulumi:"includedDomainProfiles"`
-	Labels                       []int    `pulumi:"labels"`
-	Name                         string   `pulumi:"name"`
-	ObjectTypes                  []int    `pulumi:"objectTypes"`
-	Order                        int      `pulumi:"order"`
-	QuarantineLocation           *string  `pulumi:"quarantineLocation"`
-	Rank                         *int     `pulumi:"rank"`
-	Recipient                    *string  `pulumi:"recipient"`
-	Severity                     *string  `pulumi:"severity"`
-	State                        *string  `pulumi:"state"`
-	Type                         string   `pulumi:"type"`
-	Users                        []int    `pulumi:"users"`
-	WatermarkDeleteOldVersion    *bool    `pulumi:"watermarkDeleteOldVersion"`
-	WithoutContentInspection     *bool    `pulumi:"withoutContentInspection"`
+	// Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+	Action *string `pulumi:"action"`
+	// The bucket owner identifier.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// IDs of buckets.
+	Buckets []int `pulumi:"buckets"`
+	// IDs of cloud application tenants.
+	CloudAppTenants []int `pulumi:"cloudAppTenants"`
+	// Collaboration scope for the rule.
+	CollaborationScope []string `pulumi:"collaborationScope"`
+	// List of components for the rule.
+	Components []string `pulumi:"components"`
+	// Content location scope for the rule.
+	ContentLocation *string `pulumi:"contentLocation"`
+	// IDs of criteria-based domain profiles.
+	CriteriaDomainProfiles []int `pulumi:"criteriaDomainProfiles"`
+	// IDs of departments for which the rule applies.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the CASB DLP rule.
+	Description *string `pulumi:"description"`
+	// IDs of DLP engines.
+	DlpEngines []int `pulumi:"dlpEngines"`
+	// List of domains for the rule.
+	Domains []string `pulumi:"domains"`
+	// IDs of email recipient profiles.
+	EmailRecipientProfiles []int `pulumi:"emailRecipientProfiles"`
+	// IDs of entity groups.
+	EntityGroups []int `pulumi:"entityGroups"`
+	// IDs of excluded domain profiles.
+	ExcludedDomainProfiles []int `pulumi:"excludedDomainProfiles"`
+	// Email address of the external auditor.
+	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
+	// List of file types the rule applies to.
+	FileTypes []string `pulumi:"fileTypes"`
+	// IDs of groups for which the rule applies.
+	Groups []int `pulumi:"groups"`
+	// Whether to include criteria based on domain profiles.
+	IncludeCriteriaDomainProfile *bool `pulumi:"includeCriteriaDomainProfile"`
+	// Whether to include email recipient profile criteria.
+	IncludeEmailRecipientProfile *bool `pulumi:"includeEmailRecipientProfile"`
+	// Whether to include entity groups in the rule criteria.
+	IncludeEntityGroups *bool `pulumi:"includeEntityGroups"`
+	// IDs of included domain profiles.
+	IncludedDomainProfiles []int `pulumi:"includedDomainProfiles"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// The name of the CASB DLP rule. Must be unique.
+	Name string `pulumi:"name"`
+	// IDs of object types.
+	ObjectTypes []int `pulumi:"objectTypes"`
+	// The order of execution of the rule with respect to other CASB DLP rules.
+	Order int `pulumi:"order"`
+	// Quarantine location for matched content.
+	QuarantineLocation *string `pulumi:"quarantineLocation"`
+	// Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Notification recipient.
+	Recipient *string `pulumi:"recipient"`
+	// Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+	Severity *string `pulumi:"severity"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// The rule type (e.g. `CASB_DLP`).
+	Type string `pulumi:"type"`
+	// IDs of users for which the rule applies.
+	Users []int `pulumi:"users"`
+	// Whether to delete old versions when watermarking.
+	WatermarkDeleteOldVersion *bool `pulumi:"watermarkDeleteOldVersion"`
+	// Whether the rule applies without content inspection.
+	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
 }
 
 // The set of arguments for constructing a CasbDlpRule resource.
 type CasbDlpRuleArgs struct {
-	Action                       pulumi.StringPtrInput
-	BucketOwner                  pulumi.StringPtrInput
-	Buckets                      pulumi.IntArrayInput
-	CloudAppTenants              pulumi.IntArrayInput
-	CollaborationScope           pulumi.StringArrayInput
-	Components                   pulumi.StringArrayInput
-	ContentLocation              pulumi.StringPtrInput
-	CriteriaDomainProfiles       pulumi.IntArrayInput
-	Departments                  pulumi.IntArrayInput
-	Description                  pulumi.StringPtrInput
-	DlpEngines                   pulumi.IntArrayInput
-	Domains                      pulumi.StringArrayInput
-	EmailRecipientProfiles       pulumi.IntArrayInput
-	EntityGroups                 pulumi.IntArrayInput
-	ExcludedDomainProfiles       pulumi.IntArrayInput
-	ExternalAuditorEmail         pulumi.StringPtrInput
-	FileTypes                    pulumi.StringArrayInput
-	Groups                       pulumi.IntArrayInput
+	// Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+	Action pulumi.StringPtrInput
+	// The bucket owner identifier.
+	BucketOwner pulumi.StringPtrInput
+	// IDs of buckets.
+	Buckets pulumi.IntArrayInput
+	// IDs of cloud application tenants.
+	CloudAppTenants pulumi.IntArrayInput
+	// Collaboration scope for the rule.
+	CollaborationScope pulumi.StringArrayInput
+	// List of components for the rule.
+	Components pulumi.StringArrayInput
+	// Content location scope for the rule.
+	ContentLocation pulumi.StringPtrInput
+	// IDs of criteria-based domain profiles.
+	CriteriaDomainProfiles pulumi.IntArrayInput
+	// IDs of departments for which the rule applies.
+	Departments pulumi.IntArrayInput
+	// Additional information about the CASB DLP rule.
+	Description pulumi.StringPtrInput
+	// IDs of DLP engines.
+	DlpEngines pulumi.IntArrayInput
+	// List of domains for the rule.
+	Domains pulumi.StringArrayInput
+	// IDs of email recipient profiles.
+	EmailRecipientProfiles pulumi.IntArrayInput
+	// IDs of entity groups.
+	EntityGroups pulumi.IntArrayInput
+	// IDs of excluded domain profiles.
+	ExcludedDomainProfiles pulumi.IntArrayInput
+	// Email address of the external auditor.
+	ExternalAuditorEmail pulumi.StringPtrInput
+	// List of file types the rule applies to.
+	FileTypes pulumi.StringArrayInput
+	// IDs of groups for which the rule applies.
+	Groups pulumi.IntArrayInput
+	// Whether to include criteria based on domain profiles.
 	IncludeCriteriaDomainProfile pulumi.BoolPtrInput
+	// Whether to include email recipient profile criteria.
 	IncludeEmailRecipientProfile pulumi.BoolPtrInput
-	IncludeEntityGroups          pulumi.BoolPtrInput
-	IncludedDomainProfiles       pulumi.IntArrayInput
-	Labels                       pulumi.IntArrayInput
-	Name                         pulumi.StringInput
-	ObjectTypes                  pulumi.IntArrayInput
-	Order                        pulumi.IntInput
-	QuarantineLocation           pulumi.StringPtrInput
-	Rank                         pulumi.IntPtrInput
-	Recipient                    pulumi.StringPtrInput
-	Severity                     pulumi.StringPtrInput
-	State                        pulumi.StringPtrInput
-	Type                         pulumi.StringInput
-	Users                        pulumi.IntArrayInput
-	WatermarkDeleteOldVersion    pulumi.BoolPtrInput
-	WithoutContentInspection     pulumi.BoolPtrInput
+	// Whether to include entity groups in the rule criteria.
+	IncludeEntityGroups pulumi.BoolPtrInput
+	// IDs of included domain profiles.
+	IncludedDomainProfiles pulumi.IntArrayInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// The name of the CASB DLP rule. Must be unique.
+	Name pulumi.StringInput
+	// IDs of object types.
+	ObjectTypes pulumi.IntArrayInput
+	// The order of execution of the rule with respect to other CASB DLP rules.
+	Order pulumi.IntInput
+	// Quarantine location for matched content.
+	QuarantineLocation pulumi.StringPtrInput
+	// Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Notification recipient.
+	Recipient pulumi.StringPtrInput
+	// Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+	Severity pulumi.StringPtrInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// The rule type (e.g. `CASB_DLP`).
+	Type pulumi.StringInput
+	// IDs of users for which the rule applies.
+	Users pulumi.IntArrayInput
+	// Whether to delete old versions when watermarking.
+	WatermarkDeleteOldVersion pulumi.BoolPtrInput
+	// Whether the rule applies without content inspection.
+	WithoutContentInspection pulumi.BoolPtrInput
 }
 
 func (CasbDlpRuleArgs) ElementType() reflect.Type {
@@ -266,146 +382,182 @@ func (o CasbDlpRuleOutput) ToCasbDlpRuleOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
 func (o CasbDlpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The bucket owner identifier.
 func (o CasbDlpRuleOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
+// IDs of buckets.
 func (o CasbDlpRuleOutput) Buckets() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.Buckets }).(pulumi.IntArrayOutput)
 }
 
+// IDs of cloud application tenants.
 func (o CasbDlpRuleOutput) CloudAppTenants() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.CloudAppTenants }).(pulumi.IntArrayOutput)
 }
 
+// Collaboration scope for the rule.
 func (o CasbDlpRuleOutput) CollaborationScope() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringArrayOutput { return v.CollaborationScope }).(pulumi.StringArrayOutput)
 }
 
+// List of components for the rule.
 func (o CasbDlpRuleOutput) Components() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringArrayOutput { return v.Components }).(pulumi.StringArrayOutput)
 }
 
+// Content location scope for the rule.
 func (o CasbDlpRuleOutput) ContentLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.ContentLocation }).(pulumi.StringPtrOutput)
 }
 
+// IDs of criteria-based domain profiles.
 func (o CasbDlpRuleOutput) CriteriaDomainProfiles() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.CriteriaDomainProfiles }).(pulumi.IntArrayOutput)
 }
 
+// IDs of departments for which the rule applies.
 func (o CasbDlpRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the CASB DLP rule.
 func (o CasbDlpRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// IDs of DLP engines.
 func (o CasbDlpRuleOutput) DlpEngines() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.DlpEngines }).(pulumi.IntArrayOutput)
 }
 
+// List of domains for the rule.
 func (o CasbDlpRuleOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
 }
 
+// IDs of email recipient profiles.
 func (o CasbDlpRuleOutput) EmailRecipientProfiles() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.EmailRecipientProfiles }).(pulumi.IntArrayOutput)
 }
 
+// IDs of entity groups.
 func (o CasbDlpRuleOutput) EntityGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.EntityGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of excluded domain profiles.
 func (o CasbDlpRuleOutput) ExcludedDomainProfiles() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.ExcludedDomainProfiles }).(pulumi.IntArrayOutput)
 }
 
+// Email address of the external auditor.
 func (o CasbDlpRuleOutput) ExternalAuditorEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.ExternalAuditorEmail }).(pulumi.StringPtrOutput)
 }
 
+// List of file types the rule applies to.
 func (o CasbDlpRuleOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
+// IDs of groups for which the rule applies.
 func (o CasbDlpRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// Whether to include criteria based on domain profiles.
 func (o CasbDlpRuleOutput) IncludeCriteriaDomainProfile() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.BoolPtrOutput { return v.IncludeCriteriaDomainProfile }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include email recipient profile criteria.
 func (o CasbDlpRuleOutput) IncludeEmailRecipientProfile() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.BoolPtrOutput { return v.IncludeEmailRecipientProfile }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include entity groups in the rule criteria.
 func (o CasbDlpRuleOutput) IncludeEntityGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.BoolPtrOutput { return v.IncludeEntityGroups }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of included domain profiles.
 func (o CasbDlpRuleOutput) IncludedDomainProfiles() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.IncludedDomainProfiles }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o CasbDlpRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// The name of the CASB DLP rule. Must be unique.
 func (o CasbDlpRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// IDs of object types.
 func (o CasbDlpRuleOutput) ObjectTypes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.ObjectTypes }).(pulumi.IntArrayOutput)
 }
 
+// The order of execution of the rule with respect to other CASB DLP rules.
 func (o CasbDlpRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Quarantine location for matched content.
 func (o CasbDlpRuleOutput) QuarantineLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.QuarantineLocation }).(pulumi.StringPtrOutput)
 }
 
+// Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
 func (o CasbDlpRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// Notification recipient.
 func (o CasbDlpRuleOutput) Recipient() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.Recipient }).(pulumi.StringPtrOutput)
 }
 
+// The system-generated ID of the CASB DLP rule.
 func (o CasbDlpRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
 func (o CasbDlpRuleOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.Severity }).(pulumi.StringPtrOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o CasbDlpRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// The rule type (e.g. `CASB_DLP`).
 func (o CasbDlpRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
+// IDs of users for which the rule applies.
 func (o CasbDlpRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// Whether to delete old versions when watermarking.
 func (o CasbDlpRuleOutput) WatermarkDeleteOldVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.BoolPtrOutput { return v.WatermarkDeleteOldVersion }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the rule applies without content inspection.
 func (o CasbDlpRuleOutput) WithoutContentInspection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CasbDlpRule) pulumi.BoolPtrOutput { return v.WithoutContentInspection }).(pulumi.BoolPtrOutput)
 }

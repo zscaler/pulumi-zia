@@ -8,36 +8,70 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+//
+// For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing Sandbox Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:SandboxRule example 12345
+// ```
 type SandboxRule struct {
 	pulumi.CustomResourceState
 
-	BaPolicyCategories pulumi.StringArrayOutput      `pulumi:"baPolicyCategories"`
-	BaRuleAction       pulumi.StringPtrOutput        `pulumi:"baRuleAction"`
-	ByThreatScore      pulumi.IntPtrOutput           `pulumi:"byThreatScore"`
-	Departments        pulumi.IntArrayOutput         `pulumi:"departments"`
-	Description        pulumi.StringPtrOutput        `pulumi:"description"`
-	FileTypes          pulumi.StringArrayOutput      `pulumi:"fileTypes"`
-	FirstTimeEnable    pulumi.BoolPtrOutput          `pulumi:"firstTimeEnable"`
-	FirstTimeOperation pulumi.StringPtrOutput        `pulumi:"firstTimeOperation"`
-	Groups             pulumi.IntArrayOutput         `pulumi:"groups"`
-	Labels             pulumi.IntArrayOutput         `pulumi:"labels"`
-	LocationGroups     pulumi.IntArrayOutput         `pulumi:"locationGroups"`
-	Locations          pulumi.IntArrayOutput         `pulumi:"locations"`
-	MlActionEnabled    pulumi.BoolPtrOutput          `pulumi:"mlActionEnabled"`
-	Name               pulumi.StringOutput           `pulumi:"name"`
-	Order              pulumi.IntOutput              `pulumi:"order"`
-	Protocols          pulumi.StringArrayOutput      `pulumi:"protocols"`
-	Rank               pulumi.IntPtrOutput           `pulumi:"rank"`
-	RuleId             pulumi.IntOutput              `pulumi:"ruleId"`
-	State              pulumi.StringPtrOutput        `pulumi:"state"`
-	UrlCategories      pulumi.StringArrayOutput      `pulumi:"urlCategories"`
-	Users              pulumi.IntArrayOutput         `pulumi:"users"`
-	ZpaAppSegments     ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
+	// List of behavioral analysis policy categories.
+	BaPolicyCategories pulumi.StringArrayOutput `pulumi:"baPolicyCategories"`
+	// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+	BaRuleAction pulumi.StringPtrOutput `pulumi:"baRuleAction"`
+	// Threat score threshold for the rule. Files with a score above this value trigger the action.
+	ByThreatScore pulumi.IntPtrOutput `pulumi:"byThreatScore"`
+	// IDs of departments to which the rule applies.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the sandbox rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
+	// If set to true, a first-time action is enabled.
+	FirstTimeEnable pulumi.BoolPtrOutput `pulumi:"firstTimeEnable"`
+	// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+	FirstTimeOperation pulumi.StringPtrOutput `pulumi:"firstTimeOperation"`
+	// IDs of groups to which the rule applies.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule applies.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations to which the rule applies.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// If set to true, machine learning-based analysis action is enabled.
+	MlActionEnabled pulumi.BoolPtrOutput `pulumi:"mlActionEnabled"`
+	// The name of the sandbox rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The order of execution of the rule with respect to other sandbox rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The system-generated ID of the sandbox rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
+	// IDs of users to which the rule applies.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of ZPA application segments to which the rule applies.
+	ZpaAppSegments ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
 }
 
 // NewSandboxRule registers a new resource with the given unique name, arguments, and options.
@@ -86,52 +120,94 @@ func (SandboxRuleState) ElementType() reflect.Type {
 }
 
 type sandboxRuleArgs struct {
-	BaPolicyCategories []string             `pulumi:"baPolicyCategories"`
-	BaRuleAction       *string              `pulumi:"baRuleAction"`
-	ByThreatScore      *int                 `pulumi:"byThreatScore"`
-	Departments        []int                `pulumi:"departments"`
-	Description        *string              `pulumi:"description"`
-	FileTypes          []string             `pulumi:"fileTypes"`
-	FirstTimeEnable    *bool                `pulumi:"firstTimeEnable"`
-	FirstTimeOperation *string              `pulumi:"firstTimeOperation"`
-	Groups             []int                `pulumi:"groups"`
-	Labels             []int                `pulumi:"labels"`
-	LocationGroups     []int                `pulumi:"locationGroups"`
-	Locations          []int                `pulumi:"locations"`
-	MlActionEnabled    *bool                `pulumi:"mlActionEnabled"`
-	Name               string               `pulumi:"name"`
-	Order              int                  `pulumi:"order"`
-	Protocols          []string             `pulumi:"protocols"`
-	Rank               *int                 `pulumi:"rank"`
-	State              *string              `pulumi:"state"`
-	UrlCategories      []string             `pulumi:"urlCategories"`
-	Users              []int                `pulumi:"users"`
-	ZpaAppSegments     []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
+	// List of behavioral analysis policy categories.
+	BaPolicyCategories []string `pulumi:"baPolicyCategories"`
+	// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+	BaRuleAction *string `pulumi:"baRuleAction"`
+	// Threat score threshold for the rule. Files with a score above this value trigger the action.
+	ByThreatScore *int `pulumi:"byThreatScore"`
+	// IDs of departments to which the rule applies.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the sandbox rule.
+	Description *string `pulumi:"description"`
+	// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+	FileTypes []string `pulumi:"fileTypes"`
+	// If set to true, a first-time action is enabled.
+	FirstTimeEnable *bool `pulumi:"firstTimeEnable"`
+	// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+	FirstTimeOperation *string `pulumi:"firstTimeOperation"`
+	// IDs of groups to which the rule applies.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule applies.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations to which the rule applies.
+	Locations []int `pulumi:"locations"`
+	// If set to true, machine learning-based analysis action is enabled.
+	MlActionEnabled *bool `pulumi:"mlActionEnabled"`
+	// The name of the sandbox rule. Must be unique.
+	Name string `pulumi:"name"`
+	// The order of execution of the rule with respect to other sandbox rules.
+	Order int `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+	Protocols []string `pulumi:"protocols"`
+	// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// List of URL categories to which the rule applies.
+	UrlCategories []string `pulumi:"urlCategories"`
+	// IDs of users to which the rule applies.
+	Users []int `pulumi:"users"`
+	// List of ZPA application segments to which the rule applies.
+	ZpaAppSegments []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
 }
 
 // The set of arguments for constructing a SandboxRule resource.
 type SandboxRuleArgs struct {
+	// List of behavioral analysis policy categories.
 	BaPolicyCategories pulumi.StringArrayInput
-	BaRuleAction       pulumi.StringPtrInput
-	ByThreatScore      pulumi.IntPtrInput
-	Departments        pulumi.IntArrayInput
-	Description        pulumi.StringPtrInput
-	FileTypes          pulumi.StringArrayInput
-	FirstTimeEnable    pulumi.BoolPtrInput
+	// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+	BaRuleAction pulumi.StringPtrInput
+	// Threat score threshold for the rule. Files with a score above this value trigger the action.
+	ByThreatScore pulumi.IntPtrInput
+	// IDs of departments to which the rule applies.
+	Departments pulumi.IntArrayInput
+	// Additional information about the sandbox rule.
+	Description pulumi.StringPtrInput
+	// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+	FileTypes pulumi.StringArrayInput
+	// If set to true, a first-time action is enabled.
+	FirstTimeEnable pulumi.BoolPtrInput
+	// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
 	FirstTimeOperation pulumi.StringPtrInput
-	Groups             pulumi.IntArrayInput
-	Labels             pulumi.IntArrayInput
-	LocationGroups     pulumi.IntArrayInput
-	Locations          pulumi.IntArrayInput
-	MlActionEnabled    pulumi.BoolPtrInput
-	Name               pulumi.StringInput
-	Order              pulumi.IntInput
-	Protocols          pulumi.StringArrayInput
-	Rank               pulumi.IntPtrInput
-	State              pulumi.StringPtrInput
-	UrlCategories      pulumi.StringArrayInput
-	Users              pulumi.IntArrayInput
-	ZpaAppSegments     ZPAAppSegmentInputArrayInput
+	// IDs of groups to which the rule applies.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule applies.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations to which the rule applies.
+	Locations pulumi.IntArrayInput
+	// If set to true, machine learning-based analysis action is enabled.
+	MlActionEnabled pulumi.BoolPtrInput
+	// The name of the sandbox rule. Must be unique.
+	Name pulumi.StringInput
+	// The order of execution of the rule with respect to other sandbox rules.
+	Order pulumi.IntInput
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+	Protocols pulumi.StringArrayInput
+	// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayInput
+	// IDs of users to which the rule applies.
+	Users pulumi.IntArrayInput
+	// List of ZPA application segments to which the rule applies.
+	ZpaAppSegments ZPAAppSegmentInputArrayInput
 }
 
 func (SandboxRuleArgs) ElementType() reflect.Type {
@@ -221,90 +297,112 @@ func (o SandboxRuleOutput) ToSandboxRuleOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// List of behavioral analysis policy categories.
 func (o SandboxRuleOutput) BaPolicyCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringArrayOutput { return v.BaPolicyCategories }).(pulumi.StringArrayOutput)
 }
 
+// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
 func (o SandboxRuleOutput) BaRuleAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringPtrOutput { return v.BaRuleAction }).(pulumi.StringPtrOutput)
 }
 
+// Threat score threshold for the rule. Files with a score above this value trigger the action.
 func (o SandboxRuleOutput) ByThreatScore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntPtrOutput { return v.ByThreatScore }).(pulumi.IntPtrOutput)
 }
 
+// IDs of departments to which the rule applies.
 func (o SandboxRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the sandbox rule.
 func (o SandboxRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
 func (o SandboxRuleOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
+// If set to true, a first-time action is enabled.
 func (o SandboxRuleOutput) FirstTimeEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.BoolPtrOutput { return v.FirstTimeEnable }).(pulumi.BoolPtrOutput)
 }
 
+// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
 func (o SandboxRuleOutput) FirstTimeOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringPtrOutput { return v.FirstTimeOperation }).(pulumi.StringPtrOutput)
 }
 
+// IDs of groups to which the rule applies.
 func (o SandboxRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o SandboxRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule applies.
 func (o SandboxRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations to which the rule applies.
 func (o SandboxRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// If set to true, machine learning-based analysis action is enabled.
 func (o SandboxRuleOutput) MlActionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.BoolPtrOutput { return v.MlActionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the sandbox rule. Must be unique.
 func (o SandboxRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The order of execution of the rule with respect to other sandbox rules.
 func (o SandboxRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
 func (o SandboxRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
 func (o SandboxRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the sandbox rule.
 func (o SandboxRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o SandboxRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// List of URL categories to which the rule applies.
 func (o SandboxRuleOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }
 
+// IDs of users to which the rule applies.
 func (o SandboxRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of ZPA application segments to which the rule applies.
 func (o SandboxRuleOutput) ZpaAppSegments() ZPAAppSegmentInputArrayOutput {
 	return o.ApplyT(func(v *SandboxRule) ZPAAppSegmentInputArrayOutput { return v.ZpaAppSegments }).(ZPAAppSegmentInputArrayOutput)
 }

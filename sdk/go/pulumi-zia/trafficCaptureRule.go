@@ -8,48 +8,94 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.TrafficCaptureRule resource manages traffic capture rules in the Zscaler Internet Access (ZIA) cloud.
+// Traffic capture rules define criteria for capturing network traffic for analysis, specifying which traffic
+// to capture based on source/destination IPs, locations, departments, users, applications, and other criteria.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing traffic capture rule can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:TrafficCaptureRule example 12345
+// ```
 type TrafficCaptureRule struct {
 	pulumi.CustomResourceState
 
-	Action              pulumi.StringPtrOutput            `pulumi:"action"`
-	AppServiceGroups    pulumi.IntArrayOutput             `pulumi:"appServiceGroups"`
-	DefaultRule         pulumi.BoolPtrOutput              `pulumi:"defaultRule"`
-	Departments         pulumi.IntArrayOutput             `pulumi:"departments"`
-	Description         pulumi.StringPtrOutput            `pulumi:"description"`
-	DestAddresses       pulumi.StringArrayOutput          `pulumi:"destAddresses"`
-	DestCountries       pulumi.StringArrayOutput          `pulumi:"destCountries"`
-	DestIpCategories    pulumi.StringArrayOutput          `pulumi:"destIpCategories"`
-	DestIpGroups        pulumi.IntArrayOutput             `pulumi:"destIpGroups"`
-	DeviceGroups        pulumi.IntArrayOutput             `pulumi:"deviceGroups"`
-	DeviceTrustLevels   pulumi.StringArrayOutput          `pulumi:"deviceTrustLevels"`
-	Devices             pulumi.IntArrayOutput             `pulumi:"devices"`
-	Groups              pulumi.IntArrayOutput             `pulumi:"groups"`
-	Labels              pulumi.IntArrayOutput             `pulumi:"labels"`
-	LocationGroups      pulumi.IntArrayOutput             `pulumi:"locationGroups"`
-	Locations           pulumi.IntArrayOutput             `pulumi:"locations"`
-	Name                pulumi.StringOutput               `pulumi:"name"`
-	NwApplicationGroups pulumi.IntArrayOutput             `pulumi:"nwApplicationGroups"`
-	NwApplications      pulumi.StringArrayOutput          `pulumi:"nwApplications"`
-	NwServiceGroups     pulumi.IntArrayOutput             `pulumi:"nwServiceGroups"`
-	NwServices          pulumi.IntArrayOutput             `pulumi:"nwServices"`
-	Order               pulumi.IntOutput                  `pulumi:"order"`
-	Predefined          pulumi.BoolPtrOutput              `pulumi:"predefined"`
-	Rank                pulumi.IntPtrOutput               `pulumi:"rank"`
-	RuleId              pulumi.IntOutput                  `pulumi:"ruleId"`
-	SourceCountries     pulumi.StringArrayOutput          `pulumi:"sourceCountries"`
-	SrcIpGroups         pulumi.IntArrayOutput             `pulumi:"srcIpGroups"`
-	SrcIps              pulumi.StringArrayOutput          `pulumi:"srcIps"`
-	State               pulumi.StringPtrOutput            `pulumi:"state"`
-	TimeWindows         pulumi.IntArrayOutput             `pulumi:"timeWindows"`
-	TxnSampling         pulumi.StringPtrOutput            `pulumi:"txnSampling"`
-	TxnSizeLimit        pulumi.StringPtrOutput            `pulumi:"txnSizeLimit"`
-	Users               pulumi.IntArrayOutput             `pulumi:"users"`
-	WorkloadGroups      WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
+	// The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// List of application service group IDs.
+	AppServiceGroups pulumi.IntArrayOutput `pulumi:"appServiceGroups"`
+	// Whether this is a default rule.
+	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
+	// List of department IDs.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Description of the traffic capture rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of destination addresses.
+	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
+	// List of destination country codes.
+	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
+	// List of destination IP categories.
+	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
+	// List of destination IP group IDs.
+	DestIpGroups pulumi.IntArrayOutput `pulumi:"destIpGroups"`
+	// List of device group IDs.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// List of device trust levels.
+	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
+	// List of device IDs.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// List of group IDs.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// List of label IDs.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// List of location group IDs.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// List of location IDs.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// Name of the traffic capture rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of network application group IDs.
+	NwApplicationGroups pulumi.IntArrayOutput `pulumi:"nwApplicationGroups"`
+	// List of network applications.
+	NwApplications pulumi.StringArrayOutput `pulumi:"nwApplications"`
+	// List of network service group IDs.
+	NwServiceGroups pulumi.IntArrayOutput `pulumi:"nwServiceGroups"`
+	// List of network service IDs.
+	NwServices pulumi.IntArrayOutput `pulumi:"nwServices"`
+	// The rule order of execution for the traffic capture rule.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Whether this is a predefined rule.
+	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
+	// The admin rank of the rule. Default is 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The unique identifier for the traffic capture rule assigned by the ZIA cloud.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// List of source country codes.
+	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
+	// List of source IP group IDs.
+	SrcIpGroups pulumi.IntArrayOutput `pulumi:"srcIpGroups"`
+	// List of source IP addresses or CIDR ranges.
+	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// List of time window IDs.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// Transaction sampling mode. Default: 'NONE'.
+	TxnSampling pulumi.StringPtrOutput `pulumi:"txnSampling"`
+	// Transaction size limit. Default: 'NONE'.
+	TxnSizeLimit pulumi.StringPtrOutput `pulumi:"txnSizeLimit"`
+	// List of user IDs.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of workload groups.
+	WorkloadGroups WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
 }
 
 // NewTrafficCaptureRule registers a new resource with the given unique name, arguments, and options.
@@ -98,76 +144,142 @@ func (TrafficCaptureRuleState) ElementType() reflect.Type {
 }
 
 type trafficCaptureRuleArgs struct {
-	Action              *string                  `pulumi:"action"`
-	AppServiceGroups    []int                    `pulumi:"appServiceGroups"`
-	DefaultRule         *bool                    `pulumi:"defaultRule"`
-	Departments         []int                    `pulumi:"departments"`
-	Description         *string                  `pulumi:"description"`
-	DestAddresses       []string                 `pulumi:"destAddresses"`
-	DestCountries       []string                 `pulumi:"destCountries"`
-	DestIpCategories    []string                 `pulumi:"destIpCategories"`
-	DestIpGroups        []int                    `pulumi:"destIpGroups"`
-	DeviceGroups        []int                    `pulumi:"deviceGroups"`
-	DeviceTrustLevels   []string                 `pulumi:"deviceTrustLevels"`
-	Devices             []int                    `pulumi:"devices"`
-	Groups              []int                    `pulumi:"groups"`
-	Labels              []int                    `pulumi:"labels"`
-	LocationGroups      []int                    `pulumi:"locationGroups"`
-	Locations           []int                    `pulumi:"locations"`
-	Name                string                   `pulumi:"name"`
-	NwApplicationGroups []int                    `pulumi:"nwApplicationGroups"`
-	NwApplications      []string                 `pulumi:"nwApplications"`
-	NwServiceGroups     []int                    `pulumi:"nwServiceGroups"`
-	NwServices          []int                    `pulumi:"nwServices"`
-	Order               int                      `pulumi:"order"`
-	Predefined          *bool                    `pulumi:"predefined"`
-	Rank                *int                     `pulumi:"rank"`
-	SourceCountries     []string                 `pulumi:"sourceCountries"`
-	SrcIpGroups         []int                    `pulumi:"srcIpGroups"`
-	SrcIps              []string                 `pulumi:"srcIps"`
-	State               *string                  `pulumi:"state"`
-	TimeWindows         []int                    `pulumi:"timeWindows"`
-	TxnSampling         *string                  `pulumi:"txnSampling"`
-	TxnSizeLimit        *string                  `pulumi:"txnSizeLimit"`
-	Users               []int                    `pulumi:"users"`
-	WorkloadGroups      []WorkloadGroupInputType `pulumi:"workloadGroups"`
+	// The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+	Action *string `pulumi:"action"`
+	// List of application service group IDs.
+	AppServiceGroups []int `pulumi:"appServiceGroups"`
+	// Whether this is a default rule.
+	DefaultRule *bool `pulumi:"defaultRule"`
+	// List of department IDs.
+	Departments []int `pulumi:"departments"`
+	// Description of the traffic capture rule.
+	Description *string `pulumi:"description"`
+	// List of destination addresses.
+	DestAddresses []string `pulumi:"destAddresses"`
+	// List of destination country codes.
+	DestCountries []string `pulumi:"destCountries"`
+	// List of destination IP categories.
+	DestIpCategories []string `pulumi:"destIpCategories"`
+	// List of destination IP group IDs.
+	DestIpGroups []int `pulumi:"destIpGroups"`
+	// List of device group IDs.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// List of device trust levels.
+	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
+	// List of device IDs.
+	Devices []int `pulumi:"devices"`
+	// List of group IDs.
+	Groups []int `pulumi:"groups"`
+	// List of label IDs.
+	Labels []int `pulumi:"labels"`
+	// List of location group IDs.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// List of location IDs.
+	Locations []int `pulumi:"locations"`
+	// Name of the traffic capture rule.
+	Name string `pulumi:"name"`
+	// List of network application group IDs.
+	NwApplicationGroups []int `pulumi:"nwApplicationGroups"`
+	// List of network applications.
+	NwApplications []string `pulumi:"nwApplications"`
+	// List of network service group IDs.
+	NwServiceGroups []int `pulumi:"nwServiceGroups"`
+	// List of network service IDs.
+	NwServices []int `pulumi:"nwServices"`
+	// The rule order of execution for the traffic capture rule.
+	Order int `pulumi:"order"`
+	// Whether this is a predefined rule.
+	Predefined *bool `pulumi:"predefined"`
+	// The admin rank of the rule. Default is 7.
+	Rank *int `pulumi:"rank"`
+	// List of source country codes.
+	SourceCountries []string `pulumi:"sourceCountries"`
+	// List of source IP group IDs.
+	SrcIpGroups []int `pulumi:"srcIpGroups"`
+	// List of source IP addresses or CIDR ranges.
+	SrcIps []string `pulumi:"srcIps"`
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	State *string `pulumi:"state"`
+	// List of time window IDs.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// Transaction sampling mode. Default: 'NONE'.
+	TxnSampling *string `pulumi:"txnSampling"`
+	// Transaction size limit. Default: 'NONE'.
+	TxnSizeLimit *string `pulumi:"txnSizeLimit"`
+	// List of user IDs.
+	Users []int `pulumi:"users"`
+	// List of workload groups.
+	WorkloadGroups []WorkloadGroupInputType `pulumi:"workloadGroups"`
 }
 
 // The set of arguments for constructing a TrafficCaptureRule resource.
 type TrafficCaptureRuleArgs struct {
-	Action              pulumi.StringPtrInput
-	AppServiceGroups    pulumi.IntArrayInput
-	DefaultRule         pulumi.BoolPtrInput
-	Departments         pulumi.IntArrayInput
-	Description         pulumi.StringPtrInput
-	DestAddresses       pulumi.StringArrayInput
-	DestCountries       pulumi.StringArrayInput
-	DestIpCategories    pulumi.StringArrayInput
-	DestIpGroups        pulumi.IntArrayInput
-	DeviceGroups        pulumi.IntArrayInput
-	DeviceTrustLevels   pulumi.StringArrayInput
-	Devices             pulumi.IntArrayInput
-	Groups              pulumi.IntArrayInput
-	Labels              pulumi.IntArrayInput
-	LocationGroups      pulumi.IntArrayInput
-	Locations           pulumi.IntArrayInput
-	Name                pulumi.StringInput
+	// The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+	Action pulumi.StringPtrInput
+	// List of application service group IDs.
+	AppServiceGroups pulumi.IntArrayInput
+	// Whether this is a default rule.
+	DefaultRule pulumi.BoolPtrInput
+	// List of department IDs.
+	Departments pulumi.IntArrayInput
+	// Description of the traffic capture rule.
+	Description pulumi.StringPtrInput
+	// List of destination addresses.
+	DestAddresses pulumi.StringArrayInput
+	// List of destination country codes.
+	DestCountries pulumi.StringArrayInput
+	// List of destination IP categories.
+	DestIpCategories pulumi.StringArrayInput
+	// List of destination IP group IDs.
+	DestIpGroups pulumi.IntArrayInput
+	// List of device group IDs.
+	DeviceGroups pulumi.IntArrayInput
+	// List of device trust levels.
+	DeviceTrustLevels pulumi.StringArrayInput
+	// List of device IDs.
+	Devices pulumi.IntArrayInput
+	// List of group IDs.
+	Groups pulumi.IntArrayInput
+	// List of label IDs.
+	Labels pulumi.IntArrayInput
+	// List of location group IDs.
+	LocationGroups pulumi.IntArrayInput
+	// List of location IDs.
+	Locations pulumi.IntArrayInput
+	// Name of the traffic capture rule.
+	Name pulumi.StringInput
+	// List of network application group IDs.
 	NwApplicationGroups pulumi.IntArrayInput
-	NwApplications      pulumi.StringArrayInput
-	NwServiceGroups     pulumi.IntArrayInput
-	NwServices          pulumi.IntArrayInput
-	Order               pulumi.IntInput
-	Predefined          pulumi.BoolPtrInput
-	Rank                pulumi.IntPtrInput
-	SourceCountries     pulumi.StringArrayInput
-	SrcIpGroups         pulumi.IntArrayInput
-	SrcIps              pulumi.StringArrayInput
-	State               pulumi.StringPtrInput
-	TimeWindows         pulumi.IntArrayInput
-	TxnSampling         pulumi.StringPtrInput
-	TxnSizeLimit        pulumi.StringPtrInput
-	Users               pulumi.IntArrayInput
-	WorkloadGroups      WorkloadGroupInputTypeArrayInput
+	// List of network applications.
+	NwApplications pulumi.StringArrayInput
+	// List of network service group IDs.
+	NwServiceGroups pulumi.IntArrayInput
+	// List of network service IDs.
+	NwServices pulumi.IntArrayInput
+	// The rule order of execution for the traffic capture rule.
+	Order pulumi.IntInput
+	// Whether this is a predefined rule.
+	Predefined pulumi.BoolPtrInput
+	// The admin rank of the rule. Default is 7.
+	Rank pulumi.IntPtrInput
+	// List of source country codes.
+	SourceCountries pulumi.StringArrayInput
+	// List of source IP group IDs.
+	SrcIpGroups pulumi.IntArrayInput
+	// List of source IP addresses or CIDR ranges.
+	SrcIps pulumi.StringArrayInput
+	// The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	State pulumi.StringPtrInput
+	// List of time window IDs.
+	TimeWindows pulumi.IntArrayInput
+	// Transaction sampling mode. Default: 'NONE'.
+	TxnSampling pulumi.StringPtrInput
+	// Transaction size limit. Default: 'NONE'.
+	TxnSizeLimit pulumi.StringPtrInput
+	// List of user IDs.
+	Users pulumi.IntArrayInput
+	// List of workload groups.
+	WorkloadGroups WorkloadGroupInputTypeArrayInput
 }
 
 func (TrafficCaptureRuleArgs) ElementType() reflect.Type {
@@ -257,138 +369,172 @@ func (o TrafficCaptureRuleOutput) ToTrafficCaptureRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
 func (o TrafficCaptureRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// List of application service group IDs.
 func (o TrafficCaptureRuleOutput) AppServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.AppServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// Whether this is a default rule.
 func (o TrafficCaptureRuleOutput) DefaultRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.BoolPtrOutput { return v.DefaultRule }).(pulumi.BoolPtrOutput)
 }
 
+// List of department IDs.
 func (o TrafficCaptureRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Description of the traffic capture rule.
 func (o TrafficCaptureRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of destination addresses.
 func (o TrafficCaptureRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
+// List of destination country codes.
 func (o TrafficCaptureRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
+// List of destination IP categories.
 func (o TrafficCaptureRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
+// List of destination IP group IDs.
 func (o TrafficCaptureRuleOutput) DestIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.DestIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of device group IDs.
 func (o TrafficCaptureRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of device trust levels.
 func (o TrafficCaptureRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
 
+// List of device IDs.
 func (o TrafficCaptureRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// List of group IDs.
 func (o TrafficCaptureRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// List of label IDs.
 func (o TrafficCaptureRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// List of location group IDs.
 func (o TrafficCaptureRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of location IDs.
 func (o TrafficCaptureRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// Name of the traffic capture rule.
 func (o TrafficCaptureRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// List of network application group IDs.
 func (o TrafficCaptureRuleOutput) NwApplicationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.NwApplicationGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of network applications.
 func (o TrafficCaptureRuleOutput) NwApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.NwApplications }).(pulumi.StringArrayOutput)
 }
 
+// List of network service group IDs.
 func (o TrafficCaptureRuleOutput) NwServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.NwServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of network service IDs.
 func (o TrafficCaptureRuleOutput) NwServices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.NwServices }).(pulumi.IntArrayOutput)
 }
 
+// The rule order of execution for the traffic capture rule.
 func (o TrafficCaptureRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Whether this is a predefined rule.
 func (o TrafficCaptureRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
+// The admin rank of the rule. Default is 7.
 func (o TrafficCaptureRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The unique identifier for the traffic capture rule assigned by the ZIA cloud.
 func (o TrafficCaptureRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// List of source country codes.
 func (o TrafficCaptureRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
+// List of source IP group IDs.
 func (o TrafficCaptureRuleOutput) SrcIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.SrcIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// List of source IP addresses or CIDR ranges.
 func (o TrafficCaptureRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
+// The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
 func (o TrafficCaptureRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// List of time window IDs.
 func (o TrafficCaptureRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// Transaction sampling mode. Default: 'NONE'.
 func (o TrafficCaptureRuleOutput) TxnSampling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringPtrOutput { return v.TxnSampling }).(pulumi.StringPtrOutput)
 }
 
+// Transaction size limit. Default: 'NONE'.
 func (o TrafficCaptureRuleOutput) TxnSizeLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.StringPtrOutput { return v.TxnSizeLimit }).(pulumi.StringPtrOutput)
 }
 
+// List of user IDs.
 func (o TrafficCaptureRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of workload groups.
 func (o TrafficCaptureRuleOutput) WorkloadGroups() WorkloadGroupInputTypeArrayOutput {
 	return o.ApplyT(func(v *TrafficCaptureRule) WorkloadGroupInputTypeArrayOutput { return v.WorkloadGroups }).(WorkloadGroupInputTypeArrayOutput)
 }

@@ -8,23 +8,44 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_traffic_forwarding_gre_tunnel resource manages GRE (Generic Routing Encapsulation) tunnels for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. GRE tunnels are used to forward traffic from on-premises networks to the Zscaler cloud.
+//
+// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing GRE tunnel can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:TrafficForwardingGreTunnel example 12345
+// ```
 type TrafficForwardingGreTunnel struct {
 	pulumi.CustomResourceState
 
-	Comment          pulumi.StringPtrOutput          `pulumi:"comment"`
-	CountryCode      pulumi.StringPtrOutput          `pulumi:"countryCode"`
-	InternalIpRange  pulumi.StringPtrOutput          `pulumi:"internalIpRange"`
-	IpUnnumbered     pulumi.BoolPtrOutput            `pulumi:"ipUnnumbered"`
-	PrimaryDestVip   GreTunnelDestVipOutputPtrOutput `pulumi:"primaryDestVip"`
+	// Additional information about the GRE tunnel.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
+	// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+	InternalIpRange pulumi.StringPtrOutput `pulumi:"internalIpRange"`
+	// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+	IpUnnumbered pulumi.BoolPtrOutput `pulumi:"ipUnnumbered"`
+	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+	PrimaryDestVip GreTunnelDestVipOutputPtrOutput `pulumi:"primaryDestVip"`
+	// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
 	SecondaryDestVip GreTunnelDestVipOutputPtrOutput `pulumi:"secondaryDestVip"`
-	SourceIp         pulumi.StringOutput             `pulumi:"sourceIp"`
-	TunnelId         pulumi.IntOutput                `pulumi:"tunnelId"`
-	WithinCountry    pulumi.BoolPtrOutput            `pulumi:"withinCountry"`
+	// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+	SourceIp pulumi.StringOutput `pulumi:"sourceIp"`
+	// The system-generated ID of the GRE tunnel.
+	TunnelId pulumi.IntOutput `pulumi:"tunnelId"`
+	// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+	WithinCountry pulumi.BoolPtrOutput `pulumi:"withinCountry"`
 }
 
 // NewTrafficForwardingGreTunnel registers a new resource with the given unique name, arguments, and options.
@@ -70,26 +91,42 @@ func (TrafficForwardingGreTunnelState) ElementType() reflect.Type {
 }
 
 type trafficForwardingGreTunnelArgs struct {
-	Comment          *string                `pulumi:"comment"`
-	CountryCode      *string                `pulumi:"countryCode"`
-	InternalIpRange  *string                `pulumi:"internalIpRange"`
-	IpUnnumbered     *bool                  `pulumi:"ipUnnumbered"`
-	PrimaryDestVip   *GreTunnelDestVipInput `pulumi:"primaryDestVip"`
+	// Additional information about the GRE tunnel.
+	Comment *string `pulumi:"comment"`
+	// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+	CountryCode *string `pulumi:"countryCode"`
+	// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+	InternalIpRange *string `pulumi:"internalIpRange"`
+	// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+	IpUnnumbered *bool `pulumi:"ipUnnumbered"`
+	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+	PrimaryDestVip *GreTunnelDestVipInput `pulumi:"primaryDestVip"`
+	// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
 	SecondaryDestVip *GreTunnelDestVipInput `pulumi:"secondaryDestVip"`
-	SourceIp         string                 `pulumi:"sourceIp"`
-	WithinCountry    *bool                  `pulumi:"withinCountry"`
+	// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+	SourceIp string `pulumi:"sourceIp"`
+	// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+	WithinCountry *bool `pulumi:"withinCountry"`
 }
 
 // The set of arguments for constructing a TrafficForwardingGreTunnel resource.
 type TrafficForwardingGreTunnelArgs struct {
-	Comment          pulumi.StringPtrInput
-	CountryCode      pulumi.StringPtrInput
-	InternalIpRange  pulumi.StringPtrInput
-	IpUnnumbered     pulumi.BoolPtrInput
-	PrimaryDestVip   GreTunnelDestVipInputPtrInput
+	// Additional information about the GRE tunnel.
+	Comment pulumi.StringPtrInput
+	// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+	CountryCode pulumi.StringPtrInput
+	// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+	InternalIpRange pulumi.StringPtrInput
+	// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+	IpUnnumbered pulumi.BoolPtrInput
+	// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+	PrimaryDestVip GreTunnelDestVipInputPtrInput
+	// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
 	SecondaryDestVip GreTunnelDestVipInputPtrInput
-	SourceIp         pulumi.StringInput
-	WithinCountry    pulumi.BoolPtrInput
+	// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+	SourceIp pulumi.StringInput
+	// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+	WithinCountry pulumi.BoolPtrInput
 }
 
 func (TrafficForwardingGreTunnelArgs) ElementType() reflect.Type {
@@ -179,38 +216,47 @@ func (o TrafficForwardingGreTunnelOutput) ToTrafficForwardingGreTunnelOutputWith
 	return o
 }
 
+// Additional information about the GRE tunnel.
 func (o TrafficForwardingGreTunnelOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
 func (o TrafficForwardingGreTunnelOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.StringPtrOutput { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
+// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
 func (o TrafficForwardingGreTunnelOutput) InternalIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.StringPtrOutput { return v.InternalIpRange }).(pulumi.StringPtrOutput)
 }
 
+// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
 func (o TrafficForwardingGreTunnelOutput) IpUnnumbered() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.BoolPtrOutput { return v.IpUnnumbered }).(pulumi.BoolPtrOutput)
 }
 
+// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
 func (o TrafficForwardingGreTunnelOutput) PrimaryDestVip() GreTunnelDestVipOutputPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) GreTunnelDestVipOutputPtrOutput { return v.PrimaryDestVip }).(GreTunnelDestVipOutputPtrOutput)
 }
 
+// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
 func (o TrafficForwardingGreTunnelOutput) SecondaryDestVip() GreTunnelDestVipOutputPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) GreTunnelDestVipOutputPtrOutput { return v.SecondaryDestVip }).(GreTunnelDestVipOutputPtrOutput)
 }
 
+// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
 func (o TrafficForwardingGreTunnelOutput) SourceIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.StringOutput { return v.SourceIp }).(pulumi.StringOutput)
 }
 
+// The system-generated ID of the GRE tunnel.
 func (o TrafficForwardingGreTunnelOutput) TunnelId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.IntOutput { return v.TunnelId }).(pulumi.IntOutput)
 }
 
+// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
 func (o TrafficForwardingGreTunnelOutput) WithinCountry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingGreTunnel) pulumi.BoolPtrOutput { return v.WithinCountry }).(pulumi.BoolPtrOutput)
 }

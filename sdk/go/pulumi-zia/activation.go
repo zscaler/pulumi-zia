@@ -8,16 +8,26 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+//
+// For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
 type Activation struct {
 	pulumi.CustomResourceState
 
+	// The internal resource identifier for the activation.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	Status     pulumi.StringOutput `pulumi:"status"`
+	// The activation status. Must be `ACTIVE` to trigger configuration activation.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewActivation registers a new resource with the given unique name, arguments, and options.
@@ -63,11 +73,13 @@ func (ActivationState) ElementType() reflect.Type {
 }
 
 type activationArgs struct {
+	// The activation status. Must be `ACTIVE` to trigger configuration activation.
 	Status string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Activation resource.
 type ActivationArgs struct {
+	// The activation status. Must be `ACTIVE` to trigger configuration activation.
 	Status pulumi.StringInput
 }
 
@@ -158,10 +170,12 @@ func (o ActivationOutput) ToActivationOutputWithContext(ctx context.Context) Act
 	return o
 }
 
+// The internal resource identifier for the activation.
 func (o ActivationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The activation status. Must be `ACTIVE` to trigger configuration activation.
 func (o ActivationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

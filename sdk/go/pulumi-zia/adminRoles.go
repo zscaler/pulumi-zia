@@ -11,28 +11,60 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_admin_roles resource manages administrator roles in the Zscaler Internet Access (ZIA) cloud service. Admin roles define the permissions and access levels for administrator users.
+//
+// For more information, see the [ZIA Admin Role Management documentation](https://help.zscaler.com/zia/admin-role-management).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing admin role can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:AdminRoles example 12345
+// ```
 type AdminRoles struct {
 	pulumi.CustomResourceState
 
-	AdminAcctAccess       pulumi.StringPtrOutput   `pulumi:"adminAcctAccess"`
-	AlertingAccess        pulumi.StringPtrOutput   `pulumi:"alertingAccess"`
-	AnalysisAccess        pulumi.StringPtrOutput   `pulumi:"analysisAccess"`
-	DashboardAccess       pulumi.StringPtrOutput   `pulumi:"dashboardAccess"`
-	DeviceInfoAccess      pulumi.StringPtrOutput   `pulumi:"deviceInfoAccess"`
-	ExtFeaturePermissions pulumi.StringMapOutput   `pulumi:"extFeaturePermissions"`
-	FeaturePermissions    pulumi.StringMapOutput   `pulumi:"featurePermissions"`
-	IsAuditor             pulumi.BoolPtrOutput     `pulumi:"isAuditor"`
-	IsNonEditable         pulumi.BoolPtrOutput     `pulumi:"isNonEditable"`
-	LogsLimit             pulumi.StringPtrOutput   `pulumi:"logsLimit"`
-	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
-	Permissions           pulumi.StringArrayOutput `pulumi:"permissions"`
-	PolicyAccess          pulumi.StringPtrOutput   `pulumi:"policyAccess"`
-	Rank                  pulumi.IntPtrOutput      `pulumi:"rank"`
-	ReportAccess          pulumi.StringPtrOutput   `pulumi:"reportAccess"`
-	ReportTimeDuration    pulumi.IntPtrOutput      `pulumi:"reportTimeDuration"`
-	RoleId                pulumi.IntOutput         `pulumi:"roleId"`
-	RoleType              pulumi.StringPtrOutput   `pulumi:"roleType"`
-	UsernameAccess        pulumi.StringPtrOutput   `pulumi:"usernameAccess"`
+	// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AdminAcctAccess pulumi.StringPtrOutput `pulumi:"adminAcctAccess"`
+	// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AlertingAccess pulumi.StringPtrOutput `pulumi:"alertingAccess"`
+	// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AnalysisAccess pulumi.StringPtrOutput `pulumi:"analysisAccess"`
+	// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+	DashboardAccess pulumi.StringPtrOutput `pulumi:"dashboardAccess"`
+	// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+	DeviceInfoAccess pulumi.StringPtrOutput `pulumi:"deviceInfoAccess"`
+	// Map of extended feature permissions to their access levels.
+	ExtFeaturePermissions pulumi.StringMapOutput `pulumi:"extFeaturePermissions"`
+	// Map of feature permissions to their access levels.
+	FeaturePermissions pulumi.StringMapOutput `pulumi:"featurePermissions"`
+	// Indicates whether this is an auditor role.
+	IsAuditor pulumi.BoolPtrOutput `pulumi:"isAuditor"`
+	// Indicates whether the role is non-editable (built-in system role).
+	IsNonEditable pulumi.BoolPtrOutput `pulumi:"isNonEditable"`
+	// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+	LogsLimit pulumi.StringPtrOutput `pulumi:"logsLimit"`
+	// The name of the admin role.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
+	// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	PolicyAccess pulumi.StringPtrOutput `pulumi:"policyAccess"`
+	// Admin rank of the role. Default: 7. Valid values: 0-7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// Report access permission. Valid values: `NONE`, `READ_ONLY`.
+	ReportAccess pulumi.StringPtrOutput `pulumi:"reportAccess"`
+	// Report time duration in days.
+	ReportTimeDuration pulumi.IntPtrOutput `pulumi:"reportTimeDuration"`
+	// The system-generated ID of the admin role.
+	RoleId pulumi.IntOutput `pulumi:"roleId"`
+	// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+	RoleType pulumi.StringPtrOutput `pulumi:"roleType"`
+	// Username access permission. Valid values: `NONE`, `READ_ONLY`.
+	UsernameAccess pulumi.StringPtrOutput `pulumi:"usernameAccess"`
 }
 
 // NewAdminRoles registers a new resource with the given unique name, arguments, and options.
@@ -75,46 +107,82 @@ func (AdminRolesState) ElementType() reflect.Type {
 }
 
 type adminRolesArgs struct {
-	AdminAcctAccess       *string           `pulumi:"adminAcctAccess"`
-	AlertingAccess        *string           `pulumi:"alertingAccess"`
-	AnalysisAccess        *string           `pulumi:"analysisAccess"`
-	DashboardAccess       *string           `pulumi:"dashboardAccess"`
-	DeviceInfoAccess      *string           `pulumi:"deviceInfoAccess"`
+	// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AdminAcctAccess *string `pulumi:"adminAcctAccess"`
+	// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AlertingAccess *string `pulumi:"alertingAccess"`
+	// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AnalysisAccess *string `pulumi:"analysisAccess"`
+	// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+	DashboardAccess *string `pulumi:"dashboardAccess"`
+	// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+	DeviceInfoAccess *string `pulumi:"deviceInfoAccess"`
+	// Map of extended feature permissions to their access levels.
 	ExtFeaturePermissions map[string]string `pulumi:"extFeaturePermissions"`
-	FeaturePermissions    map[string]string `pulumi:"featurePermissions"`
-	IsAuditor             *bool             `pulumi:"isAuditor"`
-	IsNonEditable         *bool             `pulumi:"isNonEditable"`
-	LogsLimit             *string           `pulumi:"logsLimit"`
-	Name                  *string           `pulumi:"name"`
-	Permissions           []string          `pulumi:"permissions"`
-	PolicyAccess          *string           `pulumi:"policyAccess"`
-	Rank                  *int              `pulumi:"rank"`
-	ReportAccess          *string           `pulumi:"reportAccess"`
-	ReportTimeDuration    *int              `pulumi:"reportTimeDuration"`
-	RoleType              *string           `pulumi:"roleType"`
-	UsernameAccess        *string           `pulumi:"usernameAccess"`
+	// Map of feature permissions to their access levels.
+	FeaturePermissions map[string]string `pulumi:"featurePermissions"`
+	// Indicates whether this is an auditor role.
+	IsAuditor *bool `pulumi:"isAuditor"`
+	// Indicates whether the role is non-editable (built-in system role).
+	IsNonEditable *bool `pulumi:"isNonEditable"`
+	// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+	LogsLimit *string `pulumi:"logsLimit"`
+	// The name of the admin role.
+	Name *string `pulumi:"name"`
+	// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+	Permissions []string `pulumi:"permissions"`
+	// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	PolicyAccess *string `pulumi:"policyAccess"`
+	// Admin rank of the role. Default: 7. Valid values: 0-7.
+	Rank *int `pulumi:"rank"`
+	// Report access permission. Valid values: `NONE`, `READ_ONLY`.
+	ReportAccess *string `pulumi:"reportAccess"`
+	// Report time duration in days.
+	ReportTimeDuration *int `pulumi:"reportTimeDuration"`
+	// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+	RoleType *string `pulumi:"roleType"`
+	// Username access permission. Valid values: `NONE`, `READ_ONLY`.
+	UsernameAccess *string `pulumi:"usernameAccess"`
 }
 
 // The set of arguments for constructing a AdminRoles resource.
 type AdminRolesArgs struct {
-	AdminAcctAccess       pulumi.StringPtrInput
-	AlertingAccess        pulumi.StringPtrInput
-	AnalysisAccess        pulumi.StringPtrInput
-	DashboardAccess       pulumi.StringPtrInput
-	DeviceInfoAccess      pulumi.StringPtrInput
+	// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AdminAcctAccess pulumi.StringPtrInput
+	// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AlertingAccess pulumi.StringPtrInput
+	// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	AnalysisAccess pulumi.StringPtrInput
+	// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+	DashboardAccess pulumi.StringPtrInput
+	// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+	DeviceInfoAccess pulumi.StringPtrInput
+	// Map of extended feature permissions to their access levels.
 	ExtFeaturePermissions pulumi.StringMapInput
-	FeaturePermissions    pulumi.StringMapInput
-	IsAuditor             pulumi.BoolPtrInput
-	IsNonEditable         pulumi.BoolPtrInput
-	LogsLimit             pulumi.StringPtrInput
-	Name                  pulumi.StringPtrInput
-	Permissions           pulumi.StringArrayInput
-	PolicyAccess          pulumi.StringPtrInput
-	Rank                  pulumi.IntPtrInput
-	ReportAccess          pulumi.StringPtrInput
-	ReportTimeDuration    pulumi.IntPtrInput
-	RoleType              pulumi.StringPtrInput
-	UsernameAccess        pulumi.StringPtrInput
+	// Map of feature permissions to their access levels.
+	FeaturePermissions pulumi.StringMapInput
+	// Indicates whether this is an auditor role.
+	IsAuditor pulumi.BoolPtrInput
+	// Indicates whether the role is non-editable (built-in system role).
+	IsNonEditable pulumi.BoolPtrInput
+	// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+	LogsLimit pulumi.StringPtrInput
+	// The name of the admin role.
+	Name pulumi.StringPtrInput
+	// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+	Permissions pulumi.StringArrayInput
+	// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+	PolicyAccess pulumi.StringPtrInput
+	// Admin rank of the role. Default: 7. Valid values: 0-7.
+	Rank pulumi.IntPtrInput
+	// Report access permission. Valid values: `NONE`, `READ_ONLY`.
+	ReportAccess pulumi.StringPtrInput
+	// Report time duration in days.
+	ReportTimeDuration pulumi.IntPtrInput
+	// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+	RoleType pulumi.StringPtrInput
+	// Username access permission. Valid values: `NONE`, `READ_ONLY`.
+	UsernameAccess pulumi.StringPtrInput
 }
 
 func (AdminRolesArgs) ElementType() reflect.Type {
@@ -204,78 +272,97 @@ func (o AdminRolesOutput) ToAdminRolesOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
+// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
 func (o AdminRolesOutput) AdminAcctAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.AdminAcctAccess }).(pulumi.StringPtrOutput)
 }
 
+// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
 func (o AdminRolesOutput) AlertingAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.AlertingAccess }).(pulumi.StringPtrOutput)
 }
 
+// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
 func (o AdminRolesOutput) AnalysisAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.AnalysisAccess }).(pulumi.StringPtrOutput)
 }
 
+// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
 func (o AdminRolesOutput) DashboardAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.DashboardAccess }).(pulumi.StringPtrOutput)
 }
 
+// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
 func (o AdminRolesOutput) DeviceInfoAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.DeviceInfoAccess }).(pulumi.StringPtrOutput)
 }
 
+// Map of extended feature permissions to their access levels.
 func (o AdminRolesOutput) ExtFeaturePermissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringMapOutput { return v.ExtFeaturePermissions }).(pulumi.StringMapOutput)
 }
 
+// Map of feature permissions to their access levels.
 func (o AdminRolesOutput) FeaturePermissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringMapOutput { return v.FeaturePermissions }).(pulumi.StringMapOutput)
 }
 
+// Indicates whether this is an auditor role.
 func (o AdminRolesOutput) IsAuditor() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.BoolPtrOutput { return v.IsAuditor }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the role is non-editable (built-in system role).
 func (o AdminRolesOutput) IsNonEditable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.BoolPtrOutput { return v.IsNonEditable }).(pulumi.BoolPtrOutput)
 }
 
+// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
 func (o AdminRolesOutput) LogsLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.LogsLimit }).(pulumi.StringPtrOutput)
 }
 
+// The name of the admin role.
 func (o AdminRolesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
 func (o AdminRolesOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
+// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
 func (o AdminRolesOutput) PolicyAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.PolicyAccess }).(pulumi.StringPtrOutput)
 }
 
+// Admin rank of the role. Default: 7. Valid values: 0-7.
 func (o AdminRolesOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// Report access permission. Valid values: `NONE`, `READ_ONLY`.
 func (o AdminRolesOutput) ReportAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.ReportAccess }).(pulumi.StringPtrOutput)
 }
 
+// Report time duration in days.
 func (o AdminRolesOutput) ReportTimeDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.IntPtrOutput { return v.ReportTimeDuration }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the admin role.
 func (o AdminRolesOutput) RoleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.IntOutput { return v.RoleId }).(pulumi.IntOutput)
 }
 
+// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
 func (o AdminRolesOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.RoleType }).(pulumi.StringPtrOutput)
 }
 
+// Username access permission. Valid values: `NONE`, `READ_ONLY`.
 func (o AdminRolesOutput) UsernameAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdminRoles) pulumi.StringPtrOutput { return v.UsernameAccess }).(pulumi.StringPtrOutput)
 }

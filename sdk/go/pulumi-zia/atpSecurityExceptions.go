@@ -11,11 +11,20 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+//
+// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+//
+// ## Example Usage
+//
+// > This is a singleton resource. Import is not applicable.
 type AtpSecurityExceptions struct {
 	pulumi.CustomResourceState
 
+	// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
 	BypassUrls pulumi.StringArrayOutput `pulumi:"bypassUrls"`
-	ResourceId pulumi.StringOutput      `pulumi:"resourceId"`
+	// The internal resource identifier for the ATP security exceptions.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewAtpSecurityExceptions registers a new resource with the given unique name, arguments, and options.
@@ -58,11 +67,13 @@ func (AtpSecurityExceptionsState) ElementType() reflect.Type {
 }
 
 type atpSecurityExceptionsArgs struct {
+	// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
 	BypassUrls []string `pulumi:"bypassUrls"`
 }
 
 // The set of arguments for constructing a AtpSecurityExceptions resource.
 type AtpSecurityExceptionsArgs struct {
+	// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
 	BypassUrls pulumi.StringArrayInput
 }
 
@@ -153,10 +164,12 @@ func (o AtpSecurityExceptionsOutput) ToAtpSecurityExceptionsOutputWithContext(ct
 	return o
 }
 
+// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
 func (o AtpSecurityExceptionsOutput) BypassUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AtpSecurityExceptions) pulumi.StringArrayOutput { return v.BypassUrls }).(pulumi.StringArrayOutput)
 }
 
+// The internal resource identifier for the ATP security exceptions.
 func (o AtpSecurityExceptionsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AtpSecurityExceptions) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

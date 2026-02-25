@@ -11,11 +11,20 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+//
+// For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+//
+// ## Example Usage
+//
+// > This is a singleton resource. Import is not applicable.
 type SandboxBehavioralAnalysisAdvancedSettings struct {
 	pulumi.CustomResourceState
 
+	// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
 	FileHashesToBeBlocked pulumi.StringArrayOutput `pulumi:"fileHashesToBeBlocked"`
-	ResourceId            pulumi.StringOutput      `pulumi:"resourceId"`
+	// The internal resource identifier for the sandbox settings.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewSandboxBehavioralAnalysisAdvancedSettings registers a new resource with the given unique name, arguments, and options.
@@ -58,11 +67,13 @@ func (SandboxBehavioralAnalysisAdvancedSettingsState) ElementType() reflect.Type
 }
 
 type sandboxBehavioralAnalysisAdvancedSettingsArgs struct {
+	// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
 	FileHashesToBeBlocked []string `pulumi:"fileHashesToBeBlocked"`
 }
 
 // The set of arguments for constructing a SandboxBehavioralAnalysisAdvancedSettings resource.
 type SandboxBehavioralAnalysisAdvancedSettingsArgs struct {
+	// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
 	FileHashesToBeBlocked pulumi.StringArrayInput
 }
 
@@ -153,12 +164,14 @@ func (o SandboxBehavioralAnalysisAdvancedSettingsOutput) ToSandboxBehavioralAnal
 	return o
 }
 
+// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
 func (o SandboxBehavioralAnalysisAdvancedSettingsOutput) FileHashesToBeBlocked() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SandboxBehavioralAnalysisAdvancedSettings) pulumi.StringArrayOutput {
 		return v.FileHashesToBeBlocked
 	}).(pulumi.StringArrayOutput)
 }
 
+// The internal resource identifier for the sandbox settings.
 func (o SandboxBehavioralAnalysisAdvancedSettingsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SandboxBehavioralAnalysisAdvancedSettings) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

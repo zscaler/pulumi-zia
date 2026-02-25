@@ -8,52 +8,128 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+//
+// For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+//
+// ## Example Usage
+// ### Basic URL Filtering Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewURLFilteringRule(ctx, "example", &zia.URLFilteringRuleArgs{
+//				Name:          pulumi.String("Example URL Filtering Rule"),
+//				Description:   pulumi.StringRef("Allow access to business URLs"),
+//				Order:         pulumi.Int(1),
+//				State:         pulumi.StringRef("ENABLED"),
+//				Action:        pulumi.StringRef("ALLOW"),
+//				Protocols:     pulumi.ToStringArray([]string{"ANY_RULE"}),
+//				UrlCategories: pulumi.ToStringArray([]string{"ANY"}),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing URL Filtering Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:URLFilteringRule example 12345
+// ```
 type URLFilteringRule struct {
 	pulumi.CustomResourceState
 
-	Action                 pulumi.StringPtrOutput            `pulumi:"action"`
-	BlockOverride          pulumi.BoolPtrOutput              `pulumi:"blockOverride"`
-	BrowserEunTemplateId   pulumi.IntPtrOutput               `pulumi:"browserEunTemplateId"`
-	CbiProfile             CBIProfileInputPtrOutput          `pulumi:"cbiProfile"`
-	Ciparule               pulumi.BoolPtrOutput              `pulumi:"ciparule"`
-	Departments            pulumi.IntArrayOutput             `pulumi:"departments"`
-	Description            pulumi.StringPtrOutput            `pulumi:"description"`
-	DeviceGroups           pulumi.IntArrayOutput             `pulumi:"deviceGroups"`
-	DeviceTrustLevels      pulumi.StringArrayOutput          `pulumi:"deviceTrustLevels"`
-	Devices                pulumi.IntArrayOutput             `pulumi:"devices"`
-	EndUserNotificationUrl pulumi.StringPtrOutput            `pulumi:"endUserNotificationUrl"`
-	EnforceTimeValidity    pulumi.BoolPtrOutput              `pulumi:"enforceTimeValidity"`
-	Groups                 pulumi.IntArrayOutput             `pulumi:"groups"`
-	Labels                 pulumi.IntArrayOutput             `pulumi:"labels"`
-	LocationGroups         pulumi.IntArrayOutput             `pulumi:"locationGroups"`
-	Locations              pulumi.IntArrayOutput             `pulumi:"locations"`
-	Name                   pulumi.StringOutput               `pulumi:"name"`
-	Order                  pulumi.IntOutput                  `pulumi:"order"`
-	OverrideGroups         pulumi.IntArrayOutput             `pulumi:"overrideGroups"`
-	OverrideUsers          pulumi.IntArrayOutput             `pulumi:"overrideUsers"`
-	Protocols              pulumi.StringArrayOutput          `pulumi:"protocols"`
-	Rank                   pulumi.IntPtrOutput               `pulumi:"rank"`
-	RequestMethods         pulumi.StringArrayOutput          `pulumi:"requestMethods"`
-	RuleId                 pulumi.IntOutput                  `pulumi:"ruleId"`
-	SizeQuota              pulumi.IntPtrOutput               `pulumi:"sizeQuota"`
-	SourceCountries        pulumi.StringArrayOutput          `pulumi:"sourceCountries"`
-	SourceIpGroups         pulumi.IntArrayOutput             `pulumi:"sourceIpGroups"`
-	State                  pulumi.StringPtrOutput            `pulumi:"state"`
-	TimeQuota              pulumi.IntPtrOutput               `pulumi:"timeQuota"`
-	TimeWindows            pulumi.IntArrayOutput             `pulumi:"timeWindows"`
-	UrlCategories          pulumi.StringArrayOutput          `pulumi:"urlCategories"`
-	UserAgentTypes         pulumi.StringArrayOutput          `pulumi:"userAgentTypes"`
-	UserRiskScoreLevels    pulumi.StringArrayOutput          `pulumi:"userRiskScoreLevels"`
-	Users                  pulumi.IntArrayOutput             `pulumi:"users"`
-	ValidityEndTime        pulumi.StringPtrOutput            `pulumi:"validityEndTime"`
-	ValidityStartTime      pulumi.StringPtrOutput            `pulumi:"validityStartTime"`
-	ValidityTimeZoneId     pulumi.StringPtrOutput            `pulumi:"validityTimeZoneId"`
-	WorkloadGroups         WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
+	// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+	BlockOverride pulumi.BoolPtrOutput `pulumi:"blockOverride"`
+	// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+	BrowserEunTemplateId pulumi.IntPtrOutput `pulumi:"browserEunTemplateId"`
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile CBIProfileInputPtrOutput `pulumi:"cbiProfile"`
+	// If set to true, the CIPA Compliance rule is enabled.
+	Ciparule pulumi.BoolPtrOutput `pulumi:"ciparule"`
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the URL filtering rule. Maximum 10240 characters.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+	EndUserNotificationUrl pulumi.StringPtrOutput `pulumi:"endUserNotificationUrl"`
+	// Enforce a set validity time period for the URL filtering rule.
+	EnforceTimeValidity pulumi.BoolPtrOutput `pulumi:"enforceTimeValidity"`
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the URL filtering rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the URL filtering rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The order of execution of the rule with respect to other URL filtering rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideGroups pulumi.IntArrayOutput `pulumi:"overrideGroups"`
+	// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideUsers pulumi.IntArrayOutput `pulumi:"overrideUsers"`
+	// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+	RequestMethods pulumi.StringArrayOutput `pulumi:"requestMethods"`
+	// The system-generated ID of the URL filtering rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+	SizeQuota pulumi.IntPtrOutput `pulumi:"sizeQuota"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
+	// IDs of source IP address groups.
+	SourceIpGroups pulumi.IntArrayOutput `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+	TimeQuota pulumi.IntPtrOutput `pulumi:"timeQuota"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
+	// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+	UserAgentTypes pulumi.StringArrayOutput `pulumi:"userAgentTypes"`
+	// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+	UserRiskScoreLevels pulumi.StringArrayOutput `pulumi:"userRiskScoreLevels"`
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+	ValidityEndTime pulumi.StringPtrOutput `pulumi:"validityEndTime"`
+	// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+	ValidityStartTime pulumi.StringPtrOutput `pulumi:"validityStartTime"`
+	// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+	ValidityTimeZoneId pulumi.StringPtrOutput `pulumi:"validityTimeZoneId"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
 }
 
 // NewURLFilteringRule registers a new resource with the given unique name, arguments, and options.
@@ -102,84 +178,158 @@ func (URLFilteringRuleState) ElementType() reflect.Type {
 }
 
 type urlfilteringRuleArgs struct {
-	Action                 *string                  `pulumi:"action"`
-	BlockOverride          *bool                    `pulumi:"blockOverride"`
-	BrowserEunTemplateId   *int                     `pulumi:"browserEunTemplateId"`
-	CbiProfile             *CBIProfileInput         `pulumi:"cbiProfile"`
-	Ciparule               *bool                    `pulumi:"ciparule"`
-	Departments            []int                    `pulumi:"departments"`
-	Description            *string                  `pulumi:"description"`
-	DeviceGroups           []int                    `pulumi:"deviceGroups"`
-	DeviceTrustLevels      []string                 `pulumi:"deviceTrustLevels"`
-	Devices                []int                    `pulumi:"devices"`
-	EndUserNotificationUrl *string                  `pulumi:"endUserNotificationUrl"`
-	EnforceTimeValidity    *bool                    `pulumi:"enforceTimeValidity"`
-	Groups                 []int                    `pulumi:"groups"`
-	Labels                 []int                    `pulumi:"labels"`
-	LocationGroups         []int                    `pulumi:"locationGroups"`
-	Locations              []int                    `pulumi:"locations"`
-	Name                   string                   `pulumi:"name"`
-	Order                  int                      `pulumi:"order"`
-	OverrideGroups         []int                    `pulumi:"overrideGroups"`
-	OverrideUsers          []int                    `pulumi:"overrideUsers"`
-	Protocols              []string                 `pulumi:"protocols"`
-	Rank                   *int                     `pulumi:"rank"`
-	RequestMethods         []string                 `pulumi:"requestMethods"`
-	SizeQuota              *int                     `pulumi:"sizeQuota"`
-	SourceCountries        []string                 `pulumi:"sourceCountries"`
-	SourceIpGroups         []int                    `pulumi:"sourceIpGroups"`
-	State                  *string                  `pulumi:"state"`
-	TimeQuota              *int                     `pulumi:"timeQuota"`
-	TimeWindows            []int                    `pulumi:"timeWindows"`
-	UrlCategories          []string                 `pulumi:"urlCategories"`
-	UserAgentTypes         []string                 `pulumi:"userAgentTypes"`
-	UserRiskScoreLevels    []string                 `pulumi:"userRiskScoreLevels"`
-	Users                  []int                    `pulumi:"users"`
-	ValidityEndTime        *string                  `pulumi:"validityEndTime"`
-	ValidityStartTime      *string                  `pulumi:"validityStartTime"`
-	ValidityTimeZoneId     *string                  `pulumi:"validityTimeZoneId"`
-	WorkloadGroups         []WorkloadGroupInputType `pulumi:"workloadGroups"`
+	// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+	Action *string `pulumi:"action"`
+	// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+	BlockOverride *bool `pulumi:"blockOverride"`
+	// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+	BrowserEunTemplateId *int `pulumi:"browserEunTemplateId"`
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile *CBIProfileInput `pulumi:"cbiProfile"`
+	// If set to true, the CIPA Compliance rule is enabled.
+	Ciparule *bool `pulumi:"ciparule"`
+	// IDs of departments for which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the URL filtering rule. Maximum 10240 characters.
+	Description *string `pulumi:"description"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
+	// IDs of devices for which the rule must be applied.
+	Devices []int `pulumi:"devices"`
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+	EndUserNotificationUrl *string `pulumi:"endUserNotificationUrl"`
+	// Enforce a set validity time period for the URL filtering rule.
+	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
+	// IDs of groups for which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the URL filtering rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The name of the URL filtering rule. Must be unique.
+	Name string `pulumi:"name"`
+	// The order of execution of the rule with respect to other URL filtering rules.
+	Order int `pulumi:"order"`
+	// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideGroups []int `pulumi:"overrideGroups"`
+	// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideUsers []int `pulumi:"overrideUsers"`
+	// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+	Protocols []string `pulumi:"protocols"`
+	// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+	RequestMethods []string `pulumi:"requestMethods"`
+	// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+	SizeQuota *int `pulumi:"sizeQuota"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries []string `pulumi:"sourceCountries"`
+	// IDs of source IP address groups.
+	SourceIpGroups []int `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+	TimeQuota *int `pulumi:"timeQuota"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+	UrlCategories []string `pulumi:"urlCategories"`
+	// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+	UserAgentTypes []string `pulumi:"userAgentTypes"`
+	// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+	UserRiskScoreLevels []string `pulumi:"userRiskScoreLevels"`
+	// IDs of users for which the rule must be applied.
+	Users []int `pulumi:"users"`
+	// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+	ValidityEndTime *string `pulumi:"validityEndTime"`
+	// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+	ValidityStartTime *string `pulumi:"validityStartTime"`
+	// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+	ValidityTimeZoneId *string `pulumi:"validityTimeZoneId"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups []WorkloadGroupInputType `pulumi:"workloadGroups"`
 }
 
 // The set of arguments for constructing a URLFilteringRule resource.
 type URLFilteringRuleArgs struct {
-	Action                 pulumi.StringPtrInput
-	BlockOverride          pulumi.BoolPtrInput
-	BrowserEunTemplateId   pulumi.IntPtrInput
-	CbiProfile             CBIProfileInputPtrInput
-	Ciparule               pulumi.BoolPtrInput
-	Departments            pulumi.IntArrayInput
-	Description            pulumi.StringPtrInput
-	DeviceGroups           pulumi.IntArrayInput
-	DeviceTrustLevels      pulumi.StringArrayInput
-	Devices                pulumi.IntArrayInput
+	// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+	Action pulumi.StringPtrInput
+	// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+	BlockOverride pulumi.BoolPtrInput
+	// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+	BrowserEunTemplateId pulumi.IntPtrInput
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile CBIProfileInputPtrInput
+	// If set to true, the CIPA Compliance rule is enabled.
+	Ciparule pulumi.BoolPtrInput
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the URL filtering rule. Maximum 10240 characters.
+	Description pulumi.StringPtrInput
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayInput
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayInput
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayInput
+	// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 	EndUserNotificationUrl pulumi.StringPtrInput
-	EnforceTimeValidity    pulumi.BoolPtrInput
-	Groups                 pulumi.IntArrayInput
-	Labels                 pulumi.IntArrayInput
-	LocationGroups         pulumi.IntArrayInput
-	Locations              pulumi.IntArrayInput
-	Name                   pulumi.StringInput
-	Order                  pulumi.IntInput
-	OverrideGroups         pulumi.IntArrayInput
-	OverrideUsers          pulumi.IntArrayInput
-	Protocols              pulumi.StringArrayInput
-	Rank                   pulumi.IntPtrInput
-	RequestMethods         pulumi.StringArrayInput
-	SizeQuota              pulumi.IntPtrInput
-	SourceCountries        pulumi.StringArrayInput
-	SourceIpGroups         pulumi.IntArrayInput
-	State                  pulumi.StringPtrInput
-	TimeQuota              pulumi.IntPtrInput
-	TimeWindows            pulumi.IntArrayInput
-	UrlCategories          pulumi.StringArrayInput
-	UserAgentTypes         pulumi.StringArrayInput
-	UserRiskScoreLevels    pulumi.StringArrayInput
-	Users                  pulumi.IntArrayInput
-	ValidityEndTime        pulumi.StringPtrInput
-	ValidityStartTime      pulumi.StringPtrInput
-	ValidityTimeZoneId     pulumi.StringPtrInput
-	WorkloadGroups         WorkloadGroupInputTypeArrayInput
+	// Enforce a set validity time period for the URL filtering rule.
+	EnforceTimeValidity pulumi.BoolPtrInput
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the URL filtering rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The name of the URL filtering rule. Must be unique.
+	Name pulumi.StringInput
+	// The order of execution of the rule with respect to other URL filtering rules.
+	Order pulumi.IntInput
+	// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideGroups pulumi.IntArrayInput
+	// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+	OverrideUsers pulumi.IntArrayInput
+	// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+	Protocols pulumi.StringArrayInput
+	// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+	RequestMethods pulumi.StringArrayInput
+	// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+	SizeQuota pulumi.IntPtrInput
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayInput
+	// IDs of source IP address groups.
+	SourceIpGroups pulumi.IntArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+	TimeQuota pulumi.IntPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+	UrlCategories pulumi.StringArrayInput
+	// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+	UserAgentTypes pulumi.StringArrayInput
+	// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+	UserRiskScoreLevels pulumi.StringArrayInput
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayInput
+	// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+	ValidityEndTime pulumi.StringPtrInput
+	// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+	ValidityStartTime pulumi.StringPtrInput
+	// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+	ValidityTimeZoneId pulumi.StringPtrInput
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayInput
 }
 
 func (URLFilteringRuleArgs) ElementType() reflect.Type {
@@ -269,154 +419,192 @@ func (o URLFilteringRuleOutput) ToURLFilteringRuleOutputWithContext(ctx context.
 	return o
 }
 
+// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
 func (o URLFilteringRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
 func (o URLFilteringRuleOutput) BlockOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.BoolPtrOutput { return v.BlockOverride }).(pulumi.BoolPtrOutput)
 }
 
+// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
 func (o URLFilteringRuleOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
 }
 
+// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
 func (o URLFilteringRuleOutput) CbiProfile() CBIProfileInputPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) CBIProfileInputPtrOutput { return v.CbiProfile }).(CBIProfileInputPtrOutput)
 }
 
+// If set to true, the CIPA Compliance rule is enabled.
 func (o URLFilteringRuleOutput) Ciparule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.BoolPtrOutput { return v.Ciparule }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of departments for which the rule must be applied.
 func (o URLFilteringRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the URL filtering rule. Maximum 10240 characters.
 func (o URLFilteringRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
 func (o URLFilteringRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
 func (o URLFilteringRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
 
+// IDs of devices for which the rule must be applied.
 func (o URLFilteringRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
 func (o URLFilteringRuleOutput) EndUserNotificationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.EndUserNotificationUrl }).(pulumi.StringPtrOutput)
 }
 
+// Enforce a set validity time period for the URL filtering rule.
 func (o URLFilteringRuleOutput) EnforceTimeValidity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.BoolPtrOutput { return v.EnforceTimeValidity }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of groups for which the rule must be applied.
 func (o URLFilteringRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the URL filtering rule.
 func (o URLFilteringRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule must be applied.
 func (o URLFilteringRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations for which the rule must be applied.
 func (o URLFilteringRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the URL filtering rule. Must be unique.
 func (o URLFilteringRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The order of execution of the rule with respect to other URL filtering rules.
 func (o URLFilteringRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
 func (o URLFilteringRuleOutput) OverrideGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.OverrideGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
 func (o URLFilteringRuleOutput) OverrideUsers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.OverrideUsers }).(pulumi.IntArrayOutput)
 }
 
+// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
 func (o URLFilteringRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
 func (o URLFilteringRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
 func (o URLFilteringRuleOutput) RequestMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.RequestMethods }).(pulumi.StringArrayOutput)
 }
 
+// The system-generated ID of the URL filtering rule.
 func (o URLFilteringRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
 func (o URLFilteringRuleOutput) SizeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntPtrOutput { return v.SizeQuota }).(pulumi.IntPtrOutput)
 }
 
+// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o URLFilteringRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
+// IDs of source IP address groups.
 func (o URLFilteringRuleOutput) SourceIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.SourceIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o URLFilteringRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
 func (o URLFilteringRuleOutput) TimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntPtrOutput { return v.TimeQuota }).(pulumi.IntPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o URLFilteringRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
 func (o URLFilteringRuleOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }
 
+// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
 func (o URLFilteringRuleOutput) UserAgentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.UserAgentTypes }).(pulumi.StringArrayOutput)
 }
 
+// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 func (o URLFilteringRuleOutput) UserRiskScoreLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringArrayOutput { return v.UserRiskScoreLevels }).(pulumi.StringArrayOutput)
 }
 
+// IDs of users for which the rule must be applied.
 func (o URLFilteringRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
 func (o URLFilteringRuleOutput) ValidityEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.ValidityEndTime }).(pulumi.StringPtrOutput)
 }
 
+// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
 func (o URLFilteringRuleOutput) ValidityStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.ValidityStartTime }).(pulumi.StringPtrOutput)
 }
 
+// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
 func (o URLFilteringRuleOutput) ValidityTimeZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *URLFilteringRule) pulumi.StringPtrOutput { return v.ValidityTimeZoneId }).(pulumi.StringPtrOutput)
 }
 
+// List of preconfigured workload groups to which the policy must be applied.
 func (o URLFilteringRuleOutput) WorkloadGroups() WorkloadGroupInputTypeArrayOutput {
 	return o.ApplyT(func(v *URLFilteringRule) WorkloadGroupInputTypeArrayOutput { return v.WorkloadGroups }).(WorkloadGroupInputTypeArrayOutput)
 }

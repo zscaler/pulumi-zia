@@ -8,19 +8,33 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+// Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+// Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+// the underlying sub-cloud configuration.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
 type SubCloud struct {
 	pulumi.CustomResourceState
 
-	CloudId    pulumi.IntOutput                  `pulumi:"cloudId"`
-	Dcs        SubCloudDcOutputArrayOutput       `pulumi:"dcs"`
+	// The ID of the cloud to which this sub-cloud belongs.
+	CloudId pulumi.IntOutput `pulumi:"cloudId"`
+	// List of datacenters associated with the sub-cloud.
+	Dcs SubCloudDcOutputArrayOutput `pulumi:"dcs"`
+	// List of datacenter exclusions for the sub-cloud.
 	Exclusions SubCloudExclusionInputArrayOutput `pulumi:"exclusions"`
-	Name       pulumi.StringPtrOutput            `pulumi:"name"`
-	ResourceId pulumi.StringOutput               `pulumi:"resourceId"`
+	// The name of the sub-cloud.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The resource ID of the sub-cloud.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewSubCloud registers a new resource with the given unique name, arguments, and options.
@@ -66,13 +80,17 @@ func (SubCloudState) ElementType() reflect.Type {
 }
 
 type subCloudArgs struct {
-	CloudId    int                      `pulumi:"cloudId"`
+	// The ID of the cloud to which this sub-cloud belongs.
+	CloudId int `pulumi:"cloudId"`
+	// List of datacenter exclusions for the sub-cloud.
 	Exclusions []SubCloudExclusionInput `pulumi:"exclusions"`
 }
 
 // The set of arguments for constructing a SubCloud resource.
 type SubCloudArgs struct {
-	CloudId    pulumi.IntInput
+	// The ID of the cloud to which this sub-cloud belongs.
+	CloudId pulumi.IntInput
+	// List of datacenter exclusions for the sub-cloud.
 	Exclusions SubCloudExclusionInputArrayInput
 }
 
@@ -163,22 +181,27 @@ func (o SubCloudOutput) ToSubCloudOutputWithContext(ctx context.Context) SubClou
 	return o
 }
 
+// The ID of the cloud to which this sub-cloud belongs.
 func (o SubCloudOutput) CloudId() pulumi.IntOutput {
 	return o.ApplyT(func(v *SubCloud) pulumi.IntOutput { return v.CloudId }).(pulumi.IntOutput)
 }
 
+// List of datacenters associated with the sub-cloud.
 func (o SubCloudOutput) Dcs() SubCloudDcOutputArrayOutput {
 	return o.ApplyT(func(v *SubCloud) SubCloudDcOutputArrayOutput { return v.Dcs }).(SubCloudDcOutputArrayOutput)
 }
 
+// List of datacenter exclusions for the sub-cloud.
 func (o SubCloudOutput) Exclusions() SubCloudExclusionInputArrayOutput {
 	return o.ApplyT(func(v *SubCloud) SubCloudExclusionInputArrayOutput { return v.Exclusions }).(SubCloudExclusionInputArrayOutput)
 }
 
+// The name of the sub-cloud.
 func (o SubCloudOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubCloud) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The resource ID of the sub-cloud.
 func (o SubCloudOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubCloud) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

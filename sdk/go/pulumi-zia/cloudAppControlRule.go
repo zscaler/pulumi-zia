@@ -8,42 +8,108 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_cloud_app_control_rules resource manages cloud application control rules in the Zscaler Internet Access (ZIA) cloud service. Cloud app control rules define policies that govern user access to cloud applications, allowing administrators to allow, block, or isolate specific application activities.
+//
+// For more information, see the [ZIA Cloud App Control documentation](https://help.zscaler.com/zia/cloud-app-control).
+//
+// ## Example Usage
+// ### Basic Cloud App Control Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewCloudAppControlRule(ctx, "example", &zia.CloudAppControlRuleArgs{
+//				Name:         pulumi.String("Example Cloud App Control Rule"),
+//				Description:  pulumi.StringRef("Block file sharing uploads"),
+//				Type:         pulumi.String("STREAMING_MEDIA"),
+//				Order:        pulumi.Int(1),
+//				State:        pulumi.StringRef("ENABLED"),
+//				Actions:      pulumi.ToStringArray([]string{"BLOCK"}),
+//				Applications: pulumi.ToStringArray([]string{"YOUTUBE"}),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing Cloud App Control Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:CloudAppControlRule example 12345
+// ```
 type CloudAppControlRule struct {
 	pulumi.CustomResourceState
 
-	Actions               pulumi.StringArrayOutput `pulumi:"actions"`
-	Applications          pulumi.StringArrayOutput `pulumi:"applications"`
-	BrowserEunTemplateId  pulumi.IntPtrOutput      `pulumi:"browserEunTemplateId"`
-	CascadingEnabled      pulumi.BoolPtrOutput     `pulumi:"cascadingEnabled"`
-	CbiProfile            CBIProfileInputPtrOutput `pulumi:"cbiProfile"`
-	CloudAppRiskProfileId pulumi.IntPtrOutput      `pulumi:"cloudAppRiskProfileId"`
-	Departments           pulumi.IntArrayOutput    `pulumi:"departments"`
-	Description           pulumi.StringPtrOutput   `pulumi:"description"`
-	DeviceGroups          pulumi.IntArrayOutput    `pulumi:"deviceGroups"`
-	Devices               pulumi.IntArrayOutput    `pulumi:"devices"`
-	EnforceTimeValidity   pulumi.BoolPtrOutput     `pulumi:"enforceTimeValidity"`
-	EunEnabled            pulumi.BoolPtrOutput     `pulumi:"eunEnabled"`
-	EunTemplateId         pulumi.IntPtrOutput      `pulumi:"eunTemplateId"`
-	Groups                pulumi.IntArrayOutput    `pulumi:"groups"`
-	Labels                pulumi.IntArrayOutput    `pulumi:"labels"`
-	LocationGroups        pulumi.IntArrayOutput    `pulumi:"locationGroups"`
-	Locations             pulumi.IntArrayOutput    `pulumi:"locations"`
-	Name                  pulumi.StringOutput      `pulumi:"name"`
-	Order                 pulumi.IntOutput         `pulumi:"order"`
-	Rank                  pulumi.IntPtrOutput      `pulumi:"rank"`
-	RuleId                pulumi.IntOutput         `pulumi:"ruleId"`
-	SizeQuota             pulumi.IntPtrOutput      `pulumi:"sizeQuota"`
-	State                 pulumi.StringPtrOutput   `pulumi:"state"`
-	TenancyProfileIds     pulumi.IntArrayOutput    `pulumi:"tenancyProfileIds"`
-	TimeQuota             pulumi.IntPtrOutput      `pulumi:"timeQuota"`
-	TimeWindows           pulumi.IntArrayOutput    `pulumi:"timeWindows"`
-	Type                  pulumi.StringOutput      `pulumi:"type"`
-	Users                 pulumi.IntArrayOutput    `pulumi:"users"`
+	// Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+	Actions pulumi.StringArrayOutput `pulumi:"actions"`
+	// List of cloud application names to which the rule applies.
+	Applications pulumi.StringArrayOutput `pulumi:"applications"`
+	// The ID of the Browser End User Notification template.
+	BrowserEunTemplateId pulumi.IntPtrOutput `pulumi:"browserEunTemplateId"`
+	// If true, cascading to other rules is enabled when this rule matches.
+	CascadingEnabled pulumi.BoolPtrOutput `pulumi:"cascadingEnabled"`
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile CBIProfileInputPtrOutput `pulumi:"cbiProfile"`
+	// The ID of the cloud application risk profile associated with this rule.
+	CloudAppRiskProfileId pulumi.IntPtrOutput `pulumi:"cloudAppRiskProfileId"`
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the cloud app control rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// IDs of device groups for which the rule must be applied.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// Enforce a set validity time period for the rule.
+	EnforceTimeValidity pulumi.BoolPtrOutput `pulumi:"enforceTimeValidity"`
+	// If true, End User Notification is enabled for this rule.
+	EunEnabled pulumi.BoolPtrOutput `pulumi:"eunEnabled"`
+	// The ID of the End User Notification template.
+	EunTemplateId pulumi.IntPtrOutput `pulumi:"eunTemplateId"`
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the cloud app control rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the cloud app control rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The order of execution of the rule with respect to other cloud app control rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The system-generated ID of the cloud app control rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
+	SizeQuota pulumi.IntPtrOutput `pulumi:"sizeQuota"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of tenancy profiles for which the rule must be applied.
+	TenancyProfileIds pulumi.IntArrayOutput `pulumi:"tenancyProfileIds"`
+	// Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
+	TimeQuota pulumi.IntPtrOutput `pulumi:"timeQuota"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
 }
 
 // NewCloudAppControlRule registers a new resource with the given unique name, arguments, and options.
@@ -95,64 +161,118 @@ func (CloudAppControlRuleState) ElementType() reflect.Type {
 }
 
 type cloudAppControlRuleArgs struct {
-	Actions               []string         `pulumi:"actions"`
-	Applications          []string         `pulumi:"applications"`
-	BrowserEunTemplateId  *int             `pulumi:"browserEunTemplateId"`
-	CascadingEnabled      *bool            `pulumi:"cascadingEnabled"`
-	CbiProfile            *CBIProfileInput `pulumi:"cbiProfile"`
-	CloudAppRiskProfileId *int             `pulumi:"cloudAppRiskProfileId"`
-	Departments           []int            `pulumi:"departments"`
-	Description           *string          `pulumi:"description"`
-	DeviceGroups          []int            `pulumi:"deviceGroups"`
-	Devices               []int            `pulumi:"devices"`
-	EnforceTimeValidity   *bool            `pulumi:"enforceTimeValidity"`
-	EunEnabled            *bool            `pulumi:"eunEnabled"`
-	EunTemplateId         *int             `pulumi:"eunTemplateId"`
-	Groups                []int            `pulumi:"groups"`
-	Labels                []int            `pulumi:"labels"`
-	LocationGroups        []int            `pulumi:"locationGroups"`
-	Locations             []int            `pulumi:"locations"`
-	Name                  string           `pulumi:"name"`
-	Order                 int              `pulumi:"order"`
-	Rank                  *int             `pulumi:"rank"`
-	SizeQuota             *int             `pulumi:"sizeQuota"`
-	State                 *string          `pulumi:"state"`
-	TenancyProfileIds     []int            `pulumi:"tenancyProfileIds"`
-	TimeQuota             *int             `pulumi:"timeQuota"`
-	TimeWindows           []int            `pulumi:"timeWindows"`
-	Type                  string           `pulumi:"type"`
-	Users                 []int            `pulumi:"users"`
+	// Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+	Actions []string `pulumi:"actions"`
+	// List of cloud application names to which the rule applies.
+	Applications []string `pulumi:"applications"`
+	// The ID of the Browser End User Notification template.
+	BrowserEunTemplateId *int `pulumi:"browserEunTemplateId"`
+	// If true, cascading to other rules is enabled when this rule matches.
+	CascadingEnabled *bool `pulumi:"cascadingEnabled"`
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile *CBIProfileInput `pulumi:"cbiProfile"`
+	// The ID of the cloud application risk profile associated with this rule.
+	CloudAppRiskProfileId *int `pulumi:"cloudAppRiskProfileId"`
+	// IDs of departments for which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the cloud app control rule.
+	Description *string `pulumi:"description"`
+	// IDs of device groups for which the rule must be applied.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// IDs of devices for which the rule must be applied.
+	Devices []int `pulumi:"devices"`
+	// Enforce a set validity time period for the rule.
+	EnforceTimeValidity *bool `pulumi:"enforceTimeValidity"`
+	// If true, End User Notification is enabled for this rule.
+	EunEnabled *bool `pulumi:"eunEnabled"`
+	// The ID of the End User Notification template.
+	EunTemplateId *int `pulumi:"eunTemplateId"`
+	// IDs of groups for which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the cloud app control rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The name of the cloud app control rule. Must be unique.
+	Name string `pulumi:"name"`
+	// The order of execution of the rule with respect to other cloud app control rules.
+	Order int `pulumi:"order"`
+	// Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
+	SizeQuota *int `pulumi:"sizeQuota"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of tenancy profiles for which the rule must be applied.
+	TenancyProfileIds []int `pulumi:"tenancyProfileIds"`
+	// Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
+	TimeQuota *int `pulumi:"timeQuota"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+	Type string `pulumi:"type"`
+	// IDs of users for which the rule must be applied.
+	Users []int `pulumi:"users"`
 }
 
 // The set of arguments for constructing a CloudAppControlRule resource.
 type CloudAppControlRuleArgs struct {
-	Actions               pulumi.StringArrayInput
-	Applications          pulumi.StringArrayInput
-	BrowserEunTemplateId  pulumi.IntPtrInput
-	CascadingEnabled      pulumi.BoolPtrInput
-	CbiProfile            CBIProfileInputPtrInput
+	// Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+	Actions pulumi.StringArrayInput
+	// List of cloud application names to which the rule applies.
+	Applications pulumi.StringArrayInput
+	// The ID of the Browser End User Notification template.
+	BrowserEunTemplateId pulumi.IntPtrInput
+	// If true, cascading to other rules is enabled when this rule matches.
+	CascadingEnabled pulumi.BoolPtrInput
+	// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+	CbiProfile CBIProfileInputPtrInput
+	// The ID of the cloud application risk profile associated with this rule.
 	CloudAppRiskProfileId pulumi.IntPtrInput
-	Departments           pulumi.IntArrayInput
-	Description           pulumi.StringPtrInput
-	DeviceGroups          pulumi.IntArrayInput
-	Devices               pulumi.IntArrayInput
-	EnforceTimeValidity   pulumi.BoolPtrInput
-	EunEnabled            pulumi.BoolPtrInput
-	EunTemplateId         pulumi.IntPtrInput
-	Groups                pulumi.IntArrayInput
-	Labels                pulumi.IntArrayInput
-	LocationGroups        pulumi.IntArrayInput
-	Locations             pulumi.IntArrayInput
-	Name                  pulumi.StringInput
-	Order                 pulumi.IntInput
-	Rank                  pulumi.IntPtrInput
-	SizeQuota             pulumi.IntPtrInput
-	State                 pulumi.StringPtrInput
-	TenancyProfileIds     pulumi.IntArrayInput
-	TimeQuota             pulumi.IntPtrInput
-	TimeWindows           pulumi.IntArrayInput
-	Type                  pulumi.StringInput
-	Users                 pulumi.IntArrayInput
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the cloud app control rule.
+	Description pulumi.StringPtrInput
+	// IDs of device groups for which the rule must be applied.
+	DeviceGroups pulumi.IntArrayInput
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayInput
+	// Enforce a set validity time period for the rule.
+	EnforceTimeValidity pulumi.BoolPtrInput
+	// If true, End User Notification is enabled for this rule.
+	EunEnabled pulumi.BoolPtrInput
+	// The ID of the End User Notification template.
+	EunTemplateId pulumi.IntPtrInput
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the cloud app control rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The name of the cloud app control rule. Must be unique.
+	Name pulumi.StringInput
+	// The order of execution of the rule with respect to other cloud app control rules.
+	Order pulumi.IntInput
+	// Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
+	SizeQuota pulumi.IntPtrInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of tenancy profiles for which the rule must be applied.
+	TenancyProfileIds pulumi.IntArrayInput
+	// Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
+	TimeQuota pulumi.IntPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+	Type pulumi.StringInput
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayInput
 }
 
 func (CloudAppControlRuleArgs) ElementType() reflect.Type {
@@ -242,114 +362,142 @@ func (o CloudAppControlRuleOutput) ToCloudAppControlRuleOutputWithContext(ctx co
 	return o
 }
 
+// Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
 func (o CloudAppControlRuleOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// List of cloud application names to which the rule applies.
 func (o CloudAppControlRuleOutput) Applications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringArrayOutput { return v.Applications }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the Browser End User Notification template.
 func (o CloudAppControlRuleOutput) BrowserEunTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.BrowserEunTemplateId }).(pulumi.IntPtrOutput)
 }
 
+// If true, cascading to other rules is enabled when this rule matches.
 func (o CloudAppControlRuleOutput) CascadingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.CascadingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
 func (o CloudAppControlRuleOutput) CbiProfile() CBIProfileInputPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) CBIProfileInputPtrOutput { return v.CbiProfile }).(CBIProfileInputPtrOutput)
 }
 
+// The ID of the cloud application risk profile associated with this rule.
 func (o CloudAppControlRuleOutput) CloudAppRiskProfileId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.CloudAppRiskProfileId }).(pulumi.IntPtrOutput)
 }
 
+// IDs of departments for which the rule must be applied.
 func (o CloudAppControlRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the cloud app control rule.
 func (o CloudAppControlRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// IDs of device groups for which the rule must be applied.
 func (o CloudAppControlRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of devices for which the rule must be applied.
 func (o CloudAppControlRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// Enforce a set validity time period for the rule.
 func (o CloudAppControlRuleOutput) EnforceTimeValidity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.EnforceTimeValidity }).(pulumi.BoolPtrOutput)
 }
 
+// If true, End User Notification is enabled for this rule.
 func (o CloudAppControlRuleOutput) EunEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.BoolPtrOutput { return v.EunEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the End User Notification template.
 func (o CloudAppControlRuleOutput) EunTemplateId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.EunTemplateId }).(pulumi.IntPtrOutput)
 }
 
+// IDs of groups for which the rule must be applied.
 func (o CloudAppControlRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the cloud app control rule.
 func (o CloudAppControlRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups for which the rule must be applied.
 func (o CloudAppControlRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations for which the rule must be applied.
 func (o CloudAppControlRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the cloud app control rule. Must be unique.
 func (o CloudAppControlRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The order of execution of the rule with respect to other cloud app control rules.
 func (o CloudAppControlRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
 func (o CloudAppControlRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the cloud app control rule.
 func (o CloudAppControlRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
 func (o CloudAppControlRuleOutput) SizeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.SizeQuota }).(pulumi.IntPtrOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o CloudAppControlRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of tenancy profiles for which the rule must be applied.
 func (o CloudAppControlRuleOutput) TenancyProfileIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.TenancyProfileIds }).(pulumi.IntArrayOutput)
 }
 
+// Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
 func (o CloudAppControlRuleOutput) TimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntPtrOutput { return v.TimeQuota }).(pulumi.IntPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o CloudAppControlRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
 func (o CloudAppControlRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
+// IDs of users for which the rule must be applied.
 func (o CloudAppControlRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAppControlRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }

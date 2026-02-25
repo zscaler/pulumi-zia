@@ -11,18 +11,40 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+// Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+// and load balancing of traffic processing.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing VZEN cluster can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:VzenCluster example 12345
+// ```
 type VzenCluster struct {
 	pulumi.CustomResourceState
 
-	ClusterId       pulumi.IntOutput       `pulumi:"clusterId"`
-	DefaultGateway  pulumi.StringPtrOutput `pulumi:"defaultGateway"`
-	IpAddress       pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	IpSecEnabled    pulumi.BoolPtrOutput   `pulumi:"ipSecEnabled"`
-	Name            pulumi.StringPtrOutput `pulumi:"name"`
-	Status          pulumi.StringPtrOutput `pulumi:"status"`
-	SubnetMask      pulumi.StringPtrOutput `pulumi:"subnetMask"`
-	Type            pulumi.StringPtrOutput `pulumi:"type"`
-	VirtualZenNodes pulumi.IntArrayOutput  `pulumi:"virtualZenNodes"`
+	// The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
+	// The default gateway of the VZEN cluster.
+	DefaultGateway pulumi.StringPtrOutput `pulumi:"defaultGateway"`
+	// The IP address of the VZEN cluster.
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the cluster.
+	IpSecEnabled pulumi.BoolPtrOutput `pulumi:"ipSecEnabled"`
+	// Name of the VZEN cluster.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The subnet mask of the VZEN cluster.
+	SubnetMask pulumi.StringPtrOutput `pulumi:"subnetMask"`
+	// The type of the VZEN cluster.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// List of VZEN node IDs that belong to this cluster.
+	VirtualZenNodes pulumi.IntArrayOutput `pulumi:"virtualZenNodes"`
 }
 
 // NewVzenCluster registers a new resource with the given unique name, arguments, and options.
@@ -65,25 +87,41 @@ func (VzenClusterState) ElementType() reflect.Type {
 }
 
 type vzenClusterArgs struct {
-	DefaultGateway  *string `pulumi:"defaultGateway"`
-	IpAddress       *string `pulumi:"ipAddress"`
-	IpSecEnabled    *bool   `pulumi:"ipSecEnabled"`
-	Name            *string `pulumi:"name"`
-	Status          *string `pulumi:"status"`
-	SubnetMask      *string `pulumi:"subnetMask"`
-	Type            *string `pulumi:"type"`
-	VirtualZenNodes []int   `pulumi:"virtualZenNodes"`
+	// The default gateway of the VZEN cluster.
+	DefaultGateway *string `pulumi:"defaultGateway"`
+	// The IP address of the VZEN cluster.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the cluster.
+	IpSecEnabled *bool `pulumi:"ipSecEnabled"`
+	// Name of the VZEN cluster.
+	Name *string `pulumi:"name"`
+	// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+	Status *string `pulumi:"status"`
+	// The subnet mask of the VZEN cluster.
+	SubnetMask *string `pulumi:"subnetMask"`
+	// The type of the VZEN cluster.
+	Type *string `pulumi:"type"`
+	// List of VZEN node IDs that belong to this cluster.
+	VirtualZenNodes []int `pulumi:"virtualZenNodes"`
 }
 
 // The set of arguments for constructing a VzenCluster resource.
 type VzenClusterArgs struct {
-	DefaultGateway  pulumi.StringPtrInput
-	IpAddress       pulumi.StringPtrInput
-	IpSecEnabled    pulumi.BoolPtrInput
-	Name            pulumi.StringPtrInput
-	Status          pulumi.StringPtrInput
-	SubnetMask      pulumi.StringPtrInput
-	Type            pulumi.StringPtrInput
+	// The default gateway of the VZEN cluster.
+	DefaultGateway pulumi.StringPtrInput
+	// The IP address of the VZEN cluster.
+	IpAddress pulumi.StringPtrInput
+	// Whether IPSec is enabled on the cluster.
+	IpSecEnabled pulumi.BoolPtrInput
+	// Name of the VZEN cluster.
+	Name pulumi.StringPtrInput
+	// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+	Status pulumi.StringPtrInput
+	// The subnet mask of the VZEN cluster.
+	SubnetMask pulumi.StringPtrInput
+	// The type of the VZEN cluster.
+	Type pulumi.StringPtrInput
+	// List of VZEN node IDs that belong to this cluster.
 	VirtualZenNodes pulumi.IntArrayInput
 }
 
@@ -174,38 +212,47 @@ func (o VzenClusterOutput) ToVzenClusterOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// The unique identifier for the VZEN cluster assigned by the ZIA cloud.
 func (o VzenClusterOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.IntOutput { return v.ClusterId }).(pulumi.IntOutput)
 }
 
+// The default gateway of the VZEN cluster.
 func (o VzenClusterOutput) DefaultGateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.DefaultGateway }).(pulumi.StringPtrOutput)
 }
 
+// The IP address of the VZEN cluster.
 func (o VzenClusterOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Whether IPSec is enabled on the cluster.
 func (o VzenClusterOutput) IpSecEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.BoolPtrOutput { return v.IpSecEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the VZEN cluster.
 func (o VzenClusterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
 func (o VzenClusterOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The subnet mask of the VZEN cluster.
 func (o VzenClusterOutput) SubnetMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
+// The type of the VZEN cluster.
 func (o VzenClusterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// List of VZEN node IDs that belong to this cluster.
 func (o VzenClusterOutput) VirtualZenNodes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VzenCluster) pulumi.IntArrayOutput { return v.VirtualZenNodes }).(pulumi.IntArrayOutput)
 }

@@ -11,32 +11,93 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+//
+// For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+//
+// ## Example Usage
+// ### Basic Custom URL Category
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewUrlCategory(ctx, "example", &zia.UrlCategoryArgs{
+//				ConfiguredName: pulumi.StringRef("Example Custom Category"),
+//				Description:    pulumi.StringRef("Custom category for internal tools"),
+//				SuperCategory:  pulumi.StringRef("USER_DEFINED"),
+//				Type:           pulumi.StringRef("URL_CATEGORY"),
+//				Urls:           pulumi.ToStringArray([]string{"internal.example.com", "tools.example.com"}),
+//				CustomCategory: pulumi.BoolRef(true),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing URL Category can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:UrlCategory example CUSTOM_01
+// ```
 type UrlCategory struct {
 	pulumi.CustomResourceState
 
-	CategoryId                           pulumi.StringOutput                       `pulumi:"categoryId"`
-	ConfiguredName                       pulumi.StringPtrOutput                    `pulumi:"configuredName"`
-	CustomCategory                       pulumi.BoolPtrOutput                      `pulumi:"customCategory"`
-	CustomIpRangesCount                  pulumi.IntPtrOutput                       `pulumi:"customIpRangesCount"`
-	CustomUrlsCount                      pulumi.IntPtrOutput                       `pulumi:"customUrlsCount"`
-	DbCategorizedUrls                    pulumi.StringArrayOutput                  `pulumi:"dbCategorizedUrls"`
-	Description                          pulumi.StringPtrOutput                    `pulumi:"description"`
-	Editable                             pulumi.BoolPtrOutput                      `pulumi:"editable"`
-	IpRanges                             pulumi.StringArrayOutput                  `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategory      pulumi.StringArrayOutput                  `pulumi:"ipRangesRetainingParentCategory"`
-	IpRangesRetainingParentCategoryCount pulumi.IntPtrOutput                       `pulumi:"ipRangesRetainingParentCategoryCount"`
-	Keywords                             pulumi.StringArrayOutput                  `pulumi:"keywords"`
-	KeywordsRetainingParentCategory      pulumi.StringArrayOutput                  `pulumi:"keywordsRetainingParentCategory"`
-	RegexPatterns                        pulumi.StringArrayOutput                  `pulumi:"regexPatterns"`
-	RegexPatternsRetainingParentCategory pulumi.StringArrayOutput                  `pulumi:"regexPatternsRetainingParentCategory"`
-	Scopes                               UrlCategoryScopeInputArrayOutput          `pulumi:"scopes"`
-	SuperCategory                        pulumi.StringPtrOutput                    `pulumi:"superCategory"`
-	Type                                 pulumi.StringPtrOutput                    `pulumi:"type"`
-	UrlKeywordCounts                     UrlCategoryUrlKeywordCountsInputPtrOutput `pulumi:"urlKeywordCounts"`
-	UrlType                              pulumi.StringPtrOutput                    `pulumi:"urlType"`
-	Urls                                 pulumi.StringArrayOutput                  `pulumi:"urls"`
-	UrlsRetainingParentCategoryCount     pulumi.IntPtrOutput                       `pulumi:"urlsRetainingParentCategoryCount"`
-	Val                                  pulumi.IntPtrOutput                       `pulumi:"val"`
+	// The system-generated ID of the URL category.
+	CategoryId pulumi.StringOutput `pulumi:"categoryId"`
+	// The name of the URL category. Must be unique.
+	ConfiguredName pulumi.StringPtrOutput `pulumi:"configuredName"`
+	// If true, this is a custom URL category. Set to true for custom categories.
+	CustomCategory pulumi.BoolPtrOutput `pulumi:"customCategory"`
+	// The number of custom IP ranges in the category.
+	CustomIpRangesCount pulumi.IntPtrOutput `pulumi:"customIpRangesCount"`
+	// The number of custom URLs in the category.
+	CustomUrlsCount pulumi.IntPtrOutput `pulumi:"customUrlsCount"`
+	// URLs added to a custom URL category that have been categorized by the Zscaler database.
+	DbCategorizedUrls pulumi.StringArrayOutput `pulumi:"dbCategorizedUrls"`
+	// A description of the URL category. Maximum 256 characters.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether the URL category is editable.
+	Editable pulumi.BoolPtrOutput `pulumi:"editable"`
+	// List of custom IP address ranges associated with the URL category.
+	IpRanges pulumi.StringArrayOutput `pulumi:"ipRanges"`
+	// List of IP ranges that retain their parent category classification.
+	IpRangesRetainingParentCategory pulumi.StringArrayOutput `pulumi:"ipRangesRetainingParentCategory"`
+	// The number of IP ranges retaining parent category.
+	IpRangesRetainingParentCategoryCount pulumi.IntPtrOutput `pulumi:"ipRangesRetainingParentCategoryCount"`
+	// List of custom keywords associated with the URL category.
+	Keywords pulumi.StringArrayOutput `pulumi:"keywords"`
+	// List of keywords that retain their parent category classification.
+	KeywordsRetainingParentCategory pulumi.StringArrayOutput `pulumi:"keywordsRetainingParentCategory"`
+	// List of regex-based patterns for URL matching.
+	RegexPatterns pulumi.StringArrayOutput `pulumi:"regexPatterns"`
+	// List of regex patterns that retain their parent category classification.
+	RegexPatternsRetainingParentCategory pulumi.StringArrayOutput `pulumi:"regexPatternsRetainingParentCategory"`
+	// Scopes for the custom URL category, defining location or department restrictions.
+	Scopes UrlCategoryScopeInputArrayOutput `pulumi:"scopes"`
+	// The super category for the URL category (e.g., `USER_DEFINED`).
+	SuperCategory pulumi.StringPtrOutput `pulumi:"superCategory"`
+	// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// URL and keyword count statistics for the category.
+	UrlKeywordCounts UrlCategoryUrlKeywordCountsInputPtrOutput `pulumi:"urlKeywordCounts"`
+	// The URL type. Valid values: `EXACT`, `REGEX`.
+	UrlType pulumi.StringPtrOutput `pulumi:"urlType"`
+	// List of custom URLs to add to the category.
+	Urls pulumi.StringArrayOutput `pulumi:"urls"`
+	// The number of URLs retaining parent category.
+	UrlsRetainingParentCategoryCount pulumi.IntPtrOutput `pulumi:"urlsRetainingParentCategoryCount"`
+	// The internal numeric value of the URL category.
+	Val pulumi.IntPtrOutput `pulumi:"val"`
 }
 
 // NewUrlCategory registers a new resource with the given unique name, arguments, and options.
@@ -79,42 +140,74 @@ func (UrlCategoryState) ElementType() reflect.Type {
 }
 
 type urlCategoryArgs struct {
-	ConfiguredName                       *string                           `pulumi:"configuredName"`
-	CustomCategory                       *bool                             `pulumi:"customCategory"`
-	DbCategorizedUrls                    []string                          `pulumi:"dbCategorizedUrls"`
-	Description                          *string                           `pulumi:"description"`
-	IpRanges                             []string                          `pulumi:"ipRanges"`
-	IpRangesRetainingParentCategory      []string                          `pulumi:"ipRangesRetainingParentCategory"`
-	Keywords                             []string                          `pulumi:"keywords"`
-	KeywordsRetainingParentCategory      []string                          `pulumi:"keywordsRetainingParentCategory"`
-	RegexPatterns                        []string                          `pulumi:"regexPatterns"`
-	RegexPatternsRetainingParentCategory []string                          `pulumi:"regexPatternsRetainingParentCategory"`
-	Scopes                               []UrlCategoryScopeInput           `pulumi:"scopes"`
-	SuperCategory                        *string                           `pulumi:"superCategory"`
-	Type                                 *string                           `pulumi:"type"`
-	UrlKeywordCounts                     *UrlCategoryUrlKeywordCountsInput `pulumi:"urlKeywordCounts"`
-	UrlType                              *string                           `pulumi:"urlType"`
-	Urls                                 []string                          `pulumi:"urls"`
+	// The name of the URL category. Must be unique.
+	ConfiguredName *string `pulumi:"configuredName"`
+	// If true, this is a custom URL category. Set to true for custom categories.
+	CustomCategory *bool `pulumi:"customCategory"`
+	// URLs added to a custom URL category that have been categorized by the Zscaler database.
+	DbCategorizedUrls []string `pulumi:"dbCategorizedUrls"`
+	// A description of the URL category. Maximum 256 characters.
+	Description *string `pulumi:"description"`
+	// List of custom IP address ranges associated with the URL category.
+	IpRanges []string `pulumi:"ipRanges"`
+	// List of IP ranges that retain their parent category classification.
+	IpRangesRetainingParentCategory []string `pulumi:"ipRangesRetainingParentCategory"`
+	// List of custom keywords associated with the URL category.
+	Keywords []string `pulumi:"keywords"`
+	// List of keywords that retain their parent category classification.
+	KeywordsRetainingParentCategory []string `pulumi:"keywordsRetainingParentCategory"`
+	// List of regex-based patterns for URL matching.
+	RegexPatterns []string `pulumi:"regexPatterns"`
+	// List of regex patterns that retain their parent category classification.
+	RegexPatternsRetainingParentCategory []string `pulumi:"regexPatternsRetainingParentCategory"`
+	// Scopes for the custom URL category, defining location or department restrictions.
+	Scopes []UrlCategoryScopeInput `pulumi:"scopes"`
+	// The super category for the URL category (e.g., `USER_DEFINED`).
+	SuperCategory *string `pulumi:"superCategory"`
+	// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+	Type *string `pulumi:"type"`
+	// URL and keyword count statistics for the category.
+	UrlKeywordCounts *UrlCategoryUrlKeywordCountsInput `pulumi:"urlKeywordCounts"`
+	// The URL type. Valid values: `EXACT`, `REGEX`.
+	UrlType *string `pulumi:"urlType"`
+	// List of custom URLs to add to the category.
+	Urls []string `pulumi:"urls"`
 }
 
 // The set of arguments for constructing a UrlCategory resource.
 type UrlCategoryArgs struct {
-	ConfiguredName                       pulumi.StringPtrInput
-	CustomCategory                       pulumi.BoolPtrInput
-	DbCategorizedUrls                    pulumi.StringArrayInput
-	Description                          pulumi.StringPtrInput
-	IpRanges                             pulumi.StringArrayInput
-	IpRangesRetainingParentCategory      pulumi.StringArrayInput
-	Keywords                             pulumi.StringArrayInput
-	KeywordsRetainingParentCategory      pulumi.StringArrayInput
-	RegexPatterns                        pulumi.StringArrayInput
+	// The name of the URL category. Must be unique.
+	ConfiguredName pulumi.StringPtrInput
+	// If true, this is a custom URL category. Set to true for custom categories.
+	CustomCategory pulumi.BoolPtrInput
+	// URLs added to a custom URL category that have been categorized by the Zscaler database.
+	DbCategorizedUrls pulumi.StringArrayInput
+	// A description of the URL category. Maximum 256 characters.
+	Description pulumi.StringPtrInput
+	// List of custom IP address ranges associated with the URL category.
+	IpRanges pulumi.StringArrayInput
+	// List of IP ranges that retain their parent category classification.
+	IpRangesRetainingParentCategory pulumi.StringArrayInput
+	// List of custom keywords associated with the URL category.
+	Keywords pulumi.StringArrayInput
+	// List of keywords that retain their parent category classification.
+	KeywordsRetainingParentCategory pulumi.StringArrayInput
+	// List of regex-based patterns for URL matching.
+	RegexPatterns pulumi.StringArrayInput
+	// List of regex patterns that retain their parent category classification.
 	RegexPatternsRetainingParentCategory pulumi.StringArrayInput
-	Scopes                               UrlCategoryScopeInputArrayInput
-	SuperCategory                        pulumi.StringPtrInput
-	Type                                 pulumi.StringPtrInput
-	UrlKeywordCounts                     UrlCategoryUrlKeywordCountsInputPtrInput
-	UrlType                              pulumi.StringPtrInput
-	Urls                                 pulumi.StringArrayInput
+	// Scopes for the custom URL category, defining location or department restrictions.
+	Scopes UrlCategoryScopeInputArrayInput
+	// The super category for the URL category (e.g., `USER_DEFINED`).
+	SuperCategory pulumi.StringPtrInput
+	// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+	Type pulumi.StringPtrInput
+	// URL and keyword count statistics for the category.
+	UrlKeywordCounts UrlCategoryUrlKeywordCountsInputPtrInput
+	// The URL type. Valid values: `EXACT`, `REGEX`.
+	UrlType pulumi.StringPtrInput
+	// List of custom URLs to add to the category.
+	Urls pulumi.StringArrayInput
 }
 
 func (UrlCategoryArgs) ElementType() reflect.Type {
@@ -204,94 +297,117 @@ func (o UrlCategoryOutput) ToUrlCategoryOutputWithContext(ctx context.Context) U
 	return o
 }
 
+// The system-generated ID of the URL category.
 func (o UrlCategoryOutput) CategoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringOutput { return v.CategoryId }).(pulumi.StringOutput)
 }
 
+// The name of the URL category. Must be unique.
 func (o UrlCategoryOutput) ConfiguredName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringPtrOutput { return v.ConfiguredName }).(pulumi.StringPtrOutput)
 }
 
+// If true, this is a custom URL category. Set to true for custom categories.
 func (o UrlCategoryOutput) CustomCategory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.BoolPtrOutput { return v.CustomCategory }).(pulumi.BoolPtrOutput)
 }
 
+// The number of custom IP ranges in the category.
 func (o UrlCategoryOutput) CustomIpRangesCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.IntPtrOutput { return v.CustomIpRangesCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of custom URLs in the category.
 func (o UrlCategoryOutput) CustomUrlsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.IntPtrOutput { return v.CustomUrlsCount }).(pulumi.IntPtrOutput)
 }
 
+// URLs added to a custom URL category that have been categorized by the Zscaler database.
 func (o UrlCategoryOutput) DbCategorizedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.DbCategorizedUrls }).(pulumi.StringArrayOutput)
 }
 
+// A description of the URL category. Maximum 256 characters.
 func (o UrlCategoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether the URL category is editable.
 func (o UrlCategoryOutput) Editable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.BoolPtrOutput { return v.Editable }).(pulumi.BoolPtrOutput)
 }
 
+// List of custom IP address ranges associated with the URL category.
 func (o UrlCategoryOutput) IpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.IpRanges }).(pulumi.StringArrayOutput)
 }
 
+// List of IP ranges that retain their parent category classification.
 func (o UrlCategoryOutput) IpRangesRetainingParentCategory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.IpRangesRetainingParentCategory }).(pulumi.StringArrayOutput)
 }
 
+// The number of IP ranges retaining parent category.
 func (o UrlCategoryOutput) IpRangesRetainingParentCategoryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.IntPtrOutput { return v.IpRangesRetainingParentCategoryCount }).(pulumi.IntPtrOutput)
 }
 
+// List of custom keywords associated with the URL category.
 func (o UrlCategoryOutput) Keywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.Keywords }).(pulumi.StringArrayOutput)
 }
 
+// List of keywords that retain their parent category classification.
 func (o UrlCategoryOutput) KeywordsRetainingParentCategory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.KeywordsRetainingParentCategory }).(pulumi.StringArrayOutput)
 }
 
+// List of regex-based patterns for URL matching.
 func (o UrlCategoryOutput) RegexPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.RegexPatterns }).(pulumi.StringArrayOutput)
 }
 
+// List of regex patterns that retain their parent category classification.
 func (o UrlCategoryOutput) RegexPatternsRetainingParentCategory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.RegexPatternsRetainingParentCategory }).(pulumi.StringArrayOutput)
 }
 
+// Scopes for the custom URL category, defining location or department restrictions.
 func (o UrlCategoryOutput) Scopes() UrlCategoryScopeInputArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) UrlCategoryScopeInputArrayOutput { return v.Scopes }).(UrlCategoryScopeInputArrayOutput)
 }
 
+// The super category for the URL category (e.g., `USER_DEFINED`).
 func (o UrlCategoryOutput) SuperCategory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringPtrOutput { return v.SuperCategory }).(pulumi.StringPtrOutput)
 }
 
+// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
 func (o UrlCategoryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// URL and keyword count statistics for the category.
 func (o UrlCategoryOutput) UrlKeywordCounts() UrlCategoryUrlKeywordCountsInputPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) UrlCategoryUrlKeywordCountsInputPtrOutput { return v.UrlKeywordCounts }).(UrlCategoryUrlKeywordCountsInputPtrOutput)
 }
 
+// The URL type. Valid values: `EXACT`, `REGEX`.
 func (o UrlCategoryOutput) UrlType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringPtrOutput { return v.UrlType }).(pulumi.StringPtrOutput)
 }
 
+// List of custom URLs to add to the category.
 func (o UrlCategoryOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }
 
+// The number of URLs retaining parent category.
 func (o UrlCategoryOutput) UrlsRetainingParentCategoryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.IntPtrOutput { return v.UrlsRetainingParentCategoryCount }).(pulumi.IntPtrOutput)
 }
 
+// The internal numeric value of the URL category.
 func (o UrlCategoryOutput) Val() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UrlCategory) pulumi.IntPtrOutput { return v.Val }).(pulumi.IntPtrOutput)
 }

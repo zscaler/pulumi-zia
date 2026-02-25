@@ -8,39 +8,103 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_dlp_web_rules resource manages DLP (Data Loss Prevention) web rules in the Zscaler Internet Access (ZIA) cloud service. DLP web rules define how sensitive data is handled in web traffic, allowing organizations to control and monitor the transfer of confidential information.
+//
+// For more information, see the [ZIA Data Loss Prevention documentation](https://help.zscaler.com/zia/data-loss-prevention).
+//
+// ## Example Usage
+// ### Basic DLP Web Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewDlpWebRule(ctx, "example", &zia.DlpWebRuleArgs{
+//				Name:                    pulumi.String("Example DLP Web Rule"),
+//				Description:             pulumi.StringRef("Block sensitive data uploads"),
+//				Order:                   pulumi.Int(1),
+//				State:                   pulumi.StringRef("ENABLED"),
+//				Action:                  pulumi.StringRef("BLOCK"),
+//				Protocols:               pulumi.ToStringArray([]string{"FTP_RULE", "HTTPS_RULE", "HTTP_RULE"}),
+//				FileTypes:               pulumi.ToStringArray([]string{"ALL_OUTBOUND"}),
+//				ZccNotificationsEnabled: pulumi.BoolRef(true),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing DLP Web Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:DlpWebRule example 12345
+// ```
 type DlpWebRule struct {
 	pulumi.CustomResourceState
 
-	Action                   pulumi.StringPtrOutput   `pulumi:"action"`
-	CloudApplications        pulumi.StringArrayOutput `pulumi:"cloudApplications"`
-	Departments              pulumi.IntArrayOutput    `pulumi:"departments"`
-	Description              pulumi.StringPtrOutput   `pulumi:"description"`
-	DlpDownloadScanEnabled   pulumi.BoolPtrOutput     `pulumi:"dlpDownloadScanEnabled"`
-	ExternalAuditorEmail     pulumi.StringPtrOutput   `pulumi:"externalAuditorEmail"`
-	FileTypes                pulumi.StringArrayOutput `pulumi:"fileTypes"`
-	Groups                   pulumi.IntArrayOutput    `pulumi:"groups"`
-	Labels                   pulumi.IntArrayOutput    `pulumi:"labels"`
-	LocationGroups           pulumi.IntArrayOutput    `pulumi:"locationGroups"`
-	Locations                pulumi.IntArrayOutput    `pulumi:"locations"`
-	MatchOnly                pulumi.BoolPtrOutput     `pulumi:"matchOnly"`
-	MinSize                  pulumi.IntPtrOutput      `pulumi:"minSize"`
-	Name                     pulumi.StringOutput      `pulumi:"name"`
-	OcrEnabled               pulumi.BoolPtrOutput     `pulumi:"ocrEnabled"`
-	Order                    pulumi.IntOutput         `pulumi:"order"`
-	Protocols                pulumi.StringArrayOutput `pulumi:"protocols"`
-	Rank                     pulumi.IntPtrOutput      `pulumi:"rank"`
-	RuleId                   pulumi.IntOutput         `pulumi:"ruleId"`
-	SourceIpGroups           pulumi.IntArrayOutput    `pulumi:"sourceIpGroups"`
-	State                    pulumi.StringPtrOutput   `pulumi:"state"`
-	TimeWindows              pulumi.IntArrayOutput    `pulumi:"timeWindows"`
-	Users                    pulumi.IntArrayOutput    `pulumi:"users"`
-	WithoutContentInspection pulumi.BoolPtrOutput     `pulumi:"withoutContentInspection"`
-	ZccNotificationsEnabled  pulumi.BoolPtrOutput     `pulumi:"zccNotificationsEnabled"`
+	// Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// List of cloud application names for which the rule is applied.
+	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the DLP web rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If true, DLP scanning is enabled for file downloads.
+	DlpDownloadScanEnabled pulumi.BoolPtrOutput `pulumi:"dlpDownloadScanEnabled"`
+	// The email address of an external auditor to whom DLP email notifications are sent.
+	ExternalAuditorEmail pulumi.StringPtrOutput `pulumi:"externalAuditorEmail"`
+	// List of file types to which the DLP policy rule must be applied.
+	FileTypes pulumi.StringArrayOutput `pulumi:"fileTypes"`
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the DLP web rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// If true, the rule matches but does not enforce the action.
+	MatchOnly pulumi.BoolPtrOutput `pulumi:"matchOnly"`
+	// Minimum file size (in KB) used for evaluating the DLP policy rule.
+	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
+	// The name of the DLP web rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+	OcrEnabled pulumi.BoolPtrOutput `pulumi:"ocrEnabled"`
+	// The order of execution of the rule with respect to other DLP web rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The system-generated ID of the DLP web rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// IDs of source IP address groups for which the rule must be applied.
+	SourceIpGroups pulumi.IntArrayOutput `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// If true, the DLP rule is applied without inspecting content.
+	WithoutContentInspection pulumi.BoolPtrOutput `pulumi:"withoutContentInspection"`
+	// If true, Zscaler Client Connector notifications are enabled for this rule.
+	ZccNotificationsEnabled pulumi.BoolPtrOutput `pulumi:"zccNotificationsEnabled"`
 }
 
 // NewDlpWebRule registers a new resource with the given unique name, arguments, and options.
@@ -89,58 +153,106 @@ func (DlpWebRuleState) ElementType() reflect.Type {
 }
 
 type dlpWebRuleArgs struct {
-	Action                   *string  `pulumi:"action"`
-	CloudApplications        []string `pulumi:"cloudApplications"`
-	Departments              []int    `pulumi:"departments"`
-	Description              *string  `pulumi:"description"`
-	DlpDownloadScanEnabled   *bool    `pulumi:"dlpDownloadScanEnabled"`
-	ExternalAuditorEmail     *string  `pulumi:"externalAuditorEmail"`
-	FileTypes                []string `pulumi:"fileTypes"`
-	Groups                   []int    `pulumi:"groups"`
-	Labels                   []int    `pulumi:"labels"`
-	LocationGroups           []int    `pulumi:"locationGroups"`
-	Locations                []int    `pulumi:"locations"`
-	MatchOnly                *bool    `pulumi:"matchOnly"`
-	MinSize                  *int     `pulumi:"minSize"`
-	Name                     string   `pulumi:"name"`
-	OcrEnabled               *bool    `pulumi:"ocrEnabled"`
-	Order                    int      `pulumi:"order"`
-	Protocols                []string `pulumi:"protocols"`
-	Rank                     *int     `pulumi:"rank"`
-	SourceIpGroups           []int    `pulumi:"sourceIpGroups"`
-	State                    *string  `pulumi:"state"`
-	TimeWindows              []int    `pulumi:"timeWindows"`
-	Users                    []int    `pulumi:"users"`
-	WithoutContentInspection *bool    `pulumi:"withoutContentInspection"`
-	ZccNotificationsEnabled  *bool    `pulumi:"zccNotificationsEnabled"`
+	// Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+	Action *string `pulumi:"action"`
+	// List of cloud application names for which the rule is applied.
+	CloudApplications []string `pulumi:"cloudApplications"`
+	// IDs of departments for which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the DLP web rule.
+	Description *string `pulumi:"description"`
+	// If true, DLP scanning is enabled for file downloads.
+	DlpDownloadScanEnabled *bool `pulumi:"dlpDownloadScanEnabled"`
+	// The email address of an external auditor to whom DLP email notifications are sent.
+	ExternalAuditorEmail *string `pulumi:"externalAuditorEmail"`
+	// List of file types to which the DLP policy rule must be applied.
+	FileTypes []string `pulumi:"fileTypes"`
+	// IDs of groups for which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the DLP web rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// If true, the rule matches but does not enforce the action.
+	MatchOnly *bool `pulumi:"matchOnly"`
+	// Minimum file size (in KB) used for evaluating the DLP policy rule.
+	MinSize *int `pulumi:"minSize"`
+	// The name of the DLP web rule. Must be unique.
+	Name string `pulumi:"name"`
+	// If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+	OcrEnabled *bool `pulumi:"ocrEnabled"`
+	// The order of execution of the rule with respect to other DLP web rules.
+	Order int `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+	Protocols []string `pulumi:"protocols"`
+	// Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// IDs of source IP address groups for which the rule must be applied.
+	SourceIpGroups []int `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// IDs of users for which the rule must be applied.
+	Users []int `pulumi:"users"`
+	// If true, the DLP rule is applied without inspecting content.
+	WithoutContentInspection *bool `pulumi:"withoutContentInspection"`
+	// If true, Zscaler Client Connector notifications are enabled for this rule.
+	ZccNotificationsEnabled *bool `pulumi:"zccNotificationsEnabled"`
 }
 
 // The set of arguments for constructing a DlpWebRule resource.
 type DlpWebRuleArgs struct {
-	Action                   pulumi.StringPtrInput
-	CloudApplications        pulumi.StringArrayInput
-	Departments              pulumi.IntArrayInput
-	Description              pulumi.StringPtrInput
-	DlpDownloadScanEnabled   pulumi.BoolPtrInput
-	ExternalAuditorEmail     pulumi.StringPtrInput
-	FileTypes                pulumi.StringArrayInput
-	Groups                   pulumi.IntArrayInput
-	Labels                   pulumi.IntArrayInput
-	LocationGroups           pulumi.IntArrayInput
-	Locations                pulumi.IntArrayInput
-	MatchOnly                pulumi.BoolPtrInput
-	MinSize                  pulumi.IntPtrInput
-	Name                     pulumi.StringInput
-	OcrEnabled               pulumi.BoolPtrInput
-	Order                    pulumi.IntInput
-	Protocols                pulumi.StringArrayInput
-	Rank                     pulumi.IntPtrInput
-	SourceIpGroups           pulumi.IntArrayInput
-	State                    pulumi.StringPtrInput
-	TimeWindows              pulumi.IntArrayInput
-	Users                    pulumi.IntArrayInput
+	// Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+	Action pulumi.StringPtrInput
+	// List of cloud application names for which the rule is applied.
+	CloudApplications pulumi.StringArrayInput
+	// IDs of departments for which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the DLP web rule.
+	Description pulumi.StringPtrInput
+	// If true, DLP scanning is enabled for file downloads.
+	DlpDownloadScanEnabled pulumi.BoolPtrInput
+	// The email address of an external auditor to whom DLP email notifications are sent.
+	ExternalAuditorEmail pulumi.StringPtrInput
+	// List of file types to which the DLP policy rule must be applied.
+	FileTypes pulumi.StringArrayInput
+	// IDs of groups for which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the DLP web rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// If true, the rule matches but does not enforce the action.
+	MatchOnly pulumi.BoolPtrInput
+	// Minimum file size (in KB) used for evaluating the DLP policy rule.
+	MinSize pulumi.IntPtrInput
+	// The name of the DLP web rule. Must be unique.
+	Name pulumi.StringInput
+	// If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+	OcrEnabled pulumi.BoolPtrInput
+	// The order of execution of the rule with respect to other DLP web rules.
+	Order pulumi.IntInput
+	// Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+	Protocols pulumi.StringArrayInput
+	// Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// IDs of source IP address groups for which the rule must be applied.
+	SourceIpGroups pulumi.IntArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// IDs of users for which the rule must be applied.
+	Users pulumi.IntArrayInput
+	// If true, the DLP rule is applied without inspecting content.
 	WithoutContentInspection pulumi.BoolPtrInput
-	ZccNotificationsEnabled  pulumi.BoolPtrInput
+	// If true, Zscaler Client Connector notifications are enabled for this rule.
+	ZccNotificationsEnabled pulumi.BoolPtrInput
 }
 
 func (DlpWebRuleArgs) ElementType() reflect.Type {
@@ -230,102 +342,127 @@ func (o DlpWebRuleOutput) ToDlpWebRuleOutputWithContext(ctx context.Context) Dlp
 	return o
 }
 
+// Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
 func (o DlpWebRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// List of cloud application names for which the rule is applied.
 func (o DlpWebRuleOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
 
+// IDs of departments for which the rule must be applied.
 func (o DlpWebRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the DLP web rule.
 func (o DlpWebRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// If true, DLP scanning is enabled for file downloads.
 func (o DlpWebRuleOutput) DlpDownloadScanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.BoolPtrOutput { return v.DlpDownloadScanEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The email address of an external auditor to whom DLP email notifications are sent.
 func (o DlpWebRuleOutput) ExternalAuditorEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringPtrOutput { return v.ExternalAuditorEmail }).(pulumi.StringPtrOutput)
 }
 
+// List of file types to which the DLP policy rule must be applied.
 func (o DlpWebRuleOutput) FileTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringArrayOutput { return v.FileTypes }).(pulumi.StringArrayOutput)
 }
 
+// IDs of groups for which the rule must be applied.
 func (o DlpWebRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the DLP web rule.
 func (o DlpWebRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups for which the rule must be applied.
 func (o DlpWebRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations for which the rule must be applied.
 func (o DlpWebRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// If true, the rule matches but does not enforce the action.
 func (o DlpWebRuleOutput) MatchOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.BoolPtrOutput { return v.MatchOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Minimum file size (in KB) used for evaluating the DLP policy rule.
 func (o DlpWebRuleOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
+// The name of the DLP web rule. Must be unique.
 func (o DlpWebRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
 func (o DlpWebRuleOutput) OcrEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.BoolPtrOutput { return v.OcrEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The order of execution of the rule with respect to other DLP web rules.
 func (o DlpWebRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
 func (o DlpWebRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
 func (o DlpWebRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the DLP web rule.
 func (o DlpWebRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// IDs of source IP address groups for which the rule must be applied.
 func (o DlpWebRuleOutput) SourceIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.SourceIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o DlpWebRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o DlpWebRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// IDs of users for which the rule must be applied.
 func (o DlpWebRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// If true, the DLP rule is applied without inspecting content.
 func (o DlpWebRuleOutput) WithoutContentInspection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.BoolPtrOutput { return v.WithoutContentInspection }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Zscaler Client Connector notifications are enabled for this rule.
 func (o DlpWebRuleOutput) ZccNotificationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DlpWebRule) pulumi.BoolPtrOutput { return v.ZccNotificationsEnabled }).(pulumi.BoolPtrOutput)
 }

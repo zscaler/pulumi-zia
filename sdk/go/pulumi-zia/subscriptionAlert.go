@@ -11,16 +11,37 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+//
+// For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing Subscription Alert can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:SubscriptionAlert example 12345
+// ```
 type SubscriptionAlert struct {
 	pulumi.CustomResourceState
 
-	AlertId          pulumi.IntOutput         `pulumi:"alertId"`
+	// The system-generated ID of the subscription alert.
+	AlertId pulumi.IntOutput `pulumi:"alertId"`
+	// Severity levels for compliance alerts.
 	ComplySeverities pulumi.StringArrayOutput `pulumi:"complySeverities"`
-	Description      pulumi.StringPtrOutput   `pulumi:"description"`
-	Email            pulumi.StringPtrOutput   `pulumi:"email"`
+	// Additional information about the subscription alert.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The email address to which alerts are sent.
+	Email pulumi.StringPtrOutput `pulumi:"email"`
+	// Severity levels for management alerts.
 	ManageSeverities pulumi.StringArrayOutput `pulumi:"manageSeverities"`
-	Pt0Severities    pulumi.StringArrayOutput `pulumi:"pt0Severities"`
+	// Severity levels for Pt0 alerts.
+	Pt0Severities pulumi.StringArrayOutput `pulumi:"pt0Severities"`
+	// Severity levels for security alerts.
 	SecureSeverities pulumi.StringArrayOutput `pulumi:"secureSeverities"`
+	// Severity levels for system alerts.
 	SystemSeverities pulumi.StringArrayOutput `pulumi:"systemSeverities"`
 }
 
@@ -64,23 +85,37 @@ func (SubscriptionAlertState) ElementType() reflect.Type {
 }
 
 type subscriptionAlertArgs struct {
+	// Severity levels for compliance alerts.
 	ComplySeverities []string `pulumi:"complySeverities"`
-	Description      *string  `pulumi:"description"`
-	Email            *string  `pulumi:"email"`
+	// Additional information about the subscription alert.
+	Description *string `pulumi:"description"`
+	// The email address to which alerts are sent.
+	Email *string `pulumi:"email"`
+	// Severity levels for management alerts.
 	ManageSeverities []string `pulumi:"manageSeverities"`
-	Pt0Severities    []string `pulumi:"pt0Severities"`
+	// Severity levels for Pt0 alerts.
+	Pt0Severities []string `pulumi:"pt0Severities"`
+	// Severity levels for security alerts.
 	SecureSeverities []string `pulumi:"secureSeverities"`
+	// Severity levels for system alerts.
 	SystemSeverities []string `pulumi:"systemSeverities"`
 }
 
 // The set of arguments for constructing a SubscriptionAlert resource.
 type SubscriptionAlertArgs struct {
+	// Severity levels for compliance alerts.
 	ComplySeverities pulumi.StringArrayInput
-	Description      pulumi.StringPtrInput
-	Email            pulumi.StringPtrInput
+	// Additional information about the subscription alert.
+	Description pulumi.StringPtrInput
+	// The email address to which alerts are sent.
+	Email pulumi.StringPtrInput
+	// Severity levels for management alerts.
 	ManageSeverities pulumi.StringArrayInput
-	Pt0Severities    pulumi.StringArrayInput
+	// Severity levels for Pt0 alerts.
+	Pt0Severities pulumi.StringArrayInput
+	// Severity levels for security alerts.
 	SecureSeverities pulumi.StringArrayInput
+	// Severity levels for system alerts.
 	SystemSeverities pulumi.StringArrayInput
 }
 
@@ -171,34 +206,42 @@ func (o SubscriptionAlertOutput) ToSubscriptionAlertOutputWithContext(ctx contex
 	return o
 }
 
+// The system-generated ID of the subscription alert.
 func (o SubscriptionAlertOutput) AlertId() pulumi.IntOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.IntOutput { return v.AlertId }).(pulumi.IntOutput)
 }
 
+// Severity levels for compliance alerts.
 func (o SubscriptionAlertOutput) ComplySeverities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringArrayOutput { return v.ComplySeverities }).(pulumi.StringArrayOutput)
 }
 
+// Additional information about the subscription alert.
 func (o SubscriptionAlertOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The email address to which alerts are sent.
 func (o SubscriptionAlertOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// Severity levels for management alerts.
 func (o SubscriptionAlertOutput) ManageSeverities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringArrayOutput { return v.ManageSeverities }).(pulumi.StringArrayOutput)
 }
 
+// Severity levels for Pt0 alerts.
 func (o SubscriptionAlertOutput) Pt0Severities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringArrayOutput { return v.Pt0Severities }).(pulumi.StringArrayOutput)
 }
 
+// Severity levels for security alerts.
 func (o SubscriptionAlertOutput) SecureSeverities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringArrayOutput { return v.SecureSeverities }).(pulumi.StringArrayOutput)
 }
 
+// Severity levels for system alerts.
 func (o SubscriptionAlertOutput) SystemSeverities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionAlert) pulumi.StringArrayOutput { return v.SystemSeverities }).(pulumi.StringArrayOutput)
 }

@@ -8,21 +8,40 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+//
+// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing static IP can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+// ```
 type TrafficForwardingStaticIp struct {
 	pulumi.CustomResourceState
 
-	Comment     pulumi.StringPtrOutput  `pulumi:"comment"`
-	GeoOverride pulumi.BoolPtrOutput    `pulumi:"geoOverride"`
-	IpAddress   pulumi.StringOutput     `pulumi:"ipAddress"`
-	Latitude    pulumi.Float64PtrOutput `pulumi:"latitude"`
-	Longitude   pulumi.Float64PtrOutput `pulumi:"longitude"`
-	RoutableIp  pulumi.BoolPtrOutput    `pulumi:"routableIp"`
-	StaticIpId  pulumi.IntOutput        `pulumi:"staticIpId"`
+	// Additional information about the static IP.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+	GeoOverride pulumi.BoolPtrOutput `pulumi:"geoOverride"`
+	// The static IP address.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+	Latitude pulumi.Float64PtrOutput `pulumi:"latitude"`
+	// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+	Longitude pulumi.Float64PtrOutput `pulumi:"longitude"`
+	// Indicates whether a non-RFC 1918 IP address is publicly routable.
+	RoutableIp pulumi.BoolPtrOutput `pulumi:"routableIp"`
+	// The system-generated ID of the static IP.
+	StaticIpId pulumi.IntOutput `pulumi:"staticIpId"`
 }
 
 // NewTrafficForwardingStaticIp registers a new resource with the given unique name, arguments, and options.
@@ -68,22 +87,34 @@ func (TrafficForwardingStaticIpState) ElementType() reflect.Type {
 }
 
 type trafficForwardingStaticIpArgs struct {
-	Comment     *string  `pulumi:"comment"`
-	GeoOverride *bool    `pulumi:"geoOverride"`
-	IpAddress   string   `pulumi:"ipAddress"`
-	Latitude    *float64 `pulumi:"latitude"`
-	Longitude   *float64 `pulumi:"longitude"`
-	RoutableIp  *bool    `pulumi:"routableIp"`
+	// Additional information about the static IP.
+	Comment *string `pulumi:"comment"`
+	// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+	GeoOverride *bool `pulumi:"geoOverride"`
+	// The static IP address.
+	IpAddress string `pulumi:"ipAddress"`
+	// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+	Latitude *float64 `pulumi:"latitude"`
+	// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+	Longitude *float64 `pulumi:"longitude"`
+	// Indicates whether a non-RFC 1918 IP address is publicly routable.
+	RoutableIp *bool `pulumi:"routableIp"`
 }
 
 // The set of arguments for constructing a TrafficForwardingStaticIp resource.
 type TrafficForwardingStaticIpArgs struct {
-	Comment     pulumi.StringPtrInput
+	// Additional information about the static IP.
+	Comment pulumi.StringPtrInput
+	// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
 	GeoOverride pulumi.BoolPtrInput
-	IpAddress   pulumi.StringInput
-	Latitude    pulumi.Float64PtrInput
-	Longitude   pulumi.Float64PtrInput
-	RoutableIp  pulumi.BoolPtrInput
+	// The static IP address.
+	IpAddress pulumi.StringInput
+	// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+	Latitude pulumi.Float64PtrInput
+	// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+	Longitude pulumi.Float64PtrInput
+	// Indicates whether a non-RFC 1918 IP address is publicly routable.
+	RoutableIp pulumi.BoolPtrInput
 }
 
 func (TrafficForwardingStaticIpArgs) ElementType() reflect.Type {
@@ -173,30 +204,37 @@ func (o TrafficForwardingStaticIpOutput) ToTrafficForwardingStaticIpOutputWithCo
 	return o
 }
 
+// Additional information about the static IP.
 func (o TrafficForwardingStaticIpOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
 func (o TrafficForwardingStaticIpOutput) GeoOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.BoolPtrOutput { return v.GeoOverride }).(pulumi.BoolPtrOutput)
 }
 
+// The static IP address.
 func (o TrafficForwardingStaticIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
 func (o TrafficForwardingStaticIpOutput) Latitude() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.Float64PtrOutput { return v.Latitude }).(pulumi.Float64PtrOutput)
 }
 
+// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
 func (o TrafficForwardingStaticIpOutput) Longitude() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.Float64PtrOutput { return v.Longitude }).(pulumi.Float64PtrOutput)
 }
 
+// Indicates whether a non-RFC 1918 IP address is publicly routable.
 func (o TrafficForwardingStaticIpOutput) RoutableIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.BoolPtrOutput { return v.RoutableIp }).(pulumi.BoolPtrOutput)
 }
 
+// The system-generated ID of the static IP.
 func (o TrafficForwardingStaticIpOutput) StaticIpId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficForwardingStaticIp) pulumi.IntOutput { return v.StaticIpId }).(pulumi.IntOutput)
 }

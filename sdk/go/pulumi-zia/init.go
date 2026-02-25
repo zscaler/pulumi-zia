@@ -45,16 +45,42 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AtpSettings{}
 	case "zia:index:AuthSettingsUrls":
 		r = &AuthSettingsUrls{}
+	case "zia:index:BandwidthClass":
+		r = &BandwidthClass{}
+	case "zia:index:BandwidthClassFileSize":
+		r = &BandwidthClassFileSize{}
+	case "zia:index:BandwidthClassWebConferencing":
+		r = &BandwidthClassWebConferencing{}
 	case "zia:index:BandwidthControlRule":
 		r = &BandwidthControlRule{}
+	case "zia:index:BrowserControlPolicy":
+		r = &BrowserControlPolicy{}
 	case "zia:index:CasbDlpRule":
 		r = &CasbDlpRule{}
 	case "zia:index:CasbMalwareRule":
 		r = &CasbMalwareRule{}
 	case "zia:index:CloudAppControlRule":
 		r = &CloudAppControlRule{}
+	case "zia:index:CloudApplicationInstance":
+		r = &CloudApplicationInstance{}
+	case "zia:index:CloudNssFeed":
+		r = &CloudNssFeed{}
+	case "zia:index:CustomFileType":
+		r = &CustomFileType{}
+	case "zia:index:DcExclusion":
+		r = &DcExclusion{}
+	case "zia:index:DlpDictionary":
+		r = &DlpDictionary{}
+	case "zia:index:DlpEngine":
+		r = &DlpEngine{}
+	case "zia:index:DlpNotificationTemplate":
+		r = &DlpNotificationTemplate{}
 	case "zia:index:DlpWebRule":
 		r = &DlpWebRule{}
+	case "zia:index:EndUserNotification":
+		r = &EndUserNotification{}
+	case "zia:index:Extranet":
+		r = &Extranet{}
 	case "zia:index:FileTypeControlRule":
 		r = &FileTypeControlRule{}
 	case "zia:index:FirewallDNSRule":
@@ -63,8 +89,28 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallFilteringRule{}
 	case "zia:index:FirewallIPSRule":
 		r = &FirewallIPSRule{}
+	case "zia:index:ForwardingControlProxies":
+		r = &ForwardingControlProxies{}
 	case "zia:index:ForwardingControlRule":
 		r = &ForwardingControlRule{}
+	case "zia:index:ForwardingControlZpaGateway":
+		r = &ForwardingControlZpaGateway{}
+	case "zia:index:FtpControlPolicy":
+		r = &FtpControlPolicy{}
+	case "zia:index:FwIpDestinationGroup":
+		r = &FwIpDestinationGroup{}
+	case "zia:index:FwIpSourceGroup":
+		r = &FwIpSourceGroup{}
+	case "zia:index:FwNetworkApplicationGroup":
+		r = &FwNetworkApplicationGroup{}
+	case "zia:index:FwNetworkService":
+		r = &FwNetworkService{}
+	case "zia:index:FwNetworkServiceGroup":
+		r = &FwNetworkServiceGroup{}
+	case "zia:index:LocationManagement":
+		r = &LocationManagement{}
+	case "zia:index:MobileMalwareProtectionPolicy":
+		r = &MobileMalwareProtectionPolicy{}
 	case "zia:index:NatControlRule":
 		r = &NatControlRule{}
 	case "zia:index:NssServer":
@@ -75,6 +121,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RuleLabel{}
 	case "zia:index:SandboxBehavioralAnalysisAdvancedSettings":
 		r = &SandboxBehavioralAnalysisAdvancedSettings{}
+	case "zia:index:SandboxBehavioralAnalysisAdvancedSettingsV2":
+		r = &SandboxBehavioralAnalysisAdvancedSettingsV2{}
 	case "zia:index:SandboxRule":
 		r = &SandboxRule{}
 	case "zia:index:SandboxSubmission":

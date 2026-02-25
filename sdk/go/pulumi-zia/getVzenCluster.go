@@ -11,6 +11,7 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// Use this data source to look up a VZEN cluster by ID or name.
 func LookupVzenCluster(ctx *pulumi.Context, args *LookupVzenClusterArgs, opts ...pulumi.InvokeOption) (*LookupVzenClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVzenClusterResult
@@ -22,19 +23,30 @@ func LookupVzenCluster(ctx *pulumi.Context, args *LookupVzenClusterArgs, opts ..
 }
 
 type LookupVzenClusterArgs struct {
-	ClusterId *int    `pulumi:"clusterId"`
-	Name      *string `pulumi:"name"`
+	// The ID of the VZEN cluster to look up.
+	ClusterId *int `pulumi:"clusterId"`
+	// The name of the VZEN cluster to look up.
+	Name *string `pulumi:"name"`
 }
 
 type LookupVzenClusterResult struct {
-	ClusterId       int                    `pulumi:"clusterId"`
-	DefaultGateway  string                 `pulumi:"defaultGateway"`
-	IpAddress       string                 `pulumi:"ipAddress"`
-	IpSecEnabled    bool                   `pulumi:"ipSecEnabled"`
-	Name            string                 `pulumi:"name"`
-	Status          string                 `pulumi:"status"`
-	SubnetMask      string                 `pulumi:"subnetMask"`
-	Type            string                 `pulumi:"type"`
+	// The ID of the VZEN cluster.
+	ClusterId int `pulumi:"clusterId"`
+	// The default gateway of the VZEN cluster.
+	DefaultGateway string `pulumi:"defaultGateway"`
+	// The IP address of the VZEN cluster.
+	IpAddress string `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the cluster.
+	IpSecEnabled bool `pulumi:"ipSecEnabled"`
+	// The name of the VZEN cluster.
+	Name string `pulumi:"name"`
+	// The status of the VZEN cluster.
+	Status string `pulumi:"status"`
+	// The subnet mask of the VZEN cluster.
+	SubnetMask string `pulumi:"subnetMask"`
+	// The type of the VZEN cluster.
+	Type string `pulumi:"type"`
+	// The list of virtual ZEN nodes in this cluster.
 	VirtualZenNodes []VirtualZenNodeOutput `pulumi:"virtualZenNodes"`
 }
 
@@ -48,8 +60,10 @@ func LookupVzenClusterOutput(ctx *pulumi.Context, args LookupVzenClusterOutputAr
 }
 
 type LookupVzenClusterOutputArgs struct {
-	ClusterId pulumi.IntPtrInput    `pulumi:"clusterId"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the VZEN cluster to look up.
+	ClusterId pulumi.IntPtrInput `pulumi:"clusterId"`
+	// The name of the VZEN cluster to look up.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupVzenClusterOutputArgs) ElementType() reflect.Type {
@@ -70,38 +84,47 @@ func (o LookupVzenClusterResultOutput) ToLookupVzenClusterResultOutputWithContex
 	return o
 }
 
+// The ID of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) ClusterId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) int { return v.ClusterId }).(pulumi.IntOutput)
 }
 
+// The default gateway of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) DefaultGateway() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.DefaultGateway }).(pulumi.StringOutput)
 }
 
+// The IP address of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// Whether IPSec is enabled on the cluster.
 func (o LookupVzenClusterResultOutput) IpSecEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) bool { return v.IpSecEnabled }).(pulumi.BoolOutput)
 }
 
+// The name of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The subnet mask of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) SubnetMask() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
+// The type of the VZEN cluster.
 func (o LookupVzenClusterResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The list of virtual ZEN nodes in this cluster.
 func (o LookupVzenClusterResultOutput) VirtualZenNodes() VirtualZenNodeOutputArrayOutput {
 	return o.ApplyT(func(v LookupVzenClusterResult) []VirtualZenNodeOutput { return v.VirtualZenNodes }).(VirtualZenNodeOutputArrayOutput)
 }

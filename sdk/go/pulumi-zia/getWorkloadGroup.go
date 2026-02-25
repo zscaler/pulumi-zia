@@ -11,6 +11,7 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// Use this data source to look up a workload group by ID or name.
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkloadGroupResult
@@ -22,17 +23,25 @@ func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opt
 }
 
 type LookupWorkloadGroupArgs struct {
-	GroupId *int    `pulumi:"groupId"`
-	Name    *string `pulumi:"name"`
+	// The ID of the workload group to look up.
+	GroupId *int `pulumi:"groupId"`
+	// The name of the workload group to look up.
+	Name *string `pulumi:"name"`
 }
 
 type LookupWorkloadGroupResult struct {
-	Description      string                            `pulumi:"description"`
-	Expression       string                            `pulumi:"expression"`
-	ExpressionJson   *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson"`
-	GroupId          int                               `pulumi:"groupId"`
-	LastModifiedTime int                               `pulumi:"lastModifiedTime"`
-	Name             string                            `pulumi:"name"`
+	// The description of the workload group.
+	Description string `pulumi:"description"`
+	// The expression string for the workload group.
+	Expression string `pulumi:"expression"`
+	// The expression JSON that defines the workload group matching criteria.
+	ExpressionJson *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson"`
+	// The ID of the workload group.
+	GroupId int `pulumi:"groupId"`
+	// The last modification time of the workload group (epoch).
+	LastModifiedTime int `pulumi:"lastModifiedTime"`
+	// The name of the workload group.
+	Name string `pulumi:"name"`
 }
 
 func LookupWorkloadGroupOutput(ctx *pulumi.Context, args LookupWorkloadGroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadGroupResultOutput {
@@ -45,8 +54,10 @@ func LookupWorkloadGroupOutput(ctx *pulumi.Context, args LookupWorkloadGroupOutp
 }
 
 type LookupWorkloadGroupOutputArgs struct {
-	GroupId pulumi.IntPtrInput    `pulumi:"groupId"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the workload group to look up.
+	GroupId pulumi.IntPtrInput `pulumi:"groupId"`
+	// The name of the workload group to look up.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (LookupWorkloadGroupOutputArgs) ElementType() reflect.Type {
@@ -67,26 +78,32 @@ func (o LookupWorkloadGroupResultOutput) ToLookupWorkloadGroupResultOutputWithCo
 	return o
 }
 
+// The description of the workload group.
 func (o LookupWorkloadGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The expression string for the workload group.
 func (o LookupWorkloadGroupResultOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// The expression JSON that defines the workload group matching criteria.
 func (o LookupWorkloadGroupResultOutput) ExpressionJson() WorkloadGroupExpressionJsonInputPtrOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) *WorkloadGroupExpressionJsonInput { return v.ExpressionJson }).(WorkloadGroupExpressionJsonInputPtrOutput)
 }
 
+// The ID of the workload group.
 func (o LookupWorkloadGroupResultOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) int { return v.GroupId }).(pulumi.IntOutput)
 }
 
+// The last modification time of the workload group (epoch).
 func (o LookupWorkloadGroupResultOutput) LastModifiedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) int { return v.LastModifiedTime }).(pulumi.IntOutput)
 }
 
+// The name of the workload group.
 func (o LookupWorkloadGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkloadGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }

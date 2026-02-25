@@ -8,40 +8,78 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+//
+// For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:SslInspectionRule example 12345
+// ```
 type SslInspectionRule struct {
 	pulumi.CustomResourceState
 
-	Action                 SslInspectionActionInputOutput    `pulumi:"action"`
-	CloudApplications      pulumi.StringArrayOutput          `pulumi:"cloudApplications"`
-	Departments            pulumi.IntArrayOutput             `pulumi:"departments"`
-	Description            pulumi.StringPtrOutput            `pulumi:"description"`
-	DestIpGroups           pulumi.IntArrayOutput             `pulumi:"destIpGroups"`
-	DeviceGroups           pulumi.IntArrayOutput             `pulumi:"deviceGroups"`
-	DeviceTrustLevels      pulumi.StringArrayOutput          `pulumi:"deviceTrustLevels"`
-	Devices                pulumi.IntArrayOutput             `pulumi:"devices"`
-	Groups                 pulumi.IntArrayOutput             `pulumi:"groups"`
-	Labels                 pulumi.IntArrayOutput             `pulumi:"labels"`
-	LocationGroups         pulumi.IntArrayOutput             `pulumi:"locationGroups"`
-	Locations              pulumi.IntArrayOutput             `pulumi:"locations"`
-	Name                   pulumi.StringOutput               `pulumi:"name"`
-	Order                  pulumi.IntOutput                  `pulumi:"order"`
-	Platforms              pulumi.StringArrayOutput          `pulumi:"platforms"`
-	ProxyGateways          pulumi.IntArrayOutput             `pulumi:"proxyGateways"`
-	Rank                   pulumi.IntPtrOutput               `pulumi:"rank"`
-	RoadWarriorForKerberos pulumi.BoolPtrOutput              `pulumi:"roadWarriorForKerberos"`
-	RuleId                 pulumi.IntOutput                  `pulumi:"ruleId"`
-	SourceIpGroups         pulumi.IntArrayOutput             `pulumi:"sourceIpGroups"`
-	State                  pulumi.StringPtrOutput            `pulumi:"state"`
-	TimeWindows            pulumi.IntArrayOutput             `pulumi:"timeWindows"`
-	UrlCategories          pulumi.StringArrayOutput          `pulumi:"urlCategories"`
-	UserAgentTypes         pulumi.StringArrayOutput          `pulumi:"userAgentTypes"`
-	Users                  pulumi.IntArrayOutput             `pulumi:"users"`
-	WorkloadGroups         WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
+	// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+	Action SslInspectionActionInputOutput `pulumi:"action"`
+	// List of cloud application names to which the rule applies.
+	CloudApplications pulumi.StringArrayOutput `pulumi:"cloudApplications"`
+	// IDs of departments to which the rule applies.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the SSL inspection rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayOutput `pulumi:"destIpGroups"`
+	// IDs of device groups to which the rule applies.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
+	// IDs of devices to which the rule applies.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// IDs of groups to which the rule applies.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule applies.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations to which the rule applies.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the SSL inspection rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The order of execution of the rule with respect to other SSL inspection rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+	Platforms pulumi.StringArrayOutput `pulumi:"platforms"`
+	// IDs of proxy gateway configurations for the rule.
+	ProxyGateways pulumi.IntArrayOutput `pulumi:"proxyGateways"`
+	// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+	RoadWarriorForKerberos pulumi.BoolPtrOutput `pulumi:"roadWarriorForKerberos"`
+	// The system-generated ID of the SSL inspection rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// IDs of source IP address groups for the rule.
+	SourceIpGroups pulumi.IntArrayOutput `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayOutput `pulumi:"urlCategories"`
+	// User agent types the rule applies to.
+	UserAgentTypes pulumi.StringArrayOutput `pulumi:"userAgentTypes"`
+	// IDs of users to which the rule applies.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
 }
 
 // NewSslInspectionRule registers a new resource with the given unique name, arguments, and options.
@@ -93,60 +131,110 @@ func (SslInspectionRuleState) ElementType() reflect.Type {
 }
 
 type sslInspectionRuleArgs struct {
-	Action                 SslInspectionActionInput `pulumi:"action"`
-	CloudApplications      []string                 `pulumi:"cloudApplications"`
-	Departments            []int                    `pulumi:"departments"`
-	Description            *string                  `pulumi:"description"`
-	DestIpGroups           []int                    `pulumi:"destIpGroups"`
-	DeviceGroups           []int                    `pulumi:"deviceGroups"`
-	DeviceTrustLevels      []string                 `pulumi:"deviceTrustLevels"`
-	Devices                []int                    `pulumi:"devices"`
-	Groups                 []int                    `pulumi:"groups"`
-	Labels                 []int                    `pulumi:"labels"`
-	LocationGroups         []int                    `pulumi:"locationGroups"`
-	Locations              []int                    `pulumi:"locations"`
-	Name                   string                   `pulumi:"name"`
-	Order                  int                      `pulumi:"order"`
-	Platforms              []string                 `pulumi:"platforms"`
-	ProxyGateways          []int                    `pulumi:"proxyGateways"`
-	Rank                   *int                     `pulumi:"rank"`
-	RoadWarriorForKerberos *bool                    `pulumi:"roadWarriorForKerberos"`
-	SourceIpGroups         []int                    `pulumi:"sourceIpGroups"`
-	State                  *string                  `pulumi:"state"`
-	TimeWindows            []int                    `pulumi:"timeWindows"`
-	UrlCategories          []string                 `pulumi:"urlCategories"`
-	UserAgentTypes         []string                 `pulumi:"userAgentTypes"`
-	Users                  []int                    `pulumi:"users"`
-	WorkloadGroups         []WorkloadGroupInputType `pulumi:"workloadGroups"`
+	// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+	Action SslInspectionActionInput `pulumi:"action"`
+	// List of cloud application names to which the rule applies.
+	CloudApplications []string `pulumi:"cloudApplications"`
+	// IDs of departments to which the rule applies.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the SSL inspection rule.
+	Description *string `pulumi:"description"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups []int `pulumi:"destIpGroups"`
+	// IDs of device groups to which the rule applies.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
+	// IDs of devices to which the rule applies.
+	Devices []int `pulumi:"devices"`
+	// IDs of groups to which the rule applies.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule applies.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations to which the rule applies.
+	Locations []int `pulumi:"locations"`
+	// The name of the SSL inspection rule. Must be unique.
+	Name string `pulumi:"name"`
+	// The order of execution of the rule with respect to other SSL inspection rules.
+	Order int `pulumi:"order"`
+	// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+	Platforms []string `pulumi:"platforms"`
+	// IDs of proxy gateway configurations for the rule.
+	ProxyGateways []int `pulumi:"proxyGateways"`
+	// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+	RoadWarriorForKerberos *bool `pulumi:"roadWarriorForKerberos"`
+	// IDs of source IP address groups for the rule.
+	SourceIpGroups []int `pulumi:"sourceIpGroups"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// List of URL categories to which the rule applies.
+	UrlCategories []string `pulumi:"urlCategories"`
+	// User agent types the rule applies to.
+	UserAgentTypes []string `pulumi:"userAgentTypes"`
+	// IDs of users to which the rule applies.
+	Users []int `pulumi:"users"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups []WorkloadGroupInputType `pulumi:"workloadGroups"`
 }
 
 // The set of arguments for constructing a SslInspectionRule resource.
 type SslInspectionRuleArgs struct {
-	Action                 SslInspectionActionInputInput
-	CloudApplications      pulumi.StringArrayInput
-	Departments            pulumi.IntArrayInput
-	Description            pulumi.StringPtrInput
-	DestIpGroups           pulumi.IntArrayInput
-	DeviceGroups           pulumi.IntArrayInput
-	DeviceTrustLevels      pulumi.StringArrayInput
-	Devices                pulumi.IntArrayInput
-	Groups                 pulumi.IntArrayInput
-	Labels                 pulumi.IntArrayInput
-	LocationGroups         pulumi.IntArrayInput
-	Locations              pulumi.IntArrayInput
-	Name                   pulumi.StringInput
-	Order                  pulumi.IntInput
-	Platforms              pulumi.StringArrayInput
-	ProxyGateways          pulumi.IntArrayInput
-	Rank                   pulumi.IntPtrInput
+	// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+	Action SslInspectionActionInputInput
+	// List of cloud application names to which the rule applies.
+	CloudApplications pulumi.StringArrayInput
+	// IDs of departments to which the rule applies.
+	Departments pulumi.IntArrayInput
+	// Additional information about the SSL inspection rule.
+	Description pulumi.StringPtrInput
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayInput
+	// IDs of device groups to which the rule applies.
+	DeviceGroups pulumi.IntArrayInput
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayInput
+	// IDs of devices to which the rule applies.
+	Devices pulumi.IntArrayInput
+	// IDs of groups to which the rule applies.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule applies.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations to which the rule applies.
+	Locations pulumi.IntArrayInput
+	// The name of the SSL inspection rule. Must be unique.
+	Name pulumi.StringInput
+	// The order of execution of the rule with respect to other SSL inspection rules.
+	Order pulumi.IntInput
+	// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+	Platforms pulumi.StringArrayInput
+	// IDs of proxy gateway configurations for the rule.
+	ProxyGateways pulumi.IntArrayInput
+	// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
 	RoadWarriorForKerberos pulumi.BoolPtrInput
-	SourceIpGroups         pulumi.IntArrayInput
-	State                  pulumi.StringPtrInput
-	TimeWindows            pulumi.IntArrayInput
-	UrlCategories          pulumi.StringArrayInput
-	UserAgentTypes         pulumi.StringArrayInput
-	Users                  pulumi.IntArrayInput
-	WorkloadGroups         WorkloadGroupInputTypeArrayInput
+	// IDs of source IP address groups for the rule.
+	SourceIpGroups pulumi.IntArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// List of URL categories to which the rule applies.
+	UrlCategories pulumi.StringArrayInput
+	// User agent types the rule applies to.
+	UserAgentTypes pulumi.StringArrayInput
+	// IDs of users to which the rule applies.
+	Users pulumi.IntArrayInput
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayInput
 }
 
 func (SslInspectionRuleArgs) ElementType() reflect.Type {
@@ -236,106 +324,132 @@ func (o SslInspectionRuleOutput) ToSslInspectionRuleOutputWithContext(ctx contex
 	return o
 }
 
+// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
 func (o SslInspectionRuleOutput) Action() SslInspectionActionInputOutput {
 	return o.ApplyT(func(v *SslInspectionRule) SslInspectionActionInputOutput { return v.Action }).(SslInspectionActionInputOutput)
 }
 
+// List of cloud application names to which the rule applies.
 func (o SslInspectionRuleOutput) CloudApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringArrayOutput { return v.CloudApplications }).(pulumi.StringArrayOutput)
 }
 
+// IDs of departments to which the rule applies.
 func (o SslInspectionRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the SSL inspection rule.
 func (o SslInspectionRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// IDs of destination IP address groups for the rule.
 func (o SslInspectionRuleOutput) DestIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.DestIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of device groups to which the rule applies.
 func (o SslInspectionRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
 func (o SslInspectionRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
 
+// IDs of devices to which the rule applies.
 func (o SslInspectionRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// IDs of groups to which the rule applies.
 func (o SslInspectionRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o SslInspectionRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule applies.
 func (o SslInspectionRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations to which the rule applies.
 func (o SslInspectionRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the SSL inspection rule. Must be unique.
 func (o SslInspectionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The order of execution of the rule with respect to other SSL inspection rules.
 func (o SslInspectionRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
 func (o SslInspectionRuleOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringArrayOutput { return v.Platforms }).(pulumi.StringArrayOutput)
 }
 
+// IDs of proxy gateway configurations for the rule.
 func (o SslInspectionRuleOutput) ProxyGateways() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.ProxyGateways }).(pulumi.IntArrayOutput)
 }
 
+// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
 func (o SslInspectionRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
 func (o SslInspectionRuleOutput) RoadWarriorForKerberos() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.BoolPtrOutput { return v.RoadWarriorForKerberos }).(pulumi.BoolPtrOutput)
 }
 
+// The system-generated ID of the SSL inspection rule.
 func (o SslInspectionRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// IDs of source IP address groups for the rule.
 func (o SslInspectionRuleOutput) SourceIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.SourceIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o SslInspectionRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o SslInspectionRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// List of URL categories to which the rule applies.
 func (o SslInspectionRuleOutput) UrlCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringArrayOutput { return v.UrlCategories }).(pulumi.StringArrayOutput)
 }
 
+// User agent types the rule applies to.
 func (o SslInspectionRuleOutput) UserAgentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.StringArrayOutput { return v.UserAgentTypes }).(pulumi.StringArrayOutput)
 }
 
+// IDs of users to which the rule applies.
 func (o SslInspectionRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of preconfigured workload groups to which the policy must be applied.
 func (o SslInspectionRuleOutput) WorkloadGroups() WorkloadGroupInputTypeArrayOutput {
 	return o.ApplyT(func(v *SslInspectionRule) WorkloadGroupInputTypeArrayOutput { return v.WorkloadGroups }).(WorkloadGroupInputTypeArrayOutput)
 }

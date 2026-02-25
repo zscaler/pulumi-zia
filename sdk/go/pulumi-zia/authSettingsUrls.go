@@ -11,11 +11,22 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+//
+// For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
 type AuthSettingsUrls struct {
 	pulumi.CustomResourceState
 
-	ResourceId pulumi.StringOutput      `pulumi:"resourceId"`
-	Urls       pulumi.StringArrayOutput `pulumi:"urls"`
+	// The internal resource identifier for the authentication settings URLs.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// List of URLs that are exempted from user authentication.
+	Urls pulumi.StringArrayOutput `pulumi:"urls"`
 }
 
 // NewAuthSettingsUrls registers a new resource with the given unique name, arguments, and options.
@@ -58,11 +69,13 @@ func (AuthSettingsUrlsState) ElementType() reflect.Type {
 }
 
 type authSettingsUrlsArgs struct {
+	// List of URLs that are exempted from user authentication.
 	Urls []string `pulumi:"urls"`
 }
 
 // The set of arguments for constructing a AuthSettingsUrls resource.
 type AuthSettingsUrlsArgs struct {
+	// List of URLs that are exempted from user authentication.
 	Urls pulumi.StringArrayInput
 }
 
@@ -153,10 +166,12 @@ func (o AuthSettingsUrlsOutput) ToAuthSettingsUrlsOutputWithContext(ctx context.
 	return o
 }
 
+// The internal resource identifier for the authentication settings URLs.
 func (o AuthSettingsUrlsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthSettingsUrls) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// List of URLs that are exempted from user authentication.
 func (o AuthSettingsUrlsOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthSettingsUrls) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }

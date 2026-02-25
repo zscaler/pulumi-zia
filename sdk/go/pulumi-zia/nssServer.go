@@ -8,19 +8,36 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+// Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+// or log management systems.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing NSS server can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:NssServer example 12345
+// ```
 type NssServer struct {
 	pulumi.CustomResourceState
 
-	IcapSvrId pulumi.IntPtrOutput    `pulumi:"icapSvrId"`
-	Name      pulumi.StringOutput    `pulumi:"name"`
-	NssId     pulumi.IntOutput       `pulumi:"nssId"`
-	Status    pulumi.StringPtrOutput `pulumi:"status"`
-	Type      pulumi.StringPtrOutput `pulumi:"type"`
+	// The ICAP server ID associated with the NSS server.
+	IcapSvrId pulumi.IntPtrOutput `pulumi:"icapSvrId"`
+	// Name of the NSS server.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The unique identifier for the NSS server assigned by the ZIA cloud.
+	NssId pulumi.IntOutput `pulumi:"nssId"`
+	// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewNssServer registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +83,26 @@ func (NssServerState) ElementType() reflect.Type {
 }
 
 type nssServerArgs struct {
-	IcapSvrId *int    `pulumi:"icapSvrId"`
-	Name      string  `pulumi:"name"`
-	Status    *string `pulumi:"status"`
-	Type      *string `pulumi:"type"`
+	// The ICAP server ID associated with the NSS server.
+	IcapSvrId *int `pulumi:"icapSvrId"`
+	// Name of the NSS server.
+	Name string `pulumi:"name"`
+	// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	Status *string `pulumi:"status"`
+	// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a NssServer resource.
 type NssServerArgs struct {
+	// The ICAP server ID associated with the NSS server.
 	IcapSvrId pulumi.IntPtrInput
-	Name      pulumi.StringInput
-	Status    pulumi.StringPtrInput
-	Type      pulumi.StringPtrInput
+	// Name of the NSS server.
+	Name pulumi.StringInput
+	// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+	Status pulumi.StringPtrInput
+	// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+	Type pulumi.StringPtrInput
 }
 
 func (NssServerArgs) ElementType() reflect.Type {
@@ -167,22 +192,27 @@ func (o NssServerOutput) ToNssServerOutputWithContext(ctx context.Context) NssSe
 	return o
 }
 
+// The ICAP server ID associated with the NSS server.
 func (o NssServerOutput) IcapSvrId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NssServer) pulumi.IntPtrOutput { return v.IcapSvrId }).(pulumi.IntPtrOutput)
 }
 
+// Name of the NSS server.
 func (o NssServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NssServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the NSS server assigned by the ZIA cloud.
 func (o NssServerOutput) NssId() pulumi.IntOutput {
 	return o.ApplyT(func(v *NssServer) pulumi.IntOutput { return v.NssId }).(pulumi.IntOutput)
 }
 
+// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
 func (o NssServerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NssServer) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
 func (o NssServerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NssServer) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -11,24 +11,51 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+// VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing VZEN node can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:VzenNode example 12345
+// ```
 type VzenNode struct {
 	pulumi.CustomResourceState
 
-	ClusterName                   pulumi.StringPtrOutput `pulumi:"clusterName"`
-	DefaultGateway                pulumi.StringPtrOutput `pulumi:"defaultGateway"`
-	DeploymentMode                pulumi.StringPtrOutput `pulumi:"deploymentMode"`
-	EstablishSupportTunnelEnabled pulumi.BoolPtrOutput   `pulumi:"establishSupportTunnelEnabled"`
-	InProduction                  pulumi.BoolPtrOutput   `pulumi:"inProduction"`
-	IpAddress                     pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	IpSecEnabled                  pulumi.BoolPtrOutput   `pulumi:"ipSecEnabled"`
-	LoadBalancerIpAddress         pulumi.StringPtrOutput `pulumi:"loadBalancerIpAddress"`
-	Name                          pulumi.StringPtrOutput `pulumi:"name"`
-	NodeId                        pulumi.IntOutput       `pulumi:"nodeId"`
-	OnDemandSupportTunnelEnabled  pulumi.BoolPtrOutput   `pulumi:"onDemandSupportTunnelEnabled"`
-	Status                        pulumi.StringPtrOutput `pulumi:"status"`
-	SubnetMask                    pulumi.StringPtrOutput `pulumi:"subnetMask"`
-	Type                          pulumi.StringPtrOutput `pulumi:"type"`
-	VzenSkuType                   pulumi.StringPtrOutput `pulumi:"vzenSkuType"`
+	// The cluster name if deployment mode is CLUSTER.
+	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
+	// The default gateway of the VZEN node.
+	DefaultGateway pulumi.StringPtrOutput `pulumi:"defaultGateway"`
+	// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
+	// Whether establish support tunnel is enabled.
+	EstablishSupportTunnelEnabled pulumi.BoolPtrOutput `pulumi:"establishSupportTunnelEnabled"`
+	// Whether the node is in production.
+	InProduction pulumi.BoolPtrOutput `pulumi:"inProduction"`
+	// The IP address of the VZEN node.
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the node.
+	IpSecEnabled pulumi.BoolPtrOutput `pulumi:"ipSecEnabled"`
+	// The load balancer IP address.
+	LoadBalancerIpAddress pulumi.StringPtrOutput `pulumi:"loadBalancerIpAddress"`
+	// Name of the VZEN node.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The unique identifier for the VZEN node assigned by the ZIA cloud.
+	NodeId pulumi.IntOutput `pulumi:"nodeId"`
+	// Whether on-demand support tunnel is enabled.
+	OnDemandSupportTunnelEnabled pulumi.BoolPtrOutput `pulumi:"onDemandSupportTunnelEnabled"`
+	// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The subnet mask of the VZEN node.
+	SubnetMask pulumi.StringPtrOutput `pulumi:"subnetMask"`
+	// The type of the VZEN node.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+	VzenSkuType pulumi.StringPtrOutput `pulumi:"vzenSkuType"`
 }
 
 // NewVzenNode registers a new resource with the given unique name, arguments, and options.
@@ -71,38 +98,66 @@ func (VzenNodeState) ElementType() reflect.Type {
 }
 
 type vzenNodeArgs struct {
-	ClusterName                   *string `pulumi:"clusterName"`
-	DefaultGateway                *string `pulumi:"defaultGateway"`
-	DeploymentMode                *string `pulumi:"deploymentMode"`
-	EstablishSupportTunnelEnabled *bool   `pulumi:"establishSupportTunnelEnabled"`
-	InProduction                  *bool   `pulumi:"inProduction"`
-	IpAddress                     *string `pulumi:"ipAddress"`
-	IpSecEnabled                  *bool   `pulumi:"ipSecEnabled"`
-	LoadBalancerIpAddress         *string `pulumi:"loadBalancerIpAddress"`
-	Name                          *string `pulumi:"name"`
-	OnDemandSupportTunnelEnabled  *bool   `pulumi:"onDemandSupportTunnelEnabled"`
-	Status                        *string `pulumi:"status"`
-	SubnetMask                    *string `pulumi:"subnetMask"`
-	Type                          *string `pulumi:"type"`
-	VzenSkuType                   *string `pulumi:"vzenSkuType"`
+	// The cluster name if deployment mode is CLUSTER.
+	ClusterName *string `pulumi:"clusterName"`
+	// The default gateway of the VZEN node.
+	DefaultGateway *string `pulumi:"defaultGateway"`
+	// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+	DeploymentMode *string `pulumi:"deploymentMode"`
+	// Whether establish support tunnel is enabled.
+	EstablishSupportTunnelEnabled *bool `pulumi:"establishSupportTunnelEnabled"`
+	// Whether the node is in production.
+	InProduction *bool `pulumi:"inProduction"`
+	// The IP address of the VZEN node.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the node.
+	IpSecEnabled *bool `pulumi:"ipSecEnabled"`
+	// The load balancer IP address.
+	LoadBalancerIpAddress *string `pulumi:"loadBalancerIpAddress"`
+	// Name of the VZEN node.
+	Name *string `pulumi:"name"`
+	// Whether on-demand support tunnel is enabled.
+	OnDemandSupportTunnelEnabled *bool `pulumi:"onDemandSupportTunnelEnabled"`
+	// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+	Status *string `pulumi:"status"`
+	// The subnet mask of the VZEN node.
+	SubnetMask *string `pulumi:"subnetMask"`
+	// The type of the VZEN node.
+	Type *string `pulumi:"type"`
+	// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+	VzenSkuType *string `pulumi:"vzenSkuType"`
 }
 
 // The set of arguments for constructing a VzenNode resource.
 type VzenNodeArgs struct {
-	ClusterName                   pulumi.StringPtrInput
-	DefaultGateway                pulumi.StringPtrInput
-	DeploymentMode                pulumi.StringPtrInput
+	// The cluster name if deployment mode is CLUSTER.
+	ClusterName pulumi.StringPtrInput
+	// The default gateway of the VZEN node.
+	DefaultGateway pulumi.StringPtrInput
+	// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+	DeploymentMode pulumi.StringPtrInput
+	// Whether establish support tunnel is enabled.
 	EstablishSupportTunnelEnabled pulumi.BoolPtrInput
-	InProduction                  pulumi.BoolPtrInput
-	IpAddress                     pulumi.StringPtrInput
-	IpSecEnabled                  pulumi.BoolPtrInput
-	LoadBalancerIpAddress         pulumi.StringPtrInput
-	Name                          pulumi.StringPtrInput
-	OnDemandSupportTunnelEnabled  pulumi.BoolPtrInput
-	Status                        pulumi.StringPtrInput
-	SubnetMask                    pulumi.StringPtrInput
-	Type                          pulumi.StringPtrInput
-	VzenSkuType                   pulumi.StringPtrInput
+	// Whether the node is in production.
+	InProduction pulumi.BoolPtrInput
+	// The IP address of the VZEN node.
+	IpAddress pulumi.StringPtrInput
+	// Whether IPSec is enabled on the node.
+	IpSecEnabled pulumi.BoolPtrInput
+	// The load balancer IP address.
+	LoadBalancerIpAddress pulumi.StringPtrInput
+	// Name of the VZEN node.
+	Name pulumi.StringPtrInput
+	// Whether on-demand support tunnel is enabled.
+	OnDemandSupportTunnelEnabled pulumi.BoolPtrInput
+	// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+	Status pulumi.StringPtrInput
+	// The subnet mask of the VZEN node.
+	SubnetMask pulumi.StringPtrInput
+	// The type of the VZEN node.
+	Type pulumi.StringPtrInput
+	// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+	VzenSkuType pulumi.StringPtrInput
 }
 
 func (VzenNodeArgs) ElementType() reflect.Type {
@@ -192,62 +247,77 @@ func (o VzenNodeOutput) ToVzenNodeOutputWithContext(ctx context.Context) VzenNod
 	return o
 }
 
+// The cluster name if deployment mode is CLUSTER.
 func (o VzenNodeOutput) ClusterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
 }
 
+// The default gateway of the VZEN node.
 func (o VzenNodeOutput) DefaultGateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.DefaultGateway }).(pulumi.StringPtrOutput)
 }
 
+// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
 func (o VzenNodeOutput) DeploymentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.DeploymentMode }).(pulumi.StringPtrOutput)
 }
 
+// Whether establish support tunnel is enabled.
 func (o VzenNodeOutput) EstablishSupportTunnelEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.BoolPtrOutput { return v.EstablishSupportTunnelEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the node is in production.
 func (o VzenNodeOutput) InProduction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.BoolPtrOutput { return v.InProduction }).(pulumi.BoolPtrOutput)
 }
 
+// The IP address of the VZEN node.
 func (o VzenNodeOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Whether IPSec is enabled on the node.
 func (o VzenNodeOutput) IpSecEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.BoolPtrOutput { return v.IpSecEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The load balancer IP address.
 func (o VzenNodeOutput) LoadBalancerIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.LoadBalancerIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Name of the VZEN node.
 func (o VzenNodeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the VZEN node assigned by the ZIA cloud.
 func (o VzenNodeOutput) NodeId() pulumi.IntOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.IntOutput { return v.NodeId }).(pulumi.IntOutput)
 }
 
+// Whether on-demand support tunnel is enabled.
 func (o VzenNodeOutput) OnDemandSupportTunnelEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.BoolPtrOutput { return v.OnDemandSupportTunnelEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
 func (o VzenNodeOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The subnet mask of the VZEN node.
 func (o VzenNodeOutput) SubnetMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
+// The type of the VZEN node.
 func (o VzenNodeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
 func (o VzenNodeOutput) VzenSkuType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VzenNode) pulumi.StringPtrOutput { return v.VzenSkuType }).(pulumi.StringPtrOutput)
 }

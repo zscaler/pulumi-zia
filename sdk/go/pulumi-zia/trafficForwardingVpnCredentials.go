@@ -11,15 +11,34 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.
+//
+// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing VPN credential can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345
+// ```
 type TrafficForwardingVpnCredentials struct {
 	pulumi.CustomResourceState
 
-	Comments     pulumi.StringPtrOutput `pulumi:"comments"`
-	Fqdn         pulumi.StringPtrOutput `pulumi:"fqdn"`
-	IpAddress    pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// Additional information about the VPN credential. Maximum 10240 characters.
+	Comments pulumi.StringPtrOutput `pulumi:"comments"`
+	// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
+	// The static IP address associated with the VPN credential. Required when type is `IP`.
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// Pre-shared key (PSK) for the VPN credential. This is a secret value.
 	PreSharedKey pulumi.StringPtrOutput `pulumi:"preSharedKey"`
-	Type         pulumi.StringPtrOutput `pulumi:"type"`
-	VpnId        pulumi.IntOutput       `pulumi:"vpnId"`
+	// VPN credential type. Valid values: `IP`, `UFQDN`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The system-generated ID of the VPN credential.
+	VpnId pulumi.IntOutput `pulumi:"vpnId"`
 }
 
 // NewTrafficForwardingVpnCredentials registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +88,30 @@ func (TrafficForwardingVpnCredentialsState) ElementType() reflect.Type {
 }
 
 type trafficForwardingVpnCredentialsArgs struct {
-	Comments     *string `pulumi:"comments"`
-	Fqdn         *string `pulumi:"fqdn"`
-	IpAddress    *string `pulumi:"ipAddress"`
+	// Additional information about the VPN credential. Maximum 10240 characters.
+	Comments *string `pulumi:"comments"`
+	// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+	Fqdn *string `pulumi:"fqdn"`
+	// The static IP address associated with the VPN credential. Required when type is `IP`.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Pre-shared key (PSK) for the VPN credential. This is a secret value.
 	PreSharedKey *string `pulumi:"preSharedKey"`
-	Type         *string `pulumi:"type"`
+	// VPN credential type. Valid values: `IP`, `UFQDN`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a TrafficForwardingVpnCredentials resource.
 type TrafficForwardingVpnCredentialsArgs struct {
-	Comments     pulumi.StringPtrInput
-	Fqdn         pulumi.StringPtrInput
-	IpAddress    pulumi.StringPtrInput
+	// Additional information about the VPN credential. Maximum 10240 characters.
+	Comments pulumi.StringPtrInput
+	// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+	Fqdn pulumi.StringPtrInput
+	// The static IP address associated with the VPN credential. Required when type is `IP`.
+	IpAddress pulumi.StringPtrInput
+	// Pre-shared key (PSK) for the VPN credential. This is a secret value.
 	PreSharedKey pulumi.StringPtrInput
-	Type         pulumi.StringPtrInput
+	// VPN credential type. Valid values: `IP`, `UFQDN`.
+	Type pulumi.StringPtrInput
 }
 
 func (TrafficForwardingVpnCredentialsArgs) ElementType() reflect.Type {
@@ -172,26 +201,32 @@ func (o TrafficForwardingVpnCredentialsOutput) ToTrafficForwardingVpnCredentials
 	return o
 }
 
+// Additional information about the VPN credential. Maximum 10240 characters.
 func (o TrafficForwardingVpnCredentialsOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
+// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
 func (o TrafficForwardingVpnCredentialsOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
+// The static IP address associated with the VPN credential. Required when type is `IP`.
 func (o TrafficForwardingVpnCredentialsOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Pre-shared key (PSK) for the VPN credential. This is a secret value.
 func (o TrafficForwardingVpnCredentialsOutput) PreSharedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.StringPtrOutput { return v.PreSharedKey }).(pulumi.StringPtrOutput)
 }
 
+// VPN credential type. Valid values: `IP`, `UFQDN`.
 func (o TrafficForwardingVpnCredentialsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The system-generated ID of the VPN credential.
 func (o TrafficForwardingVpnCredentialsOutput) VpnId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficForwardingVpnCredentials) pulumi.IntOutput { return v.VpnId }).(pulumi.IntOutput)
 }

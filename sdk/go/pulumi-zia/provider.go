@@ -14,18 +14,30 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	ApiKey       pulumi.StringPtrOutput `pulumi:"apiKey"`
-	ClientId     pulumi.StringPtrOutput `pulumi:"clientId"`
+	// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	Cloud        pulumi.StringPtrOutput `pulumi:"cloud"`
-	HttpProxy    pulumi.StringPtrOutput `pulumi:"httpProxy"`
-	Password     pulumi.StringPtrOutput `pulumi:"password"`
-	PrivateKey   pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+	Cloud pulumi.StringPtrOutput `pulumi:"cloud"`
+	// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
+	// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
 	SandboxCloud pulumi.StringPtrOutput `pulumi:"sandboxCloud"`
+	// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
 	SandboxToken pulumi.StringPtrOutput `pulumi:"sandboxToken"`
-	Username     pulumi.StringPtrOutput `pulumi:"username"`
+	// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
 	VanityDomain pulumi.StringPtrOutput `pulumi:"vanityDomain"`
-	ZiaCloud     pulumi.StringPtrOutput `pulumi:"ziaCloud"`
+	// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+	ZiaCloud pulumi.StringPtrOutput `pulumi:"ziaCloud"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -80,40 +92,74 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey          *string `pulumi:"apiKey"`
-	ClientId        *string `pulumi:"clientId"`
-	ClientSecret    *string `pulumi:"clientSecret"`
-	Cloud           *string `pulumi:"cloud"`
-	HttpProxy       *string `pulumi:"httpProxy"`
-	MaxRetries      *int    `pulumi:"maxRetries"`
-	Password        *string `pulumi:"password"`
-	PrivateKey      *string `pulumi:"privateKey"`
-	RequestTimeout  *int    `pulumi:"requestTimeout"`
-	SandboxCloud    *string `pulumi:"sandboxCloud"`
-	SandboxToken    *string `pulumi:"sandboxToken"`
-	UseLegacyClient *bool   `pulumi:"useLegacyClient"`
-	Username        *string `pulumi:"username"`
-	VanityDomain    *string `pulumi:"vanityDomain"`
-	ZiaCloud        *string `pulumi:"ziaCloud"`
+	// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+	ApiKey *string `pulumi:"apiKey"`
+	// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+	ClientId *string `pulumi:"clientId"`
+	// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+	Cloud *string `pulumi:"cloud"`
+	// If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+	Debug *bool `pulumi:"debug"`
+	// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+	HttpProxy *string `pulumi:"httpProxy"`
+	// Maximum number of retries for API requests. Default is determined by the SDK.
+	MaxRetries *int `pulumi:"maxRetries"`
+	// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+	Password *string `pulumi:"password"`
+	// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+	PrivateKey *string `pulumi:"privateKey"`
+	// Timeout in seconds for API requests.
+	RequestTimeout *int `pulumi:"requestTimeout"`
+	// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+	SandboxCloud *string `pulumi:"sandboxCloud"`
+	// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+	SandboxToken *string `pulumi:"sandboxToken"`
+	// If true, use the legacy ZIA client authentication instead of OAuth2.
+	UseLegacyClient *bool `pulumi:"useLegacyClient"`
+	// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+	Username *string `pulumi:"username"`
+	// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+	VanityDomain *string `pulumi:"vanityDomain"`
+	// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+	ZiaCloud *string `pulumi:"ziaCloud"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey          pulumi.StringPtrInput
-	ClientId        pulumi.StringPtrInput
-	ClientSecret    pulumi.StringPtrInput
-	Cloud           pulumi.StringPtrInput
-	HttpProxy       pulumi.StringPtrInput
-	MaxRetries      pulumi.IntPtrInput
-	Password        pulumi.StringPtrInput
-	PrivateKey      pulumi.StringPtrInput
-	RequestTimeout  pulumi.IntPtrInput
-	SandboxCloud    pulumi.StringPtrInput
-	SandboxToken    pulumi.StringPtrInput
+	// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+	ApiKey pulumi.StringPtrInput
+	// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+	ClientId pulumi.StringPtrInput
+	// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+	ClientSecret pulumi.StringPtrInput
+	// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+	Cloud pulumi.StringPtrInput
+	// If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+	Debug pulumi.BoolPtrInput
+	// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+	HttpProxy pulumi.StringPtrInput
+	// Maximum number of retries for API requests. Default is determined by the SDK.
+	MaxRetries pulumi.IntPtrInput
+	// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+	Password pulumi.StringPtrInput
+	// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+	PrivateKey pulumi.StringPtrInput
+	// Timeout in seconds for API requests.
+	RequestTimeout pulumi.IntPtrInput
+	// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+	SandboxCloud pulumi.StringPtrInput
+	// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+	SandboxToken pulumi.StringPtrInput
+	// If true, use the legacy ZIA client authentication instead of OAuth2.
 	UseLegacyClient pulumi.BoolPtrInput
-	Username        pulumi.StringPtrInput
-	VanityDomain    pulumi.StringPtrInput
-	ZiaCloud        pulumi.StringPtrInput
+	// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+	Username pulumi.StringPtrInput
+	// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+	VanityDomain pulumi.StringPtrInput
+	// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+	ZiaCloud pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -153,50 +199,62 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
 func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
 func (o ProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
 func (o ProviderOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
 func (o ProviderOutput) Cloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Cloud }).(pulumi.StringPtrOutput)
 }
 
+// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
 func (o ProviderOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
+// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
 func (o ProviderOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
 func (o ProviderOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
+// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
 func (o ProviderOutput) SandboxCloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SandboxCloud }).(pulumi.StringPtrOutput)
 }
 
+// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
 func (o ProviderOutput) SandboxToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SandboxToken }).(pulumi.StringPtrOutput)
 }
 
+// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
 func (o ProviderOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
+// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
 func (o ProviderOutput) VanityDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.VanityDomain }).(pulumi.StringPtrOutput)
 }
 
+// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
 func (o ProviderOutput) ZiaCloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ZiaCloud }).(pulumi.StringPtrOutput)
 }

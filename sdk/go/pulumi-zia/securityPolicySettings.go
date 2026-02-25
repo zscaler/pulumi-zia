@@ -11,11 +11,21 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+//
+// For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+//
+// ## Example Usage
+//
+// > This is a singleton resource. Import is not applicable.
 type SecurityPolicySettings struct {
 	pulumi.CustomResourceState
 
+	// List of URLs that are always blocked (blacklisted) by the security policy.
 	BlacklistUrls pulumi.StringArrayOutput `pulumi:"blacklistUrls"`
-	ResourceId    pulumi.StringOutput      `pulumi:"resourceId"`
+	// The internal resource identifier for the security policy settings.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// List of URLs that are always allowed (whitelisted) by the security policy.
 	WhitelistUrls pulumi.StringArrayOutput `pulumi:"whitelistUrls"`
 }
 
@@ -59,13 +69,17 @@ func (SecurityPolicySettingsState) ElementType() reflect.Type {
 }
 
 type securityPolicySettingsArgs struct {
+	// List of URLs that are always blocked (blacklisted) by the security policy.
 	BlacklistUrls []string `pulumi:"blacklistUrls"`
+	// List of URLs that are always allowed (whitelisted) by the security policy.
 	WhitelistUrls []string `pulumi:"whitelistUrls"`
 }
 
 // The set of arguments for constructing a SecurityPolicySettings resource.
 type SecurityPolicySettingsArgs struct {
+	// List of URLs that are always blocked (blacklisted) by the security policy.
 	BlacklistUrls pulumi.StringArrayInput
+	// List of URLs that are always allowed (whitelisted) by the security policy.
 	WhitelistUrls pulumi.StringArrayInput
 }
 
@@ -156,14 +170,17 @@ func (o SecurityPolicySettingsOutput) ToSecurityPolicySettingsOutputWithContext(
 	return o
 }
 
+// List of URLs that are always blocked (blacklisted) by the security policy.
 func (o SecurityPolicySettingsOutput) BlacklistUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityPolicySettings) pulumi.StringArrayOutput { return v.BlacklistUrls }).(pulumi.StringArrayOutput)
 }
 
+// The internal resource identifier for the security policy settings.
 func (o SecurityPolicySettingsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityPolicySettings) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// List of URLs that are always allowed (whitelisted) by the security policy.
 func (o SecurityPolicySettingsOutput) WhitelistUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityPolicySettings) pulumi.StringArrayOutput { return v.WhitelistUrls }).(pulumi.StringArrayOutput)
 }

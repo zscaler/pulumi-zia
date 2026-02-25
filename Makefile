@@ -223,7 +223,7 @@ generate_schema: ${SCHEMA_FILE} # Required by CI
 
 .PHONY: build_go install_go_sdk
 generate_go: sdk/go # Required by CI
-build_go: # Required by CI
+build_go: generate_go # Required by CI
 
 .PHONY: build_java install_java_sdk
 generate_java: sdk/java # Required by CI

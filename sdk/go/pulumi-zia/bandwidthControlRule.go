@@ -8,28 +8,54 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+//
+// For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:BandwidthControlRule example 12345
+// ```
 type BandwidthControlRule struct {
 	pulumi.CustomResourceState
 
-	BandwidthClasses pulumi.IntArrayOutput    `pulumi:"bandwidthClasses"`
-	Description      pulumi.StringPtrOutput   `pulumi:"description"`
-	Labels           pulumi.IntArrayOutput    `pulumi:"labels"`
-	LocationGroups   pulumi.IntArrayOutput    `pulumi:"locationGroups"`
-	Locations        pulumi.IntArrayOutput    `pulumi:"locations"`
-	MaxBandwidth     pulumi.IntPtrOutput      `pulumi:"maxBandwidth"`
-	MinBandwidth     pulumi.IntPtrOutput      `pulumi:"minBandwidth"`
-	Name             pulumi.StringOutput      `pulumi:"name"`
-	Order            pulumi.IntOutput         `pulumi:"order"`
-	Protocols        pulumi.StringArrayOutput `pulumi:"protocols"`
-	Rank             pulumi.IntPtrOutput      `pulumi:"rank"`
-	RuleId           pulumi.IntOutput         `pulumi:"ruleId"`
-	State            pulumi.StringPtrOutput   `pulumi:"state"`
-	TimeWindows      pulumi.IntArrayOutput    `pulumi:"timeWindows"`
+	// IDs of bandwidth classes associated with this rule.
+	BandwidthClasses pulumi.IntArrayOutput `pulumi:"bandwidthClasses"`
+	// Additional information about the bandwidth control rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// IDs of labels associated with the bandwidth control rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The maximum bandwidth percentage allowed. Valid range: 0-100.
+	MaxBandwidth pulumi.IntPtrOutput `pulumi:"maxBandwidth"`
+	// The minimum bandwidth percentage allocated. Valid range: 0-100.
+	MinBandwidth pulumi.IntPtrOutput `pulumi:"minBandwidth"`
+	// The name of the bandwidth control rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The order of execution of the rule with respect to other bandwidth control rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+	// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The system-generated ID of the bandwidth control rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
 }
 
 // NewBandwidthControlRule registers a new resource with the given unique name, arguments, and options.
@@ -78,36 +104,62 @@ func (BandwidthControlRuleState) ElementType() reflect.Type {
 }
 
 type bandwidthControlRuleArgs struct {
-	BandwidthClasses []int    `pulumi:"bandwidthClasses"`
-	Description      *string  `pulumi:"description"`
-	Labels           []int    `pulumi:"labels"`
-	LocationGroups   []int    `pulumi:"locationGroups"`
-	Locations        []int    `pulumi:"locations"`
-	MaxBandwidth     *int     `pulumi:"maxBandwidth"`
-	MinBandwidth     *int     `pulumi:"minBandwidth"`
-	Name             string   `pulumi:"name"`
-	Order            int      `pulumi:"order"`
-	Protocols        []string `pulumi:"protocols"`
-	Rank             *int     `pulumi:"rank"`
-	State            *string  `pulumi:"state"`
-	TimeWindows      []int    `pulumi:"timeWindows"`
+	// IDs of bandwidth classes associated with this rule.
+	BandwidthClasses []int `pulumi:"bandwidthClasses"`
+	// Additional information about the bandwidth control rule.
+	Description *string `pulumi:"description"`
+	// IDs of labels associated with the bandwidth control rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations for which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The maximum bandwidth percentage allowed. Valid range: 0-100.
+	MaxBandwidth *int `pulumi:"maxBandwidth"`
+	// The minimum bandwidth percentage allocated. Valid range: 0-100.
+	MinBandwidth *int `pulumi:"minBandwidth"`
+	// The name of the bandwidth control rule. Must be unique.
+	Name string `pulumi:"name"`
+	// The order of execution of the rule with respect to other bandwidth control rules.
+	Order int `pulumi:"order"`
+	// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+	Protocols []string `pulumi:"protocols"`
+	// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
 }
 
 // The set of arguments for constructing a BandwidthControlRule resource.
 type BandwidthControlRuleArgs struct {
+	// IDs of bandwidth classes associated with this rule.
 	BandwidthClasses pulumi.IntArrayInput
-	Description      pulumi.StringPtrInput
-	Labels           pulumi.IntArrayInput
-	LocationGroups   pulumi.IntArrayInput
-	Locations        pulumi.IntArrayInput
-	MaxBandwidth     pulumi.IntPtrInput
-	MinBandwidth     pulumi.IntPtrInput
-	Name             pulumi.StringInput
-	Order            pulumi.IntInput
-	Protocols        pulumi.StringArrayInput
-	Rank             pulumi.IntPtrInput
-	State            pulumi.StringPtrInput
-	TimeWindows      pulumi.IntArrayInput
+	// Additional information about the bandwidth control rule.
+	Description pulumi.StringPtrInput
+	// IDs of labels associated with the bandwidth control rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups for which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations for which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The maximum bandwidth percentage allowed. Valid range: 0-100.
+	MaxBandwidth pulumi.IntPtrInput
+	// The minimum bandwidth percentage allocated. Valid range: 0-100.
+	MinBandwidth pulumi.IntPtrInput
+	// The name of the bandwidth control rule. Must be unique.
+	Name pulumi.StringInput
+	// The order of execution of the rule with respect to other bandwidth control rules.
+	Order pulumi.IntInput
+	// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+	Protocols pulumi.StringArrayInput
+	// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
 }
 
 func (BandwidthControlRuleArgs) ElementType() reflect.Type {
@@ -197,58 +249,72 @@ func (o BandwidthControlRuleOutput) ToBandwidthControlRuleOutputWithContext(ctx 
 	return o
 }
 
+// IDs of bandwidth classes associated with this rule.
 func (o BandwidthControlRuleOutput) BandwidthClasses() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntArrayOutput { return v.BandwidthClasses }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the bandwidth control rule.
 func (o BandwidthControlRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// IDs of labels associated with the bandwidth control rule.
 func (o BandwidthControlRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups for which the rule must be applied.
 func (o BandwidthControlRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations for which the rule must be applied.
 func (o BandwidthControlRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The maximum bandwidth percentage allowed. Valid range: 0-100.
 func (o BandwidthControlRuleOutput) MaxBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntPtrOutput { return v.MaxBandwidth }).(pulumi.IntPtrOutput)
 }
 
+// The minimum bandwidth percentage allocated. Valid range: 0-100.
 func (o BandwidthControlRuleOutput) MinBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntPtrOutput { return v.MinBandwidth }).(pulumi.IntPtrOutput)
 }
 
+// The name of the bandwidth control rule. Must be unique.
 func (o BandwidthControlRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The order of execution of the rule with respect to other bandwidth control rules.
 func (o BandwidthControlRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
 func (o BandwidthControlRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
+// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
 func (o BandwidthControlRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the bandwidth control rule.
 func (o BandwidthControlRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o BandwidthControlRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o BandwidthControlRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *BandwidthControlRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }

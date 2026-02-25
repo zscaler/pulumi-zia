@@ -11,12 +11,28 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+//
+// For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing rule label can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:RuleLabel example 12345
+// ```
 type RuleLabel struct {
 	pulumi.CustomResourceState
 
+	// Additional information about the rule label. Maximum 10240 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringPtrOutput `pulumi:"name"`
-	RuleLabelId pulumi.IntOutput       `pulumi:"ruleLabelId"`
+	// The name of the rule label. Maximum 255 characters.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The system-generated ID of the rule label.
+	RuleLabelId pulumi.IntOutput `pulumi:"ruleLabelId"`
 }
 
 // NewRuleLabel registers a new resource with the given unique name, arguments, and options.
@@ -59,14 +75,18 @@ func (RuleLabelState) ElementType() reflect.Type {
 }
 
 type ruleLabelArgs struct {
+	// Additional information about the rule label. Maximum 10240 characters.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
+	// The name of the rule label. Maximum 255 characters.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a RuleLabel resource.
 type RuleLabelArgs struct {
+	// Additional information about the rule label. Maximum 10240 characters.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// The name of the rule label. Maximum 255 characters.
+	Name pulumi.StringPtrInput
 }
 
 func (RuleLabelArgs) ElementType() reflect.Type {
@@ -156,14 +176,17 @@ func (o RuleLabelOutput) ToRuleLabelOutputWithContext(ctx context.Context) RuleL
 	return o
 }
 
+// Additional information about the rule label. Maximum 10240 characters.
 func (o RuleLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleLabel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the rule label. Maximum 255 characters.
 func (o RuleLabelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleLabel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The system-generated ID of the rule label.
 func (o RuleLabelOutput) RuleLabelId() pulumi.IntOutput {
 	return o.ApplyT(func(v *RuleLabel) pulumi.IntOutput { return v.RuleLabelId }).(pulumi.IntOutput)
 }

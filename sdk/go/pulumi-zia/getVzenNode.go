@@ -11,6 +11,7 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// Use this data source to look up a VZEN node by ID or name.
 func LookupVzenNode(ctx *pulumi.Context, args *LookupVzenNodeArgs, opts ...pulumi.InvokeOption) (*LookupVzenNodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVzenNodeResult
@@ -22,27 +23,45 @@ func LookupVzenNode(ctx *pulumi.Context, args *LookupVzenNodeArgs, opts ...pulum
 }
 
 type LookupVzenNodeArgs struct {
-	Name   *string `pulumi:"name"`
-	NodeId *int    `pulumi:"nodeId"`
+	// The name of the VZEN node to look up.
+	Name *string `pulumi:"name"`
+	// The ID of the VZEN node to look up.
+	NodeId *int `pulumi:"nodeId"`
 }
 
 type LookupVzenNodeResult struct {
-	ClusterName                   string `pulumi:"clusterName"`
-	DefaultGateway                string `pulumi:"defaultGateway"`
-	DeploymentMode                string `pulumi:"deploymentMode"`
-	EstablishSupportTunnelEnabled bool   `pulumi:"establishSupportTunnelEnabled"`
-	InProduction                  bool   `pulumi:"inProduction"`
-	IpAddress                     string `pulumi:"ipAddress"`
-	IpSecEnabled                  bool   `pulumi:"ipSecEnabled"`
-	LoadBalancerIpAddress         string `pulumi:"loadBalancerIpAddress"`
-	Name                          string `pulumi:"name"`
-	NodeId                        int    `pulumi:"nodeId"`
-	OnDemandSupportTunnelEnabled  bool   `pulumi:"onDemandSupportTunnelEnabled"`
-	Status                        string `pulumi:"status"`
-	SubnetMask                    string `pulumi:"subnetMask"`
-	Type                          string `pulumi:"type"`
-	VzenSkuType                   string `pulumi:"vzenSkuType"`
-	ZGatewayId                    int    `pulumi:"zGatewayId"`
+	// The cluster name if deployment mode is CLUSTER.
+	ClusterName string `pulumi:"clusterName"`
+	// The default gateway of the VZEN node.
+	DefaultGateway string `pulumi:"defaultGateway"`
+	// The deployment mode (STANDALONE or CLUSTER).
+	DeploymentMode string `pulumi:"deploymentMode"`
+	// Whether establish support tunnel is enabled.
+	EstablishSupportTunnelEnabled bool `pulumi:"establishSupportTunnelEnabled"`
+	// Whether the node is in production.
+	InProduction bool `pulumi:"inProduction"`
+	// The IP address of the VZEN node.
+	IpAddress string `pulumi:"ipAddress"`
+	// Whether IPSec is enabled on the node.
+	IpSecEnabled bool `pulumi:"ipSecEnabled"`
+	// The load balancer IP address.
+	LoadBalancerIpAddress string `pulumi:"loadBalancerIpAddress"`
+	// The name of the VZEN node.
+	Name string `pulumi:"name"`
+	// The ID of the VZEN node.
+	NodeId int `pulumi:"nodeId"`
+	// Whether on-demand support tunnel is enabled.
+	OnDemandSupportTunnelEnabled bool `pulumi:"onDemandSupportTunnelEnabled"`
+	// The status of the VZEN node.
+	Status string `pulumi:"status"`
+	// The subnet mask of the VZEN node.
+	SubnetMask string `pulumi:"subnetMask"`
+	// The type of the VZEN node.
+	Type string `pulumi:"type"`
+	// The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+	VzenSkuType string `pulumi:"vzenSkuType"`
+	// The ZGateway ID associated with the VZEN node.
+	ZGatewayId int `pulumi:"zGatewayId"`
 }
 
 func LookupVzenNodeOutput(ctx *pulumi.Context, args LookupVzenNodeOutputArgs, opts ...pulumi.InvokeOption) LookupVzenNodeResultOutput {
@@ -55,8 +74,10 @@ func LookupVzenNodeOutput(ctx *pulumi.Context, args LookupVzenNodeOutputArgs, op
 }
 
 type LookupVzenNodeOutputArgs struct {
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	NodeId pulumi.IntPtrInput    `pulumi:"nodeId"`
+	// The name of the VZEN node to look up.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the VZEN node to look up.
+	NodeId pulumi.IntPtrInput `pulumi:"nodeId"`
 }
 
 func (LookupVzenNodeOutputArgs) ElementType() reflect.Type {
@@ -77,66 +98,82 @@ func (o LookupVzenNodeResultOutput) ToLookupVzenNodeResultOutputWithContext(ctx 
 	return o
 }
 
+// The cluster name if deployment mode is CLUSTER.
 func (o LookupVzenNodeResultOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// The default gateway of the VZEN node.
 func (o LookupVzenNodeResultOutput) DefaultGateway() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.DefaultGateway }).(pulumi.StringOutput)
 }
 
+// The deployment mode (STANDALONE or CLUSTER).
 func (o LookupVzenNodeResultOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
+// Whether establish support tunnel is enabled.
 func (o LookupVzenNodeResultOutput) EstablishSupportTunnelEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) bool { return v.EstablishSupportTunnelEnabled }).(pulumi.BoolOutput)
 }
 
+// Whether the node is in production.
 func (o LookupVzenNodeResultOutput) InProduction() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) bool { return v.InProduction }).(pulumi.BoolOutput)
 }
 
+// The IP address of the VZEN node.
 func (o LookupVzenNodeResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// Whether IPSec is enabled on the node.
 func (o LookupVzenNodeResultOutput) IpSecEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) bool { return v.IpSecEnabled }).(pulumi.BoolOutput)
 }
 
+// The load balancer IP address.
 func (o LookupVzenNodeResultOutput) LoadBalancerIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.LoadBalancerIpAddress }).(pulumi.StringOutput)
 }
 
+// The name of the VZEN node.
 func (o LookupVzenNodeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the VZEN node.
 func (o LookupVzenNodeResultOutput) NodeId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) int { return v.NodeId }).(pulumi.IntOutput)
 }
 
+// Whether on-demand support tunnel is enabled.
 func (o LookupVzenNodeResultOutput) OnDemandSupportTunnelEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) bool { return v.OnDemandSupportTunnelEnabled }).(pulumi.BoolOutput)
 }
 
+// The status of the VZEN node.
 func (o LookupVzenNodeResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The subnet mask of the VZEN node.
 func (o LookupVzenNodeResultOutput) SubnetMask() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
+// The type of the VZEN node.
 func (o LookupVzenNodeResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The VZEN SKU type (SMALL, MEDIUM, or LARGE).
 func (o LookupVzenNodeResultOutput) VzenSkuType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) string { return v.VzenSkuType }).(pulumi.StringOutput)
 }
 
+// The ZGateway ID associated with the VZEN node.
 func (o LookupVzenNodeResultOutput) ZGatewayId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVzenNodeResult) int { return v.ZGatewayId }).(pulumi.IntOutput)
 }

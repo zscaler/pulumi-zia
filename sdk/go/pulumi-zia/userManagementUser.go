@@ -8,23 +8,44 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+// Users can be assigned to departments and groups, and enrolled with authentication methods such as
+// BASIC or DIGEST.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing user can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:UserManagementUser example 12345
+// ```
 type UserManagementUser struct {
 	pulumi.CustomResourceState
 
-	AuthMethods   pulumi.StringArrayOutput     `pulumi:"authMethods"`
-	Comments      pulumi.StringPtrOutput       `pulumi:"comments"`
-	Department    UserDepartmentInputPtrOutput `pulumi:"department"`
-	Email         pulumi.StringOutput          `pulumi:"email"`
-	Groups        pulumi.IntArrayOutput        `pulumi:"groups"`
-	Name          pulumi.StringOutput          `pulumi:"name"`
-	Password      pulumi.StringOutput          `pulumi:"password"`
-	TempAuthEmail pulumi.StringPtrOutput       `pulumi:"tempAuthEmail"`
-	UserId        pulumi.IntOutput             `pulumi:"userId"`
+	// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+	AuthMethods pulumi.StringArrayOutput `pulumi:"authMethods"`
+	// Comments or notes about the user. Maximum 10240 characters.
+	Comments pulumi.StringPtrOutput `pulumi:"comments"`
+	// The department the user belongs to.
+	Department UserDepartmentInputPtrOutput `pulumi:"department"`
+	// The user's email address. Maximum 127 characters.
+	Email pulumi.StringOutput `pulumi:"email"`
+	// List of group IDs the user belongs to.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// The user's full name. Maximum 127 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The user's password. This is a secret and will not be stored in plaintext in the state.
+	Password pulumi.StringOutput `pulumi:"password"`
+	// Temporary authentication email for the user.
+	TempAuthEmail pulumi.StringPtrOutput `pulumi:"tempAuthEmail"`
+	// The unique identifier for the user assigned by the ZIA cloud.
+	UserId pulumi.IntOutput `pulumi:"userId"`
 }
 
 // NewUserManagementUser registers a new resource with the given unique name, arguments, and options.
@@ -83,25 +104,41 @@ func (UserManagementUserState) ElementType() reflect.Type {
 }
 
 type userManagementUserArgs struct {
-	AuthMethods   []string             `pulumi:"authMethods"`
-	Comments      *string              `pulumi:"comments"`
-	Department    *UserDepartmentInput `pulumi:"department"`
-	Email         string               `pulumi:"email"`
-	Groups        []int                `pulumi:"groups"`
-	Name          string               `pulumi:"name"`
-	Password      string               `pulumi:"password"`
-	TempAuthEmail *string              `pulumi:"tempAuthEmail"`
+	// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+	AuthMethods []string `pulumi:"authMethods"`
+	// Comments or notes about the user. Maximum 10240 characters.
+	Comments *string `pulumi:"comments"`
+	// The department the user belongs to.
+	Department *UserDepartmentInput `pulumi:"department"`
+	// The user's email address. Maximum 127 characters.
+	Email string `pulumi:"email"`
+	// List of group IDs the user belongs to.
+	Groups []int `pulumi:"groups"`
+	// The user's full name. Maximum 127 characters.
+	Name string `pulumi:"name"`
+	// The user's password. This is a secret and will not be stored in plaintext in the state.
+	Password string `pulumi:"password"`
+	// Temporary authentication email for the user.
+	TempAuthEmail *string `pulumi:"tempAuthEmail"`
 }
 
 // The set of arguments for constructing a UserManagementUser resource.
 type UserManagementUserArgs struct {
-	AuthMethods   pulumi.StringArrayInput
-	Comments      pulumi.StringPtrInput
-	Department    UserDepartmentInputPtrInput
-	Email         pulumi.StringInput
-	Groups        pulumi.IntArrayInput
-	Name          pulumi.StringInput
-	Password      pulumi.StringInput
+	// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+	AuthMethods pulumi.StringArrayInput
+	// Comments or notes about the user. Maximum 10240 characters.
+	Comments pulumi.StringPtrInput
+	// The department the user belongs to.
+	Department UserDepartmentInputPtrInput
+	// The user's email address. Maximum 127 characters.
+	Email pulumi.StringInput
+	// List of group IDs the user belongs to.
+	Groups pulumi.IntArrayInput
+	// The user's full name. Maximum 127 characters.
+	Name pulumi.StringInput
+	// The user's password. This is a secret and will not be stored in plaintext in the state.
+	Password pulumi.StringInput
+	// Temporary authentication email for the user.
 	TempAuthEmail pulumi.StringPtrInput
 }
 
@@ -192,38 +229,47 @@ func (o UserManagementUserOutput) ToUserManagementUserOutputWithContext(ctx cont
 	return o
 }
 
+// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
 func (o UserManagementUserOutput) AuthMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringArrayOutput { return v.AuthMethods }).(pulumi.StringArrayOutput)
 }
 
+// Comments or notes about the user. Maximum 10240 characters.
 func (o UserManagementUserOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
+// The department the user belongs to.
 func (o UserManagementUserOutput) Department() UserDepartmentInputPtrOutput {
 	return o.ApplyT(func(v *UserManagementUser) UserDepartmentInputPtrOutput { return v.Department }).(UserDepartmentInputPtrOutput)
 }
 
+// The user's email address. Maximum 127 characters.
 func (o UserManagementUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
+// List of group IDs the user belongs to.
 func (o UserManagementUserOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// The user's full name. Maximum 127 characters.
 func (o UserManagementUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The user's password. This is a secret and will not be stored in plaintext in the state.
 func (o UserManagementUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
+// Temporary authentication email for the user.
 func (o UserManagementUserOutput) TempAuthEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.StringPtrOutput { return v.TempAuthEmail }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the user assigned by the ZIA cloud.
 func (o UserManagementUserOutput) UserId() pulumi.IntOutput {
 	return o.ApplyT(func(v *UserManagementUser) pulumi.IntOutput { return v.UserId }).(pulumi.IntOutput)
 }

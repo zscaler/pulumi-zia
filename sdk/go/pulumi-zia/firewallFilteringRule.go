@@ -8,50 +8,122 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_firewall_filtering_rule resource manages firewall filtering rules in the Zscaler Internet Access (ZIA) cloud service. Cloud firewall rules control traffic that is forwarded to the Zscaler service for inspection, allowing you to allow, block, or apply specific actions based on source, destination, applications, and other criteria.
+//
+// For more information, see the [ZIA Cloud Firewall documentation](https://help.zscaler.com/zia/firewall-policies).
+//
+// ## Example Usage
+// ### Basic Firewall Filtering Rule
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewFirewallFilteringRule(ctx, "example", &zia.FirewallFilteringRuleArgs{
+//				Name:        pulumi.String("Example Firewall Rule"),
+//				Description: pulumi.StringRef("Allow outbound traffic"),
+//				Order:       pulumi.Int(1),
+//				State:       pulumi.StringRef("ENABLED"),
+//				Action:      pulumi.StringRef("ALLOW"),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// An existing Firewall Filtering Rule can be imported using its resource ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:FirewallFilteringRule example 12345
+// ```
 type FirewallFilteringRule struct {
 	pulumi.CustomResourceState
 
-	Action              pulumi.StringPtrOutput            `pulumi:"action"`
-	AppServiceGroups    pulumi.IntArrayOutput             `pulumi:"appServiceGroups"`
-	AppServices         pulumi.IntArrayOutput             `pulumi:"appServices"`
-	DefaultRule         pulumi.BoolPtrOutput              `pulumi:"defaultRule"`
-	Departments         pulumi.IntArrayOutput             `pulumi:"departments"`
-	Description         pulumi.StringPtrOutput            `pulumi:"description"`
-	DestAddresses       pulumi.StringArrayOutput          `pulumi:"destAddresses"`
-	DestCountries       pulumi.StringArrayOutput          `pulumi:"destCountries"`
-	DestIpCategories    pulumi.StringArrayOutput          `pulumi:"destIpCategories"`
-	DestIpGroups        pulumi.IntArrayOutput             `pulumi:"destIpGroups"`
-	DeviceGroups        pulumi.IntArrayOutput             `pulumi:"deviceGroups"`
-	DeviceTrustLevels   pulumi.StringArrayOutput          `pulumi:"deviceTrustLevels"`
-	Devices             pulumi.IntArrayOutput             `pulumi:"devices"`
-	EnableFullLogging   pulumi.BoolPtrOutput              `pulumi:"enableFullLogging"`
-	ExcludeSrcCountries pulumi.BoolPtrOutput              `pulumi:"excludeSrcCountries"`
-	Groups              pulumi.IntArrayOutput             `pulumi:"groups"`
-	Labels              pulumi.IntArrayOutput             `pulumi:"labels"`
-	LocationGroups      pulumi.IntArrayOutput             `pulumi:"locationGroups"`
-	Locations           pulumi.IntArrayOutput             `pulumi:"locations"`
-	Name                pulumi.StringOutput               `pulumi:"name"`
-	NwApplicationGroups pulumi.IntArrayOutput             `pulumi:"nwApplicationGroups"`
-	NwApplications      pulumi.StringArrayOutput          `pulumi:"nwApplications"`
-	NwServiceGroups     pulumi.IntArrayOutput             `pulumi:"nwServiceGroups"`
-	NwServices          pulumi.IntArrayOutput             `pulumi:"nwServices"`
-	Order               pulumi.IntOutput                  `pulumi:"order"`
-	Predefined          pulumi.BoolPtrOutput              `pulumi:"predefined"`
-	Rank                pulumi.IntPtrOutput               `pulumi:"rank"`
-	RuleId              pulumi.IntOutput                  `pulumi:"ruleId"`
-	SourceCountries     pulumi.StringArrayOutput          `pulumi:"sourceCountries"`
-	SrcIpGroups         pulumi.IntArrayOutput             `pulumi:"srcIpGroups"`
-	SrcIps              pulumi.StringArrayOutput          `pulumi:"srcIps"`
-	State               pulumi.StringPtrOutput            `pulumi:"state"`
-	TimeWindows         pulumi.IntArrayOutput             `pulumi:"timeWindows"`
-	Users               pulumi.IntArrayOutput             `pulumi:"users"`
-	WorkloadGroups      WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
-	ZpaAppSegments      ZPAAppSegmentInputArrayOutput     `pulumi:"zpaAppSegments"`
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups pulumi.IntArrayOutput `pulumi:"appServiceGroups"`
+	// IDs of application services to which the rule applies.
+	AppServices pulumi.IntArrayOutput `pulumi:"appServices"`
+	// Indicates whether this is the default firewall filtering rule.
+	DefaultRule pulumi.BoolPtrOutput `pulumi:"defaultRule"`
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayOutput `pulumi:"departments"`
+	// Additional information about the firewall filtering rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayOutput `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayOutput `pulumi:"destCountries"`
+	// Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+	DestIpCategories pulumi.StringArrayOutput `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayOutput `pulumi:"destIpGroups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayOutput `pulumi:"deviceTrustLevels"`
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayOutput `pulumi:"devices"`
+	// If set to true, enables full logging for the rule.
+	EnableFullLogging pulumi.BoolPtrOutput `pulumi:"enableFullLogging"`
+	// If set to true, the countries specified in sourceCountries are excluded from the rule.
+	ExcludeSrcCountries pulumi.BoolPtrOutput `pulumi:"excludeSrcCountries"`
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayOutput `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayOutput `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayOutput `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayOutput `pulumi:"locations"`
+	// The name of the firewall filtering rule. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// IDs of network application groups to which the rule applies.
+	NwApplicationGroups pulumi.IntArrayOutput `pulumi:"nwApplicationGroups"`
+	// Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+	NwApplications pulumi.StringArrayOutput `pulumi:"nwApplications"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayOutput `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayOutput `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other firewall filtering rules.
+	Order pulumi.IntOutput `pulumi:"order"`
+	// Indicates whether this is a predefined rule.
+	Predefined pulumi.BoolPtrOutput `pulumi:"predefined"`
+	// Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrOutput `pulumi:"rank"`
+	// The system-generated ID of the firewall filtering rule.
+	RuleId pulumi.IntOutput `pulumi:"ruleId"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayOutput `pulumi:"sourceCountries"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayOutput `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayOutput `pulumi:"srcIps"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayOutput `pulumi:"timeWindows"`
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayOutput `pulumi:"users"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayOutput `pulumi:"workloadGroups"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments ZPAAppSegmentInputArrayOutput `pulumi:"zpaAppSegments"`
 }
 
 // NewFirewallFilteringRule registers a new resource with the given unique name, arguments, and options.
@@ -100,80 +172,150 @@ func (FirewallFilteringRuleState) ElementType() reflect.Type {
 }
 
 type firewallFilteringRuleArgs struct {
-	Action              *string                  `pulumi:"action"`
-	AppServiceGroups    []int                    `pulumi:"appServiceGroups"`
-	AppServices         []int                    `pulumi:"appServices"`
-	DefaultRule         *bool                    `pulumi:"defaultRule"`
-	Departments         []int                    `pulumi:"departments"`
-	Description         *string                  `pulumi:"description"`
-	DestAddresses       []string                 `pulumi:"destAddresses"`
-	DestCountries       []string                 `pulumi:"destCountries"`
-	DestIpCategories    []string                 `pulumi:"destIpCategories"`
-	DestIpGroups        []int                    `pulumi:"destIpGroups"`
-	DeviceGroups        []int                    `pulumi:"deviceGroups"`
-	DeviceTrustLevels   []string                 `pulumi:"deviceTrustLevels"`
-	Devices             []int                    `pulumi:"devices"`
-	EnableFullLogging   *bool                    `pulumi:"enableFullLogging"`
-	ExcludeSrcCountries *bool                    `pulumi:"excludeSrcCountries"`
-	Groups              []int                    `pulumi:"groups"`
-	Labels              []int                    `pulumi:"labels"`
-	LocationGroups      []int                    `pulumi:"locationGroups"`
-	Locations           []int                    `pulumi:"locations"`
-	Name                string                   `pulumi:"name"`
-	NwApplicationGroups []int                    `pulumi:"nwApplicationGroups"`
-	NwApplications      []string                 `pulumi:"nwApplications"`
-	NwServiceGroups     []int                    `pulumi:"nwServiceGroups"`
-	NwServices          []int                    `pulumi:"nwServices"`
-	Order               int                      `pulumi:"order"`
-	Predefined          *bool                    `pulumi:"predefined"`
-	Rank                *int                     `pulumi:"rank"`
-	SourceCountries     []string                 `pulumi:"sourceCountries"`
-	SrcIpGroups         []int                    `pulumi:"srcIpGroups"`
-	SrcIps              []string                 `pulumi:"srcIps"`
-	State               *string                  `pulumi:"state"`
-	TimeWindows         []int                    `pulumi:"timeWindows"`
-	Users               []int                    `pulumi:"users"`
-	WorkloadGroups      []WorkloadGroupInputType `pulumi:"workloadGroups"`
-	ZpaAppSegments      []ZPAAppSegmentInput     `pulumi:"zpaAppSegments"`
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+	Action *string `pulumi:"action"`
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups []int `pulumi:"appServiceGroups"`
+	// IDs of application services to which the rule applies.
+	AppServices []int `pulumi:"appServices"`
+	// Indicates whether this is the default firewall filtering rule.
+	DefaultRule *bool `pulumi:"defaultRule"`
+	// IDs of departments to which the rule must be applied.
+	Departments []int `pulumi:"departments"`
+	// Additional information about the firewall filtering rule.
+	Description *string `pulumi:"description"`
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses []string `pulumi:"destAddresses"`
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries []string `pulumi:"destCountries"`
+	// Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+	DestIpCategories []string `pulumi:"destIpCategories"`
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups []int `pulumi:"destIpGroups"`
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups []int `pulumi:"deviceGroups"`
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels []string `pulumi:"deviceTrustLevels"`
+	// IDs of devices for which the rule must be applied.
+	Devices []int `pulumi:"devices"`
+	// If set to true, enables full logging for the rule.
+	EnableFullLogging *bool `pulumi:"enableFullLogging"`
+	// If set to true, the countries specified in sourceCountries are excluded from the rule.
+	ExcludeSrcCountries *bool `pulumi:"excludeSrcCountries"`
+	// IDs of groups to which the rule must be applied.
+	Groups []int `pulumi:"groups"`
+	// IDs of labels associated with the rule.
+	Labels []int `pulumi:"labels"`
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups []int `pulumi:"locationGroups"`
+	// IDs of locations to which the rule must be applied.
+	Locations []int `pulumi:"locations"`
+	// The name of the firewall filtering rule. Must be unique.
+	Name string `pulumi:"name"`
+	// IDs of network application groups to which the rule applies.
+	NwApplicationGroups []int `pulumi:"nwApplicationGroups"`
+	// Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+	NwApplications []string `pulumi:"nwApplications"`
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups []int `pulumi:"nwServiceGroups"`
+	// IDs of network services to which the rule applies.
+	NwServices []int `pulumi:"nwServices"`
+	// The order of execution of the rule with respect to other firewall filtering rules.
+	Order int `pulumi:"order"`
+	// Indicates whether this is a predefined rule.
+	Predefined *bool `pulumi:"predefined"`
+	// Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank *int `pulumi:"rank"`
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries []string `pulumi:"sourceCountries"`
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups []int `pulumi:"srcIpGroups"`
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps []string `pulumi:"srcIps"`
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State *string `pulumi:"state"`
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows []int `pulumi:"timeWindows"`
+	// IDs of users to which the rule must be applied.
+	Users []int `pulumi:"users"`
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups []WorkloadGroupInputType `pulumi:"workloadGroups"`
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments []ZPAAppSegmentInput `pulumi:"zpaAppSegments"`
 }
 
 // The set of arguments for constructing a FirewallFilteringRule resource.
 type FirewallFilteringRuleArgs struct {
-	Action              pulumi.StringPtrInput
-	AppServiceGroups    pulumi.IntArrayInput
-	AppServices         pulumi.IntArrayInput
-	DefaultRule         pulumi.BoolPtrInput
-	Departments         pulumi.IntArrayInput
-	Description         pulumi.StringPtrInput
-	DestAddresses       pulumi.StringArrayInput
-	DestCountries       pulumi.StringArrayInput
-	DestIpCategories    pulumi.StringArrayInput
-	DestIpGroups        pulumi.IntArrayInput
-	DeviceGroups        pulumi.IntArrayInput
-	DeviceTrustLevels   pulumi.StringArrayInput
-	Devices             pulumi.IntArrayInput
-	EnableFullLogging   pulumi.BoolPtrInput
+	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+	Action pulumi.StringPtrInput
+	// IDs of application service groups to which the rule applies.
+	AppServiceGroups pulumi.IntArrayInput
+	// IDs of application services to which the rule applies.
+	AppServices pulumi.IntArrayInput
+	// Indicates whether this is the default firewall filtering rule.
+	DefaultRule pulumi.BoolPtrInput
+	// IDs of departments to which the rule must be applied.
+	Departments pulumi.IntArrayInput
+	// Additional information about the firewall filtering rule.
+	Description pulumi.StringPtrInput
+	// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+	DestAddresses pulumi.StringArrayInput
+	// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+	DestCountries pulumi.StringArrayInput
+	// Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+	DestIpCategories pulumi.StringArrayInput
+	// IDs of destination IP address groups for the rule.
+	DestIpGroups pulumi.IntArrayInput
+	// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+	DeviceGroups pulumi.IntArrayInput
+	// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+	DeviceTrustLevels pulumi.StringArrayInput
+	// IDs of devices for which the rule must be applied.
+	Devices pulumi.IntArrayInput
+	// If set to true, enables full logging for the rule.
+	EnableFullLogging pulumi.BoolPtrInput
+	// If set to true, the countries specified in sourceCountries are excluded from the rule.
 	ExcludeSrcCountries pulumi.BoolPtrInput
-	Groups              pulumi.IntArrayInput
-	Labels              pulumi.IntArrayInput
-	LocationGroups      pulumi.IntArrayInput
-	Locations           pulumi.IntArrayInput
-	Name                pulumi.StringInput
+	// IDs of groups to which the rule must be applied.
+	Groups pulumi.IntArrayInput
+	// IDs of labels associated with the rule.
+	Labels pulumi.IntArrayInput
+	// IDs of location groups to which the rule must be applied.
+	LocationGroups pulumi.IntArrayInput
+	// IDs of locations to which the rule must be applied.
+	Locations pulumi.IntArrayInput
+	// The name of the firewall filtering rule. Must be unique.
+	Name pulumi.StringInput
+	// IDs of network application groups to which the rule applies.
 	NwApplicationGroups pulumi.IntArrayInput
-	NwApplications      pulumi.StringArrayInput
-	NwServiceGroups     pulumi.IntArrayInput
-	NwServices          pulumi.IntArrayInput
-	Order               pulumi.IntInput
-	Predefined          pulumi.BoolPtrInput
-	Rank                pulumi.IntPtrInput
-	SourceCountries     pulumi.StringArrayInput
-	SrcIpGroups         pulumi.IntArrayInput
-	SrcIps              pulumi.StringArrayInput
-	State               pulumi.StringPtrInput
-	TimeWindows         pulumi.IntArrayInput
-	Users               pulumi.IntArrayInput
-	WorkloadGroups      WorkloadGroupInputTypeArrayInput
-	ZpaAppSegments      ZPAAppSegmentInputArrayInput
+	// Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+	NwApplications pulumi.StringArrayInput
+	// IDs of network service groups to which the rule applies.
+	NwServiceGroups pulumi.IntArrayInput
+	// IDs of network services to which the rule applies.
+	NwServices pulumi.IntArrayInput
+	// The order of execution of the rule with respect to other firewall filtering rules.
+	Order pulumi.IntInput
+	// Indicates whether this is a predefined rule.
+	Predefined pulumi.BoolPtrInput
+	// Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+	Rank pulumi.IntPtrInput
+	// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+	SourceCountries pulumi.StringArrayInput
+	// IDs of source IP address groups for the rule.
+	SrcIpGroups pulumi.IntArrayInput
+	// Source IP addresses or CIDR ranges for the rule.
+	SrcIps pulumi.StringArrayInput
+	// Rule state. Valid values: `ENABLED`, `DISABLED`.
+	State pulumi.StringPtrInput
+	// IDs of time intervals during which the rule must be enforced.
+	TimeWindows pulumi.IntArrayInput
+	// IDs of users to which the rule must be applied.
+	Users pulumi.IntArrayInput
+	// List of preconfigured workload groups to which the policy must be applied.
+	WorkloadGroups WorkloadGroupInputTypeArrayInput
+	// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+	ZpaAppSegments ZPAAppSegmentInputArrayInput
 }
 
 func (FirewallFilteringRuleArgs) ElementType() reflect.Type {
@@ -263,146 +405,182 @@ func (o FirewallFilteringRuleOutput) ToFirewallFilteringRuleOutputWithContext(ct
 	return o
 }
 
+// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
 func (o FirewallFilteringRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// IDs of application service groups to which the rule applies.
 func (o FirewallFilteringRuleOutput) AppServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.AppServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of application services to which the rule applies.
 func (o FirewallFilteringRuleOutput) AppServices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.AppServices }).(pulumi.IntArrayOutput)
 }
 
+// Indicates whether this is the default firewall filtering rule.
 func (o FirewallFilteringRuleOutput) DefaultRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.DefaultRule }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of departments to which the rule must be applied.
 func (o FirewallFilteringRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
 }
 
+// Additional information about the firewall filtering rule.
 func (o FirewallFilteringRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
 func (o FirewallFilteringRuleOutput) DestAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o FirewallFilteringRuleOutput) DestCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestCountries }).(pulumi.StringArrayOutput)
 }
 
+// Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
 func (o FirewallFilteringRuleOutput) DestIpCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DestIpCategories }).(pulumi.StringArrayOutput)
 }
 
+// IDs of destination IP address groups for the rule.
 func (o FirewallFilteringRuleOutput) DestIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.DestIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
 func (o FirewallFilteringRuleOutput) DeviceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.DeviceGroups }).(pulumi.IntArrayOutput)
 }
 
+// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
 func (o FirewallFilteringRuleOutput) DeviceTrustLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.DeviceTrustLevels }).(pulumi.StringArrayOutput)
 }
 
+// IDs of devices for which the rule must be applied.
 func (o FirewallFilteringRuleOutput) Devices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Devices }).(pulumi.IntArrayOutput)
 }
 
+// If set to true, enables full logging for the rule.
 func (o FirewallFilteringRuleOutput) EnableFullLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.EnableFullLogging }).(pulumi.BoolPtrOutput)
 }
 
+// If set to true, the countries specified in sourceCountries are excluded from the rule.
 func (o FirewallFilteringRuleOutput) ExcludeSrcCountries() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.ExcludeSrcCountries }).(pulumi.BoolPtrOutput)
 }
 
+// IDs of groups to which the rule must be applied.
 func (o FirewallFilteringRuleOutput) Groups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Groups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of labels associated with the rule.
 func (o FirewallFilteringRuleOutput) Labels() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Labels }).(pulumi.IntArrayOutput)
 }
 
+// IDs of location groups to which the rule must be applied.
 func (o FirewallFilteringRuleOutput) LocationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.LocationGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of locations to which the rule must be applied.
 func (o FirewallFilteringRuleOutput) Locations() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Locations }).(pulumi.IntArrayOutput)
 }
 
+// The name of the firewall filtering rule. Must be unique.
 func (o FirewallFilteringRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// IDs of network application groups to which the rule applies.
 func (o FirewallFilteringRuleOutput) NwApplicationGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.NwApplicationGroups }).(pulumi.IntArrayOutput)
 }
 
+// Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
 func (o FirewallFilteringRuleOutput) NwApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.NwApplications }).(pulumi.StringArrayOutput)
 }
 
+// IDs of network service groups to which the rule applies.
 func (o FirewallFilteringRuleOutput) NwServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.NwServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// IDs of network services to which the rule applies.
 func (o FirewallFilteringRuleOutput) NwServices() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.NwServices }).(pulumi.IntArrayOutput)
 }
 
+// The order of execution of the rule with respect to other firewall filtering rules.
 func (o FirewallFilteringRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
 }
 
+// Indicates whether this is a predefined rule.
 func (o FirewallFilteringRuleOutput) Predefined() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.BoolPtrOutput { return v.Predefined }).(pulumi.BoolPtrOutput)
 }
 
+// Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
 func (o FirewallFilteringRuleOutput) Rank() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntPtrOutput { return v.Rank }).(pulumi.IntPtrOutput)
 }
 
+// The system-generated ID of the firewall filtering rule.
 func (o FirewallFilteringRuleOutput) RuleId() pulumi.IntOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntOutput { return v.RuleId }).(pulumi.IntOutput)
 }
 
+// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
 func (o FirewallFilteringRuleOutput) SourceCountries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.SourceCountries }).(pulumi.StringArrayOutput)
 }
 
+// IDs of source IP address groups for the rule.
 func (o FirewallFilteringRuleOutput) SrcIpGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.SrcIpGroups }).(pulumi.IntArrayOutput)
 }
 
+// Source IP addresses or CIDR ranges for the rule.
 func (o FirewallFilteringRuleOutput) SrcIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringArrayOutput { return v.SrcIps }).(pulumi.StringArrayOutput)
 }
 
+// Rule state. Valid values: `ENABLED`, `DISABLED`.
 func (o FirewallFilteringRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
+// IDs of time intervals during which the rule must be enforced.
 func (o FirewallFilteringRuleOutput) TimeWindows() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.TimeWindows }).(pulumi.IntArrayOutput)
 }
 
+// IDs of users to which the rule must be applied.
 func (o FirewallFilteringRuleOutput) Users() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) pulumi.IntArrayOutput { return v.Users }).(pulumi.IntArrayOutput)
 }
 
+// List of preconfigured workload groups to which the policy must be applied.
 func (o FirewallFilteringRuleOutput) WorkloadGroups() WorkloadGroupInputTypeArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) WorkloadGroupInputTypeArrayOutput { return v.WorkloadGroups }).(WorkloadGroupInputTypeArrayOutput)
 }
 
+// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
 func (o FirewallFilteringRuleOutput) ZpaAppSegments() ZPAAppSegmentInputArrayOutput {
 	return o.ApplyT(func(v *FirewallFilteringRule) ZPAAppSegmentInputArrayOutput { return v.ZpaAppSegments }).(ZPAAppSegmentInputArrayOutput)
 }

@@ -11,13 +11,31 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+// Workload groups define sets of cloud workloads based on tag expressions that can be used in
+// firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+// cloud workloads (e.g., VMs, subnets, ENIs).
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing workload group can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:WorkloadGroup example 12345
+// ```
 type WorkloadGroup struct {
 	pulumi.CustomResourceState
 
-	Description    pulumi.StringPtrOutput                    `pulumi:"description"`
+	// Description of the workload group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The expression JSON that defines the workload group matching criteria using tag expressions.
 	ExpressionJson WorkloadGroupExpressionJsonInputPtrOutput `pulumi:"expressionJson"`
-	GroupId        pulumi.IntOutput                          `pulumi:"groupId"`
-	Name           pulumi.StringPtrOutput                    `pulumi:"name"`
+	// The unique identifier for the workload group assigned by the ZIA cloud.
+	GroupId pulumi.IntOutput `pulumi:"groupId"`
+	// Name of the workload group.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 }
 
 // NewWorkloadGroup registers a new resource with the given unique name, arguments, and options.
@@ -60,16 +78,22 @@ func (WorkloadGroupState) ElementType() reflect.Type {
 }
 
 type workloadGroupArgs struct {
-	Description    *string                           `pulumi:"description"`
+	// Description of the workload group.
+	Description *string `pulumi:"description"`
+	// The expression JSON that defines the workload group matching criteria using tag expressions.
 	ExpressionJson *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson"`
-	Name           *string                           `pulumi:"name"`
+	// Name of the workload group.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a WorkloadGroup resource.
 type WorkloadGroupArgs struct {
-	Description    pulumi.StringPtrInput
+	// Description of the workload group.
+	Description pulumi.StringPtrInput
+	// The expression JSON that defines the workload group matching criteria using tag expressions.
 	ExpressionJson WorkloadGroupExpressionJsonInputPtrInput
-	Name           pulumi.StringPtrInput
+	// Name of the workload group.
+	Name pulumi.StringPtrInput
 }
 
 func (WorkloadGroupArgs) ElementType() reflect.Type {
@@ -159,18 +183,22 @@ func (o WorkloadGroupOutput) ToWorkloadGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Description of the workload group.
 func (o WorkloadGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkloadGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The expression JSON that defines the workload group matching criteria using tag expressions.
 func (o WorkloadGroupOutput) ExpressionJson() WorkloadGroupExpressionJsonInputPtrOutput {
 	return o.ApplyT(func(v *WorkloadGroup) WorkloadGroupExpressionJsonInputPtrOutput { return v.ExpressionJson }).(WorkloadGroupExpressionJsonInputPtrOutput)
 }
 
+// The unique identifier for the workload group assigned by the ZIA cloud.
 func (o WorkloadGroupOutput) GroupId() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkloadGroup) pulumi.IntOutput { return v.GroupId }).(pulumi.IntOutput)
 }
 
+// Name of the workload group.
 func (o WorkloadGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkloadGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }

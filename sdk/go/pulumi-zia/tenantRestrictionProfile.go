@@ -8,28 +8,55 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+// Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+// application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+// authorized tenant domains.
+//
+// ## Example Usage
+//
+// ## Import
+//
+// An existing tenant restriction profile can be imported using its ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:TenantRestrictionProfile example 12345
+// ```
 type TenantRestrictionProfile struct {
 	pulumi.CustomResourceState
 
-	AllowGcpCloudStorageRead    pulumi.BoolPtrOutput     `pulumi:"allowGcpCloudStorageRead"`
-	AllowGoogleConsumers        pulumi.BoolPtrOutput     `pulumi:"allowGoogleConsumers"`
-	AllowGoogleVisitors         pulumi.BoolPtrOutput     `pulumi:"allowGoogleVisitors"`
-	AppType                     pulumi.StringPtrOutput   `pulumi:"appType"`
-	Description                 pulumi.StringPtrOutput   `pulumi:"description"`
-	ItemDataPrimary             pulumi.StringArrayOutput `pulumi:"itemDataPrimary"`
-	ItemDataSecondary           pulumi.StringArrayOutput `pulumi:"itemDataSecondary"`
-	ItemTypePrimary             pulumi.StringPtrOutput   `pulumi:"itemTypePrimary"`
-	ItemTypeSecondary           pulumi.StringPtrOutput   `pulumi:"itemTypeSecondary"`
-	ItemValue                   pulumi.StringArrayOutput `pulumi:"itemValue"`
-	MsLoginServicesTrV2         pulumi.BoolPtrOutput     `pulumi:"msLoginServicesTrV2"`
-	Name                        pulumi.StringOutput      `pulumi:"name"`
-	ProfileId                   pulumi.IntOutput         `pulumi:"profileId"`
-	RestrictPersonalO365Domains pulumi.BoolPtrOutput     `pulumi:"restrictPersonalO365Domains"`
+	// Whether to allow GCP Cloud Storage read access.
+	AllowGcpCloudStorageRead pulumi.BoolPtrOutput `pulumi:"allowGcpCloudStorageRead"`
+	// Whether to allow Google consumer accounts.
+	AllowGoogleConsumers pulumi.BoolPtrOutput `pulumi:"allowGoogleConsumers"`
+	// Whether to allow Google visitor accounts.
+	AllowGoogleVisitors pulumi.BoolPtrOutput `pulumi:"allowGoogleVisitors"`
+	// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+	AppType pulumi.StringPtrOutput `pulumi:"appType"`
+	// Description of the tenant restriction profile.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of primary item data values (e.g., tenant IDs).
+	ItemDataPrimary pulumi.StringArrayOutput `pulumi:"itemDataPrimary"`
+	// List of secondary item data values.
+	ItemDataSecondary pulumi.StringArrayOutput `pulumi:"itemDataSecondary"`
+	// The primary item type (e.g., 'TENANT_ID').
+	ItemTypePrimary pulumi.StringPtrOutput `pulumi:"itemTypePrimary"`
+	// The secondary item type.
+	ItemTypeSecondary pulumi.StringPtrOutput `pulumi:"itemTypeSecondary"`
+	// List of item values.
+	ItemValue pulumi.StringArrayOutput `pulumi:"itemValue"`
+	// Whether to enable Microsoft login services tenant restriction v2.
+	MsLoginServicesTrV2 pulumi.BoolPtrOutput `pulumi:"msLoginServicesTrV2"`
+	// Name of the tenant restriction profile.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+	ProfileId pulumi.IntOutput `pulumi:"profileId"`
+	// Whether to restrict personal Office 365 domains.
+	RestrictPersonalO365Domains pulumi.BoolPtrOutput `pulumi:"restrictPersonalO365Domains"`
 }
 
 // NewTenantRestrictionProfile registers a new resource with the given unique name, arguments, and options.
@@ -75,35 +102,61 @@ func (TenantRestrictionProfileState) ElementType() reflect.Type {
 }
 
 type tenantRestrictionProfileArgs struct {
-	AllowGcpCloudStorageRead    *bool    `pulumi:"allowGcpCloudStorageRead"`
-	AllowGoogleConsumers        *bool    `pulumi:"allowGoogleConsumers"`
-	AllowGoogleVisitors         *bool    `pulumi:"allowGoogleVisitors"`
-	AppType                     *string  `pulumi:"appType"`
-	Description                 *string  `pulumi:"description"`
-	ItemDataPrimary             []string `pulumi:"itemDataPrimary"`
-	ItemDataSecondary           []string `pulumi:"itemDataSecondary"`
-	ItemTypePrimary             *string  `pulumi:"itemTypePrimary"`
-	ItemTypeSecondary           *string  `pulumi:"itemTypeSecondary"`
-	ItemValue                   []string `pulumi:"itemValue"`
-	MsLoginServicesTrV2         *bool    `pulumi:"msLoginServicesTrV2"`
-	Name                        string   `pulumi:"name"`
-	RestrictPersonalO365Domains *bool    `pulumi:"restrictPersonalO365Domains"`
+	// Whether to allow GCP Cloud Storage read access.
+	AllowGcpCloudStorageRead *bool `pulumi:"allowGcpCloudStorageRead"`
+	// Whether to allow Google consumer accounts.
+	AllowGoogleConsumers *bool `pulumi:"allowGoogleConsumers"`
+	// Whether to allow Google visitor accounts.
+	AllowGoogleVisitors *bool `pulumi:"allowGoogleVisitors"`
+	// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+	AppType *string `pulumi:"appType"`
+	// Description of the tenant restriction profile.
+	Description *string `pulumi:"description"`
+	// List of primary item data values (e.g., tenant IDs).
+	ItemDataPrimary []string `pulumi:"itemDataPrimary"`
+	// List of secondary item data values.
+	ItemDataSecondary []string `pulumi:"itemDataSecondary"`
+	// The primary item type (e.g., 'TENANT_ID').
+	ItemTypePrimary *string `pulumi:"itemTypePrimary"`
+	// The secondary item type.
+	ItemTypeSecondary *string `pulumi:"itemTypeSecondary"`
+	// List of item values.
+	ItemValue []string `pulumi:"itemValue"`
+	// Whether to enable Microsoft login services tenant restriction v2.
+	MsLoginServicesTrV2 *bool `pulumi:"msLoginServicesTrV2"`
+	// Name of the tenant restriction profile.
+	Name string `pulumi:"name"`
+	// Whether to restrict personal Office 365 domains.
+	RestrictPersonalO365Domains *bool `pulumi:"restrictPersonalO365Domains"`
 }
 
 // The set of arguments for constructing a TenantRestrictionProfile resource.
 type TenantRestrictionProfileArgs struct {
-	AllowGcpCloudStorageRead    pulumi.BoolPtrInput
-	AllowGoogleConsumers        pulumi.BoolPtrInput
-	AllowGoogleVisitors         pulumi.BoolPtrInput
-	AppType                     pulumi.StringPtrInput
-	Description                 pulumi.StringPtrInput
-	ItemDataPrimary             pulumi.StringArrayInput
-	ItemDataSecondary           pulumi.StringArrayInput
-	ItemTypePrimary             pulumi.StringPtrInput
-	ItemTypeSecondary           pulumi.StringPtrInput
-	ItemValue                   pulumi.StringArrayInput
-	MsLoginServicesTrV2         pulumi.BoolPtrInput
-	Name                        pulumi.StringInput
+	// Whether to allow GCP Cloud Storage read access.
+	AllowGcpCloudStorageRead pulumi.BoolPtrInput
+	// Whether to allow Google consumer accounts.
+	AllowGoogleConsumers pulumi.BoolPtrInput
+	// Whether to allow Google visitor accounts.
+	AllowGoogleVisitors pulumi.BoolPtrInput
+	// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+	AppType pulumi.StringPtrInput
+	// Description of the tenant restriction profile.
+	Description pulumi.StringPtrInput
+	// List of primary item data values (e.g., tenant IDs).
+	ItemDataPrimary pulumi.StringArrayInput
+	// List of secondary item data values.
+	ItemDataSecondary pulumi.StringArrayInput
+	// The primary item type (e.g., 'TENANT_ID').
+	ItemTypePrimary pulumi.StringPtrInput
+	// The secondary item type.
+	ItemTypeSecondary pulumi.StringPtrInput
+	// List of item values.
+	ItemValue pulumi.StringArrayInput
+	// Whether to enable Microsoft login services tenant restriction v2.
+	MsLoginServicesTrV2 pulumi.BoolPtrInput
+	// Name of the tenant restriction profile.
+	Name pulumi.StringInput
+	// Whether to restrict personal Office 365 domains.
 	RestrictPersonalO365Domains pulumi.BoolPtrInput
 }
 
@@ -194,58 +247,72 @@ func (o TenantRestrictionProfileOutput) ToTenantRestrictionProfileOutputWithCont
 	return o
 }
 
+// Whether to allow GCP Cloud Storage read access.
 func (o TenantRestrictionProfileOutput) AllowGcpCloudStorageRead() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.BoolPtrOutput { return v.AllowGcpCloudStorageRead }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to allow Google consumer accounts.
 func (o TenantRestrictionProfileOutput) AllowGoogleConsumers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.BoolPtrOutput { return v.AllowGoogleConsumers }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to allow Google visitor accounts.
 func (o TenantRestrictionProfileOutput) AllowGoogleVisitors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.BoolPtrOutput { return v.AllowGoogleVisitors }).(pulumi.BoolPtrOutput)
 }
 
+// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
 func (o TenantRestrictionProfileOutput) AppType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringPtrOutput { return v.AppType }).(pulumi.StringPtrOutput)
 }
 
+// Description of the tenant restriction profile.
 func (o TenantRestrictionProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of primary item data values (e.g., tenant IDs).
 func (o TenantRestrictionProfileOutput) ItemDataPrimary() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringArrayOutput { return v.ItemDataPrimary }).(pulumi.StringArrayOutput)
 }
 
+// List of secondary item data values.
 func (o TenantRestrictionProfileOutput) ItemDataSecondary() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringArrayOutput { return v.ItemDataSecondary }).(pulumi.StringArrayOutput)
 }
 
+// The primary item type (e.g., 'TENANT_ID').
 func (o TenantRestrictionProfileOutput) ItemTypePrimary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringPtrOutput { return v.ItemTypePrimary }).(pulumi.StringPtrOutput)
 }
 
+// The secondary item type.
 func (o TenantRestrictionProfileOutput) ItemTypeSecondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringPtrOutput { return v.ItemTypeSecondary }).(pulumi.StringPtrOutput)
 }
 
+// List of item values.
 func (o TenantRestrictionProfileOutput) ItemValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringArrayOutput { return v.ItemValue }).(pulumi.StringArrayOutput)
 }
 
+// Whether to enable Microsoft login services tenant restriction v2.
 func (o TenantRestrictionProfileOutput) MsLoginServicesTrV2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.BoolPtrOutput { return v.MsLoginServicesTrV2 }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the tenant restriction profile.
 func (o TenantRestrictionProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
 func (o TenantRestrictionProfileOutput) ProfileId() pulumi.IntOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.IntOutput { return v.ProfileId }).(pulumi.IntOutput)
 }
 
+// Whether to restrict personal Office 365 domains.
 func (o TenantRestrictionProfileOutput) RestrictPersonalO365Domains() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TenantRestrictionProfile) pulumi.BoolPtrOutput { return v.RestrictPersonalO365Domains }).(pulumi.BoolPtrOutput)
 }

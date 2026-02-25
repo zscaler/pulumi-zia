@@ -11,11 +11,20 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_atp_malicious_urls resource manages the list of malicious URL exceptions for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are treated as known malicious and will be blocked. This is a singleton resource.
+//
+// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+//
+// ## Example Usage
+//
+// > This is a singleton resource. Import is not applicable.
 type AtpMaliciousUrls struct {
 	pulumi.CustomResourceState
 
+	// List of URLs to be treated as malicious by Advanced Threat Protection.
 	MaliciousUrls pulumi.StringArrayOutput `pulumi:"maliciousUrls"`
-	ResourceId    pulumi.StringOutput      `pulumi:"resourceId"`
+	// The internal resource identifier for the ATP malicious URLs.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewAtpMaliciousUrls registers a new resource with the given unique name, arguments, and options.
@@ -58,11 +67,13 @@ func (AtpMaliciousUrlsState) ElementType() reflect.Type {
 }
 
 type atpMaliciousUrlsArgs struct {
+	// List of URLs to be treated as malicious by Advanced Threat Protection.
 	MaliciousUrls []string `pulumi:"maliciousUrls"`
 }
 
 // The set of arguments for constructing a AtpMaliciousUrls resource.
 type AtpMaliciousUrlsArgs struct {
+	// List of URLs to be treated as malicious by Advanced Threat Protection.
 	MaliciousUrls pulumi.StringArrayInput
 }
 
@@ -153,10 +164,12 @@ func (o AtpMaliciousUrlsOutput) ToAtpMaliciousUrlsOutputWithContext(ctx context.
 	return o
 }
 
+// List of URLs to be treated as malicious by Advanced Threat Protection.
 func (o AtpMaliciousUrlsOutput) MaliciousUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AtpMaliciousUrls) pulumi.StringArrayOutput { return v.MaliciousUrls }).(pulumi.StringArrayOutput)
 }
 
+// The internal resource identifier for the ATP malicious URLs.
 func (o AtpMaliciousUrlsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AtpMaliciousUrls) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

@@ -11,31 +11,90 @@ import (
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_url_filtering_and_cloud_app_settings resource manages URL filtering and cloud application settings in the Zscaler Internet Access (ZIA) cloud service. This is a singleton resource that controls global settings for URL filtering features such as safe search enforcement, UCaaS application controls, AI/ML prompt visibility, and CIPA compliance.
+//
+// For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+//
+// ## Example Usage
+// ### Configure URL Filtering and Cloud App Settings
+//
+// ```go
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	zia "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := zia.NewUrlFilteringCloudAppSettings(ctx, "example", &zia.UrlFilteringCloudAppSettingsArgs{
+//				EnableDynamicContentCat: pulumi.BoolRef(true),
+//				EnforceSafeSearch:       pulumi.BoolRef(true),
+//				EnableOffice365:         pulumi.BoolRef(true),
+//				EnableChatgptPrompt:     pulumi.BoolRef(true),
+//				EnableCipaCompliance:    pulumi.BoolRef(false),
+//			})
+//			return err
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// The singleton URL Filtering Cloud App Settings resource can be imported using its fixed ID, e.g.
+//
+// ```sh
+// $ pulumi import zia:index:UrlFilteringCloudAppSettings example app_setting
+// ```
 type UrlFilteringCloudAppSettings struct {
 	pulumi.CustomResourceState
 
-	BlockSkype                        pulumi.BoolPtrOutput     `pulumi:"blockSkype"`
-	ConsiderEmbeddedSites             pulumi.BoolPtrOutput     `pulumi:"considerEmbeddedSites"`
-	EnableBlockOverrideForNonAuthUser pulumi.BoolPtrOutput     `pulumi:"enableBlockOverrideForNonAuthUser"`
-	EnableChatgptPrompt               pulumi.BoolPtrOutput     `pulumi:"enableChatgptPrompt"`
-	EnableCipaCompliance              pulumi.BoolPtrOutput     `pulumi:"enableCipaCompliance"`
-	EnableDynamicContentCat           pulumi.BoolPtrOutput     `pulumi:"enableDynamicContentCat"`
-	EnableGeminiPrompt                pulumi.BoolPtrOutput     `pulumi:"enableGeminiPrompt"`
-	EnableMetaPrompt                  pulumi.BoolPtrOutput     `pulumi:"enableMetaPrompt"`
-	EnableMicrosoftCopilotPrompt      pulumi.BoolPtrOutput     `pulumi:"enableMicrosoftCopilotPrompt"`
-	EnableMsftO365                    pulumi.BoolPtrOutput     `pulumi:"enableMsftO365"`
-	EnableNewlyRegisteredDomains      pulumi.BoolPtrOutput     `pulumi:"enableNewlyRegisteredDomains"`
-	EnableOffice365                   pulumi.BoolPtrOutput     `pulumi:"enableOffice365"`
-	EnablePerPlexityPrompt            pulumi.BoolPtrOutput     `pulumi:"enablePerPlexityPrompt"`
-	EnablePoepPrompt                  pulumi.BoolPtrOutput     `pulumi:"enablePoepPrompt"`
-	EnableUcaasLogmein                pulumi.BoolPtrOutput     `pulumi:"enableUcaasLogmein"`
-	EnableUcaasRingCentral            pulumi.BoolPtrOutput     `pulumi:"enableUcaasRingCentral"`
-	EnableUcaasTalkdesk               pulumi.BoolPtrOutput     `pulumi:"enableUcaasTalkdesk"`
-	EnableUcaasWebex                  pulumi.BoolPtrOutput     `pulumi:"enableUcaasWebex"`
-	EnableUcaasZoom                   pulumi.BoolPtrOutput     `pulumi:"enableUcaasZoom"`
-	EnforceSafeSearch                 pulumi.BoolPtrOutput     `pulumi:"enforceSafeSearch"`
-	ResourceId                        pulumi.StringOutput      `pulumi:"resourceId"`
-	SafeSearchApps                    pulumi.StringArrayOutput `pulumi:"safeSearchApps"`
+	// If true, Skype is blocked.
+	BlockSkype pulumi.BoolPtrOutput `pulumi:"blockSkype"`
+	// If true, embedded sites within web pages are considered for URL filtering.
+	ConsiderEmbeddedSites pulumi.BoolPtrOutput `pulumi:"considerEmbeddedSites"`
+	// If true, block override is enabled for non-authenticated users.
+	EnableBlockOverrideForNonAuthUser pulumi.BoolPtrOutput `pulumi:"enableBlockOverrideForNonAuthUser"`
+	// If true, ChatGPT prompt visibility and logging is enabled.
+	EnableChatgptPrompt pulumi.BoolPtrOutput `pulumi:"enableChatgptPrompt"`
+	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+	EnableCipaCompliance pulumi.BoolPtrOutput `pulumi:"enableCipaCompliance"`
+	// If true, dynamic content categorization is enabled.
+	EnableDynamicContentCat pulumi.BoolPtrOutput `pulumi:"enableDynamicContentCat"`
+	// If true, Google Gemini prompt visibility and logging is enabled.
+	EnableGeminiPrompt pulumi.BoolPtrOutput `pulumi:"enableGeminiPrompt"`
+	// If true, Meta AI prompt visibility and logging is enabled.
+	EnableMetaPrompt pulumi.BoolPtrOutput `pulumi:"enableMetaPrompt"`
+	// If true, Microsoft Copilot prompt visibility and logging is enabled.
+	EnableMicrosoftCopilotPrompt pulumi.BoolPtrOutput `pulumi:"enableMicrosoftCopilotPrompt"`
+	// If true, Microsoft Office 365 optimization is enabled.
+	EnableMsftO365 pulumi.BoolPtrOutput `pulumi:"enableMsftO365"`
+	// If true, newly registered domains detection is enabled.
+	EnableNewlyRegisteredDomains pulumi.BoolPtrOutput `pulumi:"enableNewlyRegisteredDomains"`
+	// If true, Office 365 one-click configuration is enabled.
+	EnableOffice365 pulumi.BoolPtrOutput `pulumi:"enableOffice365"`
+	// If true, Perplexity AI prompt visibility and logging is enabled.
+	EnablePerPlexityPrompt pulumi.BoolPtrOutput `pulumi:"enablePerPlexityPrompt"`
+	// If true, POE prompt visibility and logging is enabled.
+	EnablePoepPrompt pulumi.BoolPtrOutput `pulumi:"enablePoepPrompt"`
+	// If true, UCaaS controls for LogMeIn are enabled.
+	EnableUcaasLogmein pulumi.BoolPtrOutput `pulumi:"enableUcaasLogmein"`
+	// If true, UCaaS controls for RingCentral are enabled.
+	EnableUcaasRingCentral pulumi.BoolPtrOutput `pulumi:"enableUcaasRingCentral"`
+	// If true, UCaaS controls for Talkdesk are enabled.
+	EnableUcaasTalkdesk pulumi.BoolPtrOutput `pulumi:"enableUcaasTalkdesk"`
+	// If true, UCaaS controls for Webex are enabled.
+	EnableUcaasWebex pulumi.BoolPtrOutput `pulumi:"enableUcaasWebex"`
+	// If true, UCaaS controls for Zoom are enabled.
+	EnableUcaasZoom pulumi.BoolPtrOutput `pulumi:"enableUcaasZoom"`
+	// If true, safe search is enforced for supported search engines.
+	EnforceSafeSearch pulumi.BoolPtrOutput `pulumi:"enforceSafeSearch"`
+	// The fixed resource ID of the singleton URL filtering cloud app settings.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// List of application names for which safe search is enforced.
+	SafeSearchApps pulumi.StringArrayOutput `pulumi:"safeSearchApps"`
 }
 
 // NewUrlFilteringCloudAppSettings registers a new resource with the given unique name, arguments, and options.
@@ -78,52 +137,94 @@ func (UrlFilteringCloudAppSettingsState) ElementType() reflect.Type {
 }
 
 type urlFilteringCloudAppSettingsArgs struct {
-	BlockSkype                        *bool    `pulumi:"blockSkype"`
-	ConsiderEmbeddedSites             *bool    `pulumi:"considerEmbeddedSites"`
-	EnableBlockOverrideForNonAuthUser *bool    `pulumi:"enableBlockOverrideForNonAuthUser"`
-	EnableChatgptPrompt               *bool    `pulumi:"enableChatgptPrompt"`
-	EnableCipaCompliance              *bool    `pulumi:"enableCipaCompliance"`
-	EnableDynamicContentCat           *bool    `pulumi:"enableDynamicContentCat"`
-	EnableGeminiPrompt                *bool    `pulumi:"enableGeminiPrompt"`
-	EnableMetaPrompt                  *bool    `pulumi:"enableMetaPrompt"`
-	EnableMicrosoftCopilotPrompt      *bool    `pulumi:"enableMicrosoftCopilotPrompt"`
-	EnableMsftO365                    *bool    `pulumi:"enableMsftO365"`
-	EnableNewlyRegisteredDomains      *bool    `pulumi:"enableNewlyRegisteredDomains"`
-	EnableOffice365                   *bool    `pulumi:"enableOffice365"`
-	EnablePerPlexityPrompt            *bool    `pulumi:"enablePerPlexityPrompt"`
-	EnablePoepPrompt                  *bool    `pulumi:"enablePoepPrompt"`
-	EnableUcaasLogmein                *bool    `pulumi:"enableUcaasLogmein"`
-	EnableUcaasRingCentral            *bool    `pulumi:"enableUcaasRingCentral"`
-	EnableUcaasTalkdesk               *bool    `pulumi:"enableUcaasTalkdesk"`
-	EnableUcaasWebex                  *bool    `pulumi:"enableUcaasWebex"`
-	EnableUcaasZoom                   *bool    `pulumi:"enableUcaasZoom"`
-	EnforceSafeSearch                 *bool    `pulumi:"enforceSafeSearch"`
-	SafeSearchApps                    []string `pulumi:"safeSearchApps"`
+	// If true, Skype is blocked.
+	BlockSkype *bool `pulumi:"blockSkype"`
+	// If true, embedded sites within web pages are considered for URL filtering.
+	ConsiderEmbeddedSites *bool `pulumi:"considerEmbeddedSites"`
+	// If true, block override is enabled for non-authenticated users.
+	EnableBlockOverrideForNonAuthUser *bool `pulumi:"enableBlockOverrideForNonAuthUser"`
+	// If true, ChatGPT prompt visibility and logging is enabled.
+	EnableChatgptPrompt *bool `pulumi:"enableChatgptPrompt"`
+	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+	EnableCipaCompliance *bool `pulumi:"enableCipaCompliance"`
+	// If true, dynamic content categorization is enabled.
+	EnableDynamicContentCat *bool `pulumi:"enableDynamicContentCat"`
+	// If true, Google Gemini prompt visibility and logging is enabled.
+	EnableGeminiPrompt *bool `pulumi:"enableGeminiPrompt"`
+	// If true, Meta AI prompt visibility and logging is enabled.
+	EnableMetaPrompt *bool `pulumi:"enableMetaPrompt"`
+	// If true, Microsoft Copilot prompt visibility and logging is enabled.
+	EnableMicrosoftCopilotPrompt *bool `pulumi:"enableMicrosoftCopilotPrompt"`
+	// If true, Microsoft Office 365 optimization is enabled.
+	EnableMsftO365 *bool `pulumi:"enableMsftO365"`
+	// If true, newly registered domains detection is enabled.
+	EnableNewlyRegisteredDomains *bool `pulumi:"enableNewlyRegisteredDomains"`
+	// If true, Office 365 one-click configuration is enabled.
+	EnableOffice365 *bool `pulumi:"enableOffice365"`
+	// If true, Perplexity AI prompt visibility and logging is enabled.
+	EnablePerPlexityPrompt *bool `pulumi:"enablePerPlexityPrompt"`
+	// If true, POE prompt visibility and logging is enabled.
+	EnablePoepPrompt *bool `pulumi:"enablePoepPrompt"`
+	// If true, UCaaS controls for LogMeIn are enabled.
+	EnableUcaasLogmein *bool `pulumi:"enableUcaasLogmein"`
+	// If true, UCaaS controls for RingCentral are enabled.
+	EnableUcaasRingCentral *bool `pulumi:"enableUcaasRingCentral"`
+	// If true, UCaaS controls for Talkdesk are enabled.
+	EnableUcaasTalkdesk *bool `pulumi:"enableUcaasTalkdesk"`
+	// If true, UCaaS controls for Webex are enabled.
+	EnableUcaasWebex *bool `pulumi:"enableUcaasWebex"`
+	// If true, UCaaS controls for Zoom are enabled.
+	EnableUcaasZoom *bool `pulumi:"enableUcaasZoom"`
+	// If true, safe search is enforced for supported search engines.
+	EnforceSafeSearch *bool `pulumi:"enforceSafeSearch"`
+	// List of application names for which safe search is enforced.
+	SafeSearchApps []string `pulumi:"safeSearchApps"`
 }
 
 // The set of arguments for constructing a UrlFilteringCloudAppSettings resource.
 type UrlFilteringCloudAppSettingsArgs struct {
-	BlockSkype                        pulumi.BoolPtrInput
-	ConsiderEmbeddedSites             pulumi.BoolPtrInput
+	// If true, Skype is blocked.
+	BlockSkype pulumi.BoolPtrInput
+	// If true, embedded sites within web pages are considered for URL filtering.
+	ConsiderEmbeddedSites pulumi.BoolPtrInput
+	// If true, block override is enabled for non-authenticated users.
 	EnableBlockOverrideForNonAuthUser pulumi.BoolPtrInput
-	EnableChatgptPrompt               pulumi.BoolPtrInput
-	EnableCipaCompliance              pulumi.BoolPtrInput
-	EnableDynamicContentCat           pulumi.BoolPtrInput
-	EnableGeminiPrompt                pulumi.BoolPtrInput
-	EnableMetaPrompt                  pulumi.BoolPtrInput
-	EnableMicrosoftCopilotPrompt      pulumi.BoolPtrInput
-	EnableMsftO365                    pulumi.BoolPtrInput
-	EnableNewlyRegisteredDomains      pulumi.BoolPtrInput
-	EnableOffice365                   pulumi.BoolPtrInput
-	EnablePerPlexityPrompt            pulumi.BoolPtrInput
-	EnablePoepPrompt                  pulumi.BoolPtrInput
-	EnableUcaasLogmein                pulumi.BoolPtrInput
-	EnableUcaasRingCentral            pulumi.BoolPtrInput
-	EnableUcaasTalkdesk               pulumi.BoolPtrInput
-	EnableUcaasWebex                  pulumi.BoolPtrInput
-	EnableUcaasZoom                   pulumi.BoolPtrInput
-	EnforceSafeSearch                 pulumi.BoolPtrInput
-	SafeSearchApps                    pulumi.StringArrayInput
+	// If true, ChatGPT prompt visibility and logging is enabled.
+	EnableChatgptPrompt pulumi.BoolPtrInput
+	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+	EnableCipaCompliance pulumi.BoolPtrInput
+	// If true, dynamic content categorization is enabled.
+	EnableDynamicContentCat pulumi.BoolPtrInput
+	// If true, Google Gemini prompt visibility and logging is enabled.
+	EnableGeminiPrompt pulumi.BoolPtrInput
+	// If true, Meta AI prompt visibility and logging is enabled.
+	EnableMetaPrompt pulumi.BoolPtrInput
+	// If true, Microsoft Copilot prompt visibility and logging is enabled.
+	EnableMicrosoftCopilotPrompt pulumi.BoolPtrInput
+	// If true, Microsoft Office 365 optimization is enabled.
+	EnableMsftO365 pulumi.BoolPtrInput
+	// If true, newly registered domains detection is enabled.
+	EnableNewlyRegisteredDomains pulumi.BoolPtrInput
+	// If true, Office 365 one-click configuration is enabled.
+	EnableOffice365 pulumi.BoolPtrInput
+	// If true, Perplexity AI prompt visibility and logging is enabled.
+	EnablePerPlexityPrompt pulumi.BoolPtrInput
+	// If true, POE prompt visibility and logging is enabled.
+	EnablePoepPrompt pulumi.BoolPtrInput
+	// If true, UCaaS controls for LogMeIn are enabled.
+	EnableUcaasLogmein pulumi.BoolPtrInput
+	// If true, UCaaS controls for RingCentral are enabled.
+	EnableUcaasRingCentral pulumi.BoolPtrInput
+	// If true, UCaaS controls for Talkdesk are enabled.
+	EnableUcaasTalkdesk pulumi.BoolPtrInput
+	// If true, UCaaS controls for Webex are enabled.
+	EnableUcaasWebex pulumi.BoolPtrInput
+	// If true, UCaaS controls for Zoom are enabled.
+	EnableUcaasZoom pulumi.BoolPtrInput
+	// If true, safe search is enforced for supported search engines.
+	EnforceSafeSearch pulumi.BoolPtrInput
+	// List of application names for which safe search is enforced.
+	SafeSearchApps pulumi.StringArrayInput
 }
 
 func (UrlFilteringCloudAppSettingsArgs) ElementType() reflect.Type {
@@ -213,90 +314,112 @@ func (o UrlFilteringCloudAppSettingsOutput) ToUrlFilteringCloudAppSettingsOutput
 	return o
 }
 
+// If true, Skype is blocked.
 func (o UrlFilteringCloudAppSettingsOutput) BlockSkype() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.BlockSkype }).(pulumi.BoolPtrOutput)
 }
 
+// If true, embedded sites within web pages are considered for URL filtering.
 func (o UrlFilteringCloudAppSettingsOutput) ConsiderEmbeddedSites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.ConsiderEmbeddedSites }).(pulumi.BoolPtrOutput)
 }
 
+// If true, block override is enabled for non-authenticated users.
 func (o UrlFilteringCloudAppSettingsOutput) EnableBlockOverrideForNonAuthUser() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableBlockOverrideForNonAuthUser }).(pulumi.BoolPtrOutput)
 }
 
+// If true, ChatGPT prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableChatgptPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableChatgptPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableCipaCompliance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableCipaCompliance }).(pulumi.BoolPtrOutput)
 }
 
+// If true, dynamic content categorization is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableDynamicContentCat() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableDynamicContentCat }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Google Gemini prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableGeminiPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableGeminiPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Meta AI prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableMetaPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMetaPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Microsoft Copilot prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableMicrosoftCopilotPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMicrosoftCopilotPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Microsoft Office 365 optimization is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableMsftO365() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMsftO365 }).(pulumi.BoolPtrOutput)
 }
 
+// If true, newly registered domains detection is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableNewlyRegisteredDomains() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableNewlyRegisteredDomains }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Office 365 one-click configuration is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableOffice365() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableOffice365 }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Perplexity AI prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnablePerPlexityPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnablePerPlexityPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, POE prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnablePoepPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnablePoepPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, UCaaS controls for LogMeIn are enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasLogmein() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasLogmein }).(pulumi.BoolPtrOutput)
 }
 
+// If true, UCaaS controls for RingCentral are enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasRingCentral() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasRingCentral }).(pulumi.BoolPtrOutput)
 }
 
+// If true, UCaaS controls for Talkdesk are enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasTalkdesk() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasTalkdesk }).(pulumi.BoolPtrOutput)
 }
 
+// If true, UCaaS controls for Webex are enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasWebex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasWebex }).(pulumi.BoolPtrOutput)
 }
 
+// If true, UCaaS controls for Zoom are enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasZoom() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasZoom }).(pulumi.BoolPtrOutput)
 }
 
+// If true, safe search is enforced for supported search engines.
 func (o UrlFilteringCloudAppSettingsOutput) EnforceSafeSearch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnforceSafeSearch }).(pulumi.BoolPtrOutput)
 }
 
+// The fixed resource ID of the singleton URL filtering cloud app settings.
 func (o UrlFilteringCloudAppSettingsOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// List of application names for which safe search is enforced.
 func (o UrlFilteringCloudAppSettingsOutput) SafeSearchApps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.StringArrayOutput { return v.SafeSearchApps }).(pulumi.StringArrayOutput)
 }

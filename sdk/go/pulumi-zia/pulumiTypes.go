@@ -147,9 +147,9 @@ func (o AdminUserRoleInputPtrOutput) Id() pulumi.IntPtrOutput {
 }
 
 type CBIProfileInput struct {
-	Id         *string `pulumi:"id"`
 	Name       *string `pulumi:"name"`
 	ProfileSeq *int    `pulumi:"profileSeq"`
+	ResourceId *string `pulumi:"resourceId"`
 	Url        *string `pulumi:"url"`
 }
 
@@ -165,9 +165,9 @@ type CBIProfileInputInput interface {
 }
 
 type CBIProfileInputArgs struct {
-	Id         pulumi.StringPtrInput `pulumi:"id"`
 	Name       pulumi.StringPtrInput `pulumi:"name"`
 	ProfileSeq pulumi.IntPtrInput    `pulumi:"profileSeq"`
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 	Url        pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -248,16 +248,16 @@ func (o CBIProfileInputOutput) ToCBIProfileInputPtrOutputWithContext(ctx context
 	}).(CBIProfileInputPtrOutput)
 }
 
-func (o CBIProfileInputOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CBIProfileInput) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o CBIProfileInputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CBIProfileInput) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o CBIProfileInputOutput) ProfileSeq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CBIProfileInput) *int { return v.ProfileSeq }).(pulumi.IntPtrOutput)
+}
+
+func (o CBIProfileInputOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CBIProfileInput) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 func (o CBIProfileInputOutput) Url() pulumi.StringPtrOutput {
@@ -288,15 +288,6 @@ func (o CBIProfileInputPtrOutput) Elem() CBIProfileInputOutput {
 	}).(CBIProfileInputOutput)
 }
 
-func (o CBIProfileInputPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CBIProfileInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o CBIProfileInputPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CBIProfileInput) *string {
 		if v == nil {
@@ -315,6 +306,15 @@ func (o CBIProfileInputPtrOutput) ProfileSeq() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o CBIProfileInputPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CBIProfileInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o CBIProfileInputPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CBIProfileInput) *string {
 		if v == nil {
@@ -322,6 +322,312 @@ func (o CBIProfileInputPtrOutput) Url() pulumi.StringPtrOutput {
 		}
 		return v.Url
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClassificationOutput struct {
+	Category        string `pulumi:"category"`
+	DetectedMalware string `pulumi:"detectedMalware"`
+	Score           int    `pulumi:"score"`
+	Type            string `pulumi:"type"`
+}
+
+type ClassificationOutputOutput struct{ *pulumi.OutputState }
+
+func (ClassificationOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassificationOutput)(nil)).Elem()
+}
+
+func (o ClassificationOutputOutput) ToClassificationOutputOutput() ClassificationOutputOutput {
+	return o
+}
+
+func (o ClassificationOutputOutput) ToClassificationOutputOutputWithContext(ctx context.Context) ClassificationOutputOutput {
+	return o
+}
+
+func (o ClassificationOutputOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassificationOutput) string { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o ClassificationOutputOutput) DetectedMalware() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassificationOutput) string { return v.DetectedMalware }).(pulumi.StringOutput)
+}
+
+func (o ClassificationOutputOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v ClassificationOutput) int { return v.Score }).(pulumi.IntOutput)
+}
+
+func (o ClassificationOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassificationOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClassificationOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassificationOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassificationOutput)(nil)).Elem()
+}
+
+func (o ClassificationOutputPtrOutput) ToClassificationOutputPtrOutput() ClassificationOutputPtrOutput {
+	return o
+}
+
+func (o ClassificationOutputPtrOutput) ToClassificationOutputPtrOutputWithContext(ctx context.Context) ClassificationOutputPtrOutput {
+	return o
+}
+
+func (o ClassificationOutputPtrOutput) Elem() ClassificationOutputOutput {
+	return o.ApplyT(func(v *ClassificationOutput) ClassificationOutput {
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationOutput
+		return ret
+	}).(ClassificationOutputOutput)
+}
+
+func (o ClassificationOutputPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassificationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClassificationOutputPtrOutput) DetectedMalware() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassificationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DetectedMalware
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClassificationOutputPtrOutput) Score() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClassificationOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Score
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ClassificationOutputPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassificationOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudApplicationItem struct {
+	App        string `pulumi:"app"`
+	AppName    string `pulumi:"appName"`
+	Parent     string `pulumi:"parent"`
+	ParentName string `pulumi:"parentName"`
+}
+
+type CloudApplicationItemOutput struct{ *pulumi.OutputState }
+
+func (CloudApplicationItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudApplicationItem)(nil)).Elem()
+}
+
+func (o CloudApplicationItemOutput) ToCloudApplicationItemOutput() CloudApplicationItemOutput {
+	return o
+}
+
+func (o CloudApplicationItemOutput) ToCloudApplicationItemOutputWithContext(ctx context.Context) CloudApplicationItemOutput {
+	return o
+}
+
+func (o CloudApplicationItemOutput) App() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudApplicationItem) string { return v.App }).(pulumi.StringOutput)
+}
+
+func (o CloudApplicationItemOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudApplicationItem) string { return v.AppName }).(pulumi.StringOutput)
+}
+
+func (o CloudApplicationItemOutput) Parent() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudApplicationItem) string { return v.Parent }).(pulumi.StringOutput)
+}
+
+func (o CloudApplicationItemOutput) ParentName() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudApplicationItem) string { return v.ParentName }).(pulumi.StringOutput)
+}
+
+type CloudApplicationItemArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudApplicationItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudApplicationItem)(nil)).Elem()
+}
+
+func (o CloudApplicationItemArrayOutput) ToCloudApplicationItemArrayOutput() CloudApplicationItemArrayOutput {
+	return o
+}
+
+func (o CloudApplicationItemArrayOutput) ToCloudApplicationItemArrayOutputWithContext(ctx context.Context) CloudApplicationItemArrayOutput {
+	return o
+}
+
+func (o CloudApplicationItemArrayOutput) Index(i pulumi.IntInput) CloudApplicationItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudApplicationItem {
+		return vs[0].([]CloudApplicationItem)[vs[1].(int)]
+	}).(CloudApplicationItemOutput)
+}
+
+type DatacenterInfo struct {
+	City              string  `pulumi:"city"`
+	CreateTime        int     `pulumi:"createTime"`
+	DontProvision     bool    `pulumi:"dontProvision"`
+	DontPublish       bool    `pulumi:"dontPublish"`
+	DownloadBandwidth int     `pulumi:"downloadBandwidth"`
+	ForFutureUse      bool    `pulumi:"forFutureUse"`
+	GovOnly           bool    `pulumi:"govOnly"`
+	Id                int     `pulumi:"id"`
+	LastModifiedTime  int     `pulumi:"lastModifiedTime"`
+	Lat               int     `pulumi:"lat"`
+	Latitude          float64 `pulumi:"latitude"`
+	Longi             int     `pulumi:"longi"`
+	Longitude         float64 `pulumi:"longitude"`
+	ManagedBcp        bool    `pulumi:"managedBcp"`
+	Name              string  `pulumi:"name"`
+	NotReadyForUse    bool    `pulumi:"notReadyForUse"`
+	OwnedByCustomer   bool    `pulumi:"ownedByCustomer"`
+	Provider          string  `pulumi:"provider"`
+	RegionalSurcharge bool    `pulumi:"regionalSurcharge"`
+	ThirdPartyCloud   bool    `pulumi:"thirdPartyCloud"`
+	Timezone          string  `pulumi:"timezone"`
+	UploadBandwidth   int     `pulumi:"uploadBandwidth"`
+	Virtual           bool    `pulumi:"virtual"`
+}
+
+type DatacenterInfoOutput struct{ *pulumi.OutputState }
+
+func (DatacenterInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatacenterInfo)(nil)).Elem()
+}
+
+func (o DatacenterInfoOutput) ToDatacenterInfoOutput() DatacenterInfoOutput {
+	return o
+}
+
+func (o DatacenterInfoOutput) ToDatacenterInfoOutputWithContext(ctx context.Context) DatacenterInfoOutput {
+	return o
+}
+
+func (o DatacenterInfoOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v DatacenterInfo) string { return v.City }).(pulumi.StringOutput)
+}
+
+func (o DatacenterInfoOutput) CreateTime() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.CreateTime }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) DontProvision() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.DontProvision }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) DontPublish() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.DontPublish }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) DownloadBandwidth() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.DownloadBandwidth }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) ForFutureUse() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.ForFutureUse }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) GovOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.GovOnly }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) LastModifiedTime() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.LastModifiedTime }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) Lat() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.Lat }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) Latitude() pulumi.Float64Output {
+	return o.ApplyT(func(v DatacenterInfo) float64 { return v.Latitude }).(pulumi.Float64Output)
+}
+
+func (o DatacenterInfoOutput) Longi() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.Longi }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) Longitude() pulumi.Float64Output {
+	return o.ApplyT(func(v DatacenterInfo) float64 { return v.Longitude }).(pulumi.Float64Output)
+}
+
+func (o DatacenterInfoOutput) ManagedBcp() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.ManagedBcp }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatacenterInfo) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DatacenterInfoOutput) NotReadyForUse() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.NotReadyForUse }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) OwnedByCustomer() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.OwnedByCustomer }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v DatacenterInfo) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+func (o DatacenterInfoOutput) RegionalSurcharge() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.RegionalSurcharge }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) ThirdPartyCloud() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.ThirdPartyCloud }).(pulumi.BoolOutput)
+}
+
+func (o DatacenterInfoOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v DatacenterInfo) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+func (o DatacenterInfoOutput) UploadBandwidth() pulumi.IntOutput {
+	return o.ApplyT(func(v DatacenterInfo) int { return v.UploadBandwidth }).(pulumi.IntOutput)
+}
+
+func (o DatacenterInfoOutput) Virtual() pulumi.BoolOutput {
+	return o.ApplyT(func(v DatacenterInfo) bool { return v.Virtual }).(pulumi.BoolOutput)
+}
+
+type DatacenterInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (DatacenterInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatacenterInfo)(nil)).Elem()
+}
+
+func (o DatacenterInfoArrayOutput) ToDatacenterInfoArrayOutput() DatacenterInfoArrayOutput {
+	return o
+}
+
+func (o DatacenterInfoArrayOutput) ToDatacenterInfoArrayOutputWithContext(ctx context.Context) DatacenterInfoArrayOutput {
+	return o
+}
+
+func (o DatacenterInfoArrayOutput) Index(i pulumi.IntInput) DatacenterInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatacenterInfo {
+		return vs[0].([]DatacenterInfo)[vs[1].(int)]
+	}).(DatacenterInfoOutput)
 }
 
 type DecryptSubActionsInput struct {
@@ -547,6 +853,283 @@ func (o DecryptSubActionsInputPtrOutput) ServerCertificates() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeviceGroupItem struct {
+	Description string `pulumi:"description"`
+	DeviceCount int    `pulumi:"deviceCount"`
+	DeviceNames string `pulumi:"deviceNames"`
+	GroupType   string `pulumi:"groupType"`
+	Name        string `pulumi:"name"`
+	OsType      string `pulumi:"osType"`
+	Predefined  bool   `pulumi:"predefined"`
+	ResourceId  int    `pulumi:"resourceId"`
+}
+
+type DeviceGroupItemOutput struct{ *pulumi.OutputState }
+
+func (DeviceGroupItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceGroupItem)(nil)).Elem()
+}
+
+func (o DeviceGroupItemOutput) ToDeviceGroupItemOutput() DeviceGroupItemOutput {
+	return o
+}
+
+func (o DeviceGroupItemOutput) ToDeviceGroupItemOutputWithContext(ctx context.Context) DeviceGroupItemOutput {
+	return o
+}
+
+func (o DeviceGroupItemOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceGroupItem) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o DeviceGroupItemOutput) DeviceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v DeviceGroupItem) int { return v.DeviceCount }).(pulumi.IntOutput)
+}
+
+func (o DeviceGroupItemOutput) DeviceNames() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceGroupItem) string { return v.DeviceNames }).(pulumi.StringOutput)
+}
+
+func (o DeviceGroupItemOutput) GroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceGroupItem) string { return v.GroupType }).(pulumi.StringOutput)
+}
+
+func (o DeviceGroupItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceGroupItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DeviceGroupItemOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceGroupItem) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+func (o DeviceGroupItemOutput) Predefined() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeviceGroupItem) bool { return v.Predefined }).(pulumi.BoolOutput)
+}
+
+func (o DeviceGroupItemOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v DeviceGroupItem) int { return v.ResourceId }).(pulumi.IntOutput)
+}
+
+type DeviceGroupItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceGroupItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceGroupItem)(nil)).Elem()
+}
+
+func (o DeviceGroupItemArrayOutput) ToDeviceGroupItemArrayOutput() DeviceGroupItemArrayOutput {
+	return o
+}
+
+func (o DeviceGroupItemArrayOutput) ToDeviceGroupItemArrayOutputWithContext(ctx context.Context) DeviceGroupItemArrayOutput {
+	return o
+}
+
+func (o DeviceGroupItemArrayOutput) Index(i pulumi.IntInput) DeviceGroupItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceGroupItem {
+		return vs[0].([]DeviceGroupItem)[vs[1].(int)]
+	}).(DeviceGroupItemOutput)
+}
+
+type DlpDictionaryPatternInput struct {
+	Action  *string `pulumi:"action"`
+	Pattern *string `pulumi:"pattern"`
+}
+
+// DlpDictionaryPatternInputInput is an input type that accepts DlpDictionaryPatternInputArgs and DlpDictionaryPatternInputOutput values.
+// You can construct a concrete instance of `DlpDictionaryPatternInputInput` via:
+//
+//	DlpDictionaryPatternInputArgs{...}
+type DlpDictionaryPatternInputInput interface {
+	pulumi.Input
+
+	ToDlpDictionaryPatternInputOutput() DlpDictionaryPatternInputOutput
+	ToDlpDictionaryPatternInputOutputWithContext(context.Context) DlpDictionaryPatternInputOutput
+}
+
+type DlpDictionaryPatternInputArgs struct {
+	Action  pulumi.StringPtrInput `pulumi:"action"`
+	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+}
+
+func (DlpDictionaryPatternInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpDictionaryPatternInput)(nil)).Elem()
+}
+
+func (i DlpDictionaryPatternInputArgs) ToDlpDictionaryPatternInputOutput() DlpDictionaryPatternInputOutput {
+	return i.ToDlpDictionaryPatternInputOutputWithContext(context.Background())
+}
+
+func (i DlpDictionaryPatternInputArgs) ToDlpDictionaryPatternInputOutputWithContext(ctx context.Context) DlpDictionaryPatternInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpDictionaryPatternInputOutput)
+}
+
+// DlpDictionaryPatternInputArrayInput is an input type that accepts DlpDictionaryPatternInputArray and DlpDictionaryPatternInputArrayOutput values.
+// You can construct a concrete instance of `DlpDictionaryPatternInputArrayInput` via:
+//
+//	DlpDictionaryPatternInputArray{ DlpDictionaryPatternInputArgs{...} }
+type DlpDictionaryPatternInputArrayInput interface {
+	pulumi.Input
+
+	ToDlpDictionaryPatternInputArrayOutput() DlpDictionaryPatternInputArrayOutput
+	ToDlpDictionaryPatternInputArrayOutputWithContext(context.Context) DlpDictionaryPatternInputArrayOutput
+}
+
+type DlpDictionaryPatternInputArray []DlpDictionaryPatternInputInput
+
+func (DlpDictionaryPatternInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpDictionaryPatternInput)(nil)).Elem()
+}
+
+func (i DlpDictionaryPatternInputArray) ToDlpDictionaryPatternInputArrayOutput() DlpDictionaryPatternInputArrayOutput {
+	return i.ToDlpDictionaryPatternInputArrayOutputWithContext(context.Background())
+}
+
+func (i DlpDictionaryPatternInputArray) ToDlpDictionaryPatternInputArrayOutputWithContext(ctx context.Context) DlpDictionaryPatternInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpDictionaryPatternInputArrayOutput)
+}
+
+type DlpDictionaryPatternInputOutput struct{ *pulumi.OutputState }
+
+func (DlpDictionaryPatternInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpDictionaryPatternInput)(nil)).Elem()
+}
+
+func (o DlpDictionaryPatternInputOutput) ToDlpDictionaryPatternInputOutput() DlpDictionaryPatternInputOutput {
+	return o
+}
+
+func (o DlpDictionaryPatternInputOutput) ToDlpDictionaryPatternInputOutputWithContext(ctx context.Context) DlpDictionaryPatternInputOutput {
+	return o
+}
+
+func (o DlpDictionaryPatternInputOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DlpDictionaryPatternInput) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o DlpDictionaryPatternInputOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DlpDictionaryPatternInput) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+type DlpDictionaryPatternInputArrayOutput struct{ *pulumi.OutputState }
+
+func (DlpDictionaryPatternInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpDictionaryPatternInput)(nil)).Elem()
+}
+
+func (o DlpDictionaryPatternInputArrayOutput) ToDlpDictionaryPatternInputArrayOutput() DlpDictionaryPatternInputArrayOutput {
+	return o
+}
+
+func (o DlpDictionaryPatternInputArrayOutput) ToDlpDictionaryPatternInputArrayOutputWithContext(ctx context.Context) DlpDictionaryPatternInputArrayOutput {
+	return o
+}
+
+func (o DlpDictionaryPatternInputArrayOutput) Index(i pulumi.IntInput) DlpDictionaryPatternInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DlpDictionaryPatternInput {
+		return vs[0].([]DlpDictionaryPatternInput)[vs[1].(int)]
+	}).(DlpDictionaryPatternInputOutput)
+}
+
+type DlpDictionaryPhraseInput struct {
+	Action *string `pulumi:"action"`
+	Phrase *string `pulumi:"phrase"`
+}
+
+// DlpDictionaryPhraseInputInput is an input type that accepts DlpDictionaryPhraseInputArgs and DlpDictionaryPhraseInputOutput values.
+// You can construct a concrete instance of `DlpDictionaryPhraseInputInput` via:
+//
+//	DlpDictionaryPhraseInputArgs{...}
+type DlpDictionaryPhraseInputInput interface {
+	pulumi.Input
+
+	ToDlpDictionaryPhraseInputOutput() DlpDictionaryPhraseInputOutput
+	ToDlpDictionaryPhraseInputOutputWithContext(context.Context) DlpDictionaryPhraseInputOutput
+}
+
+type DlpDictionaryPhraseInputArgs struct {
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	Phrase pulumi.StringPtrInput `pulumi:"phrase"`
+}
+
+func (DlpDictionaryPhraseInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpDictionaryPhraseInput)(nil)).Elem()
+}
+
+func (i DlpDictionaryPhraseInputArgs) ToDlpDictionaryPhraseInputOutput() DlpDictionaryPhraseInputOutput {
+	return i.ToDlpDictionaryPhraseInputOutputWithContext(context.Background())
+}
+
+func (i DlpDictionaryPhraseInputArgs) ToDlpDictionaryPhraseInputOutputWithContext(ctx context.Context) DlpDictionaryPhraseInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpDictionaryPhraseInputOutput)
+}
+
+// DlpDictionaryPhraseInputArrayInput is an input type that accepts DlpDictionaryPhraseInputArray and DlpDictionaryPhraseInputArrayOutput values.
+// You can construct a concrete instance of `DlpDictionaryPhraseInputArrayInput` via:
+//
+//	DlpDictionaryPhraseInputArray{ DlpDictionaryPhraseInputArgs{...} }
+type DlpDictionaryPhraseInputArrayInput interface {
+	pulumi.Input
+
+	ToDlpDictionaryPhraseInputArrayOutput() DlpDictionaryPhraseInputArrayOutput
+	ToDlpDictionaryPhraseInputArrayOutputWithContext(context.Context) DlpDictionaryPhraseInputArrayOutput
+}
+
+type DlpDictionaryPhraseInputArray []DlpDictionaryPhraseInputInput
+
+func (DlpDictionaryPhraseInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpDictionaryPhraseInput)(nil)).Elem()
+}
+
+func (i DlpDictionaryPhraseInputArray) ToDlpDictionaryPhraseInputArrayOutput() DlpDictionaryPhraseInputArrayOutput {
+	return i.ToDlpDictionaryPhraseInputArrayOutputWithContext(context.Background())
+}
+
+func (i DlpDictionaryPhraseInputArray) ToDlpDictionaryPhraseInputArrayOutputWithContext(ctx context.Context) DlpDictionaryPhraseInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpDictionaryPhraseInputArrayOutput)
+}
+
+type DlpDictionaryPhraseInputOutput struct{ *pulumi.OutputState }
+
+func (DlpDictionaryPhraseInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpDictionaryPhraseInput)(nil)).Elem()
+}
+
+func (o DlpDictionaryPhraseInputOutput) ToDlpDictionaryPhraseInputOutput() DlpDictionaryPhraseInputOutput {
+	return o
+}
+
+func (o DlpDictionaryPhraseInputOutput) ToDlpDictionaryPhraseInputOutputWithContext(ctx context.Context) DlpDictionaryPhraseInputOutput {
+	return o
+}
+
+func (o DlpDictionaryPhraseInputOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DlpDictionaryPhraseInput) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o DlpDictionaryPhraseInputOutput) Phrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DlpDictionaryPhraseInput) *string { return v.Phrase }).(pulumi.StringPtrOutput)
+}
+
+type DlpDictionaryPhraseInputArrayOutput struct{ *pulumi.OutputState }
+
+func (DlpDictionaryPhraseInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpDictionaryPhraseInput)(nil)).Elem()
+}
+
+func (o DlpDictionaryPhraseInputArrayOutput) ToDlpDictionaryPhraseInputArrayOutput() DlpDictionaryPhraseInputArrayOutput {
+	return o
+}
+
+func (o DlpDictionaryPhraseInputArrayOutput) ToDlpDictionaryPhraseInputArrayOutputWithContext(ctx context.Context) DlpDictionaryPhraseInputArrayOutput {
+	return o
+}
+
+func (o DlpDictionaryPhraseInputArrayOutput) Index(i pulumi.IntInput) DlpDictionaryPhraseInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DlpDictionaryPhraseInput {
+		return vs[0].([]DlpDictionaryPhraseInput)[vs[1].(int)]
+	}).(DlpDictionaryPhraseInputOutput)
+}
+
 type DoNotDecryptSubActionsInput struct {
 	BlockSslTrafficWithNoSniEnabled *bool   `pulumi:"blockSslTrafficWithNoSniEnabled"`
 	BypassOtherPolicies             *bool   `pulumi:"bypassOtherPolicies"`
@@ -738,6 +1321,461 @@ func (o DoNotDecryptSubActionsInputPtrOutput) ServerCertificates() pulumi.String
 		}
 		return v.ServerCertificates
 	}).(pulumi.StringPtrOutput)
+}
+
+type ExtranetDnsListInput struct {
+	Id                 *int    `pulumi:"id"`
+	Name               *string `pulumi:"name"`
+	PrimaryDnsServer   *string `pulumi:"primaryDnsServer"`
+	SecondaryDnsServer *string `pulumi:"secondaryDnsServer"`
+	UseAsDefault       *bool   `pulumi:"useAsDefault"`
+}
+
+// ExtranetDnsListInputInput is an input type that accepts ExtranetDnsListInputArgs and ExtranetDnsListInputOutput values.
+// You can construct a concrete instance of `ExtranetDnsListInputInput` via:
+//
+//	ExtranetDnsListInputArgs{...}
+type ExtranetDnsListInputInput interface {
+	pulumi.Input
+
+	ToExtranetDnsListInputOutput() ExtranetDnsListInputOutput
+	ToExtranetDnsListInputOutputWithContext(context.Context) ExtranetDnsListInputOutput
+}
+
+type ExtranetDnsListInputArgs struct {
+	Id                 pulumi.IntPtrInput    `pulumi:"id"`
+	Name               pulumi.StringPtrInput `pulumi:"name"`
+	PrimaryDnsServer   pulumi.StringPtrInput `pulumi:"primaryDnsServer"`
+	SecondaryDnsServer pulumi.StringPtrInput `pulumi:"secondaryDnsServer"`
+	UseAsDefault       pulumi.BoolPtrInput   `pulumi:"useAsDefault"`
+}
+
+func (ExtranetDnsListInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtranetDnsListInput)(nil)).Elem()
+}
+
+func (i ExtranetDnsListInputArgs) ToExtranetDnsListInputOutput() ExtranetDnsListInputOutput {
+	return i.ToExtranetDnsListInputOutputWithContext(context.Background())
+}
+
+func (i ExtranetDnsListInputArgs) ToExtranetDnsListInputOutputWithContext(ctx context.Context) ExtranetDnsListInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtranetDnsListInputOutput)
+}
+
+// ExtranetDnsListInputArrayInput is an input type that accepts ExtranetDnsListInputArray and ExtranetDnsListInputArrayOutput values.
+// You can construct a concrete instance of `ExtranetDnsListInputArrayInput` via:
+//
+//	ExtranetDnsListInputArray{ ExtranetDnsListInputArgs{...} }
+type ExtranetDnsListInputArrayInput interface {
+	pulumi.Input
+
+	ToExtranetDnsListInputArrayOutput() ExtranetDnsListInputArrayOutput
+	ToExtranetDnsListInputArrayOutputWithContext(context.Context) ExtranetDnsListInputArrayOutput
+}
+
+type ExtranetDnsListInputArray []ExtranetDnsListInputInput
+
+func (ExtranetDnsListInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtranetDnsListInput)(nil)).Elem()
+}
+
+func (i ExtranetDnsListInputArray) ToExtranetDnsListInputArrayOutput() ExtranetDnsListInputArrayOutput {
+	return i.ToExtranetDnsListInputArrayOutputWithContext(context.Background())
+}
+
+func (i ExtranetDnsListInputArray) ToExtranetDnsListInputArrayOutputWithContext(ctx context.Context) ExtranetDnsListInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtranetDnsListInputArrayOutput)
+}
+
+type ExtranetDnsListInputOutput struct{ *pulumi.OutputState }
+
+func (ExtranetDnsListInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtranetDnsListInput)(nil)).Elem()
+}
+
+func (o ExtranetDnsListInputOutput) ToExtranetDnsListInputOutput() ExtranetDnsListInputOutput {
+	return o
+}
+
+func (o ExtranetDnsListInputOutput) ToExtranetDnsListInputOutputWithContext(ctx context.Context) ExtranetDnsListInputOutput {
+	return o
+}
+
+func (o ExtranetDnsListInputOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExtranetDnsListInput) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o ExtranetDnsListInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetDnsListInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetDnsListInputOutput) PrimaryDnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetDnsListInput) *string { return v.PrimaryDnsServer }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetDnsListInputOutput) SecondaryDnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetDnsListInput) *string { return v.SecondaryDnsServer }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetDnsListInputOutput) UseAsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExtranetDnsListInput) *bool { return v.UseAsDefault }).(pulumi.BoolPtrOutput)
+}
+
+type ExtranetDnsListInputArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtranetDnsListInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtranetDnsListInput)(nil)).Elem()
+}
+
+func (o ExtranetDnsListInputArrayOutput) ToExtranetDnsListInputArrayOutput() ExtranetDnsListInputArrayOutput {
+	return o
+}
+
+func (o ExtranetDnsListInputArrayOutput) ToExtranetDnsListInputArrayOutputWithContext(ctx context.Context) ExtranetDnsListInputArrayOutput {
+	return o
+}
+
+func (o ExtranetDnsListInputArrayOutput) Index(i pulumi.IntInput) ExtranetDnsListInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtranetDnsListInput {
+		return vs[0].([]ExtranetDnsListInput)[vs[1].(int)]
+	}).(ExtranetDnsListInputOutput)
+}
+
+type ExtranetIpPoolListInput struct {
+	Id           *int    `pulumi:"id"`
+	IpEnd        *string `pulumi:"ipEnd"`
+	IpStart      *string `pulumi:"ipStart"`
+	Name         *string `pulumi:"name"`
+	UseAsDefault *bool   `pulumi:"useAsDefault"`
+}
+
+// ExtranetIpPoolListInputInput is an input type that accepts ExtranetIpPoolListInputArgs and ExtranetIpPoolListInputOutput values.
+// You can construct a concrete instance of `ExtranetIpPoolListInputInput` via:
+//
+//	ExtranetIpPoolListInputArgs{...}
+type ExtranetIpPoolListInputInput interface {
+	pulumi.Input
+
+	ToExtranetIpPoolListInputOutput() ExtranetIpPoolListInputOutput
+	ToExtranetIpPoolListInputOutputWithContext(context.Context) ExtranetIpPoolListInputOutput
+}
+
+type ExtranetIpPoolListInputArgs struct {
+	Id           pulumi.IntPtrInput    `pulumi:"id"`
+	IpEnd        pulumi.StringPtrInput `pulumi:"ipEnd"`
+	IpStart      pulumi.StringPtrInput `pulumi:"ipStart"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	UseAsDefault pulumi.BoolPtrInput   `pulumi:"useAsDefault"`
+}
+
+func (ExtranetIpPoolListInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtranetIpPoolListInput)(nil)).Elem()
+}
+
+func (i ExtranetIpPoolListInputArgs) ToExtranetIpPoolListInputOutput() ExtranetIpPoolListInputOutput {
+	return i.ToExtranetIpPoolListInputOutputWithContext(context.Background())
+}
+
+func (i ExtranetIpPoolListInputArgs) ToExtranetIpPoolListInputOutputWithContext(ctx context.Context) ExtranetIpPoolListInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtranetIpPoolListInputOutput)
+}
+
+// ExtranetIpPoolListInputArrayInput is an input type that accepts ExtranetIpPoolListInputArray and ExtranetIpPoolListInputArrayOutput values.
+// You can construct a concrete instance of `ExtranetIpPoolListInputArrayInput` via:
+//
+//	ExtranetIpPoolListInputArray{ ExtranetIpPoolListInputArgs{...} }
+type ExtranetIpPoolListInputArrayInput interface {
+	pulumi.Input
+
+	ToExtranetIpPoolListInputArrayOutput() ExtranetIpPoolListInputArrayOutput
+	ToExtranetIpPoolListInputArrayOutputWithContext(context.Context) ExtranetIpPoolListInputArrayOutput
+}
+
+type ExtranetIpPoolListInputArray []ExtranetIpPoolListInputInput
+
+func (ExtranetIpPoolListInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtranetIpPoolListInput)(nil)).Elem()
+}
+
+func (i ExtranetIpPoolListInputArray) ToExtranetIpPoolListInputArrayOutput() ExtranetIpPoolListInputArrayOutput {
+	return i.ToExtranetIpPoolListInputArrayOutputWithContext(context.Background())
+}
+
+func (i ExtranetIpPoolListInputArray) ToExtranetIpPoolListInputArrayOutputWithContext(ctx context.Context) ExtranetIpPoolListInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtranetIpPoolListInputArrayOutput)
+}
+
+type ExtranetIpPoolListInputOutput struct{ *pulumi.OutputState }
+
+func (ExtranetIpPoolListInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtranetIpPoolListInput)(nil)).Elem()
+}
+
+func (o ExtranetIpPoolListInputOutput) ToExtranetIpPoolListInputOutput() ExtranetIpPoolListInputOutput {
+	return o
+}
+
+func (o ExtranetIpPoolListInputOutput) ToExtranetIpPoolListInputOutputWithContext(ctx context.Context) ExtranetIpPoolListInputOutput {
+	return o
+}
+
+func (o ExtranetIpPoolListInputOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExtranetIpPoolListInput) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o ExtranetIpPoolListInputOutput) IpEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetIpPoolListInput) *string { return v.IpEnd }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetIpPoolListInputOutput) IpStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetIpPoolListInput) *string { return v.IpStart }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetIpPoolListInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtranetIpPoolListInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtranetIpPoolListInputOutput) UseAsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExtranetIpPoolListInput) *bool { return v.UseAsDefault }).(pulumi.BoolPtrOutput)
+}
+
+type ExtranetIpPoolListInputArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtranetIpPoolListInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtranetIpPoolListInput)(nil)).Elem()
+}
+
+func (o ExtranetIpPoolListInputArrayOutput) ToExtranetIpPoolListInputArrayOutput() ExtranetIpPoolListInputArrayOutput {
+	return o
+}
+
+func (o ExtranetIpPoolListInputArrayOutput) ToExtranetIpPoolListInputArrayOutputWithContext(ctx context.Context) ExtranetIpPoolListInputArrayOutput {
+	return o
+}
+
+func (o ExtranetIpPoolListInputArrayOutput) Index(i pulumi.IntInput) ExtranetIpPoolListInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtranetIpPoolListInput {
+		return vs[0].([]ExtranetIpPoolListInput)[vs[1].(int)]
+	}).(ExtranetIpPoolListInputOutput)
+}
+
+type FilePropertiesOutput struct {
+	DigitalCertificate string `pulumi:"digitalCertificate"`
+	FileSize           int    `pulumi:"fileSize"`
+	FileType           string `pulumi:"fileType"`
+	Issuer             string `pulumi:"issuer"`
+	Md5                string `pulumi:"md5"`
+	RootCa             string `pulumi:"rootCa"`
+	Sha1               string `pulumi:"sha1"`
+	Sha256             string `pulumi:"sha256"`
+	Ssdeep             string `pulumi:"ssdeep"`
+}
+
+type FilePropertiesOutputOutput struct{ *pulumi.OutputState }
+
+func (FilePropertiesOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilePropertiesOutput)(nil)).Elem()
+}
+
+func (o FilePropertiesOutputOutput) ToFilePropertiesOutputOutput() FilePropertiesOutputOutput {
+	return o
+}
+
+func (o FilePropertiesOutputOutput) ToFilePropertiesOutputOutputWithContext(ctx context.Context) FilePropertiesOutputOutput {
+	return o
+}
+
+func (o FilePropertiesOutputOutput) DigitalCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.DigitalCertificate }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) FileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) int { return v.FileSize }).(pulumi.IntOutput)
+}
+
+func (o FilePropertiesOutputOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) Md5() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.Md5 }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) RootCa() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.RootCa }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) Sha1() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.Sha1 }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) Sha256() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.Sha256 }).(pulumi.StringOutput)
+}
+
+func (o FilePropertiesOutputOutput) Ssdeep() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesOutput) string { return v.Ssdeep }).(pulumi.StringOutput)
+}
+
+type FilePropertiesOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (FilePropertiesOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilePropertiesOutput)(nil)).Elem()
+}
+
+func (o FilePropertiesOutputPtrOutput) ToFilePropertiesOutputPtrOutput() FilePropertiesOutputPtrOutput {
+	return o
+}
+
+func (o FilePropertiesOutputPtrOutput) ToFilePropertiesOutputPtrOutputWithContext(ctx context.Context) FilePropertiesOutputPtrOutput {
+	return o
+}
+
+func (o FilePropertiesOutputPtrOutput) Elem() FilePropertiesOutputOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) FilePropertiesOutput {
+		if v != nil {
+			return *v
+		}
+		var ret FilePropertiesOutput
+		return ret
+	}).(FilePropertiesOutputOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) DigitalCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DigitalCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) FileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) Md5() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Md5
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) RootCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootCa
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) Sha1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sha1
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sha256
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FilePropertiesOutputPtrOutput) Ssdeep() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ssdeep
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileTypeCategoryItem struct {
+	Name       string `pulumi:"name"`
+	Parent     string `pulumi:"parent"`
+	ResourceId int    `pulumi:"resourceId"`
+}
+
+type FileTypeCategoryItemOutput struct{ *pulumi.OutputState }
+
+func (FileTypeCategoryItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTypeCategoryItem)(nil)).Elem()
+}
+
+func (o FileTypeCategoryItemOutput) ToFileTypeCategoryItemOutput() FileTypeCategoryItemOutput {
+	return o
+}
+
+func (o FileTypeCategoryItemOutput) ToFileTypeCategoryItemOutputWithContext(ctx context.Context) FileTypeCategoryItemOutput {
+	return o
+}
+
+func (o FileTypeCategoryItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTypeCategoryItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FileTypeCategoryItemOutput) Parent() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTypeCategoryItem) string { return v.Parent }).(pulumi.StringOutput)
+}
+
+func (o FileTypeCategoryItemOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v FileTypeCategoryItem) int { return v.ResourceId }).(pulumi.IntOutput)
+}
+
+type FileTypeCategoryItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FileTypeCategoryItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileTypeCategoryItem)(nil)).Elem()
+}
+
+func (o FileTypeCategoryItemArrayOutput) ToFileTypeCategoryItemArrayOutput() FileTypeCategoryItemArrayOutput {
+	return o
+}
+
+func (o FileTypeCategoryItemArrayOutput) ToFileTypeCategoryItemArrayOutputWithContext(ctx context.Context) FileTypeCategoryItemArrayOutput {
+	return o
+}
+
+func (o FileTypeCategoryItemArrayOutput) Index(i pulumi.IntInput) FileTypeCategoryItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileTypeCategoryItem {
+		return vs[0].([]FileTypeCategoryItem)[vs[1].(int)]
+	}).(FileTypeCategoryItemOutput)
 }
 
 type GreTunnelDestVipInput struct {
@@ -986,6 +2024,938 @@ func (o GreTunnelDestVipOutputPtrOutput) VirtualIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IdNameExtensionsOutput struct {
+	Name       string `pulumi:"name"`
+	ResourceId int    `pulumi:"resourceId"`
+}
+
+type IdNameExtensionsOutputOutput struct{ *pulumi.OutputState }
+
+func (IdNameExtensionsOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNameExtensionsOutput)(nil)).Elem()
+}
+
+func (o IdNameExtensionsOutputOutput) ToIdNameExtensionsOutputOutput() IdNameExtensionsOutputOutput {
+	return o
+}
+
+func (o IdNameExtensionsOutputOutput) ToIdNameExtensionsOutputOutputWithContext(ctx context.Context) IdNameExtensionsOutputOutput {
+	return o
+}
+
+func (o IdNameExtensionsOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdNameExtensionsOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IdNameExtensionsOutputOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v IdNameExtensionsOutput) int { return v.ResourceId }).(pulumi.IntOutput)
+}
+
+type IdNameExtensionsOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (IdNameExtensionsOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNameExtensionsOutput)(nil)).Elem()
+}
+
+func (o IdNameExtensionsOutputPtrOutput) ToIdNameExtensionsOutputPtrOutput() IdNameExtensionsOutputPtrOutput {
+	return o
+}
+
+func (o IdNameExtensionsOutputPtrOutput) ToIdNameExtensionsOutputPtrOutputWithContext(ctx context.Context) IdNameExtensionsOutputPtrOutput {
+	return o
+}
+
+func (o IdNameExtensionsOutputPtrOutput) Elem() IdNameExtensionsOutputOutput {
+	return o.ApplyT(func(v *IdNameExtensionsOutput) IdNameExtensionsOutput {
+		if v != nil {
+			return *v
+		}
+		var ret IdNameExtensionsOutput
+		return ret
+	}).(IdNameExtensionsOutputOutput)
+}
+
+func (o IdNameExtensionsOutputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdNameExtensionsOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IdNameExtensionsOutputPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IdNameExtensionsOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.IntPtrOutput)
+}
+
+type InstanceIdentifierInput struct {
+	IdentifierType         *string `pulumi:"identifierType"`
+	InstanceId             *int    `pulumi:"instanceId"`
+	InstanceIdentifier     *string `pulumi:"instanceIdentifier"`
+	InstanceIdentifierName *string `pulumi:"instanceIdentifierName"`
+}
+
+// InstanceIdentifierInputInput is an input type that accepts InstanceIdentifierInputArgs and InstanceIdentifierInputOutput values.
+// You can construct a concrete instance of `InstanceIdentifierInputInput` via:
+//
+//	InstanceIdentifierInputArgs{...}
+type InstanceIdentifierInputInput interface {
+	pulumi.Input
+
+	ToInstanceIdentifierInputOutput() InstanceIdentifierInputOutput
+	ToInstanceIdentifierInputOutputWithContext(context.Context) InstanceIdentifierInputOutput
+}
+
+type InstanceIdentifierInputArgs struct {
+	IdentifierType         pulumi.StringPtrInput `pulumi:"identifierType"`
+	InstanceId             pulumi.IntPtrInput    `pulumi:"instanceId"`
+	InstanceIdentifier     pulumi.StringPtrInput `pulumi:"instanceIdentifier"`
+	InstanceIdentifierName pulumi.StringPtrInput `pulumi:"instanceIdentifierName"`
+}
+
+func (InstanceIdentifierInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIdentifierInput)(nil)).Elem()
+}
+
+func (i InstanceIdentifierInputArgs) ToInstanceIdentifierInputOutput() InstanceIdentifierInputOutput {
+	return i.ToInstanceIdentifierInputOutputWithContext(context.Background())
+}
+
+func (i InstanceIdentifierInputArgs) ToInstanceIdentifierInputOutputWithContext(ctx context.Context) InstanceIdentifierInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceIdentifierInputOutput)
+}
+
+// InstanceIdentifierInputArrayInput is an input type that accepts InstanceIdentifierInputArray and InstanceIdentifierInputArrayOutput values.
+// You can construct a concrete instance of `InstanceIdentifierInputArrayInput` via:
+//
+//	InstanceIdentifierInputArray{ InstanceIdentifierInputArgs{...} }
+type InstanceIdentifierInputArrayInput interface {
+	pulumi.Input
+
+	ToInstanceIdentifierInputArrayOutput() InstanceIdentifierInputArrayOutput
+	ToInstanceIdentifierInputArrayOutputWithContext(context.Context) InstanceIdentifierInputArrayOutput
+}
+
+type InstanceIdentifierInputArray []InstanceIdentifierInputInput
+
+func (InstanceIdentifierInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceIdentifierInput)(nil)).Elem()
+}
+
+func (i InstanceIdentifierInputArray) ToInstanceIdentifierInputArrayOutput() InstanceIdentifierInputArrayOutput {
+	return i.ToInstanceIdentifierInputArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceIdentifierInputArray) ToInstanceIdentifierInputArrayOutputWithContext(ctx context.Context) InstanceIdentifierInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceIdentifierInputArrayOutput)
+}
+
+type InstanceIdentifierInputOutput struct{ *pulumi.OutputState }
+
+func (InstanceIdentifierInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIdentifierInput)(nil)).Elem()
+}
+
+func (o InstanceIdentifierInputOutput) ToInstanceIdentifierInputOutput() InstanceIdentifierInputOutput {
+	return o
+}
+
+func (o InstanceIdentifierInputOutput) ToInstanceIdentifierInputOutputWithContext(ctx context.Context) InstanceIdentifierInputOutput {
+	return o
+}
+
+func (o InstanceIdentifierInputOutput) IdentifierType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceIdentifierInput) *string { return v.IdentifierType }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceIdentifierInputOutput) InstanceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceIdentifierInput) *int { return v.InstanceId }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceIdentifierInputOutput) InstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceIdentifierInput) *string { return v.InstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceIdentifierInputOutput) InstanceIdentifierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceIdentifierInput) *string { return v.InstanceIdentifierName }).(pulumi.StringPtrOutput)
+}
+
+type InstanceIdentifierInputArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceIdentifierInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceIdentifierInput)(nil)).Elem()
+}
+
+func (o InstanceIdentifierInputArrayOutput) ToInstanceIdentifierInputArrayOutput() InstanceIdentifierInputArrayOutput {
+	return o
+}
+
+func (o InstanceIdentifierInputArrayOutput) ToInstanceIdentifierInputArrayOutputWithContext(ctx context.Context) InstanceIdentifierInputArrayOutput {
+	return o
+}
+
+func (o InstanceIdentifierInputArrayOutput) Index(i pulumi.IntInput) InstanceIdentifierInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceIdentifierInput {
+		return vs[0].([]InstanceIdentifierInput)[vs[1].(int)]
+	}).(InstanceIdentifierInputOutput)
+}
+
+type LastModifiedByOutput struct {
+	Name       string `pulumi:"name"`
+	ResourceId int    `pulumi:"resourceId"`
+}
+
+type LastModifiedByOutputOutput struct{ *pulumi.OutputState }
+
+func (LastModifiedByOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastModifiedByOutput)(nil)).Elem()
+}
+
+func (o LastModifiedByOutputOutput) ToLastModifiedByOutputOutput() LastModifiedByOutputOutput {
+	return o
+}
+
+func (o LastModifiedByOutputOutput) ToLastModifiedByOutputOutputWithContext(ctx context.Context) LastModifiedByOutputOutput {
+	return o
+}
+
+func (o LastModifiedByOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LastModifiedByOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LastModifiedByOutputOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v LastModifiedByOutput) int { return v.ResourceId }).(pulumi.IntOutput)
+}
+
+type LastModifiedByOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (LastModifiedByOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastModifiedByOutput)(nil)).Elem()
+}
+
+func (o LastModifiedByOutputPtrOutput) ToLastModifiedByOutputPtrOutput() LastModifiedByOutputPtrOutput {
+	return o
+}
+
+func (o LastModifiedByOutputPtrOutput) ToLastModifiedByOutputPtrOutputWithContext(ctx context.Context) LastModifiedByOutputPtrOutput {
+	return o
+}
+
+func (o LastModifiedByOutputPtrOutput) Elem() LastModifiedByOutputOutput {
+	return o.ApplyT(func(v *LastModifiedByOutput) LastModifiedByOutput {
+		if v != nil {
+			return *v
+		}
+		var ret LastModifiedByOutput
+		return ret
+	}).(LastModifiedByOutputOutput)
+}
+
+func (o LastModifiedByOutputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastModifiedByOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LastModifiedByOutputPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LastModifiedByOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.IntPtrOutput)
+}
+
+type LastValidationMsgOutput struct {
+	ErrorCode string `pulumi:"errorCode"`
+	ErrorMsg  string `pulumi:"errorMsg"`
+}
+
+type LastValidationMsgOutputOutput struct{ *pulumi.OutputState }
+
+func (LastValidationMsgOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastValidationMsgOutput)(nil)).Elem()
+}
+
+func (o LastValidationMsgOutputOutput) ToLastValidationMsgOutputOutput() LastValidationMsgOutputOutput {
+	return o
+}
+
+func (o LastValidationMsgOutputOutput) ToLastValidationMsgOutputOutputWithContext(ctx context.Context) LastValidationMsgOutputOutput {
+	return o
+}
+
+func (o LastValidationMsgOutputOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LastValidationMsgOutput) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+func (o LastValidationMsgOutputOutput) ErrorMsg() pulumi.StringOutput {
+	return o.ApplyT(func(v LastValidationMsgOutput) string { return v.ErrorMsg }).(pulumi.StringOutput)
+}
+
+type LastValidationMsgOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (LastValidationMsgOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LastValidationMsgOutput)(nil)).Elem()
+}
+
+func (o LastValidationMsgOutputPtrOutput) ToLastValidationMsgOutputPtrOutput() LastValidationMsgOutputPtrOutput {
+	return o
+}
+
+func (o LastValidationMsgOutputPtrOutput) ToLastValidationMsgOutputPtrOutputWithContext(ctx context.Context) LastValidationMsgOutputPtrOutput {
+	return o
+}
+
+func (o LastValidationMsgOutputPtrOutput) Elem() LastValidationMsgOutputOutput {
+	return o.ApplyT(func(v *LastValidationMsgOutput) LastValidationMsgOutput {
+		if v != nil {
+			return *v
+		}
+		var ret LastValidationMsgOutput
+		return ret
+	}).(LastValidationMsgOutputOutput)
+}
+
+func (o LastValidationMsgOutputPtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastValidationMsgOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LastValidationMsgOutputPtrOutput) ErrorMsg() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LastValidationMsgOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorMsg
+	}).(pulumi.StringPtrOutput)
+}
+
+type Md5HashValueInput struct {
+	Type       *string `pulumi:"type"`
+	Url        *string `pulumi:"url"`
+	UrlComment *string `pulumi:"urlComment"`
+}
+
+// Md5HashValueInputInput is an input type that accepts Md5HashValueInputArgs and Md5HashValueInputOutput values.
+// You can construct a concrete instance of `Md5HashValueInputInput` via:
+//
+//	Md5HashValueInputArgs{...}
+type Md5HashValueInputInput interface {
+	pulumi.Input
+
+	ToMd5HashValueInputOutput() Md5HashValueInputOutput
+	ToMd5HashValueInputOutputWithContext(context.Context) Md5HashValueInputOutput
+}
+
+type Md5HashValueInputArgs struct {
+	Type       pulumi.StringPtrInput `pulumi:"type"`
+	Url        pulumi.StringPtrInput `pulumi:"url"`
+	UrlComment pulumi.StringPtrInput `pulumi:"urlComment"`
+}
+
+func (Md5HashValueInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Md5HashValueInput)(nil)).Elem()
+}
+
+func (i Md5HashValueInputArgs) ToMd5HashValueInputOutput() Md5HashValueInputOutput {
+	return i.ToMd5HashValueInputOutputWithContext(context.Background())
+}
+
+func (i Md5HashValueInputArgs) ToMd5HashValueInputOutputWithContext(ctx context.Context) Md5HashValueInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Md5HashValueInputOutput)
+}
+
+// Md5HashValueInputArrayInput is an input type that accepts Md5HashValueInputArray and Md5HashValueInputArrayOutput values.
+// You can construct a concrete instance of `Md5HashValueInputArrayInput` via:
+//
+//	Md5HashValueInputArray{ Md5HashValueInputArgs{...} }
+type Md5HashValueInputArrayInput interface {
+	pulumi.Input
+
+	ToMd5HashValueInputArrayOutput() Md5HashValueInputArrayOutput
+	ToMd5HashValueInputArrayOutputWithContext(context.Context) Md5HashValueInputArrayOutput
+}
+
+type Md5HashValueInputArray []Md5HashValueInputInput
+
+func (Md5HashValueInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Md5HashValueInput)(nil)).Elem()
+}
+
+func (i Md5HashValueInputArray) ToMd5HashValueInputArrayOutput() Md5HashValueInputArrayOutput {
+	return i.ToMd5HashValueInputArrayOutputWithContext(context.Background())
+}
+
+func (i Md5HashValueInputArray) ToMd5HashValueInputArrayOutputWithContext(ctx context.Context) Md5HashValueInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Md5HashValueInputArrayOutput)
+}
+
+type Md5HashValueInputOutput struct{ *pulumi.OutputState }
+
+func (Md5HashValueInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Md5HashValueInput)(nil)).Elem()
+}
+
+func (o Md5HashValueInputOutput) ToMd5HashValueInputOutput() Md5HashValueInputOutput {
+	return o
+}
+
+func (o Md5HashValueInputOutput) ToMd5HashValueInputOutputWithContext(ctx context.Context) Md5HashValueInputOutput {
+	return o
+}
+
+func (o Md5HashValueInputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Md5HashValueInput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o Md5HashValueInputOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Md5HashValueInput) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+func (o Md5HashValueInputOutput) UrlComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Md5HashValueInput) *string { return v.UrlComment }).(pulumi.StringPtrOutput)
+}
+
+type Md5HashValueInputArrayOutput struct{ *pulumi.OutputState }
+
+func (Md5HashValueInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Md5HashValueInput)(nil)).Elem()
+}
+
+func (o Md5HashValueInputArrayOutput) ToMd5HashValueInputArrayOutput() Md5HashValueInputArrayOutput {
+	return o
+}
+
+func (o Md5HashValueInputArrayOutput) ToMd5HashValueInputArrayOutputWithContext(ctx context.Context) Md5HashValueInputArrayOutput {
+	return o
+}
+
+func (o Md5HashValueInputArrayOutput) Index(i pulumi.IntInput) Md5HashValueInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Md5HashValueInput {
+		return vs[0].([]Md5HashValueInput)[vs[1].(int)]
+	}).(Md5HashValueInputOutput)
+}
+
+type NetworkPortInput struct {
+	End   *int `pulumi:"end"`
+	Start *int `pulumi:"start"`
+}
+
+// NetworkPortInputInput is an input type that accepts NetworkPortInputArgs and NetworkPortInputOutput values.
+// You can construct a concrete instance of `NetworkPortInputInput` via:
+//
+//	NetworkPortInputArgs{...}
+type NetworkPortInputInput interface {
+	pulumi.Input
+
+	ToNetworkPortInputOutput() NetworkPortInputOutput
+	ToNetworkPortInputOutputWithContext(context.Context) NetworkPortInputOutput
+}
+
+type NetworkPortInputArgs struct {
+	End   pulumi.IntPtrInput `pulumi:"end"`
+	Start pulumi.IntPtrInput `pulumi:"start"`
+}
+
+func (NetworkPortInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPortInput)(nil)).Elem()
+}
+
+func (i NetworkPortInputArgs) ToNetworkPortInputOutput() NetworkPortInputOutput {
+	return i.ToNetworkPortInputOutputWithContext(context.Background())
+}
+
+func (i NetworkPortInputArgs) ToNetworkPortInputOutputWithContext(ctx context.Context) NetworkPortInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPortInputOutput)
+}
+
+// NetworkPortInputArrayInput is an input type that accepts NetworkPortInputArray and NetworkPortInputArrayOutput values.
+// You can construct a concrete instance of `NetworkPortInputArrayInput` via:
+//
+//	NetworkPortInputArray{ NetworkPortInputArgs{...} }
+type NetworkPortInputArrayInput interface {
+	pulumi.Input
+
+	ToNetworkPortInputArrayOutput() NetworkPortInputArrayOutput
+	ToNetworkPortInputArrayOutputWithContext(context.Context) NetworkPortInputArrayOutput
+}
+
+type NetworkPortInputArray []NetworkPortInputInput
+
+func (NetworkPortInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkPortInput)(nil)).Elem()
+}
+
+func (i NetworkPortInputArray) ToNetworkPortInputArrayOutput() NetworkPortInputArrayOutput {
+	return i.ToNetworkPortInputArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkPortInputArray) ToNetworkPortInputArrayOutputWithContext(ctx context.Context) NetworkPortInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkPortInputArrayOutput)
+}
+
+type NetworkPortInputOutput struct{ *pulumi.OutputState }
+
+func (NetworkPortInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkPortInput)(nil)).Elem()
+}
+
+func (o NetworkPortInputOutput) ToNetworkPortInputOutput() NetworkPortInputOutput {
+	return o
+}
+
+func (o NetworkPortInputOutput) ToNetworkPortInputOutputWithContext(ctx context.Context) NetworkPortInputOutput {
+	return o
+}
+
+func (o NetworkPortInputOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkPortInput) *int { return v.End }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkPortInputOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkPortInput) *int { return v.Start }).(pulumi.IntPtrOutput)
+}
+
+type NetworkPortInputArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkPortInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkPortInput)(nil)).Elem()
+}
+
+func (o NetworkPortInputArrayOutput) ToNetworkPortInputArrayOutput() NetworkPortInputArrayOutput {
+	return o
+}
+
+func (o NetworkPortInputArrayOutput) ToNetworkPortInputArrayOutputWithContext(ctx context.Context) NetworkPortInputArrayOutput {
+	return o
+}
+
+func (o NetworkPortInputArrayOutput) Index(i pulumi.IntInput) NetworkPortInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkPortInput {
+		return vs[0].([]NetworkPortInput)[vs[1].(int)]
+	}).(NetworkPortInputOutput)
+}
+
+type OnboardableEntityOutput struct {
+	Application        string                   `pulumi:"application"`
+	EnterpriseTenantId string                   `pulumi:"enterpriseTenantId"`
+	LastValidationMsg  *LastValidationMsgOutput `pulumi:"lastValidationMsg"`
+	Name               string                   `pulumi:"name"`
+	ResourceId         int                      `pulumi:"resourceId"`
+	Type               string                   `pulumi:"type"`
+	ZscalerAppTenantId *LastModifiedByOutput    `pulumi:"zscalerAppTenantId"`
+}
+
+type OnboardableEntityOutputOutput struct{ *pulumi.OutputState }
+
+func (OnboardableEntityOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnboardableEntityOutput)(nil)).Elem()
+}
+
+func (o OnboardableEntityOutputOutput) ToOnboardableEntityOutputOutput() OnboardableEntityOutputOutput {
+	return o
+}
+
+func (o OnboardableEntityOutputOutput) ToOnboardableEntityOutputOutputWithContext(ctx context.Context) OnboardableEntityOutputOutput {
+	return o
+}
+
+func (o OnboardableEntityOutputOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) string { return v.Application }).(pulumi.StringOutput)
+}
+
+func (o OnboardableEntityOutputOutput) EnterpriseTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) string { return v.EnterpriseTenantId }).(pulumi.StringOutput)
+}
+
+func (o OnboardableEntityOutputOutput) LastValidationMsg() LastValidationMsgOutputPtrOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) *LastValidationMsgOutput { return v.LastValidationMsg }).(LastValidationMsgOutputPtrOutput)
+}
+
+func (o OnboardableEntityOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OnboardableEntityOutputOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) int { return v.ResourceId }).(pulumi.IntOutput)
+}
+
+func (o OnboardableEntityOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o OnboardableEntityOutputOutput) ZscalerAppTenantId() LastModifiedByOutputPtrOutput {
+	return o.ApplyT(func(v OnboardableEntityOutput) *LastModifiedByOutput { return v.ZscalerAppTenantId }).(LastModifiedByOutputPtrOutput)
+}
+
+type OnboardableEntityOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (OnboardableEntityOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnboardableEntityOutput)(nil)).Elem()
+}
+
+func (o OnboardableEntityOutputPtrOutput) ToOnboardableEntityOutputPtrOutput() OnboardableEntityOutputPtrOutput {
+	return o
+}
+
+func (o OnboardableEntityOutputPtrOutput) ToOnboardableEntityOutputPtrOutputWithContext(ctx context.Context) OnboardableEntityOutputPtrOutput {
+	return o
+}
+
+func (o OnboardableEntityOutputPtrOutput) Elem() OnboardableEntityOutputOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) OnboardableEntityOutput {
+		if v != nil {
+			return *v
+		}
+		var ret OnboardableEntityOutput
+		return ret
+	}).(OnboardableEntityOutputOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Application
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) EnterpriseTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EnterpriseTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) LastValidationMsg() LastValidationMsgOutputPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *LastValidationMsgOutput {
+		if v == nil {
+			return nil
+		}
+		return v.LastValidationMsg
+	}).(LastValidationMsgOutputPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OnboardableEntityOutputPtrOutput) ZscalerAppTenantId() LastModifiedByOutputPtrOutput {
+	return o.ApplyT(func(v *OnboardableEntityOutput) *LastModifiedByOutput {
+		if v == nil {
+			return nil
+		}
+		return v.ZscalerAppTenantId
+	}).(LastModifiedByOutputPtrOutput)
+}
+
+type OriginOutput struct {
+	Country  string `pulumi:"country"`
+	Language string `pulumi:"language"`
+	Risk     string `pulumi:"risk"`
+}
+
+type OriginOutputOutput struct{ *pulumi.OutputState }
+
+func (OriginOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginOutput)(nil)).Elem()
+}
+
+func (o OriginOutputOutput) ToOriginOutputOutput() OriginOutputOutput {
+	return o
+}
+
+func (o OriginOutputOutput) ToOriginOutputOutputWithContext(ctx context.Context) OriginOutputOutput {
+	return o
+}
+
+func (o OriginOutputOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginOutput) string { return v.Country }).(pulumi.StringOutput)
+}
+
+func (o OriginOutputOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginOutput) string { return v.Language }).(pulumi.StringOutput)
+}
+
+func (o OriginOutputOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginOutput) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+type OriginOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginOutput)(nil)).Elem()
+}
+
+func (o OriginOutputPtrOutput) ToOriginOutputPtrOutput() OriginOutputPtrOutput {
+	return o
+}
+
+func (o OriginOutputPtrOutput) ToOriginOutputPtrOutputWithContext(ctx context.Context) OriginOutputPtrOutput {
+	return o
+}
+
+func (o OriginOutputPtrOutput) Elem() OriginOutputOutput {
+	return o.ApplyT(func(v *OriginOutput) OriginOutput {
+		if v != nil {
+			return *v
+		}
+		var ret OriginOutput
+		return ret
+	}).(OriginOutputOutput)
+}
+
+func (o OriginOutputPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginOutputPtrOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginOutputPtrOutput) Risk() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Risk
+	}).(pulumi.StringPtrOutput)
+}
+
+type SandboxRssOutput struct {
+	Risk             string   `pulumi:"risk"`
+	Signature        string   `pulumi:"signature"`
+	SignatureSources []string `pulumi:"signatureSources"`
+}
+
+type SandboxRssOutputOutput struct{ *pulumi.OutputState }
+
+func (SandboxRssOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SandboxRssOutput)(nil)).Elem()
+}
+
+func (o SandboxRssOutputOutput) ToSandboxRssOutputOutput() SandboxRssOutputOutput {
+	return o
+}
+
+func (o SandboxRssOutputOutput) ToSandboxRssOutputOutputWithContext(ctx context.Context) SandboxRssOutputOutput {
+	return o
+}
+
+func (o SandboxRssOutputOutput) Risk() pulumi.StringOutput {
+	return o.ApplyT(func(v SandboxRssOutput) string { return v.Risk }).(pulumi.StringOutput)
+}
+
+func (o SandboxRssOutputOutput) Signature() pulumi.StringOutput {
+	return o.ApplyT(func(v SandboxRssOutput) string { return v.Signature }).(pulumi.StringOutput)
+}
+
+func (o SandboxRssOutputOutput) SignatureSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SandboxRssOutput) []string { return v.SignatureSources }).(pulumi.StringArrayOutput)
+}
+
+type SandboxRssOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (SandboxRssOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SandboxRssOutput)(nil)).Elem()
+}
+
+func (o SandboxRssOutputArrayOutput) ToSandboxRssOutputArrayOutput() SandboxRssOutputArrayOutput {
+	return o
+}
+
+func (o SandboxRssOutputArrayOutput) ToSandboxRssOutputArrayOutputWithContext(ctx context.Context) SandboxRssOutputArrayOutput {
+	return o
+}
+
+func (o SandboxRssOutputArrayOutput) Index(i pulumi.IntInput) SandboxRssOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SandboxRssOutput {
+		return vs[0].([]SandboxRssOutput)[vs[1].(int)]
+	}).(SandboxRssOutputOutput)
+}
+
+type SmartIsolationProfileInput struct {
+	Id *string `pulumi:"id"`
+}
+
+// SmartIsolationProfileInputInput is an input type that accepts SmartIsolationProfileInputArgs and SmartIsolationProfileInputOutput values.
+// You can construct a concrete instance of `SmartIsolationProfileInputInput` via:
+//
+//	SmartIsolationProfileInputArgs{...}
+type SmartIsolationProfileInputInput interface {
+	pulumi.Input
+
+	ToSmartIsolationProfileInputOutput() SmartIsolationProfileInputOutput
+	ToSmartIsolationProfileInputOutputWithContext(context.Context) SmartIsolationProfileInputOutput
+}
+
+type SmartIsolationProfileInputArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SmartIsolationProfileInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartIsolationProfileInput)(nil)).Elem()
+}
+
+func (i SmartIsolationProfileInputArgs) ToSmartIsolationProfileInputOutput() SmartIsolationProfileInputOutput {
+	return i.ToSmartIsolationProfileInputOutputWithContext(context.Background())
+}
+
+func (i SmartIsolationProfileInputArgs) ToSmartIsolationProfileInputOutputWithContext(ctx context.Context) SmartIsolationProfileInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartIsolationProfileInputOutput)
+}
+
+func (i SmartIsolationProfileInputArgs) ToSmartIsolationProfileInputPtrOutput() SmartIsolationProfileInputPtrOutput {
+	return i.ToSmartIsolationProfileInputPtrOutputWithContext(context.Background())
+}
+
+func (i SmartIsolationProfileInputArgs) ToSmartIsolationProfileInputPtrOutputWithContext(ctx context.Context) SmartIsolationProfileInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartIsolationProfileInputOutput).ToSmartIsolationProfileInputPtrOutputWithContext(ctx)
+}
+
+// SmartIsolationProfileInputPtrInput is an input type that accepts SmartIsolationProfileInputArgs, SmartIsolationProfileInputPtr and SmartIsolationProfileInputPtrOutput values.
+// You can construct a concrete instance of `SmartIsolationProfileInputPtrInput` via:
+//
+//	        SmartIsolationProfileInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type SmartIsolationProfileInputPtrInput interface {
+	pulumi.Input
+
+	ToSmartIsolationProfileInputPtrOutput() SmartIsolationProfileInputPtrOutput
+	ToSmartIsolationProfileInputPtrOutputWithContext(context.Context) SmartIsolationProfileInputPtrOutput
+}
+
+type smartIsolationProfileInputPtrType SmartIsolationProfileInputArgs
+
+func SmartIsolationProfileInputPtr(v *SmartIsolationProfileInputArgs) SmartIsolationProfileInputPtrInput {
+	return (*smartIsolationProfileInputPtrType)(v)
+}
+
+func (*smartIsolationProfileInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmartIsolationProfileInput)(nil)).Elem()
+}
+
+func (i *smartIsolationProfileInputPtrType) ToSmartIsolationProfileInputPtrOutput() SmartIsolationProfileInputPtrOutput {
+	return i.ToSmartIsolationProfileInputPtrOutputWithContext(context.Background())
+}
+
+func (i *smartIsolationProfileInputPtrType) ToSmartIsolationProfileInputPtrOutputWithContext(ctx context.Context) SmartIsolationProfileInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartIsolationProfileInputPtrOutput)
+}
+
+type SmartIsolationProfileInputOutput struct{ *pulumi.OutputState }
+
+func (SmartIsolationProfileInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartIsolationProfileInput)(nil)).Elem()
+}
+
+func (o SmartIsolationProfileInputOutput) ToSmartIsolationProfileInputOutput() SmartIsolationProfileInputOutput {
+	return o
+}
+
+func (o SmartIsolationProfileInputOutput) ToSmartIsolationProfileInputOutputWithContext(ctx context.Context) SmartIsolationProfileInputOutput {
+	return o
+}
+
+func (o SmartIsolationProfileInputOutput) ToSmartIsolationProfileInputPtrOutput() SmartIsolationProfileInputPtrOutput {
+	return o.ToSmartIsolationProfileInputPtrOutputWithContext(context.Background())
+}
+
+func (o SmartIsolationProfileInputOutput) ToSmartIsolationProfileInputPtrOutputWithContext(ctx context.Context) SmartIsolationProfileInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmartIsolationProfileInput) *SmartIsolationProfileInput {
+		return &v
+	}).(SmartIsolationProfileInputPtrOutput)
+}
+
+func (o SmartIsolationProfileInputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmartIsolationProfileInput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SmartIsolationProfileInputPtrOutput struct{ *pulumi.OutputState }
+
+func (SmartIsolationProfileInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmartIsolationProfileInput)(nil)).Elem()
+}
+
+func (o SmartIsolationProfileInputPtrOutput) ToSmartIsolationProfileInputPtrOutput() SmartIsolationProfileInputPtrOutput {
+	return o
+}
+
+func (o SmartIsolationProfileInputPtrOutput) ToSmartIsolationProfileInputPtrOutputWithContext(ctx context.Context) SmartIsolationProfileInputPtrOutput {
+	return o
+}
+
+func (o SmartIsolationProfileInputPtrOutput) Elem() SmartIsolationProfileInputOutput {
+	return o.ApplyT(func(v *SmartIsolationProfileInput) SmartIsolationProfileInput {
+		if v != nil {
+			return *v
+		}
+		var ret SmartIsolationProfileInput
+		return ret
+	}).(SmartIsolationProfileInputOutput)
+}
+
+func (o SmartIsolationProfileInputPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmartIsolationProfileInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SslInspectionActionInput struct {
 	DecryptSubActions          *DecryptSubActionsInput      `pulumi:"decryptSubActions"`
 	DoNotDecryptSubActions     *DoNotDecryptSubActionsInput `pulumi:"doNotDecryptSubActions"`
@@ -1205,9 +3175,9 @@ func (o SslInterceptionCertInputPtrOutput) Id() pulumi.IntPtrOutput {
 }
 
 type SubCloudDcOutput struct {
-	Country string `pulumi:"country"`
-	Id      int    `pulumi:"id"`
-	Name    string `pulumi:"name"`
+	Country    string `pulumi:"country"`
+	Name       string `pulumi:"name"`
+	ResourceId int    `pulumi:"resourceId"`
 }
 
 type SubCloudDcOutputOutput struct{ *pulumi.OutputState }
@@ -1228,12 +3198,12 @@ func (o SubCloudDcOutputOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v SubCloudDcOutput) string { return v.Country }).(pulumi.StringOutput)
 }
 
-func (o SubCloudDcOutputOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v SubCloudDcOutput) int { return v.Id }).(pulumi.IntOutput)
-}
-
 func (o SubCloudDcOutputOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubCloudDcOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SubCloudDcOutputOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v SubCloudDcOutput) int { return v.ResourceId }).(pulumi.IntOutput)
 }
 
 type SubCloudDcOutputArrayOutput struct{ *pulumi.OutputState }
@@ -1257,9 +3227,9 @@ func (o SubCloudDcOutputArrayOutput) Index(i pulumi.IntInput) SubCloudDcOutputOu
 }
 
 type SubCloudExclusionDatacenterInput struct {
-	Country *string `pulumi:"country"`
-	Id      int     `pulumi:"id"`
-	Name    *string `pulumi:"name"`
+	Country    *string `pulumi:"country"`
+	Name       *string `pulumi:"name"`
+	ResourceId int     `pulumi:"resourceId"`
 }
 
 // SubCloudExclusionDatacenterInputInput is an input type that accepts SubCloudExclusionDatacenterInputArgs and SubCloudExclusionDatacenterInputOutput values.
@@ -1274,9 +3244,9 @@ type SubCloudExclusionDatacenterInputInput interface {
 }
 
 type SubCloudExclusionDatacenterInputArgs struct {
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	Id      pulumi.IntInput       `pulumi:"id"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Country    pulumi.StringPtrInput `pulumi:"country"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	ResourceId pulumi.IntInput       `pulumi:"resourceId"`
 }
 
 func (SubCloudExclusionDatacenterInputArgs) ElementType() reflect.Type {
@@ -1309,12 +3279,12 @@ func (o SubCloudExclusionDatacenterInputOutput) Country() pulumi.StringPtrOutput
 	return o.ApplyT(func(v SubCloudExclusionDatacenterInput) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-func (o SubCloudExclusionDatacenterInputOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v SubCloudExclusionDatacenterInput) int { return v.Id }).(pulumi.IntOutput)
-}
-
 func (o SubCloudExclusionDatacenterInputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubCloudExclusionDatacenterInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SubCloudExclusionDatacenterInputOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v SubCloudExclusionDatacenterInput) int { return v.ResourceId }).(pulumi.IntOutput)
 }
 
 type SubCloudExclusionInput struct {
@@ -1427,6 +3397,117 @@ func (o SubCloudExclusionInputArrayOutput) Index(i pulumi.IntInput) SubCloudExcl
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubCloudExclusionInput {
 		return vs[0].([]SubCloudExclusionInput)[vs[1].(int)]
 	}).(SubCloudExclusionInputOutput)
+}
+
+type SummaryDetailOutput struct {
+	Category  string `pulumi:"category"`
+	Duration  int    `pulumi:"duration"`
+	FileType  string `pulumi:"fileType"`
+	StartTime int    `pulumi:"startTime"`
+	Status    string `pulumi:"status"`
+}
+
+type SummaryDetailOutputOutput struct{ *pulumi.OutputState }
+
+func (SummaryDetailOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SummaryDetailOutput)(nil)).Elem()
+}
+
+func (o SummaryDetailOutputOutput) ToSummaryDetailOutputOutput() SummaryDetailOutputOutput {
+	return o
+}
+
+func (o SummaryDetailOutputOutput) ToSummaryDetailOutputOutputWithContext(ctx context.Context) SummaryDetailOutputOutput {
+	return o
+}
+
+func (o SummaryDetailOutputOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v SummaryDetailOutput) string { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o SummaryDetailOutputOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v SummaryDetailOutput) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+func (o SummaryDetailOutputOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v SummaryDetailOutput) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+func (o SummaryDetailOutputOutput) StartTime() pulumi.IntOutput {
+	return o.ApplyT(func(v SummaryDetailOutput) int { return v.StartTime }).(pulumi.IntOutput)
+}
+
+func (o SummaryDetailOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SummaryDetailOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SummaryDetailOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (SummaryDetailOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SummaryDetailOutput)(nil)).Elem()
+}
+
+func (o SummaryDetailOutputPtrOutput) ToSummaryDetailOutputPtrOutput() SummaryDetailOutputPtrOutput {
+	return o
+}
+
+func (o SummaryDetailOutputPtrOutput) ToSummaryDetailOutputPtrOutputWithContext(ctx context.Context) SummaryDetailOutputPtrOutput {
+	return o
+}
+
+func (o SummaryDetailOutputPtrOutput) Elem() SummaryDetailOutputOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) SummaryDetailOutput {
+		if v != nil {
+			return *v
+		}
+		var ret SummaryDetailOutput
+		return ret
+	}).(SummaryDetailOutputOutput)
+}
+
+func (o SummaryDetailOutputPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SummaryDetailOutputPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SummaryDetailOutputPtrOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SummaryDetailOutputPtrOutput) StartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SummaryDetailOutputPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SummaryDetailOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type UrlCategoryScopeInput struct {
@@ -2121,6 +4202,124 @@ func (o VirtualZenNodeOutputArrayOutput) Index(i pulumi.IntInput) VirtualZenNode
 	}).(VirtualZenNodeOutputOutput)
 }
 
+type VpnCredentialInput struct {
+	Fqdn         *string `pulumi:"fqdn"`
+	Id           *int    `pulumi:"id"`
+	IpAddress    *string `pulumi:"ipAddress"`
+	PreSharedKey *string `pulumi:"preSharedKey"`
+	Type         *string `pulumi:"type"`
+}
+
+// VpnCredentialInputInput is an input type that accepts VpnCredentialInputArgs and VpnCredentialInputOutput values.
+// You can construct a concrete instance of `VpnCredentialInputInput` via:
+//
+//	VpnCredentialInputArgs{...}
+type VpnCredentialInputInput interface {
+	pulumi.Input
+
+	ToVpnCredentialInputOutput() VpnCredentialInputOutput
+	ToVpnCredentialInputOutputWithContext(context.Context) VpnCredentialInputOutput
+}
+
+type VpnCredentialInputArgs struct {
+	Fqdn         pulumi.StringPtrInput `pulumi:"fqdn"`
+	Id           pulumi.IntPtrInput    `pulumi:"id"`
+	IpAddress    pulumi.StringPtrInput `pulumi:"ipAddress"`
+	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (VpnCredentialInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnCredentialInput)(nil)).Elem()
+}
+
+func (i VpnCredentialInputArgs) ToVpnCredentialInputOutput() VpnCredentialInputOutput {
+	return i.ToVpnCredentialInputOutputWithContext(context.Background())
+}
+
+func (i VpnCredentialInputArgs) ToVpnCredentialInputOutputWithContext(ctx context.Context) VpnCredentialInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnCredentialInputOutput)
+}
+
+// VpnCredentialInputArrayInput is an input type that accepts VpnCredentialInputArray and VpnCredentialInputArrayOutput values.
+// You can construct a concrete instance of `VpnCredentialInputArrayInput` via:
+//
+//	VpnCredentialInputArray{ VpnCredentialInputArgs{...} }
+type VpnCredentialInputArrayInput interface {
+	pulumi.Input
+
+	ToVpnCredentialInputArrayOutput() VpnCredentialInputArrayOutput
+	ToVpnCredentialInputArrayOutputWithContext(context.Context) VpnCredentialInputArrayOutput
+}
+
+type VpnCredentialInputArray []VpnCredentialInputInput
+
+func (VpnCredentialInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnCredentialInput)(nil)).Elem()
+}
+
+func (i VpnCredentialInputArray) ToVpnCredentialInputArrayOutput() VpnCredentialInputArrayOutput {
+	return i.ToVpnCredentialInputArrayOutputWithContext(context.Background())
+}
+
+func (i VpnCredentialInputArray) ToVpnCredentialInputArrayOutputWithContext(ctx context.Context) VpnCredentialInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnCredentialInputArrayOutput)
+}
+
+type VpnCredentialInputOutput struct{ *pulumi.OutputState }
+
+func (VpnCredentialInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnCredentialInput)(nil)).Elem()
+}
+
+func (o VpnCredentialInputOutput) ToVpnCredentialInputOutput() VpnCredentialInputOutput {
+	return o
+}
+
+func (o VpnCredentialInputOutput) ToVpnCredentialInputOutputWithContext(ctx context.Context) VpnCredentialInputOutput {
+	return o
+}
+
+func (o VpnCredentialInputOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnCredentialInput) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+func (o VpnCredentialInputOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpnCredentialInput) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o VpnCredentialInputOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnCredentialInput) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o VpnCredentialInputOutput) PreSharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnCredentialInput) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
+}
+
+func (o VpnCredentialInputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnCredentialInput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type VpnCredentialInputArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnCredentialInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnCredentialInput)(nil)).Elem()
+}
+
+func (o VpnCredentialInputArrayOutput) ToVpnCredentialInputArrayOutput() VpnCredentialInputArrayOutput {
+	return o
+}
+
+func (o VpnCredentialInputArrayOutput) ToVpnCredentialInputArrayOutputWithContext(ctx context.Context) VpnCredentialInputArrayOutput {
+	return o
+}
+
+func (o VpnCredentialInputArrayOutput) Index(i pulumi.IntInput) VpnCredentialInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnCredentialInput {
+		return vs[0].([]VpnCredentialInput)[vs[1].(int)]
+	}).(VpnCredentialInputOutput)
+}
+
 type WorkloadGroupExpressionContainerInput struct {
 	Operator     *string                         `pulumi:"operator"`
 	TagContainer *WorkloadGroupTagContainerInput `pulumi:"tagContainer"`
@@ -2363,8 +4562,8 @@ func (o WorkloadGroupExpressionJsonInputPtrOutput) ExpressionContainers() Worklo
 }
 
 type WorkloadGroupInputType struct {
-	Id   int     `pulumi:"id"`
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
+	ResourceId int     `pulumi:"resourceId"`
 }
 
 // WorkloadGroupInputTypeInput is an input type that accepts WorkloadGroupInputTypeArgs and WorkloadGroupInputTypeOutput values.
@@ -2379,8 +4578,8 @@ type WorkloadGroupInputTypeInput interface {
 }
 
 type WorkloadGroupInputTypeArgs struct {
-	Id   pulumi.IntInput       `pulumi:"id"`
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	ResourceId pulumi.IntInput       `pulumi:"resourceId"`
 }
 
 func (WorkloadGroupInputTypeArgs) ElementType() reflect.Type {
@@ -2434,12 +4633,12 @@ func (o WorkloadGroupInputTypeOutput) ToWorkloadGroupInputTypeOutputWithContext(
 	return o
 }
 
-func (o WorkloadGroupInputTypeOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v WorkloadGroupInputType) int { return v.Id }).(pulumi.IntOutput)
-}
-
 func (o WorkloadGroupInputTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadGroupInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadGroupInputTypeOutput) ResourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadGroupInputType) int { return v.ResourceId }).(pulumi.IntOutput)
 }
 
 type WorkloadGroupInputTypeArrayOutput struct{ *pulumi.OutputState }
@@ -2810,6 +5009,254 @@ func (o ZPAAppSegmentInputArrayOutput) Index(i pulumi.IntInput) ZPAAppSegmentInp
 	}).(ZPAAppSegmentInputOutput)
 }
 
+type ZpaGatewayAppSegmentInput struct {
+	ExternalId *string `pulumi:"externalId"`
+	Name       *string `pulumi:"name"`
+}
+
+// ZpaGatewayAppSegmentInputInput is an input type that accepts ZpaGatewayAppSegmentInputArgs and ZpaGatewayAppSegmentInputOutput values.
+// You can construct a concrete instance of `ZpaGatewayAppSegmentInputInput` via:
+//
+//	ZpaGatewayAppSegmentInputArgs{...}
+type ZpaGatewayAppSegmentInputInput interface {
+	pulumi.Input
+
+	ToZpaGatewayAppSegmentInputOutput() ZpaGatewayAppSegmentInputOutput
+	ToZpaGatewayAppSegmentInputOutputWithContext(context.Context) ZpaGatewayAppSegmentInputOutput
+}
+
+type ZpaGatewayAppSegmentInputArgs struct {
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ZpaGatewayAppSegmentInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZpaGatewayAppSegmentInput)(nil)).Elem()
+}
+
+func (i ZpaGatewayAppSegmentInputArgs) ToZpaGatewayAppSegmentInputOutput() ZpaGatewayAppSegmentInputOutput {
+	return i.ToZpaGatewayAppSegmentInputOutputWithContext(context.Background())
+}
+
+func (i ZpaGatewayAppSegmentInputArgs) ToZpaGatewayAppSegmentInputOutputWithContext(ctx context.Context) ZpaGatewayAppSegmentInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZpaGatewayAppSegmentInputOutput)
+}
+
+// ZpaGatewayAppSegmentInputArrayInput is an input type that accepts ZpaGatewayAppSegmentInputArray and ZpaGatewayAppSegmentInputArrayOutput values.
+// You can construct a concrete instance of `ZpaGatewayAppSegmentInputArrayInput` via:
+//
+//	ZpaGatewayAppSegmentInputArray{ ZpaGatewayAppSegmentInputArgs{...} }
+type ZpaGatewayAppSegmentInputArrayInput interface {
+	pulumi.Input
+
+	ToZpaGatewayAppSegmentInputArrayOutput() ZpaGatewayAppSegmentInputArrayOutput
+	ToZpaGatewayAppSegmentInputArrayOutputWithContext(context.Context) ZpaGatewayAppSegmentInputArrayOutput
+}
+
+type ZpaGatewayAppSegmentInputArray []ZpaGatewayAppSegmentInputInput
+
+func (ZpaGatewayAppSegmentInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZpaGatewayAppSegmentInput)(nil)).Elem()
+}
+
+func (i ZpaGatewayAppSegmentInputArray) ToZpaGatewayAppSegmentInputArrayOutput() ZpaGatewayAppSegmentInputArrayOutput {
+	return i.ToZpaGatewayAppSegmentInputArrayOutputWithContext(context.Background())
+}
+
+func (i ZpaGatewayAppSegmentInputArray) ToZpaGatewayAppSegmentInputArrayOutputWithContext(ctx context.Context) ZpaGatewayAppSegmentInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZpaGatewayAppSegmentInputArrayOutput)
+}
+
+type ZpaGatewayAppSegmentInputOutput struct{ *pulumi.OutputState }
+
+func (ZpaGatewayAppSegmentInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZpaGatewayAppSegmentInput)(nil)).Elem()
+}
+
+func (o ZpaGatewayAppSegmentInputOutput) ToZpaGatewayAppSegmentInputOutput() ZpaGatewayAppSegmentInputOutput {
+	return o
+}
+
+func (o ZpaGatewayAppSegmentInputOutput) ToZpaGatewayAppSegmentInputOutputWithContext(ctx context.Context) ZpaGatewayAppSegmentInputOutput {
+	return o
+}
+
+func (o ZpaGatewayAppSegmentInputOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZpaGatewayAppSegmentInput) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ZpaGatewayAppSegmentInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZpaGatewayAppSegmentInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ZpaGatewayAppSegmentInputArrayOutput struct{ *pulumi.OutputState }
+
+func (ZpaGatewayAppSegmentInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZpaGatewayAppSegmentInput)(nil)).Elem()
+}
+
+func (o ZpaGatewayAppSegmentInputArrayOutput) ToZpaGatewayAppSegmentInputArrayOutput() ZpaGatewayAppSegmentInputArrayOutput {
+	return o
+}
+
+func (o ZpaGatewayAppSegmentInputArrayOutput) ToZpaGatewayAppSegmentInputArrayOutputWithContext(ctx context.Context) ZpaGatewayAppSegmentInputArrayOutput {
+	return o
+}
+
+func (o ZpaGatewayAppSegmentInputArrayOutput) Index(i pulumi.IntInput) ZpaGatewayAppSegmentInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZpaGatewayAppSegmentInput {
+		return vs[0].([]ZpaGatewayAppSegmentInput)[vs[1].(int)]
+	}).(ZpaGatewayAppSegmentInputOutput)
+}
+
+type ZpaServerGroupInput struct {
+	ExternalId *string `pulumi:"externalId"`
+	Name       *string `pulumi:"name"`
+}
+
+// ZpaServerGroupInputInput is an input type that accepts ZpaServerGroupInputArgs and ZpaServerGroupInputOutput values.
+// You can construct a concrete instance of `ZpaServerGroupInputInput` via:
+//
+//	ZpaServerGroupInputArgs{...}
+type ZpaServerGroupInputInput interface {
+	pulumi.Input
+
+	ToZpaServerGroupInputOutput() ZpaServerGroupInputOutput
+	ToZpaServerGroupInputOutputWithContext(context.Context) ZpaServerGroupInputOutput
+}
+
+type ZpaServerGroupInputArgs struct {
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ZpaServerGroupInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZpaServerGroupInput)(nil)).Elem()
+}
+
+func (i ZpaServerGroupInputArgs) ToZpaServerGroupInputOutput() ZpaServerGroupInputOutput {
+	return i.ToZpaServerGroupInputOutputWithContext(context.Background())
+}
+
+func (i ZpaServerGroupInputArgs) ToZpaServerGroupInputOutputWithContext(ctx context.Context) ZpaServerGroupInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZpaServerGroupInputOutput)
+}
+
+func (i ZpaServerGroupInputArgs) ToZpaServerGroupInputPtrOutput() ZpaServerGroupInputPtrOutput {
+	return i.ToZpaServerGroupInputPtrOutputWithContext(context.Background())
+}
+
+func (i ZpaServerGroupInputArgs) ToZpaServerGroupInputPtrOutputWithContext(ctx context.Context) ZpaServerGroupInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZpaServerGroupInputOutput).ToZpaServerGroupInputPtrOutputWithContext(ctx)
+}
+
+// ZpaServerGroupInputPtrInput is an input type that accepts ZpaServerGroupInputArgs, ZpaServerGroupInputPtr and ZpaServerGroupInputPtrOutput values.
+// You can construct a concrete instance of `ZpaServerGroupInputPtrInput` via:
+//
+//	        ZpaServerGroupInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ZpaServerGroupInputPtrInput interface {
+	pulumi.Input
+
+	ToZpaServerGroupInputPtrOutput() ZpaServerGroupInputPtrOutput
+	ToZpaServerGroupInputPtrOutputWithContext(context.Context) ZpaServerGroupInputPtrOutput
+}
+
+type zpaServerGroupInputPtrType ZpaServerGroupInputArgs
+
+func ZpaServerGroupInputPtr(v *ZpaServerGroupInputArgs) ZpaServerGroupInputPtrInput {
+	return (*zpaServerGroupInputPtrType)(v)
+}
+
+func (*zpaServerGroupInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZpaServerGroupInput)(nil)).Elem()
+}
+
+func (i *zpaServerGroupInputPtrType) ToZpaServerGroupInputPtrOutput() ZpaServerGroupInputPtrOutput {
+	return i.ToZpaServerGroupInputPtrOutputWithContext(context.Background())
+}
+
+func (i *zpaServerGroupInputPtrType) ToZpaServerGroupInputPtrOutputWithContext(ctx context.Context) ZpaServerGroupInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZpaServerGroupInputPtrOutput)
+}
+
+type ZpaServerGroupInputOutput struct{ *pulumi.OutputState }
+
+func (ZpaServerGroupInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZpaServerGroupInput)(nil)).Elem()
+}
+
+func (o ZpaServerGroupInputOutput) ToZpaServerGroupInputOutput() ZpaServerGroupInputOutput {
+	return o
+}
+
+func (o ZpaServerGroupInputOutput) ToZpaServerGroupInputOutputWithContext(ctx context.Context) ZpaServerGroupInputOutput {
+	return o
+}
+
+func (o ZpaServerGroupInputOutput) ToZpaServerGroupInputPtrOutput() ZpaServerGroupInputPtrOutput {
+	return o.ToZpaServerGroupInputPtrOutputWithContext(context.Background())
+}
+
+func (o ZpaServerGroupInputOutput) ToZpaServerGroupInputPtrOutputWithContext(ctx context.Context) ZpaServerGroupInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZpaServerGroupInput) *ZpaServerGroupInput {
+		return &v
+	}).(ZpaServerGroupInputPtrOutput)
+}
+
+func (o ZpaServerGroupInputOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZpaServerGroupInput) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ZpaServerGroupInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZpaServerGroupInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ZpaServerGroupInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ZpaServerGroupInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ZpaServerGroupInput)(nil)).Elem()
+}
+
+func (o ZpaServerGroupInputPtrOutput) ToZpaServerGroupInputPtrOutput() ZpaServerGroupInputPtrOutput {
+	return o
+}
+
+func (o ZpaServerGroupInputPtrOutput) ToZpaServerGroupInputPtrOutputWithContext(ctx context.Context) ZpaServerGroupInputPtrOutput {
+	return o
+}
+
+func (o ZpaServerGroupInputPtrOutput) Elem() ZpaServerGroupInputOutput {
+	return o.ApplyT(func(v *ZpaServerGroupInput) ZpaServerGroupInput {
+		if v != nil {
+			return *v
+		}
+		var ret ZpaServerGroupInput
+		return ret
+	}).(ZpaServerGroupInputOutput)
+}
+
+func (o ZpaServerGroupInputPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZpaServerGroupInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ZpaServerGroupInputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ZpaServerGroupInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminUserRoleInputInput)(nil)).Elem(), AdminUserRoleInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdminUserRoleInputPtrInput)(nil)).Elem(), AdminUserRoleInputArgs{})
@@ -2817,10 +5264,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CBIProfileInputPtrInput)(nil)).Elem(), CBIProfileInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DecryptSubActionsInputInput)(nil)).Elem(), DecryptSubActionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DecryptSubActionsInputPtrInput)(nil)).Elem(), DecryptSubActionsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpDictionaryPatternInputInput)(nil)).Elem(), DlpDictionaryPatternInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpDictionaryPatternInputArrayInput)(nil)).Elem(), DlpDictionaryPatternInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpDictionaryPhraseInputInput)(nil)).Elem(), DlpDictionaryPhraseInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpDictionaryPhraseInputArrayInput)(nil)).Elem(), DlpDictionaryPhraseInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DoNotDecryptSubActionsInputInput)(nil)).Elem(), DoNotDecryptSubActionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DoNotDecryptSubActionsInputPtrInput)(nil)).Elem(), DoNotDecryptSubActionsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtranetDnsListInputInput)(nil)).Elem(), ExtranetDnsListInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtranetDnsListInputArrayInput)(nil)).Elem(), ExtranetDnsListInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtranetIpPoolListInputInput)(nil)).Elem(), ExtranetIpPoolListInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtranetIpPoolListInputArrayInput)(nil)).Elem(), ExtranetIpPoolListInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GreTunnelDestVipInputInput)(nil)).Elem(), GreTunnelDestVipInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GreTunnelDestVipInputPtrInput)(nil)).Elem(), GreTunnelDestVipInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentifierInputInput)(nil)).Elem(), InstanceIdentifierInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentifierInputArrayInput)(nil)).Elem(), InstanceIdentifierInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Md5HashValueInputInput)(nil)).Elem(), Md5HashValueInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Md5HashValueInputArrayInput)(nil)).Elem(), Md5HashValueInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPortInputInput)(nil)).Elem(), NetworkPortInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPortInputArrayInput)(nil)).Elem(), NetworkPortInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartIsolationProfileInputInput)(nil)).Elem(), SmartIsolationProfileInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartIsolationProfileInputPtrInput)(nil)).Elem(), SmartIsolationProfileInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslInspectionActionInputInput)(nil)).Elem(), SslInspectionActionInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslInterceptionCertInputInput)(nil)).Elem(), SslInterceptionCertInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslInterceptionCertInputPtrInput)(nil)).Elem(), SslInterceptionCertInputArgs{})
@@ -2833,6 +5296,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCategoryUrlKeywordCountsInputPtrInput)(nil)).Elem(), UrlCategoryUrlKeywordCountsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDepartmentInputInput)(nil)).Elem(), UserDepartmentInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDepartmentInputPtrInput)(nil)).Elem(), UserDepartmentInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnCredentialInputInput)(nil)).Elem(), VpnCredentialInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnCredentialInputArrayInput)(nil)).Elem(), VpnCredentialInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadGroupExpressionContainerInputInput)(nil)).Elem(), WorkloadGroupExpressionContainerInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadGroupExpressionContainerInputArrayInput)(nil)).Elem(), WorkloadGroupExpressionContainerInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadGroupExpressionJsonInputInput)(nil)).Elem(), WorkloadGroupExpressionJsonInputArgs{})
@@ -2845,18 +5310,62 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadGroupTagInputArrayInput)(nil)).Elem(), WorkloadGroupTagInputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZPAAppSegmentInputInput)(nil)).Elem(), ZPAAppSegmentInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZPAAppSegmentInputArrayInput)(nil)).Elem(), ZPAAppSegmentInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZpaGatewayAppSegmentInputInput)(nil)).Elem(), ZpaGatewayAppSegmentInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZpaGatewayAppSegmentInputArrayInput)(nil)).Elem(), ZpaGatewayAppSegmentInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZpaServerGroupInputInput)(nil)).Elem(), ZpaServerGroupInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZpaServerGroupInputPtrInput)(nil)).Elem(), ZpaServerGroupInputArgs{})
 	pulumi.RegisterOutputType(AdminUserRoleInputOutput{})
 	pulumi.RegisterOutputType(AdminUserRoleInputPtrOutput{})
 	pulumi.RegisterOutputType(CBIProfileInputOutput{})
 	pulumi.RegisterOutputType(CBIProfileInputPtrOutput{})
+	pulumi.RegisterOutputType(ClassificationOutputOutput{})
+	pulumi.RegisterOutputType(ClassificationOutputPtrOutput{})
+	pulumi.RegisterOutputType(CloudApplicationItemOutput{})
+	pulumi.RegisterOutputType(CloudApplicationItemArrayOutput{})
+	pulumi.RegisterOutputType(DatacenterInfoOutput{})
+	pulumi.RegisterOutputType(DatacenterInfoArrayOutput{})
 	pulumi.RegisterOutputType(DecryptSubActionsInputOutput{})
 	pulumi.RegisterOutputType(DecryptSubActionsInputPtrOutput{})
+	pulumi.RegisterOutputType(DeviceGroupItemOutput{})
+	pulumi.RegisterOutputType(DeviceGroupItemArrayOutput{})
+	pulumi.RegisterOutputType(DlpDictionaryPatternInputOutput{})
+	pulumi.RegisterOutputType(DlpDictionaryPatternInputArrayOutput{})
+	pulumi.RegisterOutputType(DlpDictionaryPhraseInputOutput{})
+	pulumi.RegisterOutputType(DlpDictionaryPhraseInputArrayOutput{})
 	pulumi.RegisterOutputType(DoNotDecryptSubActionsInputOutput{})
 	pulumi.RegisterOutputType(DoNotDecryptSubActionsInputPtrOutput{})
+	pulumi.RegisterOutputType(ExtranetDnsListInputOutput{})
+	pulumi.RegisterOutputType(ExtranetDnsListInputArrayOutput{})
+	pulumi.RegisterOutputType(ExtranetIpPoolListInputOutput{})
+	pulumi.RegisterOutputType(ExtranetIpPoolListInputArrayOutput{})
+	pulumi.RegisterOutputType(FilePropertiesOutputOutput{})
+	pulumi.RegisterOutputType(FilePropertiesOutputPtrOutput{})
+	pulumi.RegisterOutputType(FileTypeCategoryItemOutput{})
+	pulumi.RegisterOutputType(FileTypeCategoryItemArrayOutput{})
 	pulumi.RegisterOutputType(GreTunnelDestVipInputOutput{})
 	pulumi.RegisterOutputType(GreTunnelDestVipInputPtrOutput{})
 	pulumi.RegisterOutputType(GreTunnelDestVipOutputOutput{})
 	pulumi.RegisterOutputType(GreTunnelDestVipOutputPtrOutput{})
+	pulumi.RegisterOutputType(IdNameExtensionsOutputOutput{})
+	pulumi.RegisterOutputType(IdNameExtensionsOutputPtrOutput{})
+	pulumi.RegisterOutputType(InstanceIdentifierInputOutput{})
+	pulumi.RegisterOutputType(InstanceIdentifierInputArrayOutput{})
+	pulumi.RegisterOutputType(LastModifiedByOutputOutput{})
+	pulumi.RegisterOutputType(LastModifiedByOutputPtrOutput{})
+	pulumi.RegisterOutputType(LastValidationMsgOutputOutput{})
+	pulumi.RegisterOutputType(LastValidationMsgOutputPtrOutput{})
+	pulumi.RegisterOutputType(Md5HashValueInputOutput{})
+	pulumi.RegisterOutputType(Md5HashValueInputArrayOutput{})
+	pulumi.RegisterOutputType(NetworkPortInputOutput{})
+	pulumi.RegisterOutputType(NetworkPortInputArrayOutput{})
+	pulumi.RegisterOutputType(OnboardableEntityOutputOutput{})
+	pulumi.RegisterOutputType(OnboardableEntityOutputPtrOutput{})
+	pulumi.RegisterOutputType(OriginOutputOutput{})
+	pulumi.RegisterOutputType(OriginOutputPtrOutput{})
+	pulumi.RegisterOutputType(SandboxRssOutputOutput{})
+	pulumi.RegisterOutputType(SandboxRssOutputArrayOutput{})
+	pulumi.RegisterOutputType(SmartIsolationProfileInputOutput{})
+	pulumi.RegisterOutputType(SmartIsolationProfileInputPtrOutput{})
 	pulumi.RegisterOutputType(SslInspectionActionInputOutput{})
 	pulumi.RegisterOutputType(SslInterceptionCertInputOutput{})
 	pulumi.RegisterOutputType(SslInterceptionCertInputPtrOutput{})
@@ -2865,6 +5374,8 @@ func init() {
 	pulumi.RegisterOutputType(SubCloudExclusionDatacenterInputOutput{})
 	pulumi.RegisterOutputType(SubCloudExclusionInputOutput{})
 	pulumi.RegisterOutputType(SubCloudExclusionInputArrayOutput{})
+	pulumi.RegisterOutputType(SummaryDetailOutputOutput{})
+	pulumi.RegisterOutputType(SummaryDetailOutputPtrOutput{})
 	pulumi.RegisterOutputType(UrlCategoryScopeInputOutput{})
 	pulumi.RegisterOutputType(UrlCategoryScopeInputArrayOutput{})
 	pulumi.RegisterOutputType(UrlCategoryUrlKeywordCountsInputOutput{})
@@ -2877,6 +5388,8 @@ func init() {
 	pulumi.RegisterOutputType(UserGroupOutputArrayOutput{})
 	pulumi.RegisterOutputType(VirtualZenNodeOutputOutput{})
 	pulumi.RegisterOutputType(VirtualZenNodeOutputArrayOutput{})
+	pulumi.RegisterOutputType(VpnCredentialInputOutput{})
+	pulumi.RegisterOutputType(VpnCredentialInputArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadGroupExpressionContainerInputOutput{})
 	pulumi.RegisterOutputType(WorkloadGroupExpressionContainerInputArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadGroupExpressionJsonInputOutput{})
@@ -2889,4 +5402,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadGroupTagInputArrayOutput{})
 	pulumi.RegisterOutputType(ZPAAppSegmentInputOutput{})
 	pulumi.RegisterOutputType(ZPAAppSegmentInputArrayOutput{})
+	pulumi.RegisterOutputType(ZpaGatewayAppSegmentInputOutput{})
+	pulumi.RegisterOutputType(ZpaGatewayAppSegmentInputArrayOutput{})
+	pulumi.RegisterOutputType(ZpaServerGroupInputOutput{})
+	pulumi.RegisterOutputType(ZpaServerGroupInputPtrOutput{})
 }

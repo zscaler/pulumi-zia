@@ -8,24 +8,40 @@ import (
 	"reflect"
 
 	"errors"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia/internal"
 )
 
+// The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+//
+// For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+//
+// ## Example Usage
+//
+// > Import is not supported for this resource.
 type SandboxSubmission struct {
 	pulumi.CustomResourceState
 
-	Code             pulumi.IntPtrOutput    `pulumi:"code"`
-	FilePath         pulumi.StringOutput    `pulumi:"filePath"`
-	FileType         pulumi.StringPtrOutput `pulumi:"fileType"`
-	Force            pulumi.BoolPtrOutput   `pulumi:"force"`
-	Md5              pulumi.StringPtrOutput `pulumi:"md5"`
-	Message          pulumi.StringPtrOutput `pulumi:"message"`
-	SubmissionMethod pulumi.StringOutput    `pulumi:"submissionMethod"`
+	// The response status code from the sandbox submission.
+	Code pulumi.IntPtrOutput `pulumi:"code"`
+	// The local file path of the file to submit for sandbox analysis.
+	FilePath pulumi.StringOutput `pulumi:"filePath"`
+	// The detected file type of the submitted file.
+	FileType pulumi.StringPtrOutput `pulumi:"fileType"`
+	// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+	Force pulumi.BoolPtrOutput `pulumi:"force"`
+	// The MD5 hash of the submitted file.
+	Md5 pulumi.StringPtrOutput `pulumi:"md5"`
+	// The response message from the sandbox submission.
+	Message pulumi.StringPtrOutput `pulumi:"message"`
+	// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+	SubmissionMethod pulumi.StringOutput `pulumi:"submissionMethod"`
+	// The sandbox submission result string.
 	SubmissionResult pulumi.StringPtrOutput `pulumi:"submissionResult"`
-	VirusName        pulumi.StringPtrOutput `pulumi:"virusName"`
-	VirusType        pulumi.StringPtrOutput `pulumi:"virusType"`
+	// The virus name if the file is detected as malicious.
+	VirusName pulumi.StringPtrOutput `pulumi:"virusName"`
+	// The virus type if the file is detected as malicious.
+	VirusType pulumi.StringPtrOutput `pulumi:"virusType"`
 }
 
 // NewSandboxSubmission registers a new resource with the given unique name, arguments, and options.
@@ -74,15 +90,21 @@ func (SandboxSubmissionState) ElementType() reflect.Type {
 }
 
 type sandboxSubmissionArgs struct {
-	FilePath         string `pulumi:"filePath"`
-	Force            *bool  `pulumi:"force"`
+	// The local file path of the file to submit for sandbox analysis.
+	FilePath string `pulumi:"filePath"`
+	// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+	Force *bool `pulumi:"force"`
+	// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
 	SubmissionMethod string `pulumi:"submissionMethod"`
 }
 
 // The set of arguments for constructing a SandboxSubmission resource.
 type SandboxSubmissionArgs struct {
-	FilePath         pulumi.StringInput
-	Force            pulumi.BoolPtrInput
+	// The local file path of the file to submit for sandbox analysis.
+	FilePath pulumi.StringInput
+	// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+	Force pulumi.BoolPtrInput
+	// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
 	SubmissionMethod pulumi.StringInput
 }
 
@@ -173,42 +195,52 @@ func (o SandboxSubmissionOutput) ToSandboxSubmissionOutputWithContext(ctx contex
 	return o
 }
 
+// The response status code from the sandbox submission.
 func (o SandboxSubmissionOutput) Code() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.IntPtrOutput { return v.Code }).(pulumi.IntPtrOutput)
 }
 
+// The local file path of the file to submit for sandbox analysis.
 func (o SandboxSubmissionOutput) FilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringOutput { return v.FilePath }).(pulumi.StringOutput)
 }
 
+// The detected file type of the submitted file.
 func (o SandboxSubmissionOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
+// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
 func (o SandboxSubmissionOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
 }
 
+// The MD5 hash of the submitted file.
 func (o SandboxSubmissionOutput) Md5() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.Md5 }).(pulumi.StringPtrOutput)
 }
 
+// The response message from the sandbox submission.
 func (o SandboxSubmissionOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
 func (o SandboxSubmissionOutput) SubmissionMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringOutput { return v.SubmissionMethod }).(pulumi.StringOutput)
 }
 
+// The sandbox submission result string.
 func (o SandboxSubmissionOutput) SubmissionResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.SubmissionResult }).(pulumi.StringPtrOutput)
 }
 
+// The virus name if the file is detected as malicious.
 func (o SandboxSubmissionOutput) VirusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.VirusName }).(pulumi.StringPtrOutput)
 }
 
+// The virus type if the file is detected as malicious.
 func (o SandboxSubmissionOutput) VirusType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SandboxSubmission) pulumi.StringPtrOutput { return v.VirusType }).(pulumi.StringPtrOutput)
 }
