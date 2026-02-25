@@ -27,14 +27,13 @@ import (
 	"github.com/blang/semver"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zscaler/pulumi-zia/provider"
 
 	p "github.com/pulumi/pulumi-go-provider"
 	"github.com/pulumi/pulumi-go-provider/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/property"
-
-	"github.com/zscaler/pulumi-zia/provider"
 )
 
 func TestRuleLabelCreateDryRun(t *testing.T) {
