@@ -12,12 +12,21 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetWorkloadGroup
     {
+        /// <summary>
+        /// Use this data source to look up a workload group by ID or name.
+        /// </summary>
         public static Task<GetWorkloadGroupResult> InvokeAsync(GetWorkloadGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadGroupResult>("zia:index:getWorkloadGroup", args ?? new GetWorkloadGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a workload group by ID or name.
+        /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("zia:index:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a workload group by ID or name.
+        /// </summary>
         public static Output<GetWorkloadGroupResult> Invoke(GetWorkloadGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadGroupResult>("zia:index:getWorkloadGroup", args ?? new GetWorkloadGroupInvokeArgs(), options.WithDefaults());
     }
@@ -25,9 +34,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetWorkloadGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the workload group to look up.
+        /// </summary>
         [Input("groupId")]
         public int? GroupId { get; set; }
 
+        /// <summary>
+        /// The name of the workload group to look up.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -39,9 +54,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetWorkloadGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the workload group to look up.
+        /// </summary>
         [Input("groupId")]
         public Input<int>? GroupId { get; set; }
 
+        /// <summary>
+        /// The name of the workload group to look up.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -55,11 +76,29 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetWorkloadGroupResult
     {
+        /// <summary>
+        /// The description of the workload group.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The expression string for the workload group.
+        /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// The expression JSON that defines the workload group matching criteria.
+        /// </summary>
         public readonly Outputs.WorkloadGroupExpressionJsonInput? ExpressionJson;
+        /// <summary>
+        /// The ID of the workload group.
+        /// </summary>
         public readonly int GroupId;
+        /// <summary>
+        /// The last modification time of the workload group (epoch).
+        /// </summary>
         public readonly int LastModifiedTime;
+        /// <summary>
+        /// The name of the workload group.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

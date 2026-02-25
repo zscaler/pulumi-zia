@@ -14,24 +14,24 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class CBIProfileInput
     {
-        public readonly string? Id;
         public readonly string? Name;
         public readonly int? ProfileSeq;
+        public readonly string? ResourceId;
         public readonly string? Url;
 
         [OutputConstructor]
         private CBIProfileInput(
-            string? id,
-
             string? name,
 
             int? profileSeq,
 
+            string? resourceId,
+
             string? url)
         {
-            Id = id;
             Name = name;
             ProfileSeq = profileSeq;
+            ResourceId = resourceId;
             Url = url;
         }
     }

@@ -10,30 +10,69 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+    /// 
+    /// For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Subscription Alert can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:SubscriptionAlert example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:SubscriptionAlert")]
     public partial class SubscriptionAlert : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The system-generated ID of the subscription alert.
+        /// </summary>
         [Output("alertId")]
         public Output<int> AlertId { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity levels for compliance alerts.
+        /// </summary>
         [Output("complySeverities")]
         public Output<ImmutableArray<string>> ComplySeverities { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the subscription alert.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The email address to which alerts are sent.
+        /// </summary>
         [Output("email")]
         public Output<string?> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity levels for management alerts.
+        /// </summary>
         [Output("manageSeverities")]
         public Output<ImmutableArray<string>> ManageSeverities { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity levels for Pt0 alerts.
+        /// </summary>
         [Output("pt0Severities")]
         public Output<ImmutableArray<string>> Pt0Severities { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity levels for security alerts.
+        /// </summary>
         [Output("secureSeverities")]
         public Output<ImmutableArray<string>> SecureSeverities { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity levels for system alerts.
+        /// </summary>
         [Output("systemSeverities")]
         public Output<ImmutableArray<string>> SystemSeverities { get; private set; } = null!;
 
@@ -84,20 +123,34 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("complySeverities")]
         private InputList<string>? _complySeverities;
+
+        /// <summary>
+        /// Severity levels for compliance alerts.
+        /// </summary>
         public InputList<string> ComplySeverities
         {
             get => _complySeverities ?? (_complySeverities = new InputList<string>());
             set => _complySeverities = value;
         }
 
+        /// <summary>
+        /// Additional information about the subscription alert.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The email address to which alerts are sent.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         [Input("manageSeverities")]
         private InputList<string>? _manageSeverities;
+
+        /// <summary>
+        /// Severity levels for management alerts.
+        /// </summary>
         public InputList<string> ManageSeverities
         {
             get => _manageSeverities ?? (_manageSeverities = new InputList<string>());
@@ -106,6 +159,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("pt0Severities")]
         private InputList<string>? _pt0Severities;
+
+        /// <summary>
+        /// Severity levels for Pt0 alerts.
+        /// </summary>
         public InputList<string> Pt0Severities
         {
             get => _pt0Severities ?? (_pt0Severities = new InputList<string>());
@@ -114,6 +171,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("secureSeverities")]
         private InputList<string>? _secureSeverities;
+
+        /// <summary>
+        /// Severity levels for security alerts.
+        /// </summary>
         public InputList<string> SecureSeverities
         {
             get => _secureSeverities ?? (_secureSeverities = new InputList<string>());
@@ -122,6 +183,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("systemSeverities")]
         private InputList<string>? _systemSeverities;
+
+        /// <summary>
+        /// Severity levels for system alerts.
+        /// </summary>
         public InputList<string> SystemSeverities
         {
             get => _systemSeverities ?? (_systemSeverities = new InputList<string>());

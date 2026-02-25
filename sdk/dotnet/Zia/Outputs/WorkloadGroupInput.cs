@@ -14,17 +14,17 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     [OutputType]
     public sealed class WorkloadGroupInput
     {
-        public readonly int Id;
         public readonly string? Name;
+        public readonly int ResourceId;
 
         [OutputConstructor]
         private WorkloadGroupInput(
-            int id,
+            string? name,
 
-            string? name)
+            int resourceId)
         {
-            Id = id;
             Name = name;
+            ResourceId = resourceId;
         }
     }
 }

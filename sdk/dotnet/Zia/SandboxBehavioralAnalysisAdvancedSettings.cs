@@ -10,12 +10,27 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+    /// 
+    /// For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; This is a singleton resource. Import is not applicable.
+    /// </summary>
     [ZiaResourceType("zia:index:SandboxBehavioralAnalysisAdvancedSettings")]
     public partial class SandboxBehavioralAnalysisAdvancedSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+        /// </summary>
         [Output("fileHashesToBeBlocked")]
         public Output<ImmutableArray<string>> FileHashesToBeBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal resource identifier for the sandbox settings.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -66,6 +81,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("fileHashesToBeBlocked")]
         private InputList<string>? _fileHashesToBeBlocked;
+
+        /// <summary>
+        /// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+        /// </summary>
         public InputList<string> FileHashesToBeBlocked
         {
             get => _fileHashesToBeBlocked ?? (_fileHashesToBeBlocked = new InputList<string>());

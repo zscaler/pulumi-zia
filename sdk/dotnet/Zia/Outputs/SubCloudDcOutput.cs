@@ -15,20 +15,20 @@ namespace zscaler.PulumiPackage.Zia.Outputs
     public sealed class SubCloudDcOutput
     {
         public readonly string Country;
-        public readonly int Id;
         public readonly string Name;
+        public readonly int ResourceId;
 
         [OutputConstructor]
         private SubCloudDcOutput(
             string country,
 
-            int id,
+            string name,
 
-            string name)
+            int resourceId)
         {
             Country = country;
-            Id = id;
             Name = name;
+            ResourceId = resourceId;
         }
     }
 }

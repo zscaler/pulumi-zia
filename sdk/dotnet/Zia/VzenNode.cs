@@ -10,51 +10,110 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+    /// VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing VZEN node can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:VzenNode example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:VzenNode")]
     public partial class VzenNode : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The cluster name if deployment mode is CLUSTER.
+        /// </summary>
         [Output("clusterName")]
         public Output<string?> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The default gateway of the VZEN node.
+        /// </summary>
         [Output("defaultGateway")]
         public Output<string?> DefaultGateway { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        /// </summary>
         [Output("deploymentMode")]
         public Output<string?> DeploymentMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether establish support tunnel is enabled.
+        /// </summary>
         [Output("establishSupportTunnelEnabled")]
         public Output<bool?> EstablishSupportTunnelEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the node is in production.
+        /// </summary>
         [Output("inProduction")]
         public Output<bool?> InProduction { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address of the VZEN node.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether IPSec is enabled on the node.
+        /// </summary>
         [Output("ipSecEnabled")]
         public Output<bool?> IpSecEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The load balancer IP address.
+        /// </summary>
         [Output("loadBalancerIpAddress")]
         public Output<string?> LoadBalancerIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the VZEN node.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the VZEN node assigned by the ZIA cloud.
+        /// </summary>
         [Output("nodeId")]
         public Output<int> NodeId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether on-demand support tunnel is enabled.
+        /// </summary>
         [Output("onDemandSupportTunnelEnabled")]
         public Output<bool?> OnDemandSupportTunnelEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet mask of the VZEN node.
+        /// </summary>
         [Output("subnetMask")]
         public Output<string?> SubnetMask { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the VZEN node.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+        /// </summary>
         [Output("vzenSkuType")]
         public Output<string?> VzenSkuType { get; private set; } = null!;
 
@@ -103,45 +162,87 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class VzenNodeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cluster name if deployment mode is CLUSTER.
+        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The default gateway of the VZEN node.
+        /// </summary>
         [Input("defaultGateway")]
         public Input<string>? DefaultGateway { get; set; }
 
+        /// <summary>
+        /// The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        /// </summary>
         [Input("deploymentMode")]
         public Input<string>? DeploymentMode { get; set; }
 
+        /// <summary>
+        /// Whether establish support tunnel is enabled.
+        /// </summary>
         [Input("establishSupportTunnelEnabled")]
         public Input<bool>? EstablishSupportTunnelEnabled { get; set; }
 
+        /// <summary>
+        /// Whether the node is in production.
+        /// </summary>
         [Input("inProduction")]
         public Input<bool>? InProduction { get; set; }
 
+        /// <summary>
+        /// The IP address of the VZEN node.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// Whether IPSec is enabled on the node.
+        /// </summary>
         [Input("ipSecEnabled")]
         public Input<bool>? IpSecEnabled { get; set; }
 
+        /// <summary>
+        /// The load balancer IP address.
+        /// </summary>
         [Input("loadBalancerIpAddress")]
         public Input<string>? LoadBalancerIpAddress { get; set; }
 
+        /// <summary>
+        /// Name of the VZEN node.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether on-demand support tunnel is enabled.
+        /// </summary>
         [Input("onDemandSupportTunnelEnabled")]
         public Input<bool>? OnDemandSupportTunnelEnabled { get; set; }
 
+        /// <summary>
+        /// The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The subnet mask of the VZEN node.
+        /// </summary>
         [Input("subnetMask")]
         public Input<string>? SubnetMask { get; set; }
 
+        /// <summary>
+        /// The type of the VZEN node.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+        /// </summary>
         [Input("vzenSkuType")]
         public Input<string>? VzenSkuType { get; set; }
 

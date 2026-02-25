@@ -10,15 +10,33 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+    /// 
+    /// For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; This is a singleton resource. Import is not applicable.
+    /// </summary>
     [ZiaResourceType("zia:index:SecurityPolicySettings")]
     public partial class SecurityPolicySettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of URLs that are always blocked (blacklisted) by the security policy.
+        /// </summary>
         [Output("blacklistUrls")]
         public Output<ImmutableArray<string>> BlacklistUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal resource identifier for the security policy settings.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URLs that are always allowed (whitelisted) by the security policy.
+        /// </summary>
         [Output("whitelistUrls")]
         public Output<ImmutableArray<string>> WhitelistUrls { get; private set; } = null!;
 
@@ -69,6 +87,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("blacklistUrls")]
         private InputList<string>? _blacklistUrls;
+
+        /// <summary>
+        /// List of URLs that are always blocked (blacklisted) by the security policy.
+        /// </summary>
         public InputList<string> BlacklistUrls
         {
             get => _blacklistUrls ?? (_blacklistUrls = new InputList<string>());
@@ -77,6 +99,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("whitelistUrls")]
         private InputList<string>? _whitelistUrls;
+
+        /// <summary>
+        /// List of URLs that are always allowed (whitelisted) by the security policy.
+        /// </summary>
         public InputList<string> WhitelistUrls
         {
             get => _whitelistUrls ?? (_whitelistUrls = new InputList<string>());

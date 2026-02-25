@@ -10,153 +10,309 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+    /// 
+    /// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; This is a singleton resource. Import is not applicable.
+    /// </summary>
     [ZiaResourceType("zia:index:AtpSettings")]
     public partial class AtpSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Block ActiveX controls.
+        /// </summary>
         [Output("activexBlocked")]
         public Output<bool?> ActivexBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for ActiveX events.
+        /// </summary>
         [Output("activexCapture")]
         public Output<bool?> ActivexCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block adware/spyware sites.
+        /// </summary>
         [Output("adSpywareSitesBlocked")]
         public Output<bool?> AdSpywareSitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for adware/spyware site events.
+        /// </summary>
         [Output("adSpywareSitesCapture")]
         public Output<bool?> AdSpywareSitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable alerts for unknown or suspicious C2 traffic.
+        /// </summary>
         [Output("alertForUnknownSuspiciousC2Traffic")]
         public Output<bool?> AlertForUnknownSuspiciousC2Traffic { get; private set; } = null!;
 
+        /// <summary>
+        /// Block anonymizers.
+        /// </summary>
         [Output("anonymizerBlocked")]
         public Output<bool?> AnonymizerBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for anonymizer events.
+        /// </summary>
         [Output("anonymizerCapture")]
         public Output<bool?> AnonymizerCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block BitTorrent traffic.
+        /// </summary>
         [Output("bitTorrentBlocked")]
         public Output<bool?> BitTorrentBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for BitTorrent events.
+        /// </summary>
         [Output("bitTorrentCapture")]
         public Output<bool?> BitTorrentCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for blocked countries events.
+        /// </summary>
         [Output("blockCountriesCapture")]
         public Output<bool?> BlockCountriesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// List of countries (ISO 3166-1 alpha-2 codes) to block.
+        /// </summary>
         [Output("blockedCountries")]
         public Output<ImmutableArray<string>> BlockedCountries { get; private set; } = null!;
 
+        /// <summary>
+        /// Block browser exploits.
+        /// </summary>
         [Output("browserExploitsBlocked")]
         public Output<bool?> BrowserExploitsBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for browser exploit events.
+        /// </summary>
         [Output("browserExploitsCapture")]
         public Output<bool?> BrowserExploitsCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block known command-and-control servers.
+        /// </summary>
         [Output("cmdCtlServerBlocked")]
         public Output<bool?> CmdCtlServerBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for command-and-control server events.
+        /// </summary>
         [Output("cmdCtlServerCapture")]
         public Output<bool?> CmdCtlServerCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block command-and-control traffic.
+        /// </summary>
         [Output("cmdCtlTrafficBlocked")]
         public Output<bool?> CmdCtlTrafficBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for command-and-control traffic events.
+        /// </summary>
         [Output("cmdCtlTrafficCapture")]
         public Output<bool?> CmdCtlTrafficCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block cookie stealing attempts.
+        /// </summary>
         [Output("cookieStealingBlocked")]
         public Output<bool?> CookieStealingBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for cookie stealing events.
+        /// </summary>
         [Output("cookieStealingPcapEnabled")]
         public Output<bool?> CookieStealingPcapEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Block crypto mining traffic.
+        /// </summary>
         [Output("cryptoMiningBlocked")]
         public Output<bool?> CryptoMiningBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for crypto mining events.
+        /// </summary>
         [Output("cryptoMiningCapture")]
         public Output<bool?> CryptoMiningCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block domain generation algorithm (DGA) domains.
+        /// </summary>
         [Output("dgaDomainsBlocked")]
         public Output<bool?> DgaDomainsBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for DGA domain events.
+        /// </summary>
         [Output("dgaDomainsCapture")]
         public Output<bool?> DgaDomainsCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block file format vulnerabilities.
+        /// </summary>
         [Output("fileFormatVunerabilitesBlocked")]
         public Output<bool?> FileFormatVunerabilitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for file format vulnerability events.
+        /// </summary>
         [Output("fileFormatVunerabilitesCapture")]
         public Output<bool?> FileFormatVunerabilitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block Google Talk traffic.
+        /// </summary>
         [Output("googleTalkBlocked")]
         public Output<bool?> GoogleTalkBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for Google Talk events.
+        /// </summary>
         [Output("googleTalkCapture")]
         public Output<bool?> GoogleTalkCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block IRC tunnelling.
+        /// </summary>
         [Output("ircTunnellingBlocked")]
         public Output<bool?> IrcTunnellingBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for IRC tunnelling events.
+        /// </summary>
         [Output("ircTunnellingCapture")]
         public Output<bool?> IrcTunnellingCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block known phishing sites.
+        /// </summary>
         [Output("knownPhishingSitesBlocked")]
         public Output<bool?> KnownPhishingSitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for known phishing site events.
+        /// </summary>
         [Output("knownPhishingSitesCapture")]
         public Output<bool?> KnownPhishingSitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for malicious URL events.
+        /// </summary>
         [Output("maliciousUrlsCapture")]
         public Output<bool?> MaliciousUrlsCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block known malware sites.
+        /// </summary>
         [Output("malwareSitesBlocked")]
         public Output<bool?> MalwareSitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for malware site events.
+        /// </summary>
         [Output("malwareSitesCapture")]
         public Output<bool?> MalwareSitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block potentially malicious requests.
+        /// </summary>
         [Output("potentialMaliciousRequestsBlocked")]
         public Output<bool?> PotentialMaliciousRequestsBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for potentially malicious request events.
+        /// </summary>
         [Output("potentialMaliciousRequestsCapture")]
         public Output<bool?> PotentialMaliciousRequestsCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal resource identifier for the ATP settings.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk tolerance level. Controls the sensitivity for detecting threats.
+        /// </summary>
         [Output("riskTolerance")]
         public Output<int?> RiskTolerance { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for risk tolerance events.
+        /// </summary>
         [Output("riskToleranceCapture")]
         public Output<bool?> RiskToleranceCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block SSH tunnelling.
+        /// </summary>
         [Output("sshTunnellingBlocked")]
         public Output<bool?> SshTunnellingBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for SSH tunnelling events.
+        /// </summary>
         [Output("sshTunnellingCapture")]
         public Output<bool?> SshTunnellingCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block suspect adware/spyware sites.
+        /// </summary>
         [Output("suspectAdwareSpywareSitesBlocked")]
         public Output<bool?> SuspectAdwareSpywareSitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for suspect adware/spyware site events.
+        /// </summary>
         [Output("suspectAdwareSpywareSitesCapture")]
         public Output<bool?> SuspectAdwareSpywareSitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block suspected phishing sites.
+        /// </summary>
         [Output("suspectedPhishingSitesBlocked")]
         public Output<bool?> SuspectedPhishingSitesBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for suspected phishing site events.
+        /// </summary>
         [Output("suspectedPhishingSitesCapture")]
         public Output<bool?> SuspectedPhishingSitesCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block Tor traffic.
+        /// </summary>
         [Output("torBlocked")]
         public Output<bool?> TorBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for Tor events.
+        /// </summary>
         [Output("torCapture")]
         public Output<bool?> TorCapture { get; private set; } = null!;
 
+        /// <summary>
+        /// Block web spam.
+        /// </summary>
         [Output("webSpamBlocked")]
         public Output<bool?> WebSpamBlocked { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable packet capture for web spam events.
+        /// </summary>
         [Output("webSpamCapture")]
         public Output<bool?> WebSpamCapture { get; private set; } = null!;
 
@@ -205,152 +361,297 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class AtpSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Block ActiveX controls.
+        /// </summary>
         [Input("activexBlocked")]
         public Input<bool>? ActivexBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for ActiveX events.
+        /// </summary>
         [Input("activexCapture")]
         public Input<bool>? ActivexCapture { get; set; }
 
+        /// <summary>
+        /// Block adware/spyware sites.
+        /// </summary>
         [Input("adSpywareSitesBlocked")]
         public Input<bool>? AdSpywareSitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for adware/spyware site events.
+        /// </summary>
         [Input("adSpywareSitesCapture")]
         public Input<bool>? AdSpywareSitesCapture { get; set; }
 
+        /// <summary>
+        /// Enable alerts for unknown or suspicious C2 traffic.
+        /// </summary>
         [Input("alertForUnknownSuspiciousC2Traffic")]
         public Input<bool>? AlertForUnknownSuspiciousC2Traffic { get; set; }
 
+        /// <summary>
+        /// Block anonymizers.
+        /// </summary>
         [Input("anonymizerBlocked")]
         public Input<bool>? AnonymizerBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for anonymizer events.
+        /// </summary>
         [Input("anonymizerCapture")]
         public Input<bool>? AnonymizerCapture { get; set; }
 
+        /// <summary>
+        /// Block BitTorrent traffic.
+        /// </summary>
         [Input("bitTorrentBlocked")]
         public Input<bool>? BitTorrentBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for BitTorrent events.
+        /// </summary>
         [Input("bitTorrentCapture")]
         public Input<bool>? BitTorrentCapture { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for blocked countries events.
+        /// </summary>
         [Input("blockCountriesCapture")]
         public Input<bool>? BlockCountriesCapture { get; set; }
 
         [Input("blockedCountries")]
         private InputList<string>? _blockedCountries;
+
+        /// <summary>
+        /// List of countries (ISO 3166-1 alpha-2 codes) to block.
+        /// </summary>
         public InputList<string> BlockedCountries
         {
             get => _blockedCountries ?? (_blockedCountries = new InputList<string>());
             set => _blockedCountries = value;
         }
 
+        /// <summary>
+        /// Block browser exploits.
+        /// </summary>
         [Input("browserExploitsBlocked")]
         public Input<bool>? BrowserExploitsBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for browser exploit events.
+        /// </summary>
         [Input("browserExploitsCapture")]
         public Input<bool>? BrowserExploitsCapture { get; set; }
 
+        /// <summary>
+        /// Block known command-and-control servers.
+        /// </summary>
         [Input("cmdCtlServerBlocked")]
         public Input<bool>? CmdCtlServerBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for command-and-control server events.
+        /// </summary>
         [Input("cmdCtlServerCapture")]
         public Input<bool>? CmdCtlServerCapture { get; set; }
 
+        /// <summary>
+        /// Block command-and-control traffic.
+        /// </summary>
         [Input("cmdCtlTrafficBlocked")]
         public Input<bool>? CmdCtlTrafficBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for command-and-control traffic events.
+        /// </summary>
         [Input("cmdCtlTrafficCapture")]
         public Input<bool>? CmdCtlTrafficCapture { get; set; }
 
+        /// <summary>
+        /// Block cookie stealing attempts.
+        /// </summary>
         [Input("cookieStealingBlocked")]
         public Input<bool>? CookieStealingBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for cookie stealing events.
+        /// </summary>
         [Input("cookieStealingPcapEnabled")]
         public Input<bool>? CookieStealingPcapEnabled { get; set; }
 
+        /// <summary>
+        /// Block crypto mining traffic.
+        /// </summary>
         [Input("cryptoMiningBlocked")]
         public Input<bool>? CryptoMiningBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for crypto mining events.
+        /// </summary>
         [Input("cryptoMiningCapture")]
         public Input<bool>? CryptoMiningCapture { get; set; }
 
+        /// <summary>
+        /// Block domain generation algorithm (DGA) domains.
+        /// </summary>
         [Input("dgaDomainsBlocked")]
         public Input<bool>? DgaDomainsBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for DGA domain events.
+        /// </summary>
         [Input("dgaDomainsCapture")]
         public Input<bool>? DgaDomainsCapture { get; set; }
 
+        /// <summary>
+        /// Block file format vulnerabilities.
+        /// </summary>
         [Input("fileFormatVunerabilitesBlocked")]
         public Input<bool>? FileFormatVunerabilitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for file format vulnerability events.
+        /// </summary>
         [Input("fileFormatVunerabilitesCapture")]
         public Input<bool>? FileFormatVunerabilitesCapture { get; set; }
 
+        /// <summary>
+        /// Block Google Talk traffic.
+        /// </summary>
         [Input("googleTalkBlocked")]
         public Input<bool>? GoogleTalkBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for Google Talk events.
+        /// </summary>
         [Input("googleTalkCapture")]
         public Input<bool>? GoogleTalkCapture { get; set; }
 
+        /// <summary>
+        /// Block IRC tunnelling.
+        /// </summary>
         [Input("ircTunnellingBlocked")]
         public Input<bool>? IrcTunnellingBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for IRC tunnelling events.
+        /// </summary>
         [Input("ircTunnellingCapture")]
         public Input<bool>? IrcTunnellingCapture { get; set; }
 
+        /// <summary>
+        /// Block known phishing sites.
+        /// </summary>
         [Input("knownPhishingSitesBlocked")]
         public Input<bool>? KnownPhishingSitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for known phishing site events.
+        /// </summary>
         [Input("knownPhishingSitesCapture")]
         public Input<bool>? KnownPhishingSitesCapture { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for malicious URL events.
+        /// </summary>
         [Input("maliciousUrlsCapture")]
         public Input<bool>? MaliciousUrlsCapture { get; set; }
 
+        /// <summary>
+        /// Block known malware sites.
+        /// </summary>
         [Input("malwareSitesBlocked")]
         public Input<bool>? MalwareSitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for malware site events.
+        /// </summary>
         [Input("malwareSitesCapture")]
         public Input<bool>? MalwareSitesCapture { get; set; }
 
+        /// <summary>
+        /// Block potentially malicious requests.
+        /// </summary>
         [Input("potentialMaliciousRequestsBlocked")]
         public Input<bool>? PotentialMaliciousRequestsBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for potentially malicious request events.
+        /// </summary>
         [Input("potentialMaliciousRequestsCapture")]
         public Input<bool>? PotentialMaliciousRequestsCapture { get; set; }
 
+        /// <summary>
+        /// Risk tolerance level. Controls the sensitivity for detecting threats.
+        /// </summary>
         [Input("riskTolerance")]
         public Input<int>? RiskTolerance { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for risk tolerance events.
+        /// </summary>
         [Input("riskToleranceCapture")]
         public Input<bool>? RiskToleranceCapture { get; set; }
 
+        /// <summary>
+        /// Block SSH tunnelling.
+        /// </summary>
         [Input("sshTunnellingBlocked")]
         public Input<bool>? SshTunnellingBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for SSH tunnelling events.
+        /// </summary>
         [Input("sshTunnellingCapture")]
         public Input<bool>? SshTunnellingCapture { get; set; }
 
+        /// <summary>
+        /// Block suspect adware/spyware sites.
+        /// </summary>
         [Input("suspectAdwareSpywareSitesBlocked")]
         public Input<bool>? SuspectAdwareSpywareSitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for suspect adware/spyware site events.
+        /// </summary>
         [Input("suspectAdwareSpywareSitesCapture")]
         public Input<bool>? SuspectAdwareSpywareSitesCapture { get; set; }
 
+        /// <summary>
+        /// Block suspected phishing sites.
+        /// </summary>
         [Input("suspectedPhishingSitesBlocked")]
         public Input<bool>? SuspectedPhishingSitesBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for suspected phishing site events.
+        /// </summary>
         [Input("suspectedPhishingSitesCapture")]
         public Input<bool>? SuspectedPhishingSitesCapture { get; set; }
 
+        /// <summary>
+        /// Block Tor traffic.
+        /// </summary>
         [Input("torBlocked")]
         public Input<bool>? TorBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for Tor events.
+        /// </summary>
         [Input("torCapture")]
         public Input<bool>? TorCapture { get; set; }
 
+        /// <summary>
+        /// Block web spam.
+        /// </summary>
         [Input("webSpamBlocked")]
         public Input<bool>? WebSpamBlocked { get; set; }
 
+        /// <summary>
+        /// Enable packet capture for web spam events.
+        /// </summary>
         [Input("webSpamCapture")]
         public Input<bool>? WebSpamCapture { get; set; }
 

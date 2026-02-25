@@ -10,21 +10,48 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+    /// Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+    /// Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+    /// the underlying sub-cloud configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
+    /// </summary>
     [ZiaResourceType("zia:index:SubCloud")]
     public partial class SubCloud : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the cloud to which this sub-cloud belongs.
+        /// </summary>
         [Output("cloudId")]
         public Output<int> CloudId { get; private set; } = null!;
 
+        /// <summary>
+        /// List of datacenters associated with the sub-cloud.
+        /// </summary>
         [Output("dcs")]
         public Output<ImmutableArray<Outputs.SubCloudDcOutput>> Dcs { get; private set; } = null!;
 
+        /// <summary>
+        /// List of datacenter exclusions for the sub-cloud.
+        /// </summary>
         [Output("exclusions")]
         public Output<ImmutableArray<Outputs.SubCloudExclusionInput>> Exclusions { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the sub-cloud.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource ID of the sub-cloud.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -73,11 +100,18 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class SubCloudArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the cloud to which this sub-cloud belongs.
+        /// </summary>
         [Input("cloudId", required: true)]
         public Input<int> CloudId { get; set; } = null!;
 
         [Input("exclusions")]
         private InputList<Inputs.SubCloudExclusionInputArgs>? _exclusions;
+
+        /// <summary>
+        /// List of datacenter exclusions for the sub-cloud.
+        /// </summary>
         public InputList<Inputs.SubCloudExclusionInputArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<Inputs.SubCloudExclusionInputArgs>());

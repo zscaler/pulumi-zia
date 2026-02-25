@@ -10,102 +10,213 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+    /// File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+    /// protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing file type control rule can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:FileTypeControlRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:FileTypeControlRule")]
     public partial class FileTypeControlRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the rule applies to files with active content.
+        /// </summary>
         [Output("activeContent")]
         public Output<bool?> ActiveContent { get; private set; } = null!;
 
+        /// <summary>
+        /// The browser end-user notification template ID.
+        /// </summary>
         [Output("browserEunTemplateId")]
         public Output<int?> BrowserEunTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to capture PCAP data for the rule.
+        /// </summary>
         [Output("capturePcap")]
         public Output<bool?> CapturePcap { get; private set; } = null!;
 
+        /// <summary>
+        /// List of cloud applications to which the rule applies.
+        /// </summary>
         [Output("cloudApplications")]
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
 
+        /// <summary>
+        /// List of department IDs to which the rule applies.
+        /// </summary>
         [Output("departments")]
         public Output<ImmutableArray<int>> Departments { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the file type control rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// List of device group IDs to which the rule applies.
+        /// </summary>
         [Output("deviceGroups")]
         public Output<ImmutableArray<int>> DeviceGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// List of device trust levels for the rule.
+        /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
 
+        /// <summary>
+        /// List of device IDs to which the rule applies.
+        /// </summary>
         [Output("devices")]
         public Output<ImmutableArray<int>> Devices { get; private set; } = null!;
 
+        /// <summary>
+        /// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        /// </summary>
         [Output("filteringAction")]
         public Output<string?> FilteringAction { get; private set; } = null!;
 
+        /// <summary>
+        /// List of group IDs to which the rule applies.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// List of label IDs associated with the rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// List of location group IDs to which the rule applies.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// List of location IDs to which the rule applies.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// Maximum file size in bytes for the rule to apply.
+        /// </summary>
         [Output("maxSize")]
         public Output<int?> MaxSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Minimum file size in bytes for the rule to apply.
+        /// </summary>
         [Output("minSize")]
         public Output<int?> MinSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the file type control rule.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        /// </summary>
         [Output("operation")]
         public Output<string?> Operation { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule order of execution for the file type control rule.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the rule applies to password-protected files.
+        /// </summary>
         [Output("passwordProtected")]
         public Output<bool?> PasswordProtected { get; private set; } = null!;
 
+        /// <summary>
+        /// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin rank of the rule. Default is 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the file type control rule assigned by the ZIA cloud.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Size quota in KB beyond which the URL filtering rule is applied.
+        /// </summary>
         [Output("sizeQuota")]
         public Output<int?> SizeQuota { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Time quota in minutes after which the URL filtering rule is applied.
+        /// </summary>
         [Output("timeQuota")]
         public Output<int?> TimeQuota { get; private set; } = null!;
 
+        /// <summary>
+        /// List of time window IDs during which the rule is active.
+        /// </summary>
         [Output("timeWindows")]
         public Output<ImmutableArray<int>> TimeWindows { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the rule applies to unscannable files.
+        /// </summary>
         [Output("unscannable")]
         public Output<bool?> Unscannable { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// List of user IDs to which the rule applies.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<int>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// List of ZPA application segments for the rule.
+        /// </summary>
         [Output("zpaAppSegments")]
         public Output<ImmutableArray<Outputs.ZPAAppSegmentInput>> ZpaAppSegments { get; private set; } = null!;
 
@@ -154,17 +265,30 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FileTypeControlRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the rule applies to files with active content.
+        /// </summary>
         [Input("activeContent")]
         public Input<bool>? ActiveContent { get; set; }
 
+        /// <summary>
+        /// The browser end-user notification template ID.
+        /// </summary>
         [Input("browserEunTemplateId")]
         public Input<int>? BrowserEunTemplateId { get; set; }
 
+        /// <summary>
+        /// Whether to capture PCAP data for the rule.
+        /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
 
         [Input("cloudApplications")]
         private InputList<string>? _cloudApplications;
+
+        /// <summary>
+        /// List of cloud applications to which the rule applies.
+        /// </summary>
         public InputList<string> CloudApplications
         {
             get => _cloudApplications ?? (_cloudApplications = new InputList<string>());
@@ -173,17 +297,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("departments")]
         private InputList<int>? _departments;
+
+        /// <summary>
+        /// List of department IDs to which the rule applies.
+        /// </summary>
         public InputList<int> Departments
         {
             get => _departments ?? (_departments = new InputList<int>());
             set => _departments = value;
         }
 
+        /// <summary>
+        /// Description of the file type control rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("deviceGroups")]
         private InputList<int>? _deviceGroups;
+
+        /// <summary>
+        /// List of device group IDs to which the rule applies.
+        /// </summary>
         public InputList<int> DeviceGroups
         {
             get => _deviceGroups ?? (_deviceGroups = new InputList<int>());
@@ -192,6 +327,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("deviceTrustLevels")]
         private InputList<string>? _deviceTrustLevels;
+
+        /// <summary>
+        /// List of device trust levels for the rule.
+        /// </summary>
         public InputList<string> DeviceTrustLevels
         {
             get => _deviceTrustLevels ?? (_deviceTrustLevels = new InputList<string>());
@@ -200,6 +339,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("devices")]
         private InputList<int>? _devices;
+
+        /// <summary>
+        /// List of device IDs to which the rule applies.
+        /// </summary>
         public InputList<int> Devices
         {
             get => _devices ?? (_devices = new InputList<int>());
@@ -208,17 +351,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("fileTypes")]
         private InputList<string>? _fileTypes;
+
+        /// <summary>
+        /// List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        /// </summary>
         public InputList<string> FileTypes
         {
             get => _fileTypes ?? (_fileTypes = new InputList<string>());
             set => _fileTypes = value;
         }
 
+        /// <summary>
+        /// The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        /// </summary>
         [Input("filteringAction")]
         public Input<string>? FilteringAction { get; set; }
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// List of group IDs to which the rule applies.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
@@ -227,6 +381,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// List of label IDs associated with the rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -235,6 +393,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// List of location group IDs to which the rule applies.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -243,63 +405,112 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// List of location IDs to which the rule applies.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// Maximum file size in bytes for the rule to apply.
+        /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
+        /// <summary>
+        /// Minimum file size in bytes for the rule to apply.
+        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
+        /// <summary>
+        /// Name of the file type control rule.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        /// </summary>
         [Input("operation")]
         public Input<string>? Operation { get; set; }
 
+        /// <summary>
+        /// The rule order of execution for the file type control rule.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the rule applies to password-protected files.
+        /// </summary>
         [Input("passwordProtected")]
         public Input<bool>? PasswordProtected { get; set; }
 
         [Input("protocols")]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
+        /// <summary>
+        /// The admin rank of the rule. Default is 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// Size quota in KB beyond which the URL filtering rule is applied.
+        /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
 
+        /// <summary>
+        /// The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        /// <summary>
+        /// Time quota in minutes after which the URL filtering rule is applied.
+        /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
 
         [Input("timeWindows")]
         private InputList<int>? _timeWindows;
+
+        /// <summary>
+        /// List of time window IDs during which the rule is active.
+        /// </summary>
         public InputList<int> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<int>());
             set => _timeWindows = value;
         }
 
+        /// <summary>
+        /// Whether the rule applies to unscannable files.
+        /// </summary>
         [Input("unscannable")]
         public Input<bool>? Unscannable { get; set; }
 
         [Input("urlCategories")]
         private InputList<string>? _urlCategories;
+
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         public InputList<string> UrlCategories
         {
             get => _urlCategories ?? (_urlCategories = new InputList<string>());
@@ -308,6 +519,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// List of user IDs to which the rule applies.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());
@@ -316,6 +531,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("zpaAppSegments")]
         private InputList<Inputs.ZPAAppSegmentInputArgs>? _zpaAppSegments;
+
+        /// <summary>
+        /// List of ZPA application segments for the rule.
+        /// </summary>
         public InputList<Inputs.ZPAAppSegmentInputArgs> ZpaAppSegments
         {
             get => _zpaAppSegments ?? (_zpaAppSegments = new InputList<Inputs.ZPAAppSegmentInputArgs>());

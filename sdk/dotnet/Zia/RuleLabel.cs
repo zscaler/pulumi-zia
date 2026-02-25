@@ -10,15 +10,39 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+    /// 
+    /// For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing rule label can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:RuleLabel example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:RuleLabel")]
     public partial class RuleLabel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional information about the rule label. Maximum 10240 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule label. Maximum 255 characters.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the rule label.
+        /// </summary>
         [Output("ruleLabelId")]
         public Output<int> RuleLabelId { get; private set; } = null!;
 
@@ -67,9 +91,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class RuleLabelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional information about the rule label. Maximum 10240 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the rule label. Maximum 255 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

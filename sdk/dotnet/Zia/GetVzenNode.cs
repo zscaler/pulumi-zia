@@ -12,12 +12,21 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetVzenNode
     {
+        /// <summary>
+        /// Use this data source to look up a VZEN node by ID or name.
+        /// </summary>
         public static Task<GetVzenNodeResult> InvokeAsync(GetVzenNodeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVzenNodeResult>("zia:index:getVzenNode", args ?? new GetVzenNodeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a VZEN node by ID or name.
+        /// </summary>
         public static Output<GetVzenNodeResult> Invoke(GetVzenNodeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVzenNodeResult>("zia:index:getVzenNode", args ?? new GetVzenNodeInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a VZEN node by ID or name.
+        /// </summary>
         public static Output<GetVzenNodeResult> Invoke(GetVzenNodeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVzenNodeResult>("zia:index:getVzenNode", args ?? new GetVzenNodeInvokeArgs(), options.WithDefaults());
     }
@@ -25,9 +34,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetVzenNodeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the VZEN node to look up.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the VZEN node to look up.
+        /// </summary>
         [Input("nodeId")]
         public int? NodeId { get; set; }
 
@@ -39,9 +54,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetVzenNodeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the VZEN node to look up.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the VZEN node to look up.
+        /// </summary>
         [Input("nodeId")]
         public Input<int>? NodeId { get; set; }
 
@@ -55,21 +76,69 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetVzenNodeResult
     {
+        /// <summary>
+        /// The cluster name if deployment mode is CLUSTER.
+        /// </summary>
         public readonly string ClusterName;
+        /// <summary>
+        /// The default gateway of the VZEN node.
+        /// </summary>
         public readonly string DefaultGateway;
+        /// <summary>
+        /// The deployment mode (STANDALONE or CLUSTER).
+        /// </summary>
         public readonly string DeploymentMode;
+        /// <summary>
+        /// Whether establish support tunnel is enabled.
+        /// </summary>
         public readonly bool EstablishSupportTunnelEnabled;
+        /// <summary>
+        /// Whether the node is in production.
+        /// </summary>
         public readonly bool InProduction;
+        /// <summary>
+        /// The IP address of the VZEN node.
+        /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// Whether IPSec is enabled on the node.
+        /// </summary>
         public readonly bool IpSecEnabled;
+        /// <summary>
+        /// The load balancer IP address.
+        /// </summary>
         public readonly string LoadBalancerIpAddress;
+        /// <summary>
+        /// The name of the VZEN node.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the VZEN node.
+        /// </summary>
         public readonly int NodeId;
+        /// <summary>
+        /// Whether on-demand support tunnel is enabled.
+        /// </summary>
         public readonly bool OnDemandSupportTunnelEnabled;
+        /// <summary>
+        /// The status of the VZEN node.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The subnet mask of the VZEN node.
+        /// </summary>
         public readonly string SubnetMask;
+        /// <summary>
+        /// The type of the VZEN node.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+        /// </summary>
         public readonly string VzenSkuType;
+        /// <summary>
+        /// The ZGateway ID associated with the VZEN node.
+        /// </summary>
         public readonly int ZGatewayId;
 
         [OutputConstructor]

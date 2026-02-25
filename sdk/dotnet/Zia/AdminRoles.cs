@@ -10,63 +10,135 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_admin_roles resource manages administrator roles in the Zscaler Internet Access (ZIA) cloud service. Admin roles define the permissions and access levels for administrator users.
+    /// 
+    /// For more information, see the [ZIA Admin Role Management documentation](https://help.zscaler.com/zia/admin-role-management).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing admin role can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:AdminRoles example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:AdminRoles")]
     public partial class AdminRoles : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Output("adminAcctAccess")]
         public Output<string?> AdminAcctAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Output("alertingAccess")]
         public Output<string?> AlertingAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Output("analysisAccess")]
         public Output<string?> AnalysisAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Output("dashboardAccess")]
         public Output<string?> DashboardAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Output("deviceInfoAccess")]
         public Output<string?> DeviceInfoAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of extended feature permissions to their access levels.
+        /// </summary>
         [Output("extFeaturePermissions")]
         public Output<ImmutableDictionary<string, string>?> ExtFeaturePermissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of feature permissions to their access levels.
+        /// </summary>
         [Output("featurePermissions")]
         public Output<ImmutableDictionary<string, string>?> FeaturePermissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is an auditor role.
+        /// </summary>
         [Output("isAuditor")]
         public Output<bool?> IsAuditor { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the role is non-editable (built-in system role).
+        /// </summary>
         [Output("isNonEditable")]
         public Output<bool?> IsNonEditable { get; private set; } = null!;
 
+        /// <summary>
+        /// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+        /// </summary>
         [Output("logsLimit")]
         public Output<string?> LogsLimit { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the admin role.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<string>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Output("policyAccess")]
         public Output<string?> PolicyAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the role. Default: 7. Valid values: 0-7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// Report access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Output("reportAccess")]
         public Output<string?> ReportAccess { get; private set; } = null!;
 
+        /// <summary>
+        /// Report time duration in days.
+        /// </summary>
         [Output("reportTimeDuration")]
         public Output<int?> ReportTimeDuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the admin role.
+        /// </summary>
         [Output("roleId")]
         public Output<int> RoleId { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+        /// </summary>
         [Output("roleType")]
         public Output<string?> RoleType { get; private set; } = null!;
 
+        /// <summary>
+        /// Username access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Output("usernameAccess")]
         public Output<string?> UsernameAccess { get; private set; } = null!;
 
@@ -115,23 +187,42 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class AdminRolesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Input("adminAcctAccess")]
         public Input<string>? AdminAcctAccess { get; set; }
 
+        /// <summary>
+        /// Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Input("alertingAccess")]
         public Input<string>? AlertingAccess { get; set; }
 
+        /// <summary>
+        /// Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Input("analysisAccess")]
         public Input<string>? AnalysisAccess { get; set; }
 
+        /// <summary>
+        /// Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Input("dashboardAccess")]
         public Input<string>? DashboardAccess { get; set; }
 
+        /// <summary>
+        /// Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Input("deviceInfoAccess")]
         public Input<string>? DeviceInfoAccess { get; set; }
 
         [Input("extFeaturePermissions")]
         private InputMap<string>? _extFeaturePermissions;
+
+        /// <summary>
+        /// Map of extended feature permissions to their access levels.
+        /// </summary>
         public InputMap<string> ExtFeaturePermissions
         {
             get => _extFeaturePermissions ?? (_extFeaturePermissions = new InputMap<string>());
@@ -140,47 +231,85 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("featurePermissions")]
         private InputMap<string>? _featurePermissions;
+
+        /// <summary>
+        /// Map of feature permissions to their access levels.
+        /// </summary>
         public InputMap<string> FeaturePermissions
         {
             get => _featurePermissions ?? (_featurePermissions = new InputMap<string>());
             set => _featurePermissions = value;
         }
 
+        /// <summary>
+        /// Indicates whether this is an auditor role.
+        /// </summary>
         [Input("isAuditor")]
         public Input<bool>? IsAuditor { get; set; }
 
+        /// <summary>
+        /// Indicates whether the role is non-editable (built-in system role).
+        /// </summary>
         [Input("isNonEditable")]
         public Input<bool>? IsNonEditable { get; set; }
 
+        /// <summary>
+        /// Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+        /// </summary>
         [Input("logsLimit")]
         public Input<string>? LogsLimit { get; set; }
 
+        /// <summary>
+        /// The name of the admin role.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<string>? _permissions;
+
+        /// <summary>
+        /// List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+        /// </summary>
         public InputList<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<string>());
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+        /// </summary>
         [Input("policyAccess")]
         public Input<string>? PolicyAccess { get; set; }
 
+        /// <summary>
+        /// Admin rank of the role. Default: 7. Valid values: 0-7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// Report access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Input("reportAccess")]
         public Input<string>? ReportAccess { get; set; }
 
+        /// <summary>
+        /// Report time duration in days.
+        /// </summary>
         [Input("reportTimeDuration")]
         public Input<int>? ReportTimeDuration { get; set; }
 
+        /// <summary>
+        /// The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+        /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
 
+        /// <summary>
+        /// Username access permission. Valid values: `NONE`, `READ_ONLY`.
+        /// </summary>
         [Input("usernameAccess")]
         public Input<string>? UsernameAccess { get; set; }
 

@@ -10,33 +10,75 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+    /// Users can be assigned to departments and groups, and enrolled with authentication methods such as
+    /// BASIC or DIGEST.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing user can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:UserManagementUser example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:UserManagementUser")]
     public partial class UserManagementUser : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        /// </summary>
         [Output("authMethods")]
         public Output<ImmutableArray<string>> AuthMethods { get; private set; } = null!;
 
+        /// <summary>
+        /// Comments or notes about the user. Maximum 10240 characters.
+        /// </summary>
         [Output("comments")]
         public Output<string?> Comments { get; private set; } = null!;
 
+        /// <summary>
+        /// The department the user belongs to.
+        /// </summary>
         [Output("department")]
         public Output<Outputs.UserDepartmentInput?> Department { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's email address. Maximum 127 characters.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// List of group IDs the user belongs to.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's full name. Maximum 127 characters.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's password. This is a secret and will not be stored in plaintext in the state.
+        /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Temporary authentication email for the user.
+        /// </summary>
         [Output("tempAuthEmail")]
         public Output<string?> TempAuthEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the user assigned by the ZIA cloud.
+        /// </summary>
         [Output("userId")]
         public Output<int> UserId { get; private set; } = null!;
 
@@ -91,34 +133,58 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("authMethods")]
         private InputList<string>? _authMethods;
+
+        /// <summary>
+        /// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        /// </summary>
         public InputList<string> AuthMethods
         {
             get => _authMethods ?? (_authMethods = new InputList<string>());
             set => _authMethods = value;
         }
 
+        /// <summary>
+        /// Comments or notes about the user. Maximum 10240 characters.
+        /// </summary>
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
+        /// <summary>
+        /// The department the user belongs to.
+        /// </summary>
         [Input("department")]
         public Input<Inputs.UserDepartmentInputArgs>? Department { get; set; }
 
+        /// <summary>
+        /// The user's email address. Maximum 127 characters.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// List of group IDs the user belongs to.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// The user's full name. Maximum 127 characters.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The user's password. This is a secret and will not be stored in plaintext in the state.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -129,6 +195,9 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// Temporary authentication email for the user.
+        /// </summary>
         [Input("tempAuthEmail")]
         public Input<string>? TempAuthEmail { get; set; }
 

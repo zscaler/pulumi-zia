@@ -10,12 +10,27 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+    /// 
+    /// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; This is a singleton resource. Import is not applicable.
+    /// </summary>
     [ZiaResourceType("zia:index:AtpSecurityExceptions")]
     public partial class AtpSecurityExceptions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+        /// </summary>
         [Output("bypassUrls")]
         public Output<ImmutableArray<string>> BypassUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal resource identifier for the ATP security exceptions.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -66,6 +81,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("bypassUrls")]
         private InputList<string>? _bypassUrls;
+
+        /// <summary>
+        /// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+        /// </summary>
         public InputList<string> BypassUrls
         {
             get => _bypassUrls ?? (_bypassUrls = new InputList<string>());

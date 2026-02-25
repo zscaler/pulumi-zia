@@ -10,21 +10,51 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+    /// Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+    /// or log management systems.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing NSS server can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:NssServer example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:NssServer")]
     public partial class NssServer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ICAP server ID associated with the NSS server.
+        /// </summary>
         [Output("icapSvrId")]
         public Output<int?> IcapSvrId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the NSS server.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the NSS server assigned by the ZIA cloud.
+        /// </summary>
         [Output("nssId")]
         public Output<int> NssId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -73,15 +103,27 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class NssServerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ICAP server ID associated with the NSS server.
+        /// </summary>
         [Input("icapSvrId")]
         public Input<int>? IcapSvrId { get; set; }
 
+        /// <summary>
+        /// Name of the NSS server.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -13,39 +13,75 @@ namespace zscaler.PulumiPackage.Zia
     [ZiaResourceType("pulumi:providers:zia")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        /// <summary>
+        /// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        /// </summary>
         [Output("clientSecret")]
         public Output<string?> ClientSecret { get; private set; } = null!;
 
+        /// <summary>
+        /// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        /// </summary>
         [Output("cloud")]
         public Output<string?> Cloud { get; private set; } = null!;
 
+        /// <summary>
+        /// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        /// </summary>
         [Output("httpProxy")]
         public Output<string?> HttpProxy { get; private set; } = null!;
 
+        /// <summary>
+        /// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        /// </summary>
         [Output("sandboxCloud")]
         public Output<string?> SandboxCloud { get; private set; } = null!;
 
+        /// <summary>
+        /// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        /// </summary>
         [Output("sandboxToken")]
         public Output<string?> SandboxToken { get; private set; } = null!;
 
+        /// <summary>
+        /// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
 
+        /// <summary>
+        /// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        /// </summary>
         [Output("vanityDomain")]
         public Output<string?> VanityDomain { get; private set; } = null!;
 
+        /// <summary>
+        /// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        /// </summary>
         [Output("ziaCloud")]
         public Output<string?> ZiaCloud { get; private set; } = null!;
 
@@ -90,6 +126,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
+
+        /// <summary>
+        /// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -100,11 +140,18 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -117,6 +164,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("cloud")]
         private Input<string>? _cloud;
+
+        /// <summary>
+        /// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        /// </summary>
         public Input<string>? Cloud
         {
             get => _cloud;
@@ -127,14 +178,30 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        /// </summary>
+        [Input("debug", json: true)]
+        public Input<bool>? Debug { get; set; }
+
+        /// <summary>
+        /// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        /// </summary>
         [Input("httpProxy")]
         public Input<string>? HttpProxy { get; set; }
 
+        /// <summary>
+        /// Maximum number of retries for API requests. Default is determined by the SDK.
+        /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -147,6 +214,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
+
+        /// <summary>
+        /// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;
@@ -157,11 +228,18 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// Timeout in seconds for API requests.
+        /// </summary>
         [Input("requestTimeout", json: true)]
         public Input<int>? RequestTimeout { get; set; }
 
         [Input("sandboxCloud")]
         private Input<string>? _sandboxCloud;
+
+        /// <summary>
+        /// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        /// </summary>
         public Input<string>? SandboxCloud
         {
             get => _sandboxCloud;
@@ -174,6 +252,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("sandboxToken")]
         private Input<string>? _sandboxToken;
+
+        /// <summary>
+        /// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        /// </summary>
         public Input<string>? SandboxToken
         {
             get => _sandboxToken;
@@ -184,14 +266,24 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// If true, use the legacy ZIA client authentication instead of OAuth2.
+        /// </summary>
         [Input("useLegacyClient", json: true)]
         public Input<bool>? UseLegacyClient { get; set; }
 
+        /// <summary>
+        /// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
         [Input("vanityDomain")]
         private Input<string>? _vanityDomain;
+
+        /// <summary>
+        /// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        /// </summary>
         public Input<string>? VanityDomain
         {
             get => _vanityDomain;
@@ -202,6 +294,9 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        /// </summary>
         [Input("ziaCloud")]
         public Input<string>? ZiaCloud { get; set; }
 

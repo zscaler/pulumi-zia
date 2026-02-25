@@ -10,12 +10,29 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+    /// 
+    /// For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+    /// </summary>
     [ZiaResourceType("zia:index:Activation")]
     public partial class Activation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The internal resource identifier for the activation.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The activation status. Must be `ACTIVE` to trigger configuration activation.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -64,6 +81,9 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class ActivationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The activation status. Must be `ACTIVE` to trigger configuration activation.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

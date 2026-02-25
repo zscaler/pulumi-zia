@@ -10,60 +10,129 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+    /// 
+    /// For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing admin user can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:AdminUsers example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:AdminUsers")]
     public partial class AdminUsers : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The system-generated ID of the admin user.
+        /// </summary>
         [Output("adminId")]
         public Output<int> AdminId { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        /// </summary>
         [Output("adminScopeEntities")]
         public Output<ImmutableArray<int>> AdminScopeEntities { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        /// </summary>
         [Output("adminScopeType")]
         public Output<string?> AdminScopeType { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the admin user.
+        /// </summary>
         [Output("comments")]
         public Output<string?> Comments { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the admin account is disabled.
+        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin user's email address.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the admin is an auditor.
+        /// </summary>
         [Output("isAuditor")]
         public Output<bool?> IsAuditor { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        /// </summary>
         [Output("isExecMobileAppEnabled")]
         public Output<bool?> IsExecMobileAppEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        /// </summary>
         [Output("isNonEditable")]
         public Output<bool?> IsNonEditable { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the admin user's password has expired.
+        /// </summary>
         [Output("isPasswordExpired")]
         public Output<bool?> IsPasswordExpired { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether password-based login is allowed for the admin user.
+        /// </summary>
         [Output("isPasswordLoginAllowed")]
         public Output<bool?> IsPasswordLoginAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the admin can receive product update communications.
+        /// </summary>
         [Output("isProductUpdateCommEnabled")]
         public Output<bool?> IsProductUpdateCommEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the admin can receive security report communications.
+        /// </summary>
         [Output("isSecurityReportCommEnabled")]
         public Output<bool?> IsSecurityReportCommEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the admin can receive service update communications.
+        /// </summary>
         [Output("isServiceUpdateCommEnabled")]
         public Output<bool?> IsServiceUpdateCommEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin user's login name (email format). Must be unique.
+        /// </summary>
         [Output("loginName")]
         public Output<string> LoginName { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// The role assigned to the admin user. Provide the role ID.
+        /// </summary>
         [Output("role")]
         public Output<Outputs.AdminUserRoleInput?> Role { get; private set; } = null!;
 
+        /// <summary>
+        /// The admin user's display name.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -118,53 +187,100 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("adminScopeEntities")]
         private InputList<int>? _adminScopeEntities;
+
+        /// <summary>
+        /// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        /// </summary>
         public InputList<int> AdminScopeEntities
         {
             get => _adminScopeEntities ?? (_adminScopeEntities = new InputList<int>());
             set => _adminScopeEntities = value;
         }
 
+        /// <summary>
+        /// The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        /// </summary>
         [Input("adminScopeType")]
         public Input<string>? AdminScopeType { get; set; }
 
+        /// <summary>
+        /// Additional information about the admin user.
+        /// </summary>
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
+        /// <summary>
+        /// Whether the admin account is disabled.
+        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        /// <summary>
+        /// The admin user's email address.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the admin is an auditor.
+        /// </summary>
         [Input("isAuditor")]
         public Input<bool>? IsAuditor { get; set; }
 
+        /// <summary>
+        /// Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        /// </summary>
         [Input("isExecMobileAppEnabled")]
         public Input<bool>? IsExecMobileAppEnabled { get; set; }
 
+        /// <summary>
+        /// Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        /// </summary>
         [Input("isNonEditable")]
         public Input<bool>? IsNonEditable { get; set; }
 
+        /// <summary>
+        /// Indicates whether the admin user's password has expired.
+        /// </summary>
         [Input("isPasswordExpired")]
         public Input<bool>? IsPasswordExpired { get; set; }
 
+        /// <summary>
+        /// Whether password-based login is allowed for the admin user.
+        /// </summary>
         [Input("isPasswordLoginAllowed")]
         public Input<bool>? IsPasswordLoginAllowed { get; set; }
 
+        /// <summary>
+        /// Whether the admin can receive product update communications.
+        /// </summary>
         [Input("isProductUpdateCommEnabled")]
         public Input<bool>? IsProductUpdateCommEnabled { get; set; }
 
+        /// <summary>
+        /// Whether the admin can receive security report communications.
+        /// </summary>
         [Input("isSecurityReportCommEnabled")]
         public Input<bool>? IsSecurityReportCommEnabled { get; set; }
 
+        /// <summary>
+        /// Whether the admin can receive service update communications.
+        /// </summary>
         [Input("isServiceUpdateCommEnabled")]
         public Input<bool>? IsServiceUpdateCommEnabled { get; set; }
 
+        /// <summary>
+        /// The admin user's login name (email format). Must be unique.
+        /// </summary>
         [Input("loginName", required: true)]
         public Input<string> LoginName { get; set; } = null!;
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -175,9 +291,15 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// The role assigned to the admin user. Provide the role ID.
+        /// </summary>
         [Input("role")]
         public Input<Inputs.AdminUserRoleInputArgs>? Role { get; set; }
 
+        /// <summary>
+        /// The admin user's display name.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

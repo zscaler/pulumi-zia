@@ -10,33 +10,75 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+    /// Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+    /// and load balancing of traffic processing.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing VZEN cluster can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:VzenCluster example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:VzenCluster")]
     public partial class VzenCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+        /// </summary>
         [Output("clusterId")]
         public Output<int> ClusterId { get; private set; } = null!;
 
+        /// <summary>
+        /// The default gateway of the VZEN cluster.
+        /// </summary>
         [Output("defaultGateway")]
         public Output<string?> DefaultGateway { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address of the VZEN cluster.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether IPSec is enabled on the cluster.
+        /// </summary>
         [Output("ipSecEnabled")]
         public Output<bool?> IpSecEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the VZEN cluster.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet mask of the VZEN cluster.
+        /// </summary>
         [Output("subnetMask")]
         public Output<string?> SubnetMask { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the VZEN cluster.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// List of VZEN node IDs that belong to this cluster.
+        /// </summary>
         [Output("virtualZenNodes")]
         public Output<ImmutableArray<int>> VirtualZenNodes { get; private set; } = null!;
 
@@ -85,29 +127,54 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class VzenClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default gateway of the VZEN cluster.
+        /// </summary>
         [Input("defaultGateway")]
         public Input<string>? DefaultGateway { get; set; }
 
+        /// <summary>
+        /// The IP address of the VZEN cluster.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// Whether IPSec is enabled on the cluster.
+        /// </summary>
         [Input("ipSecEnabled")]
         public Input<bool>? IpSecEnabled { get; set; }
 
+        /// <summary>
+        /// Name of the VZEN cluster.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The subnet mask of the VZEN cluster.
+        /// </summary>
         [Input("subnetMask")]
         public Input<string>? SubnetMask { get; set; }
 
+        /// <summary>
+        /// The type of the VZEN cluster.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         [Input("virtualZenNodes")]
         private InputList<int>? _virtualZenNodes;
+
+        /// <summary>
+        /// List of VZEN node IDs that belong to this cluster.
+        /// </summary>
         public InputList<int> VirtualZenNodes
         {
             get => _virtualZenNodes ?? (_virtualZenNodes = new InputList<int>());

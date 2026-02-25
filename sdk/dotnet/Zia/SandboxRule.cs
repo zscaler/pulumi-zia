@@ -10,72 +10,153 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+    /// 
+    /// For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Sandbox Rule can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:SandboxRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:SandboxRule")]
     public partial class SandboxRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of behavioral analysis policy categories.
+        /// </summary>
         [Output("baPolicyCategories")]
         public Output<ImmutableArray<string>> BaPolicyCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        /// </summary>
         [Output("baRuleAction")]
         public Output<string?> BaRuleAction { get; private set; } = null!;
 
+        /// <summary>
+        /// Threat score threshold for the rule. Files with a score above this value trigger the action.
+        /// </summary>
         [Output("byThreatScore")]
         public Output<int?> ByThreatScore { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of departments to which the rule applies.
+        /// </summary>
         [Output("departments")]
         public Output<ImmutableArray<int>> Departments { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the sandbox rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<string>> FileTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, a first-time action is enabled.
+        /// </summary>
         [Output("firstTimeEnable")]
         public Output<bool?> FirstTimeEnable { get; private set; } = null!;
 
+        /// <summary>
+        /// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        /// </summary>
         [Output("firstTimeOperation")]
         public Output<string?> FirstTimeOperation { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of groups to which the rule applies.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of location groups to which the rule applies.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of locations to which the rule applies.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, machine learning-based analysis action is enabled.
+        /// </summary>
         [Output("mlActionEnabled")]
         public Output<bool?> MlActionEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the sandbox rule. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other sandbox rules.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the sandbox rule.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of users to which the rule applies.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<int>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// List of ZPA application segments to which the rule applies.
+        /// </summary>
         [Output("zpaAppSegments")]
         public Output<ImmutableArray<Outputs.ZPAAppSegmentInput>> ZpaAppSegments { get; private set; } = null!;
 
@@ -126,45 +207,76 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("baPolicyCategories")]
         private InputList<string>? _baPolicyCategories;
+
+        /// <summary>
+        /// List of behavioral analysis policy categories.
+        /// </summary>
         public InputList<string> BaPolicyCategories
         {
             get => _baPolicyCategories ?? (_baPolicyCategories = new InputList<string>());
             set => _baPolicyCategories = value;
         }
 
+        /// <summary>
+        /// The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        /// </summary>
         [Input("baRuleAction")]
         public Input<string>? BaRuleAction { get; set; }
 
+        /// <summary>
+        /// Threat score threshold for the rule. Files with a score above this value trigger the action.
+        /// </summary>
         [Input("byThreatScore")]
         public Input<int>? ByThreatScore { get; set; }
 
         [Input("departments")]
         private InputList<int>? _departments;
+
+        /// <summary>
+        /// IDs of departments to which the rule applies.
+        /// </summary>
         public InputList<int> Departments
         {
             get => _departments ?? (_departments = new InputList<int>());
             set => _departments = value;
         }
 
+        /// <summary>
+        /// Additional information about the sandbox rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("fileTypes")]
         private InputList<string>? _fileTypes;
+
+        /// <summary>
+        /// List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        /// </summary>
         public InputList<string> FileTypes
         {
             get => _fileTypes ?? (_fileTypes = new InputList<string>());
             set => _fileTypes = value;
         }
 
+        /// <summary>
+        /// If set to true, a first-time action is enabled.
+        /// </summary>
         [Input("firstTimeEnable")]
         public Input<bool>? FirstTimeEnable { get; set; }
 
+        /// <summary>
+        /// The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        /// </summary>
         [Input("firstTimeOperation")]
         public Input<string>? FirstTimeOperation { get; set; }
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// IDs of groups to which the rule applies.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
@@ -173,6 +285,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -181,6 +297,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// IDs of location groups to which the rule applies.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -189,37 +309,64 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// IDs of locations to which the rule applies.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// If set to true, machine learning-based analysis action is enabled.
+        /// </summary>
         [Input("mlActionEnabled")]
         public Input<bool>? MlActionEnabled { get; set; }
 
+        /// <summary>
+        /// The name of the sandbox rule. Must be unique.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other sandbox rules.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
         [Input("protocols")]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
+        /// <summary>
+        /// Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("urlCategories")]
         private InputList<string>? _urlCategories;
+
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         public InputList<string> UrlCategories
         {
             get => _urlCategories ?? (_urlCategories = new InputList<string>());
@@ -228,6 +375,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// IDs of users to which the rule applies.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());
@@ -236,6 +387,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("zpaAppSegments")]
         private InputList<Inputs.ZPAAppSegmentInputArgs>? _zpaAppSegments;
+
+        /// <summary>
+        /// List of ZPA application segments to which the rule applies.
+        /// </summary>
         public InputList<Inputs.ZPAAppSegmentInputArgs> ZpaAppSegments
         {
             get => _zpaAppSegments ?? (_zpaAppSegments = new InputList<Inputs.ZPAAppSegmentInputArgs>());

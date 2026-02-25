@@ -10,48 +10,106 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+    /// Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+    /// application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+    /// authorized tenant domains.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing tenant restriction profile can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:TenantRestrictionProfile example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:TenantRestrictionProfile")]
     public partial class TenantRestrictionProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether to allow GCP Cloud Storage read access.
+        /// </summary>
         [Output("allowGcpCloudStorageRead")]
         public Output<bool?> AllowGcpCloudStorageRead { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to allow Google consumer accounts.
+        /// </summary>
         [Output("allowGoogleConsumers")]
         public Output<bool?> AllowGoogleConsumers { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to allow Google visitor accounts.
+        /// </summary>
         [Output("allowGoogleVisitors")]
         public Output<bool?> AllowGoogleVisitors { get; private set; } = null!;
 
+        /// <summary>
+        /// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        /// </summary>
         [Output("appType")]
         public Output<string?> AppType { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the tenant restriction profile.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// List of primary item data values (e.g., tenant IDs).
+        /// </summary>
         [Output("itemDataPrimary")]
         public Output<ImmutableArray<string>> ItemDataPrimary { get; private set; } = null!;
 
+        /// <summary>
+        /// List of secondary item data values.
+        /// </summary>
         [Output("itemDataSecondary")]
         public Output<ImmutableArray<string>> ItemDataSecondary { get; private set; } = null!;
 
+        /// <summary>
+        /// The primary item type (e.g., 'TENANT_ID').
+        /// </summary>
         [Output("itemTypePrimary")]
         public Output<string?> ItemTypePrimary { get; private set; } = null!;
 
+        /// <summary>
+        /// The secondary item type.
+        /// </summary>
         [Output("itemTypeSecondary")]
         public Output<string?> ItemTypeSecondary { get; private set; } = null!;
 
+        /// <summary>
+        /// List of item values.
+        /// </summary>
         [Output("itemValue")]
         public Output<ImmutableArray<string>> ItemValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable Microsoft login services tenant restriction v2.
+        /// </summary>
         [Output("msLoginServicesTrV2")]
         public Output<bool?> MsLoginServicesTrV2 { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the tenant restriction profile.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+        /// </summary>
         [Output("profileId")]
         public Output<int> ProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to restrict personal Office 365 domains.
+        /// </summary>
         [Output("restrictPersonalO365Domains")]
         public Output<bool?> RestrictPersonalO365Domains { get; private set; } = null!;
 
@@ -100,23 +158,42 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TenantRestrictionProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to allow GCP Cloud Storage read access.
+        /// </summary>
         [Input("allowGcpCloudStorageRead")]
         public Input<bool>? AllowGcpCloudStorageRead { get; set; }
 
+        /// <summary>
+        /// Whether to allow Google consumer accounts.
+        /// </summary>
         [Input("allowGoogleConsumers")]
         public Input<bool>? AllowGoogleConsumers { get; set; }
 
+        /// <summary>
+        /// Whether to allow Google visitor accounts.
+        /// </summary>
         [Input("allowGoogleVisitors")]
         public Input<bool>? AllowGoogleVisitors { get; set; }
 
+        /// <summary>
+        /// The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }
 
+        /// <summary>
+        /// Description of the tenant restriction profile.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("itemDataPrimary")]
         private InputList<string>? _itemDataPrimary;
+
+        /// <summary>
+        /// List of primary item data values (e.g., tenant IDs).
+        /// </summary>
         public InputList<string> ItemDataPrimary
         {
             get => _itemDataPrimary ?? (_itemDataPrimary = new InputList<string>());
@@ -125,32 +202,55 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("itemDataSecondary")]
         private InputList<string>? _itemDataSecondary;
+
+        /// <summary>
+        /// List of secondary item data values.
+        /// </summary>
         public InputList<string> ItemDataSecondary
         {
             get => _itemDataSecondary ?? (_itemDataSecondary = new InputList<string>());
             set => _itemDataSecondary = value;
         }
 
+        /// <summary>
+        /// The primary item type (e.g., 'TENANT_ID').
+        /// </summary>
         [Input("itemTypePrimary")]
         public Input<string>? ItemTypePrimary { get; set; }
 
+        /// <summary>
+        /// The secondary item type.
+        /// </summary>
         [Input("itemTypeSecondary")]
         public Input<string>? ItemTypeSecondary { get; set; }
 
         [Input("itemValue")]
         private InputList<string>? _itemValue;
+
+        /// <summary>
+        /// List of item values.
+        /// </summary>
         public InputList<string> ItemValue
         {
             get => _itemValue ?? (_itemValue = new InputList<string>());
             set => _itemValue = value;
         }
 
+        /// <summary>
+        /// Whether to enable Microsoft login services tenant restriction v2.
+        /// </summary>
         [Input("msLoginServicesTrV2")]
         public Input<bool>? MsLoginServicesTrV2 { get; set; }
 
+        /// <summary>
+        /// Name of the tenant restriction profile.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to restrict personal Office 365 domains.
+        /// </summary>
         [Input("restrictPersonalO365Domains")]
         public Input<bool>? RestrictPersonalO365Domains { get; set; }
 

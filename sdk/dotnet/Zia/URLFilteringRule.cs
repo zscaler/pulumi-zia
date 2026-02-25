@@ -10,120 +10,249 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+    /// 
+    /// For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing URL Filtering Rule can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:URLFilteringRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:URLFilteringRule")]
     public partial class URLFilteringRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        /// </summary>
         [Output("blockOverride")]
         public Output<bool?> BlockOverride { get; private set; } = null!;
 
+        /// <summary>
+        /// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        /// </summary>
         [Output("browserEunTemplateId")]
         public Output<int?> BrowserEunTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        /// </summary>
         [Output("cbiProfile")]
         public Output<Outputs.CBIProfileInput?> CbiProfile { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, the CIPA Compliance rule is enabled.
+        /// </summary>
         [Output("ciparule")]
         public Output<bool?> Ciparule { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of departments for which the rule must be applied.
+        /// </summary>
         [Output("departments")]
         public Output<ImmutableArray<int>> Departments { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the URL filtering rule. Maximum 10240 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        /// </summary>
         [Output("deviceGroups")]
         public Output<ImmutableArray<int>> DeviceGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of devices for which the rule must be applied.
+        /// </summary>
         [Output("devices")]
         public Output<ImmutableArray<int>> Devices { get; private set; } = null!;
 
+        /// <summary>
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        /// </summary>
         [Output("endUserNotificationUrl")]
         public Output<string?> EndUserNotificationUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Enforce a set validity time period for the URL filtering rule.
+        /// </summary>
         [Output("enforceTimeValidity")]
         public Output<bool?> EnforceTimeValidity { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of groups for which the rule must be applied.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of labels associated with the URL filtering rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of location groups to which the rule must be applied.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of locations for which the rule must be applied.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the URL filtering rule. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other URL filtering rules.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        /// </summary>
         [Output("overrideGroups")]
         public Output<ImmutableArray<int>> OverrideGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        /// </summary>
         [Output("overrideUsers")]
         public Output<ImmutableArray<int>> OverrideUsers { get; private set; } = null!;
 
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        /// </summary>
         [Output("requestMethods")]
         public Output<ImmutableArray<string>> RequestMethods { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the URL filtering rule.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        /// </summary>
         [Output("sizeQuota")]
         public Output<int?> SizeQuota { get; private set; } = null!;
 
+        /// <summary>
+        /// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         [Output("sourceCountries")]
         public Output<ImmutableArray<string>> SourceCountries { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of source IP address groups.
+        /// </summary>
         [Output("sourceIpGroups")]
         public Output<ImmutableArray<int>> SourceIpGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        /// </summary>
         [Output("timeQuota")]
         public Output<int?> TimeQuota { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         [Output("timeWindows")]
         public Output<ImmutableArray<int>> TimeWindows { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        /// </summary>
         [Output("userAgentTypes")]
         public Output<ImmutableArray<string>> UserAgentTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        /// </summary>
         [Output("userRiskScoreLevels")]
         public Output<ImmutableArray<string>> UserRiskScoreLevels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of users for which the rule must be applied.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<int>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        /// </summary>
         [Output("validityEndTime")]
         public Output<string?> ValidityEndTime { get; private set; } = null!;
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        /// </summary>
         [Output("validityStartTime")]
         public Output<string?> ValidityStartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        /// </summary>
         [Output("validityTimeZoneId")]
         public Output<string?> ValidityTimeZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// List of preconfigured workload groups to which the policy must be applied.
+        /// </summary>
         [Output("workloadGroups")]
         public Output<ImmutableArray<Outputs.WorkloadGroupInput>> WorkloadGroups { get; private set; } = null!;
 
@@ -172,34 +301,60 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class URLFilteringRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        /// </summary>
         [Input("blockOverride")]
         public Input<bool>? BlockOverride { get; set; }
 
+        /// <summary>
+        /// Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        /// </summary>
         [Input("browserEunTemplateId")]
         public Input<int>? BrowserEunTemplateId { get; set; }
 
+        /// <summary>
+        /// The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        /// </summary>
         [Input("cbiProfile")]
         public Input<Inputs.CBIProfileInputArgs>? CbiProfile { get; set; }
 
+        /// <summary>
+        /// If set to true, the CIPA Compliance rule is enabled.
+        /// </summary>
         [Input("ciparule")]
         public Input<bool>? Ciparule { get; set; }
 
         [Input("departments")]
         private InputList<int>? _departments;
+
+        /// <summary>
+        /// IDs of departments for which the rule must be applied.
+        /// </summary>
         public InputList<int> Departments
         {
             get => _departments ?? (_departments = new InputList<int>());
             set => _departments = value;
         }
 
+        /// <summary>
+        /// Additional information about the URL filtering rule. Maximum 10240 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("deviceGroups")]
         private InputList<int>? _deviceGroups;
+
+        /// <summary>
+        /// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        /// </summary>
         public InputList<int> DeviceGroups
         {
             get => _deviceGroups ?? (_deviceGroups = new InputList<int>());
@@ -208,6 +363,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("deviceTrustLevels")]
         private InputList<string>? _deviceTrustLevels;
+
+        /// <summary>
+        /// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        /// </summary>
         public InputList<string> DeviceTrustLevels
         {
             get => _deviceTrustLevels ?? (_deviceTrustLevels = new InputList<string>());
@@ -216,20 +375,34 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("devices")]
         private InputList<int>? _devices;
+
+        /// <summary>
+        /// IDs of devices for which the rule must be applied.
+        /// </summary>
         public InputList<int> Devices
         {
             get => _devices ?? (_devices = new InputList<int>());
             set => _devices = value;
         }
 
+        /// <summary>
+        /// URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        /// </summary>
         [Input("endUserNotificationUrl")]
         public Input<string>? EndUserNotificationUrl { get; set; }
 
+        /// <summary>
+        /// Enforce a set validity time period for the URL filtering rule.
+        /// </summary>
         [Input("enforceTimeValidity")]
         public Input<bool>? EnforceTimeValidity { get; set; }
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// IDs of groups for which the rule must be applied.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
@@ -238,6 +411,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// IDs of labels associated with the URL filtering rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -246,6 +423,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// IDs of location groups to which the rule must be applied.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -254,20 +435,34 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// IDs of locations for which the rule must be applied.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The name of the URL filtering rule. Must be unique.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other URL filtering rules.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
         [Input("overrideGroups")]
         private InputList<int>? _overrideGroups;
+
+        /// <summary>
+        /// IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        /// </summary>
         public InputList<int> OverrideGroups
         {
             get => _overrideGroups ?? (_overrideGroups = new InputList<int>());
@@ -276,6 +471,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("overrideUsers")]
         private InputList<int>? _overrideUsers;
+
+        /// <summary>
+        /// IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        /// </summary>
         public InputList<int> OverrideUsers
         {
             get => _overrideUsers ?? (_overrideUsers = new InputList<int>());
@@ -284,28 +483,46 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("protocols")]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
+        /// <summary>
+        /// Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         [Input("requestMethods")]
         private InputList<string>? _requestMethods;
+
+        /// <summary>
+        /// Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        /// </summary>
         public InputList<string> RequestMethods
         {
             get => _requestMethods ?? (_requestMethods = new InputList<string>());
             set => _requestMethods = value;
         }
 
+        /// <summary>
+        /// Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        /// </summary>
         [Input("sizeQuota")]
         public Input<int>? SizeQuota { get; set; }
 
         [Input("sourceCountries")]
         private InputList<string>? _sourceCountries;
+
+        /// <summary>
+        /// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         public InputList<string> SourceCountries
         {
             get => _sourceCountries ?? (_sourceCountries = new InputList<string>());
@@ -314,20 +531,34 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("sourceIpGroups")]
         private InputList<int>? _sourceIpGroups;
+
+        /// <summary>
+        /// IDs of source IP address groups.
+        /// </summary>
         public InputList<int> SourceIpGroups
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<int>());
             set => _sourceIpGroups = value;
         }
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        /// <summary>
+        /// Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        /// </summary>
         [Input("timeQuota")]
         public Input<int>? TimeQuota { get; set; }
 
         [Input("timeWindows")]
         private InputList<int>? _timeWindows;
+
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         public InputList<int> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<int>());
@@ -336,6 +567,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("urlCategories")]
         private InputList<string>? _urlCategories;
+
+        /// <summary>
+        /// List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        /// </summary>
         public InputList<string> UrlCategories
         {
             get => _urlCategories ?? (_urlCategories = new InputList<string>());
@@ -344,6 +579,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userAgentTypes")]
         private InputList<string>? _userAgentTypes;
+
+        /// <summary>
+        /// User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        /// </summary>
         public InputList<string> UserAgentTypes
         {
             get => _userAgentTypes ?? (_userAgentTypes = new InputList<string>());
@@ -352,6 +591,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userRiskScoreLevels")]
         private InputList<string>? _userRiskScoreLevels;
+
+        /// <summary>
+        /// User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        /// </summary>
         public InputList<string> UserRiskScoreLevels
         {
             get => _userRiskScoreLevels ?? (_userRiskScoreLevels = new InputList<string>());
@@ -360,23 +603,40 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// IDs of users for which the rule must be applied.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());
             set => _users = value;
         }
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        /// </summary>
         [Input("validityEndTime")]
         public Input<string>? ValidityEndTime { get; set; }
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        /// </summary>
         [Input("validityStartTime")]
         public Input<string>? ValidityStartTime { get; set; }
 
+        /// <summary>
+        /// If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        /// </summary>
         [Input("validityTimeZoneId")]
         public Input<string>? ValidityTimeZoneId { get; set; }
 
         [Input("workloadGroups")]
         private InputList<Inputs.WorkloadGroupInputArgs>? _workloadGroups;
+
+        /// <summary>
+        /// List of preconfigured workload groups to which the policy must be applied.
+        /// </summary>
         public InputList<Inputs.WorkloadGroupInputArgs> WorkloadGroups
         {
             get => _workloadGroups ?? (_workloadGroups = new InputList<Inputs.WorkloadGroupInputArgs>());

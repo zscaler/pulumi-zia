@@ -10,114 +10,237 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_firewall_ips_rule resource manages firewall IPS (Intrusion Prevention System) rules in the Zscaler Internet Access (ZIA) cloud service. IPS rules allow you to detect and prevent network intrusions by inspecting traffic for known threat signatures and anomalous patterns.
+    /// 
+    /// For more information, see the [ZIA IPS Control Policies documentation](https://help.zscaler.com/zia/ips-control-policies).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Firewall IPS Rule can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:FirewallIPSRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:FirewallIPSRule")]
     public partial class FirewallIPSRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+        /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, enables packet capture (PCAP) for the rule.
+        /// </summary>
         [Output("capturePcap")]
         public Output<bool?> CapturePcap { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is the default firewall IPS rule.
+        /// </summary>
         [Output("defaultRule")]
         public Output<bool?> DefaultRule { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of departments to which the rule must be applied.
+        /// </summary>
         [Output("departments")]
         public Output<ImmutableArray<int>> Departments { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the firewall IPS rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        /// </summary>
         [Output("destAddresses")]
         public Output<ImmutableArray<string>> DestAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         [Output("destCountries")]
         public Output<ImmutableArray<string>> DestCountries { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination IP address URL categories for the rule.
+        /// </summary>
         [Output("destIpCategories")]
         public Output<ImmutableArray<string>> DestIpCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of destination IP address groups for the rule.
+        /// </summary>
         [Output("destIpGroups")]
         public Output<ImmutableArray<int>> DestIpGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of destination IPv6 address groups for the rule.
+        /// </summary>
         [Output("destIpv6Groups")]
         public Output<ImmutableArray<int>> DestIpv6Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        /// </summary>
         [Output("deviceGroups")]
         public Output<ImmutableArray<int>> DeviceGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of devices for which the rule must be applied.
+        /// </summary>
         [Output("devices")]
         public Output<ImmutableArray<int>> Devices { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, enables full logging for the rule.
+        /// </summary>
         [Output("enableFullLogging")]
         public Output<bool?> EnableFullLogging { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the end user notification template associated with the rule.
+        /// </summary>
         [Output("eunTemplateId")]
         public Output<int?> EunTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of groups to which the rule must be applied.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, enables end user notification for the rule.
+        /// </summary>
         [Output("isEunEnabled")]
         public Output<bool?> IsEunEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of location groups to which the rule must be applied.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of locations to which the rule must be applied.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the firewall IPS rule. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of network service groups to which the rule applies.
+        /// </summary>
         [Output("nwServiceGroups")]
         public Output<ImmutableArray<int>> NwServiceGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of network services to which the rule applies.
+        /// </summary>
         [Output("nwServices")]
         public Output<ImmutableArray<int>> NwServices { get; private set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other firewall IPS rules.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is a predefined rule.
+        /// </summary>
         [Output("predefined")]
         public Output<bool?> Predefined { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// URL categories that apply to the response for the rule.
+        /// </summary>
         [Output("resCategories")]
         public Output<ImmutableArray<string>> ResCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the firewall IPS rule.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         [Output("sourceCountries")]
         public Output<ImmutableArray<string>> SourceCountries { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of source IP address groups for the rule.
+        /// </summary>
         [Output("srcIpGroups")]
         public Output<ImmutableArray<int>> SrcIpGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Source IP addresses or CIDR ranges for the rule.
+        /// </summary>
         [Output("srcIps")]
         public Output<ImmutableArray<string>> SrcIps { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of source IPv6 address groups for the rule.
+        /// </summary>
         [Output("srcIpv6Groups")]
         public Output<ImmutableArray<int>> SrcIpv6Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of threat categories to which the rule applies.
+        /// </summary>
         [Output("threatCategories")]
         public Output<ImmutableArray<int>> ThreatCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         [Output("timeWindows")]
         public Output<ImmutableArray<int>> TimeWindows { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of users to which the rule must be applied.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<int>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+        /// </summary>
         [Output("zpaAppSegments")]
         public Output<ImmutableArray<Outputs.ZPAAppSegmentInput>> ZpaAppSegments { get; private set; } = null!;
 
@@ -166,28 +289,48 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class FirewallIPSRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// If set to true, enables packet capture (PCAP) for the rule.
+        /// </summary>
         [Input("capturePcap")]
         public Input<bool>? CapturePcap { get; set; }
 
+        /// <summary>
+        /// Indicates whether this is the default firewall IPS rule.
+        /// </summary>
         [Input("defaultRule")]
         public Input<bool>? DefaultRule { get; set; }
 
         [Input("departments")]
         private InputList<int>? _departments;
+
+        /// <summary>
+        /// IDs of departments to which the rule must be applied.
+        /// </summary>
         public InputList<int> Departments
         {
             get => _departments ?? (_departments = new InputList<int>());
             set => _departments = value;
         }
 
+        /// <summary>
+        /// Additional information about the firewall IPS rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destAddresses")]
         private InputList<string>? _destAddresses;
+
+        /// <summary>
+        /// Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        /// </summary>
         public InputList<string> DestAddresses
         {
             get => _destAddresses ?? (_destAddresses = new InputList<string>());
@@ -196,6 +339,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destCountries")]
         private InputList<string>? _destCountries;
+
+        /// <summary>
+        /// Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         public InputList<string> DestCountries
         {
             get => _destCountries ?? (_destCountries = new InputList<string>());
@@ -204,6 +351,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpCategories")]
         private InputList<string>? _destIpCategories;
+
+        /// <summary>
+        /// Destination IP address URL categories for the rule.
+        /// </summary>
         public InputList<string> DestIpCategories
         {
             get => _destIpCategories ?? (_destIpCategories = new InputList<string>());
@@ -212,6 +363,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpGroups")]
         private InputList<int>? _destIpGroups;
+
+        /// <summary>
+        /// IDs of destination IP address groups for the rule.
+        /// </summary>
         public InputList<int> DestIpGroups
         {
             get => _destIpGroups ?? (_destIpGroups = new InputList<int>());
@@ -220,6 +375,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("destIpv6Groups")]
         private InputList<int>? _destIpv6Groups;
+
+        /// <summary>
+        /// IDs of destination IPv6 address groups for the rule.
+        /// </summary>
         public InputList<int> DestIpv6Groups
         {
             get => _destIpv6Groups ?? (_destIpv6Groups = new InputList<int>());
@@ -228,6 +387,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("deviceGroups")]
         private InputList<int>? _deviceGroups;
+
+        /// <summary>
+        /// IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        /// </summary>
         public InputList<int> DeviceGroups
         {
             get => _deviceGroups ?? (_deviceGroups = new InputList<int>());
@@ -236,31 +399,52 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("devices")]
         private InputList<int>? _devices;
+
+        /// <summary>
+        /// IDs of devices for which the rule must be applied.
+        /// </summary>
         public InputList<int> Devices
         {
             get => _devices ?? (_devices = new InputList<int>());
             set => _devices = value;
         }
 
+        /// <summary>
+        /// If set to true, enables full logging for the rule.
+        /// </summary>
         [Input("enableFullLogging")]
         public Input<bool>? EnableFullLogging { get; set; }
 
+        /// <summary>
+        /// The ID of the end user notification template associated with the rule.
+        /// </summary>
         [Input("eunTemplateId")]
         public Input<int>? EunTemplateId { get; set; }
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// IDs of groups to which the rule must be applied.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// If set to true, enables end user notification for the rule.
+        /// </summary>
         [Input("isEunEnabled")]
         public Input<bool>? IsEunEnabled { get; set; }
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -269,6 +453,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// IDs of location groups to which the rule must be applied.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -277,17 +465,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// IDs of locations to which the rule must be applied.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The name of the firewall IPS rule. Must be unique.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("nwServiceGroups")]
         private InputList<int>? _nwServiceGroups;
+
+        /// <summary>
+        /// IDs of network service groups to which the rule applies.
+        /// </summary>
         public InputList<int> NwServiceGroups
         {
             get => _nwServiceGroups ?? (_nwServiceGroups = new InputList<int>());
@@ -296,23 +495,40 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("nwServices")]
         private InputList<int>? _nwServices;
+
+        /// <summary>
+        /// IDs of network services to which the rule applies.
+        /// </summary>
         public InputList<int> NwServices
         {
             get => _nwServices ?? (_nwServices = new InputList<int>());
             set => _nwServices = value;
         }
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other firewall IPS rules.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is a predefined rule.
+        /// </summary>
         [Input("predefined")]
         public Input<bool>? Predefined { get; set; }
 
+        /// <summary>
+        /// Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         [Input("resCategories")]
         private InputList<string>? _resCategories;
+
+        /// <summary>
+        /// URL categories that apply to the response for the rule.
+        /// </summary>
         public InputList<string> ResCategories
         {
             get => _resCategories ?? (_resCategories = new InputList<string>());
@@ -321,6 +537,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("sourceCountries")]
         private InputList<string>? _sourceCountries;
+
+        /// <summary>
+        /// Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        /// </summary>
         public InputList<string> SourceCountries
         {
             get => _sourceCountries ?? (_sourceCountries = new InputList<string>());
@@ -329,6 +549,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("srcIpGroups")]
         private InputList<int>? _srcIpGroups;
+
+        /// <summary>
+        /// IDs of source IP address groups for the rule.
+        /// </summary>
         public InputList<int> SrcIpGroups
         {
             get => _srcIpGroups ?? (_srcIpGroups = new InputList<int>());
@@ -337,6 +561,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("srcIps")]
         private InputList<string>? _srcIps;
+
+        /// <summary>
+        /// Source IP addresses or CIDR ranges for the rule.
+        /// </summary>
         public InputList<string> SrcIps
         {
             get => _srcIps ?? (_srcIps = new InputList<string>());
@@ -345,17 +573,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("srcIpv6Groups")]
         private InputList<int>? _srcIpv6Groups;
+
+        /// <summary>
+        /// IDs of source IPv6 address groups for the rule.
+        /// </summary>
         public InputList<int> SrcIpv6Groups
         {
             get => _srcIpv6Groups ?? (_srcIpv6Groups = new InputList<int>());
             set => _srcIpv6Groups = value;
         }
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("threatCategories")]
         private InputList<int>? _threatCategories;
+
+        /// <summary>
+        /// IDs of threat categories to which the rule applies.
+        /// </summary>
         public InputList<int> ThreatCategories
         {
             get => _threatCategories ?? (_threatCategories = new InputList<int>());
@@ -364,6 +603,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("timeWindows")]
         private InputList<int>? _timeWindows;
+
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         public InputList<int> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<int>());
@@ -372,6 +615,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// IDs of users to which the rule must be applied.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());
@@ -380,6 +627,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("zpaAppSegments")]
         private InputList<Inputs.ZPAAppSegmentInputArgs>? _zpaAppSegments;
+
+        /// <summary>
+        /// List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+        /// </summary>
         public InputList<Inputs.ZPAAppSegmentInputArgs> ZpaAppSegments
         {
             get => _zpaAppSegments ?? (_zpaAppSegments = new InputList<Inputs.ZPAAppSegmentInputArgs>());

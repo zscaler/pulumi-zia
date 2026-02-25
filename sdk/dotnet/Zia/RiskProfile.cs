@@ -10,108 +10,225 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.RiskProfile resource manages cloud application risk profiles in the Zscaler Internet Access (ZIA) cloud.
+    /// Risk profiles define criteria for evaluating the security posture of cloud applications based on factors such as
+    /// certifications, encryption, vulnerability disclosure, and more.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing risk profile can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:RiskProfile example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:RiskProfile")]
     public partial class RiskProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Risk level for admin audit log support.
+        /// </summary>
         [Output("adminAuditLogs")]
         public Output<string?> AdminAuditLogs { get; private set; } = null!;
 
+        /// <summary>
+        /// List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        /// </summary>
         [Output("certifications")]
         public Output<ImmutableArray<string>> Certifications { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom tag IDs associated with the profile.
+        /// </summary>
         [Output("customTags")]
         public Output<ImmutableArray<int>> CustomTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for data breach history.
+        /// </summary>
         [Output("dataBreach")]
         public Output<string?> DataBreach { get; private set; } = null!;
 
+        /// <summary>
+        /// List of data encryption in transit protocols.
+        /// </summary>
         [Output("dataEncryptionInTransit")]
         public Output<ImmutableArray<string>> DataEncryptionInTransit { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for DNS CAA policy.
+        /// </summary>
         [Output("dnsCaaPolicy")]
         public Output<string?> DnsCaaPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for DMARC support.
+        /// </summary>
         [Output("domainBasedMessageAuth")]
         public Output<string?> DomainBasedMessageAuth { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for DKIM support.
+        /// </summary>
         [Output("domainKeysIdentifiedMail")]
         public Output<string?> DomainKeysIdentifiedMail { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for evasive behavior.
+        /// </summary>
         [Output("evasive")]
         public Output<string?> Evasive { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of certifications to exclude.
+        /// </summary>
         [Output("excludeCertificates")]
         public Output<int?> ExcludeCertificates { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for file sharing support.
+        /// </summary>
         [Output("fileSharing")]
         public Output<string?> FileSharing { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for HTTP security headers.
+        /// </summary>
         [Output("httpSecurityHeaders")]
         public Output<string?> HttpSecurityHeaders { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for malware scanning.
+        /// </summary>
         [Output("malwareScanningForContent")]
         public Output<string?> MalwareScanningForContent { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for MFA support.
+        /// </summary>
         [Output("mfaSupport")]
         public Output<string?> MfaSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for password strength enforcement.
+        /// </summary>
         [Output("passwordStrength")]
         public Output<string?> PasswordStrength { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for poor items of service.
+        /// </summary>
         [Output("poorItemsOfService")]
         public Output<string?> PoorItemsOfService { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the risk profile assigned by the ZIA cloud.
+        /// </summary>
         [Output("profileId")]
         public Output<int> ProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the risk profile.
+        /// </summary>
         [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
 
+        /// <summary>
+        /// The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        /// </summary>
         [Output("profileType")]
         public Output<string?> ProfileType { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for remote screen sharing support.
+        /// </summary>
         [Output("remoteScreenSharing")]
         public Output<string?> RemoteScreenSharing { get; private set; } = null!;
 
+        /// <summary>
+        /// List of risk index values.
+        /// </summary>
         [Output("riskIndex")]
         public Output<ImmutableArray<int>> RiskIndex { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for SPF support.
+        /// </summary>
         [Output("senderPolicyFramework")]
         public Output<string?> SenderPolicyFramework { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for source IP restrictions.
+        /// </summary>
         [Output("sourceIpRestrictions")]
         public Output<string?> SourceIpRestrictions { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for SSL certificate key size.
+        /// </summary>
         [Output("sslCertKeySize")]
         public Output<string?> SslCertKeySize { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for SSL certificate validity.
+        /// </summary>
         [Output("sslCertValidity")]
         public Output<string?> SslCertValidity { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for SSL pinning.
+        /// </summary>
         [Output("sslPinned")]
         public Output<string?> SslPinned { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for WAF support.
+        /// </summary>
         [Output("supportForWaf")]
         public Output<string?> SupportForWaf { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for known vulnerabilities.
+        /// </summary>
         [Output("vulnerability")]
         public Output<string?> Vulnerability { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for vulnerability disclosure policy.
+        /// </summary>
         [Output("vulnerabilityDisclosure")]
         public Output<string?> VulnerabilityDisclosure { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for HeartBleed vulnerability.
+        /// </summary>
         [Output("vulnerableToHeartBleed")]
         public Output<string?> VulnerableToHeartBleed { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for LogJam vulnerability.
+        /// </summary>
         [Output("vulnerableToLogJam")]
         public Output<string?> VulnerableToLogJam { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for POODLE vulnerability.
+        /// </summary>
         [Output("vulnerableToPoodle")]
         public Output<string?> VulnerableToPoodle { get; private set; } = null!;
 
+        /// <summary>
+        /// Risk level for weak cipher support.
+        /// </summary>
         [Output("weakCipherSupport")]
         public Output<string?> WeakCipherSupport { get; private set; } = null!;
 
@@ -160,11 +277,18 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class RiskProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Risk level for admin audit log support.
+        /// </summary>
         [Input("adminAuditLogs")]
         public Input<string>? AdminAuditLogs { get; set; }
 
         [Input("certifications")]
         private InputList<string>? _certifications;
+
+        /// <summary>
+        /// List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        /// </summary>
         public InputList<string> Certifications
         {
             get => _certifications ?? (_certifications = new InputList<string>());
@@ -173,109 +297,205 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("customTags")]
         private InputList<int>? _customTags;
+
+        /// <summary>
+        /// List of custom tag IDs associated with the profile.
+        /// </summary>
         public InputList<int> CustomTags
         {
             get => _customTags ?? (_customTags = new InputList<int>());
             set => _customTags = value;
         }
 
+        /// <summary>
+        /// Risk level for data breach history.
+        /// </summary>
         [Input("dataBreach")]
         public Input<string>? DataBreach { get; set; }
 
         [Input("dataEncryptionInTransit")]
         private InputList<string>? _dataEncryptionInTransit;
+
+        /// <summary>
+        /// List of data encryption in transit protocols.
+        /// </summary>
         public InputList<string> DataEncryptionInTransit
         {
             get => _dataEncryptionInTransit ?? (_dataEncryptionInTransit = new InputList<string>());
             set => _dataEncryptionInTransit = value;
         }
 
+        /// <summary>
+        /// Risk level for DNS CAA policy.
+        /// </summary>
         [Input("dnsCaaPolicy")]
         public Input<string>? DnsCaaPolicy { get; set; }
 
+        /// <summary>
+        /// Risk level for DMARC support.
+        /// </summary>
         [Input("domainBasedMessageAuth")]
         public Input<string>? DomainBasedMessageAuth { get; set; }
 
+        /// <summary>
+        /// Risk level for DKIM support.
+        /// </summary>
         [Input("domainKeysIdentifiedMail")]
         public Input<string>? DomainKeysIdentifiedMail { get; set; }
 
+        /// <summary>
+        /// Risk level for evasive behavior.
+        /// </summary>
         [Input("evasive")]
         public Input<string>? Evasive { get; set; }
 
+        /// <summary>
+        /// Number of certifications to exclude.
+        /// </summary>
         [Input("excludeCertificates")]
         public Input<int>? ExcludeCertificates { get; set; }
 
+        /// <summary>
+        /// Risk level for file sharing support.
+        /// </summary>
         [Input("fileSharing")]
         public Input<string>? FileSharing { get; set; }
 
+        /// <summary>
+        /// Risk level for HTTP security headers.
+        /// </summary>
         [Input("httpSecurityHeaders")]
         public Input<string>? HttpSecurityHeaders { get; set; }
 
+        /// <summary>
+        /// Risk level for malware scanning.
+        /// </summary>
         [Input("malwareScanningForContent")]
         public Input<string>? MalwareScanningForContent { get; set; }
 
+        /// <summary>
+        /// Risk level for MFA support.
+        /// </summary>
         [Input("mfaSupport")]
         public Input<string>? MfaSupport { get; set; }
 
+        /// <summary>
+        /// Risk level for password strength enforcement.
+        /// </summary>
         [Input("passwordStrength")]
         public Input<string>? PasswordStrength { get; set; }
 
+        /// <summary>
+        /// Risk level for poor items of service.
+        /// </summary>
         [Input("poorItemsOfService")]
         public Input<string>? PoorItemsOfService { get; set; }
 
+        /// <summary>
+        /// Name of the risk profile.
+        /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
+        /// <summary>
+        /// The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        /// </summary>
         [Input("profileType")]
         public Input<string>? ProfileType { get; set; }
 
+        /// <summary>
+        /// Risk level for remote screen sharing support.
+        /// </summary>
         [Input("remoteScreenSharing")]
         public Input<string>? RemoteScreenSharing { get; set; }
 
         [Input("riskIndex")]
         private InputList<int>? _riskIndex;
+
+        /// <summary>
+        /// List of risk index values.
+        /// </summary>
         public InputList<int> RiskIndex
         {
             get => _riskIndex ?? (_riskIndex = new InputList<int>());
             set => _riskIndex = value;
         }
 
+        /// <summary>
+        /// Risk level for SPF support.
+        /// </summary>
         [Input("senderPolicyFramework")]
         public Input<string>? SenderPolicyFramework { get; set; }
 
+        /// <summary>
+        /// Risk level for source IP restrictions.
+        /// </summary>
         [Input("sourceIpRestrictions")]
         public Input<string>? SourceIpRestrictions { get; set; }
 
+        /// <summary>
+        /// Risk level for SSL certificate key size.
+        /// </summary>
         [Input("sslCertKeySize")]
         public Input<string>? SslCertKeySize { get; set; }
 
+        /// <summary>
+        /// Risk level for SSL certificate validity.
+        /// </summary>
         [Input("sslCertValidity")]
         public Input<string>? SslCertValidity { get; set; }
 
+        /// <summary>
+        /// Risk level for SSL pinning.
+        /// </summary>
         [Input("sslPinned")]
         public Input<string>? SslPinned { get; set; }
 
+        /// <summary>
+        /// The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Risk level for WAF support.
+        /// </summary>
         [Input("supportForWaf")]
         public Input<string>? SupportForWaf { get; set; }
 
+        /// <summary>
+        /// Risk level for known vulnerabilities.
+        /// </summary>
         [Input("vulnerability")]
         public Input<string>? Vulnerability { get; set; }
 
+        /// <summary>
+        /// Risk level for vulnerability disclosure policy.
+        /// </summary>
         [Input("vulnerabilityDisclosure")]
         public Input<string>? VulnerabilityDisclosure { get; set; }
 
+        /// <summary>
+        /// Risk level for HeartBleed vulnerability.
+        /// </summary>
         [Input("vulnerableToHeartBleed")]
         public Input<string>? VulnerableToHeartBleed { get; set; }
 
+        /// <summary>
+        /// Risk level for LogJam vulnerability.
+        /// </summary>
         [Input("vulnerableToLogJam")]
         public Input<string>? VulnerableToLogJam { get; set; }
 
+        /// <summary>
+        /// Risk level for POODLE vulnerability.
+        /// </summary>
         [Input("vulnerableToPoodle")]
         public Input<string>? VulnerableToPoodle { get; set; }
 
+        /// <summary>
+        /// Risk level for weak cipher support.
+        /// </summary>
         [Input("weakCipherSupport")]
         public Input<string>? WeakCipherSupport { get; set; }
 

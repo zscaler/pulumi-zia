@@ -10,27 +10,63 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+    /// 
+    /// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing static IP can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:TrafficForwardingStaticIp")]
     public partial class TrafficForwardingStaticIp : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional information about the static IP.
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        /// </summary>
         [Output("geoOverride")]
         public Output<bool?> GeoOverride { get; private set; } = null!;
 
+        /// <summary>
+        /// The static IP address.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        /// </summary>
         [Output("latitude")]
         public Output<double?> Latitude { get; private set; } = null!;
 
+        /// <summary>
+        /// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        /// </summary>
         [Output("longitude")]
         public Output<double?> Longitude { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable.
+        /// </summary>
         [Output("routableIp")]
         public Output<bool?> RoutableIp { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the static IP.
+        /// </summary>
         [Output("staticIpId")]
         public Output<int> StaticIpId { get; private set; } = null!;
 
@@ -79,21 +115,39 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TrafficForwardingStaticIpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional information about the static IP.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        /// </summary>
         [Input("geoOverride")]
         public Input<bool>? GeoOverride { get; set; }
 
+        /// <summary>
+        /// The static IP address.
+        /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
 
+        /// <summary>
+        /// Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        /// </summary>
         [Input("latitude")]
         public Input<double>? Latitude { get; set; }
 
+        /// <summary>
+        /// Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        /// </summary>
         [Input("longitude")]
         public Input<double>? Longitude { get; set; }
 
+        /// <summary>
+        /// Indicates whether a non-RFC 1918 IP address is publicly routable.
+        /// </summary>
         [Input("routableIp")]
         public Input<bool>? RoutableIp { get; set; }
 

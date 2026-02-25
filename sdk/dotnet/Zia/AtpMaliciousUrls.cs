@@ -10,12 +10,27 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_atp_malicious_urls resource manages the list of malicious URL exceptions for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are treated as known malicious and will be blocked. This is a singleton resource.
+    /// 
+    /// For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; This is a singleton resource. Import is not applicable.
+    /// </summary>
     [ZiaResourceType("zia:index:AtpMaliciousUrls")]
     public partial class AtpMaliciousUrls : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of URLs to be treated as malicious by Advanced Threat Protection.
+        /// </summary>
         [Output("maliciousUrls")]
         public Output<ImmutableArray<string>> MaliciousUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal resource identifier for the ATP malicious URLs.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -66,6 +81,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("maliciousUrls")]
         private InputList<string>? _maliciousUrls;
+
+        /// <summary>
+        /// List of URLs to be treated as malicious by Advanced Threat Protection.
+        /// </summary>
         public InputList<string> MaliciousUrls
         {
             get => _maliciousUrls ?? (_maliciousUrls = new InputList<string>());

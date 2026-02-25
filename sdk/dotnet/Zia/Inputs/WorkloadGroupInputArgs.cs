@@ -13,11 +13,11 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class WorkloadGroupInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("id", required: true)]
-        public Input<int> Id { get; set; } = null!;
-
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourceId", required: true)]
+        public Input<int> ResourceId { get; set; } = null!;
 
         public WorkloadGroupInputArgs()
         {

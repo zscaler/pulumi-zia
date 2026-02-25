@@ -10,24 +10,57 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.
+    /// 
+    /// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing VPN credential can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:TrafficForwardingVpnCredentials")]
     public partial class TrafficForwardingVpnCredentials : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional information about the VPN credential. Maximum 10240 characters.
+        /// </summary>
         [Output("comments")]
         public Output<string?> Comments { get; private set; } = null!;
 
+        /// <summary>
+        /// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+        /// </summary>
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
 
+        /// <summary>
+        /// The static IP address associated with the VPN credential. Required when type is `IP`.
+        /// </summary>
         [Output("ipAddress")]
         public Output<string?> IpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Pre-shared key (PSK) for the VPN credential. This is a secret value.
+        /// </summary>
         [Output("preSharedKey")]
         public Output<string?> PreSharedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// VPN credential type. Valid values: `IP`, `UFQDN`.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the VPN credential.
+        /// </summary>
         [Output("vpnId")]
         public Output<int> VpnId { get; private set; } = null!;
 
@@ -80,17 +113,30 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TrafficForwardingVpnCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional information about the VPN credential. Maximum 10240 characters.
+        /// </summary>
         [Input("comments")]
         public Input<string>? Comments { get; set; }
 
+        /// <summary>
+        /// Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+        /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
+        /// <summary>
+        /// The static IP address associated with the VPN credential. Required when type is `IP`.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         [Input("preSharedKey")]
         private Input<string>? _preSharedKey;
+
+        /// <summary>
+        /// Pre-shared key (PSK) for the VPN credential. This is a secret value.
+        /// </summary>
         public Input<string>? PreSharedKey
         {
             get => _preSharedKey;
@@ -101,6 +147,9 @@ namespace zscaler.PulumiPackage.Zia
             }
         }
 
+        /// <summary>
+        /// VPN credential type. Valid values: `IP`, `UFQDN`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -10,18 +10,46 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+    /// Workload groups define sets of cloud workloads based on tag expressions that can be used in
+    /// firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+    /// cloud workloads (e.g., VMs, subnets, ENIs).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing workload group can be imported using its ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:WorkloadGroup example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:WorkloadGroup")]
     public partial class WorkloadGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Description of the workload group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The expression JSON that defines the workload group matching criteria using tag expressions.
+        /// </summary>
         [Output("expressionJson")]
         public Output<Outputs.WorkloadGroupExpressionJsonInput?> ExpressionJson { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the workload group assigned by the ZIA cloud.
+        /// </summary>
         [Output("groupId")]
         public Output<int> GroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the workload group.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -70,12 +98,21 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class WorkloadGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the workload group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The expression JSON that defines the workload group matching criteria using tag expressions.
+        /// </summary>
         [Input("expressionJson")]
         public Input<Inputs.WorkloadGroupExpressionJsonInputArgs>? ExpressionJson { get; set; }
 
+        /// <summary>
+        /// Name of the workload group.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

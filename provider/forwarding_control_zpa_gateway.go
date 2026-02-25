@@ -43,8 +43,8 @@ type ZpaServerGroupInput struct {
 	Name       *string `pulumi:"name,optional"`
 }
 
-// ZpaAppSegmentInput is an Application Segment for the ZPA Gateway.
-type ZpaAppSegmentInput struct {
+// ZpaGatewayAppSegmentInput is an Application Segment for the ZPA Gateway.
+type ZpaGatewayAppSegmentInput struct {
 	Name       *string `pulumi:"name,optional"`
 	ExternalId *string `pulumi:"externalId,optional"`
 }
@@ -55,7 +55,7 @@ type ForwardingControlZpaGatewayArgs struct {
 	Description     *string             `pulumi:"description,optional"`
 	Type            *string             `pulumi:"type,optional"` // ZPA, ECZPA
 	ZpaServerGroup  *ZpaServerGroupInput `pulumi:"zpaServerGroup,optional"`
-	ZpaAppSegments  []ZpaAppSegmentInput `pulumi:"zpaAppSegments,optional"`
+	ZpaAppSegments  []ZpaGatewayAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 // ForwardingControlZpaGatewayState is the persisted state.
@@ -179,9 +179,9 @@ func (ForwardingControlZpaGateway) Read(ctx context.Context, req infer.ReadReque
 		}
 	}
 
-	zpaAppSegments := make([]ZpaAppSegmentInput, 0, len(resp.ZPAAppSegments))
+	zpaAppSegments := make([]ZpaGatewayAppSegmentInput, 0, len(resp.ZPAAppSegments))
 	for _, s := range resp.ZPAAppSegments {
-		zpaAppSegments = append(zpaAppSegments, ZpaAppSegmentInput{
+		zpaAppSegments = append(zpaAppSegments, ZpaGatewayAppSegmentInput{
 			Name:       stringPtr(s.Name),
 			ExternalId: stringPtr(s.ExternalID),
 		})

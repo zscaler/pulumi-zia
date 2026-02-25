@@ -10,48 +10,105 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+    /// 
+    /// For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:BandwidthControlRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:BandwidthControlRule")]
     public partial class BandwidthControlRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// IDs of bandwidth classes associated with this rule.
+        /// </summary>
         [Output("bandwidthClasses")]
         public Output<ImmutableArray<int>> BandwidthClasses { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the bandwidth control rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of labels associated with the bandwidth control rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of location groups for which the rule must be applied.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of locations for which the rule must be applied.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum bandwidth percentage allowed. Valid range: 0-100.
+        /// </summary>
         [Output("maxBandwidth")]
         public Output<int?> MaxBandwidth { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum bandwidth percentage allocated. Valid range: 0-100.
+        /// </summary>
         [Output("minBandwidth")]
         public Output<int?> MinBandwidth { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the bandwidth control rule. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other bandwidth control rules.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the bandwidth control rule.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         [Output("timeWindows")]
         public Output<ImmutableArray<int>> TimeWindows { get; private set; } = null!;
 
@@ -102,17 +159,28 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("bandwidthClasses")]
         private InputList<int>? _bandwidthClasses;
+
+        /// <summary>
+        /// IDs of bandwidth classes associated with this rule.
+        /// </summary>
         public InputList<int> BandwidthClasses
         {
             get => _bandwidthClasses ?? (_bandwidthClasses = new InputList<int>());
             set => _bandwidthClasses = value;
         }
 
+        /// <summary>
+        /// Additional information about the bandwidth control rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// IDs of labels associated with the bandwidth control rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -121,6 +189,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// IDs of location groups for which the rule must be applied.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -129,40 +201,70 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// IDs of locations for which the rule must be applied.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The maximum bandwidth percentage allowed. Valid range: 0-100.
+        /// </summary>
         [Input("maxBandwidth")]
         public Input<int>? MaxBandwidth { get; set; }
 
+        /// <summary>
+        /// The minimum bandwidth percentage allocated. Valid range: 0-100.
+        /// </summary>
         [Input("minBandwidth")]
         public Input<int>? MinBandwidth { get; set; }
 
+        /// <summary>
+        /// The name of the bandwidth control rule. Must be unique.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other bandwidth control rules.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
         [Input("protocols")]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
+        /// <summary>
+        /// Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("timeWindows")]
         private InputList<int>? _timeWindows;
+
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         public InputList<int> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<int>());

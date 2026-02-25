@@ -12,12 +12,21 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetVzenCluster
     {
+        /// <summary>
+        /// Use this data source to look up a VZEN cluster by ID or name.
+        /// </summary>
         public static Task<GetVzenClusterResult> InvokeAsync(GetVzenClusterArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVzenClusterResult>("zia:index:getVzenCluster", args ?? new GetVzenClusterArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a VZEN cluster by ID or name.
+        /// </summary>
         public static Output<GetVzenClusterResult> Invoke(GetVzenClusterInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVzenClusterResult>("zia:index:getVzenCluster", args ?? new GetVzenClusterInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a VZEN cluster by ID or name.
+        /// </summary>
         public static Output<GetVzenClusterResult> Invoke(GetVzenClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVzenClusterResult>("zia:index:getVzenCluster", args ?? new GetVzenClusterInvokeArgs(), options.WithDefaults());
     }
@@ -25,9 +34,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetVzenClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VZEN cluster to look up.
+        /// </summary>
         [Input("clusterId")]
         public int? ClusterId { get; set; }
 
+        /// <summary>
+        /// The name of the VZEN cluster to look up.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -39,9 +54,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetVzenClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VZEN cluster to look up.
+        /// </summary>
         [Input("clusterId")]
         public Input<int>? ClusterId { get; set; }
 
+        /// <summary>
+        /// The name of the VZEN cluster to look up.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -55,14 +76,41 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetVzenClusterResult
     {
+        /// <summary>
+        /// The ID of the VZEN cluster.
+        /// </summary>
         public readonly int ClusterId;
+        /// <summary>
+        /// The default gateway of the VZEN cluster.
+        /// </summary>
         public readonly string DefaultGateway;
+        /// <summary>
+        /// The IP address of the VZEN cluster.
+        /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// Whether IPSec is enabled on the cluster.
+        /// </summary>
         public readonly bool IpSecEnabled;
+        /// <summary>
+        /// The name of the VZEN cluster.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the VZEN cluster.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The subnet mask of the VZEN cluster.
+        /// </summary>
         public readonly string SubnetMask;
+        /// <summary>
+        /// The type of the VZEN cluster.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of virtual ZEN nodes in this cluster.
+        /// </summary>
         public readonly ImmutableArray<Outputs.VirtualZenNodeOutput> VirtualZenNodes;
 
         [OutputConstructor]

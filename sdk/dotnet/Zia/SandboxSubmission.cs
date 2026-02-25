@@ -10,36 +10,75 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+    /// 
+    /// For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; Import is not supported for this resource.
+    /// </summary>
     [ZiaResourceType("zia:index:SandboxSubmission")]
     public partial class SandboxSubmission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The response status code from the sandbox submission.
+        /// </summary>
         [Output("code")]
         public Output<int?> Code { get; private set; } = null!;
 
+        /// <summary>
+        /// The local file path of the file to submit for sandbox analysis.
+        /// </summary>
         [Output("filePath")]
         public Output<string> FilePath { get; private set; } = null!;
 
+        /// <summary>
+        /// The detected file type of the submitted file.
+        /// </summary>
         [Output("fileType")]
         public Output<string?> FileType { get; private set; } = null!;
 
+        /// <summary>
+        /// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+        /// </summary>
         [Output("force")]
         public Output<bool?> Force { get; private set; } = null!;
 
+        /// <summary>
+        /// The MD5 hash of the submitted file.
+        /// </summary>
         [Output("md5")]
         public Output<string?> Md5 { get; private set; } = null!;
 
+        /// <summary>
+        /// The response message from the sandbox submission.
+        /// </summary>
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
 
+        /// <summary>
+        /// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+        /// </summary>
         [Output("submissionMethod")]
         public Output<string> SubmissionMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// The sandbox submission result string.
+        /// </summary>
         [Output("submissionResult")]
         public Output<string?> SubmissionResult { get; private set; } = null!;
 
+        /// <summary>
+        /// The virus name if the file is detected as malicious.
+        /// </summary>
         [Output("virusName")]
         public Output<string?> VirusName { get; private set; } = null!;
 
+        /// <summary>
+        /// The virus type if the file is detected as malicious.
+        /// </summary>
         [Output("virusType")]
         public Output<string?> VirusType { get; private set; } = null!;
 
@@ -88,12 +127,21 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class SandboxSubmissionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The local file path of the file to submit for sandbox analysis.
+        /// </summary>
         [Input("filePath", required: true)]
         public Input<string> FilePath { get; set; } = null!;
 
+        /// <summary>
+        /// Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+        /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
 
+        /// <summary>
+        /// The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+        /// </summary>
         [Input("submissionMethod", required: true)]
         public Input<string> SubmissionMethod { get; set; } = null!;
 

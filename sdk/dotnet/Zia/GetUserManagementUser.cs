@@ -12,12 +12,21 @@ namespace zscaler.PulumiPackage.Zia
 {
     public static class GetUserManagementUser
     {
+        /// <summary>
+        /// Use this data source to look up a user management user by ID or name.
+        /// </summary>
         public static Task<GetUserManagementUserResult> InvokeAsync(GetUserManagementUserArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserManagementUserResult>("zia:index:getUserManagementUser", args ?? new GetUserManagementUserArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a user management user by ID or name.
+        /// </summary>
         public static Output<GetUserManagementUserResult> Invoke(GetUserManagementUserInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserManagementUserResult>("zia:index:getUserManagementUser", args ?? new GetUserManagementUserInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to look up a user management user by ID or name.
+        /// </summary>
         public static Output<GetUserManagementUserResult> Invoke(GetUserManagementUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserManagementUserResult>("zia:index:getUserManagementUser", args ?? new GetUserManagementUserInvokeArgs(), options.WithDefaults());
     }
@@ -25,9 +34,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetUserManagementUserArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the user to look up.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the user to look up.
+        /// </summary>
         [Input("userId")]
         public int? UserId { get; set; }
 
@@ -39,9 +54,15 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class GetUserManagementUserInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the user to look up.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the user to look up.
+        /// </summary>
         [Input("userId")]
         public Input<int>? UserId { get; set; }
 
@@ -55,15 +76,45 @@ namespace zscaler.PulumiPackage.Zia
     [OutputType]
     public sealed class GetUserManagementUserResult
     {
+        /// <summary>
+        /// Whether the user is an admin user.
+        /// </summary>
         public readonly bool AdminUser;
+        /// <summary>
+        /// The authentication methods configured for the user.
+        /// </summary>
         public readonly ImmutableArray<string> AuthMethods;
+        /// <summary>
+        /// Comments or notes about the user.
+        /// </summary>
         public readonly string Comments;
+        /// <summary>
+        /// The department the user belongs to.
+        /// </summary>
         public readonly Outputs.UserDepartmentOutput? Department;
+        /// <summary>
+        /// The email address of the user.
+        /// </summary>
         public readonly string Email;
+        /// <summary>
+        /// The list of groups the user belongs to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserGroupOutput> Groups;
+        /// <summary>
+        /// The full name of the user.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The temporary authentication email for the user.
+        /// </summary>
         public readonly string TempAuthEmail;
+        /// <summary>
+        /// The type of the user.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         public readonly int UserId;
 
         [OutputConstructor]

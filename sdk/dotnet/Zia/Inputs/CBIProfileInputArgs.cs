@@ -13,14 +13,14 @@ namespace zscaler.PulumiPackage.Zia.Inputs
 
     public sealed class CBIProfileInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("profileSeq")]
         public Input<int>? ProfileSeq { get; set; }
+
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         [Input("url")]
         public Input<string>? Url { get; set; }

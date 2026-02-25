@@ -10,33 +10,75 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_traffic_forwarding_gre_tunnel resource manages GRE (Generic Routing Encapsulation) tunnels for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. GRE tunnels are used to forward traffic from on-premises networks to the Zscaler cloud.
+    /// 
+    /// For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing GRE tunnel can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:TrafficForwardingGreTunnel example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:TrafficForwardingGreTunnel")]
     public partial class TrafficForwardingGreTunnel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional information about the GRE tunnel.
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+        /// </summary>
         [Output("countryCode")]
         public Output<string?> CountryCode { get; private set; } = null!;
 
+        /// <summary>
+        /// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+        /// </summary>
         [Output("internalIpRange")]
         public Output<string?> InternalIpRange { get; private set; } = null!;
 
+        /// <summary>
+        /// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+        /// </summary>
         [Output("ipUnnumbered")]
         public Output<bool?> IpUnnumbered { get; private set; } = null!;
 
+        /// <summary>
+        /// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        /// </summary>
         [Output("primaryDestVip")]
         public Output<Outputs.GreTunnelDestVipOutput?> PrimaryDestVip { get; private set; } = null!;
 
+        /// <summary>
+        /// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        /// </summary>
         [Output("secondaryDestVip")]
         public Output<Outputs.GreTunnelDestVipOutput?> SecondaryDestVip { get; private set; } = null!;
 
+        /// <summary>
+        /// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+        /// </summary>
         [Output("sourceIp")]
         public Output<string> SourceIp { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the GRE tunnel.
+        /// </summary>
         [Output("tunnelId")]
         public Output<int> TunnelId { get; private set; } = null!;
 
+        /// <summary>
+        /// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+        /// </summary>
         [Output("withinCountry")]
         public Output<bool?> WithinCountry { get; private set; } = null!;
 
@@ -85,27 +127,51 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class TrafficForwardingGreTunnelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional information about the GRE tunnel.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+        /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
 
+        /// <summary>
+        /// The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+        /// </summary>
         [Input("internalIpRange")]
         public Input<string>? InternalIpRange { get; set; }
 
+        /// <summary>
+        /// When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+        /// </summary>
         [Input("ipUnnumbered")]
         public Input<bool>? IpUnnumbered { get; set; }
 
+        /// <summary>
+        /// The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        /// </summary>
         [Input("primaryDestVip")]
         public Input<Inputs.GreTunnelDestVipInputArgs>? PrimaryDestVip { get; set; }
 
+        /// <summary>
+        /// The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+        /// </summary>
         [Input("secondaryDestVip")]
         public Input<Inputs.GreTunnelDestVipInputArgs>? SecondaryDestVip { get; set; }
 
+        /// <summary>
+        /// The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+        /// </summary>
         [Input("sourceIp", required: true)]
         public Input<string> SourceIp { get; set; } = null!;
 
+        /// <summary>
+        /// Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+        /// </summary>
         [Input("withinCountry")]
         public Input<bool>? WithinCountry { get; set; }
 

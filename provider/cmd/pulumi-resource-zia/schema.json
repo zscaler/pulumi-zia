@@ -1018,7 +1018,7 @@
         "externalId"
       ]
     },
-    "zia:index:ZpaAppSegmentInput": {
+    "zia:index:ZpaGatewayAppSegmentInput": {
       "properties": {
         "externalId": {
           "type": "string"
@@ -7850,7 +7850,7 @@
         "zpaAppSegments": {
           "type": "array",
           "items": {
-            "$ref": "#/types/zia:index:ZpaAppSegmentInput"
+            "$ref": "#/types/zia:index:ZpaGatewayAppSegmentInput"
           },
           "description": "List of ZPA application segments associated with the gateway."
         },
@@ -7878,7 +7878,7 @@
         "zpaAppSegments": {
           "type": "array",
           "items": {
-            "$ref": "#/types/zia:index:ZpaAppSegmentInput"
+            "$ref": "#/types/zia:index:ZpaGatewayAppSegmentInput"
           },
           "description": "List of ZPA application segments associated with the gateway."
         },

@@ -33,6 +33,9 @@ namespace zscaler.PulumiPackage.Zia
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("zia");
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
+        /// <summary>
+        /// (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         public static string? ApiKey
         {
             get => _apiKey.Get();
@@ -40,6 +43,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _clientId = new __Value<string?>(() => __config.Get("clientId"));
+        /// <summary>
+        /// The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        /// </summary>
         public static string? ClientId
         {
             get => _clientId.Get();
@@ -47,6 +53,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _clientSecret = new __Value<string?>(() => __config.Get("clientSecret"));
+        /// <summary>
+        /// The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        /// </summary>
         public static string? ClientSecret
         {
             get => _clientSecret.Get();
@@ -54,13 +63,29 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _cloud = new __Value<string?>(() => __config.Get("cloud"));
+        /// <summary>
+        /// The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        /// </summary>
         public static string? Cloud
         {
             get => _cloud.Get();
             set => _cloud.Set(value);
         }
 
+        private static readonly __Value<bool?> _debug = new __Value<bool?>(() => __config.GetBoolean("debug"));
+        /// <summary>
+        /// If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        /// </summary>
+        public static bool? Debug
+        {
+            get => _debug.Get();
+            set => _debug.Set(value);
+        }
+
         private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
+        /// <summary>
+        /// HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        /// </summary>
         public static string? HttpProxy
         {
             get => _httpProxy.Get();
@@ -68,6 +93,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
+        /// <summary>
+        /// Maximum number of retries for API requests. Default is determined by the SDK.
+        /// </summary>
         public static int? MaxRetries
         {
             get => _maxRetries.Get();
@@ -75,6 +103,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password"));
+        /// <summary>
+        /// (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         public static string? Password
         {
             get => _password.Get();
@@ -82,6 +113,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));
+        /// <summary>
+        /// The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        /// </summary>
         public static string? PrivateKey
         {
             get => _privateKey.Get();
@@ -89,6 +123,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));
+        /// <summary>
+        /// Timeout in seconds for API requests.
+        /// </summary>
         public static int? RequestTimeout
         {
             get => _requestTimeout.Get();
@@ -96,6 +133,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _sandboxCloud = new __Value<string?>(() => __config.Get("sandboxCloud"));
+        /// <summary>
+        /// The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        /// </summary>
         public static string? SandboxCloud
         {
             get => _sandboxCloud.Get();
@@ -103,6 +143,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _sandboxToken = new __Value<string?>(() => __config.Get("sandboxToken"));
+        /// <summary>
+        /// The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        /// </summary>
         public static string? SandboxToken
         {
             get => _sandboxToken.Get();
@@ -110,6 +153,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<bool?> _useLegacyClient = new __Value<bool?>(() => __config.GetBoolean("useLegacyClient"));
+        /// <summary>
+        /// If true, use the legacy ZIA client authentication instead of OAuth2.
+        /// </summary>
         public static bool? UseLegacyClient
         {
             get => _useLegacyClient.Get();
@@ -117,6 +163,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username"));
+        /// <summary>
+        /// (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        /// </summary>
         public static string? Username
         {
             get => _username.Get();
@@ -124,6 +173,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _vanityDomain = new __Value<string?>(() => __config.Get("vanityDomain"));
+        /// <summary>
+        /// The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        /// </summary>
         public static string? VanityDomain
         {
             get => _vanityDomain.Get();
@@ -131,6 +183,9 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         private static readonly __Value<string?> _ziaCloud = new __Value<string?>(() => __config.Get("ziaCloud"));
+        /// <summary>
+        /// (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        /// </summary>
         public static string? ZiaCloud
         {
             get => _ziaCloud.Get();

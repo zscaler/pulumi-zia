@@ -10,75 +10,159 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+    /// 
+    /// For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing URL Category can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:UrlCategory example CUSTOM_01
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:UrlCategory")]
     public partial class UrlCategory : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The system-generated ID of the URL category.
+        /// </summary>
         [Output("categoryId")]
         public Output<string> CategoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the URL category. Must be unique.
+        /// </summary>
         [Output("configuredName")]
         public Output<string?> ConfiguredName { get; private set; } = null!;
 
+        /// <summary>
+        /// If true, this is a custom URL category. Set to true for custom categories.
+        /// </summary>
         [Output("customCategory")]
         public Output<bool?> CustomCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of custom IP ranges in the category.
+        /// </summary>
         [Output("customIpRangesCount")]
         public Output<int?> CustomIpRangesCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of custom URLs in the category.
+        /// </summary>
         [Output("customUrlsCount")]
         public Output<int?> CustomUrlsCount { get; private set; } = null!;
 
+        /// <summary>
+        /// URLs added to a custom URL category that have been categorized by the Zscaler database.
+        /// </summary>
         [Output("dbCategorizedUrls")]
         public Output<ImmutableArray<string>> DbCategorizedUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the URL category. Maximum 256 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the URL category is editable.
+        /// </summary>
         [Output("editable")]
         public Output<bool?> Editable { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom IP address ranges associated with the URL category.
+        /// </summary>
         [Output("ipRanges")]
         public Output<ImmutableArray<string>> IpRanges { get; private set; } = null!;
 
+        /// <summary>
+        /// List of IP ranges that retain their parent category classification.
+        /// </summary>
         [Output("ipRangesRetainingParentCategory")]
         public Output<ImmutableArray<string>> IpRangesRetainingParentCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of IP ranges retaining parent category.
+        /// </summary>
         [Output("ipRangesRetainingParentCategoryCount")]
         public Output<int?> IpRangesRetainingParentCategoryCount { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom keywords associated with the URL category.
+        /// </summary>
         [Output("keywords")]
         public Output<ImmutableArray<string>> Keywords { get; private set; } = null!;
 
+        /// <summary>
+        /// List of keywords that retain their parent category classification.
+        /// </summary>
         [Output("keywordsRetainingParentCategory")]
         public Output<ImmutableArray<string>> KeywordsRetainingParentCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// List of regex-based patterns for URL matching.
+        /// </summary>
         [Output("regexPatterns")]
         public Output<ImmutableArray<string>> RegexPatterns { get; private set; } = null!;
 
+        /// <summary>
+        /// List of regex patterns that retain their parent category classification.
+        /// </summary>
         [Output("regexPatternsRetainingParentCategory")]
         public Output<ImmutableArray<string>> RegexPatternsRetainingParentCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// Scopes for the custom URL category, defining location or department restrictions.
+        /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.UrlCategoryScopeInput>> Scopes { get; private set; } = null!;
 
+        /// <summary>
+        /// The super category for the URL category (e.g., `USER_DEFINED`).
+        /// </summary>
         [Output("superCategory")]
         public Output<string?> SuperCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// URL and keyword count statistics for the category.
+        /// </summary>
         [Output("urlKeywordCounts")]
         public Output<Outputs.UrlCategoryUrlKeywordCountsInput?> UrlKeywordCounts { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL type. Valid values: `EXACT`, `REGEX`.
+        /// </summary>
         [Output("urlType")]
         public Output<string?> UrlType { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom URLs to add to the category.
+        /// </summary>
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of URLs retaining parent category.
+        /// </summary>
         [Output("urlsRetainingParentCategoryCount")]
         public Output<int?> UrlsRetainingParentCategoryCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal numeric value of the URL category.
+        /// </summary>
         [Output("val")]
         public Output<int?> Val { get; private set; } = null!;
 
@@ -127,25 +211,42 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class UrlCategoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the URL category. Must be unique.
+        /// </summary>
         [Input("configuredName")]
         public Input<string>? ConfiguredName { get; set; }
 
+        /// <summary>
+        /// If true, this is a custom URL category. Set to true for custom categories.
+        /// </summary>
         [Input("customCategory")]
         public Input<bool>? CustomCategory { get; set; }
 
         [Input("dbCategorizedUrls")]
         private InputList<string>? _dbCategorizedUrls;
+
+        /// <summary>
+        /// URLs added to a custom URL category that have been categorized by the Zscaler database.
+        /// </summary>
         public InputList<string> DbCategorizedUrls
         {
             get => _dbCategorizedUrls ?? (_dbCategorizedUrls = new InputList<string>());
             set => _dbCategorizedUrls = value;
         }
 
+        /// <summary>
+        /// A description of the URL category. Maximum 256 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ipRanges")]
         private InputList<string>? _ipRanges;
+
+        /// <summary>
+        /// List of custom IP address ranges associated with the URL category.
+        /// </summary>
         public InputList<string> IpRanges
         {
             get => _ipRanges ?? (_ipRanges = new InputList<string>());
@@ -154,6 +255,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("ipRangesRetainingParentCategory")]
         private InputList<string>? _ipRangesRetainingParentCategory;
+
+        /// <summary>
+        /// List of IP ranges that retain their parent category classification.
+        /// </summary>
         public InputList<string> IpRangesRetainingParentCategory
         {
             get => _ipRangesRetainingParentCategory ?? (_ipRangesRetainingParentCategory = new InputList<string>());
@@ -162,6 +267,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("keywords")]
         private InputList<string>? _keywords;
+
+        /// <summary>
+        /// List of custom keywords associated with the URL category.
+        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
@@ -170,6 +279,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("keywordsRetainingParentCategory")]
         private InputList<string>? _keywordsRetainingParentCategory;
+
+        /// <summary>
+        /// List of keywords that retain their parent category classification.
+        /// </summary>
         public InputList<string> KeywordsRetainingParentCategory
         {
             get => _keywordsRetainingParentCategory ?? (_keywordsRetainingParentCategory = new InputList<string>());
@@ -178,6 +291,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("regexPatterns")]
         private InputList<string>? _regexPatterns;
+
+        /// <summary>
+        /// List of regex-based patterns for URL matching.
+        /// </summary>
         public InputList<string> RegexPatterns
         {
             get => _regexPatterns ?? (_regexPatterns = new InputList<string>());
@@ -186,6 +303,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("regexPatternsRetainingParentCategory")]
         private InputList<string>? _regexPatternsRetainingParentCategory;
+
+        /// <summary>
+        /// List of regex patterns that retain their parent category classification.
+        /// </summary>
         public InputList<string> RegexPatternsRetainingParentCategory
         {
             get => _regexPatternsRetainingParentCategory ?? (_regexPatternsRetainingParentCategory = new InputList<string>());
@@ -194,26 +315,46 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("scopes")]
         private InputList<Inputs.UrlCategoryScopeInputArgs>? _scopes;
+
+        /// <summary>
+        /// Scopes for the custom URL category, defining location or department restrictions.
+        /// </summary>
         public InputList<Inputs.UrlCategoryScopeInputArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.UrlCategoryScopeInputArgs>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// The super category for the URL category (e.g., `USER_DEFINED`).
+        /// </summary>
         [Input("superCategory")]
         public Input<string>? SuperCategory { get; set; }
 
+        /// <summary>
+        /// The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// URL and keyword count statistics for the category.
+        /// </summary>
         [Input("urlKeywordCounts")]
         public Input<Inputs.UrlCategoryUrlKeywordCountsInputArgs>? UrlKeywordCounts { get; set; }
 
+        /// <summary>
+        /// The URL type. Valid values: `EXACT`, `REGEX`.
+        /// </summary>
         [Input("urlType")]
         public Input<string>? UrlType { get; set; }
 
         [Input("urls")]
         private InputList<string>? _urls;
+
+        /// <summary>
+        /// List of custom URLs to add to the category.
+        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());

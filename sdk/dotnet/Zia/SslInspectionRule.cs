@@ -10,84 +10,177 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+    /// 
+    /// For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:SslInspectionRule example 12345
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:SslInspectionRule")]
     public partial class SslInspectionRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        /// </summary>
         [Output("action")]
         public Output<Outputs.SslInspectionActionInput> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// List of cloud application names to which the rule applies.
+        /// </summary>
         [Output("cloudApplications")]
         public Output<ImmutableArray<string>> CloudApplications { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of departments to which the rule applies.
+        /// </summary>
         [Output("departments")]
         public Output<ImmutableArray<int>> Departments { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional information about the SSL inspection rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of destination IP address groups for the rule.
+        /// </summary>
         [Output("destIpGroups")]
         public Output<ImmutableArray<int>> DestIpGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of device groups to which the rule applies.
+        /// </summary>
         [Output("deviceGroups")]
         public Output<ImmutableArray<int>> DeviceGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        /// </summary>
         [Output("deviceTrustLevels")]
         public Output<ImmutableArray<string>> DeviceTrustLevels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of devices to which the rule applies.
+        /// </summary>
         [Output("devices")]
         public Output<ImmutableArray<int>> Devices { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of groups to which the rule applies.
+        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<int>> Groups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<int>> Labels { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of location groups to which the rule applies.
+        /// </summary>
         [Output("locationGroups")]
         public Output<ImmutableArray<int>> LocationGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of locations to which the rule applies.
+        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<int>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the SSL inspection rule. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other SSL inspection rules.
+        /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
 
+        /// <summary>
+        /// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        /// </summary>
         [Output("platforms")]
         public Output<ImmutableArray<string>> Platforms { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of proxy gateway configurations for the rule.
+        /// </summary>
         [Output("proxyGateways")]
         public Output<ImmutableArray<int>> ProxyGateways { get; private set; } = null!;
 
+        /// <summary>
+        /// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        /// </summary>
         [Output("roadWarriorForKerberos")]
         public Output<bool?> RoadWarriorForKerberos { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the SSL inspection rule.
+        /// </summary>
         [Output("ruleId")]
         public Output<int> RuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of source IP address groups for the rule.
+        /// </summary>
         [Output("sourceIpGroups")]
         public Output<ImmutableArray<int>> SourceIpGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         [Output("timeWindows")]
         public Output<ImmutableArray<int>> TimeWindows { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         [Output("urlCategories")]
         public Output<ImmutableArray<string>> UrlCategories { get; private set; } = null!;
 
+        /// <summary>
+        /// User agent types the rule applies to.
+        /// </summary>
         [Output("userAgentTypes")]
         public Output<ImmutableArray<string>> UserAgentTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of users to which the rule applies.
+        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<int>> Users { get; private set; } = null!;
 
+        /// <summary>
+        /// List of preconfigured workload groups to which the policy must be applied.
+        /// </summary>
         [Output("workloadGroups")]
         public Output<ImmutableArray<Outputs.WorkloadGroupInput>> WorkloadGroups { get; private set; } = null!;
 
@@ -136,11 +229,18 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class SslInspectionRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.SslInspectionActionInputArgs> Action { get; set; } = null!;
 
         [Input("cloudApplications")]
         private InputList<string>? _cloudApplications;
+
+        /// <summary>
+        /// List of cloud application names to which the rule applies.
+        /// </summary>
         public InputList<string> CloudApplications
         {
             get => _cloudApplications ?? (_cloudApplications = new InputList<string>());
@@ -149,17 +249,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("departments")]
         private InputList<int>? _departments;
+
+        /// <summary>
+        /// IDs of departments to which the rule applies.
+        /// </summary>
         public InputList<int> Departments
         {
             get => _departments ?? (_departments = new InputList<int>());
             set => _departments = value;
         }
 
+        /// <summary>
+        /// Additional information about the SSL inspection rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destIpGroups")]
         private InputList<int>? _destIpGroups;
+
+        /// <summary>
+        /// IDs of destination IP address groups for the rule.
+        /// </summary>
         public InputList<int> DestIpGroups
         {
             get => _destIpGroups ?? (_destIpGroups = new InputList<int>());
@@ -168,6 +279,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("deviceGroups")]
         private InputList<int>? _deviceGroups;
+
+        /// <summary>
+        /// IDs of device groups to which the rule applies.
+        /// </summary>
         public InputList<int> DeviceGroups
         {
             get => _deviceGroups ?? (_deviceGroups = new InputList<int>());
@@ -176,6 +291,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("deviceTrustLevels")]
         private InputList<string>? _deviceTrustLevels;
+
+        /// <summary>
+        /// Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        /// </summary>
         public InputList<string> DeviceTrustLevels
         {
             get => _deviceTrustLevels ?? (_deviceTrustLevels = new InputList<string>());
@@ -184,6 +303,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("devices")]
         private InputList<int>? _devices;
+
+        /// <summary>
+        /// IDs of devices to which the rule applies.
+        /// </summary>
         public InputList<int> Devices
         {
             get => _devices ?? (_devices = new InputList<int>());
@@ -192,6 +315,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("groups")]
         private InputList<int>? _groups;
+
+        /// <summary>
+        /// IDs of groups to which the rule applies.
+        /// </summary>
         public InputList<int> Groups
         {
             get => _groups ?? (_groups = new InputList<int>());
@@ -200,6 +327,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("labels")]
         private InputList<int>? _labels;
+
+        /// <summary>
+        /// IDs of labels associated with the rule.
+        /// </summary>
         public InputList<int> Labels
         {
             get => _labels ?? (_labels = new InputList<int>());
@@ -208,6 +339,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locationGroups")]
         private InputList<int>? _locationGroups;
+
+        /// <summary>
+        /// IDs of location groups to which the rule applies.
+        /// </summary>
         public InputList<int> LocationGroups
         {
             get => _locationGroups ?? (_locationGroups = new InputList<int>());
@@ -216,20 +351,34 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("locations")]
         private InputList<int>? _locations;
+
+        /// <summary>
+        /// IDs of locations to which the rule applies.
+        /// </summary>
         public InputList<int> Locations
         {
             get => _locations ?? (_locations = new InputList<int>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The name of the SSL inspection rule. Must be unique.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The order of execution of the rule with respect to other SSL inspection rules.
+        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 
         [Input("platforms")]
         private InputList<string>? _platforms;
+
+        /// <summary>
+        /// Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        /// </summary>
         public InputList<string> Platforms
         {
             get => _platforms ?? (_platforms = new InputList<string>());
@@ -238,31 +387,52 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("proxyGateways")]
         private InputList<int>? _proxyGateways;
+
+        /// <summary>
+        /// IDs of proxy gateway configurations for the rule.
+        /// </summary>
         public InputList<int> ProxyGateways
         {
             get => _proxyGateways ?? (_proxyGateways = new InputList<int>());
             set => _proxyGateways = value;
         }
 
+        /// <summary>
+        /// Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
+        /// <summary>
+        /// Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        /// </summary>
         [Input("roadWarriorForKerberos")]
         public Input<bool>? RoadWarriorForKerberos { get; set; }
 
         [Input("sourceIpGroups")]
         private InputList<int>? _sourceIpGroups;
+
+        /// <summary>
+        /// IDs of source IP address groups for the rule.
+        /// </summary>
         public InputList<int> SourceIpGroups
         {
             get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<int>());
             set => _sourceIpGroups = value;
         }
 
+        /// <summary>
+        /// Rule state. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("timeWindows")]
         private InputList<int>? _timeWindows;
+
+        /// <summary>
+        /// IDs of time intervals during which the rule must be enforced.
+        /// </summary>
         public InputList<int> TimeWindows
         {
             get => _timeWindows ?? (_timeWindows = new InputList<int>());
@@ -271,6 +441,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("urlCategories")]
         private InputList<string>? _urlCategories;
+
+        /// <summary>
+        /// List of URL categories to which the rule applies.
+        /// </summary>
         public InputList<string> UrlCategories
         {
             get => _urlCategories ?? (_urlCategories = new InputList<string>());
@@ -279,6 +453,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("userAgentTypes")]
         private InputList<string>? _userAgentTypes;
+
+        /// <summary>
+        /// User agent types the rule applies to.
+        /// </summary>
         public InputList<string> UserAgentTypes
         {
             get => _userAgentTypes ?? (_userAgentTypes = new InputList<string>());
@@ -287,6 +465,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("users")]
         private InputList<int>? _users;
+
+        /// <summary>
+        /// IDs of users to which the rule applies.
+        /// </summary>
         public InputList<int> Users
         {
             get => _users ?? (_users = new InputList<int>());
@@ -295,6 +477,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("workloadGroups")]
         private InputList<Inputs.WorkloadGroupInputArgs>? _workloadGroups;
+
+        /// <summary>
+        /// List of preconfigured workload groups to which the policy must be applied.
+        /// </summary>
         public InputList<Inputs.WorkloadGroupInputArgs> WorkloadGroups
         {
             get => _workloadGroups ?? (_workloadGroups = new InputList<Inputs.WorkloadGroupInputArgs>());

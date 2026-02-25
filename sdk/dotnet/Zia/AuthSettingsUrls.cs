@@ -10,12 +10,29 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+    /// 
+    /// For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+    /// </summary>
     [ZiaResourceType("zia:index:AuthSettingsUrls")]
     public partial class AuthSettingsUrls : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The internal resource identifier for the authentication settings URLs.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// List of URLs that are exempted from user authentication.
+        /// </summary>
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
@@ -66,6 +83,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("urls")]
         private InputList<string>? _urls;
+
+        /// <summary>
+        /// List of URLs that are exempted from user authentication.
+        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());

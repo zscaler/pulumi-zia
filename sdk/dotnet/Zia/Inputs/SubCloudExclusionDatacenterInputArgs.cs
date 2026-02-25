@@ -16,11 +16,11 @@ namespace zscaler.PulumiPackage.Zia.Inputs
         [Input("country")]
         public Input<string>? Country { get; set; }
 
-        [Input("id", required: true)]
-        public Input<int> Id { get; set; } = null!;
-
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourceId", required: true)]
+        public Input<int> ResourceId { get; set; } = null!;
 
         public SubCloudExclusionDatacenterInputArgs()
         {

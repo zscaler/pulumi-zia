@@ -10,60 +10,129 @@ using Pulumi;
 
 namespace zscaler.PulumiPackage.Zia
 {
+    /// <summary>
+    /// The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+    /// 
+    /// For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Predefined URL Category override can be imported using its category ID, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+    /// ```
+    /// </summary>
     [ZiaResourceType("zia:index:UrlCategoryPredefined")]
     public partial class UrlCategoryPredefined : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The system-generated ID of the predefined URL category.
+        /// </summary>
         [Output("categoryId")]
         public Output<string> CategoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The configured display name of the predefined URL category.
+        /// </summary>
         [Output("configuredName")]
         public Output<string?> ConfiguredName { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of custom IP ranges in the category.
+        /// </summary>
         [Output("customIpRangesCount")]
         public Output<int?> CustomIpRangesCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of custom URLs in the category.
+        /// </summary>
         [Output("customUrlsCount")]
         public Output<int?> CustomUrlsCount { get; private set; } = null!;
 
+        /// <summary>
+        /// URLs in this category that have been categorized by the Zscaler database.
+        /// </summary>
         [Output("dbCategorizedUrls")]
         public Output<ImmutableArray<string>> DbCategorizedUrls { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the predefined URL category is editable.
+        /// </summary>
         [Output("editable")]
         public Output<bool?> Editable { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom IP address ranges to add to the predefined category.
+        /// </summary>
         [Output("ipRanges")]
         public Output<ImmutableArray<string>> IpRanges { get; private set; } = null!;
 
+        /// <summary>
+        /// List of IP ranges that retain their parent category classification.
+        /// </summary>
         [Output("ipRangesRetainingParentCategory")]
         public Output<ImmutableArray<string>> IpRangesRetainingParentCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of IP ranges retaining parent category.
+        /// </summary>
         [Output("ipRangesRetainingParentCategoryCount")]
         public Output<int?> IpRangesRetainingParentCategoryCount { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom keywords to add to the predefined category.
+        /// </summary>
         [Output("keywords")]
         public Output<ImmutableArray<string>> Keywords { get; private set; } = null!;
 
+        /// <summary>
+        /// List of keywords that retain their parent category classification.
+        /// </summary>
         [Output("keywordsRetainingParentCategory")]
         public Output<ImmutableArray<string>> KeywordsRetainingParentCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The super category of the predefined URL category.
+        /// </summary>
         [Output("superCategory")]
         public Output<string?> SuperCategory { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the URL category.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL type of the predefined category.
+        /// </summary>
         [Output("urlType")]
         public Output<string?> UrlType { get; private set; } = null!;
 
+        /// <summary>
+        /// List of custom URLs to add to the predefined category.
+        /// </summary>
         [Output("urls")]
         public Output<ImmutableArray<string>> Urls { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of URLs retaining parent category.
+        /// </summary>
         [Output("urlsRetainingParentCategoryCount")]
         public Output<int?> UrlsRetainingParentCategoryCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The internal numeric value of the URL category.
+        /// </summary>
         [Output("val")]
         public Output<int?> Val { get; private set; } = null!;
 
@@ -114,6 +183,10 @@ namespace zscaler.PulumiPackage.Zia
     {
         [Input("ipRanges")]
         private InputList<string>? _ipRanges;
+
+        /// <summary>
+        /// List of custom IP address ranges to add to the predefined category.
+        /// </summary>
         public InputList<string> IpRanges
         {
             get => _ipRanges ?? (_ipRanges = new InputList<string>());
@@ -122,6 +195,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("ipRangesRetainingParentCategory")]
         private InputList<string>? _ipRangesRetainingParentCategory;
+
+        /// <summary>
+        /// List of IP ranges that retain their parent category classification.
+        /// </summary>
         public InputList<string> IpRangesRetainingParentCategory
         {
             get => _ipRangesRetainingParentCategory ?? (_ipRangesRetainingParentCategory = new InputList<string>());
@@ -130,6 +207,10 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("keywords")]
         private InputList<string>? _keywords;
+
+        /// <summary>
+        /// List of custom keywords to add to the predefined category.
+        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
@@ -138,17 +219,28 @@ namespace zscaler.PulumiPackage.Zia
 
         [Input("keywordsRetainingParentCategory")]
         private InputList<string>? _keywordsRetainingParentCategory;
+
+        /// <summary>
+        /// List of keywords that retain their parent category classification.
+        /// </summary>
         public InputList<string> KeywordsRetainingParentCategory
         {
             get => _keywordsRetainingParentCategory ?? (_keywordsRetainingParentCategory = new InputList<string>());
             set => _keywordsRetainingParentCategory = value;
         }
 
+        /// <summary>
+        /// The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("urls")]
         private InputList<string>? _urls;
+
+        /// <summary>
+        /// List of custom URLs to add to the predefined category.
+        /// </summary>
         public InputList<string> Urls
         {
             get => _urls ?? (_urls = new InputList<string>());
