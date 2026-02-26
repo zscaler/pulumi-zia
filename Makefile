@@ -88,7 +88,7 @@ sdk/go: ${SCHEMA_FILE}
 	rm -rf $@
 	$(PULUMI) package gen-sdk --language go ${SCHEMA_FILE} --version "${VERSION_GENERIC}"
 	@if [ -d ${PACKDIR}/go/pulumi-resource-${PACK} ]; then mv ${PACKDIR}/go/pulumi-resource-${PACK} ${PACKDIR}/go/pulumi-${PACK}; fi
-	cp go.mod ${PACKDIR}/go/pulumi-${PACK}/go.mod
+	cp provider/go.mod ${PACKDIR}/go/pulumi-${PACK}/go.mod
 	cd ${PACKDIR}/go/pulumi-${PACK} && \
 		go mod edit -module=$(PROJECT)/${PACKDIR}/go/pulumi-${PACK} && \
 		go mod tidy
@@ -104,7 +104,7 @@ provider_debug:
 	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -gcflags="all=-N -l" -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION_GENERIC}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
 
 test_provider:
-	cd provider && go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM} -coverprofile="coverage.txt" ./...
+	cd tests && go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM} -coverprofile="coverage.txt" ./...
 
 dotnet_sdk: sdk/dotnet
 	cd ${PACKDIR}/dotnet/&& \
