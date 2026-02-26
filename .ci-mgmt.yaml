@@ -3,9 +3,9 @@ provider: provider-boilerplate
 major-version: 0
 providerDefaultBranch: main
 publishRegistry: false
-providerVersion: github.com/pulumi/pulumi-provider-boilerplate/provider.Version
+providerVersion: github.com/pulumi/pulumi-zia/provider.Version
 parallel: 3
-sdkModuleDir: sdk/go/pulumi-provider-boilerplate
+sdkModuleDir: sdk/go/pulumi-zia
 esc:
     enabled: true
     environment: imports/github-secrets
