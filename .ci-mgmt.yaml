@@ -1,11 +1,8 @@
 template: native
-provider: provider-boilerplate
-major-version: 0
+provider: zia
+major-version: 1
 providerDefaultBranch: main
 publishRegistry: false
-providerVersion: github.com/pulumi/pulumi-zia/provider.Version
+providerVersion: github.com/zscaler/pulumi-zia/provider/version.Version
 parallel: 3
 sdkModuleDir: sdk/go/pulumi-zia
-esc:
-    enabled: true
-    environment: imports/github-secrets
