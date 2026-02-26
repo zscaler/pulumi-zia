@@ -1,0 +1,38 @@
+name: bandwidth-classes-e2e
+runtime: yaml
+description: E2E test for zia:index:BandwidthClass resource
+
+config:
+  name:
+    type: string
+    default: "tf-acc-test-bandwidth-class"
+  webApplications:
+    type: array
+    items:
+      type: string
+    default: ["ACADEMICGPT", "AD_CREATIVES", "AGENTGPT"]
+  urls:
+    type: array
+    items:
+      type: string
+    default: ["chatgpt.com", "chatgpt1.com", "openai.com"]
+  urlCategories:
+    type: array
+    items:
+      type: string
+    default: ["AI_ML_APPS", "GENERAL_AI_ML"]
+
+resources:
+  bandwidthClass:
+    type: zia:index:BandwidthClass
+    properties:
+      name: ${name}
+      webApplications: ${webApplications}
+      urls: ${urls}
+      urlCategories: ${urlCategories}
+
+outputs:
+  classId: ${bandwidthClass.classId}
+  name: ${bandwidthClass.name}
+  urls: ${bandwidthClass.urls}
+  urlCategories: ${bandwidthClass.urlCategories}

@@ -28,13 +28,6 @@ class SubscriptionAlertArgs:
                  system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubscriptionAlert resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[_builtins.str] description: (String) Additional comments or information about the alert subscription
-        :param pulumi.Input[_builtins.str] email: The email address of the alert recipient
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
         """
         if comply_severities is not None:
             pulumi.set(__self__, "comply_severities", comply_severities)
@@ -54,9 +47,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="complySeverities")
     def comply_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "comply_severities")
 
     @comply_severities.setter
@@ -66,9 +56,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) Additional comments or information about the alert subscription
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -78,9 +65,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address of the alert recipient
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -90,9 +74,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="manageSeverities")
     def manage_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "manage_severities")
 
     @manage_severities.setter
@@ -102,9 +83,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="pt0Severities")
     def pt0_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "pt0_severities")
 
     @pt0_severities.setter
@@ -114,9 +92,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="secureSeverities")
     def secure_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "secure_severities")
 
     @secure_severities.setter
@@ -126,9 +101,6 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="systemSeverities")
     def system_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "system_severities")
 
     @system_severities.setter
@@ -136,143 +108,7 @@ class SubscriptionAlertArgs:
         pulumi.set(self, "system_severities", value)
 
 
-@pulumi.input_type
-class _SubscriptionAlertState:
-    def __init__(__self__, *,
-                 alert_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 comply_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pt0_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        Input properties used for looking up and filtering SubscriptionAlert resources.
-        :param pulumi.Input[_builtins.int] alert_id: System-generated identifier for the alert subscription
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[_builtins.str] description: (String) Additional comments or information about the alert subscription
-        :param pulumi.Input[_builtins.str] email: The email address of the alert recipient
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        if alert_id is not None:
-            pulumi.set(__self__, "alert_id", alert_id)
-        if comply_severities is not None:
-            pulumi.set(__self__, "comply_severities", comply_severities)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if email is not None:
-            pulumi.set(__self__, "email", email)
-        if manage_severities is not None:
-            pulumi.set(__self__, "manage_severities", manage_severities)
-        if pt0_severities is not None:
-            pulumi.set(__self__, "pt0_severities", pt0_severities)
-        if secure_severities is not None:
-            pulumi.set(__self__, "secure_severities", secure_severities)
-        if system_severities is not None:
-            pulumi.set(__self__, "system_severities", system_severities)
-
-    @_builtins.property
-    @pulumi.getter(name="alertId")
-    def alert_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        System-generated identifier for the alert subscription
-        """
-        return pulumi.get(self, "alert_id")
-
-    @alert_id.setter
-    def alert_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "alert_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="complySeverities")
-    def comply_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        return pulumi.get(self, "comply_severities")
-
-    @comply_severities.setter
-    def comply_severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "comply_severities", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) Additional comments or information about the alert subscription
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address of the alert recipient
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter(name="manageSeverities")
-    def manage_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        return pulumi.get(self, "manage_severities")
-
-    @manage_severities.setter
-    def manage_severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "manage_severities", value)
-
-    @_builtins.property
-    @pulumi.getter(name="pt0Severities")
-    def pt0_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        return pulumi.get(self, "pt0_severities")
-
-    @pt0_severities.setter
-    def pt0_severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "pt0_severities", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secureSeverities")
-    def secure_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        return pulumi.get(self, "secure_severities")
-
-    @secure_severities.setter
-    def secure_severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "secure_severities", value)
-
-    @_builtins.property
-    @pulumi.getter(name="systemSeverities")
-    def system_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
-        return pulumi.get(self, "system_severities")
-
-    @system_severities.setter
-    def system_severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "system_severities", value)
-
-
-@pulumi.type_token("zia:index/subscriptionAlert:SubscriptionAlert")
+@pulumi.type_token("zia:index:SubscriptionAlert")
 class SubscriptionAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -287,41 +123,9 @@ class SubscriptionAlert(pulumi.CustomResource):
                  system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-alert-subscriptions)
-        * [API documentation](https://help.zscaler.com/zia/alerts#/alertSubscriptions-get)
-
-        Use the **zia_subscription_alert** resource allows the creation and management of Alert Subscriptions in the Zscaler Internet Access.
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_subscription_alert** can be imported by using `<ALERT_ID>` or `<ALERT_EMAIL>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_email>
-        ```
-
+        Create a SubscriptionAlert resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[_builtins.str] description: (String) Additional comments or information about the alert subscription
-        :param pulumi.Input[_builtins.str] email: The email address of the alert recipient
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
         """
         ...
     @overload
@@ -330,32 +134,7 @@ class SubscriptionAlert(pulumi.CustomResource):
                  args: Optional[SubscriptionAlertArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-alert-subscriptions)
-        * [API documentation](https://help.zscaler.com/zia/alerts#/alertSubscriptions-get)
-
-        Use the **zia_subscription_alert** resource allows the creation and management of Alert Subscriptions in the Zscaler Internet Access.
-
-        ## Example Usage
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_subscription_alert** can be imported by using `<ALERT_ID>` or `<ALERT_EMAIL>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/subscriptionAlert:SubscriptionAlert example <alert_email>
-        ```
-
+        Create a SubscriptionAlert resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SubscriptionAlertArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,7 +175,7 @@ class SubscriptionAlert(pulumi.CustomResource):
             __props__.__dict__["system_severities"] = system_severities
             __props__.__dict__["alert_id"] = None
         super(SubscriptionAlert, __self__).__init__(
-            'zia:index/subscriptionAlert:SubscriptionAlert',
+            'zia:index:SubscriptionAlert',
             resource_name,
             __props__,
             opts)
@@ -404,15 +183,7 @@ class SubscriptionAlert(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            alert_id: Optional[pulumi.Input[_builtins.int]] = None,
-            comply_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            manage_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            pt0_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            secure_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SubscriptionAlert':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SubscriptionAlert':
         """
         Get an existing SubscriptionAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -420,90 +191,58 @@ class SubscriptionAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] alert_id: System-generated identifier for the alert subscription
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[_builtins.str] description: (String) Additional comments or information about the alert subscription
-        :param pulumi.Input[_builtins.str] email: The email address of the alert recipient
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _SubscriptionAlertState.__new__(_SubscriptionAlertState)
+        __props__ = SubscriptionAlertArgs.__new__(SubscriptionAlertArgs)
 
-        __props__.__dict__["alert_id"] = alert_id
-        __props__.__dict__["comply_severities"] = comply_severities
-        __props__.__dict__["description"] = description
-        __props__.__dict__["email"] = email
-        __props__.__dict__["manage_severities"] = manage_severities
-        __props__.__dict__["pt0_severities"] = pt0_severities
-        __props__.__dict__["secure_severities"] = secure_severities
-        __props__.__dict__["system_severities"] = system_severities
+        __props__.__dict__["alert_id"] = None
+        __props__.__dict__["comply_severities"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["email"] = None
+        __props__.__dict__["manage_severities"] = None
+        __props__.__dict__["pt0_severities"] = None
+        __props__.__dict__["secure_severities"] = None
+        __props__.__dict__["system_severities"] = None
         return SubscriptionAlert(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="alertId")
     def alert_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        System-generated identifier for the alert subscription
-        """
         return pulumi.get(self, "alert_id")
 
     @_builtins.property
     @pulumi.getter(name="complySeverities")
     def comply_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (List of String) Lists the severity levels of the Comply Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "comply_severities")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        (String) Additional comments or information about the alert subscription
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The email address of the alert recipient
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="manageSeverities")
     def manage_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (List of String) Lists the severity levels of the Manage Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "manage_severities")
 
     @_builtins.property
     @pulumi.getter(name="pt0Severities")
     def pt0_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (List of String) Lists the severity levels of the Patient 0 Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "pt0_severities")
 
     @_builtins.property
     @pulumi.getter(name="secureSeverities")
     def secure_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (List of String) Lists the severity levels of the Secure Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "secure_severities")
 
     @_builtins.property
     @pulumi.getter(name="systemSeverities")
     def system_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        (List of String) Lists the severity levels of the System Severity Alert class information that the recipient receives. Supported Values: `CRITICAL`, `MAJOR`, `MINOR`, `INFO`, `DEBUG`
-        """
         return pulumi.get(self, "system_severities")
 

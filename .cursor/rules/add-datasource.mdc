@@ -1,0 +1,73 @@
+---
+description: Workflow for adding a new ZIA data source (function/invoke) to the provider
+alwaysApply: false
+---
+
+# Adding a New Data Source
+
+## Source of Truth
+
+All data sources are backed by `github.com/zscaler/zscaler-sdk-go/v3`, vendored at
+`vendor/github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/<package>/`.
+**The SDK defines available fields and getter functions.** Always start by reading
+the SDK return types and Get/GetByName/GetAll functions.
+
+If the SDK needs updating: `go get github.com/zscaler/zscaler-sdk-go/v3@latest && go mod vendor`
+
+## Steps
+
+1. **Check the SDK**: Read the return types and getter functions in `vendor/github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/<package>/`
+2. **Create** `provider/<datasource_name>.go` with Args, Result, Function structs mapping to SDK types
+3. **Implement** `Invoke(ctx, infer.FunctionRequest[Args]) (infer.FunctionResponse[Result], error)` calling SDK getters
+3. **Add Annotate()** methods (all pointer receivers):
+   - Function: describe purpose
+   - Args: describe each lookup field
+   - Result: describe each output field
+4. **Register** in `provider/provider.go` under `WithFunctions()` (pass pointer: `&GetFoo{}`)
+5. **Build**: `make provider && make generate_schema`
+
+## Template
+
+```go
+type GetFooArgs struct {
+    Id   *int    `pulumi:"resourceId,optional"`
+    Name *string `pulumi:"name,optional"`
+}
+
+type GetFooResult struct {
+    Id   int    `pulumi:"resourceId"`
+    Name string `pulumi:"name"`
+}
+
+type GetFoo struct{}
+
+func (f *GetFoo) Annotate(a infer.Annotator) {
+    a.Describe(f, "Use this data source to look up a Foo by ID or name.")
+}
+
+func (a *GetFooArgs) Annotate(ann infer.Annotator) {
+    ann.Describe(&a.Id, "The ID of the Foo to look up.")
+    ann.Describe(&a.Name, "The name of the Foo to look up.")
+}
+
+func (r *GetFooResult) Annotate(a infer.Annotator) {
+    a.Describe(&r.Id, "The ID of the Foo.")
+    a.Describe(&r.Name, "The name of the Foo.")
+}
+
+func (*GetFoo) Invoke(ctx context.Context, req infer.FunctionRequest[GetFooArgs]) (infer.FunctionResponse[GetFooResult], error) {
+    cfg := infer.GetConfig[Config](ctx)
+    if cfg.Client() == nil {
+        return infer.FunctionResponse[GetFooResult]{}, fmt.Errorf("ZIA provider not configured")
+    }
+    svc := cfg.Client().Service
+    // ... lookup logic ...
+}
+```
+
+## Key Differences from Resources
+
+- Functions use `infer.Function(&GetFoo{})` (pointer, not value)
+- All Annotate methods use pointer receivers
+- No CRUD — only `Invoke`
+- No State struct — use Result struct

@@ -1,0 +1,63 @@
+---
+description: Core conventions for the pulumi-zia native Go provider
+globs: provider/**/*.go
+alwaysApply: false
+---
+
+# Provider Conventions
+
+## SDK Source of Truth
+
+All resources and data sources wrap `github.com/zscaler/zscaler-sdk-go/v3`, vendored at
+`vendor/github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/`. Fields and CRUD
+functions must exist in the SDK before being added to the provider.
+
+## Resource Pattern
+
+Every resource has three structs in a single file:
+
+```go
+type FooArgs struct {
+    Name *string `pulumi:"name,optional"`
+}
+
+type FooState struct {
+    FooArgs
+    ResourceId string `pulumi:"resourceId"`
+}
+
+type Foo struct{}
+```
+
+## Annotate Methods
+
+- Resource-level: **value receiver**, use `describeResource(a, &Foo{}, "...")` helper
+- Args/State-level: **pointer receiver**, use `a.Describe(&a.Field, "...")`
+- Functions: **pointer receiver** on all three (function, args, result)
+
+## Documentation in Annotate
+
+Include Hugo shortcodes for Pulumi Registry rendering:
+
+```go
+describeResource(a, &Foo{}, "Description.\n\n"+
+    "{{% examples %}}\n## Example Usage\n\n{{% example %}}\n"+
+    tripleBacktick("typescript")+"\n// code\n"+tripleBacktick("")+"\n"+
+    "{{% /example %}}\n{{% /examples %}}")
+```
+
+## Registration
+
+- Resources: `infer.Resource(Foo{})` in `provider.go` `WithResources()`
+- Functions: `infer.Function(&GetFoo{})` in `provider.go` `WithFunctions()`
+
+## Client Access
+
+```go
+cfg := infer.GetConfig[Config](ctx)
+svc := cfg.Client().Service
+```
+
+## Activation
+
+Call `triggerActivation(ctx, cfg.Client())` after CRUD if `shouldActivate()` returns true.

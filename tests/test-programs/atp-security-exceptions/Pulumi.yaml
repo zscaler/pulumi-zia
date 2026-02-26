@@ -1,0 +1,20 @@
+name: atp-security-exceptions-e2e
+runtime: yaml
+description: E2E test for zia:index:AtpSecurityExceptions resource
+
+config:
+  bypassUrls:
+    type: array
+    items:
+      type: string
+    default: [".example.com", ".test.com"]
+
+resources:
+  atpSecurityExceptions:
+    type: zia:index:AtpSecurityExceptions
+    properties:
+      bypassUrls: ${bypassUrls}
+
+outputs:
+  resourceId: ${atpSecurityExceptions.resourceId}
+  bypassUrls: ${atpSecurityExceptions.bypassUrls}

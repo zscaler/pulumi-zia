@@ -1,5 +1,52 @@
 # Changelog
 
+## 1.3.0 (February, 25 2026)
+
+### Notes
+
+- Release date: **(February, 25 2026)**
+- Supported Terraform version: **v1.x**
+
+### Internal
+
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Migrated provider from the Pulumi Terraform bridged framework to a **native Go provider** built with `pulumi-go-provider`. The provider now communicates directly with the Zscaler API via `zscaler-sdk-go/v3` without a Terraform runtime dependency. All resources, data sources, attributes, and authentication methods remain unchanged.
+
+### Enhancements
+
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added new data source `zia_datacenters` (`getDatacenters`) - Retrieves the list of Zscaler data centers with optional filtering by ID, name, or city.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Replaced Apache 2.0 license headers with MIT license across all provider and test Go files (143 files).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed `.goreleaser.yml` - replaced boilerplate references (`pulumi-provider-boilerplate`) with correct provider names (`pulumi-resource-zia`), fixed ldflags version path, removed inapplicable S3 blob upload.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed `release.yaml` - added `PROVIDER_VERSION` derivation from git tags (SDKs were being published as `1.0.0-alpha.0+dev`), fixed NuGet package path, updated Go version to 1.24, upgraded GitHub Actions to latest versions.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Improved `ci.yaml` - added provider build, schema generation, unit tests, and SDK build steps (was previously a no-op).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Disabled `upgrade.yml` workflow (`pulumi-upgrade-provider-action` is not applicable to native providers).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed Makefile `generate_schema` target referencing undefined `SCHEMA_PATH` variable (corrected to `SCHEMA_FILE`).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `CLAUDE.md` for AI-assisted development guidance (architecture, conventions, build commands, SDK source of truth).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `.cursor/rules/` with Cursor IDE rules for provider conventions, add-resource, add-datasource, and testing workflows.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `.claude/commands/` with Claude Code slash commands for add-resource, add-datasource, and release workflows.
+
+
+## 1.2.0 (February, 19 2026)
+
+### Notes
+
+- Release date: **(February, 19 2026)**
+- Supported Terraform version: **v1.x**
+
+### Enhancements
+
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56) - Added new data source and resource `zia_custom_file_types`
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56)  - Improved `zia_url_categories` resource READ function for better state refresh and rate limiting conservation.
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56)  - Added new resource `zia_workload_groups`.
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56)- Added the following new resources
+  - `zia_url_categories_predefined` - Manages predefined URL categories. See [Documentation](https://registry.terraform.io/providers/zscaler/zia/latest/docs/resources/zia_url_categories_predefined) for details.
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56) - Added new datasource resource `zia_virtual_service_edge_node` - Retrieves the Virtual Service Edge Nodes (VZEN) configured in the ZIA Admin Portal. This data source can be used to set the corresponding node when configuring the resource `zia_virtual_service_edge_cluster`.
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56) - Added the following new datasources
+  - `zia_datacenters` - Retrieves the list of Zscaler data centers (DCs) that can be excluded from service
+- [PR #56](https://github.com/zscaler/pulumi-zia/pull/56) - Added the following new datasources and resources:
+  - `zia_sub_cloud` - Manage Zscaler Sub-Clouds in ZIA
+  - `zia_extranet` - Manage Extranet configurations in ZIA
+  - `zia_dc_exclusions` - Manage Extranet configurations in ZIA
+
 ## 1.1.1 (June, 24 2025)
 
 ### Notes

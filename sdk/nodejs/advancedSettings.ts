@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/configuring-advanced-settings)
- * * [API documentation](https://help.zscaler.com/zia/advanced-settings#/advancedSettings-get)
- *
- * The **zia_advanced_settings** resource alows you to updates the advanced settings configuration in the ZIA Admin Portal. To learn more see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings)
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_advanced_settings** can be imported by using `advancedSettings` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/advancedSettings:AdvancedSettings this "advanced_settings"
- * ```
- */
 export class AdvancedSettings extends pulumi.CustomResource {
     /**
      * Get an existing AdvancedSettings resource's state with the given name, ID, and optional extra
@@ -32,15 +11,14 @@ export class AdvancedSettings extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AdvancedSettingsState, opts?: pulumi.CustomResourceOptions): AdvancedSettings {
-        return new AdvancedSettings(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdvancedSettings {
+        return new AdvancedSettings(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/advancedSettings:AdvancedSettings';
+    public static readonly __pulumiType = 'zia:index:AdvancedSettings';
 
     /**
      * Returns true if the given object is an instance of AdvancedSettings.  This is designed to work even
@@ -53,196 +31,56 @@ export class AdvancedSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdvancedSettings.__pulumiType;
     }
 
-    /**
-     * Cloud applications that are exempted from cookie authentication
-     */
-    declare public readonly authBypassApps: pulumi.Output<string[]>;
-    /**
-     * URL categories that are exempted from cookie authentication
-     */
-    declare public readonly authBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Custom URLs that are exempted from cookie authentication for users
-     */
-    declare public readonly authBypassUrls: pulumi.Output<string[]>;
-    /**
-     * Cloud applications that are exempted from Basic authentication
-     */
-    declare public readonly basicBypassApps: pulumi.Output<string[]>;
-    /**
-     * URL categories that are exempted from Basic authentication
-     */
-    declare public readonly basicBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
-     */
-    declare public readonly blockConnectHostSniMismatch: pulumi.Output<boolean>;
-    /**
-     * Applications which are subjected to Domain Fronting
-     */
-    declare public readonly blockDomainFrontingApps: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
-     */
-    declare public readonly blockDomainFrontingOnHostHeader: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
-     */
-    declare public readonly blockHttpTunnelOnNonHttpPorts: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
-     */
-    declare public readonly blockNonCompliantHttpRequestOnHttpPorts: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
-     */
-    declare public readonly blockNonHttpOnHttpPortEnabled: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
-     */
-    declare public readonly cascadeUrlFiltering: pulumi.Output<boolean>;
-    /**
-     * Cloud applications that are exempted from Digest authentication
-     */
-    declare public readonly digestAuthBypassApps: pulumi.Output<string[]>;
-    /**
-     * URL categories that are exempted from Digest authentication
-     */
-    declare public readonly digestAuthBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
-     */
-    declare public readonly digestAuthBypassUrls: pulumi.Output<string[]>;
-    /**
-     * Cloud applications to which DNS optimization on transparent proxy mode applies
-     */
-    declare public readonly dnsResolutionOnTransparentProxyApps: pulumi.Output<string[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization on transparent proxy mode
-     */
-    declare public readonly dnsResolutionOnTransparentProxyExemptApps: pulumi.Output<string[]>;
-    declare public readonly dnsResolutionOnTransparentProxyExemptUrlCategories: pulumi.Output<string[]>;
-    /**
-     * URLs that are excluded from DNS optimization on transparent proxy mode
-     */
-    declare public readonly dnsResolutionOnTransparentProxyExemptUrls: pulumi.Output<string[]>;
-    /**
-     * Cloud applications to which DNS optimization for IPv6 addresses on transparent proxy mode applies
-     */
-    declare public readonly dnsResolutionOnTransparentProxyIpv6Apps: pulumi.Output<string[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization for IPv6 addresses on transparent proxy mode
-     */
-    declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptApps: pulumi.Output<string[]>;
-    declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories: pulumi.Output<string[]>;
-    /**
-     * IPv6 URL categories to which DNS optimization on transparent proxy mode applies
-     */
-    declare public readonly dnsResolutionOnTransparentProxyIpv6UrlCategories: pulumi.Output<string[]>;
-    /**
-     * URL categories to which DNS optimization on transparent proxy mode applies
-     */
-    declare public readonly dnsResolutionOnTransparentProxyUrlCategories: pulumi.Output<string[]>;
-    /**
-     * URLs to which DNS optimization on transparent proxy mode applies
-     */
-    declare public readonly dnsResolutionOnTransparentProxyUrls: pulumi.Output<string[]>;
-    /**
-     * URL categories that are exempted from domain fronting
-     */
-    declare public readonly domainFrontingBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
-     */
-    declare public readonly dynamicUserRiskEnabled: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
-     */
-    declare public readonly ecsForAllEnabled: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
-     */
-    declare public readonly enableAdminRankAccess: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
-    declare public readonly enableDnsResolutionOnTransparentProxy: pulumi.Output<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
-    declare public readonly enableEvaluatePolicyOnGlobalSslBypass: pulumi.Output<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
-    declare public readonly enableIpv6DnsOptimizationOnAllTransparentProxy: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
-    declare public readonly enableIpv6DnsResolutionOnTransparentProxy: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
-     */
-    declare public readonly enableOffice365: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
-     */
-    declare public readonly enablePolicyForUnauthenticatedTraffic: pulumi.Output<boolean>;
-    /**
-     * Enforce Surrogate IP authentication for Windows app traffic
-     */
-    declare public readonly enforceSurrogateIpForWindowsApp: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
-     */
-    declare public readonly http2NonbrowserTrafficEnabled: pulumi.Output<boolean>;
-    /**
-     * URL categories for which HTTP range headers must be removed
-     */
-    declare public readonly httpRangeHeaderRemoveUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Cloud applications that are exempted from Kerberos authentication
-     */
-    declare public readonly kerberosBypassApps: pulumi.Output<string[]>;
-    /**
-     * URL categories that are exempted from Kerberos authentication
-     */
-    declare public readonly kerberosBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Custom URLs that are exempted from Kerberos authentication
-     */
-    declare public readonly kerberosBypassUrls: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
-     */
-    declare public readonly logInternalIp: pulumi.Output<boolean>;
-    /**
-     * Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
-     */
-    declare public readonly preferSniOverConnHost: pulumi.Output<boolean>;
-    /**
-     * Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
-    declare public readonly preferSniOverConnHostApps: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
-     */
-    declare public readonly sipaXffHeaderEnabled: pulumi.Output<boolean>;
-    /**
-     * URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
-    declare public readonly sniDnsOptimizationBypassUrlCategories: pulumi.Output<string[]>;
-    /**
-     * Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
-     */
-    declare public readonly trackHttpTunnelOnHttpPorts: pulumi.Output<boolean>;
-    /**
-     * Specifies the login session timeout for admins accessing the ZIA Admin Portal
-     */
-    declare public readonly uiSessionTimeout: pulumi.Output<number>;
-    /**
-     * Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
-     */
-    declare public readonly zscalerClientConnector1AndPacRoadWarriorInFirewall: pulumi.Output<boolean>;
+    declare public readonly authBypassApps: pulumi.Output<string[] | undefined>;
+    declare public readonly authBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly authBypassUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly basicBypassApps: pulumi.Output<string[] | undefined>;
+    declare public readonly basicBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly blockConnectHostSniMismatch: pulumi.Output<boolean | undefined>;
+    declare public readonly blockDomainFrontingApps: pulumi.Output<string[] | undefined>;
+    declare public readonly blockDomainFrontingOnHostHeader: pulumi.Output<boolean | undefined>;
+    declare public readonly blockHttpTunnelOnNonHttpPorts: pulumi.Output<boolean | undefined>;
+    declare public readonly blockNonCompliantHttpRequestOnHttpPorts: pulumi.Output<boolean | undefined>;
+    declare public readonly blockNonHttpOnHttpPortEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly cascadeUrlFiltering: pulumi.Output<boolean | undefined>;
+    declare public readonly digestAuthBypassApps: pulumi.Output<string[] | undefined>;
+    declare public readonly digestAuthBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly digestAuthBypassUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyApps: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyExemptApps: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyExemptUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyExemptUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyIpv6Apps: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptApps: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyIpv6UrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolutionOnTransparentProxyUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly domainFrontingBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly dynamicUserRiskEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly ecsForAllEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAdminRankAccess: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDnsResolutionOnTransparentProxy: pulumi.Output<boolean | undefined>;
+    declare public readonly enableEvaluatePolicyOnGlobalSslBypass: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIpv6DnsOptimizationOnAllTransparentProxy: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIpv6DnsResolutionOnTransparentProxy: pulumi.Output<boolean | undefined>;
+    declare public readonly enableOffice365: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePolicyForUnauthenticatedTraffic: pulumi.Output<boolean | undefined>;
+    declare public readonly enforceSurrogateIpForWindowsApp: pulumi.Output<boolean | undefined>;
+    declare public readonly http2NonbrowserTrafficEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly httpRangeHeaderRemoveUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly kerberosBypassApps: pulumi.Output<string[] | undefined>;
+    declare public readonly kerberosBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly kerberosBypassUrls: pulumi.Output<string[] | undefined>;
+    declare public readonly logInternalIp: pulumi.Output<boolean | undefined>;
+    declare public readonly preferSniOverConnHost: pulumi.Output<boolean | undefined>;
+    declare public readonly preferSniOverConnHostApps: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    declare public readonly sipaXffHeaderEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly sniDnsOptimizationBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    declare public readonly trackHttpTunnelOnHttpPorts: pulumi.Output<boolean | undefined>;
+    declare public readonly uiSessionTimeout: pulumi.Output<number | undefined>;
+    declare public readonly zscalerClientConnector1AndPacRoadWarriorInFirewall: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AdvancedSettings resource with the given unique name, arguments, and options.
@@ -251,63 +89,10 @@ export class AdvancedSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AdvancedSettingsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdvancedSettingsArgs | AdvancedSettingsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AdvancedSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as AdvancedSettingsState | undefined;
-            resourceInputs["authBypassApps"] = state?.authBypassApps;
-            resourceInputs["authBypassUrlCategories"] = state?.authBypassUrlCategories;
-            resourceInputs["authBypassUrls"] = state?.authBypassUrls;
-            resourceInputs["basicBypassApps"] = state?.basicBypassApps;
-            resourceInputs["basicBypassUrlCategories"] = state?.basicBypassUrlCategories;
-            resourceInputs["blockConnectHostSniMismatch"] = state?.blockConnectHostSniMismatch;
-            resourceInputs["blockDomainFrontingApps"] = state?.blockDomainFrontingApps;
-            resourceInputs["blockDomainFrontingOnHostHeader"] = state?.blockDomainFrontingOnHostHeader;
-            resourceInputs["blockHttpTunnelOnNonHttpPorts"] = state?.blockHttpTunnelOnNonHttpPorts;
-            resourceInputs["blockNonCompliantHttpRequestOnHttpPorts"] = state?.blockNonCompliantHttpRequestOnHttpPorts;
-            resourceInputs["blockNonHttpOnHttpPortEnabled"] = state?.blockNonHttpOnHttpPortEnabled;
-            resourceInputs["cascadeUrlFiltering"] = state?.cascadeUrlFiltering;
-            resourceInputs["digestAuthBypassApps"] = state?.digestAuthBypassApps;
-            resourceInputs["digestAuthBypassUrlCategories"] = state?.digestAuthBypassUrlCategories;
-            resourceInputs["digestAuthBypassUrls"] = state?.digestAuthBypassUrls;
-            resourceInputs["dnsResolutionOnTransparentProxyApps"] = state?.dnsResolutionOnTransparentProxyApps;
-            resourceInputs["dnsResolutionOnTransparentProxyExemptApps"] = state?.dnsResolutionOnTransparentProxyExemptApps;
-            resourceInputs["dnsResolutionOnTransparentProxyExemptUrlCategories"] = state?.dnsResolutionOnTransparentProxyExemptUrlCategories;
-            resourceInputs["dnsResolutionOnTransparentProxyExemptUrls"] = state?.dnsResolutionOnTransparentProxyExemptUrls;
-            resourceInputs["dnsResolutionOnTransparentProxyIpv6Apps"] = state?.dnsResolutionOnTransparentProxyIpv6Apps;
-            resourceInputs["dnsResolutionOnTransparentProxyIpv6ExemptApps"] = state?.dnsResolutionOnTransparentProxyIpv6ExemptApps;
-            resourceInputs["dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories"] = state?.dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories;
-            resourceInputs["dnsResolutionOnTransparentProxyIpv6UrlCategories"] = state?.dnsResolutionOnTransparentProxyIpv6UrlCategories;
-            resourceInputs["dnsResolutionOnTransparentProxyUrlCategories"] = state?.dnsResolutionOnTransparentProxyUrlCategories;
-            resourceInputs["dnsResolutionOnTransparentProxyUrls"] = state?.dnsResolutionOnTransparentProxyUrls;
-            resourceInputs["domainFrontingBypassUrlCategories"] = state?.domainFrontingBypassUrlCategories;
-            resourceInputs["dynamicUserRiskEnabled"] = state?.dynamicUserRiskEnabled;
-            resourceInputs["ecsForAllEnabled"] = state?.ecsForAllEnabled;
-            resourceInputs["enableAdminRankAccess"] = state?.enableAdminRankAccess;
-            resourceInputs["enableDnsResolutionOnTransparentProxy"] = state?.enableDnsResolutionOnTransparentProxy;
-            resourceInputs["enableEvaluatePolicyOnGlobalSslBypass"] = state?.enableEvaluatePolicyOnGlobalSslBypass;
-            resourceInputs["enableIpv6DnsOptimizationOnAllTransparentProxy"] = state?.enableIpv6DnsOptimizationOnAllTransparentProxy;
-            resourceInputs["enableIpv6DnsResolutionOnTransparentProxy"] = state?.enableIpv6DnsResolutionOnTransparentProxy;
-            resourceInputs["enableOffice365"] = state?.enableOffice365;
-            resourceInputs["enablePolicyForUnauthenticatedTraffic"] = state?.enablePolicyForUnauthenticatedTraffic;
-            resourceInputs["enforceSurrogateIpForWindowsApp"] = state?.enforceSurrogateIpForWindowsApp;
-            resourceInputs["http2NonbrowserTrafficEnabled"] = state?.http2NonbrowserTrafficEnabled;
-            resourceInputs["httpRangeHeaderRemoveUrlCategories"] = state?.httpRangeHeaderRemoveUrlCategories;
-            resourceInputs["kerberosBypassApps"] = state?.kerberosBypassApps;
-            resourceInputs["kerberosBypassUrlCategories"] = state?.kerberosBypassUrlCategories;
-            resourceInputs["kerberosBypassUrls"] = state?.kerberosBypassUrls;
-            resourceInputs["logInternalIp"] = state?.logInternalIp;
-            resourceInputs["preferSniOverConnHost"] = state?.preferSniOverConnHost;
-            resourceInputs["preferSniOverConnHostApps"] = state?.preferSniOverConnHostApps;
-            resourceInputs["sipaXffHeaderEnabled"] = state?.sipaXffHeaderEnabled;
-            resourceInputs["sniDnsOptimizationBypassUrlCategories"] = state?.sniDnsOptimizationBypassUrlCategories;
-            resourceInputs["trackHttpTunnelOnHttpPorts"] = state?.trackHttpTunnelOnHttpPorts;
-            resourceInputs["uiSessionTimeout"] = state?.uiSessionTimeout;
-            resourceInputs["zscalerClientConnector1AndPacRoadWarriorInFirewall"] = state?.zscalerClientConnector1AndPacRoadWarriorInFirewall;
-        } else {
-            const args = argsOrState as AdvancedSettingsArgs | undefined;
+        if (!opts.id) {
             resourceInputs["authBypassApps"] = args?.authBypassApps;
             resourceInputs["authBypassUrlCategories"] = args?.authBypassUrlCategories;
             resourceInputs["authBypassUrls"] = args?.authBypassUrls;
@@ -357,6 +142,58 @@ export class AdvancedSettings extends pulumi.CustomResource {
             resourceInputs["trackHttpTunnelOnHttpPorts"] = args?.trackHttpTunnelOnHttpPorts;
             resourceInputs["uiSessionTimeout"] = args?.uiSessionTimeout;
             resourceInputs["zscalerClientConnector1AndPacRoadWarriorInFirewall"] = args?.zscalerClientConnector1AndPacRoadWarriorInFirewall;
+            resourceInputs["resourceId"] = undefined /*out*/;
+        } else {
+            resourceInputs["authBypassApps"] = undefined /*out*/;
+            resourceInputs["authBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["authBypassUrls"] = undefined /*out*/;
+            resourceInputs["basicBypassApps"] = undefined /*out*/;
+            resourceInputs["basicBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["blockConnectHostSniMismatch"] = undefined /*out*/;
+            resourceInputs["blockDomainFrontingApps"] = undefined /*out*/;
+            resourceInputs["blockDomainFrontingOnHostHeader"] = undefined /*out*/;
+            resourceInputs["blockHttpTunnelOnNonHttpPorts"] = undefined /*out*/;
+            resourceInputs["blockNonCompliantHttpRequestOnHttpPorts"] = undefined /*out*/;
+            resourceInputs["blockNonHttpOnHttpPortEnabled"] = undefined /*out*/;
+            resourceInputs["cascadeUrlFiltering"] = undefined /*out*/;
+            resourceInputs["digestAuthBypassApps"] = undefined /*out*/;
+            resourceInputs["digestAuthBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["digestAuthBypassUrls"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyApps"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyExemptApps"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyExemptUrlCategories"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyExemptUrls"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyIpv6Apps"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyIpv6ExemptApps"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyIpv6UrlCategories"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyUrlCategories"] = undefined /*out*/;
+            resourceInputs["dnsResolutionOnTransparentProxyUrls"] = undefined /*out*/;
+            resourceInputs["domainFrontingBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["dynamicUserRiskEnabled"] = undefined /*out*/;
+            resourceInputs["ecsForAllEnabled"] = undefined /*out*/;
+            resourceInputs["enableAdminRankAccess"] = undefined /*out*/;
+            resourceInputs["enableDnsResolutionOnTransparentProxy"] = undefined /*out*/;
+            resourceInputs["enableEvaluatePolicyOnGlobalSslBypass"] = undefined /*out*/;
+            resourceInputs["enableIpv6DnsOptimizationOnAllTransparentProxy"] = undefined /*out*/;
+            resourceInputs["enableIpv6DnsResolutionOnTransparentProxy"] = undefined /*out*/;
+            resourceInputs["enableOffice365"] = undefined /*out*/;
+            resourceInputs["enablePolicyForUnauthenticatedTraffic"] = undefined /*out*/;
+            resourceInputs["enforceSurrogateIpForWindowsApp"] = undefined /*out*/;
+            resourceInputs["http2NonbrowserTrafficEnabled"] = undefined /*out*/;
+            resourceInputs["httpRangeHeaderRemoveUrlCategories"] = undefined /*out*/;
+            resourceInputs["kerberosBypassApps"] = undefined /*out*/;
+            resourceInputs["kerberosBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["kerberosBypassUrls"] = undefined /*out*/;
+            resourceInputs["logInternalIp"] = undefined /*out*/;
+            resourceInputs["preferSniOverConnHost"] = undefined /*out*/;
+            resourceInputs["preferSniOverConnHostApps"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["sipaXffHeaderEnabled"] = undefined /*out*/;
+            resourceInputs["sniDnsOptimizationBypassUrlCategories"] = undefined /*out*/;
+            resourceInputs["trackHttpTunnelOnHttpPorts"] = undefined /*out*/;
+            resourceInputs["uiSessionTimeout"] = undefined /*out*/;
+            resourceInputs["zscalerClientConnector1AndPacRoadWarriorInFirewall"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AdvancedSettings.__pulumiType, name, resourceInputs, opts);
@@ -364,393 +201,56 @@ export class AdvancedSettings extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering AdvancedSettings resources.
- */
-export interface AdvancedSettingsState {
-    /**
-     * Cloud applications that are exempted from cookie authentication
-     */
-    authBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from cookie authentication
-     */
-    authBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from cookie authentication for users
-     */
-    authBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are exempted from Basic authentication
-     */
-    basicBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Basic authentication
-     */
-    basicBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
-     */
-    blockConnectHostSniMismatch?: pulumi.Input<boolean>;
-    /**
-     * Applications which are subjected to Domain Fronting
-     */
-    blockDomainFrontingApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
-     */
-    blockDomainFrontingOnHostHeader?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
-     */
-    blockHttpTunnelOnNonHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
-     */
-    blockNonCompliantHttpRequestOnHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
-     */
-    blockNonHttpOnHttpPortEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
-     */
-    cascadeUrlFiltering?: pulumi.Input<boolean>;
-    /**
-     * Cloud applications that are exempted from Digest authentication
-     */
-    digestAuthBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Digest authentication
-     */
-    digestAuthBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
-     */
-    digestAuthBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications to which DNS optimization on transparent proxy mode applies
-     */
-    dnsResolutionOnTransparentProxyApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization on transparent proxy mode
-     */
-    dnsResolutionOnTransparentProxyExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
-    dnsResolutionOnTransparentProxyExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URLs that are excluded from DNS optimization on transparent proxy mode
-     */
-    dnsResolutionOnTransparentProxyExemptUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications to which DNS optimization for IPv6 addresses on transparent proxy mode applies
-     */
-    dnsResolutionOnTransparentProxyIpv6Apps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization for IPv6 addresses on transparent proxy mode
-     */
-    dnsResolutionOnTransparentProxyIpv6ExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
-    dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IPv6 URL categories to which DNS optimization on transparent proxy mode applies
-     */
-    dnsResolutionOnTransparentProxyIpv6UrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories to which DNS optimization on transparent proxy mode applies
-     */
-    dnsResolutionOnTransparentProxyUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URLs to which DNS optimization on transparent proxy mode applies
-     */
-    dnsResolutionOnTransparentProxyUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from domain fronting
-     */
-    domainFrontingBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
-     */
-    dynamicUserRiskEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
-     */
-    ecsForAllEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
-     */
-    enableAdminRankAccess?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
-    enableDnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
-    enableEvaluatePolicyOnGlobalSslBypass?: pulumi.Input<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
-    enableIpv6DnsOptimizationOnAllTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
-    enableIpv6DnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
-     */
-    enableOffice365?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
-     */
-    enablePolicyForUnauthenticatedTraffic?: pulumi.Input<boolean>;
-    /**
-     * Enforce Surrogate IP authentication for Windows app traffic
-     */
-    enforceSurrogateIpForWindowsApp?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
-     */
-    http2NonbrowserTrafficEnabled?: pulumi.Input<boolean>;
-    /**
-     * URL categories for which HTTP range headers must be removed
-     */
-    httpRangeHeaderRemoveUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are exempted from Kerberos authentication
-     */
-    kerberosBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Kerberos authentication
-     */
-    kerberosBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from Kerberos authentication
-     */
-    kerberosBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
-     */
-    logInternalIp?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
-     */
-    preferSniOverConnHost?: pulumi.Input<boolean>;
-    /**
-     * Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
-    preferSniOverConnHostApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
-     */
-    sipaXffHeaderEnabled?: pulumi.Input<boolean>;
-    /**
-     * URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
-    sniDnsOptimizationBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
-     */
-    trackHttpTunnelOnHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Specifies the login session timeout for admins accessing the ZIA Admin Portal
-     */
-    uiSessionTimeout?: pulumi.Input<number>;
-    /**
-     * Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
-     */
-    zscalerClientConnector1AndPacRoadWarriorInFirewall?: pulumi.Input<boolean>;
-}
-
-/**
  * The set of arguments for constructing a AdvancedSettings resource.
  */
 export interface AdvancedSettingsArgs {
-    /**
-     * Cloud applications that are exempted from cookie authentication
-     */
     authBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from cookie authentication
-     */
     authBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from cookie authentication for users
-     */
     authBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are exempted from Basic authentication
-     */
     basicBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Basic authentication
-     */
     basicBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether CONNECT host and SNI mismatch (i.e., CONNECT host doesn't match the SSL/TLS client hello SNI) is blocked or not
-     */
     blockConnectHostSniMismatch?: pulumi.Input<boolean>;
-    /**
-     * Applications which are subjected to Domain Fronting
-     */
     blockDomainFrontingApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to block or allow HTTP/S transactions in which the FQDN of the request URL is different than the FQDN of the request's host header
-     */
     blockDomainFrontingOnHostHeader?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether HTTP CONNECT method requests to non-standard ports are allowed or not (i.e., requests directed to ports other than the standard HTTP/S ports 80 and 443)
-     */
     blockHttpTunnelOnNonHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether to allow or block traffic that is not compliant with RFC HTTP protocol standards
-     */
     blockNonCompliantHttpRequestOnHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether non-HTTP Traffic on HTTP/S ports are allowed or blocked
-     */
     blockNonHttpOnHttpPortEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether to apply the URL Filtering policy even when the Cloud App Control policy already allows a transaction explicitly
-     */
     cascadeUrlFiltering?: pulumi.Input<boolean>;
-    /**
-     * Cloud applications that are exempted from Digest authentication
-     */
     digestAuthBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Digest authentication
-     */
     digestAuthBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from Digest authentication. Cloud applications that are exempted from Digest authentication
-     */
     digestAuthBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications to which DNS optimization on transparent proxy mode applies
-     */
     dnsResolutionOnTransparentProxyApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization on transparent proxy mode
-     */
     dnsResolutionOnTransparentProxyExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
     dnsResolutionOnTransparentProxyExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URLs that are excluded from DNS optimization on transparent proxy mode
-     */
     dnsResolutionOnTransparentProxyExemptUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications to which DNS optimization for IPv6 addresses on transparent proxy mode applies
-     */
     dnsResolutionOnTransparentProxyIpv6Apps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are excluded from DNS optimization for IPv6 addresses on transparent proxy mode
-     */
     dnsResolutionOnTransparentProxyIpv6ExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
     dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * IPv6 URL categories to which DNS optimization on transparent proxy mode applies
-     */
     dnsResolutionOnTransparentProxyIpv6UrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories to which DNS optimization on transparent proxy mode applies
-     */
     dnsResolutionOnTransparentProxyUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URLs to which DNS optimization on transparent proxy mode applies
-     */
     dnsResolutionOnTransparentProxyUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from domain fronting
-     */
     domainFrontingBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to dynamically update user risk score by tracking risky user activities in real time
-     */
     dynamicUserRiskEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not to include the ECS option in all DNS queries, originating from all locations and remote users.
-     */
     ecsForAllEnabled?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether ranks are enabled for admins to allow admin ranks in policy configuration and management
-     */
     enableAdminRankAccess?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for Z-Tunnel 2.0 and transparent proxy mode traffic (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
     enableDnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
     enableEvaluatePolicyOnGlobalSslBypass?: pulumi.Input<boolean>;
-    /**
-     * Enable/Disable DNS optimization for all IPv6 transparent proxy traffic
-     */
     enableIpv6DnsOptimizationOnAllTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether DNS optimization is enabled or disabled for IPv6 connections to dual-stack or IPv6-only destinations sent via Z-Tunnel 2.0 and transparent proxy proxy mode (e.g., traffic via GRE or IPSec tunnels without a PAC file).
-     */
     enableIpv6DnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether Microsoft Office 365 One Click Configuration is enabled or not
-     */
     enableOffice365?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether policies that include user and department criteria can be configured and applied for unauthenticated traffic
-     */
     enablePolicyForUnauthenticatedTraffic?: pulumi.Input<boolean>;
-    /**
-     * Enforce Surrogate IP authentication for Windows app traffic
-     */
     enforceSurrogateIpForWindowsApp?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not HTTP/2 should be the default web protocol for accessing various applications at your organizational level
-     */
     http2NonbrowserTrafficEnabled?: pulumi.Input<boolean>;
-    /**
-     * URL categories for which HTTP range headers must be removed
-     */
     httpRangeHeaderRemoveUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Cloud applications that are exempted from Kerberos authentication
-     */
     kerberosBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL categories that are exempted from Kerberos authentication
-     */
     kerberosBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Custom URLs that are exempted from Kerberos authentication
-     */
     kerberosBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to log internal IP address present in X-Forwarded-For (XFF) proxy header or not
-     */
     logInternalIp?: pulumi.Input<boolean>;
-    /**
-     * Value indicating whether or not to use the SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections
-     */
     preferSniOverConnHost?: pulumi.Input<boolean>;
-    /**
-     * Applications that are exempted from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
     preferSniOverConnHostApps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether or not to insert XFF header to all traffic forwarded from ZIA to ZPA, including source IP-anchored and ZIA-inspected ZPA application traffic.
-     */
     sipaXffHeaderEnabled?: pulumi.Input<boolean>;
-    /**
-     * URL categories that are excluded from the preferSniOverConnHost setting (i.e., prefer SSL/TLS client hello SNI for DNS resolution instead of the CONNECT host for forward proxy connections)
-     */
     sniDnsOptimizationBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Value indicating whether to apply configured policies on tunneled HTTP traffic sent via a CONNECT method request on port 80
-     */
     trackHttpTunnelOnHttpPorts?: pulumi.Input<boolean>;
-    /**
-     * Specifies the login session timeout for admins accessing the ZIA Admin Portal
-     */
     uiSessionTimeout?: pulumi.Input<number>;
-    /**
-     * Value indicating whether to apply the Firewall rules configured without a specified location criteria (or with the Road Warrior location) to remote user traffic forwarded via Z-Tunnel 1.0 or PAC files
-     */
     zscalerClientConnector1AndPacRoadWarriorInFirewall?: pulumi.Input<boolean>;
 }

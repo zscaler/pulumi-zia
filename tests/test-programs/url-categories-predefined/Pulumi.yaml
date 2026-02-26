@@ -1,0 +1,39 @@
+name: url-categories-predefined-e2e
+runtime: yaml
+description: E2E test for zia:index:UrlCategoryPredefined resource (manages predefined FINANCE category)
+
+config:
+  urls:
+    type: array
+    items:
+      type: string
+    default: [".testuniversity-acc.edu", ".testcollege-acc.org"]
+  keywords:
+    type: array
+    items:
+      type: string
+    default: ["tf-acc-finance", "tf-acc-university"]
+  ipRanges:
+    type: array
+    items:
+      type: string
+    default: ["203.0.113.0/24"]
+
+resources:
+  urlCategoryPredefined:
+    type: zia:index:UrlCategoryPredefined
+    properties:
+      name: "FINANCE"
+      urls: ${urls}
+      keywords: ${keywords}
+      ipRanges: ${ipRanges}
+
+outputs:
+  categoryId: ${urlCategoryPredefined.categoryId}
+  configuredName: ${urlCategoryPredefined.configuredName}
+  superCategory: ${urlCategoryPredefined.superCategory}
+  type: ${urlCategoryPredefined.type}
+  val: ${urlCategoryPredefined.val}
+  urls: ${urlCategoryPredefined.urls}
+  keywords: ${urlCategoryPredefined.keywords}
+  ipRanges: ${urlCategoryPredefined.ipRanges}

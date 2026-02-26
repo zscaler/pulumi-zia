@@ -19,32 +19,33 @@ __all__ = ['NssServerArgs', 'NssServer']
 @pulumi.input_type
 class NssServerArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
                  icap_svr_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NssServer resource.
-        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID
-        :param pulumi.Input[_builtins.str] name: The name of the devices to be created.
-        :param pulumi.Input[_builtins.str] status: Enables or disables the status of the NSS server
-        :param pulumi.Input[_builtins.str] type: Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
         """
+        pulumi.set(__self__, "name", name)
         if icap_svr_id is not None:
             pulumi.set(__self__, "icap_svr_id", icap_svr_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="icapSvrId")
     def icap_svr_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The ICAP server ID
-        """
         return pulumi.get(self, "icap_svr_id")
 
     @icap_svr_id.setter
@@ -53,22 +54,7 @@ class NssServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the devices to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Enables or disables the status of the NSS server
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -78,9 +64,6 @@ class NssServerArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -88,91 +71,7 @@ class NssServerArgs:
         pulumi.set(self, "type", value)
 
 
-@pulumi.input_type
-class _NssServerState:
-    def __init__(__self__, *,
-                 icap_svr_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nss_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering NssServer resources.
-        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID
-        :param pulumi.Input[_builtins.str] name: The name of the devices to be created.
-        :param pulumi.Input[_builtins.str] status: Enables or disables the status of the NSS server
-        :param pulumi.Input[_builtins.str] type: Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-        """
-        if icap_svr_id is not None:
-            pulumi.set(__self__, "icap_svr_id", icap_svr_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if nss_id is not None:
-            pulumi.set(__self__, "nss_id", nss_id)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="icapSvrId")
-    def icap_svr_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The ICAP server ID
-        """
-        return pulumi.get(self, "icap_svr_id")
-
-    @icap_svr_id.setter
-    def icap_svr_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "icap_svr_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the devices to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="nssId")
-    def nss_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "nss_id")
-
-    @nss_id.setter
-    def nss_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "nss_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Enables or disables the status of the NSS server
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "status", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.type_token("zia:index/nssServer:NssServer")
+@pulumi.type_token("zia:index:NssServer")
 class NssServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -184,94 +83,18 @@ class NssServer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-nss-servers)
-        * [API documentation](https://help.zscaler.com/zia/cloud-nanolog-streaming-service-nss#/nssServers-get)
-
-        The **zia_nss_server** resource allows the creation and management of NSS Server Objects in the Zscaler Internet Access cloud or via the API.
-        See [Adding NSS Servers](https://help.zscaler.com/zia/adding-nss-servers) for more details.
-
-        ## Example Usage
-
-        ### Type NSS_FOR_FIREWALL
-
-        ### Type NSS_FOR_WEB
-
-        resource "NssServer" "this" {
-            name = "NSSServer01"
-            status = "ENABLED"
-            type = "NSS_FOR_WEB"
-        }
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_nss_server** can be imported by using `<NSS_ID>` or `<NSS_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/nssServer:NssServer example <nss_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/nssServer:NssServer example <nss_name>
-        ```
-
+        Create a NssServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID
-        :param pulumi.Input[_builtins.str] name: The name of the devices to be created.
-        :param pulumi.Input[_builtins.str] status: Enables or disables the status of the NSS server
-        :param pulumi.Input[_builtins.str] type: Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NssServerArgs] = None,
+                 args: NssServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-nss-servers)
-        * [API documentation](https://help.zscaler.com/zia/cloud-nanolog-streaming-service-nss#/nssServers-get)
-
-        The **zia_nss_server** resource allows the creation and management of NSS Server Objects in the Zscaler Internet Access cloud or via the API.
-        See [Adding NSS Servers](https://help.zscaler.com/zia/adding-nss-servers) for more details.
-
-        ## Example Usage
-
-        ### Type NSS_FOR_FIREWALL
-
-        ### Type NSS_FOR_WEB
-
-        resource "NssServer" "this" {
-            name = "NSSServer01"
-            status = "ENABLED"
-            type = "NSS_FOR_WEB"
-        }
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_nss_server** can be imported by using `<NSS_ID>` or `<NSS_NAME>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/nssServer:NssServer example <nss_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/nssServer:NssServer example <nss_name>
-        ```
-
+        Create a NssServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NssServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,12 +124,14 @@ class NssServer(pulumi.CustomResource):
             __props__ = NssServerArgs.__new__(NssServerArgs)
 
             __props__.__dict__["icap_svr_id"] = icap_svr_id
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status
             __props__.__dict__["type"] = type
             __props__.__dict__["nss_id"] = None
         super(NssServer, __self__).__init__(
-            'zia:index/nssServer:NssServer',
+            'zia:index:NssServer',
             resource_name,
             __props__,
             opts)
@@ -314,12 +139,7 @@ class NssServer(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            icap_svr_id: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nss_id: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'NssServer':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'NssServer':
         """
         Get an existing NssServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,36 +147,26 @@ class NssServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID
-        :param pulumi.Input[_builtins.str] name: The name of the devices to be created.
-        :param pulumi.Input[_builtins.str] status: Enables or disables the status of the NSS server
-        :param pulumi.Input[_builtins.str] type: Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _NssServerState.__new__(_NssServerState)
+        __props__ = NssServerArgs.__new__(NssServerArgs)
 
-        __props__.__dict__["icap_svr_id"] = icap_svr_id
-        __props__.__dict__["name"] = name
-        __props__.__dict__["nss_id"] = nss_id
-        __props__.__dict__["status"] = status
-        __props__.__dict__["type"] = type
+        __props__.__dict__["icap_svr_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["nss_id"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
         return NssServer(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="icapSvrId")
     def icap_svr_id(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The ICAP server ID
-        """
         return pulumi.get(self, "icap_svr_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the devices to be created.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -367,16 +177,10 @@ class NssServer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Enables or disables the status of the NSS server
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Whether you are creating an NSS for web logs or firewall logs. Returned Values:  `NSS_FOR_WEB`, `NSS_FOR_FIREWALL`
-        """
         return pulumi.get(self, "type")
 

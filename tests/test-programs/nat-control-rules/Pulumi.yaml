@@ -1,0 +1,75 @@
+name: nat-control-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:NatControlRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E NAT label "
+        - ${labelName}
+  nwService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "ZSCALER_PROXY_NW_SERVICES"
+
+resources:
+  # Rule label - required for labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # NAT control rule
+  natControlRule:
+    type: zia:index:NatControlRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      state: ${state}
+      order: 3
+      redirectPort: 5000
+      redirectIp: "192.168.100.150"
+      srcIps:
+        - "192.168.100.0/24"
+        - "192.168.200.1"
+      destAddresses:
+        - "3.217.228.0-3.217.231.255"
+        - "3.235.112.0-3.235.119.255"
+        - "35.80.88.0-35.80.95.255"
+        - "server1.acme.com"
+        - "*.acme.com"
+      destCountries:
+        - "BR"
+        - "CA"
+      nwServices:
+        - ${nwService.networkServiceId}
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${natControlRule.ruleId}
+  name: ${natControlRule.name}
+  description: ${natControlRule.description}
+  state: ${natControlRule.state}
+  order: ${natControlRule.order}
+  redirectPort: ${natControlRule.redirectPort}
+  redirectIp: ${natControlRule.redirectIp}
+  labels: ${natControlRule.labels}
+  nwServices: ${natControlRule.nwServices}

@@ -6,35 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/understanding-subclouds)
- * * [API documentation](https://help.zscaler.com/legacy-apis/traffic-forwarding-0#/subclouds-get)
- *
- * Use the **zia_sub_cloud** resource to update the subcloud and excluded data centers based on the specified ID.
- *
- * > NOTE: This an Early Access feature.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_sub_cloud** can be imported by using `<SUB_CLOUD ID>` or `<SUB_CLOUD NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/subCloud:SubCloud example <sub_cloud_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/subCloud:SubCloud example <sub_cloud_name>
- * ```
- */
 export class SubCloud extends pulumi.CustomResource {
     /**
      * Get an existing SubCloud resource's state with the given name, ID, and optional extra
@@ -42,15 +13,14 @@ export class SubCloud extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubCloudState, opts?: pulumi.CustomResourceOptions): SubCloud {
-        return new SubCloud(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SubCloud {
+        return new SubCloud(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/subCloud:SubCloud';
+    public static readonly __pulumiType = 'zia:index:SubCloud';
 
     /**
      * Returns true if the given object is an instance of SubCloud.  This is designed to work even
@@ -63,22 +33,11 @@ export class SubCloud extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubCloud.__pulumiType;
     }
 
-    /**
-     * (Integer) Unique identifier for the subcloud as an integer.
-     */
     declare public readonly cloudId: pulumi.Output<number>;
-    /**
-     * Set of data centers associated with the subcloud (read-only).
-     */
-    declare public /*out*/ readonly dcs: pulumi.Output<outputs.SubCloudDc[]>;
-    /**
-     * (List) List of data centers excluded from the subcloud.
-     */
-    declare public readonly exclusions: pulumi.Output<outputs.SubCloudExclusion[] | undefined>;
-    /**
-     * (String) Datacenter name.
-     */
-    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly dcs: pulumi.Output<outputs.SubCloudDcOutput[] | undefined>;
+    declare public readonly exclusions: pulumi.Output<outputs.SubCloudExclusionInput[] | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
      * Create a SubCloud resource with the given unique name, arguments, and options.
@@ -87,25 +46,24 @@ export class SubCloud extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubCloudArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubCloudArgs | SubCloudState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubCloudArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as SubCloudState | undefined;
-            resourceInputs["cloudId"] = state?.cloudId;
-            resourceInputs["dcs"] = state?.dcs;
-            resourceInputs["exclusions"] = state?.exclusions;
-            resourceInputs["name"] = state?.name;
-        } else {
-            const args = argsOrState as SubCloudArgs | undefined;
+        if (!opts.id) {
             if (args?.cloudId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudId'");
             }
             resourceInputs["cloudId"] = args?.cloudId;
             resourceInputs["exclusions"] = args?.exclusions;
-            resourceInputs["name"] = args?.name;
             resourceInputs["dcs"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+        } else {
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["dcs"] = undefined /*out*/;
+            resourceInputs["exclusions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubCloud.__pulumiType, name, resourceInputs, opts);
@@ -113,41 +71,9 @@ export class SubCloud extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering SubCloud resources.
- */
-export interface SubCloudState {
-    /**
-     * (Integer) Unique identifier for the subcloud as an integer.
-     */
-    cloudId?: pulumi.Input<number>;
-    /**
-     * Set of data centers associated with the subcloud (read-only).
-     */
-    dcs?: pulumi.Input<pulumi.Input<inputs.SubCloudDc>[]>;
-    /**
-     * (List) List of data centers excluded from the subcloud.
-     */
-    exclusions?: pulumi.Input<pulumi.Input<inputs.SubCloudExclusion>[]>;
-    /**
-     * (String) Datacenter name.
-     */
-    name?: pulumi.Input<string>;
-}
-
-/**
  * The set of arguments for constructing a SubCloud resource.
  */
 export interface SubCloudArgs {
-    /**
-     * (Integer) Unique identifier for the subcloud as an integer.
-     */
     cloudId: pulumi.Input<number>;
-    /**
-     * (List) List of data centers excluded from the subcloud.
-     */
-    exclusions?: pulumi.Input<pulumi.Input<inputs.SubCloudExclusion>[]>;
-    /**
-     * (String) Datacenter name.
-     */
-    name?: pulumi.Input<string>;
+    exclusions?: pulumi.Input<pulumi.Input<inputs.SubCloudExclusionInputArgs>[]>;
 }

@@ -1,0 +1,108 @@
+name: atp-settings-e2e
+runtime: yaml
+description: E2E test for zia:index:AtpSettings resource
+
+config:
+  riskTolerance:
+    type: integer
+    default: 50
+  cmdCtlServerBlocked:
+    type: boolean
+    default: false
+  cmdCtlTrafficBlocked:
+    type: boolean
+    default: false
+  malwareSitesBlocked:
+    type: boolean
+    default: false
+  activexBlocked:
+    type: boolean
+    default: false
+  browserExploitsBlocked:
+    type: boolean
+    default: false
+  fileFormatVunerabilitesBlocked:
+    type: boolean
+    default: false
+  knownPhishingSitesBlocked:
+    type: boolean
+    default: false
+  suspectedPhishingSitesBlocked:
+    type: boolean
+    default: false
+  suspectAdwareSpywareSitesBlocked:
+    type: boolean
+    default: false
+  webSpamBlocked:
+    type: boolean
+    default: false
+  ircTunnellingBlocked:
+    type: boolean
+    default: false
+  anonymizerBlocked:
+    type: boolean
+    default: false
+  cookieStealingBlocked:
+    type: boolean
+    default: false
+  potentialMaliciousRequestsBlocked:
+    type: boolean
+    default: false
+  bitTorrentBlocked:
+    type: boolean
+    default: false
+  torBlocked:
+    type: boolean
+    default: false
+  googleTalkBlocked:
+    type: boolean
+    default: false
+  sshTunnellingBlocked:
+    type: boolean
+    default: false
+  cryptoMiningBlocked:
+    type: boolean
+    default: false
+  adSpywareSitesBlocked:
+    type: boolean
+    default: false
+  dgaDomainsBlocked:
+    type: boolean
+    default: false
+  alertForUnknownSuspiciousC2Traffic:
+    type: boolean
+    default: false
+
+resources:
+  atpSettings:
+    type: zia:index:AtpSettings
+    properties:
+      riskTolerance: ${riskTolerance}
+      cmdCtlServerBlocked: ${cmdCtlServerBlocked}
+      cmdCtlTrafficBlocked: ${cmdCtlTrafficBlocked}
+      malwareSitesBlocked: ${malwareSitesBlocked}
+      activexBlocked: ${activexBlocked}
+      browserExploitsBlocked: ${browserExploitsBlocked}
+      fileFormatVunerabilitesBlocked: ${fileFormatVunerabilitesBlocked}
+      knownPhishingSitesBlocked: ${knownPhishingSitesBlocked}
+      suspectedPhishingSitesBlocked: ${suspectedPhishingSitesBlocked}
+      suspectAdwareSpywareSitesBlocked: ${suspectAdwareSpywareSitesBlocked}
+      webSpamBlocked: ${webSpamBlocked}
+      ircTunnellingBlocked: ${ircTunnellingBlocked}
+      anonymizerBlocked: ${anonymizerBlocked}
+      cookieStealingBlocked: ${cookieStealingBlocked}
+      potentialMaliciousRequestsBlocked: ${potentialMaliciousRequestsBlocked}
+      bitTorrentBlocked: ${bitTorrentBlocked}
+      torBlocked: ${torBlocked}
+      googleTalkBlocked: ${googleTalkBlocked}
+      sshTunnellingBlocked: ${sshTunnellingBlocked}
+      cryptoMiningBlocked: ${cryptoMiningBlocked}
+      adSpywareSitesBlocked: ${adSpywareSitesBlocked}
+      dgaDomainsBlocked: ${dgaDomainsBlocked}
+      alertForUnknownSuspiciousC2Traffic: ${alertForUnknownSuspiciousC2Traffic}
+
+outputs:
+  resourceId: ${atpSettings.resourceId}
+  riskTolerance: ${atpSettings.riskTolerance}
+  cmdCtlServerBlocked: ${atpSettings.cmdCtlServerBlocked}
+  malwareSitesBlocked: ${atpSettings.malwareSitesBlocked}

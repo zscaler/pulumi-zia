@@ -1,0 +1,29 @@
+name: traffic-forwarding-vpn-credentials-e2e
+runtime: yaml
+description: E2E test for zia:index:TrafficForwardingVpnCredentials resource (UFQDN type)
+
+config:
+  fqdn:
+    type: string
+    default: ""
+  preSharedKey:
+    type: string
+    default: ""
+  comments:
+    type: string
+    default: ""
+
+resources:
+  vpnCredentials:
+    type: zia:index:TrafficForwardingVpnCredentials
+    properties:
+      type: "UFQDN"
+      fqdn: ${fqdn}
+      preSharedKey: ${preSharedKey}
+      comments: ${comments}
+
+outputs:
+  vpnId: ${vpnCredentials.vpnId}
+  type: ${vpnCredentials.type}
+  fqdn: ${vpnCredentials.fqdn}
+  comments: ${vpnCredentials.comments}

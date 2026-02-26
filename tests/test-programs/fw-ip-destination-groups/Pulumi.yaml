@@ -1,0 +1,33 @@
+name: fw-ip-destination-groups-e2e
+runtime: yaml
+description: E2E test for zia:index:FwIpDestinationGroup resource
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+  type:
+    type: string
+    default: "DSTN_FQDN"
+
+resources:
+  fwIpDestinationGroup:
+    type: zia:index:FwIpDestinationGroup
+    properties:
+      name: ${name}
+      description: ${description}
+      type: ${type}
+      addresses:
+        - "test1.acme.com"
+        - "test2.acme.com"
+        - "test3.acme.com"
+
+outputs:
+  groupId: ${fwIpDestinationGroup.groupId}
+  name: ${fwIpDestinationGroup.name}
+  description: ${fwIpDestinationGroup.description}
+  type: ${fwIpDestinationGroup.type}
+  addresses: ${fwIpDestinationGroup.addresses}

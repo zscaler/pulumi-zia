@@ -1,0 +1,76 @@
+name: file-type-control-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:FileTypeControlRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "testAcc_firewall_dns_rule"
+  filteringAction:
+    type: string
+    default: "ALLOW"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E file type label "
+        - ${labelName}
+
+resources:
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  fileTypeControlRule:
+    type: zia:index:FileTypeControlRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      filteringAction: ${filteringAction}
+      state: ${state}
+      order: 1
+      rank: 7
+      operation: "DOWNLOAD"
+      activeContent: true
+      unscannable: false
+      deviceTrustLevels:
+        - "UNKNOWN_DEVICETRUSTLEVEL"
+        - "LOW_TRUST"
+        - "MEDIUM_TRUST"
+        - "HIGH_TRUST"
+      fileTypes:
+        - "FTCATEGORY_MS_WORD"
+        - "FTCATEGORY_MS_POWERPOINT"
+        - "FTCATEGORY_PDF_DOCUMENT"
+        - "FTCATEGORY_MS_EXCEL"
+      protocols:
+        - "FOHTTP_RULE"
+        - "FTP_RULE"
+        - "HTTPS_RULE"
+        - "HTTP_RULE"
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${fileTypeControlRule.ruleId}
+  name: ${fileTypeControlRule.name}
+  description: ${fileTypeControlRule.description}
+  filteringAction: ${fileTypeControlRule.filteringAction}
+  state: ${fileTypeControlRule.state}
+  order: ${fileTypeControlRule.order}
+  deviceTrustLevels: ${fileTypeControlRule.deviceTrustLevels}
+  fileTypes: ${fileTypeControlRule.fileTypes}
+  protocols: ${fileTypeControlRule.protocols}
+  labels: ${fileTypeControlRule.labels}

@@ -1,0 +1,36 @@
+name: fw-network-application-groups-e2e
+runtime: yaml
+description: E2E test for zia:index:FwNetworkApplicationGroup resource
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+
+resources:
+  fwNetworkApplicationGroup:
+    type: zia:index:FwNetworkApplicationGroup
+    properties:
+      name: ${name}
+      description: ${description}
+      networkApplications:
+        - "YAMMER"
+        - "OFFICE365"
+        - "SKYPE_FOR_BUSINESS"
+        - "OUTLOOK"
+        - "SHAREPOINT"
+        - "SHAREPOINT_ADMIN"
+        - "SHAREPOINT_BLOG"
+        - "SHAREPOINT_CALENDAR"
+        - "SHAREPOINT_DOCUMENT"
+        - "SHAREPOINT_ONLINE"
+        - "ONEDRIVE"
+
+outputs:
+  appId: ${fwNetworkApplicationGroup.appId}
+  name: ${fwNetworkApplicationGroup.name}
+  description: ${fwNetworkApplicationGroup.description}
+  networkApplications: ${fwNetworkApplicationGroup.networkApplications}

@@ -1,138 +1,245 @@
+PROJECT_NAME := Pulumi ZIA Provider
+
 PACK             := zia
-ORG              := zscaler
-PROJECT          := github.com/${ORG}/pulumi-${PACK}
-NODE_MODULE_NAME := @bdzscaler/${PACK}
-TF_NAME          := ${PACK}
-PROVIDER_PATH    := provider
-VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
-JAVA_GEN         := pulumi-java-gen
-JAVA_GEN_VERSION := v0.9.4
-PLUGIN_PATH      := ${HOME}/.pulumi/plugins/
+PACKDIR          := sdk
+PROJECT          := github.com/zscaler/pulumi-zia
+NODE_MODULE_NAME := @pulumi/zia
+NUGET_PKG_NAME   := Pulumi.Zia
 
-TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
-VERSION         := $(shell pulumictl get version)
+PROVIDER_PATH   := provider
+VERSION_PATH    := ${PROVIDER_PATH}/version.Version
 
-TESTPARALLELISM := 10
+PULUMI          := pulumi
+
+SCHEMA_FILE     := provider/cmd/pulumi-resource-zia/schema.json
+export GOPATH   := $(shell go env GOPATH)
 
 WORKING_DIR     := $(shell pwd)
+TESTPARALLELISM := 4
 
-.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python
+prepare:
+	@if test -z "${NAME}"; then echo "NAME not set"; exit 1; fi
+	@if test -z "${REPOSITORY}"; then echo "REPOSITORY not set"; exit 1; fi
+	@if test -z "${ORG}"; then echo "ORG not set"; exit 1; fi
+	@if test ! -d "provider/cmd/pulumi-resource-provider-boilerplate"; then "Project already prepared"; exit 1; fi # SED_SKIP
 
-development:: install_plugins provider lint_provider build_sdks build_java # Build the provider & SDKs for a development environment
+	# SED needs to not fail when encountering unicode characters
+	LC_CTYPE=C 
+	LANG=C
 
-# Required for the codegen action that runs in pulumi/pulumi and pulumi/pulumi-terraform-bridge
-build:: install_plugins provider build_sdks install_sdks
-only_build:: build
+	mv "provider/cmd/pulumi-resource-provider-boilerplate" provider/cmd/pulumi-resource-${NAME} # SED_SKIP
+	
+	# In MacOS the -i parameter needs an empty  to execute in place.
+	if [[ "${OS}" == "Darwin" ]]; then \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '' '/SED_SKIP/!s,github.com/pulumi/pulumi-[x]yz,${REPOSITORY},g' {} \; ; \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '' '/SED_SKIP/!s/[xX]yz/${NAME}/g' {} \; ; \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '' '/SED_SKIP/!s/[aA]bc/${ORG}/g' {} \; ; \
+	else \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '/SED_SKIP/!s,github.com/pulumi/pulumi-[x]yz,${REPOSITORY},g' {} \; ; \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '/SED_SKIP/!s/[xX]yz/${NAME}/g' {} \; ; \
+		find . \( -path './.git' -o -path './sdk' \) -prune -o -not -name 'go.sum' -type f -exec sed -i '/SED_SKIP/!s/[aA]bc/${ORG}/g' {} \; ; \
+	fi
 
-tfgen:: install_plugins
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/${TFGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${TFGEN})
-	$(WORKING_DIR)/bin/${TFGEN} schema --skip-examples --out provider/cmd/${PROVIDER}
-	(cd provider && VERSION=$(VERSION) go generate cmd/${PROVIDER}/main.go)
+# Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
+# Local & branch builds will just used this fixed default version unless specified
+PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
+# Use this normalised version everywhere rather than the raw input to ensure consistency.
+VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 
-provider:: tfgen install_plugins # build the provider binary
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
+# Need to pick up locally pinned pulumi-langage-* plugins.
+export PULUMI_IGNORE_AMBIENT_PLUGINS = true
 
-build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet # build_java  # build all the sdks
+ensure::
+	go mod tidy
 
-build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
-build_nodejs:: install_plugins tfgen # build the node sdk
-	$(WORKING_DIR)/bin/$(TFGEN) nodejs --skip-examples --overlays provider/overlays/nodejs --out sdk/nodejs/
-	cd sdk/nodejs/ && \
-        yarn install && \
-        yarn run tsc && \
-        cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-    	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+$(SCHEMA_FILE): provider
+	$(PULUMI) package get-schema $(WORKING_DIR)/bin/${PROVIDER} | \
+		jq 'del(.version)' > $(SCHEMA_FILE)
 
-build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
-build_python:: install_plugins tfgen # build the python sdk
-	$(WORKING_DIR)/bin/$(TFGEN) python --skip-examples --overlays provider/overlays/python --out sdk/python/
-	cd sdk/python/ && \
-        cp ../../README.md . && \
-        python3 setup.py clean --all 2>/dev/null && \
-        rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
-        rm ./bin/setup.py.bak && \
-        cd ./bin && python3 setup.py build sdist
+# Codegen generates the schema file and *generates* all sdks. This is a local process and
+# does not require the ability to build all SDKs.
+#
+# To build the SDKs, use `make build_sdks`
+#
+# Required by CI (weekly-pulumi-update)
+codegen: $(SCHEMA_FILE) sdk/dotnet sdk/go sdk/nodejs sdk/python sdk/java
 
-build_go:: install_plugins tfgen # build the go sdk
-	$(WORKING_DIR)/bin/$(TFGEN) go --skip-examples --overlays provider/overlays/go --out sdk/go/
+.PHONY: sdk/%
+sdk/%: $(SCHEMA_FILE)
+	rm -rf $@
+	$(PULUMI) package gen-sdk --language $* $(SCHEMA_FILE) --version "${VERSION_GENERIC}"
 
-build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
-build_dotnet:: install_plugins tfgen
-	pulumictl get version --language dotnet
+sdk/java: $(SCHEMA_FILE)
+	rm -rf $@
+	$(PULUMI) package gen-sdk --language java $(SCHEMA_FILE)
 
-	mkdir -p provider/cmd/$(PROVIDER)
-	$(WORKING_DIR)/bin/$(TFGEN) schema --skip-examples --out provider/cmd/$(PROVIDER)
+sdk/python: $(SCHEMA_FILE)
+	rm -rf $@
+	$(PULUMI) package gen-sdk --language python $(SCHEMA_FILE) --version "${VERSION_GENERIC}"
+	cp README.md ${PACKDIR}/python/
 
-	pulumi package gen-sdk \
-		--language dotnet \
-		--out sdk/dotnet \
-		provider/cmd/$(PROVIDER)/schema.json
+sdk/dotnet: $(SCHEMA_FILE)
+	rm -rf $@
+	$(PULUMI) package gen-sdk --language dotnet $(SCHEMA_FILE) --version "${VERSION_GENERIC}"
 
-	# Step 3: Build the dotnet package
-	cd sdk/dotnet/dotnet && \
-		echo "$(DOTNET_VERSION)" > version.txt && \
-		dotnet build /p:Version=$(DOTNET_VERSION)
 
-build_go:: install_plugins tfgen # build the go sdk
-	$(WORKING_DIR)/bin/$(TFGEN) go --skip-examples --overlays provider/overlays/go --out sdk/go/
+sdk/go: ${SCHEMA_FILE}
+	rm -rf $@
+	$(PULUMI) package gen-sdk --language go ${SCHEMA_FILE} --version "${VERSION_GENERIC}"
+	@if [ -d ${PACKDIR}/go/pulumi-resource-${PACK} ]; then mv ${PACKDIR}/go/pulumi-resource-${PACK} ${PACKDIR}/go/pulumi-${PACK}; fi
+	cp provider/go.mod ${PACKDIR}/go/pulumi-${PACK}/go.mod
+	cd ${PACKDIR}/go/pulumi-${PACK} && \
+		go mod edit -module=$(PROJECT)/${PACKDIR}/go/pulumi-${PACK} && \
+		go mod tidy
 
-build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
-build_java:: bin/pulumi-java-gen
-	$(PLUGIN_PATH)/language-java-$(JAVA_GEN_VERSION)/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
+.PHONY: provider
+provider: bin/${PROVIDER} bin/pulumi-gen-${PACK} # Required by CI
+
+bin/${PROVIDER}:
+	cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION_GENERIC}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER)
+
+.PHONY: provider_debug
+provider_debug:
+	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -gcflags="all=-N -l" -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION_GENERIC}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
+
+test_provider:
+	cd tests && go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM} -coverprofile="coverage.txt" ./...
+
+dotnet_sdk: sdk/dotnet
+	cd ${PACKDIR}/dotnet/&& \
+		echo "${VERSION_GENERIC}" > version.txt && \
+		dotnet build
+
+go_sdk:	sdk/go
+
+nodejs_sdk: sdk/nodejs
+	cd ${PACKDIR}/nodejs/ && \
+		yarn install && \
+		yarn run tsc
+	cp README.md LICENSE ${PACKDIR}/nodejs/package.json ${PACKDIR}/nodejs/yarn.lock ${PACKDIR}/nodejs/bin/
+
+python_sdk: sdk/python
+	cp README.md ${PACKDIR}/python/
+	cd ${PACKDIR}/python/ && \
+		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+		python3 -m venv venv && \
+		./venv/bin/python -m pip install build && \
+		cd ./bin && \
+		../venv/bin/python -m build .
+
+java_sdk:: PACKAGE_VERSION := $(VERSION_GENERIC)
+java_sdk:: sdk/java
 	cd sdk/java/ && \
-		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
 
-bin/pulumi-java-gen:: 
-	$(pulumi plugin install language java ${JAVA_GEN_VERSION})
+.PHONY: build
+build:: provider build_sdks
 
-lint_provider:: provider # lint the provider code
-	cd provider && golangci-lint run -c ../.golangci.yml
+.PHONY: build_sdks
+build_sdks: dotnet_sdk go_sdk nodejs_sdk python_sdk java_sdk
 
-cleanup:: # cleans up the temporary directory
-	rm -r $(WORKING_DIR)/bin
-	rm -f provider/cmd/${PROVIDER}/schema.go
+# Required for the codegen action that runs in pulumi/pulumi
+only_build:: build
 
-help::
-	@grep '^[^.#]\+:\s\+.*#' Makefile | \
- 	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
- 	expand -t20
+lint:
+	golangci-lint --path-prefix provider --config .golangci.yml run --fix
 
-clean::
-	rm -rf sdk/{dotnet,nodejs,go,python}
 
-install_plugins::
-	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource random 4.8.2
-	pulumi plugin install resource aws 5.11.0
+install:: install_nodejs_sdk install_dotnet_sdk
+	cp $(WORKING_DIR)/bin/${PROVIDER} ${GOPATH}/bin
+
+
+GO_TEST := go test -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
+
+test_all:: test
+	cd provider/pkg && $(GO_TEST) ./...
+	cd tests/sdk/nodejs && $(GO_TEST) ./...
+	cd tests/sdk/python && $(GO_TEST) ./...
+	cd tests/sdk/dotnet && $(GO_TEST) ./...
+	cd tests/sdk/go && $(GO_TEST) ./...
 
 install_dotnet_sdk::
+	rm -rf $(WORKING_DIR)/nuget/$(NUGET_PKG_NAME).*.nupkg
 	mkdir -p $(WORKING_DIR)/nuget
 	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
 install_python_sdk::
+	#target intentionally blank
 
 install_go_sdk::
-
-install_nodejs_sdk::
-	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
+	#target intentionally blank
 
 install_java_sdk::
+	#target intentionally blank
 
-install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+install_nodejs_sdk::
+	-yarn unlink --cwd $(WORKING_DIR)/sdk/nodejs/bin
+	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-test::
-	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
+test:: test_provider
+	cd examples && go test -v -tags=all -timeout 2h
 
-.PHONY: check-dirty
-check-dirty: tfgen build_sdks ## Verifies that source tree is not dirty
-	@git add .
-	@if test -n "`git status --porcelain`"; then echo "Source tree is dirty"; git status; exit 1 ; fi
-	@git add .
+# Set these variables to enable signing of the windows binary
+AZURE_SIGNING_CLIENT_ID ?=
+AZURE_SIGNING_CLIENT_SECRET ?=
+AZURE_SIGNING_TENANT_ID ?=
+AZURE_SIGNING_KEY_VAULT_URI ?=
+SKIP_SIGNING ?=
 
+bin/jsign-6.0.jar:
+	mkdir -p bin
+	wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar --output-document=bin/jsign-6.0.jar
 
-release-notes:
-	mkdir -p $(ARTIFACTS)
-	@ARTIFACTS=$(ARTIFACTS) ./hack/release.sh $@ $(ARTIFACTS)/RELEASE_NOTES.md $(TAG)
+sign-goreleaser-exe-amd64: GORELEASER_ARCH := amd64_v1
+sign-goreleaser-exe-arm64: GORELEASER_ARCH := arm64
+
+# Set the shell to bash to allow for the use of bash syntax.
+sign-goreleaser-exe-%: SHELL:=/bin/bash
+sign-goreleaser-exe-%: bin/jsign-6.0.jar
+	SKIP_SIGNING=${SKIP_SIGNING} \
+	AZURE_SIGNING_CLIENT_ID=${AZURE_SIGNING_CLIENT_ID} \
+	AZURE_SIGNING_CLIENT_SECRET=${AZURE_SIGNING_CLIENT_SECRET} \
+	AZURE_SIGNING_TENANT_ID=${AZURE_SIGNING_TENANT_ID} \
+	AZURE_SIGNING_KEY_VAULT_URI=${AZURE_SIGNING_KEY_VAULT_URI} \
+	GORELEASER_ARCH=${GORELEASER_ARCH} \
+	CI=${CI} \
+		scripts/sign-windows-binary.sh
+
+# To make an immediately observable change to .ci-mgmt.yaml:
+#
+# - Edit .ci-mgmt.yaml
+# - Run make ci-mgmt to apply the change locally.
+#
+ci-mgmt: .ci-mgmt.yaml
+	go run github.com/pulumi/ci-mgmt/provider-ci@master generate
+.PHONY: ci-mgmt
+
+.PHONY:local_generate
+local_generate: # Required by CI
+
+.PHONY: generate_schema
+generate_schema: ${SCHEMA_FILE} # Required by CI
+
+.PHONY: build_go install_go_sdk
+generate_go: sdk/go # Required by CI
+build_go: generate_go # Required by CI
+
+.PHONY: build_java install_java_sdk
+generate_java: sdk/java # Required by CI
+build_java: java_sdk # Required by CI
+
+.PHONY: build_python install_python_sdk
+generate_python: sdk/python # Required by CI
+build_python: python_sdk # Required by CI
+
+.PHONY: build_nodejs install_nodejs_sdk
+generate_nodejs: sdk/nodejs # Required by CI
+build_nodejs: nodejs_sdk # Required by CI
+
+.PHONY: build_dotnet install_dotnet_sdk
+generate_dotnet: sdk/dotnet # Required by CI
+build_dotnet: dotnet_sdk # Required by CI
+
+bin/pulumi-gen-${PACK}: # Required by CI
+	touch bin/pulumi-gen-${PACK}

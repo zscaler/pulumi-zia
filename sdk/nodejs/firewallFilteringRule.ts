@@ -6,59 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
- * * [API documentation](https://help.zscaler.com/zia/firewall-policies#/firewallFilteringRules-post)
- *
- * The **zia_firewall_filtering_rule** resource allows the creation and management of ZIA Cloud Firewall filtering rules in the Zscaler Internet Access.
- *
- * **NOTE 1** Zscaler Cloud Firewall contain default and predefined rules which cannot be deleted (not all attributes are supported on predefined rules). The provider **automatically handles predefined rules** during rule ordering. You can simply use sequential order values (1, 2, 3...) and the provider will:
- *
- * * Automatically place new rules at the correct position
- * * Handle reordering around predefined rules
- * * Avoid configuration drift
- *
- * Example: If there are predefined rules in your tenant, you can still configure your rules starting at `order = 1`. The provider will automatically handle the reordering to place your rules in the correct position relative to predefined rules.
- *
- * **NOTE 2** Certain attributes on `predefined` rules can still be managed or updated via Terraform such as:
- *
- * * `description` - (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
- * * `state` - (Optional) An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
- * * `order` - (Optional) Rule order number of the Firewall Filtering policy rule
- *
- * * `labels` (list) - Labels that are applicable to the rule.
- *     * `id` - (Integer) Identifier that uniquely identifies an entity
- *
- * **NOTE 3** The following attributes on `predefined` rules **cannot** be updated:
- *
- * * `name` - Name of the Firewall Filtering policy rule
- * * `action` - The action the Firewall Filtering policy rule takes when packets match the rule. Supported Values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`
- * * `rank` - (Integer) By default, the admin ranking is disabled. To use this feature, you must enable admin rank in UI first. The default value is `7`. Visit to learn more [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank)
- * * Most other attributes that define the rule's behavior
- *
- * **NOTE 4** The import of `predefined` rules is still possible in case you want o have them under the Terraform management; however, remember that these rules cannot be deleted. That means, the provider will fail when executing `terraform destroy`; hence, you must remove the rules you want to delete, and re-run `pulumi up` instead.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_firewall_filtering_rule** can be imported by using `<RULE ID>` or `<RULE NAME>` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_id>
- * ```
- *
- * or
- *
- * ```sh
- * $ pulumi import zia:index/firewallFilteringRule:FirewallFilteringRule example <rule_name>
- * ```
- */
 export class FirewallFilteringRule extends pulumi.CustomResource {
     /**
      * Get an existing FirewallFilteringRule resource's state with the given name, ID, and optional extra
@@ -66,15 +13,14 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FirewallFilteringRuleState, opts?: pulumi.CustomResourceOptions): FirewallFilteringRule {
-        return new FirewallFilteringRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallFilteringRule {
+        return new FirewallFilteringRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/firewallFilteringRule:FirewallFilteringRule';
+    public static readonly __pulumiType = 'zia:index:FirewallFilteringRule';
 
     /**
      * Returns true if the given object is an instance of FirewallFilteringRule.  This is designed to work even
@@ -87,135 +33,42 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringRule.__pulumiType;
     }
 
-    /**
-     * The action the Firewall Filtering policy rule takes when packets match the rule
-     */
     declare public readonly action: pulumi.Output<string | undefined>;
-    /**
-     * list of application service groups
-     */
-    declare public readonly appServiceGroups: pulumi.Output<outputs.FirewallFilteringRuleAppServiceGroups | undefined>;
-    /**
-     * list of application services
-     */
-    declare public readonly appServices: pulumi.Output<outputs.FirewallFilteringRuleAppServices | undefined>;
-    /**
-     * If set to true, the default rule is applied
-     */
+    declare public readonly appServiceGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly appServices: pulumi.Output<number[] | undefined>;
     declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
-    /**
-     * list of departments for which rule must be applied
-     */
-    declare public readonly departments: pulumi.Output<outputs.FirewallFilteringRuleDepartments | undefined>;
-    /**
-     * Additional information about the rule
-     */
+    declare public readonly departments: pulumi.Output<number[] | undefined>;
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-     */
     declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
-    declare public readonly destCountries: pulumi.Output<string[]>;
+    declare public readonly destCountries: pulumi.Output<string[] | undefined>;
     declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
-    /**
-     * list of destination ip groups
-     */
-    declare public readonly destIpGroups: pulumi.Output<outputs.FirewallFilteringRuleDestIpGroups | undefined>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    declare public readonly deviceGroups: pulumi.Output<outputs.FirewallFilteringRuleDeviceGroups | undefined>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
+    declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    declare public readonly devices: pulumi.Output<outputs.FirewallFilteringRuleDevices | undefined>;
+    declare public readonly devices: pulumi.Output<number[] | undefined>;
     declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
     declare public readonly excludeSrcCountries: pulumi.Output<boolean | undefined>;
-    /**
-     * list of groups for which rule must be applied
-     */
-    declare public readonly groups: pulumi.Output<outputs.FirewallFilteringRuleGroups | undefined>;
-    /**
-     * list of Labels that are applicable to the rule.
-     */
-    declare public readonly labels: pulumi.Output<outputs.FirewallFilteringRuleLabels | undefined>;
-    /**
-     * list of locations groups
-     */
-    declare public readonly locationGroups: pulumi.Output<outputs.FirewallFilteringRuleLocationGroups | undefined>;
-    /**
-     * list of locations for which rule must be applied
-     */
-    declare public readonly locations: pulumi.Output<outputs.FirewallFilteringRuleLocations | undefined>;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
+    declare public readonly groups: pulumi.Output<number[] | undefined>;
+    declare public readonly labels: pulumi.Output<number[] | undefined>;
+    declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly locations: pulumi.Output<number[] | undefined>;
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * list of nw application groups
-     */
-    declare public readonly nwApplicationGroups: pulumi.Output<outputs.FirewallFilteringRuleNwApplicationGroups | undefined>;
+    declare public readonly nwApplicationGroups: pulumi.Output<number[] | undefined>;
     declare public readonly nwApplications: pulumi.Output<string[] | undefined>;
-    /**
-     * list of nw service groups
-     */
-    declare public readonly nwServiceGroups: pulumi.Output<outputs.FirewallFilteringRuleNwServiceGroups | undefined>;
-    /**
-     * list of nw services
-     */
-    declare public readonly nwServices: pulumi.Output<outputs.FirewallFilteringRuleNwServices | undefined>;
-    /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
-     */
+    declare public readonly nwServiceGroups: pulumi.Output<number[] | undefined>;
+    declare public readonly nwServices: pulumi.Output<number[] | undefined>;
     declare public readonly order: pulumi.Output<number>;
-    /**
-     * If set to true, a predefined rule is applied
-     */
     declare public readonly predefined: pulumi.Output<boolean | undefined>;
-    /**
-     * Admin rank of the Firewall Filtering policy rule
-     */
     declare public readonly rank: pulumi.Output<number | undefined>;
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
-    declare public readonly sourceCountries: pulumi.Output<string[]>;
-    /**
-     * list of source ip groups
-     */
-    declare public readonly srcIpGroups: pulumi.Output<outputs.FirewallFilteringRuleSrcIpGroups | undefined>;
-    /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-     */
+    declare public readonly sourceCountries: pulumi.Output<string[] | undefined>;
+    declare public readonly srcIpGroups: pulumi.Output<number[] | undefined>;
     declare public readonly srcIps: pulumi.Output<string[] | undefined>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
     declare public readonly state: pulumi.Output<string | undefined>;
-    /**
-     * The time interval in which the Firewall Filtering policy rule applies
-     */
-    declare public readonly timeWindows: pulumi.Output<outputs.FirewallFilteringRuleTimeWindows | undefined>;
-    /**
-     * list of users for which rule must be applied
-     */
-    declare public readonly users: pulumi.Output<outputs.FirewallFilteringRuleUsers | undefined>;
-    /**
-     * The list of preconfigured workload groups to which the policy must be applied
-     */
-    declare public readonly workloadGroups: pulumi.Output<outputs.FirewallFilteringRuleWorkloadGroup[]>;
-    /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-     */
-    declare public readonly zpaAppSegments: pulumi.Output<outputs.FirewallFilteringRuleZpaAppSegment[]>;
+    declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    declare public readonly users: pulumi.Output<number[] | undefined>;
+    declare public readonly workloadGroups: pulumi.Output<outputs.WorkloadGroupInput[] | undefined>;
+    declare public readonly zpaAppSegments: pulumi.Output<outputs.ZPAAppSegmentInput[] | undefined>;
 
     /**
      * Create a FirewallFilteringRule resource with the given unique name, arguments, and options.
@@ -224,50 +77,13 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FirewallFilteringRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FirewallFilteringRuleArgs | FirewallFilteringRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FirewallFilteringRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as FirewallFilteringRuleState | undefined;
-            resourceInputs["action"] = state?.action;
-            resourceInputs["appServiceGroups"] = state?.appServiceGroups;
-            resourceInputs["appServices"] = state?.appServices;
-            resourceInputs["defaultRule"] = state?.defaultRule;
-            resourceInputs["departments"] = state?.departments;
-            resourceInputs["description"] = state?.description;
-            resourceInputs["destAddresses"] = state?.destAddresses;
-            resourceInputs["destCountries"] = state?.destCountries;
-            resourceInputs["destIpCategories"] = state?.destIpCategories;
-            resourceInputs["destIpGroups"] = state?.destIpGroups;
-            resourceInputs["deviceGroups"] = state?.deviceGroups;
-            resourceInputs["deviceTrustLevels"] = state?.deviceTrustLevels;
-            resourceInputs["devices"] = state?.devices;
-            resourceInputs["enableFullLogging"] = state?.enableFullLogging;
-            resourceInputs["excludeSrcCountries"] = state?.excludeSrcCountries;
-            resourceInputs["groups"] = state?.groups;
-            resourceInputs["labels"] = state?.labels;
-            resourceInputs["locationGroups"] = state?.locationGroups;
-            resourceInputs["locations"] = state?.locations;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["nwApplicationGroups"] = state?.nwApplicationGroups;
-            resourceInputs["nwApplications"] = state?.nwApplications;
-            resourceInputs["nwServiceGroups"] = state?.nwServiceGroups;
-            resourceInputs["nwServices"] = state?.nwServices;
-            resourceInputs["order"] = state?.order;
-            resourceInputs["predefined"] = state?.predefined;
-            resourceInputs["rank"] = state?.rank;
-            resourceInputs["ruleId"] = state?.ruleId;
-            resourceInputs["sourceCountries"] = state?.sourceCountries;
-            resourceInputs["srcIpGroups"] = state?.srcIpGroups;
-            resourceInputs["srcIps"] = state?.srcIps;
-            resourceInputs["state"] = state?.state;
-            resourceInputs["timeWindows"] = state?.timeWindows;
-            resourceInputs["users"] = state?.users;
-            resourceInputs["workloadGroups"] = state?.workloadGroups;
-            resourceInputs["zpaAppSegments"] = state?.zpaAppSegments;
-        } else {
-            const args = argsOrState as FirewallFilteringRuleArgs | undefined;
+        if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
@@ -307,6 +123,43 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
             resourceInputs["workloadGroups"] = args?.workloadGroups;
             resourceInputs["zpaAppSegments"] = args?.zpaAppSegments;
             resourceInputs["ruleId"] = undefined /*out*/;
+        } else {
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["appServiceGroups"] = undefined /*out*/;
+            resourceInputs["appServices"] = undefined /*out*/;
+            resourceInputs["defaultRule"] = undefined /*out*/;
+            resourceInputs["departments"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destAddresses"] = undefined /*out*/;
+            resourceInputs["destCountries"] = undefined /*out*/;
+            resourceInputs["destIpCategories"] = undefined /*out*/;
+            resourceInputs["destIpGroups"] = undefined /*out*/;
+            resourceInputs["deviceGroups"] = undefined /*out*/;
+            resourceInputs["deviceTrustLevels"] = undefined /*out*/;
+            resourceInputs["devices"] = undefined /*out*/;
+            resourceInputs["enableFullLogging"] = undefined /*out*/;
+            resourceInputs["excludeSrcCountries"] = undefined /*out*/;
+            resourceInputs["groups"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["locationGroups"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nwApplicationGroups"] = undefined /*out*/;
+            resourceInputs["nwApplications"] = undefined /*out*/;
+            resourceInputs["nwServiceGroups"] = undefined /*out*/;
+            resourceInputs["nwServices"] = undefined /*out*/;
+            resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["predefined"] = undefined /*out*/;
+            resourceInputs["rank"] = undefined /*out*/;
+            resourceInputs["ruleId"] = undefined /*out*/;
+            resourceInputs["sourceCountries"] = undefined /*out*/;
+            resourceInputs["srcIpGroups"] = undefined /*out*/;
+            resourceInputs["srcIps"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["timeWindows"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
+            resourceInputs["workloadGroups"] = undefined /*out*/;
+            resourceInputs["zpaAppSegments"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallFilteringRule.__pulumiType, name, resourceInputs, opts);
@@ -314,270 +167,42 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
 }
 
 /**
- * Input properties used for looking up and filtering FirewallFilteringRule resources.
- */
-export interface FirewallFilteringRuleState {
-    /**
-     * The action the Firewall Filtering policy rule takes when packets match the rule
-     */
-    action?: pulumi.Input<string>;
-    /**
-     * list of application service groups
-     */
-    appServiceGroups?: pulumi.Input<inputs.FirewallFilteringRuleAppServiceGroups>;
-    /**
-     * list of application services
-     */
-    appServices?: pulumi.Input<inputs.FirewallFilteringRuleAppServices>;
-    /**
-     * If set to true, the default rule is applied
-     */
-    defaultRule?: pulumi.Input<boolean>;
-    /**
-     * list of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.FirewallFilteringRuleDepartments>;
-    /**
-     * Additional information about the rule
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-     */
-    destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
-    destCountries?: pulumi.Input<pulumi.Input<string>[]>;
-    destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of destination ip groups
-     */
-    destIpGroups?: pulumi.Input<inputs.FirewallFilteringRuleDestIpGroups>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    deviceGroups?: pulumi.Input<inputs.FirewallFilteringRuleDeviceGroups>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
-    deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    devices?: pulumi.Input<inputs.FirewallFilteringRuleDevices>;
-    enableFullLogging?: pulumi.Input<boolean>;
-    excludeSrcCountries?: pulumi.Input<boolean>;
-    /**
-     * list of groups for which rule must be applied
-     */
-    groups?: pulumi.Input<inputs.FirewallFilteringRuleGroups>;
-    /**
-     * list of Labels that are applicable to the rule.
-     */
-    labels?: pulumi.Input<inputs.FirewallFilteringRuleLabels>;
-    /**
-     * list of locations groups
-     */
-    locationGroups?: pulumi.Input<inputs.FirewallFilteringRuleLocationGroups>;
-    /**
-     * list of locations for which rule must be applied
-     */
-    locations?: pulumi.Input<inputs.FirewallFilteringRuleLocations>;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * list of nw application groups
-     */
-    nwApplicationGroups?: pulumi.Input<inputs.FirewallFilteringRuleNwApplicationGroups>;
-    nwApplications?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of nw service groups
-     */
-    nwServiceGroups?: pulumi.Input<inputs.FirewallFilteringRuleNwServiceGroups>;
-    /**
-     * list of nw services
-     */
-    nwServices?: pulumi.Input<inputs.FirewallFilteringRuleNwServices>;
-    /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
-     */
-    order?: pulumi.Input<number>;
-    /**
-     * If set to true, a predefined rule is applied
-     */
-    predefined?: pulumi.Input<boolean>;
-    /**
-     * Admin rank of the Firewall Filtering policy rule
-     */
-    rank?: pulumi.Input<number>;
-    ruleId?: pulumi.Input<number>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
-    sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of source ip groups
-     */
-    srcIpGroups?: pulumi.Input<inputs.FirewallFilteringRuleSrcIpGroups>;
-    /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-     */
-    srcIps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
-    state?: pulumi.Input<string>;
-    /**
-     * The time interval in which the Firewall Filtering policy rule applies
-     */
-    timeWindows?: pulumi.Input<inputs.FirewallFilteringRuleTimeWindows>;
-    /**
-     * list of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.FirewallFilteringRuleUsers>;
-    /**
-     * The list of preconfigured workload groups to which the policy must be applied
-     */
-    workloadGroups?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringRuleWorkloadGroup>[]>;
-    /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-     */
-    zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringRuleZpaAppSegment>[]>;
-}
-
-/**
  * The set of arguments for constructing a FirewallFilteringRule resource.
  */
 export interface FirewallFilteringRuleArgs {
-    /**
-     * The action the Firewall Filtering policy rule takes when packets match the rule
-     */
     action?: pulumi.Input<string>;
-    /**
-     * list of application service groups
-     */
-    appServiceGroups?: pulumi.Input<inputs.FirewallFilteringRuleAppServiceGroups>;
-    /**
-     * list of application services
-     */
-    appServices?: pulumi.Input<inputs.FirewallFilteringRuleAppServices>;
-    /**
-     * If set to true, the default rule is applied
-     */
+    appServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    appServices?: pulumi.Input<pulumi.Input<number>[]>;
     defaultRule?: pulumi.Input<boolean>;
-    /**
-     * list of departments for which rule must be applied
-     */
-    departments?: pulumi.Input<inputs.FirewallFilteringRuleDepartments>;
-    /**
-     * Additional information about the rule
-     */
+    departments?: pulumi.Input<pulumi.Input<number>[]>;
     description?: pulumi.Input<string>;
-    /**
-     * Destination addresses. Supports IPv4, FQDNs, or wildcard FQDNs
-     */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of destination ip groups
-     */
-    destIpGroups?: pulumi.Input<inputs.FirewallFilteringRuleDestIpGroups>;
-    /**
-     * This field is applicable for devices that are managed using Zscaler Client Connector.
-     */
-    deviceGroups?: pulumi.Input<inputs.FirewallFilteringRuleDeviceGroups>;
-    /**
-     * List of device trust levels for which the rule must be applied. This field is applicable for devices that are managed using Zscaler Client Connector. The trust levels are assigned to the devices based on your posture configurations in the Zscaler Client Connector Portal. If no value is set, this field is ignored during the policy evaluation.
-     */
+    destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name-ID pairs of devices for which rule must be applied.
-     */
-    devices?: pulumi.Input<inputs.FirewallFilteringRuleDevices>;
+    devices?: pulumi.Input<pulumi.Input<number>[]>;
     enableFullLogging?: pulumi.Input<boolean>;
     excludeSrcCountries?: pulumi.Input<boolean>;
-    /**
-     * list of groups for which rule must be applied
-     */
-    groups?: pulumi.Input<inputs.FirewallFilteringRuleGroups>;
-    /**
-     * list of Labels that are applicable to the rule.
-     */
-    labels?: pulumi.Input<inputs.FirewallFilteringRuleLabels>;
-    /**
-     * list of locations groups
-     */
-    locationGroups?: pulumi.Input<inputs.FirewallFilteringRuleLocationGroups>;
-    /**
-     * list of locations for which rule must be applied
-     */
-    locations?: pulumi.Input<inputs.FirewallFilteringRuleLocations>;
-    /**
-     * Name of the Firewall Filtering policy rule
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * list of nw application groups
-     */
-    nwApplicationGroups?: pulumi.Input<inputs.FirewallFilteringRuleNwApplicationGroups>;
+    groups?: pulumi.Input<pulumi.Input<number>[]>;
+    labels?: pulumi.Input<pulumi.Input<number>[]>;
+    locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    locations?: pulumi.Input<pulumi.Input<number>[]>;
+    name: pulumi.Input<string>;
+    nwApplicationGroups?: pulumi.Input<pulumi.Input<number>[]>;
     nwApplications?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of nw service groups
-     */
-    nwServiceGroups?: pulumi.Input<inputs.FirewallFilteringRuleNwServiceGroups>;
-    /**
-     * list of nw services
-     */
-    nwServices?: pulumi.Input<inputs.FirewallFilteringRuleNwServices>;
-    /**
-     * Rule order number. If omitted, the rule will be added to the end of the rule set.
-     */
+    nwServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    nwServices?: pulumi.Input<pulumi.Input<number>[]>;
     order: pulumi.Input<number>;
-    /**
-     * If set to true, a predefined rule is applied
-     */
     predefined?: pulumi.Input<boolean>;
-    /**
-     * Admin rank of the Firewall Filtering policy rule
-     */
     rank?: pulumi.Input<number>;
-    /**
-     * Destination countries for which the rule is applicable. If not set, the rule is not restricted to specific destination countries.
-     */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * list of source ip groups
-     */
-    srcIpGroups?: pulumi.Input<inputs.FirewallFilteringRuleSrcIpGroups>;
-    /**
-     * User-defined source IP addresses for which the rule is applicable. If not set, the rule is not restricted to a specific source IP address.
-     */
+    srcIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Determines whether the Firewall Filtering policy rule is enabled or disabled
-     */
     state?: pulumi.Input<string>;
-    /**
-     * The time interval in which the Firewall Filtering policy rule applies
-     */
-    timeWindows?: pulumi.Input<inputs.FirewallFilteringRuleTimeWindows>;
-    /**
-     * list of users for which rule must be applied
-     */
-    users?: pulumi.Input<inputs.FirewallFilteringRuleUsers>;
-    /**
-     * The list of preconfigured workload groups to which the policy must be applied
-     */
-    workloadGroups?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringRuleWorkloadGroup>[]>;
-    /**
-     * The list of ZPA Application Segments for which this rule is applicable. This field is applicable only for the ZPA Gateway forwarding method.
-     */
-    zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.FirewallFilteringRuleZpaAppSegment>[]>;
+    timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    users?: pulumi.Input<pulumi.Input<number>[]>;
+    workloadGroups?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupInputArgs>[]>;
+    zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ZPAAppSegmentInputArgs>[]>;
 }

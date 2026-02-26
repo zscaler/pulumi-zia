@@ -1,14 +1,21 @@
 name: Upgrade provider
 
+# NOTE: pulumi/pulumi-upgrade-provider-action is designed for Terraform-bridged
+# providers. This workflow is not applicable to the native Go provider and has
+# been disabled. Remove this file or replace with a native dependency update
+# workflow when ready.
+
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 5 * * *
+  # Disabled: not applicable to native providers.
+  # schedule:
+  #   - cron: 0 5 * * *
 
 jobs:
   upgrade_provider:
     name: upgrade-provider
     runs-on: ubuntu-latest
+    if: false
     permissions:
       contents: write
       pull-requests: write

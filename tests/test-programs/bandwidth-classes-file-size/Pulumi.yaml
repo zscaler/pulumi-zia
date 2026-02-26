@@ -1,0 +1,20 @@
+name: bandwidth-classes-file-size-e2e
+runtime: yaml
+description: E2E test for zia:index:BandwidthClassFileSize resource
+
+config:
+  fileSize:
+    type: string
+    default: "FILE_1GB"
+
+resources:
+  bandwidthClassFileSize:
+    type: zia:index:BandwidthClassFileSize
+    properties:
+      fileSize: ${fileSize}
+
+outputs:
+  classId: ${bandwidthClassFileSize.classId}
+  name: ${bandwidthClassFileSize.name}
+  type: ${bandwidthClassFileSize.type}
+  fileSize: ${bandwidthClassFileSize.fileSize}

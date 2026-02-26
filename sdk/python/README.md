@@ -1,119 +1,145 @@
-# Zscaler Internet Access (ZIA) Resource Provider
+# Pulumi Native Provider for Zscaler Internet Access (ZIA)
 
-The ZIA Resource Provider lets you manage [ZIA](http://github.com/zscaler/pulumi-zia) resources. To use
-this package, please [install the Pulumi CLI first](https://pulumi.com/).
+A **native** Pulumi provider for Zscaler Internet Access (ZIA), built on [pulumi-go-provider](https://github.com/pulumi/pulumi-go-provider) and the official [zscaler-sdk-go](https://github.com/zscaler/zscaler-sdk-go). This provider does **not** use the Terraform bridge.
 
-## Installing
+## Requirements
 
-This package is available for several languages/platforms:
+- Go 1.24+
+- Pulumi CLI
+- ZIA credentials (OAuth2 or legacy)
 
-### Node.js (JavaScript/TypeScript)
-
-To use from JavaScript or TypeScript in Node.js, install using either `npm`:
-
-```bash
-npm install @bdzscaler/pulumi-zia
-```
-
-or `yarn`:
+## Build & Install
 
 ```bash
-yarn add @bdzscaler/pulumi-zia
+# Build the provider
+make provider
+
+# Generate SDKs (Go, Node.js, Python, Dotnet, Java)
+make codegen
+
+# Install provider binary to $GOPATH/bin
+make install
 ```
 
-### Python
+Note: Dotnet SDK build may fail due to namespace collision; Go, Node.js, and Python SDKs are verified.
 
-To use from Python, install using `pip`:
+## Python SDK
 
 ```bash
-pip install zscaler-pulumi-zia
+# Install the Python SDK locally (from repo root)
+pip install -e sdk/python
 ```
 
-### Go
+Or add to your project's `requirements.txt`:
+```
+pulumi>=3.165.0,<4.0.0
+-e /path/to/pulumi-zia-native/sdk/python
+```
 
-To use from Go, use `go get` to grab the latest version of the library:
+## Provider Configuration
+
+Configure via Pulumi config or environment variables:
+
+| Config | Env Var | Description |
+|--------|---------|-------------|
+| `clientId` | `ZSCALER_CLIENT_ID` | OAuth2 client ID |
+| `clientSecret` | `ZSCALER_CLIENT_SECRET` | OAuth2 client secret (secret) |
+| `vanityDomain` | `ZSCALER_VANITY_DOMAIN` | Zscaler vanity domain |
+| `cloud` | `ZSCALER_CLOUD` | Zscaler cloud (optional) |
+| `debug` | `ZSCALER_SDK_LOG` + `ZSCALER_SDK_VERBOSE` | Enable SDK API request/response logging |
+
+Or use `clientId` + `privateKey` + `vanityDomain` for key-based auth.
+
+## Debugging & Troubleshooting
+
+To see Zscaler API calls and provider internals:
+
+**1. Provider config (recommended)** – set `debug: true` in your Pulumi config:
+```yaml
+config:
+  zia:debug: true
+```
+
+**2. Environment variables** – same behavior as Terraform provider:
+```bash
+export ZSCALER_SDK_LOG=true
+export ZSCALER_SDK_VERBOSE=true
+pulumi up
+```
+
+**2b. Log to file** – Pulumi often does not forward provider stdout. To capture SDK logs to a file:
+```bash
+export ZSCALER_SDK_LOG=true
+export ZSCALER_SDK_VERBOSE=true
+export ZSCALER_SDK_LOG_FILE=/tmp/zia-sdk.log
+pulumi up --yes
+```
+Then inspect the log: `cat /tmp/zia-sdk.log`
+
+**3. Pulumi verbose logging** – provider output may be hidden unless Pulumi forwards it. Use:
+```bash
+pulumi up --logtostderr -v=9
+```
+For maximum visibility, capture both stdout and stderr:
+```bash
+pulumi up --logtostderr -v=9 2>&1 | tee debug.log
+```
+
+**4. Pulumi provider debugging** – attach a debugger to the provider:
+```bash
+PULUMI_DEBUG_PROVIDERS="zia:12345" pulumi up
+```
+Then attach your Go debugger (e.g. Delve) to port 12345.
+
+## Resources
+
+| Resource | Pulumi Token | Description |
+|----------|--------------|-------------|
+| RuleLabel | `zia:index:RuleLabel` | ZIA rule label for organizing firewall/URL filtering rules |
+
+## Example
+
+**Node.js (TypeScript):**
+```typescript
+import { RuleLabel } from "@zia/zia/provider";
+
+const label = new RuleLabel("my-label", {
+    name: "pulumi-managed-label",
+    description: "Created by Pulumi",
+});
+
+export const ruleLabelId = label.ruleLabelId;
+```
+
+**Python:**
+```python
+import pulumi
+from zia_zia import RuleLabel
+
+label = RuleLabel("my-label",
+    name="pulumi-managed-label",
+    description="Created by Pulumi",
+)
+
+pulumi.export("rule_label_id", label.rule_label_id)
+```
+
+## Import
 
 ```bash
-go get github.com/zscaler/pulumi-zia/sdk/go/...
+# Import by ID
+pulumi import zia:index:RuleLabel my-label 12345
+
+# Import by name
+pulumi import zia:index:RuleLabel my-label "My Label Name"
 ```
 
-### .NET
+## Documentation
 
-To use from .NET, install using `dotnet add package`:
+- [mapping.md](docs/mapping.md) - Terraform to Pulumi resource mapping
+- [sdk-usage.md](docs/sdk-usage.md) - How each resource uses zscaler-sdk-go
+- [progress.md](docs/progress.md) - Implementation progress and next steps
 
-```bash
-dotnet add package zscaler.PulumiPackage.Zia
-```
+## License
 
-## Zscaler OneAPI Client Secret Authentication
-
-The following configuration points are available for the `zia` provider:
-
-You can provide credentials via the `ZSCALER_CLIENT_ID`, `ZSCALER_CLIENT_SECRET`, `ZSCALER_VANITY_DOMAIN`, `ZSCALER_CLOUD` environment variables, representing your Zidentity OneAPI credentials `clientId`, `clientSecret`, `vanityDomain` and `zscaler_cloud` respectively.
-
-| Argument        | Description                                                                                         | Environment Variable     |
-|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
-| `client_id`     | _(String)_ Zscaler API Client ID, used with `clientSecret` or `PrivateKey` OAuth auth mode.         | `ZSCALER_CLIENT_ID`      |
-| `client_secret` | _(String)_ Secret key associated with the API Client ID for authentication.                         | `ZSCALER_CLIENT_SECRET`  |
-| `vanity_domain` | _(String)_ Refers to the domain name used by your organization.                                     | `ZSCALER_VANITY_DOMAIN`  |
-| `zscaler_cloud`         | _(String)_ The name of the Zidentity cloud, e.g., beta.                                             | `ZSCALER_CLOUD`          |
-
-## Zscaler OneAPI Private Key Authentication
-
-The following configuration points are available for the `zia` provider:
-
-You can provide credentials via the `ZSCALER_CLIENT_ID`, `ZSCALER_CLIENT_SECRET`, `ZSCALER_VANITY_DOMAIN`, `ZSCALER_CLOUD` environment variables, representing your Zidentity OneAPI credentials `clientId`, `clientSecret`, `vanityDomain` and `zscaler_cloud` respectively.
-
-| Argument        | Description                                                                                         | Environment Variable     |
-|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
-| `client_id`     | _(String)_ Zscaler API Client ID, used with `clientSecret` or `PrivateKey` OAuth auth mode.         | `ZSCALER_CLIENT_ID`      |
-| `privateKey`    | _(String)_ A string Private key value.                                                              | `ZSCALER_PRIVATE_KEY`    |
-| `vanity_domain` | _(String)_ Refers to the domain name used by your organization.                                     | `ZSCALER_VANITY_DOMAIN`  |
-| `zscaler_cloud`         | _(String)_ The name of the Zidentity cloud, e.g., beta.                                             | `ZSCALER_CLOUD`          |
-
-## Zscaler Sandbox Authentication
-
-The following configuration points are available for the `zia` provider:
-
-You can provide credentials via the `ZSCALER_SANDBOX_TOKEN`, `ZSCALER_SANDBOX_CLOUD`, environment variables, representing your Zidentity OneAPI credentials `sandbox_token`, `sandbox_cloud` respectively.
-
-| Argument        | Description                                                                                         | Environment Variable     |
-|-----------------|-----------------------------------------------------------------------------------------------------|--------------------------|
-| `sandbox_token`    | _(String)_ ZIA Sandbox API Token                                                             | `ZSCALER_SANDBOX_TOKEN`    |
-| `sandbox_cloud`     | _(String)_ Zscaler Sandbox Cloud name.      | `ZSCALER_SANDBOX_CLOUD`      |
-
-## ZIA Native API Credential Configuration
-
-The following configuration points are available for the `zia` provider:
-
-- `zia:username` (client id: `ZIA_USERNAME`) - (Required) This is the API username to interact with the ZIA cloud.
-- `zia:password` (client secret: `ZIA_PASSWORD`) - (Required) This is the password for the API username to authenticate in the ZIA cloud.
-- `zia:api_key` (customer id: `ZIA_API_KEY`) - (Required) This is the API Key used in combination with the ``username`` and ``password``
-- `zia:zia_cloud` (cloud environment: `ZIA_CLOUD`) - (Required) The cloud name where the ZIA tenant is hosted. The supported values are:
-  - ``zscaler``
-  - ``zscalerone``
-  - ``zscalertwo``
-  - ``zscalerthree``
-  - ``zscloud``
-  - ``zscalerbeta``
-  - ``zscalergov``
-
-## Reference
-
-For detailed reference documentation, please visit [the Pulumi registry](https://www.pulumi.com/registry/packages/zia/api-docs/).
-
-## Support
-
-This template/solution are released under an as-is, best effort, support
-policy. These scripts should be seen as community supported and Zscaler
-Business Development Team will contribute our expertise as and when possible.
-We do not provide technical support or help in using or troubleshooting the components
-of the project through our normal support options such as Zscaler support teams,
-or ASC (Authorized Support Centers) partners and backline
-support options. The underlying product used (Zscaler Internet Access API) by the
-scripts or templates are still supported, but the support is only for the
-product functionality and not for help in deploying or using the template or
-script itself. Unless explicitly tagged, all projects or work posted in our
-GitHub repository at (<https://github.com/zscaler>) or sites other
-than our official Downloads page on <https://support.zscaler.com>
-are provided under the best effort policy.
+Apache 2.0

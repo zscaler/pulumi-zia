@@ -1,0 +1,32 @@
+name: workload-groups-e2e
+runtime: yaml
+description: E2E test for zia:index:WorkloadGroup resource (same values as Python test_workload_groups.py)
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "Test workload group for VCR testing"
+
+resources:
+  workloadGroup:
+    type: zia:index:WorkloadGroup
+    properties:
+      name: ${name}
+      description: ${description}
+      expressionJson:
+        expressionContainers:
+          - tagType: "ATTR"
+            operator: "AND"
+            tagContainer:
+              tags:
+                - key: "GroupName"
+                  value: "example"
+              operator: "AND"
+
+outputs:
+  groupId: ${workloadGroup.groupId}
+  name: ${workloadGroup.name}
+  description: ${workloadGroup.description}

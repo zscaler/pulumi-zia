@@ -14,10 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
-__all__ = ['TrafficForwardingVPNCredentialsArgs', 'TrafficForwardingVPNCredentials']
+__all__ = ['TrafficForwardingVpnCredentialsArgs', 'TrafficForwardingVpnCredentials']
 
 @pulumi.input_type
-class TrafficForwardingVPNCredentialsArgs:
+class TrafficForwardingVpnCredentialsArgs:
     def __init__(__self__, *,
                  comments: Optional[pulumi.Input[_builtins.str]] = None,
                  fqdn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -25,10 +25,7 @@ class TrafficForwardingVPNCredentialsArgs:
                  pre_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The set of arguments for constructing a TrafficForwardingVPNCredentials resource.
-        :param pulumi.Input[_builtins.str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[_builtins.str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
-        :param pulumi.Input[_builtins.str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
+        The set of arguments for constructing a TrafficForwardingVpnCredentials resource.
         """
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
@@ -53,9 +50,6 @@ class TrafficForwardingVPNCredentialsArgs:
     @_builtins.property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -74,9 +68,6 @@ class TrafficForwardingVPNCredentialsArgs:
     @_builtins.property
     @pulumi.getter(name="preSharedKey")
     def pre_shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Pre-shared key. This is a required field for UFQDN and IP auth type.
-        """
         return pulumi.get(self, "pre_shared_key")
 
     @pre_shared_key.setter
@@ -86,9 +77,6 @@ class TrafficForwardingVPNCredentialsArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -96,100 +84,8 @@ class TrafficForwardingVPNCredentialsArgs:
         pulumi.set(self, "type", value)
 
 
-@pulumi.input_type
-class _TrafficForwardingVPNCredentialsState:
-    def __init__(__self__, *,
-                 comments: Optional[pulumi.Input[_builtins.str]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_id: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Input properties used for looking up and filtering TrafficForwardingVPNCredentials resources.
-        :param pulumi.Input[_builtins.str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[_builtins.str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
-        :param pulumi.Input[_builtins.str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-        """
-        if comments is not None:
-            pulumi.set(__self__, "comments", comments)
-        if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-        if pre_shared_key is not None:
-            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if vpn_id is not None:
-            pulumi.set(__self__, "vpn_id", vpn_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "comments")
-
-    @comments.setter
-    def comments(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "comments", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        """
-        return pulumi.get(self, "fqdn")
-
-    @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "fqdn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="preSharedKey")
-    def pre_shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Pre-shared key. This is a required field for UFQDN and IP auth type.
-        """
-        return pulumi.get(self, "pre_shared_key")
-
-    @pre_shared_key.setter
-    def pre_shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "pre_shared_key", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpnId")
-    def vpn_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        return pulumi.get(self, "vpn_id")
-
-    @vpn_id.setter
-    def vpn_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "vpn_id", value)
-
-
-@pulumi.type_token("zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials")
-class TrafficForwardingVPNCredentials(pulumi.CustomResource):
+@pulumi.type_token("zia:index:TrafficForwardingVpnCredentials")
+class TrafficForwardingVpnCredentials(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,116 +97,25 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
-
-        The **zia_traffic_forwarding_vpn_credentials** creates and manages VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-site IPSec VPN credentials can be identified by the cloud through one of the following methods:
-
-        * Common Name (CN) of IPSec Certificate
-        * VPN User FQDN - requires VPN_SITE_TO_SITE subscription
-        * VPN IP Address - requires VPN_SITE_TO_SITE subscription
-        * Extended Authentication (XAUTH) or hosted mobile UserID - requires VPN_MOBILE subscription
-
-        ## Example Usage
-
-        > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_traffic_forwarding_vpn_credentials** can be imported by using one of the following prefixes as the import ID:
-
-        * `'IP'` - Imports all VPN Credentials of type IP
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'IP'
-        ```
-
-        * `'UFQDN'` - Imports all VPN Credentials of type UFQDN
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials this 'UFQDN'
-        ```
-
-        * `UFQDN'` - Imports a VPN Credentials of type UFQDN containing a specific UFQDN address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'testvpn@example.com'
-        ```
-
-        * `IP Address'` - Imports a VPN Credentials of type IP containing a specific IP address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example '1.1.1.1'
-        ```
-
+        Create a TrafficForwardingVpnCredentials resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[_builtins.str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
-        :param pulumi.Input[_builtins.str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TrafficForwardingVPNCredentialsArgs] = None,
+                 args: Optional[TrafficForwardingVpnCredentialsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-vpn-credentials)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get)
-
-        The **zia_traffic_forwarding_vpn_credentials** creates and manages VPN credentials that can be associated to locations. VPN is one way to route traffic from customer locations to the cloud. Site-to-site IPSec VPN credentials can be identified by the cloud through one of the following methods:
-
-        * Common Name (CN) of IPSec Certificate
-        * VPN User FQDN - requires VPN_SITE_TO_SITE subscription
-        * VPN IP Address - requires VPN_SITE_TO_SITE subscription
-        * Extended Authentication (XAUTH) or hosted mobile UserID - requires VPN_MOBILE subscription
-
-        ## Example Usage
-
-        > **NOTE** For VPN Credentials of Type `IP` a static IP resource must be created first.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_traffic_forwarding_vpn_credentials** can be imported by using one of the following prefixes as the import ID:
-
-        * `'IP'` - Imports all VPN Credentials of type IP
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'IP'
-        ```
-
-        * `'UFQDN'` - Imports all VPN Credentials of type UFQDN
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials this 'UFQDN'
-        ```
-
-        * `UFQDN'` - Imports a VPN Credentials of type UFQDN containing a specific UFQDN address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example 'testvpn@example.com'
-        ```
-
-        * `IP Address'` - Imports a VPN Credentials of type IP containing a specific IP address
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials example '1.1.1.1'
-        ```
-
+        Create a TrafficForwardingVpnCredentials resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param TrafficForwardingVPNCredentialsArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficForwardingVpnCredentialsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingVPNCredentialsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingVpnCredentialsArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -331,7 +136,7 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficForwardingVPNCredentialsArgs.__new__(TrafficForwardingVPNCredentialsArgs)
+            __props__ = TrafficForwardingVpnCredentialsArgs.__new__(TrafficForwardingVpnCredentialsArgs)
 
             __props__.__dict__["comments"] = comments
             __props__.__dict__["fqdn"] = fqdn
@@ -341,8 +146,8 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
             __props__.__dict__["vpn_id"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["preSharedKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
-        super(TrafficForwardingVPNCredentials, __self__).__init__(
-            'zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials',
+        super(TrafficForwardingVpnCredentials, __self__).__init__(
+            'zia:index:TrafficForwardingVpnCredentials',
             resource_name,
             __props__,
             opts)
@@ -350,35 +155,26 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            comments: Optional[pulumi.Input[_builtins.str]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            pre_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vpn_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficForwardingVPNCredentials':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'TrafficForwardingVpnCredentials':
         """
-        Get an existing TrafficForwardingVPNCredentials resource's state with the given name, id, and optional extra
+        Get an existing TrafficForwardingVpnCredentials resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fqdn: Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        :param pulumi.Input[_builtins.str] pre_shared_key: Pre-shared key. This is a required field for UFQDN and IP auth type.
-        :param pulumi.Input[_builtins.str] type: VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _TrafficForwardingVPNCredentialsState.__new__(_TrafficForwardingVPNCredentialsState)
+        __props__ = TrafficForwardingVpnCredentialsArgs.__new__(TrafficForwardingVpnCredentialsArgs)
 
-        __props__.__dict__["comments"] = comments
-        __props__.__dict__["fqdn"] = fqdn
-        __props__.__dict__["ip_address"] = ip_address
-        __props__.__dict__["pre_shared_key"] = pre_shared_key
-        __props__.__dict__["type"] = type
-        __props__.__dict__["vpn_id"] = vpn_id
-        return TrafficForwardingVPNCredentials(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["comments"] = None
+        __props__.__dict__["fqdn"] = None
+        __props__.__dict__["ip_address"] = None
+        __props__.__dict__["pre_shared_key"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vpn_id"] = None
+        return TrafficForwardingVpnCredentials(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
@@ -388,9 +184,6 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Fully Qualified Domain Name. Applicable only to `UFQDN` or `XAUTH` (or `HOSTED_MOBILE_USERS`) auth type.
-        """
         return pulumi.get(self, "fqdn")
 
     @_builtins.property
@@ -401,17 +194,11 @@ class TrafficForwardingVPNCredentials(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="preSharedKey")
     def pre_shared_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Pre-shared key. This is a required field for UFQDN and IP auth type.
-        """
         return pulumi.get(self, "pre_shared_key")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        VPN authentication type (i.e., how the VPN credential is sent to the server). It is not modifiable after VpnCredential is created. The supported values are: `UFQDN` and `IP`
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property

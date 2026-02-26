@@ -22,98 +22,61 @@ __config__ = pulumi.Config('zia')
 class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def api_key(self) -> Optional[str]:
-        return __config__.get('apiKey') or _utilities.get_env('ZIA_API_KEY')
+        return __config__.get('apiKey')
 
     @_builtins.property
     def client_id(self) -> Optional[str]:
-        """
-        zpa client id
-        """
-        return __config__.get('clientId') or _utilities.get_env('ZSCALER_CLIENT_ID')
+        return __config__.get('clientId')
 
     @_builtins.property
     def client_secret(self) -> Optional[str]:
-        """
-        zpa client secret
-        """
-        return __config__.get('clientSecret') or _utilities.get_env('ZSCALER_CLIENT_SECRET')
+        return __config__.get('clientSecret')
+
+    @_builtins.property
+    def cloud(self) -> Optional[str]:
+        return __config__.get('cloud')
 
     @_builtins.property
     def http_proxy(self) -> Optional[str]:
-        """
-        Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
-        """
         return __config__.get('httpProxy')
 
     @_builtins.property
     def max_retries(self) -> Optional[int]:
-        """
-        maximum number of retries to attempt before erroring out.
-        """
         return __config__.get_int('maxRetries')
 
     @_builtins.property
-    def parallelism(self) -> Optional[int]:
-        """
-        Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://help.zscaler.com/oneapi/understanding-rate-limiting.
-        """
-        return __config__.get_int('parallelism')
-
-    @_builtins.property
     def password(self) -> Optional[str]:
-        return __config__.get('password') or _utilities.get_env('ZIA_PASSWORD')
+        return __config__.get('password')
 
     @_builtins.property
     def private_key(self) -> Optional[str]:
-        """
-        zpa private key
-        """
-        return __config__.get('privateKey') or _utilities.get_env('ZSCALER_PRIVATE_KEY')
+        return __config__.get('privateKey')
 
     @_builtins.property
     def request_timeout(self) -> Optional[int]:
-        """
-        Timeout for single request (in seconds) which is made to Zscaler, the default is `0` (means no limit is set). The maximum value can be `300`.
-        """
         return __config__.get_int('requestTimeout')
 
     @_builtins.property
     def sandbox_cloud(self) -> Optional[str]:
-        """
-        Zscaler Sandbox Cloud
-        """
-        return __config__.get('sandboxCloud') or _utilities.get_env('ZSCALER_SANDBOX_CLOUD')
+        return __config__.get('sandboxCloud')
 
     @_builtins.property
     def sandbox_token(self) -> Optional[str]:
-        """
-        Zscaler Sandbox Token
-        """
-        return __config__.get('sandboxToken') or _utilities.get_env('ZSCALER_SANDBOX_TOKEN')
+        return __config__.get('sandboxToken')
 
     @_builtins.property
     def use_legacy_client(self) -> Optional[bool]:
-        return __config__.get_bool('useLegacyClient') or _utilities.get_env_bool('ZSCALER_USE_LEGACY_CLIENT')
+        return __config__.get_bool('useLegacyClient')
 
     @_builtins.property
     def username(self) -> Optional[str]:
-        return __config__.get('username') or _utilities.get_env('ZIA_USERNAME')
+        return __config__.get('username')
 
     @_builtins.property
     def vanity_domain(self) -> Optional[str]:
-        """
-        Zscaler Vanity Domain
-        """
-        return __config__.get('vanityDomain') or _utilities.get_env('ZSCALER_VANITY_DOMAIN')
+        return __config__.get('vanityDomain')
 
     @_builtins.property
     def zia_cloud(self) -> Optional[str]:
-        return __config__.get('ziaCloud') or _utilities.get_env('ZIA_CLOUD')
-
-    @_builtins.property
-    def zscaler_cloud(self) -> Optional[str]:
-        """
-        Zscaler Cloud Name
-        """
-        return __config__.get('zscalerCloud') or _utilities.get_env('ZSCALER_CLOUD')
+        return __config__.get('ziaCloud')
 

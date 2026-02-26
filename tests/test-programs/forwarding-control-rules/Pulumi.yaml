@@ -1,0 +1,67 @@
+name: forwarding-control-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:ForwardingControlRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+  ruleType:
+    type: string
+    default: "FORWARDING"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E FWD label "
+        - ${labelName}
+  nwService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "ZSCALER_PROXY_NW_SERVICES"
+
+resources:
+  # Rule label - required for labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # Forwarding control rule
+  forwardingControlRule:
+    type: zia:index:ForwardingControlRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      type: ${ruleType}
+      state: ${state}
+      order: 1
+      rank: 7
+      forwardMethod: "DIRECT"
+      nwServices:
+        - ${nwService.networkServiceId}
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${forwardingControlRule.ruleId}
+  name: ${forwardingControlRule.name}
+  description: ${forwardingControlRule.description}
+  type: ${forwardingControlRule.type}
+  state: ${forwardingControlRule.state}
+  order: ${forwardingControlRule.order}
+  forwardMethod: ${forwardingControlRule.forwardMethod}
+  labels: ${forwardingControlRule.labels}
+  nwServices: ${forwardingControlRule.nwServices}

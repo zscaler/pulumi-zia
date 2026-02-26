@@ -16,29 +16,21 @@ from . import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TrafficForwardingGRETunnelArgs', 'TrafficForwardingGRETunnel']
+__all__ = ['TrafficForwardingGreTunnelArgs', 'TrafficForwardingGreTunnel']
 
 @pulumi.input_type
-class TrafficForwardingGRETunnelArgs:
+class TrafficForwardingGreTunnelArgs:
     def __init__(__self__, *,
                  source_ip: pulumi.Input[_builtins.str],
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  country_code: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_ip_range: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_unnumbered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]] = None,
-                 secondary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]] = None,
+                 primary_dest_vip: Optional[pulumi.Input['GreTunnelDestVipInputArgs']] = None,
+                 secondary_dest_vip: Optional[pulumi.Input['GreTunnelDestVipInputArgs']] = None,
                  within_country: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        The set of arguments for constructing a TrafficForwardingGRETunnel resource.
-        :param pulumi.Input[_builtins.str] source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this GRE tunnel
-        :param pulumi.Input[_builtins.str] country_code: When within_country is enabled, you must set this to the country code.
-        :param pulumi.Input[_builtins.str] internal_ip_range: The start of the internal IP address in /29 CIDR range
-        :param pulumi.Input[_builtins.bool] ip_unnumbered: This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]] primary_dest_vips: The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]] secondary_dest_vips: The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[_builtins.bool] within_country: Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
+        The set of arguments for constructing a TrafficForwardingGreTunnel resource.
         """
         pulumi.set(__self__, "source_ip", source_ip)
         if comment is not None:
@@ -49,19 +41,16 @@ class TrafficForwardingGRETunnelArgs:
             pulumi.set(__self__, "internal_ip_range", internal_ip_range)
         if ip_unnumbered is not None:
             pulumi.set(__self__, "ip_unnumbered", ip_unnumbered)
-        if primary_dest_vips is not None:
-            pulumi.set(__self__, "primary_dest_vips", primary_dest_vips)
-        if secondary_dest_vips is not None:
-            pulumi.set(__self__, "secondary_dest_vips", secondary_dest_vips)
+        if primary_dest_vip is not None:
+            pulumi.set(__self__, "primary_dest_vip", primary_dest_vip)
+        if secondary_dest_vip is not None:
+            pulumi.set(__self__, "secondary_dest_vip", secondary_dest_vip)
         if within_country is not None:
             pulumi.set(__self__, "within_country", within_country)
 
     @_builtins.property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        """
         return pulumi.get(self, "source_ip")
 
     @source_ip.setter
@@ -71,9 +60,6 @@ class TrafficForwardingGRETunnelArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about this GRE tunnel
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -83,9 +69,6 @@ class TrafficForwardingGRETunnelArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When within_country is enabled, you must set this to the country code.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -95,9 +78,6 @@ class TrafficForwardingGRETunnelArgs:
     @_builtins.property
     @pulumi.getter(name="internalIpRange")
     def internal_ip_range(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start of the internal IP address in /29 CIDR range
-        """
         return pulumi.get(self, "internal_ip_range")
 
     @internal_ip_range.setter
@@ -107,9 +87,6 @@ class TrafficForwardingGRETunnelArgs:
     @_builtins.property
     @pulumi.getter(name="ipUnnumbered")
     def ip_unnumbered(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        """
         return pulumi.get(self, "ip_unnumbered")
 
     @ip_unnumbered.setter
@@ -117,35 +94,26 @@ class TrafficForwardingGRETunnelArgs:
         pulumi.set(self, "ip_unnumbered", value)
 
     @_builtins.property
-    @pulumi.getter(name="primaryDestVips")
-    def primary_dest_vips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]]:
-        """
-        The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "primary_dest_vips")
+    @pulumi.getter(name="primaryDestVip")
+    def primary_dest_vip(self) -> Optional[pulumi.Input['GreTunnelDestVipInputArgs']]:
+        return pulumi.get(self, "primary_dest_vip")
 
-    @primary_dest_vips.setter
-    def primary_dest_vips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]]):
-        pulumi.set(self, "primary_dest_vips", value)
+    @primary_dest_vip.setter
+    def primary_dest_vip(self, value: Optional[pulumi.Input['GreTunnelDestVipInputArgs']]):
+        pulumi.set(self, "primary_dest_vip", value)
 
     @_builtins.property
-    @pulumi.getter(name="secondaryDestVips")
-    def secondary_dest_vips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]]:
-        """
-        The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "secondary_dest_vips")
+    @pulumi.getter(name="secondaryDestVip")
+    def secondary_dest_vip(self) -> Optional[pulumi.Input['GreTunnelDestVipInputArgs']]:
+        return pulumi.get(self, "secondary_dest_vip")
 
-    @secondary_dest_vips.setter
-    def secondary_dest_vips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]]):
-        pulumi.set(self, "secondary_dest_vips", value)
+    @secondary_dest_vip.setter
+    def secondary_dest_vip(self, value: Optional[pulumi.Input['GreTunnelDestVipInputArgs']]):
+        pulumi.set(self, "secondary_dest_vip", value)
 
     @_builtins.property
     @pulumi.getter(name="withinCountry")
     def within_country(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-        """
         return pulumi.get(self, "within_country")
 
     @within_country.setter
@@ -153,160 +121,8 @@ class TrafficForwardingGRETunnelArgs:
         pulumi.set(self, "within_country", value)
 
 
-@pulumi.input_type
-class _TrafficForwardingGRETunnelState:
-    def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 internal_ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_unnumbered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]] = None,
-                 secondary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]] = None,
-                 source_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 within_country: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Input properties used for looking up and filtering TrafficForwardingGRETunnel resources.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this GRE tunnel
-        :param pulumi.Input[_builtins.str] country_code: When within_country is enabled, you must set this to the country code.
-        :param pulumi.Input[_builtins.str] internal_ip_range: The start of the internal IP address in /29 CIDR range
-        :param pulumi.Input[_builtins.bool] ip_unnumbered: This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]] primary_dest_vips: The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]] secondary_dest_vips: The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[_builtins.str] source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        :param pulumi.Input[_builtins.int] tunnel_id: The ID of the GRE tunnel.
-        :param pulumi.Input[_builtins.bool] within_country: Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-        """
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-        if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
-        if internal_ip_range is not None:
-            pulumi.set(__self__, "internal_ip_range", internal_ip_range)
-        if ip_unnumbered is not None:
-            pulumi.set(__self__, "ip_unnumbered", ip_unnumbered)
-        if primary_dest_vips is not None:
-            pulumi.set(__self__, "primary_dest_vips", primary_dest_vips)
-        if secondary_dest_vips is not None:
-            pulumi.set(__self__, "secondary_dest_vips", secondary_dest_vips)
-        if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
-        if tunnel_id is not None:
-            pulumi.set(__self__, "tunnel_id", tunnel_id)
-        if within_country is not None:
-            pulumi.set(__self__, "within_country", within_country)
-
-    @_builtins.property
-    @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Additional information about this GRE tunnel
-        """
-        return pulumi.get(self, "comment")
-
-    @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "comment", value)
-
-    @_builtins.property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When within_country is enabled, you must set this to the country code.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "country_code", value)
-
-    @_builtins.property
-    @pulumi.getter(name="internalIpRange")
-    def internal_ip_range(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start of the internal IP address in /29 CIDR range
-        """
-        return pulumi.get(self, "internal_ip_range")
-
-    @internal_ip_range.setter
-    def internal_ip_range(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "internal_ip_range", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipUnnumbered")
-    def ip_unnumbered(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        """
-        return pulumi.get(self, "ip_unnumbered")
-
-    @ip_unnumbered.setter
-    def ip_unnumbered(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "ip_unnumbered", value)
-
-    @_builtins.property
-    @pulumi.getter(name="primaryDestVips")
-    def primary_dest_vips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]]:
-        """
-        The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "primary_dest_vips")
-
-    @primary_dest_vips.setter
-    def primary_dest_vips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelPrimaryDestVipArgs']]]]):
-        pulumi.set(self, "primary_dest_vips", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secondaryDestVips")
-    def secondary_dest_vips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]]:
-        """
-        The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "secondary_dest_vips")
-
-    @secondary_dest_vips.setter
-    def secondary_dest_vips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficForwardingGRETunnelSecondaryDestVipArgs']]]]):
-        pulumi.set(self, "secondary_dest_vips", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceIp")
-    def source_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        """
-        return pulumi.get(self, "source_ip")
-
-    @source_ip.setter
-    def source_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "source_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tunnelId")
-    def tunnel_id(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The ID of the GRE tunnel.
-        """
-        return pulumi.get(self, "tunnel_id")
-
-    @tunnel_id.setter
-    def tunnel_id(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "tunnel_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="withinCountry")
-    def within_country(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-        """
-        return pulumi.get(self, "within_country")
-
-    @within_country.setter
-    def within_country(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "within_country", value)
-
-
-@pulumi.type_token("zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel")
-class TrafficForwardingGRETunnel(pulumi.CustomResource):
+@pulumi.type_token("zia:index:TrafficForwardingGreTunnel")
+class TrafficForwardingGreTunnel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -315,117 +131,31 @@ class TrafficForwardingGRETunnel(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_ip_range: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_unnumbered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelPrimaryDestVipArgs', 'TrafficForwardingGRETunnelPrimaryDestVipArgsDict']]]]] = None,
-                 secondary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelSecondaryDestVipArgs', 'TrafficForwardingGRETunnelSecondaryDestVipArgsDict']]]]] = None,
+                 primary_dest_vip: Optional[pulumi.Input[Union['GreTunnelDestVipInputArgs', 'GreTunnelDestVipInputArgsDict']]] = None,
+                 secondary_dest_vip: Optional[pulumi.Input[Union['GreTunnelDestVipInputArgs', 'GreTunnelDestVipInputArgsDict']]] = None,
                  source_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  within_country: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
-
-        The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
-
-        > **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The attribute can be overriden if needed by setting the parameters: `primary_dest_vip` and `secondary_dest_vip`.
-
-        ## Example Usage
-
-        ### Unnumbered
-
-        > **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the primary_dest_vip and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the available VIP.
-
-        > **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
-
-        > **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
-
-        ### Numbered
-
-        > **Note:** When configuring a numbered GRE Tunnel where the attribute `internal_ip_range` is defined, we must set the lifecycle block to ignore changes to the ``internal_ip_range`` attribute unless it is explicitly changed in the Terraform configuration.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_traffic_forwarding_gre_tunnel** can be imported by using `<TUNNEL_ID>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <tunnel_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <engine_name>
-        ```
-
+        Create a TrafficForwardingGreTunnel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this GRE tunnel
-        :param pulumi.Input[_builtins.str] country_code: When within_country is enabled, you must set this to the country code.
-        :param pulumi.Input[_builtins.str] internal_ip_range: The start of the internal IP address in /29 CIDR range
-        :param pulumi.Input[_builtins.bool] ip_unnumbered: This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelPrimaryDestVipArgs', 'TrafficForwardingGRETunnelPrimaryDestVipArgsDict']]]] primary_dest_vips: The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelSecondaryDestVipArgs', 'TrafficForwardingGRETunnelSecondaryDestVipArgsDict']]]] secondary_dest_vips: The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[_builtins.str] source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        :param pulumi.Input[_builtins.bool] within_country: Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficForwardingGRETunnelArgs,
+                 args: TrafficForwardingGreTunnelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        * [Official documentation](https://help.zscaler.com/zia/about-gre-tunnels)
-        * [API documentation](https://help.zscaler.com/zia/traffic-forwarding-0#/greTunnels-post)
-
-        The **zia_traffic_forwarding_gre_tunnel** resource allows the creation and management of GRE tunnel configuration in the Zscaler Internet Access (ZIA) portal.
-
-        > **Note:** The provider automatically query the Zscaler cloud for the primary and secondary destination datacenter and virtual IP address (VIP) of the GRE tunnel. The attribute can be overriden if needed by setting the parameters: `primary_dest_vip` and `secondary_dest_vip`.
-
-        ## Example Usage
-
-        ### Unnumbered
-
-        > **Note:** Although the example shows 2 valid attributes defined (datacenter, virtual_ip) within the primary_dest_vip and secondary_dest_vip, only one attribute is required. If setting the datacenter name as the attribute i.e YVR1. The provider will automatically select the available VIP.
-
-        > **Note:** To obtain the datacenter codes and/or virtual_ips, refer to the following [Zscaler Portal](https://config.zscaler.com/zscloud.net/cenr) and choose your cloud tenant.
-
-        > **Note:** The provider will automatically query and set the Zscaler cloud for the next available `/29` internal IP range to be used in a numbered GRE tunnel.
-
-        ### Numbered
-
-        > **Note:** When configuring a numbered GRE Tunnel where the attribute `internal_ip_range` is defined, we must set the lifecycle block to ignore changes to the ``internal_ip_range`` attribute unless it is explicitly changed in the Terraform configuration.
-
-        ## Import
-
-        Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
-        Visit
-
-        **zia_traffic_forwarding_gre_tunnel** can be imported by using `<TUNNEL_ID>` as the import ID.
-
-        For example:
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <tunnel_id>
-        ```
-
-        or
-
-        ```sh
-        $ pulumi import zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel example <engine_name>
-        ```
-
+        Create a TrafficForwardingGreTunnel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param TrafficForwardingGRETunnelArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficForwardingGreTunnelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingGRETunnelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficForwardingGreTunnelArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -438,8 +168,8 @@ class TrafficForwardingGRETunnel(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_ip_range: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_unnumbered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 primary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelPrimaryDestVipArgs', 'TrafficForwardingGRETunnelPrimaryDestVipArgsDict']]]]] = None,
-                 secondary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelSecondaryDestVipArgs', 'TrafficForwardingGRETunnelSecondaryDestVipArgsDict']]]]] = None,
+                 primary_dest_vip: Optional[pulumi.Input[Union['GreTunnelDestVipInputArgs', 'GreTunnelDestVipInputArgsDict']]] = None,
+                 secondary_dest_vip: Optional[pulumi.Input[Union['GreTunnelDestVipInputArgs', 'GreTunnelDestVipInputArgsDict']]] = None,
                  source_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  within_country: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -449,21 +179,21 @@ class TrafficForwardingGRETunnel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficForwardingGRETunnelArgs.__new__(TrafficForwardingGRETunnelArgs)
+            __props__ = TrafficForwardingGreTunnelArgs.__new__(TrafficForwardingGreTunnelArgs)
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["country_code"] = country_code
             __props__.__dict__["internal_ip_range"] = internal_ip_range
             __props__.__dict__["ip_unnumbered"] = ip_unnumbered
-            __props__.__dict__["primary_dest_vips"] = primary_dest_vips
-            __props__.__dict__["secondary_dest_vips"] = secondary_dest_vips
+            __props__.__dict__["primary_dest_vip"] = primary_dest_vip
+            __props__.__dict__["secondary_dest_vip"] = secondary_dest_vip
             if source_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ip'")
             __props__.__dict__["source_ip"] = source_ip
             __props__.__dict__["within_country"] = within_country
             __props__.__dict__["tunnel_id"] = None
-        super(TrafficForwardingGRETunnel, __self__).__init__(
-            'zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel',
+        super(TrafficForwardingGreTunnel, __self__).__init__(
+            'zia:index:TrafficForwardingGreTunnel',
             resource_name,
             __props__,
             opts)
@@ -471,117 +201,72 @@ class TrafficForwardingGRETunnel(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            country_code: Optional[pulumi.Input[_builtins.str]] = None,
-            internal_ip_range: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_unnumbered: Optional[pulumi.Input[_builtins.bool]] = None,
-            primary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelPrimaryDestVipArgs', 'TrafficForwardingGRETunnelPrimaryDestVipArgsDict']]]]] = None,
-            secondary_dest_vips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelSecondaryDestVipArgs', 'TrafficForwardingGRETunnelSecondaryDestVipArgsDict']]]]] = None,
-            source_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            tunnel_id: Optional[pulumi.Input[_builtins.int]] = None,
-            within_country: Optional[pulumi.Input[_builtins.bool]] = None) -> 'TrafficForwardingGRETunnel':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'TrafficForwardingGreTunnel':
         """
-        Get an existing TrafficForwardingGRETunnel resource's state with the given name, id, and optional extra
+        Get an existing TrafficForwardingGreTunnel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Additional information about this GRE tunnel
-        :param pulumi.Input[_builtins.str] country_code: When within_country is enabled, you must set this to the country code.
-        :param pulumi.Input[_builtins.str] internal_ip_range: The start of the internal IP address in /29 CIDR range
-        :param pulumi.Input[_builtins.bool] ip_unnumbered: This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelPrimaryDestVipArgs', 'TrafficForwardingGRETunnelPrimaryDestVipArgsDict']]]] primary_dest_vips: The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficForwardingGRETunnelSecondaryDestVipArgs', 'TrafficForwardingGRETunnelSecondaryDestVipArgsDict']]]] secondary_dest_vips: The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        :param pulumi.Input[_builtins.str] source_ip: The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        :param pulumi.Input[_builtins.int] tunnel_id: The ID of the GRE tunnel.
-        :param pulumi.Input[_builtins.bool] within_country: Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _TrafficForwardingGRETunnelState.__new__(_TrafficForwardingGRETunnelState)
+        __props__ = TrafficForwardingGreTunnelArgs.__new__(TrafficForwardingGreTunnelArgs)
 
-        __props__.__dict__["comment"] = comment
-        __props__.__dict__["country_code"] = country_code
-        __props__.__dict__["internal_ip_range"] = internal_ip_range
-        __props__.__dict__["ip_unnumbered"] = ip_unnumbered
-        __props__.__dict__["primary_dest_vips"] = primary_dest_vips
-        __props__.__dict__["secondary_dest_vips"] = secondary_dest_vips
-        __props__.__dict__["source_ip"] = source_ip
-        __props__.__dict__["tunnel_id"] = tunnel_id
-        __props__.__dict__["within_country"] = within_country
-        return TrafficForwardingGRETunnel(resource_name, opts=opts, __props__=__props__)
+        __props__.__dict__["comment"] = None
+        __props__.__dict__["country_code"] = None
+        __props__.__dict__["internal_ip_range"] = None
+        __props__.__dict__["ip_unnumbered"] = None
+        __props__.__dict__["primary_dest_vip"] = None
+        __props__.__dict__["secondary_dest_vip"] = None
+        __props__.__dict__["source_ip"] = None
+        __props__.__dict__["tunnel_id"] = None
+        __props__.__dict__["within_country"] = None
+        return TrafficForwardingGreTunnel(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Additional information about this GRE tunnel
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        When within_country is enabled, you must set this to the country code.
-        """
+    def country_code(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "country_code")
 
     @_builtins.property
     @pulumi.getter(name="internalIpRange")
     def internal_ip_range(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The start of the internal IP address in /29 CIDR range
-        """
         return pulumi.get(self, "internal_ip_range")
 
     @_builtins.property
     @pulumi.getter(name="ipUnnumbered")
-    def ip_unnumbered(self) -> pulumi.Output[_builtins.bool]:
-        """
-        This is required to support the automated SD-WAN provisioning of GRE tunnels, when set to true gre_tun_ip and gre_tun_id are set to null
-        """
+    def ip_unnumbered(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "ip_unnumbered")
 
     @_builtins.property
-    @pulumi.getter(name="primaryDestVips")
-    def primary_dest_vips(self) -> pulumi.Output[Sequence['outputs.TrafficForwardingGRETunnelPrimaryDestVip']]:
-        """
-        The primary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "primary_dest_vips")
+    @pulumi.getter(name="primaryDestVip")
+    def primary_dest_vip(self) -> pulumi.Output[Optional['outputs.GreTunnelDestVipOutput']]:
+        return pulumi.get(self, "primary_dest_vip")
 
     @_builtins.property
-    @pulumi.getter(name="secondaryDestVips")
-    def secondary_dest_vips(self) -> pulumi.Output[Sequence['outputs.TrafficForwardingGRETunnelSecondaryDestVip']]:
-        """
-        The secondary destination data center and virtual IP address (VIP) of the GRE tunnel
-        """
-        return pulumi.get(self, "secondary_dest_vips")
+    @pulumi.getter(name="secondaryDestVip")
+    def secondary_dest_vip(self) -> pulumi.Output[Optional['outputs.GreTunnelDestVipOutput']]:
+        return pulumi.get(self, "secondary_dest_vip")
 
     @_builtins.property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> pulumi.Output[_builtins.str]:
-        """
-        The source IP address of the GRE tunnel. This is typically a static IP address in the organization or SD-WAN.
-        """
         return pulumi.get(self, "source_ip")
 
     @_builtins.property
     @pulumi.getter(name="tunnelId")
     def tunnel_id(self) -> pulumi.Output[_builtins.int]:
-        """
-        The ID of the GRE tunnel.
-        """
         return pulumi.get(self, "tunnel_id")
 
     @_builtins.property
     @pulumi.getter(name="withinCountry")
-    def within_country(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP address
-        """
+    def within_country(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "within_country")
 

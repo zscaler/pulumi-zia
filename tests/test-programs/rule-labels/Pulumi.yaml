@@ -1,0 +1,23 @@
+name: rule-labels-e2e
+runtime: yaml
+description: E2E test for zia:index:RuleLabel resource
+
+config:
+  labelName:
+    type: string
+    default: "pulumi-e2e-test-label"
+  description:
+    type: string
+    default: "E2E test rule label"
+
+resources:
+  testLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${description}
+
+outputs:
+  labelName: ${testLabel.name}
+  labelDescription: ${testLabel.description}
+  labelId: ${testLabel.ruleLabelId}

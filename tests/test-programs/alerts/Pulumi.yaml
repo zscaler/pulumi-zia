@@ -1,0 +1,28 @@
+name: alerts-e2e
+runtime: yaml
+description: E2E test for zia:index:SubscriptionAlert resource
+
+config:
+  email:
+    type: string
+    default: "tf-acc-test@acme.com"
+  description:
+    type: string
+    default: "testAcc_Alert_Subscription"
+
+resources:
+  alert:
+    type: zia:index:SubscriptionAlert
+    properties:
+      email: ${email}
+      description: ${description}
+      pt0Severities: ["CRITICAL"]
+      secureSeverities: ["CRITICAL", "MAJOR", "MINOR", "INFO", "DEBUG"]
+      manageSeverities: ["CRITICAL", "MAJOR", "MINOR", "INFO", "DEBUG"]
+      complySeverities: ["CRITICAL", "MAJOR", "MINOR", "INFO", "DEBUG"]
+      systemSeverities: ["CRITICAL", "MAJOR", "MINOR", "INFO", "DEBUG"]
+
+outputs:
+  alertId: ${alert.alertId}
+  email: ${alert.email}
+  description: ${alert.description}

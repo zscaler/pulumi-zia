@@ -1,0 +1,69 @@
+name: firewall-ips-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:FirewallIPSRule resource
+
+config:
+  ruleName:
+    type: string
+    default: ""
+  labelName:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "testAcc_firewall_ips_rule"
+  action:
+    type: string
+    default: "ALLOW"
+  state:
+    type: string
+    default: "ENABLED"
+
+variables:
+  labelDescription:
+    fn::join:
+      - ""
+      - - "E2E IPS label "
+        - ${labelName}
+  nwService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "ZSCALER_PROXY_NW_SERVICES"
+
+resources:
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  firewallIpsRule:
+    type: zia:index:FirewallIPSRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      action: ${action}
+      state: ${state}
+      order: 1
+      enableFullLogging: false
+      destCountries:
+        - "CA"
+        - "US"
+      sourceCountries:
+        - "CA"
+        - "US"
+      nwServices:
+        - ${nwService.networkServiceId}
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${firewallIpsRule.ruleId}
+  name: ${firewallIpsRule.name}
+  description: ${firewallIpsRule.description}
+  action: ${firewallIpsRule.action}
+  state: ${firewallIpsRule.state}
+  order: ${firewallIpsRule.order}
+  labels: ${firewallIpsRule.labels}
+  nwServices: ${firewallIpsRule.nwServices}

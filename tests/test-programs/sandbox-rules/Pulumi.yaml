@@ -1,0 +1,88 @@
+name: sandbox-rules-e2e
+runtime: yaml
+description: E2E test for zia:index:SandboxRule resource
+
+config:
+  ruleName:
+    type: string
+    default: "tf-acc-test-sandbox"
+  description:
+    type: string
+    default: "testAcc_sandbox_rule"
+  state:
+    type: string
+    default: "ENABLED"
+  action:
+    type: string
+    default: "ALLOW"
+  labelName:
+    type: string
+    default: "e2e-sandbox-label"
+  labelDescription:
+    type: string
+    default: "E2E test label for sandbox rule"
+
+resources:
+  # Rule label - required for labels attribute
+  ruleLabel:
+    type: zia:index:RuleLabel
+    properties:
+      name: ${labelName}
+      description: ${labelDescription}
+
+  # Sandbox rule - same attribute values as Terraform test
+  sandboxRule:
+    type: zia:index:SandboxRule
+    properties:
+      name: ${ruleName}
+      description: ${description}
+      state: ${state}
+      order: 1
+      rank: 7
+      baRuleAction: ${action}
+      firstTimeEnable: true
+      firstTimeOperation: "ALLOW_SCAN"
+      mlActionEnabled: true
+      baPolicyCategories:
+        - ADWARE_BLOCK
+        - BOTMAL_BLOCK
+        - ANONYP2P_BLOCK
+        - RANSOMWARE_BLOCK
+      fileTypes:
+        - FTCATEGORY_P7Z
+        - FTCATEGORY_MS_WORD
+        - FTCATEGORY_PDF_DOCUMENT
+        - FTCATEGORY_TAR
+        - FTCATEGORY_SCZIP
+        - FTCATEGORY_WINDOWS_EXECUTABLES
+        - FTCATEGORY_HTA
+        - FTCATEGORY_FLASH
+        - FTCATEGORY_RAR
+        - FTCATEGORY_MS_EXCEL
+        - FTCATEGORY_VISUAL_BASIC_SCRIPT
+        - FTCATEGORY_MS_POWERPOINT
+        - FTCATEGORY_WINDOWS_LIBRARY
+        - FTCATEGORY_POWERSHELL
+        - FTCATEGORY_APK
+        - FTCATEGORY_ZIP
+        - FTCATEGORY_BZIP2
+        - FTCATEGORY_JAVA_APPLET
+        - FTCATEGORY_MS_RTF
+      protocols:
+        - FOHTTP_RULE
+        - FTP_RULE
+        - HTTPS_RULE
+        - HTTP_RULE
+      labels:
+        - ${ruleLabel.ruleLabelId}
+
+outputs:
+  ruleId: ${sandboxRule.ruleId}
+  name: ${sandboxRule.name}
+  description: ${sandboxRule.description}
+  state: ${sandboxRule.state}
+  baRuleAction: ${sandboxRule.baRuleAction}
+  baPolicyCategories: ${sandboxRule.baPolicyCategories}
+  fileTypes: ${sandboxRule.fileTypes}
+  protocols: ${sandboxRule.protocols}
+  labels: ${sandboxRule.labels}

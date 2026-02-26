@@ -1,0 +1,33 @@
+name: traffic-forwarding-static-ips-e2e
+runtime: yaml
+description: E2E test for zia:index:TrafficForwardingStaticIp resource
+
+config:
+  ipAddress:
+    type: string
+    default: ""
+  comment:
+    type: string
+    default: ""
+  routableIp:
+    type: boolean
+    default: false
+  geoOverride:
+    type: boolean
+    default: false
+
+resources:
+  staticIp:
+    type: zia:index:TrafficForwardingStaticIp
+    properties:
+      ipAddress: ${ipAddress}
+      comment: ${comment}
+      routableIp: ${routableIp}
+      geoOverride: ${geoOverride}
+
+outputs:
+  staticIpId: ${staticIp.staticIpId}
+  ipAddress: ${staticIp.ipAddress}
+  comment: ${staticIp.comment}
+  routableIp: ${staticIp.routableIp}
+  geoOverride: ${staticIp.geoOverride}

@@ -1,0 +1,43 @@
+name: extranet-e2e
+runtime: yaml
+description: E2E test for zia:index:Extranet resource (same values as Terraform testAccCheckExtranetConfigure)
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "testAcc_extranet"
+
+resources:
+  extranet:
+    type: zia:index:Extranet
+    properties:
+      name: ${name}
+      description: ${description}
+      extranetDnsList:
+        - name: "DNS01"
+          primaryDnsServer: "8.8.8.8"
+          secondaryDnsServer: "4.4.4.4"
+          useAsDefault: true
+        - name: "DNS02"
+          primaryDnsServer: "192.168.1.1"
+          secondaryDnsServer: "192.168.1.2"
+          useAsDefault: false
+      extranetIpPoolList:
+        - name: "TFS01"
+          ipStart: "10.0.0.1"
+          ipEnd: "10.0.0.21"
+          useAsDefault: true
+        - name: "TFS02"
+          ipStart: "10.0.0.22"
+          ipEnd: "10.0.0.43"
+          useAsDefault: false
+
+outputs:
+  extranetId: ${extranet.extranetId}
+  name: ${extranet.name}
+  description: ${extranet.description}
+  extranetDnsList: ${extranet.extranetDnsList}
+  extranetIpPoolList: ${extranet.extranetIpPoolList}

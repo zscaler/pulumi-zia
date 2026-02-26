@@ -1,0 +1,60 @@
+---
+description: Workflow for adding a new ZIA resource to the provider
+alwaysApply: false
+---
+
+# Adding a New Resource
+
+## Source of Truth
+
+All resources are backed by `github.com/zscaler/zscaler-sdk-go/v3`, vendored at
+`vendor/github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/<package>/`.
+**New resources/attributes must exist in the SDK first.** Always start by reading
+the SDK struct and CRUD functions to determine fields, types, and method signatures.
+
+If the SDK needs updating: `go get github.com/zscaler/zscaler-sdk-go/v3@latest && go mod vendor`
+
+## Steps
+
+1. **Check the SDK**: Read the struct and CRUD functions in `vendor/github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/<package>/`
+2. **Create** `provider/<resource_name>.go` with Args, State, Resource structs mapping to SDK fields
+3. **Implement** CRUD: `Create`, `Read`, `Update`, `Delete` calling SDK functions
+4. **Add Annotate()** methods:
+   - Resource: value receiver, `describeResource()` with Hugo shortcode examples
+   - Args: pointer receiver, describe every input property
+   - State: pointer receiver, describe output-only properties
+4. **Register** in `provider/provider.go` under `WithResources()`
+5. **Build**: `make provider && make generate_schema`
+6. **Verify**: Check `schema.json` contains the new resource with descriptions
+
+## Template
+
+```go
+type NewResourceArgs struct {
+    Name        string  `pulumi:"name"`
+    Description *string `pulumi:"description,optional"`
+}
+
+type NewResourceState struct {
+    NewResourceArgs
+    ResourceId string `pulumi:"resourceId"`
+}
+
+type NewResource struct{}
+
+func (NewResource) Annotate(a infer.Annotator) {
+    describeResource(a, &NewResource{}, "Description with examples...")
+}
+
+func (a *NewResourceArgs) Annotate(ann infer.Annotator) {
+    ann.Describe(&a.Name, "The name of the resource.")
+}
+
+func (s *NewResourceState) Annotate(a infer.Annotator) {
+    a.Describe(&s.ResourceId, "The ID of the resource.")
+}
+```
+
+## License Header
+
+Use MIT header (see existing files for exact text).

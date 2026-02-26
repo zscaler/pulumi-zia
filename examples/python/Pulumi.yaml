@@ -1,0 +1,12 @@
+name: zia-python
+runtime: python
+description: ZIA RuleLabel example using Python SDK
+config:
+  zia:clientId:
+    default: ${ZSCALER_CLIENT_ID}
+  zia:clientSecret:
+    default: ${ZSCALER_CLIENT_SECRET}
+    secret: true
+  zia:vanityDomain:
+    default: ${ZSCALER_VANITY_DOMAIN}
+    secret: true

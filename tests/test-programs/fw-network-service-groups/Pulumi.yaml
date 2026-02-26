@@ -1,0 +1,39 @@
+name: fw-network-service-groups-e2e
+runtime: yaml
+description: E2E test for zia:index:FwNetworkServiceGroup resource
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: "this is an acceptance test"
+
+variables:
+  icmpService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "ICMP_ANY"
+  tcpService:
+    fn::invoke:
+      function: zia:index:getFwNetworkService
+      arguments:
+        name: "TCP_ANY"
+
+resources:
+  fwNetworkServiceGroup:
+    type: zia:index:FwNetworkServiceGroup
+    properties:
+      name: ${name}
+      description: ${description}
+      serviceIds:
+        - ${icmpService.networkServiceId}
+        - ${tcpService.networkServiceId}
+
+outputs:
+  groupId: ${fwNetworkServiceGroup.groupId}
+  name: ${fwNetworkServiceGroup.name}
+  description: ${fwNetworkServiceGroup.description}
+  serviceIds: ${fwNetworkServiceGroup.serviceIds}

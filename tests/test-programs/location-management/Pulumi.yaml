@@ -1,0 +1,55 @@
+name: location-management-e2e
+runtime: yaml
+description: E2E test for zia:index:LocationManagement resource (uses VPN credentials UFQDN)
+
+config:
+  name:
+    type: string
+    default: ""
+  description:
+    type: string
+    default: ""
+  fqdn:
+    type: string
+    default: ""
+  preSharedKey:
+    type: string
+    default: ""
+
+resources:
+  vpnCred:
+    type: zia:index:TrafficForwardingVpnCredentials
+    properties:
+      type: "UFQDN"
+      fqdn: ${fqdn}
+      comments: "pulumi-e2e-location-mgmt"
+      preSharedKey: ${preSharedKey}
+
+  location:
+    type: zia:index:LocationManagement
+    properties:
+      name: ${name}
+      description: ${description}
+      country: "UNITED_STATES"
+      tz: "UNITED_STATES_AMERICA_LOS_ANGELES"
+      authRequired: true
+      surrogateIp: true
+      idleTimeInMinutes: 720
+      displayTimeUnit: "HOUR"
+      ofwEnabled: true
+      ipsControl: true
+      profile: "CORPORATE"
+      vpnCredentials:
+        - id: ${vpnCred.vpnId}
+          type: "UFQDN"
+          fqdn: ${fqdn}
+
+outputs:
+  locationId: ${location.locationId}
+  name: ${location.name}
+  description: ${location.description}
+  country: ${location.country}
+  authRequired: ${location.authRequired}
+  surrogateIp: ${location.surrogateIp}
+  ofwEnabled: ${location.ofwEnabled}
+  ipsControl: ${location.ipsControl}

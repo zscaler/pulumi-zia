@@ -6,178 +6,57 @@ import builtins as _builtins
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from .activation_status import *
+from .activation import *
 from .admin_roles import *
 from .admin_users import *
 from .advanced_settings import *
-from .advanced_threat_settings import *
 from .atp_malicious_urls import *
 from .atp_malware_inspection import *
 from .atp_malware_policy import *
 from .atp_malware_protocols import *
 from .atp_malware_settings import *
 from .atp_security_exceptions import *
+from .atp_settings import *
 from .auth_settings_urls import *
-from .bandwidth_control_classes import *
-from .bandwidth_control_classes_file_size import *
-from .bandwidth_control_classes_web_conferencing import *
 from .bandwidth_control_rule import *
-from .browser_control_policy import *
-from .browser_control_settings import *
 from .casb_dlp_rule import *
-from .casb_dlp_rules import *
 from .casb_malware_rule import *
-from .casb_malware_rules import *
 from .cloud_app_control_rule import *
-from .cloud_application_instance import *
-from .cloud_nss_feed import *
-from .custom_file_types import *
-from .dc_exclusions import *
-from .dlp_dictionaries import *
-from .dlp_engines import *
-from .dlp_notification_templates import *
-from .dlp_web_rules import *
-from .end_user_notification import *
-from .extranet import *
-from .file_type_control_rules import *
+from .dlp_web_rule import *
+from .file_type_control_rule import *
 from .firewall_dns_rule import *
-from .firewall_filtering_application_groups import *
-from .firewall_filtering_destination_groups import *
-from .firewall_filtering_network_services import *
 from .firewall_filtering_rule import *
-from .firewall_filtering_service_groups import *
-from .firewall_filtering_source_groups import *
-from .forwarding_control_proxies import *
+from .firewall_ips_rule import *
 from .forwarding_control_rule import *
-from .forwarding_control_zpa_gateway import *
-from .ftp_control_policy import *
-from .get_activation_status import *
-from .get_admin_roles import *
-from .get_admin_users import *
-from .get_advanced_settings import *
-from .get_advanced_threat_settings import *
-from .get_atp_malicious_urls import *
-from .get_atp_security_exceptions import *
-from .get_auth_settings_urls import *
-from .get_bandwidth_classes import *
-from .get_bandwidth_control_rule import *
-from .get_browser_control_policy import *
-from .get_browser_control_settings import *
-from .get_casb_dlp_rules import *
-from .get_casb_email_label import *
-from .get_casb_malware_rules import *
-from .get_casb_tenant import *
-from .get_casb_tombstone_template import *
-from .get_cbi_profile import *
-from .get_cloud_app_control_rule import *
-from .get_cloud_app_control_rule_actions import *
-from .get_cloud_application_instance import *
-from .get_cloud_applications import *
-from .get_cloud_nss_feed import *
-from .get_custom_file_types import *
-from .get_datacenters import *
-from .get_dc_exclusions import *
-from .get_department_management import *
-from .get_device_groups import *
-from .get_devices import *
-from .get_dlp_cloud_to_cloud_ir import *
-from .get_dlp_dictionaries import *
-from .get_dlp_dictionary_predefined_identifiers import *
-from .get_dlp_engines import *
-from .get_dlp_incident_receiver_servers import *
-from .get_dlp_notification_templates import *
-from .get_dlp_web_rules import *
-from .get_dlpedm_schema import *
-from .get_dlpidm_profile_lite import *
-from .get_dlpidm_profiles import *
-from .get_domain_profiles import *
-from .get_end_user_notification import *
-from .get_extranet import *
-from .get_file_type_categories import *
-from .get_file_type_control_rules import *
-from .get_firewall_dns_rules import *
-from .get_firewall_filtering_app_group import *
-from .get_firewall_filtering_app_services import *
-from .get_firewall_filtering_application import *
-from .get_firewall_filtering_application_groups import *
-from .get_firewall_filtering_destination_groups import *
-from .get_firewall_filtering_network_service_groups import *
-from .get_firewall_filtering_network_services import *
-from .get_firewall_filtering_rule import *
-from .get_firewall_filtering_source_ip_groups import *
-from .get_forwarding_control_proxies import *
-from .get_forwarding_control_proxy_gateway import *
-from .get_forwarding_control_rule import *
-from .get_forwarding_control_zpa_gateway import *
-from .get_forwarding_proxy_gateway import *
-from .get_ftp_control_policy import *
-from .get_group_management import *
-from .get_icap_servers import *
-from .get_ips_firewall_rule import *
-from .get_location_groups import *
-from .get_location_lite import *
-from .get_location_management import *
-from .get_malware_inspection import *
-from .get_malware_policy import *
-from .get_malware_protocols import *
-from .get_malware_settings import *
-from .get_mobile_malware_protection_policy import *
-from .get_nat_control_rules import *
-from .get_nss_server import *
-from .get_risk_profiles import *
-from .get_rule_labels import *
-from .get_sandbox_behavioral_analysis import *
-from .get_sandbox_report import *
-from .get_sandbox_rules import *
-from .get_security_settings import *
-from .get_ssl_inspection_rules import *
-from .get_sub_cloud import *
-from .get_subscription_alert import *
-from .get_tenant_restriction_profile import *
-from .get_time_window import *
-from .get_traffic_capture_rules import *
-from .get_traffic_forwarding_gre_internal_ip_range import *
-from .get_traffic_forwarding_gre_tunnel import *
-from .get_traffic_forwarding_gre_tunnel_info import *
-from .get_traffic_forwarding_node_vips import *
-from .get_traffic_forwarding_static_ip import *
-from .get_traffic_forwarding_vip_recommended_list import *
-from .get_traffic_forwarding_vpn_credentials import *
-from .get_url_categories import *
-from .get_url_filtering_cloud_app_settings import *
-from .get_url_filtering_rules import *
-from .get_user_management import *
-from .get_virtual_service_edge_cluster import *
-from .get_virtual_service_edge_node import *
-from .get_workload_groups import *
-from .ips_firewall_rule import *
-from .location_management import *
-from .mobile_malware_protection_policy import *
-from .nat_control_rules import *
+from .get_user_management_user import *
+from .get_vzen_cluster import *
+from .get_vzen_node import *
+from .get_workload_group import *
+from .nat_control_rule import *
 from .nss_server import *
 from .provider import *
-from .risk_profiles import *
-from .rule_labels import *
-from .sandbox_behavioral_analysis import *
-from .sandbox_file_submission import *
-from .sandbox_rules import *
-from .security_settings import *
-from .ssl_inspection_rules import *
+from .risk_profile import *
+from .rule_label import *
+from .sandbox_behavioral_analysis_advanced_settings import *
+from .sandbox_rule import *
+from .sandbox_submission import *
+from .security_policy_settings import *
+from .ssl_inspection_rule import *
 from .sub_cloud import *
 from .subscription_alert import *
 from .tenant_restriction_profile import *
-from .traffic_capture_rules import *
+from .traffic_capture_rule import *
 from .traffic_forwarding_gre_tunnel import *
 from .traffic_forwarding_static_ip import *
 from .traffic_forwarding_vpn_credentials import *
-from .url_categories import *
-from .url_categories_predefined import *
+from .url_category import *
+from .url_category_predefined import *
 from .url_filtering_cloud_app_settings import *
-from .url_filtering_rules import *
-from .user_management import *
-from .virtual_service_edge_cluster import *
-from .virtual_service_edge_node import *
-from .workload_groups import *
+from .url_filtering_rule import *
+from .user_management_user import *
+from .vzen_cluster import *
+from .vzen_node import *
+from .workload_group import *
 from ._inputs import *
 from . import outputs
 
@@ -193,578 +72,55 @@ _utilities.register(
 [
  {
   "pkg": "zia",
-  "mod": "index/aTPMaliciousURLs",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPMaliciousURLs:ATPMaliciousURLs": "ATPMaliciousURLs"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/aTPMalwareInspection",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPMalwareInspection:ATPMalwareInspection": "ATPMalwareInspection"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/aTPMalwarePolicy",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPMalwarePolicy:ATPMalwarePolicy": "ATPMalwarePolicy"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/aTPMalwareProtocols",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPMalwareProtocols:ATPMalwareProtocols": "ATPMalwareProtocols"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/aTPMalwareSettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPMalwareSettings:ATPMalwareSettings": "ATPMalwareSettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/aTPSecurityExceptions",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/aTPSecurityExceptions:ATPSecurityExceptions": "ATPSecurityExceptions"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/activationStatus",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/activationStatus:ActivationStatus": "ActivationStatus"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/adminRoles",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/adminRoles:AdminRoles": "AdminRoles"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/adminUsers",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/adminUsers:AdminUsers": "AdminUsers"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/advancedSettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/advancedSettings:AdvancedSettings": "AdvancedSettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/advancedThreatSettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/advancedThreatSettings:AdvancedThreatSettings": "AdvancedThreatSettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/authSettingsURLs",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/authSettingsURLs:AuthSettingsURLs": "AuthSettingsURLs"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/bandwidthControlClasses",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/bandwidthControlClasses:BandwidthControlClasses": "BandwidthControlClasses"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/bandwidthControlClassesFileSize",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/bandwidthControlClassesFileSize:BandwidthControlClassesFileSize": "BandwidthControlClassesFileSize"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/bandwidthControlClassesWebConferencing",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/bandwidthControlClassesWebConferencing:BandwidthControlClassesWebConferencing": "BandwidthControlClassesWebConferencing"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/bandwidthControlRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/bandwidthControlRule:BandwidthControlRule": "BandwidthControlRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/browserControlPolicy",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/browserControlPolicy:BrowserControlPolicy": "BrowserControlPolicy"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/browserControlSettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/browserControlSettings:BrowserControlSettings": "BrowserControlSettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/casbDlpRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/casbDlpRule:CasbDlpRule": "CasbDlpRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/casbDlpRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/casbDlpRules:CasbDlpRules": "CasbDlpRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/casbMalwareRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/casbMalwareRule:CasbMalwareRule": "CasbMalwareRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/casbMalwareRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/casbMalwareRules:CasbMalwareRules": "CasbMalwareRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/cloudAppControlRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/cloudAppControlRule:CloudAppControlRule": "CloudAppControlRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/cloudApplicationInstance",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/cloudApplicationInstance:CloudApplicationInstance": "CloudApplicationInstance"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/cloudNSSFeed",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/cloudNSSFeed:CloudNSSFeed": "CloudNSSFeed"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/customFileTypes",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/customFileTypes:CustomFileTypes": "CustomFileTypes"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/dCExclusions",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/dCExclusions:DCExclusions": "DCExclusions"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/dLPDictionaries",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/dLPDictionaries:DLPDictionaries": "DLPDictionaries"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/dLPEngines",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/dLPEngines:DLPEngines": "DLPEngines"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/dLPNotificationTemplates",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/dLPNotificationTemplates:DLPNotificationTemplates": "DLPNotificationTemplates"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/dLPWebRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/dLPWebRules:DLPWebRules": "DLPWebRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/endUserNotification",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/endUserNotification:EndUserNotification": "EndUserNotification"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/extranet",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/extranet:Extranet": "Extranet"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/fileTypeControlRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/fileTypeControlRules:FileTypeControlRules": "FileTypeControlRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallDNSRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallDNSRule:FirewallDNSRule": "FirewallDNSRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringApplicationGroups",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringApplicationGroups:FirewallFilteringApplicationGroups": "FirewallFilteringApplicationGroups"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringDestinationGroups",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringDestinationGroups:FirewallFilteringDestinationGroups": "FirewallFilteringDestinationGroups"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringNetworkServices",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringNetworkServices:FirewallFilteringNetworkServices": "FirewallFilteringNetworkServices"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringRule:FirewallFilteringRule": "FirewallFilteringRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringServiceGroups",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringServiceGroups:FirewallFilteringServiceGroups": "FirewallFilteringServiceGroups"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/firewallFilteringSourceGroups",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/firewallFilteringSourceGroups:FirewallFilteringSourceGroups": "FirewallFilteringSourceGroups"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/forwardingControlProxies",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/forwardingControlProxies:ForwardingControlProxies": "ForwardingControlProxies"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/forwardingControlRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/forwardingControlRule:ForwardingControlRule": "ForwardingControlRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/forwardingControlZPAGateway",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/forwardingControlZPAGateway:ForwardingControlZPAGateway": "ForwardingControlZPAGateway"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/ftpControlPolicy",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/ftpControlPolicy:FtpControlPolicy": "FtpControlPolicy"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/iPSFirewallRule",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/iPSFirewallRule:IPSFirewallRule": "IPSFirewallRule"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/locationManagement",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/locationManagement:LocationManagement": "LocationManagement"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/mobileMalwareProtectionPolicy",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/mobileMalwareProtectionPolicy:MobileMalwareProtectionPolicy": "MobileMalwareProtectionPolicy"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/natControlRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/natControlRules:NatControlRules": "NatControlRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/nssServer",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/nssServer:NssServer": "NssServer"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/riskProfiles",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/riskProfiles:RiskProfiles": "RiskProfiles"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/ruleLabels",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/ruleLabels:RuleLabels": "RuleLabels"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/sSLInspectionRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/sSLInspectionRules:SSLInspectionRules": "SSLInspectionRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/sandboxBehavioralAnalysis",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/sandboxBehavioralAnalysis:SandboxBehavioralAnalysis": "SandboxBehavioralAnalysis"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/sandboxFileSubmission",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/sandboxFileSubmission:SandboxFileSubmission": "SandboxFileSubmission"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/sandboxRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/sandboxRules:SandboxRules": "SandboxRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/securitySettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/securitySettings:SecuritySettings": "SecuritySettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/subCloud",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/subCloud:SubCloud": "SubCloud"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/subscriptionAlert",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/subscriptionAlert:SubscriptionAlert": "SubscriptionAlert"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/tenantRestrictionProfile",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/tenantRestrictionProfile:TenantRestrictionProfile": "TenantRestrictionProfile"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/trafficCaptureRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/trafficCaptureRules:TrafficCaptureRules": "TrafficCaptureRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/trafficForwardingGRETunnel",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/trafficForwardingGRETunnel:TrafficForwardingGRETunnel": "TrafficForwardingGRETunnel"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/trafficForwardingStaticIP",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/trafficForwardingStaticIP:TrafficForwardingStaticIP": "TrafficForwardingStaticIP"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/trafficForwardingVPNCredentials",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/trafficForwardingVPNCredentials:TrafficForwardingVPNCredentials": "TrafficForwardingVPNCredentials"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/uRLCategories",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/uRLCategories:URLCategories": "URLCategories"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/uRLCategoriesPredefined",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/uRLCategoriesPredefined:URLCategoriesPredefined": "URLCategoriesPredefined"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/uRLFilteringCloudAppSettings",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/uRLFilteringCloudAppSettings:URLFilteringCloudAppSettings": "URLFilteringCloudAppSettings"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/uRLFilteringRules",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/uRLFilteringRules:URLFilteringRules": "URLFilteringRules"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/userManagement",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/userManagement:UserManagement": "UserManagement"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/virtualServiceEdgeCluster",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/virtualServiceEdgeCluster:VirtualServiceEdgeCluster": "VirtualServiceEdgeCluster"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/virtualServiceEdgeNode",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/virtualServiceEdgeNode:VirtualServiceEdgeNode": "VirtualServiceEdgeNode"
-  }
- },
- {
-  "pkg": "zia",
-  "mod": "index/workloadGroups",
-  "fqn": "zscaler_pulumi_zia",
-  "classes": {
-   "zia:index/workloadGroups:WorkloadGroups": "WorkloadGroups"
+  "mod": "index",
+  "fqn": "zscaler_pulumi_zia",
+  "classes": {
+   "zia:index:Activation": "Activation",
+   "zia:index:AdminRoles": "AdminRoles",
+   "zia:index:AdminUsers": "AdminUsers",
+   "zia:index:AdvancedSettings": "AdvancedSettings",
+   "zia:index:AtpMaliciousUrls": "AtpMaliciousUrls",
+   "zia:index:AtpMalwareInspection": "AtpMalwareInspection",
+   "zia:index:AtpMalwarePolicy": "AtpMalwarePolicy",
+   "zia:index:AtpMalwareProtocols": "AtpMalwareProtocols",
+   "zia:index:AtpMalwareSettings": "AtpMalwareSettings",
+   "zia:index:AtpSecurityExceptions": "AtpSecurityExceptions",
+   "zia:index:AtpSettings": "AtpSettings",
+   "zia:index:AuthSettingsUrls": "AuthSettingsUrls",
+   "zia:index:BandwidthControlRule": "BandwidthControlRule",
+   "zia:index:CasbDlpRule": "CasbDlpRule",
+   "zia:index:CasbMalwareRule": "CasbMalwareRule",
+   "zia:index:CloudAppControlRule": "CloudAppControlRule",
+   "zia:index:DlpWebRule": "DlpWebRule",
+   "zia:index:FileTypeControlRule": "FileTypeControlRule",
+   "zia:index:FirewallDNSRule": "FirewallDNSRule",
+   "zia:index:FirewallFilteringRule": "FirewallFilteringRule",
+   "zia:index:FirewallIPSRule": "FirewallIPSRule",
+   "zia:index:ForwardingControlRule": "ForwardingControlRule",
+   "zia:index:NatControlRule": "NatControlRule",
+   "zia:index:NssServer": "NssServer",
+   "zia:index:RiskProfile": "RiskProfile",
+   "zia:index:RuleLabel": "RuleLabel",
+   "zia:index:SandboxBehavioralAnalysisAdvancedSettings": "SandboxBehavioralAnalysisAdvancedSettings",
+   "zia:index:SandboxRule": "SandboxRule",
+   "zia:index:SandboxSubmission": "SandboxSubmission",
+   "zia:index:SecurityPolicySettings": "SecurityPolicySettings",
+   "zia:index:SslInspectionRule": "SslInspectionRule",
+   "zia:index:SubCloud": "SubCloud",
+   "zia:index:SubscriptionAlert": "SubscriptionAlert",
+   "zia:index:TenantRestrictionProfile": "TenantRestrictionProfile",
+   "zia:index:TrafficCaptureRule": "TrafficCaptureRule",
+   "zia:index:TrafficForwardingGreTunnel": "TrafficForwardingGreTunnel",
+   "zia:index:TrafficForwardingStaticIp": "TrafficForwardingStaticIp",
+   "zia:index:TrafficForwardingVpnCredentials": "TrafficForwardingVpnCredentials",
+   "zia:index:URLFilteringRule": "URLFilteringRule",
+   "zia:index:UrlCategory": "UrlCategory",
+   "zia:index:UrlCategoryPredefined": "UrlCategoryPredefined",
+   "zia:index:UrlFilteringCloudAppSettings": "UrlFilteringCloudAppSettings",
+   "zia:index:UserManagementUser": "UserManagementUser",
+   "zia:index:VzenCluster": "VzenCluster",
+   "zia:index:VzenNode": "VzenNode",
+   "zia:index:WorkloadGroup": "WorkloadGroup"
   }
  }
 ]

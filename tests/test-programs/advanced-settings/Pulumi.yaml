@@ -1,0 +1,18 @@
+name: advanced-settings-e2e
+runtime: yaml
+description: E2E test for zia:index:AdvancedSettings resource
+
+config:
+  uiSessionTimeout:
+    type: integer
+    default: 300
+
+resources:
+  advancedSettings:
+    type: zia:index:AdvancedSettings
+    properties:
+      uiSessionTimeout: ${uiSessionTimeout}
+
+outputs:
+  resourceId: ${advancedSettings.resourceId}
+  uiSessionTimeout: ${advancedSettings.uiSessionTimeout}

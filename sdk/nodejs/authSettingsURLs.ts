@@ -4,90 +4,61 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * * [Official documentation](https://help.zscaler.com/zia/url-format-guidelines)
- * * [API documentation](https://help.zscaler.com/zia/user-authentication-settings#/authSettings/exemptedUrls-get)
- *
- * The **zia_auth_settings_urls** resource alows you to add or remove a URL from the cookie authentication exempt list in the Zscaler Internet Access cloud or via the API. To learn more see [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines)
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Zscaler offers a dedicated tool called Zscaler-Terraformer to allow the automated import of ZIA configurations into Terraform-compliant HashiCorp Configuration Language.
- * Visit
- *
- * **zia_auth_settings_urls** can be imported by using `allUrls` as the import ID.
- *
- * For example:
- *
- * ```sh
- * $ pulumi import zia:index/authSettingsURLs:AuthSettingsURLs example all_urls
- * ```
- */
-export class AuthSettingsURLs extends pulumi.CustomResource {
+export class AuthSettingsUrls extends pulumi.CustomResource {
     /**
-     * Get an existing AuthSettingsURLs resource's state with the given name, ID, and optional extra
+     * Get an existing AuthSettingsUrls resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthSettingsURLsState, opts?: pulumi.CustomResourceOptions): AuthSettingsURLs {
-        return new AuthSettingsURLs(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AuthSettingsUrls {
+        return new AuthSettingsUrls(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'zia:index/authSettingsURLs:AuthSettingsURLs';
+    public static readonly __pulumiType = 'zia:index:AuthSettingsUrls';
 
     /**
-     * Returns true if the given object is an instance of AuthSettingsURLs.  This is designed to work even
+     * Returns true if the given object is an instance of AuthSettingsUrls.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is AuthSettingsURLs {
+    public static isInstance(obj: any): obj is AuthSettingsUrls {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === AuthSettingsURLs.__pulumiType;
+        return obj['__pulumiType'] === AuthSettingsUrls.__pulumiType;
     }
 
-    declare public readonly urls: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    declare public readonly urls: pulumi.Output<string[] | undefined>;
 
     /**
-     * Create a AuthSettingsURLs resource with the given unique name, arguments, and options.
+     * Create a AuthSettingsUrls resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AuthSettingsURLsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AuthSettingsURLsArgs | AuthSettingsURLsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AuthSettingsUrlsArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as AuthSettingsURLsState | undefined;
-            resourceInputs["urls"] = state?.urls;
-        } else {
-            const args = argsOrState as AuthSettingsURLsArgs | undefined;
+        if (!opts.id) {
             resourceInputs["urls"] = args?.urls;
+            resourceInputs["resourceId"] = undefined /*out*/;
+        } else {
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["urls"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AuthSettingsURLs.__pulumiType, name, resourceInputs, opts);
+        super(AuthSettingsUrls.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering AuthSettingsURLs resources.
+ * The set of arguments for constructing a AuthSettingsUrls resource.
  */
-export interface AuthSettingsURLsState {
-    urls?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-/**
- * The set of arguments for constructing a AuthSettingsURLs resource.
- */
-export interface AuthSettingsURLsArgs {
+export interface AuthSettingsUrlsArgs {
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }
