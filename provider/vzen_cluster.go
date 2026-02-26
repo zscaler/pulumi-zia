@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -356,27 +356,27 @@ func vzenClusterStateToArgs(rule *vzen_clusters.VZENClusters) VzenClusterArgs {
 
 // VirtualZenNodeOutput is a node in the cluster.
 type VirtualZenNodeOutput struct {
-	Id   int    `pulumi:"nodeId"`  // Pulumi reserves "id" in function outputs
+	Id   int    `pulumi:"nodeId"` // Pulumi reserves "id" in function outputs
 	Name string `pulumi:"name"`
 }
 
 // GetVzenClusterArgs are the inputs for the GetVzenCluster invoke.
 type GetVzenClusterArgs struct {
-	Id   *int    `pulumi:"clusterId,optional"`  // Pulumi reserves "id" in function I/O
+	Id   *int    `pulumi:"clusterId,optional"` // Pulumi reserves "id" in function I/O
 	Name *string `pulumi:"name,optional"`
 }
 
 // GetVzenClusterResult is the output of the GetVzenCluster invoke.
 type GetVzenClusterResult struct {
-	Id               int                    `pulumi:"clusterId"` // Pulumi reserves "id" in function outputs
-	Name             string                 `pulumi:"name"`
-	Status           string                 `pulumi:"status"`
-	Type             string                 `pulumi:"type"`
-	IpAddress        string                 `pulumi:"ipAddress"`
-	SubnetMask       string                 `pulumi:"subnetMask"`
-	DefaultGateway   string                 `pulumi:"defaultGateway"`
-	IpSecEnabled     bool                   `pulumi:"ipSecEnabled"`
-	VirtualZenNodes  []VirtualZenNodeOutput  `pulumi:"virtualZenNodes"`
+	Id              int                    `pulumi:"clusterId"` // Pulumi reserves "id" in function outputs
+	Name            string                 `pulumi:"name"`
+	Status          string                 `pulumi:"status"`
+	Type            string                 `pulumi:"type"`
+	IpAddress       string                 `pulumi:"ipAddress"`
+	SubnetMask      string                 `pulumi:"subnetMask"`
+	DefaultGateway  string                 `pulumi:"defaultGateway"`
+	IpSecEnabled    bool                   `pulumi:"ipSecEnabled"`
+	VirtualZenNodes []VirtualZenNodeOutput `pulumi:"virtualZenNodes"`
 }
 
 // GetVzenCluster implements the zia:index:GetVzenCluster invoke.

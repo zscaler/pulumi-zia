@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -97,7 +97,7 @@ func (ForwardingControlProxies) Create(ctx context.Context, req infer.CreateRequ
 
 	state := ForwardingControlProxiesState{
 		ForwardingControlProxiesArgs: req.Inputs,
-		ProxyId:                     &resp.ID,
+		ProxyId:                      &resp.ID,
 	}
 	return infer.CreateResponse[ForwardingControlProxiesState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -145,7 +145,7 @@ func (ForwardingControlProxies) Read(ctx context.Context, req infer.ReadRequest[
 	}
 	state := ForwardingControlProxiesState{
 		ForwardingControlProxiesArgs: args,
-		ProxyId:                     &resp.ID,
+		ProxyId:                      &resp.ID,
 	}
 	return infer.ReadResponse[ForwardingControlProxiesArgs, ForwardingControlProxiesState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -190,7 +190,7 @@ func (ForwardingControlProxies) Update(ctx context.Context, req infer.UpdateRequ
 
 	state := ForwardingControlProxiesState{
 		ForwardingControlProxiesArgs: req.Inputs,
-		ProxyId:                     &id,
+		ProxyId:                      &id,
 	}
 	return infer.UpdateResponse[ForwardingControlProxiesState]{Output: state}, nil
 }

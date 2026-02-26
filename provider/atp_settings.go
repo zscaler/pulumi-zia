@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -42,54 +42,54 @@ type AtpSettings struct{}
 
 // AtpSettingsArgs are the inputs.
 type AtpSettingsArgs struct {
-	RiskTolerance                        *int     `pulumi:"riskTolerance,optional"`
-	RiskToleranceCapture                 *bool    `pulumi:"riskToleranceCapture,optional"`
-	CmdCtlServerBlocked                  *bool    `pulumi:"cmdCtlServerBlocked,optional"`
-	CmdCtlServerCapture                  *bool    `pulumi:"cmdCtlServerCapture,optional"`
-	CmdCtlTrafficBlocked                  *bool    `pulumi:"cmdCtlTrafficBlocked,optional"`
-	CmdCtlTrafficCapture                  *bool    `pulumi:"cmdCtlTrafficCapture,optional"`
-	MalwareSitesBlocked                   *bool    `pulumi:"malwareSitesBlocked,optional"`
-	MalwareSitesCapture                   *bool    `pulumi:"malwareSitesCapture,optional"`
-	ActivexBlocked                       *bool    `pulumi:"activexBlocked,optional"`
-	ActivexCapture                       *bool    `pulumi:"activexCapture,optional"`
-	BrowserExploitsBlocked               *bool    `pulumi:"browserExploitsBlocked,optional"`
-	BrowserExploitsCapture               *bool    `pulumi:"browserExploitsCapture,optional"`
-	FileFormatVunerabilitesBlocked       *bool    `pulumi:"fileFormatVunerabilitesBlocked,optional"`
-	FileFormatVunerabilitesCapture        *bool    `pulumi:"fileFormatVunerabilitesCapture,optional"`
-	KnownPhishingSitesBlocked             *bool    `pulumi:"knownPhishingSitesBlocked,optional"`
-	KnownPhishingSitesCapture            *bool    `pulumi:"knownPhishingSitesCapture,optional"`
-	SuspectedPhishingSitesBlocked         *bool    `pulumi:"suspectedPhishingSitesBlocked,optional"`
-	SuspectedPhishingSitesCapture         *bool    `pulumi:"suspectedPhishingSitesCapture,optional"`
-	SuspectAdwareSpywareSitesBlocked      *bool    `pulumi:"suspectAdwareSpywareSitesBlocked,optional"`
-	SuspectAdwareSpywareSitesCapture      *bool    `pulumi:"suspectAdwareSpywareSitesCapture,optional"`
-	WebSpamBlocked                       *bool    `pulumi:"webSpamBlocked,optional"`
-	WebSpamCapture                       *bool    `pulumi:"webSpamCapture,optional"`
-	IrcTunnellingBlocked                 *bool    `pulumi:"ircTunnellingBlocked,optional"`
-	IrcTunnellingCapture                 *bool    `pulumi:"ircTunnellingCapture,optional"`
-	AnonymizerBlocked                    *bool    `pulumi:"anonymizerBlocked,optional"`
-	AnonymizerCapture                    *bool    `pulumi:"anonymizerCapture,optional"`
-	CookieStealingBlocked                *bool    `pulumi:"cookieStealingBlocked,optional"`
-	CookieStealingPcapEnabled            *bool    `pulumi:"cookieStealingPcapEnabled,optional"`
-	PotentialMaliciousRequestsBlocked    *bool    `pulumi:"potentialMaliciousRequestsBlocked,optional"`
-	PotentialMaliciousRequestsCapture   *bool    `pulumi:"potentialMaliciousRequestsCapture,optional"`
-	BlockedCountries                     []string `pulumi:"blockedCountries,optional"`
-	BlockCountriesCapture                *bool    `pulumi:"blockCountriesCapture,optional"`
-	BitTorrentBlocked                    *bool    `pulumi:"bitTorrentBlocked,optional"`
-	BitTorrentCapture                    *bool    `pulumi:"bitTorrentCapture,optional"`
-	TorBlocked                           *bool    `pulumi:"torBlocked,optional"`
-	TorCapture                           *bool    `pulumi:"torCapture,optional"`
-	GoogleTalkBlocked                    *bool    `pulumi:"googleTalkBlocked,optional"`
-	GoogleTalkCapture                    *bool    `pulumi:"googleTalkCapture,optional"`
-	SshTunnellingBlocked                 *bool    `pulumi:"sshTunnellingBlocked,optional"`
-	SshTunnellingCapture                 *bool    `pulumi:"sshTunnellingCapture,optional"`
-	CryptoMiningBlocked                  *bool    `pulumi:"cryptoMiningBlocked,optional"`
-	CryptoMiningCapture                  *bool    `pulumi:"cryptoMiningCapture,optional"`
-	AdSpywareSitesBlocked                *bool    `pulumi:"adSpywareSitesBlocked,optional"`
-	AdSpywareSitesCapture                *bool    `pulumi:"adSpywareSitesCapture,optional"`
-	DgaDomainsBlocked                    *bool    `pulumi:"dgaDomainsBlocked,optional"`
-	DgaDomainsCapture                    *bool    `pulumi:"dgaDomainsCapture,optional"`
-	AlertForUnknownSuspiciousC2Traffic   *bool    `pulumi:"alertForUnknownSuspiciousC2Traffic,optional"`
-	MaliciousUrlsCapture                 *bool    `pulumi:"maliciousUrlsCapture,optional"`
+	RiskTolerance                      *int     `pulumi:"riskTolerance,optional"`
+	RiskToleranceCapture               *bool    `pulumi:"riskToleranceCapture,optional"`
+	CmdCtlServerBlocked                *bool    `pulumi:"cmdCtlServerBlocked,optional"`
+	CmdCtlServerCapture                *bool    `pulumi:"cmdCtlServerCapture,optional"`
+	CmdCtlTrafficBlocked               *bool    `pulumi:"cmdCtlTrafficBlocked,optional"`
+	CmdCtlTrafficCapture               *bool    `pulumi:"cmdCtlTrafficCapture,optional"`
+	MalwareSitesBlocked                *bool    `pulumi:"malwareSitesBlocked,optional"`
+	MalwareSitesCapture                *bool    `pulumi:"malwareSitesCapture,optional"`
+	ActivexBlocked                     *bool    `pulumi:"activexBlocked,optional"`
+	ActivexCapture                     *bool    `pulumi:"activexCapture,optional"`
+	BrowserExploitsBlocked             *bool    `pulumi:"browserExploitsBlocked,optional"`
+	BrowserExploitsCapture             *bool    `pulumi:"browserExploitsCapture,optional"`
+	FileFormatVunerabilitesBlocked     *bool    `pulumi:"fileFormatVunerabilitesBlocked,optional"`
+	FileFormatVunerabilitesCapture     *bool    `pulumi:"fileFormatVunerabilitesCapture,optional"`
+	KnownPhishingSitesBlocked          *bool    `pulumi:"knownPhishingSitesBlocked,optional"`
+	KnownPhishingSitesCapture          *bool    `pulumi:"knownPhishingSitesCapture,optional"`
+	SuspectedPhishingSitesBlocked      *bool    `pulumi:"suspectedPhishingSitesBlocked,optional"`
+	SuspectedPhishingSitesCapture      *bool    `pulumi:"suspectedPhishingSitesCapture,optional"`
+	SuspectAdwareSpywareSitesBlocked   *bool    `pulumi:"suspectAdwareSpywareSitesBlocked,optional"`
+	SuspectAdwareSpywareSitesCapture   *bool    `pulumi:"suspectAdwareSpywareSitesCapture,optional"`
+	WebSpamBlocked                     *bool    `pulumi:"webSpamBlocked,optional"`
+	WebSpamCapture                     *bool    `pulumi:"webSpamCapture,optional"`
+	IrcTunnellingBlocked               *bool    `pulumi:"ircTunnellingBlocked,optional"`
+	IrcTunnellingCapture               *bool    `pulumi:"ircTunnellingCapture,optional"`
+	AnonymizerBlocked                  *bool    `pulumi:"anonymizerBlocked,optional"`
+	AnonymizerCapture                  *bool    `pulumi:"anonymizerCapture,optional"`
+	CookieStealingBlocked              *bool    `pulumi:"cookieStealingBlocked,optional"`
+	CookieStealingPcapEnabled          *bool    `pulumi:"cookieStealingPcapEnabled,optional"`
+	PotentialMaliciousRequestsBlocked  *bool    `pulumi:"potentialMaliciousRequestsBlocked,optional"`
+	PotentialMaliciousRequestsCapture  *bool    `pulumi:"potentialMaliciousRequestsCapture,optional"`
+	BlockedCountries                   []string `pulumi:"blockedCountries,optional"`
+	BlockCountriesCapture              *bool    `pulumi:"blockCountriesCapture,optional"`
+	BitTorrentBlocked                  *bool    `pulumi:"bitTorrentBlocked,optional"`
+	BitTorrentCapture                  *bool    `pulumi:"bitTorrentCapture,optional"`
+	TorBlocked                         *bool    `pulumi:"torBlocked,optional"`
+	TorCapture                         *bool    `pulumi:"torCapture,optional"`
+	GoogleTalkBlocked                  *bool    `pulumi:"googleTalkBlocked,optional"`
+	GoogleTalkCapture                  *bool    `pulumi:"googleTalkCapture,optional"`
+	SshTunnellingBlocked               *bool    `pulumi:"sshTunnellingBlocked,optional"`
+	SshTunnellingCapture               *bool    `pulumi:"sshTunnellingCapture,optional"`
+	CryptoMiningBlocked                *bool    `pulumi:"cryptoMiningBlocked,optional"`
+	CryptoMiningCapture                *bool    `pulumi:"cryptoMiningCapture,optional"`
+	AdSpywareSitesBlocked              *bool    `pulumi:"adSpywareSitesBlocked,optional"`
+	AdSpywareSitesCapture              *bool    `pulumi:"adSpywareSitesCapture,optional"`
+	DgaDomainsBlocked                  *bool    `pulumi:"dgaDomainsBlocked,optional"`
+	DgaDomainsCapture                  *bool    `pulumi:"dgaDomainsCapture,optional"`
+	AlertForUnknownSuspiciousC2Traffic *bool    `pulumi:"alertForUnknownSuspiciousC2Traffic,optional"`
+	MaliciousUrlsCapture               *bool    `pulumi:"maliciousUrlsCapture,optional"`
 }
 
 // AtpSettingsState is the persisted state.
@@ -360,7 +360,7 @@ func atpSettingsArgsToAPI(in AtpSettingsArgs) advancedthreatsettings.AdvancedThr
 		CookieStealingBlocked:                use(in.CookieStealingBlocked),
 		CookieStealingPCAPEnabled:            use(in.CookieStealingPcapEnabled),
 		PotentialMaliciousRequestsBlocked:    use(in.PotentialMaliciousRequestsBlocked),
-		PotentialMaliciousRequestsCapture:   use(in.PotentialMaliciousRequestsCapture),
+		PotentialMaliciousRequestsCapture:    use(in.PotentialMaliciousRequestsCapture),
 		BlockedCountries:                     processedBlockedCountries,
 		BlockCountriesCapture:                use(in.BlockCountriesCapture),
 		BitTorrentBlocked:                    use(in.BitTorrentBlocked),
@@ -393,54 +393,54 @@ func atpSettingsAPIToState(r *advancedthreatsettings.AdvancedThreatSettings) Atp
 	}
 	return AtpSettingsState{
 		AtpSettingsArgs: AtpSettingsArgs{
-			RiskTolerance:                        intPtr(r.RiskTolerance),
-			RiskToleranceCapture:                 boolPtr(r.RiskToleranceCapture),
-			CmdCtlServerBlocked:                  boolPtr(r.CmdCtlServerBlocked),
-			CmdCtlServerCapture:                  boolPtr(r.CmdCtlServerCapture),
-			CmdCtlTrafficBlocked:                 boolPtr(r.CmdCtlTrafficBlocked),
-			CmdCtlTrafficCapture:                 boolPtr(r.CmdCtlTrafficCapture),
-			MalwareSitesBlocked:                  boolPtr(r.MalwareSitesBlocked),
-			MalwareSitesCapture:                  boolPtr(r.MalwareSitesCapture),
-			ActivexBlocked:                       boolPtr(r.ActiveXBlocked),
-			ActivexCapture:                       boolPtr(r.ActiveXCapture),
-			BrowserExploitsBlocked:               boolPtr(r.BrowserExploitsBlocked),
-			BrowserExploitsCapture:               boolPtr(r.BrowserExploitsCapture),
-			FileFormatVunerabilitesBlocked:       boolPtr(r.FileFormatVulnerabilitiesBlocked),
-			FileFormatVunerabilitesCapture:       boolPtr(r.FileFormatVulnerabilitiesCapture),
-			KnownPhishingSitesBlocked:            boolPtr(r.KnownPhishingSitesBlocked),
-			KnownPhishingSitesCapture:           boolPtr(r.KnownPhishingSitesCapture),
-			SuspectedPhishingSitesBlocked:        boolPtr(r.SuspectedPhishingSitesBlocked),
-			SuspectedPhishingSitesCapture:        boolPtr(r.SuspectedPhishingSitesCapture),
-			SuspectAdwareSpywareSitesBlocked:     boolPtr(r.SuspectAdwareSpywareSitesBlocked),
-			SuspectAdwareSpywareSitesCapture:     boolPtr(r.SuspectAdwareSpywareSitesCapture),
-			WebSpamBlocked:                       boolPtr(r.WebspamBlocked),
-			WebSpamCapture:                       boolPtr(r.WebspamCapture),
-			IrcTunnellingBlocked:                 boolPtr(r.IrcTunnellingBlocked),
-			IrcTunnellingCapture:                 boolPtr(r.IrcTunnellingCapture),
-			AnonymizerBlocked:                    boolPtr(r.AnonymizerBlocked),
-			AnonymizerCapture:                    boolPtr(r.AnonymizerCapture),
-			CookieStealingBlocked:                boolPtr(r.CookieStealingBlocked),
-			CookieStealingPcapEnabled:            boolPtr(r.CookieStealingPCAPEnabled),
-			PotentialMaliciousRequestsBlocked:    boolPtr(r.PotentialMaliciousRequestsBlocked),
-			PotentialMaliciousRequestsCapture:   boolPtr(r.PotentialMaliciousRequestsCapture),
-			BlockedCountries:                     processedBlockedCountries,
-			BlockCountriesCapture:               boolPtr(r.BlockCountriesCapture),
-			BitTorrentBlocked:                    boolPtr(r.BitTorrentBlocked),
-			BitTorrentCapture:                    boolPtr(r.BitTorrentCapture),
-			TorBlocked:                           boolPtr(r.TorBlocked),
-			TorCapture:                           boolPtr(r.TorCapture),
-			GoogleTalkBlocked:                    boolPtr(r.GoogleTalkBlocked),
-			GoogleTalkCapture:                    boolPtr(r.GoogleTalkCapture),
-			SshTunnellingBlocked:                 boolPtr(r.SshTunnellingBlocked),
-			SshTunnellingCapture:                 boolPtr(r.SshTunnellingCapture),
-			CryptoMiningBlocked:                  boolPtr(r.CryptoMiningBlocked),
-			CryptoMiningCapture:                  boolPtr(r.CryptoMiningCapture),
-			AdSpywareSitesBlocked:                boolPtr(r.AdSpywareSitesBlocked),
-			AdSpywareSitesCapture:                boolPtr(r.AdSpywareSitesCapture),
-			DgaDomainsBlocked:                    boolPtr(r.DgaDomainsBlocked),
-			DgaDomainsCapture:                    boolPtr(r.DgaDomainsCapture),
-			AlertForUnknownSuspiciousC2Traffic:   boolPtr(r.AlertForUnknownOrSuspiciousC2Traffic),
-			MaliciousUrlsCapture:                 boolPtr(r.MaliciousUrlsCapture),
+			RiskTolerance:                      intPtr(r.RiskTolerance),
+			RiskToleranceCapture:               boolPtr(r.RiskToleranceCapture),
+			CmdCtlServerBlocked:                boolPtr(r.CmdCtlServerBlocked),
+			CmdCtlServerCapture:                boolPtr(r.CmdCtlServerCapture),
+			CmdCtlTrafficBlocked:               boolPtr(r.CmdCtlTrafficBlocked),
+			CmdCtlTrafficCapture:               boolPtr(r.CmdCtlTrafficCapture),
+			MalwareSitesBlocked:                boolPtr(r.MalwareSitesBlocked),
+			MalwareSitesCapture:                boolPtr(r.MalwareSitesCapture),
+			ActivexBlocked:                     boolPtr(r.ActiveXBlocked),
+			ActivexCapture:                     boolPtr(r.ActiveXCapture),
+			BrowserExploitsBlocked:             boolPtr(r.BrowserExploitsBlocked),
+			BrowserExploitsCapture:             boolPtr(r.BrowserExploitsCapture),
+			FileFormatVunerabilitesBlocked:     boolPtr(r.FileFormatVulnerabilitiesBlocked),
+			FileFormatVunerabilitesCapture:     boolPtr(r.FileFormatVulnerabilitiesCapture),
+			KnownPhishingSitesBlocked:          boolPtr(r.KnownPhishingSitesBlocked),
+			KnownPhishingSitesCapture:          boolPtr(r.KnownPhishingSitesCapture),
+			SuspectedPhishingSitesBlocked:      boolPtr(r.SuspectedPhishingSitesBlocked),
+			SuspectedPhishingSitesCapture:      boolPtr(r.SuspectedPhishingSitesCapture),
+			SuspectAdwareSpywareSitesBlocked:   boolPtr(r.SuspectAdwareSpywareSitesBlocked),
+			SuspectAdwareSpywareSitesCapture:   boolPtr(r.SuspectAdwareSpywareSitesCapture),
+			WebSpamBlocked:                     boolPtr(r.WebspamBlocked),
+			WebSpamCapture:                     boolPtr(r.WebspamCapture),
+			IrcTunnellingBlocked:               boolPtr(r.IrcTunnellingBlocked),
+			IrcTunnellingCapture:               boolPtr(r.IrcTunnellingCapture),
+			AnonymizerBlocked:                  boolPtr(r.AnonymizerBlocked),
+			AnonymizerCapture:                  boolPtr(r.AnonymizerCapture),
+			CookieStealingBlocked:              boolPtr(r.CookieStealingBlocked),
+			CookieStealingPcapEnabled:          boolPtr(r.CookieStealingPCAPEnabled),
+			PotentialMaliciousRequestsBlocked:  boolPtr(r.PotentialMaliciousRequestsBlocked),
+			PotentialMaliciousRequestsCapture:  boolPtr(r.PotentialMaliciousRequestsCapture),
+			BlockedCountries:                   processedBlockedCountries,
+			BlockCountriesCapture:              boolPtr(r.BlockCountriesCapture),
+			BitTorrentBlocked:                  boolPtr(r.BitTorrentBlocked),
+			BitTorrentCapture:                  boolPtr(r.BitTorrentCapture),
+			TorBlocked:                         boolPtr(r.TorBlocked),
+			TorCapture:                         boolPtr(r.TorCapture),
+			GoogleTalkBlocked:                  boolPtr(r.GoogleTalkBlocked),
+			GoogleTalkCapture:                  boolPtr(r.GoogleTalkCapture),
+			SshTunnellingBlocked:               boolPtr(r.SshTunnellingBlocked),
+			SshTunnellingCapture:               boolPtr(r.SshTunnellingCapture),
+			CryptoMiningBlocked:                boolPtr(r.CryptoMiningBlocked),
+			CryptoMiningCapture:                boolPtr(r.CryptoMiningCapture),
+			AdSpywareSitesBlocked:              boolPtr(r.AdSpywareSitesBlocked),
+			AdSpywareSitesCapture:              boolPtr(r.AdSpywareSitesCapture),
+			DgaDomainsBlocked:                  boolPtr(r.DgaDomainsBlocked),
+			DgaDomainsCapture:                  boolPtr(r.DgaDomainsCapture),
+			AlertForUnknownSuspiciousC2Traffic: boolPtr(r.AlertForUnknownOrSuspiciousC2Traffic),
+			MaliciousUrlsCapture:               boolPtr(r.MaliciousUrlsCapture),
 		},
 		ResourceId: atpSettingsID,
 	}

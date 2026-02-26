@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -112,7 +112,7 @@ func (TrafficForwardingVpnCredentials) Create(ctx context.Context, req infer.Cre
 
 	state := TrafficForwardingVpnCredentialsState{
 		TrafficForwardingVpnCredentialsArgs: req.Inputs,
-		VpnId:                                intPtr(resp.ID),
+		VpnId:                               intPtr(resp.ID),
 	}
 	return infer.CreateResponse[TrafficForwardingVpnCredentialsState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -206,7 +206,7 @@ func (TrafficForwardingVpnCredentials) Update(ctx context.Context, req infer.Upd
 
 	state := TrafficForwardingVpnCredentialsState{
 		TrafficForwardingVpnCredentialsArgs: req.Inputs,
-		VpnId:                                intPtr(id),
+		VpnId:                               intPtr(id),
 	}
 	return infer.UpdateResponse[TrafficForwardingVpnCredentialsState]{Output: state}, nil
 }
@@ -328,10 +328,10 @@ func trafficForwardingVpnCredentialsToState(r *vpncredentials.VPNCredentials) Tr
 	return TrafficForwardingVpnCredentialsState{
 		VpnId: intPtr(r.ID),
 		TrafficForwardingVpnCredentialsArgs: TrafficForwardingVpnCredentialsArgs{
-			Type:     stringPtr(r.Type),
-			Fqdn:     stringPtr(r.FQDN),
+			Type:      stringPtr(r.Type),
+			Fqdn:      stringPtr(r.FQDN),
 			IPAddress: stringPtr(r.IPAddress),
-			Comments: stringPtr(r.Comments),
+			Comments:  stringPtr(r.Comments),
 		},
 	}
 }

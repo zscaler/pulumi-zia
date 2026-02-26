@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,8 +31,8 @@ import (
 
 	"github.com/pulumi/pulumi-go-provider/infer"
 	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/errorx"
-	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/common"
 	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/cloudappcontrol"
+	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/common"
 )
 
 const cloudAppControlResourceType = "cloud_app_control_rules"
@@ -40,33 +40,33 @@ const cloudAppControlResourceType = "cloud_app_control_rules"
 type CloudAppControlRule struct{}
 
 type CloudAppControlRuleArgs struct {
-	Name                string   `pulumi:"name"`
-	Type                string   `pulumi:"type"`
-	Order               int      `pulumi:"order"`
-	Description         *string  `pulumi:"description,optional"`
-	State               *string  `pulumi:"state,optional"`
-	Rank                *int     `pulumi:"rank,optional"`
-	Actions             []string `pulumi:"actions,optional"`
-	Applications        []string `pulumi:"applications,optional"`
-	TimeQuota           *int     `pulumi:"timeQuota,optional"`
-	SizeQuota           *int     `pulumi:"sizeQuota,optional"`
-	EnforceTimeValidity *bool    `pulumi:"enforceTimeValidity,optional"`
-	CascadingEnabled    *bool    `pulumi:"cascadingEnabled,optional"`
-	EunEnabled          *bool    `pulumi:"eunEnabled,optional"`
-	EunTemplateId       *int     `pulumi:"eunTemplateId,optional"`
-	BrowserEunTemplateId *int    `pulumi:"browserEunTemplateId,optional"`
-	Locations           []int    `pulumi:"locations,optional"`
-	LocationGroups      []int    `pulumi:"locationGroups,optional"`
-	Groups              []int    `pulumi:"groups,optional"`
-	Departments         []int    `pulumi:"departments,optional"`
-	Users               []int    `pulumi:"users,optional"`
-	TimeWindows         []int    `pulumi:"timeWindows,optional"`
-	Labels              []int    `pulumi:"labels,optional"`
-	DeviceGroups        []int    `pulumi:"deviceGroups,optional"`
-	Devices             []int    `pulumi:"devices,optional"`
-	TenancyProfileIds   []int    `pulumi:"tenancyProfileIds,optional"`
-	CloudAppRiskProfileId *int   `pulumi:"cloudAppRiskProfileId,optional"`
-	CbiProfile          *CBIProfileInput `pulumi:"cbiProfile,optional"`
+	Name                  string           `pulumi:"name"`
+	Type                  string           `pulumi:"type"`
+	Order                 int              `pulumi:"order"`
+	Description           *string          `pulumi:"description,optional"`
+	State                 *string          `pulumi:"state,optional"`
+	Rank                  *int             `pulumi:"rank,optional"`
+	Actions               []string         `pulumi:"actions,optional"`
+	Applications          []string         `pulumi:"applications,optional"`
+	TimeQuota             *int             `pulumi:"timeQuota,optional"`
+	SizeQuota             *int             `pulumi:"sizeQuota,optional"`
+	EnforceTimeValidity   *bool            `pulumi:"enforceTimeValidity,optional"`
+	CascadingEnabled      *bool            `pulumi:"cascadingEnabled,optional"`
+	EunEnabled            *bool            `pulumi:"eunEnabled,optional"`
+	EunTemplateId         *int             `pulumi:"eunTemplateId,optional"`
+	BrowserEunTemplateId  *int             `pulumi:"browserEunTemplateId,optional"`
+	Locations             []int            `pulumi:"locations,optional"`
+	LocationGroups        []int            `pulumi:"locationGroups,optional"`
+	Groups                []int            `pulumi:"groups,optional"`
+	Departments           []int            `pulumi:"departments,optional"`
+	Users                 []int            `pulumi:"users,optional"`
+	TimeWindows           []int            `pulumi:"timeWindows,optional"`
+	Labels                []int            `pulumi:"labels,optional"`
+	DeviceGroups          []int            `pulumi:"deviceGroups,optional"`
+	Devices               []int            `pulumi:"devices,optional"`
+	TenancyProfileIds     []int            `pulumi:"tenancyProfileIds,optional"`
+	CloudAppRiskProfileId *int             `pulumi:"cloudAppRiskProfileId,optional"`
+	CbiProfile            *CBIProfileInput `pulumi:"cbiProfile,optional"`
 }
 
 type CloudAppControlRuleState struct {
@@ -158,33 +158,33 @@ func cloudAppControlRuleAPIToState(api *cloudappcontrol.WebApplicationRules) Clo
 	}
 	return CloudAppControlRuleState{
 		CloudAppControlRuleArgs: CloudAppControlRuleArgs{
-			Name:                 api.Name,
-			Type:                 api.Type,
-			Order:                api.Order,
-			Description:          stringPtr(api.Description),
-			State:                stringPtr(api.State),
-			Rank:                 intPtr(api.Rank),
-			Actions:              api.Actions,
-			Applications:         api.Applications,
-			TimeQuota:            intPtr(api.TimeQuota),
-			SizeQuota:            intPtr(sizeQuotaMB),
-			EnforceTimeValidity:  boolPtr(api.EnforceTimeValidity),
-			CascadingEnabled:     boolPtr(api.CascadingEnabled),
-			EunEnabled:           boolPtr(api.EunEnabled),
-			EunTemplateId:        intPtr(api.EunTemplateID),
-			BrowserEunTemplateId: intPtr(api.BrowserEunTemplateID),
-			Locations:            idNameExtensionsToIDs(api.Locations),
-			LocationGroups:       idNameExtensionsToIDs(api.LocationGroups),
-			Groups:               idNameExtensionsToIDs(api.Groups),
-			Departments:          idNameExtensionsToIDs(api.Departments),
-			Users:                idNameExtensionsToIDs(api.Users),
-			TimeWindows:          idNameExtensionsToIDs(api.TimeWindows),
-			Labels:               idNameExtensionsToIDs(api.Labels),
-			DeviceGroups:         idNameExtensionsToIDs(api.DeviceGroups),
-			Devices:              idNameExtensionsToIDs(api.Devices),
-			TenancyProfileIds:    idNameExtensionsToIDs(api.TenancyProfileIDs),
+			Name:                  api.Name,
+			Type:                  api.Type,
+			Order:                 api.Order,
+			Description:           stringPtr(api.Description),
+			State:                 stringPtr(api.State),
+			Rank:                  intPtr(api.Rank),
+			Actions:               api.Actions,
+			Applications:          api.Applications,
+			TimeQuota:             intPtr(api.TimeQuota),
+			SizeQuota:             intPtr(sizeQuotaMB),
+			EnforceTimeValidity:   boolPtr(api.EnforceTimeValidity),
+			CascadingEnabled:      boolPtr(api.CascadingEnabled),
+			EunEnabled:            boolPtr(api.EunEnabled),
+			EunTemplateId:         intPtr(api.EunTemplateID),
+			BrowserEunTemplateId:  intPtr(api.BrowserEunTemplateID),
+			Locations:             idNameExtensionsToIDs(api.Locations),
+			LocationGroups:        idNameExtensionsToIDs(api.LocationGroups),
+			Groups:                idNameExtensionsToIDs(api.Groups),
+			Departments:           idNameExtensionsToIDs(api.Departments),
+			Users:                 idNameExtensionsToIDs(api.Users),
+			TimeWindows:           idNameExtensionsToIDs(api.TimeWindows),
+			Labels:                idNameExtensionsToIDs(api.Labels),
+			DeviceGroups:          idNameExtensionsToIDs(api.DeviceGroups),
+			Devices:               idNameExtensionsToIDs(api.Devices),
+			TenancyProfileIds:     idNameExtensionsToIDs(api.TenancyProfileIDs),
 			CloudAppRiskProfileId: cloudAppRiskID,
-			CbiProfile:           cbi,
+			CbiProfile:            cbi,
 		},
 		RuleID: intPtr(api.ID),
 	}

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,10 +40,10 @@ type BandwidthClass struct{}
 
 // BandwidthClassArgs are the inputs.
 type BandwidthClassArgs struct {
-	Name             *string  `pulumi:"name,optional"`
-	Urls             []string `pulumi:"urls,optional"`
-	UrlCategories    []string `pulumi:"urlCategories,optional"`
-	WebApplications  []string `pulumi:"webApplications,optional"`
+	Name            *string  `pulumi:"name,optional"`
+	Urls            []string `pulumi:"urls,optional"`
+	UrlCategories   []string `pulumi:"urlCategories,optional"`
+	WebApplications []string `pulumi:"webApplications,optional"`
 }
 
 // BandwidthClassState is the persisted state.

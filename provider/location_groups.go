@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -99,7 +99,7 @@ func (*GetLocationGroup) Invoke(ctx context.Context, req infer.FunctionRequest[G
 	return infer.FunctionResponse[GetLocationGroupResult]{Output: GetLocationGroupResult{
 		Id:          resp.ID,
 		Name:        resp.Name,
-		Deleted:    resp.Deleted,
+		Deleted:     resp.Deleted,
 		GroupType:   resp.GroupType,
 		Comments:    resp.Comments,
 		LastModTime: resp.LastModTime,

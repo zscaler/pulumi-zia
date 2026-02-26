@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -38,12 +38,12 @@ type GetDomainProfileArgs struct {
 
 type GetDomainProfileResult struct {
 	ProfileId              int      `pulumi:"profileId"`
-	ProfileName             string   `pulumi:"profileName"`
-	Description             string   `pulumi:"description"`
-	IncludeCompanyDomains   bool     `pulumi:"includeCompanyDomains"`
-	IncludeSubdomains       bool     `pulumi:"includeSubdomains"`
-	CustomDomains           []string `pulumi:"customDomains"`
-	PredefinedEmailDomains  []string `pulumi:"predefinedEmailDomains"`
+	ProfileName            string   `pulumi:"profileName"`
+	Description            string   `pulumi:"description"`
+	IncludeCompanyDomains  bool     `pulumi:"includeCompanyDomains"`
+	IncludeSubdomains      bool     `pulumi:"includeSubdomains"`
+	CustomDomains          []string `pulumi:"customDomains"`
+	PredefinedEmailDomains []string `pulumi:"predefinedEmailDomains"`
 }
 
 type GetDomainProfile struct{}
@@ -97,12 +97,12 @@ func (*GetDomainProfile) Invoke(ctx context.Context, req infer.FunctionRequest[G
 	}
 
 	return infer.FunctionResponse[GetDomainProfileResult]{Output: GetDomainProfileResult{
-		ProfileId:             matched.ProfileID,
-		ProfileName:           matched.ProfileName,
-		Description:           matched.Description,
-		IncludeCompanyDomains: matched.IncludeCompanyDomains,
-		IncludeSubdomains:     matched.IncludeSubdomains,
-		CustomDomains:         matched.CustomDomains,
+		ProfileId:              matched.ProfileID,
+		ProfileName:            matched.ProfileName,
+		Description:            matched.Description,
+		IncludeCompanyDomains:  matched.IncludeCompanyDomains,
+		IncludeSubdomains:      matched.IncludeSubdomains,
+		CustomDomains:          matched.CustomDomains,
 		PredefinedEmailDomains: matched.PredefinedEmailDomains,
 	}}, nil
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -416,28 +416,28 @@ func vzenNodeStateToArgs(rule *vzen_nodes.VZENNodes) VzenNodeArgs {
 
 // GetVzenNodeArgs are the inputs for the GetVzenNode invoke.
 type GetVzenNodeArgs struct {
-	Id   *int    `pulumi:"nodeId,optional"`  // Pulumi reserves "id" in function I/O
+	Id   *int    `pulumi:"nodeId,optional"` // Pulumi reserves "id" in function I/O
 	Name *string `pulumi:"name,optional"`
 }
 
 // GetVzenNodeResult is the output of the GetVzenNode invoke.
 type GetVzenNodeResult struct {
-	Id                           int     `pulumi:"nodeId"` // Pulumi reserves "id" in function outputs
-	Name                         string  `pulumi:"name"`
-	Status                       string  `pulumi:"status"`
-	Type                         string  `pulumi:"type"`
-	IpSecEnabled                 bool    `pulumi:"ipSecEnabled"`
-	IpAddress                    string  `pulumi:"ipAddress"`
-	SubnetMask                   string  `pulumi:"subnetMask"`
-	DefaultGateway               string  `pulumi:"defaultGateway"`
-	ZGatewayId                   int     `pulumi:"zGatewayId"`
-	InProduction                 bool    `pulumi:"inProduction"`
-	OnDemandSupportTunnelEnabled bool    `pulumi:"onDemandSupportTunnelEnabled"`
+	Id                            int    `pulumi:"nodeId"` // Pulumi reserves "id" in function outputs
+	Name                          string `pulumi:"name"`
+	Status                        string `pulumi:"status"`
+	Type                          string `pulumi:"type"`
+	IpSecEnabled                  bool   `pulumi:"ipSecEnabled"`
+	IpAddress                     string `pulumi:"ipAddress"`
+	SubnetMask                    string `pulumi:"subnetMask"`
+	DefaultGateway                string `pulumi:"defaultGateway"`
+	ZGatewayId                    int    `pulumi:"zGatewayId"`
+	InProduction                  bool   `pulumi:"inProduction"`
+	OnDemandSupportTunnelEnabled  bool   `pulumi:"onDemandSupportTunnelEnabled"`
 	EstablishSupportTunnelEnabled bool   `pulumi:"establishSupportTunnelEnabled"`
-	LoadBalancerIpAddress        string  `pulumi:"loadBalancerIpAddress"`
-	DeploymentMode               string  `pulumi:"deploymentMode"`
-	ClusterName                  string  `pulumi:"clusterName"`
-	VzenSkuType                  string  `pulumi:"vzenSkuType"`
+	LoadBalancerIpAddress         string `pulumi:"loadBalancerIpAddress"`
+	DeploymentMode                string `pulumi:"deploymentMode"`
+	ClusterName                   string `pulumi:"clusterName"`
+	VzenSkuType                   string `pulumi:"vzenSkuType"`
 }
 
 // GetVzenNode implements the zia:index:GetVzenNode invoke.

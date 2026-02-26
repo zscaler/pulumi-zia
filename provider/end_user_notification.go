@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +48,7 @@ type EndUserNotificationArgs struct {
 	DisplayCompanyLogo                  *bool   `pulumi:"displayCompanyLogo,optional"`
 	CustomText                          *string `pulumi:"customText,optional"`
 	UrlCatReviewEnabled                 *bool   `pulumi:"urlCatReviewEnabled,optional"`
-	UrlCatReviewSubmitToSecurityCloud    *bool   `pulumi:"urlCatReviewSubmitToSecurityCloud,optional"`
+	UrlCatReviewSubmitToSecurityCloud   *bool   `pulumi:"urlCatReviewSubmitToSecurityCloud,optional"`
 	UrlCatReviewCustomLocation          *string `pulumi:"urlCatReviewCustomLocation,optional"`
 	UrlCatReviewText                    *string `pulumi:"urlCatReviewText,optional"`
 	SecurityReviewEnabled               *bool   `pulumi:"securityReviewEnabled,optional"`
@@ -59,15 +59,15 @@ type EndUserNotificationArgs struct {
 	WebDlpReviewSubmitToSecurityCloud   *bool   `pulumi:"webDlpReviewSubmitToSecurityCloud,optional"`
 	WebDlpReviewCustomLocation          *string `pulumi:"webDlpReviewCustomLocation,optional"`
 	WebDlpReviewText                    *string `pulumi:"webDlpReviewText,optional"`
-	RedirectUrl                          *string `pulumi:"redirectUrl,optional"`
-	SupportEmail                         *string `pulumi:"supportEmail,optional"`
-	SupportPhone                         *string `pulumi:"supportPhone,optional"`
-	OrgPolicyLink                        *string `pulumi:"orgPolicyLink,optional"`
-	CautionAgainAfter                    *int    `pulumi:"cautionAgainAfter,optional"`
-	CautionPerDomain                     *bool   `pulumi:"cautionPerDomain,optional"`
-	CautionCustomText                    *string `pulumi:"cautionCustomText,optional"`
+	RedirectUrl                         *string `pulumi:"redirectUrl,optional"`
+	SupportEmail                        *string `pulumi:"supportEmail,optional"`
+	SupportPhone                        *string `pulumi:"supportPhone,optional"`
+	OrgPolicyLink                       *string `pulumi:"orgPolicyLink,optional"`
+	CautionAgainAfter                   *int    `pulumi:"cautionAgainAfter,optional"`
+	CautionPerDomain                    *bool   `pulumi:"cautionPerDomain,optional"`
+	CautionCustomText                   *string `pulumi:"cautionCustomText,optional"`
 	IdpProxyNotificationText            *string `pulumi:"idpProxyNotificationText,optional"`
-	QuarantineCustomNotificationText     *string `pulumi:"quarantineCustomNotificationText,optional"`
+	QuarantineCustomNotificationText    *string `pulumi:"quarantineCustomNotificationText,optional"`
 }
 
 // EndUserNotificationState is the persisted state.

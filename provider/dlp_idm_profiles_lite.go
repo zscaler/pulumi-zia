@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,9 +32,9 @@ import (
 )
 
 type GetDlpIdmProfileLiteArgs struct {
-	ProfileId   *int    `pulumi:"profileId,optional"`
+	ProfileId    *int    `pulumi:"profileId,optional"`
 	TemplateName *string `pulumi:"templateName,optional"`
-	ActiveOnly  *bool   `pulumi:"activeOnly,optional"`
+	ActiveOnly   *bool   `pulumi:"activeOnly,optional"`
 }
 
 type IdNameExtensionsOutput struct {
@@ -43,10 +43,10 @@ type IdNameExtensionsOutput struct {
 }
 
 type GetDlpIdmProfileLiteResult struct {
-	ProfileId        int                   `pulumi:"profileId"`
-	TemplateName     string                `pulumi:"templateName"`
-	NumDocuments     int                   `pulumi:"numDocuments"`
-	LastModifiedTime int                   `pulumi:"lastModifiedTime"`
+	ProfileId        int                     `pulumi:"profileId"`
+	TemplateName     string                  `pulumi:"templateName"`
+	NumDocuments     int                     `pulumi:"numDocuments"`
+	LastModifiedTime int                     `pulumi:"lastModifiedTime"`
 	ClientVm         *IdNameExtensionsOutput `pulumi:"clientVm,optional"`
 	LastModifiedBy   *IdNameExtensionsOutput `pulumi:"lastModifiedBy,optional"`
 }

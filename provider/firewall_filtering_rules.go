@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -62,41 +62,41 @@ type FirewallFilteringRule struct{}
 
 // FirewallFilteringRuleArgs are the inputs.
 type FirewallFilteringRuleArgs struct {
-	Name              string                `pulumi:"name"`
-	Order             int                   `pulumi:"order"`
-	Description       *string               `pulumi:"description,optional"`
-	Rank              *int                  `pulumi:"rank,optional"`
-	State             *string               `pulumi:"state,optional"`
-	Action            *string               `pulumi:"action,optional"`
-	EnableFullLogging *bool                 `pulumi:"enableFullLogging,optional"`
-	DefaultRule       *bool                 `pulumi:"defaultRule,optional"`
-	Predefined        *bool                 `pulumi:"predefined,optional"`
-	ExcludeSrcCountries *bool               `pulumi:"excludeSrcCountries,optional"`
-	SrcIps            []string              `pulumi:"srcIps,optional"`
-	DestAddresses     []string              `pulumi:"destAddresses,optional"`
-	DestIpCategories  []string              `pulumi:"destIpCategories,optional"`
-	DestCountries     []string              `pulumi:"destCountries,optional"`
-	SourceCountries   []string              `pulumi:"sourceCountries,optional"`
-	NwApplications   []string              `pulumi:"nwApplications,optional"`
-	Locations         []int                 `pulumi:"locations,optional"`
-	LocationGroups    []int                 `pulumi:"locationGroups,optional"`
-	Departments       []int                 `pulumi:"departments,optional"`
-	Groups            []int                 `pulumi:"groups,optional"`
-	Users             []int                 `pulumi:"users,optional"`
-	TimeWindows       []int                 `pulumi:"timeWindows,optional"`
-	NwApplicationGroups []int               `pulumi:"nwApplicationGroups,optional"`
-	AppServices       []int                 `pulumi:"appServices,optional"`
-	AppServiceGroups  []int                 `pulumi:"appServiceGroups,optional"`
-	Labels            []int                 `pulumi:"labels,optional"`
-	SrcIpGroups       []int                 `pulumi:"srcIpGroups,optional"`
-	DestIpGroups      []int                 `pulumi:"destIpGroups,optional"`
-	NwServices        []int                 `pulumi:"nwServices,optional"`
-	NwServiceGroups   []int                 `pulumi:"nwServiceGroups,optional"`
-	DeviceGroups      []int                 `pulumi:"deviceGroups,optional"`
-	Devices           []int                 `pulumi:"devices,optional"`
-	DeviceTrustLevels []string              `pulumi:"deviceTrustLevels,optional"`
-	WorkloadGroups    []WorkloadGroupInput   `pulumi:"workloadGroups,optional"`
-	ZpaAppSegments    []ZPAAppSegmentInput   `pulumi:"zpaAppSegments,optional"`
+	Name                string               `pulumi:"name"`
+	Order               int                  `pulumi:"order"`
+	Description         *string              `pulumi:"description,optional"`
+	Rank                *int                 `pulumi:"rank,optional"`
+	State               *string              `pulumi:"state,optional"`
+	Action              *string              `pulumi:"action,optional"`
+	EnableFullLogging   *bool                `pulumi:"enableFullLogging,optional"`
+	DefaultRule         *bool                `pulumi:"defaultRule,optional"`
+	Predefined          *bool                `pulumi:"predefined,optional"`
+	ExcludeSrcCountries *bool                `pulumi:"excludeSrcCountries,optional"`
+	SrcIps              []string             `pulumi:"srcIps,optional"`
+	DestAddresses       []string             `pulumi:"destAddresses,optional"`
+	DestIpCategories    []string             `pulumi:"destIpCategories,optional"`
+	DestCountries       []string             `pulumi:"destCountries,optional"`
+	SourceCountries     []string             `pulumi:"sourceCountries,optional"`
+	NwApplications      []string             `pulumi:"nwApplications,optional"`
+	Locations           []int                `pulumi:"locations,optional"`
+	LocationGroups      []int                `pulumi:"locationGroups,optional"`
+	Departments         []int                `pulumi:"departments,optional"`
+	Groups              []int                `pulumi:"groups,optional"`
+	Users               []int                `pulumi:"users,optional"`
+	TimeWindows         []int                `pulumi:"timeWindows,optional"`
+	NwApplicationGroups []int                `pulumi:"nwApplicationGroups,optional"`
+	AppServices         []int                `pulumi:"appServices,optional"`
+	AppServiceGroups    []int                `pulumi:"appServiceGroups,optional"`
+	Labels              []int                `pulumi:"labels,optional"`
+	SrcIpGroups         []int                `pulumi:"srcIpGroups,optional"`
+	DestIpGroups        []int                `pulumi:"destIpGroups,optional"`
+	NwServices          []int                `pulumi:"nwServices,optional"`
+	NwServiceGroups     []int                `pulumi:"nwServiceGroups,optional"`
+	DeviceGroups        []int                `pulumi:"deviceGroups,optional"`
+	Devices             []int                `pulumi:"devices,optional"`
+	DeviceTrustLevels   []string             `pulumi:"deviceTrustLevels,optional"`
+	WorkloadGroups      []WorkloadGroupInput `pulumi:"workloadGroups,optional"`
+	ZpaAppSegments      []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 // FirewallFilteringRuleState is the persisted state.
@@ -116,33 +116,33 @@ func firewallFilteringRuleArgsToAPI(args *FirewallFilteringRuleArgs, id int) fil
 		state = "ENABLED"
 	}
 	return filteringrules.FirewallFilteringRules{
-		ID:                   id,
-		Name:                 args.Name,
-		Order:                order,
-		Rank:                 rank,
-		State:                state,
-		Action:               ptrToString(args.Action),
-		Description:          ptrToString(args.Description),
-		EnableFullLogging:    ptrToBool(args.EnableFullLogging),
-		DefaultRule:          ptrToBool(args.DefaultRule),
-		Predefined:           ptrToBool(args.Predefined),
-		ExcludeSrcCountries:  ptrToBool(args.ExcludeSrcCountries),
-		SrcIps:               args.SrcIps,
-		DestAddresses:        args.DestAddresses,
-		DestIpCategories:     args.DestIpCategories,
-		DestCountries:        processCountries(args.DestCountries),
-		SourceCountries:      processCountries(args.SourceCountries),
-		NwApplications:       args.NwApplications,
-		Locations:            idsToIDNameExtensions(args.Locations),
-		LocationsGroups:      idsToIDNameExtensions(args.LocationGroups),
-		Departments:          idsToIDNameExtensions(args.Departments),
-		Groups:               idsToIDNameExtensions(args.Groups),
-		Users:                idsToIDNameExtensions(args.Users),
-		TimeWindows:          idsToIDNameExtensions(args.TimeWindows),
-		NwApplicationGroups:  idsToIDNameExtensions(args.NwApplicationGroups),
-		AppServices:          idsToIDNameExtensions(args.AppServices),
-		AppServiceGroups:     idsToIDNameExtensions(args.AppServiceGroups),
-		Labels:               idsToIDNameExtensions(args.Labels),
+		ID:                  id,
+		Name:                args.Name,
+		Order:               order,
+		Rank:                rank,
+		State:               state,
+		Action:              ptrToString(args.Action),
+		Description:         ptrToString(args.Description),
+		EnableFullLogging:   ptrToBool(args.EnableFullLogging),
+		DefaultRule:         ptrToBool(args.DefaultRule),
+		Predefined:          ptrToBool(args.Predefined),
+		ExcludeSrcCountries: ptrToBool(args.ExcludeSrcCountries),
+		SrcIps:              args.SrcIps,
+		DestAddresses:       args.DestAddresses,
+		DestIpCategories:    args.DestIpCategories,
+		DestCountries:       processCountries(args.DestCountries),
+		SourceCountries:     processCountries(args.SourceCountries),
+		NwApplications:      args.NwApplications,
+		Locations:           idsToIDNameExtensions(args.Locations),
+		LocationsGroups:     idsToIDNameExtensions(args.LocationGroups),
+		Departments:         idsToIDNameExtensions(args.Departments),
+		Groups:              idsToIDNameExtensions(args.Groups),
+		Users:               idsToIDNameExtensions(args.Users),
+		TimeWindows:         idsToIDNameExtensions(args.TimeWindows),
+		NwApplicationGroups: idsToIDNameExtensions(args.NwApplicationGroups),
+		AppServices:         idsToIDNameExtensions(args.AppServices),
+		AppServiceGroups:    idsToIDNameExtensions(args.AppServiceGroups),
+		Labels:              idsToIDNameExtensions(args.Labels),
 		SrcIpGroups:         idsToIDNameExtensions(args.SrcIpGroups),
 		DestIpGroups:        idsToIDNameExtensions(args.DestIpGroups),
 		NwServices:          idsToIDNameExtensions(args.NwServices),
@@ -160,19 +160,19 @@ func firewallFilteringRuleAPIToState(api *filteringrules.FirewallFilteringRules)
 	srcCountries := processCountriesFromAPI(api.SourceCountries)
 	return FirewallFilteringRuleState{
 		FirewallFilteringRuleArgs: FirewallFilteringRuleArgs{
-			Name:                 api.Name,
-			Order:                api.Order,
+			Name:                api.Name,
+			Order:               api.Order,
 			Description:         stringPtr(api.Description),
-			Rank:                 intPtr(api.Rank),
-			State:                stringPtr(api.State),
-			Action:               stringPtr(api.Action),
-			EnableFullLogging:    boolPtr(api.EnableFullLogging),
-			DefaultRule:          boolPtr(api.DefaultRule),
+			Rank:                intPtr(api.Rank),
+			State:               stringPtr(api.State),
+			Action:              stringPtr(api.Action),
+			EnableFullLogging:   boolPtr(api.EnableFullLogging),
+			DefaultRule:         boolPtr(api.DefaultRule),
 			Predefined:          boolPtr(api.Predefined),
-			ExcludeSrcCountries:  boolPtr(api.ExcludeSrcCountries),
-			SrcIps:               api.SrcIps,
+			ExcludeSrcCountries: boolPtr(api.ExcludeSrcCountries),
+			SrcIps:              api.SrcIps,
 			DestAddresses:       api.DestAddresses,
-			DestIpCategories:     api.DestIpCategories,
+			DestIpCategories:    api.DestIpCategories,
 			DestCountries:       destCountries,
 			SourceCountries:     srcCountries,
 			NwApplications:      api.NwApplications,
@@ -438,7 +438,7 @@ func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest
 	if err != nil {
 		return infer.UpdateResponse[FirewallFilteringRuleState]{Output: FirewallFilteringRuleState{
 			FirewallFilteringRuleArgs: req.Inputs,
-			RuleID:                   intPtr(id),
+			RuleID:                    intPtr(id),
 		}}, nil
 	}
 	return infer.UpdateResponse[FirewallFilteringRuleState]{Output: firewallFilteringRuleAPIToState(updated)}, nil

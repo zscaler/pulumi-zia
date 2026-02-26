@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -61,32 +61,32 @@ type DecryptSubActionsInput struct {
 
 // DoNotDecryptSubActionsInput is do_not_decrypt_sub_actions block (when action type is DO_NOT_DECRYPT).
 type DoNotDecryptSubActionsInput struct {
-	BypassOtherPolicies              *bool   `pulumi:"bypassOtherPolicies,optional"`
-	ServerCertificates               *string `pulumi:"serverCertificates,optional"`
-	OcspCheck                        *bool   `pulumi:"ocspCheck,optional"`
+	BypassOtherPolicies             *bool   `pulumi:"bypassOtherPolicies,optional"`
+	ServerCertificates              *string `pulumi:"serverCertificates,optional"`
+	OcspCheck                       *bool   `pulumi:"ocspCheck,optional"`
 	BlockSslTrafficWithNoSniEnabled *bool   `pulumi:"blockSslTrafficWithNoSniEnabled,optional"`
-	MinTLSVersion                    *string `pulumi:"minTlsVersion,optional"`
+	MinTLSVersion                   *string `pulumi:"minTlsVersion,optional"`
 }
 
 // SslInspectionActionInput is the action block.
 type SslInspectionActionInput struct {
-	Type                       *string                    `pulumi:"type,optional"`
-	ShowEUN                    *bool                      `pulumi:"showEun,optional"`
-	ShowEUNATP                 *bool                      `pulumi:"showEunatp,optional"`
-	OverrideDefaultCertificate *bool                      `pulumi:"overrideDefaultCertificate,optional"`
-	SSLInterceptionCert        *SslInterceptionCertInput   `pulumi:"sslInterceptionCert,optional"`
-	DecryptSubActions          *DecryptSubActionsInput    `pulumi:"decryptSubActions,optional"`
+	Type                       *string                      `pulumi:"type,optional"`
+	ShowEUN                    *bool                        `pulumi:"showEun,optional"`
+	ShowEUNATP                 *bool                        `pulumi:"showEunatp,optional"`
+	OverrideDefaultCertificate *bool                        `pulumi:"overrideDefaultCertificate,optional"`
+	SSLInterceptionCert        *SslInterceptionCertInput    `pulumi:"sslInterceptionCert,optional"`
+	DecryptSubActions          *DecryptSubActionsInput      `pulumi:"decryptSubActions,optional"`
 	DoNotDecryptSubActions     *DoNotDecryptSubActionsInput `pulumi:"doNotDecryptSubActions,optional"`
 }
 
 // SslInspectionRuleArgs are the inputs.
 type SslInspectionRuleArgs struct {
-	Name                   string                  `pulumi:"name"`
-	Order                  int                     `pulumi:"order"`
-	Description            *string                 `pulumi:"description,optional"`
-	Rank                   *int                    `pulumi:"rank,optional"`
-	State                  *string                 `pulumi:"state,optional"`
-	RoadWarriorForKerberos *bool                   `pulumi:"roadWarriorForKerberos,optional"`
+	Name                   string                   `pulumi:"name"`
+	Order                  int                      `pulumi:"order"`
+	Description            *string                  `pulumi:"description,optional"`
+	Rank                   *int                     `pulumi:"rank,optional"`
+	State                  *string                  `pulumi:"state,optional"`
+	RoadWarriorForKerberos *bool                    `pulumi:"roadWarriorForKerberos,optional"`
 	Action                 SslInspectionActionInput `pulumi:"action"`
 	CloudApplications      []string                 `pulumi:"cloudApplications,optional"`
 	URLCategories          []string                 `pulumi:"urlCategories,optional"`
@@ -96,14 +96,14 @@ type SslInspectionRuleArgs struct {
 	Locations              []int                    `pulumi:"locations,optional"`
 	LocationGroups         []int                    `pulumi:"locationGroups,optional"`
 	Groups                 []int                    `pulumi:"groups,optional"`
-	Departments             []int                    `pulumi:"departments,optional"`
+	Departments            []int                    `pulumi:"departments,optional"`
 	Users                  []int                    `pulumi:"users,optional"`
 	TimeWindows            []int                    `pulumi:"timeWindows,optional"`
 	Labels                 []int                    `pulumi:"labels,optional"`
 	DeviceGroups           []int                    `pulumi:"deviceGroups,optional"`
 	Devices                []int                    `pulumi:"devices,optional"`
 	SourceIPGroups         []int                    `pulumi:"sourceIpGroups,optional"`
-	DestIpGroups          []int                    `pulumi:"destIpGroups,optional"`
+	DestIpGroups           []int                    `pulumi:"destIpGroups,optional"`
 	ProxyGateways          []int                    `pulumi:"proxyGateways,optional"`
 	WorkloadGroups         []WorkloadGroupInput     `pulumi:"workloadGroups,optional"`
 }
@@ -137,11 +137,11 @@ func sslInspectionActionToAPI(in SslInspectionActionInput) sslinspection.Action 
 	}
 	if in.DoNotDecryptSubActions != nil {
 		action.DoNotDecryptSubActions = &sslinspection.DoNotDecryptSubActions{
-			BypassOtherPolicies:              ptrToBool(in.DoNotDecryptSubActions.BypassOtherPolicies),
-			ServerCertificates:               ptrToString(in.DoNotDecryptSubActions.ServerCertificates),
-			OcspCheck:                        ptrToBool(in.DoNotDecryptSubActions.OcspCheck),
+			BypassOtherPolicies:             ptrToBool(in.DoNotDecryptSubActions.BypassOtherPolicies),
+			ServerCertificates:              ptrToString(in.DoNotDecryptSubActions.ServerCertificates),
+			OcspCheck:                       ptrToBool(in.DoNotDecryptSubActions.OcspCheck),
 			BlockSslTrafficWithNoSniEnabled: ptrToBool(in.DoNotDecryptSubActions.BlockSslTrafficWithNoSniEnabled),
-			MinTLSVersion:                    ptrToString(in.DoNotDecryptSubActions.MinTLSVersion),
+			MinTLSVersion:                   ptrToString(in.DoNotDecryptSubActions.MinTLSVersion),
 		}
 	}
 	return action
@@ -170,11 +170,11 @@ func sslInspectionActionFromAPI(api sslinspection.Action) SslInspectionActionInp
 	}
 	if api.DoNotDecryptSubActions != nil {
 		in.DoNotDecryptSubActions = &DoNotDecryptSubActionsInput{
-			BypassOtherPolicies:              boolPtr(api.DoNotDecryptSubActions.BypassOtherPolicies),
-			ServerCertificates:               stringPtr(api.DoNotDecryptSubActions.ServerCertificates),
-			OcspCheck:                        boolPtr(api.DoNotDecryptSubActions.OcspCheck),
+			BypassOtherPolicies:             boolPtr(api.DoNotDecryptSubActions.BypassOtherPolicies),
+			ServerCertificates:              stringPtr(api.DoNotDecryptSubActions.ServerCertificates),
+			OcspCheck:                       boolPtr(api.DoNotDecryptSubActions.OcspCheck),
 			BlockSslTrafficWithNoSniEnabled: boolPtr(api.DoNotDecryptSubActions.BlockSslTrafficWithNoSniEnabled),
-			MinTLSVersion:                    stringPtr(api.DoNotDecryptSubActions.MinTLSVersion),
+			MinTLSVersion:                   stringPtr(api.DoNotDecryptSubActions.MinTLSVersion),
 		}
 	}
 	return in
@@ -207,14 +207,14 @@ func sslInspectionRuleArgsToAPI(args *SslInspectionRuleArgs, id int) sslinspecti
 		Locations:              idsToIDNameExtensions(args.Locations),
 		LocationGroups:         idsToIDNameExtensions(args.LocationGroups),
 		Groups:                 idsToIDNameExtensions(args.Groups),
-		Departments:             idsToIDNameExtensions(args.Departments),
+		Departments:            idsToIDNameExtensions(args.Departments),
 		Users:                  idsToIDNameExtensions(args.Users),
 		TimeWindows:            idsToIDNameExtensions(args.TimeWindows),
 		Labels:                 idsToIDNameExtensions(args.Labels),
 		DeviceGroups:           idsToIDNameExtensions(args.DeviceGroups),
 		Devices:                idsToIDNameExtensions(args.Devices),
 		SourceIPGroups:         idsToIDNameExtensions(args.SourceIPGroups),
-		DestIpGroups:          idsToIDNameExtensions(args.DestIpGroups),
+		DestIpGroups:           idsToIDNameExtensions(args.DestIpGroups),
 		ProxyGateways:          idsToIDNameExtensions(args.ProxyGateways),
 		WorkloadGroups:         expandWorkloadGroups(args.WorkloadGroups),
 	}
@@ -467,7 +467,7 @@ func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[Ssl
 	if err != nil {
 		return infer.UpdateResponse[SslInspectionRuleState]{Output: SslInspectionRuleState{
 			SslInspectionRuleArgs: req.Inputs,
-			RuleID:                 intPtr(id),
+			RuleID:                intPtr(id),
 		}}, nil
 	}
 	return infer.UpdateResponse[SslInspectionRuleState]{Output: sslInspectionRuleAPIToState(updated)}, nil

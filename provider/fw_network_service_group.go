@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -111,7 +111,7 @@ func (FwNetworkServiceGroup) Create(ctx context.Context, req infer.CreateRequest
 
 	state := FwNetworkServiceGroupState{
 		FwNetworkServiceGroupArgs: req.Inputs,
-		GroupId:                  &resp.ID,
+		GroupId:                   &resp.ID,
 	}
 	return infer.CreateResponse[FwNetworkServiceGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -149,7 +149,7 @@ func (FwNetworkServiceGroup) Read(ctx context.Context, req infer.ReadRequest[FwN
 	}
 	state := FwNetworkServiceGroupState{
 		FwNetworkServiceGroupArgs: args,
-		GroupId:                  &resp.ID,
+		GroupId:                   &resp.ID,
 	}
 	return infer.ReadResponse[FwNetworkServiceGroupArgs, FwNetworkServiceGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -194,7 +194,7 @@ func (FwNetworkServiceGroup) Update(ctx context.Context, req infer.UpdateRequest
 
 	state := FwNetworkServiceGroupState{
 		FwNetworkServiceGroupArgs: req.Inputs,
-		GroupId:                  &id,
+		GroupId:                   &id,
 	}
 	return infer.UpdateResponse[FwNetworkServiceGroupState]{Output: state}, nil
 }

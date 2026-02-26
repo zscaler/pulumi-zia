@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -44,30 +44,30 @@ type DlpWebRule struct{}
 
 // DlpWebRuleArgs are the inputs. Skips SubRules, ParentRule, Receiver, etc. for initial impl.
 type DlpWebRuleArgs struct {
-	Name                    string   `pulumi:"name"`
-	Order                   int      `pulumi:"order"`
-	Description             *string  `pulumi:"description,optional"`
-	State                   *string  `pulumi:"state,optional"`
-	Rank                    *int     `pulumi:"rank,optional"`
-	Action                  *string  `pulumi:"action,optional"`
-	FileTypes               []string `pulumi:"fileTypes,optional"`
-	Protocols               []string `pulumi:"protocols,optional"`
-	CloudApplications       []string `pulumi:"cloudApplications,optional"`
-	MinSize                 *int     `pulumi:"minSize,optional"`
-	MatchOnly               *bool    `pulumi:"matchOnly,optional"`
+	Name                     string   `pulumi:"name"`
+	Order                    int      `pulumi:"order"`
+	Description              *string  `pulumi:"description,optional"`
+	State                    *string  `pulumi:"state,optional"`
+	Rank                     *int     `pulumi:"rank,optional"`
+	Action                   *string  `pulumi:"action,optional"`
+	FileTypes                []string `pulumi:"fileTypes,optional"`
+	Protocols                []string `pulumi:"protocols,optional"`
+	CloudApplications        []string `pulumi:"cloudApplications,optional"`
+	MinSize                  *int     `pulumi:"minSize,optional"`
+	MatchOnly                *bool    `pulumi:"matchOnly,optional"`
 	WithoutContentInspection *bool    `pulumi:"withoutContentInspection,optional"`
-	OcrEnabled              *bool    `pulumi:"ocrEnabled,optional"`
+	OcrEnabled               *bool    `pulumi:"ocrEnabled,optional"`
 	DlpDownloadScanEnabled   *bool    `pulumi:"dlpDownloadScanEnabled,optional"`
-	ZccNotificationsEnabled *bool    `pulumi:"zccNotificationsEnabled,optional"`
+	ZccNotificationsEnabled  *bool    `pulumi:"zccNotificationsEnabled,optional"`
 	ExternalAuditorEmail     *string  `pulumi:"externalAuditorEmail,optional"`
-	Locations               []int    `pulumi:"locations,optional"`
-	LocationGroups          []int    `pulumi:"locationGroups,optional"`
-	Departments             []int    `pulumi:"departments,optional"`
-	Groups                  []int    `pulumi:"groups,optional"`
-	Users                   []int    `pulumi:"users,optional"`
-	TimeWindows             []int    `pulumi:"timeWindows,optional"`
-	Labels                  []int    `pulumi:"labels,optional"`
-	SourceIpGroups          []int    `pulumi:"sourceIpGroups,optional"`
+	Locations                []int    `pulumi:"locations,optional"`
+	LocationGroups           []int    `pulumi:"locationGroups,optional"`
+	Departments              []int    `pulumi:"departments,optional"`
+	Groups                   []int    `pulumi:"groups,optional"`
+	Users                    []int    `pulumi:"users,optional"`
+	TimeWindows              []int    `pulumi:"timeWindows,optional"`
+	Labels                   []int    `pulumi:"labels,optional"`
+	SourceIpGroups           []int    `pulumi:"sourceIpGroups,optional"`
 }
 
 // DlpWebRuleState is the persisted state.
@@ -93,9 +93,9 @@ func dlpWebRuleArgsToAPI(args *DlpWebRuleArgs, id int) dlp_web_rules.WebDLPRules
 		State:                    state,
 		Rank:                     ptrToIntDefault(args.Rank, 7),
 		Action:                   ptrToString(args.Action),
-		FileTypes:               args.FileTypes,
+		FileTypes:                args.FileTypes,
 		Protocols:                args.Protocols,
-		CloudApplications:         args.CloudApplications,
+		CloudApplications:        args.CloudApplications,
 		MinSize:                  ptrToIntDefault(args.MinSize, 0),
 		MatchOnly:                ptrToBool(args.MatchOnly),
 		WithoutContentInspection: ptrToBool(args.WithoutContentInspection),
@@ -117,30 +117,30 @@ func dlpWebRuleArgsToAPI(args *DlpWebRuleArgs, id int) dlp_web_rules.WebDLPRules
 func dlpWebRuleAPIToState(api *dlp_web_rules.WebDLPRules) DlpWebRuleState {
 	return DlpWebRuleState{
 		DlpWebRuleArgs: DlpWebRuleArgs{
-			Name:                    api.Name,
-			Order:                   api.Order,
-			Description:             stringPtr(api.Description),
-			State:                   stringPtr(api.State),
-			Rank:                    intPtr(api.Rank),
-			Action:                  stringPtr(api.Action),
-			FileTypes:               api.FileTypes,
-			Protocols:               api.Protocols,
-			CloudApplications:       api.CloudApplications,
-			MinSize:                 intPtr(api.MinSize),
-			MatchOnly:               boolPtr(api.MatchOnly),
+			Name:                     api.Name,
+			Order:                    api.Order,
+			Description:              stringPtr(api.Description),
+			State:                    stringPtr(api.State),
+			Rank:                     intPtr(api.Rank),
+			Action:                   stringPtr(api.Action),
+			FileTypes:                api.FileTypes,
+			Protocols:                api.Protocols,
+			CloudApplications:        api.CloudApplications,
+			MinSize:                  intPtr(api.MinSize),
+			MatchOnly:                boolPtr(api.MatchOnly),
 			WithoutContentInspection: boolPtr(api.WithoutContentInspection),
-			OcrEnabled:              boolPtr(api.OcrEnabled),
-			DlpDownloadScanEnabled:  boolPtr(api.DLPDownloadScanEnabled),
-			ZccNotificationsEnabled: boolPtr(api.ZCCNotificationsEnabled),
-			ExternalAuditorEmail:   stringPtr(api.ExternalAuditorEmail),
-			Locations:              idNameExtensionsToIDs(api.Locations),
-			LocationGroups:         idNameExtensionsToIDs(api.LocationGroups),
-			Departments:            idNameExtensionsToIDs(api.Departments),
-			Groups:                 idNameExtensionsToIDs(api.Groups),
-			Users:                  idNameExtensionsToIDs(api.Users),
-			TimeWindows:            idNameExtensionsToIDs(api.TimeWindows),
-			Labels:                 idNameExtensionsToIDs(api.Labels),
-			SourceIpGroups:         idNameExtensionsToIDs(api.SourceIpGroups),
+			OcrEnabled:               boolPtr(api.OcrEnabled),
+			DlpDownloadScanEnabled:   boolPtr(api.DLPDownloadScanEnabled),
+			ZccNotificationsEnabled:  boolPtr(api.ZCCNotificationsEnabled),
+			ExternalAuditorEmail:     stringPtr(api.ExternalAuditorEmail),
+			Locations:                idNameExtensionsToIDs(api.Locations),
+			LocationGroups:           idNameExtensionsToIDs(api.LocationGroups),
+			Departments:              idNameExtensionsToIDs(api.Departments),
+			Groups:                   idNameExtensionsToIDs(api.Groups),
+			Users:                    idNameExtensionsToIDs(api.Users),
+			TimeWindows:              idNameExtensionsToIDs(api.TimeWindows),
+			Labels:                   idNameExtensionsToIDs(api.Labels),
+			SourceIpGroups:           idNameExtensionsToIDs(api.SourceIpGroups),
 		},
 		RuleID: intPtr(api.ID),
 	}

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -41,18 +41,18 @@ type TenantRestrictionProfile struct{}
 // TenantRestrictionProfileArgs are the inputs.
 type TenantRestrictionProfileArgs struct {
 	Name                        string   `pulumi:"name"`
-	Description                  *string  `pulumi:"description,optional"`
-	AppType                      *string  `pulumi:"appType,optional"`
-	ItemTypePrimary              *string  `pulumi:"itemTypePrimary,optional"`
-	ItemTypeSecondary            *string  `pulumi:"itemTypeSecondary,optional"`
-	RestrictPersonalO365Domains  *bool    `pulumi:"restrictPersonalO365Domains,optional"`
-	AllowGoogleConsumers         *bool    `pulumi:"allowGoogleConsumers,optional"`
-	MsLoginServicesTrV2          *bool    `pulumi:"msLoginServicesTrV2,optional"`
-	AllowGoogleVisitors          *bool    `pulumi:"allowGoogleVisitors,optional"`
-	AllowGcpCloudStorageRead     *bool    `pulumi:"allowGcpCloudStorageRead,optional"`
-	ItemDataPrimary              []string `pulumi:"itemDataPrimary,optional"`
-	ItemDataSecondary            []string `pulumi:"itemDataSecondary,optional"`
-	ItemValue                    []string `pulumi:"itemValue,optional"`
+	Description                 *string  `pulumi:"description,optional"`
+	AppType                     *string  `pulumi:"appType,optional"`
+	ItemTypePrimary             *string  `pulumi:"itemTypePrimary,optional"`
+	ItemTypeSecondary           *string  `pulumi:"itemTypeSecondary,optional"`
+	RestrictPersonalO365Domains *bool    `pulumi:"restrictPersonalO365Domains,optional"`
+	AllowGoogleConsumers        *bool    `pulumi:"allowGoogleConsumers,optional"`
+	MsLoginServicesTrV2         *bool    `pulumi:"msLoginServicesTrV2,optional"`
+	AllowGoogleVisitors         *bool    `pulumi:"allowGoogleVisitors,optional"`
+	AllowGcpCloudStorageRead    *bool    `pulumi:"allowGcpCloudStorageRead,optional"`
+	ItemDataPrimary             []string `pulumi:"itemDataPrimary,optional"`
+	ItemDataSecondary           []string `pulumi:"itemDataSecondary,optional"`
+	ItemValue                   []string `pulumi:"itemValue,optional"`
 }
 
 // TenantRestrictionProfileState is the persisted state.
@@ -295,19 +295,19 @@ func tenantRestrictionProfileArgsToAPI(args TenantRestrictionProfileArgs, id int
 func tenantRestrictionProfileToState(r *tenancy_restriction.TenancyRestrictionProfile) TenantRestrictionProfileState {
 	return TenantRestrictionProfileState{
 		TenantRestrictionProfileArgs: TenantRestrictionProfileArgs{
-			Name:                       r.Name,
-			Description:                stringPtr(r.Description),
-			AppType:                    stringPtr(r.AppType),
-			ItemTypePrimary:            stringPtr(r.ItemTypePrimary),
-			ItemTypeSecondary:          stringPtr(r.ItemTypeSecondary),
+			Name:                        r.Name,
+			Description:                 stringPtr(r.Description),
+			AppType:                     stringPtr(r.AppType),
+			ItemTypePrimary:             stringPtr(r.ItemTypePrimary),
+			ItemTypeSecondary:           stringPtr(r.ItemTypeSecondary),
 			RestrictPersonalO365Domains: boolPtr(r.RestrictPersonalO365Domains),
-			AllowGoogleConsumers:       boolPtr(r.AllowGoogleConsumers),
-			MsLoginServicesTrV2:        boolPtr(r.MsLoginServicesTrV2),
-			AllowGoogleVisitors:        boolPtr(r.AllowGoogleVisitors),
-			AllowGcpCloudStorageRead:   boolPtr(r.AllowGcpCloudStorageRead),
-			ItemDataPrimary:            r.ItemDataPrimary,
-			ItemDataSecondary:          r.ItemDataSecondary,
-			ItemValue:                  r.ItemValue,
+			AllowGoogleConsumers:        boolPtr(r.AllowGoogleConsumers),
+			MsLoginServicesTrV2:         boolPtr(r.MsLoginServicesTrV2),
+			AllowGoogleVisitors:         boolPtr(r.AllowGoogleVisitors),
+			AllowGcpCloudStorageRead:    boolPtr(r.AllowGcpCloudStorageRead),
+			ItemDataPrimary:             r.ItemDataPrimary,
+			ItemDataSecondary:           r.ItemDataSecondary,
+			ItemValue:                   r.ItemValue,
 		},
 		ProfileId: intPtr(r.ID),
 	}

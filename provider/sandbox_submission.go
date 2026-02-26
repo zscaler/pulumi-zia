@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -39,9 +39,9 @@ type SandboxSubmission struct{}
 
 // SandboxSubmissionArgs are the inputs.
 type SandboxSubmissionArgs struct {
-	FilePath         string  `pulumi:"filePath"`
-	Force            *bool   `pulumi:"force,optional"`
-	SubmissionMethod string  `pulumi:"submissionMethod"` // "submit" or "discan"
+	FilePath         string `pulumi:"filePath"`
+	Force            *bool  `pulumi:"force,optional"`
+	SubmissionMethod string `pulumi:"submissionMethod"` // "submit" or "discan"
 }
 
 // SandboxSubmissionState is the persisted state.
@@ -96,10 +96,10 @@ func (SandboxSubmission) Create(ctx context.Context, req infer.CreateRequest[San
 		Code:                  intPtr(result.Code),
 		Message:               stringPtr(result.Message),
 		FileType:              stringPtr(result.FileType),
-		Md5:                  stringPtr(result.Md5),
-		SandboxSubmission:    stringPtr(result.SandboxSubmission),
-		VirusName:            stringPtr(result.VirusName),
-		VirusType:            stringPtr(result.VirusType),
+		Md5:                   stringPtr(result.Md5),
+		SandboxSubmission:     stringPtr(result.SandboxSubmission),
+		VirusName:             stringPtr(result.VirusName),
+		VirusType:             stringPtr(result.VirusType),
 	}
 	return infer.CreateResponse[SandboxSubmissionState]{
 		ID:     result.Md5,
@@ -157,10 +157,10 @@ func (SandboxSubmission) Update(ctx context.Context, req infer.UpdateRequest[San
 		Code:                  intPtr(result.Code),
 		Message:               stringPtr(result.Message),
 		FileType:              stringPtr(result.FileType),
-		Md5:                  stringPtr(result.Md5),
-		SandboxSubmission:    stringPtr(result.SandboxSubmission),
-		VirusName:            stringPtr(result.VirusName),
-		VirusType:            stringPtr(result.VirusType),
+		Md5:                   stringPtr(result.Md5),
+		SandboxSubmission:     stringPtr(result.SandboxSubmission),
+		VirusName:             stringPtr(result.VirusName),
+		VirusType:             stringPtr(result.VirusType),
 	}
 	return infer.UpdateResponse[SandboxSubmissionState]{Output: state}, nil
 }

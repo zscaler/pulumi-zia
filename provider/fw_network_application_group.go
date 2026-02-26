@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -42,9 +42,9 @@ type FwNetworkApplicationGroup struct{}
 
 // FwNetworkApplicationGroupArgs are the inputs.
 type FwNetworkApplicationGroupArgs struct {
-	Name                 *string  `pulumi:"name,optional"`
-	Description          *string  `pulumi:"description,optional"`
-	NetworkApplications  []string `pulumi:"networkApplications,optional"`
+	Name                *string  `pulumi:"name,optional"`
+	Description         *string  `pulumi:"description,optional"`
+	NetworkApplications []string `pulumi:"networkApplications,optional"`
 }
 
 // FwNetworkApplicationGroupState is the persisted state.
@@ -89,7 +89,7 @@ func (FwNetworkApplicationGroup) Create(ctx context.Context, req infer.CreateReq
 
 	state := FwNetworkApplicationGroupState{
 		FwNetworkApplicationGroupArgs: req.Inputs,
-		AppId:                        &resp.ID,
+		AppId:                         &resp.ID,
 	}
 	return infer.CreateResponse[FwNetworkApplicationGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -127,7 +127,7 @@ func (FwNetworkApplicationGroup) Read(ctx context.Context, req infer.ReadRequest
 	}
 	state := FwNetworkApplicationGroupState{
 		FwNetworkApplicationGroupArgs: args,
-		AppId:                        &resp.ID,
+		AppId:                         &resp.ID,
 	}
 	return infer.ReadResponse[FwNetworkApplicationGroupArgs, FwNetworkApplicationGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -172,7 +172,7 @@ func (FwNetworkApplicationGroup) Update(ctx context.Context, req infer.UpdateReq
 
 	state := FwNetworkApplicationGroupState{
 		FwNetworkApplicationGroupArgs: req.Inputs,
-		AppId:                        &id,
+		AppId:                         &id,
 	}
 	return infer.UpdateResponse[FwNetworkApplicationGroupState]{Output: state}, nil
 }
@@ -192,7 +192,9 @@ func (FwNetworkApplicationGroup) Delete(ctx context.Context, req infer.DeleteReq
 	if id != 0 {
 		if err := detachFromFilteringRules(ctx, client, id, "NwApplicationGroups",
 			func(r *filteringrules.FirewallFilteringRules) []common.IDNameExtensions { return r.NwApplicationGroups },
-			func(r *filteringrules.FirewallFilteringRules, ids []common.IDNameExtensions) { r.NwApplicationGroups = ids }); err != nil {
+			func(r *filteringrules.FirewallFilteringRules, ids []common.IDNameExtensions) {
+				r.NwApplicationGroups = ids
+			}); err != nil {
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := networkapplicationgroups.Delete(ctx, service, id); err != nil {

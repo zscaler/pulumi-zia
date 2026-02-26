@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -41,9 +41,9 @@ type BandwidthClassWebConferencing struct{}
 
 // BandwidthClassWebConferencingArgs are the inputs.
 type BandwidthClassWebConferencingArgs struct {
-	Name          *string  `pulumi:"name,optional"`
-	Type          *string  `pulumi:"type,optional"`
-	Applications  []string `pulumi:"applications,optional"`
+	Name         *string  `pulumi:"name,optional"`
+	Type         *string  `pulumi:"type,optional"`
+	Applications []string `pulumi:"applications,optional"`
 }
 
 // BandwidthClassWebConferencingState is the persisted state.
@@ -97,7 +97,7 @@ func (BandwidthClassWebConferencing) Create(ctx context.Context, req infer.Creat
 
 	state := BandwidthClassWebConferencingState{
 		BandwidthClassWebConferencingArgs: req.Inputs,
-		ClassId:                          &existing.ID,
+		ClassId:                           &existing.ID,
 	}
 	return infer.CreateResponse[BandwidthClassWebConferencingState]{
 		ID:     strconv.Itoa(existing.ID),
@@ -135,7 +135,7 @@ func (BandwidthClassWebConferencing) Read(ctx context.Context, req infer.ReadReq
 	}
 	state := BandwidthClassWebConferencingState{
 		BandwidthClassWebConferencingArgs: args,
-		ClassId:                          &resp.ID,
+		ClassId:                           &resp.ID,
 	}
 	return infer.ReadResponse[BandwidthClassWebConferencingArgs, BandwidthClassWebConferencingState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -188,7 +188,7 @@ func (BandwidthClassWebConferencing) Update(ctx context.Context, req infer.Updat
 
 	state := BandwidthClassWebConferencingState{
 		BandwidthClassWebConferencingArgs: req.Inputs,
-		ClassId:                          &classID,
+		ClassId:                           &classID,
 	}
 	return infer.UpdateResponse[BandwidthClassWebConferencingState]{Output: state}, nil
 }

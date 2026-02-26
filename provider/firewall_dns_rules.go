@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,43 +45,43 @@ type FirewallDNSRule struct{}
 
 // FirewallDNSRuleArgs are the inputs.
 type FirewallDNSRuleArgs struct {
-	Name                 string   `pulumi:"name"`
-	Order                 int      `pulumi:"order"`
-	Description          *string  `pulumi:"description,optional"`
-	Rank                 *int     `pulumi:"rank,optional"`
-	State                *string  `pulumi:"state,optional"`
-	Action               *string  `pulumi:"action,optional"`
-	RedirectIP           *string  `pulumi:"redirectIp,optional"`
-	BlockResponseCode    *string  `pulumi:"blockResponseCode,optional"`
-	DefaultRule          *bool    `pulumi:"defaultRule,optional"`
-	Predefined           *bool    `pulumi:"predefined,optional"`
-	CapturePcap          *bool    `pulumi:"capturePcap,optional"`
-	IsWebEunEnabled      *bool    `pulumi:"isWebEunEnabled,optional"`
-	SrcIps               []string `pulumi:"srcIps,optional"`
-	DestAddresses        []string `pulumi:"destAddresses,optional"`
-	DestIpCategories     []string `pulumi:"destIpCategories,optional"`
-	DestCountries        []string `pulumi:"destCountries,optional"`
-	SourceCountries      []string `pulumi:"sourceCountries,optional"`
-	ResCategories        []string `pulumi:"resCategories,optional"`
-	Applications         []string `pulumi:"applications,optional"`
-	DNSRuleRequestTypes  []string `pulumi:"dnsRuleRequestTypes,optional"`
-	Protocols            []string `pulumi:"protocols,optional"`
-	Locations            []int    `pulumi:"locations,optional"`
-	LocationGroups       []int    `pulumi:"locationGroups,optional"`
-	Departments          []int    `pulumi:"departments,optional"`
-	Groups               []int    `pulumi:"groups,optional"`
-	Users                []int    `pulumi:"users,optional"`
-	TimeWindows          []int    `pulumi:"timeWindows,optional"`
-	Labels               []int    `pulumi:"labels,optional"`
-	SrcIpGroups          []int    `pulumi:"srcIpGroups,optional"`
-	SrcIpv6Groups        []int    `pulumi:"srcIpv6Groups,optional"`
-	DestIpGroups         []int    `pulumi:"destIpGroups,optional"`
-	DestIpv6Groups       []int    `pulumi:"destIpv6Groups,optional"`
-	DeviceGroups         []int    `pulumi:"deviceGroups,optional"`
-	Devices              []int    `pulumi:"devices,optional"`
-	DNSGateway           *int     `pulumi:"dnsGateway,optional"`
-	ZpaIpGroup           *int     `pulumi:"zpaIpGroup,optional"`
-	EdnsEcsObject        *int     `pulumi:"ednsEcsObject,optional"`
+	Name                string   `pulumi:"name"`
+	Order               int      `pulumi:"order"`
+	Description         *string  `pulumi:"description,optional"`
+	Rank                *int     `pulumi:"rank,optional"`
+	State               *string  `pulumi:"state,optional"`
+	Action              *string  `pulumi:"action,optional"`
+	RedirectIP          *string  `pulumi:"redirectIp,optional"`
+	BlockResponseCode   *string  `pulumi:"blockResponseCode,optional"`
+	DefaultRule         *bool    `pulumi:"defaultRule,optional"`
+	Predefined          *bool    `pulumi:"predefined,optional"`
+	CapturePcap         *bool    `pulumi:"capturePcap,optional"`
+	IsWebEunEnabled     *bool    `pulumi:"isWebEunEnabled,optional"`
+	SrcIps              []string `pulumi:"srcIps,optional"`
+	DestAddresses       []string `pulumi:"destAddresses,optional"`
+	DestIpCategories    []string `pulumi:"destIpCategories,optional"`
+	DestCountries       []string `pulumi:"destCountries,optional"`
+	SourceCountries     []string `pulumi:"sourceCountries,optional"`
+	ResCategories       []string `pulumi:"resCategories,optional"`
+	Applications        []string `pulumi:"applications,optional"`
+	DNSRuleRequestTypes []string `pulumi:"dnsRuleRequestTypes,optional"`
+	Protocols           []string `pulumi:"protocols,optional"`
+	Locations           []int    `pulumi:"locations,optional"`
+	LocationGroups      []int    `pulumi:"locationGroups,optional"`
+	Departments         []int    `pulumi:"departments,optional"`
+	Groups              []int    `pulumi:"groups,optional"`
+	Users               []int    `pulumi:"users,optional"`
+	TimeWindows         []int    `pulumi:"timeWindows,optional"`
+	Labels              []int    `pulumi:"labels,optional"`
+	SrcIpGroups         []int    `pulumi:"srcIpGroups,optional"`
+	SrcIpv6Groups       []int    `pulumi:"srcIpv6Groups,optional"`
+	DestIpGroups        []int    `pulumi:"destIpGroups,optional"`
+	DestIpv6Groups      []int    `pulumi:"destIpv6Groups,optional"`
+	DeviceGroups        []int    `pulumi:"deviceGroups,optional"`
+	Devices             []int    `pulumi:"devices,optional"`
+	DNSGateway          *int     `pulumi:"dnsGateway,optional"`
+	ZpaIpGroup          *int     `pulumi:"zpaIpGroup,optional"`
+	EdnsEcsObject       *int     `pulumi:"ednsEcsObject,optional"`
 }
 
 // FirewallDNSRuleState is the persisted state.
@@ -101,52 +101,52 @@ func firewallDNSRuleArgsToAPI(args *FirewallDNSRuleArgs, id int) firewalldnscont
 		state = "ENABLED"
 	}
 	return firewalldnscontrolpolicies.FirewallDNSRules{
-		ID:                id,
-		Name:              args.Name,
-		Order:             order,
-		Rank:              rank,
-		State:             state,
-		Action:            ptrToString(args.Action),
-		Description:       ptrToString(args.Description),
-		RedirectIP:        ptrToString(args.RedirectIP),
-		BlockResponseCode: ptrToString(args.BlockResponseCode),
-		DefaultRule:       ptrToBool(args.DefaultRule),
-		Predefined:        ptrToBool(args.Predefined),
-		CapturePCAP:       ptrToBool(args.CapturePcap),
-		IsWebEUNEnabled:   ptrToBool(args.IsWebEunEnabled),
-		SrcIps:            args.SrcIps,
-		DestAddresses:     args.DestAddresses,
-		DestIpCategories:  args.DestIpCategories,
-		DestCountries:     processCountries(args.DestCountries),
-		SourceCountries:   processCountries(args.SourceCountries),
-		ResCategories:     args.ResCategories,
-		Applications:      args.Applications,
+		ID:                  id,
+		Name:                args.Name,
+		Order:               order,
+		Rank:                rank,
+		State:               state,
+		Action:              ptrToString(args.Action),
+		Description:         ptrToString(args.Description),
+		RedirectIP:          ptrToString(args.RedirectIP),
+		BlockResponseCode:   ptrToString(args.BlockResponseCode),
+		DefaultRule:         ptrToBool(args.DefaultRule),
+		Predefined:          ptrToBool(args.Predefined),
+		CapturePCAP:         ptrToBool(args.CapturePcap),
+		IsWebEUNEnabled:     ptrToBool(args.IsWebEunEnabled),
+		SrcIps:              args.SrcIps,
+		DestAddresses:       args.DestAddresses,
+		DestIpCategories:    args.DestIpCategories,
+		DestCountries:       processCountries(args.DestCountries),
+		SourceCountries:     processCountries(args.SourceCountries),
+		ResCategories:       args.ResCategories,
+		Applications:        args.Applications,
 		DNSRuleRequestTypes: args.DNSRuleRequestTypes,
-		Protocols:         args.Protocols,
-		Locations:         idsToIDNameExtensions(args.Locations),
-		LocationsGroups:   idsToIDNameExtensions(args.LocationGroups),
-		Departments:       idsToIDNameExtensions(args.Departments),
-		Groups:            idsToIDNameExtensions(args.Groups),
-		Users:             idsToIDNameExtensions(args.Users),
-		TimeWindows:       idsToIDNameExtensions(args.TimeWindows),
-		Labels:            idsToIDNameExtensions(args.Labels),
-		SrcIpGroups:       idsToIDNameExtensions(args.SrcIpGroups),
-		SrcIpv6Groups:     idsToIDNameExtensions(args.SrcIpv6Groups),
-		DestIpGroups:      idsToIDNameExtensions(args.DestIpGroups),
-		DestIpv6Groups:    idsToIDNameExtensions(args.DestIpv6Groups),
-		DeviceGroups:      idsToIDNameExtensions(args.DeviceGroups),
-		Devices:           idsToIDNameExtensions(args.Devices),
-		DNSGateway:        idToOptionalIDName(ptrToIntDefault(args.DNSGateway, 0)), // idToOptionalIDName returns nil when id is 0
-		ZPAIPGroup:        idToOptionalIDName(ptrToIntDefault(args.ZpaIpGroup, 0)),
-		EDNSEcsObject:     idToOptionalIDName(ptrToIntDefault(args.EdnsEcsObject, 0)),
+		Protocols:           args.Protocols,
+		Locations:           idsToIDNameExtensions(args.Locations),
+		LocationsGroups:     idsToIDNameExtensions(args.LocationGroups),
+		Departments:         idsToIDNameExtensions(args.Departments),
+		Groups:              idsToIDNameExtensions(args.Groups),
+		Users:               idsToIDNameExtensions(args.Users),
+		TimeWindows:         idsToIDNameExtensions(args.TimeWindows),
+		Labels:              idsToIDNameExtensions(args.Labels),
+		SrcIpGroups:         idsToIDNameExtensions(args.SrcIpGroups),
+		SrcIpv6Groups:       idsToIDNameExtensions(args.SrcIpv6Groups),
+		DestIpGroups:        idsToIDNameExtensions(args.DestIpGroups),
+		DestIpv6Groups:      idsToIDNameExtensions(args.DestIpv6Groups),
+		DeviceGroups:        idsToIDNameExtensions(args.DeviceGroups),
+		Devices:             idsToIDNameExtensions(args.Devices),
+		DNSGateway:          idToOptionalIDName(ptrToIntDefault(args.DNSGateway, 0)), // idToOptionalIDName returns nil when id is 0
+		ZPAIPGroup:          idToOptionalIDName(ptrToIntDefault(args.ZpaIpGroup, 0)),
+		EDNSEcsObject:       idToOptionalIDName(ptrToIntDefault(args.EdnsEcsObject, 0)),
 	}
 }
 
 func firewallDNSRuleAPIToState(api *firewalldnscontrolpolicies.FirewallDNSRules) FirewallDNSRuleState {
 	return FirewallDNSRuleState{
 		FirewallDNSRuleArgs: FirewallDNSRuleArgs{
-			Name:                 api.Name,
-			Order:                api.Order,
+			Name:                api.Name,
+			Order:               api.Order,
 			Description:         stringPtr(api.Description),
 			Rank:                intPtr(api.Rank),
 			State:               stringPtr(api.State),

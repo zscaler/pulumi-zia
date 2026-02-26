@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -76,7 +76,7 @@ func (SecurityPolicySettings) Create(ctx context.Context, req infer.CreateReques
 	}
 
 	state := SecurityPolicySettingsState{
-		Id: securityPolicySettingsID,
+		Id:                         securityPolicySettingsID,
 		SecurityPolicySettingsArgs: req.Inputs,
 	}
 	return infer.CreateResponse[SecurityPolicySettingsState]{
@@ -139,7 +139,7 @@ func (SecurityPolicySettings) Update(ctx context.Context, req infer.UpdateReques
 	}
 
 	state := SecurityPolicySettingsState{
-		Id: securityPolicySettingsID,
+		Id:                         securityPolicySettingsID,
 		SecurityPolicySettingsArgs: req.Inputs,
 	}
 	return infer.UpdateResponse[SecurityPolicySettingsState]{Output: state}, nil

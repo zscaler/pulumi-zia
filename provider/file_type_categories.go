@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,9 +33,9 @@ import (
 )
 
 type GetFileTypeCategoriesArgs struct {
-	Id                    *int    `pulumi:"resourceId,optional"`
-	Name                  *string `pulumi:"name,optional"`
-	Enums                 *string `pulumi:"enums,optional"`
+	Id                     *int    `pulumi:"resourceId,optional"`
+	Name                   *string `pulumi:"name,optional"`
+	Enums                  *string `pulumi:"enums,optional"`
 	ExcludeCustomFileTypes *bool   `pulumi:"excludeCustomFileTypes,optional"`
 }
 
@@ -46,9 +46,9 @@ type FileTypeCategoryItem struct {
 }
 
 type GetFileTypeCategoriesResult struct {
-	Id         *int                  `pulumi:"resourceId,optional"`
-	Name       *string               `pulumi:"name,optional"`
-	Parent     *string               `pulumi:"parent,optional"`
+	Id         *int                   `pulumi:"resourceId,optional"`
+	Name       *string                `pulumi:"name,optional"`
+	Parent     *string                `pulumi:"parent,optional"`
 	Categories []FileTypeCategoryItem `pulumi:"categories"`
 }
 

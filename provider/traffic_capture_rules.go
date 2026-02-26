@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -54,30 +54,30 @@ type TrafficCaptureRuleArgs struct {
 	SrcIps              []string             `pulumi:"srcIps,optional"`
 	DestAddresses       []string             `pulumi:"destAddresses,optional"`
 	DestIpCategories    []string             `pulumi:"destIpCategories,optional"`
-	NwApplications     []string             `pulumi:"nwApplications,optional"`
-	DefaultRule        *bool                 `pulumi:"defaultRule,optional"`
-	Predefined         *bool                 `pulumi:"predefined,optional"`
-	TxnSizeLimit       *string               `pulumi:"txnSizeLimit,optional"`
-	TxnSampling        *string              `pulumi:"txnSampling,optional"`
-	Locations          []int                 `pulumi:"locations,optional"`
-	LocationGroups     []int                 `pulumi:"locationGroups,optional"`
-	Departments        []int                 `pulumi:"departments,optional"`
-	Groups             []int                 `pulumi:"groups,optional"`
-	Users              []int                 `pulumi:"users,optional"`
-	TimeWindows        []int                 `pulumi:"timeWindows,optional"`
-	SrcIpGroups        []int                 `pulumi:"srcIpGroups,optional"`
-	DestIpGroups       []int                 `pulumi:"destIpGroups,optional"`
-	NwServices         []int                 `pulumi:"nwServices,optional"`
-	NwServiceGroups    []int                 `pulumi:"nwServiceGroups,optional"`
-	NwApplicationGroups []int                 `pulumi:"nwApplicationGroups,optional"`
-	AppServiceGroups   []int                 `pulumi:"appServiceGroups,optional"`
-	Labels             []int                 `pulumi:"labels,optional"`
-	DeviceGroups       []int                 `pulumi:"deviceGroups,optional"`
-	Devices            []int                 `pulumi:"devices,optional"`
-	DestCountries      []string              `pulumi:"destCountries,optional"`
-	SourceCountries    []string              `pulumi:"sourceCountries,optional"`
-	DeviceTrustLevels  []string              `pulumi:"deviceTrustLevels,optional"`
-	WorkloadGroups     []WorkloadGroupInput `pulumi:"workloadGroups,optional"`
+	NwApplications      []string             `pulumi:"nwApplications,optional"`
+	DefaultRule         *bool                `pulumi:"defaultRule,optional"`
+	Predefined          *bool                `pulumi:"predefined,optional"`
+	TxnSizeLimit        *string              `pulumi:"txnSizeLimit,optional"`
+	TxnSampling         *string              `pulumi:"txnSampling,optional"`
+	Locations           []int                `pulumi:"locations,optional"`
+	LocationGroups      []int                `pulumi:"locationGroups,optional"`
+	Departments         []int                `pulumi:"departments,optional"`
+	Groups              []int                `pulumi:"groups,optional"`
+	Users               []int                `pulumi:"users,optional"`
+	TimeWindows         []int                `pulumi:"timeWindows,optional"`
+	SrcIpGroups         []int                `pulumi:"srcIpGroups,optional"`
+	DestIpGroups        []int                `pulumi:"destIpGroups,optional"`
+	NwServices          []int                `pulumi:"nwServices,optional"`
+	NwServiceGroups     []int                `pulumi:"nwServiceGroups,optional"`
+	NwApplicationGroups []int                `pulumi:"nwApplicationGroups,optional"`
+	AppServiceGroups    []int                `pulumi:"appServiceGroups,optional"`
+	Labels              []int                `pulumi:"labels,optional"`
+	DeviceGroups        []int                `pulumi:"deviceGroups,optional"`
+	Devices             []int                `pulumi:"devices,optional"`
+	DestCountries       []string             `pulumi:"destCountries,optional"`
+	SourceCountries     []string             `pulumi:"sourceCountries,optional"`
+	DeviceTrustLevels   []string             `pulumi:"deviceTrustLevels,optional"`
+	WorkloadGroups      []WorkloadGroupInput `pulumi:"workloadGroups,optional"`
 }
 
 // TrafficCaptureRuleState is the persisted state.
@@ -109,40 +109,40 @@ func trafficCaptureRuleArgsToAPI(args *TrafficCaptureRuleArgs, id int) traffic_c
 		txnSampling = "NONE"
 	}
 	api := traffic_capture.TrafficCaptureRules{
-		ID:                id,
-		Name:              args.Name,
-		Order:             order,
-		Rank:              rank,
-		Action:            action,
-		State:             state,
-		Description:       ptrToString(args.Description),
-		TxnSizeLimit:      txnSizeLimit,
-		TxnSampling:      txnSampling,
-		SrcIps:            args.SrcIps,
-		DestAddresses:    args.DestAddresses,
-		DestIpCategories: args.DestIpCategories,
-		NwApplications:   args.NwApplications,
-		DefaultRule:      ptrToBool(args.DefaultRule),
-		Predefined:       ptrToBool(args.Predefined),
-		DestCountries:    processCountries(args.DestCountries),
-		SourceCountries:  processCountries(args.SourceCountries),
-		DeviceTrustLevels: args.DeviceTrustLevels,
-		Locations:        idsToIDNameExtensions(args.Locations),
-		LocationsGroups:  idsToIDNameExtensions(args.LocationGroups),
-		Departments:      idsToIDNameExtensions(args.Departments),
-		Groups:           idsToIDNameExtensions(args.Groups),
-		Users:            idsToIDNameExtensions(args.Users),
-		TimeWindows:      idsToIDNameExtensions(args.TimeWindows),
-		SrcIpGroups:      idsToIDNameExtensions(args.SrcIpGroups),
-		DestIpGroups:     idsToIDNameExtensions(args.DestIpGroups),
-		NwServices:       idsToIDNameExtensions(args.NwServices),
-		NwServiceGroups:  idsToIDNameExtensions(args.NwServiceGroups),
+		ID:                  id,
+		Name:                args.Name,
+		Order:               order,
+		Rank:                rank,
+		Action:              action,
+		State:               state,
+		Description:         ptrToString(args.Description),
+		TxnSizeLimit:        txnSizeLimit,
+		TxnSampling:         txnSampling,
+		SrcIps:              args.SrcIps,
+		DestAddresses:       args.DestAddresses,
+		DestIpCategories:    args.DestIpCategories,
+		NwApplications:      args.NwApplications,
+		DefaultRule:         ptrToBool(args.DefaultRule),
+		Predefined:          ptrToBool(args.Predefined),
+		DestCountries:       processCountries(args.DestCountries),
+		SourceCountries:     processCountries(args.SourceCountries),
+		DeviceTrustLevels:   args.DeviceTrustLevels,
+		Locations:           idsToIDNameExtensions(args.Locations),
+		LocationsGroups:     idsToIDNameExtensions(args.LocationGroups),
+		Departments:         idsToIDNameExtensions(args.Departments),
+		Groups:              idsToIDNameExtensions(args.Groups),
+		Users:               idsToIDNameExtensions(args.Users),
+		TimeWindows:         idsToIDNameExtensions(args.TimeWindows),
+		SrcIpGroups:         idsToIDNameExtensions(args.SrcIpGroups),
+		DestIpGroups:        idsToIDNameExtensions(args.DestIpGroups),
+		NwServices:          idsToIDNameExtensions(args.NwServices),
+		NwServiceGroups:     idsToIDNameExtensions(args.NwServiceGroups),
 		NwApplicationGroups: idsToIDNameExtensions(args.NwApplicationGroups),
-		AppServiceGroups: idsToIDNameExtensions(args.AppServiceGroups),
-		Labels:           idsToIDNameExtensions(args.Labels),
-		DeviceGroups:     idsToIDNameExtensions(args.DeviceGroups),
-		Devices:          idsToIDNameExtensions(args.Devices),
-		WorkloadGroups:    expandWorkloadGroups(args.WorkloadGroups),
+		AppServiceGroups:    idsToIDNameExtensions(args.AppServiceGroups),
+		Labels:              idsToIDNameExtensions(args.Labels),
+		DeviceGroups:        idsToIDNameExtensions(args.DeviceGroups),
+		Devices:             idsToIDNameExtensions(args.Devices),
+		WorkloadGroups:      expandWorkloadGroups(args.WorkloadGroups),
 	}
 	return api
 }
@@ -158,19 +158,19 @@ func trafficCaptureRuleAPIToState(api *traffic_capture.TrafficCaptureRules) Traf
 	}
 	state := TrafficCaptureRuleState{
 		TrafficCaptureRuleArgs: TrafficCaptureRuleArgs{
-			Name:                 api.Name,
-			Order:                api.Order,
-			Description:          stringPtr(api.Description),
-			Rank:                 intPtr(api.Rank),
-			Action:               stringPtr(api.Action),
-			State:                stringPtr(api.State),
-			SrcIps:               api.SrcIps,
-			DestAddresses:        api.DestAddresses,
-			DestIpCategories:     api.DestIpCategories,
+			Name:                api.Name,
+			Order:               api.Order,
+			Description:         stringPtr(api.Description),
+			Rank:                intPtr(api.Rank),
+			Action:              stringPtr(api.Action),
+			State:               stringPtr(api.State),
+			SrcIps:              api.SrcIps,
+			DestAddresses:       api.DestAddresses,
+			DestIpCategories:    api.DestIpCategories,
 			NwApplications:      api.NwApplications,
 			DefaultRule:         boolPtr(api.DefaultRule),
 			Predefined:          boolPtr(api.Predefined),
-			TxnSizeLimit:         stringPtr(api.TxnSizeLimit),
+			TxnSizeLimit:        stringPtr(api.TxnSizeLimit),
 			TxnSampling:         stringPtr(api.TxnSampling),
 			DestCountries:       destCountries,
 			SourceCountries:     sourceCountries,
@@ -181,16 +181,16 @@ func trafficCaptureRuleAPIToState(api *traffic_capture.TrafficCaptureRules) Traf
 			Groups:              idNameExtensionsToIDs(api.Groups),
 			Users:               idNameExtensionsToIDs(api.Users),
 			TimeWindows:         idNameExtensionsToIDs(api.TimeWindows),
-			SrcIpGroups:        idNameExtensionsToIDs(api.SrcIpGroups),
-			DestIpGroups:       idNameExtensionsToIDs(api.DestIpGroups),
-			NwServices:         idNameExtensionsToIDs(api.NwServices),
-			NwServiceGroups:   idNameExtensionsToIDs(api.NwServiceGroups),
+			SrcIpGroups:         idNameExtensionsToIDs(api.SrcIpGroups),
+			DestIpGroups:        idNameExtensionsToIDs(api.DestIpGroups),
+			NwServices:          idNameExtensionsToIDs(api.NwServices),
+			NwServiceGroups:     idNameExtensionsToIDs(api.NwServiceGroups),
 			NwApplicationGroups: idNameExtensionsToIDs(api.NwApplicationGroups),
-			AppServiceGroups:  idNameExtensionsToIDs(api.AppServiceGroups),
-			Labels:            idNameExtensionsToIDs(api.Labels),
-			DeviceGroups:      idNameExtensionsToIDs(api.DeviceGroups),
-			Devices:           idNameExtensionsToIDs(api.Devices),
-			WorkloadGroups:    workloadGroupOutputsToInputs(flattenWorkloadGroups(api.WorkloadGroups)),
+			AppServiceGroups:    idNameExtensionsToIDs(api.AppServiceGroups),
+			Labels:              idNameExtensionsToIDs(api.Labels),
+			DeviceGroups:        idNameExtensionsToIDs(api.DeviceGroups),
+			Devices:             idNameExtensionsToIDs(api.Devices),
+			WorkloadGroups:      workloadGroupOutputsToInputs(flattenWorkloadGroups(api.WorkloadGroups)),
 		},
 		RuleID: intPtr(api.ID),
 	}

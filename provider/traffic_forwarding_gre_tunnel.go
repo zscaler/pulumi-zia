@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -69,8 +69,8 @@ type TrafficForwardingGreTunnelArgs struct {
 // TrafficForwardingGreTunnelState is the persisted state.
 type TrafficForwardingGreTunnelState struct {
 	TrafficForwardingGreTunnelArgs
-	TunnelId        *int                   `pulumi:"tunnelId"`
-	PrimaryDestVip  *GreTunnelDestVipOutput `pulumi:"primaryDestVip,optional"`
+	TunnelId         *int                    `pulumi:"tunnelId"`
+	PrimaryDestVip   *GreTunnelDestVipOutput `pulumi:"primaryDestVip,optional"`
 	SecondaryDestVip *GreTunnelDestVipOutput `pulumi:"secondaryDestVip,optional"`
 }
 

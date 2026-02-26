@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,23 +45,23 @@ type AdminUserRoleInput struct {
 
 // AdminUsersArgs are the inputs for AdminUsers.
 type AdminUsersArgs struct {
-	LoginName                   string   `pulumi:"loginName"`
-	Username                    string   `pulumi:"username"`
-	Email                       string   `pulumi:"email"`
+	LoginName                   string              `pulumi:"loginName"`
+	Username                    string              `pulumi:"username"`
+	Email                       string              `pulumi:"email"`
 	Role                        *AdminUserRoleInput `pulumi:"role,optional"`
-	Comments                    *string  `pulumi:"comments,optional"`
-	AdminScopeType              *string  `pulumi:"adminScopeType,optional"`
-	AdminScopeEntities          []int    `pulumi:"adminScopeEntities,optional"`
-	IsNonEditable               *bool    `pulumi:"isNonEditable,optional"`
-	Disabled                    *bool    `pulumi:"disabled,optional"`
-	IsAuditor                   *bool    `pulumi:"isAuditor,optional"`
-	Password                    *string  `pulumi:"password,optional" provider:"secret"`
-	IsPasswordLoginAllowed      *bool    `pulumi:"isPasswordLoginAllowed,optional"`
-	IsSecurityReportCommEnabled *bool    `pulumi:"isSecurityReportCommEnabled,optional"`
-	IsServiceUpdateCommEnabled  *bool    `pulumi:"isServiceUpdateCommEnabled,optional"`
-	IsProductUpdateCommEnabled  *bool    `pulumi:"isProductUpdateCommEnabled,optional"`
-	IsPasswordExpired           *bool    `pulumi:"isPasswordExpired,optional"`
-	IsExecMobileAppEnabled      *bool    `pulumi:"isExecMobileAppEnabled,optional"`
+	Comments                    *string             `pulumi:"comments,optional"`
+	AdminScopeType              *string             `pulumi:"adminScopeType,optional"`
+	AdminScopeEntities          []int               `pulumi:"adminScopeEntities,optional"`
+	IsNonEditable               *bool               `pulumi:"isNonEditable,optional"`
+	Disabled                    *bool               `pulumi:"disabled,optional"`
+	IsAuditor                   *bool               `pulumi:"isAuditor,optional"`
+	Password                    *string             `pulumi:"password,optional" provider:"secret"`
+	IsPasswordLoginAllowed      *bool               `pulumi:"isPasswordLoginAllowed,optional"`
+	IsSecurityReportCommEnabled *bool               `pulumi:"isSecurityReportCommEnabled,optional"`
+	IsServiceUpdateCommEnabled  *bool               `pulumi:"isServiceUpdateCommEnabled,optional"`
+	IsProductUpdateCommEnabled  *bool               `pulumi:"isProductUpdateCommEnabled,optional"`
+	IsPasswordExpired           *bool               `pulumi:"isPasswordExpired,optional"`
+	IsExecMobileAppEnabled      *bool               `pulumi:"isExecMobileAppEnabled,optional"`
 }
 
 // AdminUsersState is the persisted state.
@@ -242,7 +242,7 @@ const example = new zia.AdminUsers("example", {
     loginName: "admin@example.com",
     username: "Example Admin",
     email: "admin@example.com",
-    password: "P@ssw0rd123!",
+    password: "P@",
     isPasswordLoginAllowed: true,
     role: { id: 12345 },
     adminScopeType: "ORGANIZATION",
@@ -256,7 +256,7 @@ example = zia.AdminUsers("example",
     login_name="admin@example.com",
     username="Example Admin",
     email="admin@example.com",
-    password="P@ssw0rd123!",
+    password="",
     is_password_login_allowed=True,
     role={"id": 12345},
     admin_scope_type="ORGANIZATION",
@@ -271,7 +271,7 @@ resources:
       loginName: admin@example.com
       username: Example Admin
       email: admin@example.com
-      password: P@ssw0rd123!
+      password: ""
       isPasswordLoginAllowed: true
       role:
         id: 12345

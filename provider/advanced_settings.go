@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -41,55 +41,55 @@ type AdvancedSettings struct{}
 
 // AdvancedSettingsArgs are the inputs.
 type AdvancedSettingsArgs struct {
-	AuthBypassUrls                                      []string `pulumi:"authBypassUrls,optional"`
-	AuthBypassApps                                      []string `pulumi:"authBypassApps,optional"`
-	KerberosBypassApps                                  []string `pulumi:"kerberosBypassApps,optional"`
-	BasicBypassApps                                     []string `pulumi:"basicBypassApps,optional"`
-	DigestAuthBypassApps                                []string `pulumi:"digestAuthBypassApps,optional"`
-	DnsResolutionOnTransparentProxyExemptApps           []string `pulumi:"dnsResolutionOnTransparentProxyExemptApps,optional"`
-	DnsResolutionOnTransparentProxyIpv6ExemptApps       []string `pulumi:"dnsResolutionOnTransparentProxyIpv6ExemptApps,optional"`
-	DnsResolutionOnTransparentProxyApps                 []string `pulumi:"dnsResolutionOnTransparentProxyApps,optional"`
-	DnsResolutionOnTransparentProxyIpv6Apps             []string `pulumi:"dnsResolutionOnTransparentProxyIpv6Apps,optional"`
-	BlockDomainFrontingApps                             []string `pulumi:"blockDomainFrontingApps,optional"`
-	PreferSniOverConnHostApps                           []string `pulumi:"preferSniOverConnHostApps,optional"`
-	DnsResolutionOnTransparentProxyExemptUrlCategories   []string `pulumi:"dnsResolutionOnTransparentProxyExemptUrlCategories,optional"`
+	AuthBypassUrls                                         []string `pulumi:"authBypassUrls,optional"`
+	AuthBypassApps                                         []string `pulumi:"authBypassApps,optional"`
+	KerberosBypassApps                                     []string `pulumi:"kerberosBypassApps,optional"`
+	BasicBypassApps                                        []string `pulumi:"basicBypassApps,optional"`
+	DigestAuthBypassApps                                   []string `pulumi:"digestAuthBypassApps,optional"`
+	DnsResolutionOnTransparentProxyExemptApps              []string `pulumi:"dnsResolutionOnTransparentProxyExemptApps,optional"`
+	DnsResolutionOnTransparentProxyIpv6ExemptApps          []string `pulumi:"dnsResolutionOnTransparentProxyIpv6ExemptApps,optional"`
+	DnsResolutionOnTransparentProxyApps                    []string `pulumi:"dnsResolutionOnTransparentProxyApps,optional"`
+	DnsResolutionOnTransparentProxyIpv6Apps                []string `pulumi:"dnsResolutionOnTransparentProxyIpv6Apps,optional"`
+	BlockDomainFrontingApps                                []string `pulumi:"blockDomainFrontingApps,optional"`
+	PreferSniOverConnHostApps                              []string `pulumi:"preferSniOverConnHostApps,optional"`
+	DnsResolutionOnTransparentProxyExemptUrlCategories     []string `pulumi:"dnsResolutionOnTransparentProxyExemptUrlCategories,optional"`
 	DnsResolutionOnTransparentProxyIpv6ExemptUrlCategories []string `pulumi:"dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories,optional"`
-	DnsResolutionOnTransparentProxyUrlCategories        []string `pulumi:"dnsResolutionOnTransparentProxyUrlCategories,optional"`
-	DnsResolutionOnTransparentProxyIpv6UrlCategories    []string `pulumi:"dnsResolutionOnTransparentProxyIpv6UrlCategories,optional"`
-	AuthBypassUrlCategories                             []string `pulumi:"authBypassUrlCategories,optional"`
-	DomainFrontingBypassUrlCategories                   []string `pulumi:"domainFrontingBypassUrlCategories,optional"`
-	KerberosBypassUrlCategories                         []string `pulumi:"kerberosBypassUrlCategories,optional"`
-	BasicBypassUrlCategories                            []string `pulumi:"basicBypassUrlCategories,optional"`
-	HttpRangeHeaderRemoveUrlCategories                  []string `pulumi:"httpRangeHeaderRemoveUrlCategories,optional"`
-	DigestAuthBypassUrlCategories                       []string `pulumi:"digestAuthBypassUrlCategories,optional"`
-	SniDnsOptimizationBypassUrlCategories               []string `pulumi:"sniDnsOptimizationBypassUrlCategories,optional"`
-	KerberosBypassUrls                                  []string `pulumi:"kerberosBypassUrls,optional"`
-	DigestAuthBypassUrls                                []string `pulumi:"digestAuthBypassUrls,optional"`
-	DnsResolutionOnTransparentProxyExemptUrls           []string `pulumi:"dnsResolutionOnTransparentProxyExemptUrls,optional"`
-	DnsResolutionOnTransparentProxyUrls                 []string `pulumi:"dnsResolutionOnTransparentProxyUrls,optional"`
-	EnableDnsResolutionOnTransparentProxy               *bool    `pulumi:"enableDnsResolutionOnTransparentProxy,optional"`
-	EnableIpv6DnsResolutionOnTransparentProxy           *bool    `pulumi:"enableIpv6DnsResolutionOnTransparentProxy,optional"`
-	EnableIpv6DnsOptimizationOnAllTransparentProxy      *bool    `pulumi:"enableIpv6DnsOptimizationOnAllTransparentProxy,optional"`
-	EnableEvaluatePolicyOnGlobalSslBypass               *bool    `pulumi:"enableEvaluatePolicyOnGlobalSslBypass,optional"`
-	EnableOffice365                                     *bool    `pulumi:"enableOffice365,optional"`
-	LogInternalIp                                       *bool    `pulumi:"logInternalIp,optional"`
-	EnforceSurrogateIpForWindowsApp                    *bool    `pulumi:"enforceSurrogateIpForWindowsApp,optional"`
-	TrackHttpTunnelOnHttpPorts                          *bool    `pulumi:"trackHttpTunnelOnHttpPorts,optional"`
-	BlockHttpTunnelOnNonHttpPorts                       *bool    `pulumi:"blockHttpTunnelOnNonHttpPorts,optional"`
-	BlockDomainFrontingOnHostHeader                     *bool    `pulumi:"blockDomainFrontingOnHostHeader,optional"`
-	ZscalerClientConnector1AndPacRoadWarriorInFirewall  *bool    `pulumi:"zscalerClientConnector1AndPacRoadWarriorInFirewall,optional"`
-	CascadeUrlFiltering                                 *bool    `pulumi:"cascadeUrlFiltering,optional"`
-	EnablePolicyForUnauthenticatedTraffic               *bool    `pulumi:"enablePolicyForUnauthenticatedTraffic,optional"`
-	BlockNonCompliantHttpRequestOnHttpPorts            *bool    `pulumi:"blockNonCompliantHttpRequestOnHttpPorts,optional"`
-	EnableAdminRankAccess                               *bool    `pulumi:"enableAdminRankAccess,optional"`
-	Http2NonbrowserTrafficEnabled                       *bool    `pulumi:"http2NonbrowserTrafficEnabled,optional"`
-	EcsForAllEnabled                                    *bool    `pulumi:"ecsForAllEnabled,optional"`
-	DynamicUserRiskEnabled                              *bool    `pulumi:"dynamicUserRiskEnabled,optional"`
-	BlockConnectHostSniMismatch                         *bool    `pulumi:"blockConnectHostSniMismatch,optional"`
-	PreferSniOverConnHost                               *bool    `pulumi:"preferSniOverConnHost,optional"`
-	SipaXffHeaderEnabled                                *bool    `pulumi:"sipaXffHeaderEnabled,optional"`
-	BlockNonHttpOnHttpPortEnabled                       *bool    `pulumi:"blockNonHttpOnHttpPortEnabled,optional"`
-	UiSessionTimeout                                    *int     `pulumi:"uiSessionTimeout,optional"`
+	DnsResolutionOnTransparentProxyUrlCategories           []string `pulumi:"dnsResolutionOnTransparentProxyUrlCategories,optional"`
+	DnsResolutionOnTransparentProxyIpv6UrlCategories       []string `pulumi:"dnsResolutionOnTransparentProxyIpv6UrlCategories,optional"`
+	AuthBypassUrlCategories                                []string `pulumi:"authBypassUrlCategories,optional"`
+	DomainFrontingBypassUrlCategories                      []string `pulumi:"domainFrontingBypassUrlCategories,optional"`
+	KerberosBypassUrlCategories                            []string `pulumi:"kerberosBypassUrlCategories,optional"`
+	BasicBypassUrlCategories                               []string `pulumi:"basicBypassUrlCategories,optional"`
+	HttpRangeHeaderRemoveUrlCategories                     []string `pulumi:"httpRangeHeaderRemoveUrlCategories,optional"`
+	DigestAuthBypassUrlCategories                          []string `pulumi:"digestAuthBypassUrlCategories,optional"`
+	SniDnsOptimizationBypassUrlCategories                  []string `pulumi:"sniDnsOptimizationBypassUrlCategories,optional"`
+	KerberosBypassUrls                                     []string `pulumi:"kerberosBypassUrls,optional"`
+	DigestAuthBypassUrls                                   []string `pulumi:"digestAuthBypassUrls,optional"`
+	DnsResolutionOnTransparentProxyExemptUrls              []string `pulumi:"dnsResolutionOnTransparentProxyExemptUrls,optional"`
+	DnsResolutionOnTransparentProxyUrls                    []string `pulumi:"dnsResolutionOnTransparentProxyUrls,optional"`
+	EnableDnsResolutionOnTransparentProxy                  *bool    `pulumi:"enableDnsResolutionOnTransparentProxy,optional"`
+	EnableIpv6DnsResolutionOnTransparentProxy              *bool    `pulumi:"enableIpv6DnsResolutionOnTransparentProxy,optional"`
+	EnableIpv6DnsOptimizationOnAllTransparentProxy         *bool    `pulumi:"enableIpv6DnsOptimizationOnAllTransparentProxy,optional"`
+	EnableEvaluatePolicyOnGlobalSslBypass                  *bool    `pulumi:"enableEvaluatePolicyOnGlobalSslBypass,optional"`
+	EnableOffice365                                        *bool    `pulumi:"enableOffice365,optional"`
+	LogInternalIp                                          *bool    `pulumi:"logInternalIp,optional"`
+	EnforceSurrogateIpForWindowsApp                        *bool    `pulumi:"enforceSurrogateIpForWindowsApp,optional"`
+	TrackHttpTunnelOnHttpPorts                             *bool    `pulumi:"trackHttpTunnelOnHttpPorts,optional"`
+	BlockHttpTunnelOnNonHttpPorts                          *bool    `pulumi:"blockHttpTunnelOnNonHttpPorts,optional"`
+	BlockDomainFrontingOnHostHeader                        *bool    `pulumi:"blockDomainFrontingOnHostHeader,optional"`
+	ZscalerClientConnector1AndPacRoadWarriorInFirewall     *bool    `pulumi:"zscalerClientConnector1AndPacRoadWarriorInFirewall,optional"`
+	CascadeUrlFiltering                                    *bool    `pulumi:"cascadeUrlFiltering,optional"`
+	EnablePolicyForUnauthenticatedTraffic                  *bool    `pulumi:"enablePolicyForUnauthenticatedTraffic,optional"`
+	BlockNonCompliantHttpRequestOnHttpPorts                *bool    `pulumi:"blockNonCompliantHttpRequestOnHttpPorts,optional"`
+	EnableAdminRankAccess                                  *bool    `pulumi:"enableAdminRankAccess,optional"`
+	Http2NonbrowserTrafficEnabled                          *bool    `pulumi:"http2NonbrowserTrafficEnabled,optional"`
+	EcsForAllEnabled                                       *bool    `pulumi:"ecsForAllEnabled,optional"`
+	DynamicUserRiskEnabled                                 *bool    `pulumi:"dynamicUserRiskEnabled,optional"`
+	BlockConnectHostSniMismatch                            *bool    `pulumi:"blockConnectHostSniMismatch,optional"`
+	PreferSniOverConnHost                                  *bool    `pulumi:"preferSniOverConnHost,optional"`
+	SipaXffHeaderEnabled                                   *bool    `pulumi:"sipaXffHeaderEnabled,optional"`
+	BlockNonHttpOnHttpPortEnabled                          *bool    `pulumi:"blockNonHttpOnHttpPortEnabled,optional"`
+	UiSessionTimeout                                       *int     `pulumi:"uiSessionTimeout,optional"`
 }
 
 // AdvancedSettingsState is the persisted state.
@@ -337,55 +337,55 @@ func advancedSettingsArgsToAPI(in AdvancedSettingsArgs, existing *advanced_setti
 		return def
 	}
 	result := advanced_settings.AdvancedSettings{
-		AuthBypassUrls:                                emptyToNil(in.AuthBypassUrls),
-		KerberosBypassUrls:                            emptyToNil(in.KerberosBypassUrls),
-		DigestAuthBypassUrls:                          emptyToNil(in.DigestAuthBypassUrls),
-		DnsResolutionOnTransparentProxyExemptUrls:     emptyToNil(in.DnsResolutionOnTransparentProxyExemptUrls),
-		DnsResolutionOnTransparentProxyUrls:           emptyToNil(in.DnsResolutionOnTransparentProxyUrls),
-		AuthBypassApps:                                emptyToNil(in.AuthBypassApps),
-		KerberosBypassApps:                            emptyToNil(in.KerberosBypassApps),
-		BasicBypassApps:                               emptyToNil(in.BasicBypassApps),
-		DigestAuthBypassApps:                          emptyToNil(in.DigestAuthBypassApps),
-		DnsResolutionOnTransparentProxyExemptApps:     emptyToNil(in.DnsResolutionOnTransparentProxyExemptApps),
-		DnsResolutionOnTransparentProxyIPv6ExemptApps: emptyToNil(in.DnsResolutionOnTransparentProxyIpv6ExemptApps),
-		DnsResolutionOnTransparentProxyApps:           emptyToNil(in.DnsResolutionOnTransparentProxyApps),
-		DnsResolutionOnTransparentProxyIPv6Apps:      emptyToNil(in.DnsResolutionOnTransparentProxyIpv6Apps),
-		BlockDomainFrontingApps:                       emptyToNil(in.BlockDomainFrontingApps),
-		PreferSniOverConnHostApps:                     emptyToNil(in.PreferSniOverConnHostApps),
+		AuthBypassUrls:                                         emptyToNil(in.AuthBypassUrls),
+		KerberosBypassUrls:                                     emptyToNil(in.KerberosBypassUrls),
+		DigestAuthBypassUrls:                                   emptyToNil(in.DigestAuthBypassUrls),
+		DnsResolutionOnTransparentProxyExemptUrls:              emptyToNil(in.DnsResolutionOnTransparentProxyExemptUrls),
+		DnsResolutionOnTransparentProxyUrls:                    emptyToNil(in.DnsResolutionOnTransparentProxyUrls),
+		AuthBypassApps:                                         emptyToNil(in.AuthBypassApps),
+		KerberosBypassApps:                                     emptyToNil(in.KerberosBypassApps),
+		BasicBypassApps:                                        emptyToNil(in.BasicBypassApps),
+		DigestAuthBypassApps:                                   emptyToNil(in.DigestAuthBypassApps),
+		DnsResolutionOnTransparentProxyExemptApps:              emptyToNil(in.DnsResolutionOnTransparentProxyExemptApps),
+		DnsResolutionOnTransparentProxyIPv6ExemptApps:          emptyToNil(in.DnsResolutionOnTransparentProxyIpv6ExemptApps),
+		DnsResolutionOnTransparentProxyApps:                    emptyToNil(in.DnsResolutionOnTransparentProxyApps),
+		DnsResolutionOnTransparentProxyIPv6Apps:                emptyToNil(in.DnsResolutionOnTransparentProxyIpv6Apps),
+		BlockDomainFrontingApps:                                emptyToNil(in.BlockDomainFrontingApps),
+		PreferSniOverConnHostApps:                              emptyToNil(in.PreferSniOverConnHostApps),
 		DnsResolutionOnTransparentProxyExemptUrlCategories:     emptyToNil(in.DnsResolutionOnTransparentProxyExemptUrlCategories),
 		DnsResolutionOnTransparentProxyIPv6ExemptUrlCategories: emptyToNil(in.DnsResolutionOnTransparentProxyIpv6ExemptUrlCategories),
 		DnsResolutionOnTransparentProxyUrlCategories:           emptyToNil(in.DnsResolutionOnTransparentProxyUrlCategories),
 		DnsResolutionOnTransparentProxyIPv6UrlCategories:       emptyToNil(in.DnsResolutionOnTransparentProxyIpv6UrlCategories),
-		AuthBypassUrlCategories:                       emptyToNil(in.AuthBypassUrlCategories),
-		DomainFrontingBypassUrlCategories:              emptyToNil(in.DomainFrontingBypassUrlCategories),
-		KerberosBypassUrlCategories:                  emptyToNil(in.KerberosBypassUrlCategories),
-		BasicBypassUrlCategories:                      emptyToNil(in.BasicBypassUrlCategories),
-		HttpRangeHeaderRemoveUrlCategories:           emptyToNil(in.HttpRangeHeaderRemoveUrlCategories),
-		DigestAuthBypassUrlCategories:                 emptyToNil(in.DigestAuthBypassUrlCategories),
-		SniDnsOptimizationBypassUrlCategories:        emptyToNil(in.SniDnsOptimizationBypassUrlCategories),
-		EnableDnsResolutionOnTransparentProxy:         use(in.EnableDnsResolutionOnTransparentProxy, false),
-		EnableIPv6DnsResolutionOnTransparentProxy:      use(in.EnableIpv6DnsResolutionOnTransparentProxy, false),
-		EnableIPv6DnsOptimizationOnAllTransparentProxy: use(in.EnableIpv6DnsOptimizationOnAllTransparentProxy, false),
-		EnableEvaluatePolicyOnGlobalSSLBypass:         use(in.EnableEvaluatePolicyOnGlobalSslBypass, false),
-		EnableOffice365:                               use(in.EnableOffice365, false),
-		LogInternalIp:                                 use(in.LogInternalIp, false),
-		EnforceSurrogateIpForWindowsApp:                use(in.EnforceSurrogateIpForWindowsApp, false),
-		TrackHttpTunnelOnHttpPorts:                     use(in.TrackHttpTunnelOnHttpPorts, false),
-		BlockHttpTunnelOnNonHttpPorts:                 use(in.BlockHttpTunnelOnNonHttpPorts, false),
-		BlockDomainFrontingOnHostHeader:               use(in.BlockDomainFrontingOnHostHeader, false),
-		ZscalerClientConnector1AndPacRoadWarriorInFirewall: use(in.ZscalerClientConnector1AndPacRoadWarriorInFirewall, false),
-		CascadeUrlFiltering:                           use(in.CascadeUrlFiltering, false),
-		EnablePolicyForUnauthenticatedTraffic:          use(in.EnablePolicyForUnauthenticatedTraffic, false),
-		BlockNonCompliantHttpRequestOnHttpPorts:       use(in.BlockNonCompliantHttpRequestOnHttpPorts, false),
-		EnableAdminRankAccess:                         use(in.EnableAdminRankAccess, false),
-		Http2NonbrowserTrafficEnabled:                 use(in.Http2NonbrowserTrafficEnabled, false),
-		EcsForAllEnabled:                              use(in.EcsForAllEnabled, false),
-		DynamicUserRiskEnabled:                        use(in.DynamicUserRiskEnabled, false),
-		BlockConnectHostSniMismatch:                    use(in.BlockConnectHostSniMismatch, false),
-		PreferSniOverConnHost:                         use(in.PreferSniOverConnHost, false),
-		SipaXffHeaderEnabled:                          use(in.SipaXffHeaderEnabled, false),
-		BlockNonHttpOnHttpPortEnabled:                 use(in.BlockNonHttpOnHttpPortEnabled, false),
-		UISessionTimeout:                              useInt(in.UiSessionTimeout, 0),
+		AuthBypassUrlCategories:                                emptyToNil(in.AuthBypassUrlCategories),
+		DomainFrontingBypassUrlCategories:                      emptyToNil(in.DomainFrontingBypassUrlCategories),
+		KerberosBypassUrlCategories:                            emptyToNil(in.KerberosBypassUrlCategories),
+		BasicBypassUrlCategories:                               emptyToNil(in.BasicBypassUrlCategories),
+		HttpRangeHeaderRemoveUrlCategories:                     emptyToNil(in.HttpRangeHeaderRemoveUrlCategories),
+		DigestAuthBypassUrlCategories:                          emptyToNil(in.DigestAuthBypassUrlCategories),
+		SniDnsOptimizationBypassUrlCategories:                  emptyToNil(in.SniDnsOptimizationBypassUrlCategories),
+		EnableDnsResolutionOnTransparentProxy:                  use(in.EnableDnsResolutionOnTransparentProxy, false),
+		EnableIPv6DnsResolutionOnTransparentProxy:              use(in.EnableIpv6DnsResolutionOnTransparentProxy, false),
+		EnableIPv6DnsOptimizationOnAllTransparentProxy:         use(in.EnableIpv6DnsOptimizationOnAllTransparentProxy, false),
+		EnableEvaluatePolicyOnGlobalSSLBypass:                  use(in.EnableEvaluatePolicyOnGlobalSslBypass, false),
+		EnableOffice365:                                        use(in.EnableOffice365, false),
+		LogInternalIp:                                          use(in.LogInternalIp, false),
+		EnforceSurrogateIpForWindowsApp:                        use(in.EnforceSurrogateIpForWindowsApp, false),
+		TrackHttpTunnelOnHttpPorts:                             use(in.TrackHttpTunnelOnHttpPorts, false),
+		BlockHttpTunnelOnNonHttpPorts:                          use(in.BlockHttpTunnelOnNonHttpPorts, false),
+		BlockDomainFrontingOnHostHeader:                        use(in.BlockDomainFrontingOnHostHeader, false),
+		ZscalerClientConnector1AndPacRoadWarriorInFirewall:     use(in.ZscalerClientConnector1AndPacRoadWarriorInFirewall, false),
+		CascadeUrlFiltering:                                    use(in.CascadeUrlFiltering, false),
+		EnablePolicyForUnauthenticatedTraffic:                  use(in.EnablePolicyForUnauthenticatedTraffic, false),
+		BlockNonCompliantHttpRequestOnHttpPorts:                use(in.BlockNonCompliantHttpRequestOnHttpPorts, false),
+		EnableAdminRankAccess:                                  use(in.EnableAdminRankAccess, false),
+		Http2NonbrowserTrafficEnabled:                          use(in.Http2NonbrowserTrafficEnabled, false),
+		EcsForAllEnabled:                                       use(in.EcsForAllEnabled, false),
+		DynamicUserRiskEnabled:                                 use(in.DynamicUserRiskEnabled, false),
+		BlockConnectHostSniMismatch:                            use(in.BlockConnectHostSniMismatch, false),
+		PreferSniOverConnHost:                                  use(in.PreferSniOverConnHost, false),
+		SipaXffHeaderEnabled:                                   use(in.SipaXffHeaderEnabled, false),
+		BlockNonHttpOnHttpPortEnabled:                          use(in.BlockNonHttpOnHttpPortEnabled, false),
+		UISessionTimeout:                                       useInt(in.UiSessionTimeout, 0),
 	}
 	return result
 }
@@ -400,55 +400,55 @@ func emptyToNil(s []string) []string {
 func advancedSettingsAPIToState(r *advanced_settings.AdvancedSettings) AdvancedSettingsState {
 	return AdvancedSettingsState{
 		AdvancedSettingsArgs: AdvancedSettingsArgs{
-			AuthBypassUrls:                                r.AuthBypassUrls,
-			AuthBypassApps:                                r.AuthBypassApps,
-			KerberosBypassApps:                            r.KerberosBypassApps,
-			BasicBypassApps:                               r.BasicBypassApps,
-			DigestAuthBypassApps:                          r.DigestAuthBypassApps,
-			DnsResolutionOnTransparentProxyExemptApps:     r.DnsResolutionOnTransparentProxyExemptApps,
-			DnsResolutionOnTransparentProxyIpv6ExemptApps: r.DnsResolutionOnTransparentProxyIPv6ExemptApps,
-			DnsResolutionOnTransparentProxyApps:           r.DnsResolutionOnTransparentProxyApps,
-			DnsResolutionOnTransparentProxyIpv6Apps:       r.DnsResolutionOnTransparentProxyIPv6Apps,
-			BlockDomainFrontingApps:                       r.BlockDomainFrontingApps,
-			PreferSniOverConnHostApps:                     r.PreferSniOverConnHostApps,
-			DnsResolutionOnTransparentProxyExemptUrlCategories:   r.DnsResolutionOnTransparentProxyExemptUrlCategories,
+			AuthBypassUrls:       r.AuthBypassUrls,
+			AuthBypassApps:       r.AuthBypassApps,
+			KerberosBypassApps:   r.KerberosBypassApps,
+			BasicBypassApps:      r.BasicBypassApps,
+			DigestAuthBypassApps: r.DigestAuthBypassApps,
+			DnsResolutionOnTransparentProxyExemptApps:              r.DnsResolutionOnTransparentProxyExemptApps,
+			DnsResolutionOnTransparentProxyIpv6ExemptApps:          r.DnsResolutionOnTransparentProxyIPv6ExemptApps,
+			DnsResolutionOnTransparentProxyApps:                    r.DnsResolutionOnTransparentProxyApps,
+			DnsResolutionOnTransparentProxyIpv6Apps:                r.DnsResolutionOnTransparentProxyIPv6Apps,
+			BlockDomainFrontingApps:                                r.BlockDomainFrontingApps,
+			PreferSniOverConnHostApps:                              r.PreferSniOverConnHostApps,
+			DnsResolutionOnTransparentProxyExemptUrlCategories:     r.DnsResolutionOnTransparentProxyExemptUrlCategories,
 			DnsResolutionOnTransparentProxyIpv6ExemptUrlCategories: r.DnsResolutionOnTransparentProxyIPv6ExemptUrlCategories,
-			DnsResolutionOnTransparentProxyUrlCategories:   r.DnsResolutionOnTransparentProxyUrlCategories,
-			DnsResolutionOnTransparentProxyIpv6UrlCategories: r.DnsResolutionOnTransparentProxyIPv6UrlCategories,
-			AuthBypassUrlCategories:                   r.AuthBypassUrlCategories,
-			DomainFrontingBypassUrlCategories:         r.DomainFrontingBypassUrlCategories,
-			KerberosBypassUrlCategories:               r.KerberosBypassUrlCategories,
-			BasicBypassUrlCategories:                   r.BasicBypassUrlCategories,
-			HttpRangeHeaderRemoveUrlCategories:         r.HttpRangeHeaderRemoveUrlCategories,
-			DigestAuthBypassUrlCategories:              r.DigestAuthBypassUrlCategories,
-			SniDnsOptimizationBypassUrlCategories:      r.SniDnsOptimizationBypassUrlCategories,
-			KerberosBypassUrls:                          r.KerberosBypassUrls,
-			DigestAuthBypassUrls:                        r.DigestAuthBypassUrls,
-			DnsResolutionOnTransparentProxyExemptUrls:   r.DnsResolutionOnTransparentProxyExemptUrls,
-			DnsResolutionOnTransparentProxyUrls:         r.DnsResolutionOnTransparentProxyUrls,
-			EnableDnsResolutionOnTransparentProxy:       boolPtr(r.EnableDnsResolutionOnTransparentProxy),
-			EnableIpv6DnsResolutionOnTransparentProxy:   boolPtr(r.EnableIPv6DnsResolutionOnTransparentProxy),
-			EnableIpv6DnsOptimizationOnAllTransparentProxy: boolPtr(r.EnableIPv6DnsOptimizationOnAllTransparentProxy),
-			EnableEvaluatePolicyOnGlobalSslBypass:       boolPtr(r.EnableEvaluatePolicyOnGlobalSSLBypass),
-			EnableOffice365:                             boolPtr(r.EnableOffice365),
-			LogInternalIp:                               boolPtr(r.LogInternalIp),
-			EnforceSurrogateIpForWindowsApp:            boolPtr(r.EnforceSurrogateIpForWindowsApp),
-			TrackHttpTunnelOnHttpPorts:                  boolPtr(r.TrackHttpTunnelOnHttpPorts),
-			BlockHttpTunnelOnNonHttpPorts:               boolPtr(r.BlockHttpTunnelOnNonHttpPorts),
-			BlockDomainFrontingOnHostHeader:             boolPtr(r.BlockDomainFrontingOnHostHeader),
-			ZscalerClientConnector1AndPacRoadWarriorInFirewall: boolPtr(r.ZscalerClientConnector1AndPacRoadWarriorInFirewall),
-			CascadeUrlFiltering:                         boolPtr(r.CascadeUrlFiltering),
-			EnablePolicyForUnauthenticatedTraffic:        boolPtr(r.EnablePolicyForUnauthenticatedTraffic),
-			BlockNonCompliantHttpRequestOnHttpPorts:     boolPtr(r.BlockNonCompliantHttpRequestOnHttpPorts),
-			EnableAdminRankAccess:                       boolPtr(r.EnableAdminRankAccess),
-			Http2NonbrowserTrafficEnabled:               boolPtr(r.Http2NonbrowserTrafficEnabled),
-			EcsForAllEnabled:                            boolPtr(r.EcsForAllEnabled),
-			DynamicUserRiskEnabled:                     boolPtr(r.DynamicUserRiskEnabled),
-			BlockConnectHostSniMismatch:                  boolPtr(r.BlockConnectHostSniMismatch),
-			PreferSniOverConnHost:                       boolPtr(r.PreferSniOverConnHost),
-			SipaXffHeaderEnabled:                       boolPtr(r.SipaXffHeaderEnabled),
-			BlockNonHttpOnHttpPortEnabled:              boolPtr(r.BlockNonHttpOnHttpPortEnabled),
-			UiSessionTimeout:                            intPtr(r.UISessionTimeout),
+			DnsResolutionOnTransparentProxyUrlCategories:           r.DnsResolutionOnTransparentProxyUrlCategories,
+			DnsResolutionOnTransparentProxyIpv6UrlCategories:       r.DnsResolutionOnTransparentProxyIPv6UrlCategories,
+			AuthBypassUrlCategories:                                r.AuthBypassUrlCategories,
+			DomainFrontingBypassUrlCategories:                      r.DomainFrontingBypassUrlCategories,
+			KerberosBypassUrlCategories:                            r.KerberosBypassUrlCategories,
+			BasicBypassUrlCategories:                               r.BasicBypassUrlCategories,
+			HttpRangeHeaderRemoveUrlCategories:                     r.HttpRangeHeaderRemoveUrlCategories,
+			DigestAuthBypassUrlCategories:                          r.DigestAuthBypassUrlCategories,
+			SniDnsOptimizationBypassUrlCategories:                  r.SniDnsOptimizationBypassUrlCategories,
+			KerberosBypassUrls:                                     r.KerberosBypassUrls,
+			DigestAuthBypassUrls:                                   r.DigestAuthBypassUrls,
+			DnsResolutionOnTransparentProxyExemptUrls:              r.DnsResolutionOnTransparentProxyExemptUrls,
+			DnsResolutionOnTransparentProxyUrls:                    r.DnsResolutionOnTransparentProxyUrls,
+			EnableDnsResolutionOnTransparentProxy:                  boolPtr(r.EnableDnsResolutionOnTransparentProxy),
+			EnableIpv6DnsResolutionOnTransparentProxy:              boolPtr(r.EnableIPv6DnsResolutionOnTransparentProxy),
+			EnableIpv6DnsOptimizationOnAllTransparentProxy:         boolPtr(r.EnableIPv6DnsOptimizationOnAllTransparentProxy),
+			EnableEvaluatePolicyOnGlobalSslBypass:                  boolPtr(r.EnableEvaluatePolicyOnGlobalSSLBypass),
+			EnableOffice365:                                        boolPtr(r.EnableOffice365),
+			LogInternalIp:                                          boolPtr(r.LogInternalIp),
+			EnforceSurrogateIpForWindowsApp:                        boolPtr(r.EnforceSurrogateIpForWindowsApp),
+			TrackHttpTunnelOnHttpPorts:                             boolPtr(r.TrackHttpTunnelOnHttpPorts),
+			BlockHttpTunnelOnNonHttpPorts:                          boolPtr(r.BlockHttpTunnelOnNonHttpPorts),
+			BlockDomainFrontingOnHostHeader:                        boolPtr(r.BlockDomainFrontingOnHostHeader),
+			ZscalerClientConnector1AndPacRoadWarriorInFirewall:     boolPtr(r.ZscalerClientConnector1AndPacRoadWarriorInFirewall),
+			CascadeUrlFiltering:                                    boolPtr(r.CascadeUrlFiltering),
+			EnablePolicyForUnauthenticatedTraffic:                  boolPtr(r.EnablePolicyForUnauthenticatedTraffic),
+			BlockNonCompliantHttpRequestOnHttpPorts:                boolPtr(r.BlockNonCompliantHttpRequestOnHttpPorts),
+			EnableAdminRankAccess:                                  boolPtr(r.EnableAdminRankAccess),
+			Http2NonbrowserTrafficEnabled:                          boolPtr(r.Http2NonbrowserTrafficEnabled),
+			EcsForAllEnabled:                                       boolPtr(r.EcsForAllEnabled),
+			DynamicUserRiskEnabled:                                 boolPtr(r.DynamicUserRiskEnabled),
+			BlockConnectHostSniMismatch:                            boolPtr(r.BlockConnectHostSniMismatch),
+			PreferSniOverConnHost:                                  boolPtr(r.PreferSniOverConnHost),
+			SipaXffHeaderEnabled:                                   boolPtr(r.SipaXffHeaderEnabled),
+			BlockNonHttpOnHttpPortEnabled:                          boolPtr(r.BlockNonHttpOnHttpPortEnabled),
+			UiSessionTimeout:                                       intPtr(r.UISessionTimeout),
 		},
 		ResourceId: advancedSettingsID,
 	}

@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -52,17 +52,17 @@ type DlpDictionaryPatternInput struct {
 
 // DlpDictionaryArgs are the inputs.
 type DlpDictionaryArgs struct {
-	Name                                 *string                    `pulumi:"name,optional"`
-	Description                          *string                    `pulumi:"description,optional"`
-	Custom                               *bool                      `pulumi:"custom,optional"`
-	ConfidenceThreshold                  *string                    `pulumi:"confidenceThreshold,optional"`
-	CustomPhraseMatchType                *string                    `pulumi:"customPhraseMatchType,optional"`
-	DictionaryType                       *string                    `pulumi:"dictionaryType,optional"`
-	Phrases                              []DlpDictionaryPhraseInput `pulumi:"phrases,optional"`
-	Patterns                             []DlpDictionaryPatternInput `pulumi:"patterns,optional"`
-	HierarchicalIdentifiers              []string                   `pulumi:"hierarchicalIdentifiers,optional"`
-	Proximity                            *int                       `pulumi:"proximity,optional"`
-	ProximityEnabledForCustomDictionary   *bool                      `pulumi:"proximityEnabledForCustomDictionary,optional"`
+	Name                                *string                     `pulumi:"name,optional"`
+	Description                         *string                     `pulumi:"description,optional"`
+	Custom                              *bool                       `pulumi:"custom,optional"`
+	ConfidenceThreshold                 *string                     `pulumi:"confidenceThreshold,optional"`
+	CustomPhraseMatchType               *string                     `pulumi:"customPhraseMatchType,optional"`
+	DictionaryType                      *string                     `pulumi:"dictionaryType,optional"`
+	Phrases                             []DlpDictionaryPhraseInput  `pulumi:"phrases,optional"`
+	Patterns                            []DlpDictionaryPatternInput `pulumi:"patterns,optional"`
+	HierarchicalIdentifiers             []string                    `pulumi:"hierarchicalIdentifiers,optional"`
+	Proximity                           *int                        `pulumi:"proximity,optional"`
+	ProximityEnabledForCustomDictionary *bool                       `pulumi:"proximityEnabledForCustomDictionary,optional"`
 }
 
 // DlpDictionaryState is the persisted state.
@@ -175,16 +175,16 @@ func (DlpDictionary) Read(ctx context.Context, req infer.ReadRequest[DlpDictiona
 	}
 
 	args := DlpDictionaryArgs{
-		Name:                               stringPtr(resp.Name),
-		Description:                        stringPtr(resp.Description),
-		Custom:                             boolPtr(resp.Custom),
+		Name:                                stringPtr(resp.Name),
+		Description:                         stringPtr(resp.Description),
+		Custom:                              boolPtr(resp.Custom),
 		ConfidenceThreshold:                 stringPtr(resp.ConfidenceThreshold),
-		CustomPhraseMatchType:              stringPtr(resp.CustomPhraseMatchType),
-		DictionaryType:                     stringPtr(resp.DictionaryType),
-		Phrases:                            phrases,
-		Patterns:                           patterns,
-		HierarchicalIdentifiers:            resp.HierarchicalIdentifiers,
-		Proximity:                          intPtr(resp.Proximity),
+		CustomPhraseMatchType:               stringPtr(resp.CustomPhraseMatchType),
+		DictionaryType:                      stringPtr(resp.DictionaryType),
+		Phrases:                             phrases,
+		Patterns:                            patterns,
+		HierarchicalIdentifiers:             resp.HierarchicalIdentifiers,
+		Proximity:                           intPtr(resp.Proximity),
 		ProximityEnabledForCustomDictionary: boolPtr(resp.ProximityEnabledForCustomDictionary),
 	}
 	state := DlpDictionaryState{

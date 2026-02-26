@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -56,34 +56,34 @@ type UrlCategoryUrlKeywordCountsInput struct {
 
 // UrlCategoryArgs are the inputs.
 type UrlCategoryArgs struct {
-	ConfiguredName                   *string                        `pulumi:"configuredName,optional"`
-	Description                     *string                        `pulumi:"description,optional"`
-	Urls                            []string                      `pulumi:"urls,optional"`
-	Keywords                        []string                      `pulumi:"keywords,optional"`
-	KeywordsRetainingParentCategory []string                      `pulumi:"keywordsRetainingParentCategory,optional"`
-	DbCategorizedUrls               []string                      `pulumi:"dbCategorizedUrls,optional"`
-	CustomCategory                  *bool                         `pulumi:"customCategory,optional"`
-	Scopes                          []UrlCategoryScopeInput       `pulumi:"scopes,optional"`
-	Type                            *string                       `pulumi:"type,optional"`
-	UrlType                         *string                       `pulumi:"urlType,optional"`
-	SuperCategory                   *string                       `pulumi:"superCategory,optional"`
-	IpRanges                        []string                      `pulumi:"ipRanges,optional"`
-	IpRangesRetainingParentCategory []string                      `pulumi:"ipRangesRetainingParentCategory,optional"`
-	RegexPatterns                   []string                      `pulumi:"regexPatterns,optional"`
-	RegexPatternsRetainingParentCategory []string                  `pulumi:"regexPatternsRetainingParentCategory,optional"`
-	UrlKeywordCounts                *UrlCategoryUrlKeywordCountsInput `pulumi:"urlKeywordCounts,optional"`
+	ConfiguredName                       *string                           `pulumi:"configuredName,optional"`
+	Description                          *string                           `pulumi:"description,optional"`
+	Urls                                 []string                          `pulumi:"urls,optional"`
+	Keywords                             []string                          `pulumi:"keywords,optional"`
+	KeywordsRetainingParentCategory      []string                          `pulumi:"keywordsRetainingParentCategory,optional"`
+	DbCategorizedUrls                    []string                          `pulumi:"dbCategorizedUrls,optional"`
+	CustomCategory                       *bool                             `pulumi:"customCategory,optional"`
+	Scopes                               []UrlCategoryScopeInput           `pulumi:"scopes,optional"`
+	Type                                 *string                           `pulumi:"type,optional"`
+	UrlType                              *string                           `pulumi:"urlType,optional"`
+	SuperCategory                        *string                           `pulumi:"superCategory,optional"`
+	IpRanges                             []string                          `pulumi:"ipRanges,optional"`
+	IpRangesRetainingParentCategory      []string                          `pulumi:"ipRangesRetainingParentCategory,optional"`
+	RegexPatterns                        []string                          `pulumi:"regexPatterns,optional"`
+	RegexPatternsRetainingParentCategory []string                          `pulumi:"regexPatternsRetainingParentCategory,optional"`
+	UrlKeywordCounts                     *UrlCategoryUrlKeywordCountsInput `pulumi:"urlKeywordCounts,optional"`
 }
 
 // UrlCategoryState is the persisted state.
 type UrlCategoryState struct {
 	UrlCategoryArgs
-	CategoryId                         *string `pulumi:"categoryId"`
-	Val                                *int    `pulumi:"val,optional"`
-	Editable                           *bool   `pulumi:"editable,optional"`
-	CustomUrlsCount                    *int    `pulumi:"customUrlsCount,optional"`
-	UrlsRetainingParentCategoryCount   *int    `pulumi:"urlsRetainingParentCategoryCount,optional"`
-	CustomIpRangesCount                *int    `pulumi:"customIpRangesCount,optional"`
-	IpRangesRetainingParentCategoryCount *int   `pulumi:"ipRangesRetainingParentCategoryCount,optional"`
+	CategoryId                           *string `pulumi:"categoryId"`
+	Val                                  *int    `pulumi:"val,optional"`
+	Editable                             *bool   `pulumi:"editable,optional"`
+	CustomUrlsCount                      *int    `pulumi:"customUrlsCount,optional"`
+	UrlsRetainingParentCategoryCount     *int    `pulumi:"urlsRetainingParentCategoryCount,optional"`
+	CustomIpRangesCount                  *int    `pulumi:"customIpRangesCount,optional"`
+	IpRangesRetainingParentCategoryCount *int    `pulumi:"ipRangesRetainingParentCategoryCount,optional"`
 }
 
 func (UrlCategory) Check(ctx context.Context, req infer.CheckRequest) (infer.CheckResponse[UrlCategoryArgs], error) {
@@ -495,31 +495,31 @@ func urlCategoryArgsToAPI(args UrlCategoryArgs, id string, val int) urlcategorie
 
 func urlCategoryToState(r *urlcategories.URLCategory, args *UrlCategoryArgs) UrlCategoryState {
 	state := UrlCategoryState{
-		CategoryId:                         stringPtr(r.ID),
-		Val:                                intPtr(r.Val),
-		Editable:                           boolPtr(r.Editable),
-		CustomUrlsCount:                    intPtr(r.CustomUrlsCount),
-		UrlsRetainingParentCategoryCount:   intPtr(r.UrlsRetainingParentCategoryCount),
-		CustomIpRangesCount:                intPtr(r.CustomIpRangesCount),
+		CategoryId:                           stringPtr(r.ID),
+		Val:                                  intPtr(r.Val),
+		Editable:                             boolPtr(r.Editable),
+		CustomUrlsCount:                      intPtr(r.CustomUrlsCount),
+		UrlsRetainingParentCategoryCount:     intPtr(r.UrlsRetainingParentCategoryCount),
+		CustomIpRangesCount:                  intPtr(r.CustomIpRangesCount),
 		IpRangesRetainingParentCategoryCount: intPtr(r.IPRangesRetainingParentCategoryCount),
 	}
 	if args != nil {
 		state.UrlCategoryArgs = *args
 	} else {
 		state.UrlCategoryArgs = UrlCategoryArgs{
-			ConfiguredName:                   stringPtr(r.ConfiguredName),
-			Description:                     stringPtr(r.Description),
-			Urls:                            r.Urls,
-			Keywords:                        r.Keywords,
-			KeywordsRetainingParentCategory: r.KeywordsRetainingParentCategory,
-			DbCategorizedUrls:               r.DBCategorizedUrls,
-			CustomCategory:                   boolPtr(r.CustomCategory),
-			Type:                            stringPtr(r.Type),
-			UrlType:                         stringPtr(r.UrlType),
-			SuperCategory:                   stringPtr(r.SuperCategory),
-			IpRanges:                        r.IPRanges,
-			IpRangesRetainingParentCategory: r.IPRangesRetainingParentCategory,
-			RegexPatterns:                   r.RegexPatterns,
+			ConfiguredName:                       stringPtr(r.ConfiguredName),
+			Description:                          stringPtr(r.Description),
+			Urls:                                 r.Urls,
+			Keywords:                             r.Keywords,
+			KeywordsRetainingParentCategory:      r.KeywordsRetainingParentCategory,
+			DbCategorizedUrls:                    r.DBCategorizedUrls,
+			CustomCategory:                       boolPtr(r.CustomCategory),
+			Type:                                 stringPtr(r.Type),
+			UrlType:                              stringPtr(r.UrlType),
+			SuperCategory:                        stringPtr(r.SuperCategory),
+			IpRanges:                             r.IPRanges,
+			IpRangesRetainingParentCategory:      r.IPRangesRetainingParentCategory,
+			RegexPatterns:                        r.RegexPatterns,
 			RegexPatternsRetainingParentCategory: r.RegexPatternsRetainingParentCategory,
 		}
 		for _, s := range r.Scopes {

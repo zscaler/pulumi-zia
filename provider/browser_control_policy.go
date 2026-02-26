@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -44,21 +44,21 @@ type SmartIsolationProfileInput struct {
 
 // BrowserControlPolicyArgs are the inputs.
 type BrowserControlPolicyArgs struct {
-	PluginCheckFrequency            *string                 `pulumi:"pluginCheckFrequency,optional"`
-	BypassPlugins                   []string                `pulumi:"bypassPlugins,optional"`
-	BypassApplications              []string                `pulumi:"bypassApplications,optional"`
-	BlockedInternetExplorerVersions []string                `pulumi:"blockedInternetExplorerVersions,optional"`
-	BlockedChromeVersions           []string                `pulumi:"blockedChromeVersions,optional"`
-	BlockedFirefoxVersions         []string                `pulumi:"blockedFirefoxVersions,optional"`
-	BlockedSafariVersions           []string                `pulumi:"blockedSafariVersions,optional"`
-	BlockedOperaVersions            []string                `pulumi:"blockedOperaVersions,optional"`
-	BypassAllBrowsers               *bool                   `pulumi:"bypassAllBrowsers,optional"`
-	AllowAllBrowsers               *bool                   `pulumi:"allowAllBrowsers,optional"`
-	EnableWarnings                 *bool                   `pulumi:"enableWarnings,optional"`
-	EnableSmartBrowserIsolation    *bool                   `pulumi:"enableSmartBrowserIsolation,optional"`
-	SmartIsolationProfile          *SmartIsolationProfileInput `pulumi:"smartIsolationProfile,optional"`
-	SmartIsolationGroups           []int                   `pulumi:"smartIsolationGroups,optional"`
-	SmartIsolationUsers            []int                   `pulumi:"smartIsolationUsers,optional"`
+	PluginCheckFrequency            *string                     `pulumi:"pluginCheckFrequency,optional"`
+	BypassPlugins                   []string                    `pulumi:"bypassPlugins,optional"`
+	BypassApplications              []string                    `pulumi:"bypassApplications,optional"`
+	BlockedInternetExplorerVersions []string                    `pulumi:"blockedInternetExplorerVersions,optional"`
+	BlockedChromeVersions           []string                    `pulumi:"blockedChromeVersions,optional"`
+	BlockedFirefoxVersions          []string                    `pulumi:"blockedFirefoxVersions,optional"`
+	BlockedSafariVersions           []string                    `pulumi:"blockedSafariVersions,optional"`
+	BlockedOperaVersions            []string                    `pulumi:"blockedOperaVersions,optional"`
+	BypassAllBrowsers               *bool                       `pulumi:"bypassAllBrowsers,optional"`
+	AllowAllBrowsers                *bool                       `pulumi:"allowAllBrowsers,optional"`
+	EnableWarnings                  *bool                       `pulumi:"enableWarnings,optional"`
+	EnableSmartBrowserIsolation     *bool                       `pulumi:"enableSmartBrowserIsolation,optional"`
+	SmartIsolationProfile           *SmartIsolationProfileInput `pulumi:"smartIsolationProfile,optional"`
+	SmartIsolationGroups            []int                       `pulumi:"smartIsolationGroups,optional"`
+	SmartIsolationUsers             []int                       `pulumi:"smartIsolationUsers,optional"`
 }
 
 // BrowserControlPolicyState is the persisted state.
@@ -79,16 +79,16 @@ func browserControlPolicyToAPI(args BrowserControlPolicyArgs) browser_control_se
 		BypassApplications:              args.BypassApplications,
 		BlockedInternetExplorerVersions: args.BlockedInternetExplorerVersions,
 		BlockedChromeVersions:           args.BlockedChromeVersions,
-		BlockedFirefoxVersions:         args.BlockedFirefoxVersions,
+		BlockedFirefoxVersions:          args.BlockedFirefoxVersions,
 		BlockedSafariVersions:           args.BlockedSafariVersions,
 		BlockedOperaVersions:            args.BlockedOperaVersions,
 		BypassAllBrowsers:               ptrToBool(args.BypassAllBrowsers),
-		AllowAllBrowsers:               ptrToBool(args.AllowAllBrowsers),
-		EnableWarnings:                 ptrToBool(args.EnableWarnings),
-		EnableSmartBrowserIsolation:    ptrToBool(args.EnableSmartBrowserIsolation),
-		SmartIsolationProfile:          profile,
+		AllowAllBrowsers:                ptrToBool(args.AllowAllBrowsers),
+		EnableWarnings:                  ptrToBool(args.EnableWarnings),
+		EnableSmartBrowserIsolation:     ptrToBool(args.EnableSmartBrowserIsolation),
+		SmartIsolationProfile:           profile,
 		SmartIsolationGroups:            idsToIDNameExtensions(args.SmartIsolationGroups),
-		SmartIsolationUsers:            idsToIDNameExtensions(args.SmartIsolationUsers),
+		SmartIsolationUsers:             idsToIDNameExtensions(args.SmartIsolationUsers),
 	}
 }
 
@@ -114,7 +114,7 @@ func (BrowserControlPolicy) Create(ctx context.Context, req infer.CreateRequest[
 	}
 
 	return infer.CreateResponse[BrowserControlPolicyState]{
-		ID: browserControlPolicyID,
+		ID:     browserControlPolicyID,
 		Output: BrowserControlPolicyState{BrowserControlPolicyArgs: req.Inputs},
 	}, nil
 }
@@ -144,16 +144,16 @@ func (BrowserControlPolicy) Read(ctx context.Context, req infer.ReadRequest[Brow
 		BypassApplications:              resp.BypassApplications,
 		BlockedInternetExplorerVersions: resp.BlockedInternetExplorerVersions,
 		BlockedChromeVersions:           resp.BlockedChromeVersions,
-		BlockedFirefoxVersions:         resp.BlockedFirefoxVersions,
+		BlockedFirefoxVersions:          resp.BlockedFirefoxVersions,
 		BlockedSafariVersions:           resp.BlockedSafariVersions,
 		BlockedOperaVersions:            resp.BlockedOperaVersions,
 		BypassAllBrowsers:               boolPtr(resp.BypassAllBrowsers),
-		AllowAllBrowsers:               boolPtr(resp.AllowAllBrowsers),
-		EnableWarnings:                 boolPtr(resp.EnableWarnings),
-		EnableSmartBrowserIsolation:    boolPtr(resp.EnableSmartBrowserIsolation),
-		SmartIsolationProfile:          smartProfile,
-		SmartIsolationGroups:           idNameExtensionsToIDs(resp.SmartIsolationGroups),
-		SmartIsolationUsers:            idNameExtensionsToIDs(resp.SmartIsolationUsers),
+		AllowAllBrowsers:                boolPtr(resp.AllowAllBrowsers),
+		EnableWarnings:                  boolPtr(resp.EnableWarnings),
+		EnableSmartBrowserIsolation:     boolPtr(resp.EnableSmartBrowserIsolation),
+		SmartIsolationProfile:           smartProfile,
+		SmartIsolationGroups:            idNameExtensionsToIDs(resp.SmartIsolationGroups),
+		SmartIsolationUsers:             idNameExtensionsToIDs(resp.SmartIsolationUsers),
 	}
 	state := BrowserControlPolicyState{BrowserControlPolicyArgs: args}
 	return infer.ReadResponse[BrowserControlPolicyArgs, BrowserControlPolicyState]{

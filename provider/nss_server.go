@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,10 +40,10 @@ type NssServer struct{}
 
 // NssServerArgs are the inputs.
 type NssServerArgs struct {
-	Name       string  `pulumi:"name"`
-	Status     *string `pulumi:"status,optional"`
-	Type       *string `pulumi:"type,optional"`
-	IcapSvrId  *int    `pulumi:"icapSvrId,optional"`
+	Name      string  `pulumi:"name"`
+	Status    *string `pulumi:"status,optional"`
+	Type      *string `pulumi:"type,optional"`
+	IcapSvrId *int    `pulumi:"icapSvrId,optional"`
 }
 
 // NssServerState is the persisted state.

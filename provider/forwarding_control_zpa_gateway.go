@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -51,11 +51,11 @@ type ZpaGatewayAppSegmentInput struct {
 
 // ForwardingControlZpaGatewayArgs are the inputs.
 type ForwardingControlZpaGatewayArgs struct {
-	Name            *string             `pulumi:"name,optional"`
-	Description     *string             `pulumi:"description,optional"`
-	Type            *string             `pulumi:"type,optional"` // ZPA, ECZPA
-	ZpaServerGroup  *ZpaServerGroupInput `pulumi:"zpaServerGroup,optional"`
-	ZpaAppSegments  []ZpaGatewayAppSegmentInput `pulumi:"zpaAppSegments,optional"`
+	Name           *string                     `pulumi:"name,optional"`
+	Description    *string                     `pulumi:"description,optional"`
+	Type           *string                     `pulumi:"type,optional"` // ZPA, ECZPA
+	ZpaServerGroup *ZpaServerGroupInput        `pulumi:"zpaServerGroup,optional"`
+	ZpaAppSegments []ZpaGatewayAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 // ForwardingControlZpaGatewayState is the persisted state.
@@ -192,7 +192,7 @@ func (ForwardingControlZpaGateway) Read(ctx context.Context, req infer.ReadReque
 		Description:    stringPtr(resp.Description),
 		Type:           stringPtr(gatewayType),
 		ZpaServerGroup: zpaServerGroup,
-		ZpaAppSegments:  zpaAppSegments,
+		ZpaAppSegments: zpaAppSegments,
 	}
 	state := ForwardingControlZpaGatewayState{
 		ForwardingControlZpaGatewayArgs: args,

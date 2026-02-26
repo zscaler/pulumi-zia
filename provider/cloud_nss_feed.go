@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -46,12 +46,12 @@ type CloudNssFeedArgs struct {
 	NssFeedType              *string  `pulumi:"nssFeedType,optional"`
 	FeedOutputFormat         *string  `pulumi:"feedOutputFormat,optional"`
 	TimeZone                 *string  `pulumi:"timeZone,optional"`
-	CustomEscapedCharacter    []string `pulumi:"customEscapedCharacter,optional"`
-	EpsRateLimit             *int    `pulumi:"epsRateLimit,optional"`
+	CustomEscapedCharacter   []string `pulumi:"customEscapedCharacter,optional"`
+	EpsRateLimit             *int     `pulumi:"epsRateLimit,optional"`
 	JsonArrayToggle          *bool    `pulumi:"jsonArrayToggle,optional"`
 	SiemType                 *string  `pulumi:"siemType,optional"`
-	MaxBatchSize             *int    `pulumi:"maxBatchSize,optional"`
-	ConnectionURL             *string  `pulumi:"connectionUrl,optional"`
+	MaxBatchSize             *int     `pulumi:"maxBatchSize,optional"`
+	ConnectionURL            *string  `pulumi:"connectionUrl,optional"`
 	AuthenticationToken      *string  `pulumi:"authenticationToken,optional"`
 	ConnectionHeaders        []string `pulumi:"connectionHeaders,optional"`
 	Base64EncodedCertificate *string  `pulumi:"base64EncodedCertificate,optional"`
@@ -74,11 +74,11 @@ type CloudNssFeedArgs struct {
 	VpnCredentials           []int    `pulumi:"vpnCredentials,optional"`
 	DlpEngines               []int    `pulumi:"dlpEngines,optional"`
 	DlpDictionaries          []int    `pulumi:"dlpDictionaries,optional"`
-	ExternalOwners            []int    `pulumi:"externalOwners,optional"`
-	ExternalCollaborators     []int    `pulumi:"externalCollaborators,optional"`
+	ExternalOwners           []int    `pulumi:"externalOwners,optional"`
+	ExternalCollaborators    []int    `pulumi:"externalCollaborators,optional"`
 	InternalCollaborators    []int    `pulumi:"internalCollaborators,optional"`
 	ItsmObjectType           []int    `pulumi:"itsmObjectType,optional"`
-	UrlCategories             []int    `pulumi:"urlCategories,optional"`
+	UrlCategories            []int    `pulumi:"urlCategories,optional"`
 	Rules                    []int    `pulumi:"rules,optional"`
 	NwServices               []int    `pulumi:"nwServices,optional"`
 	SenderName               []int    `pulumi:"senderName,optional"`
@@ -92,49 +92,49 @@ type CloudNssFeedState struct {
 
 func cloudNssFeedToAPI(args CloudNssFeedArgs, id int) cloudnss.NSSFeed {
 	return cloudnss.NSSFeed{
-		ID:                          id,
-		Name:                        ptrToString(args.Name),
-		FeedStatus:                  ptrToString(args.FeedStatus),
-		NssLogType:                  ptrToString(args.NssLogType),
-		NssFeedType:                 ptrToString(args.NssFeedType),
-		FeedOutputFormat:            ptrToString(args.FeedOutputFormat),
-		TimeZone:                    ptrToString(args.TimeZone),
-		CustomEscapedCharacter:      args.CustomEscapedCharacter,
-		EpsRateLimit:                ptrToIntDefault(args.EpsRateLimit, 0),
-		JsonArrayToggle:             ptrToBool(args.JsonArrayToggle),
-		SiemType:                    ptrToString(args.SiemType),
-		MaxBatchSize:                ptrToIntDefault(args.MaxBatchSize, 0),
-		ConnectionURL:               ptrToString(args.ConnectionURL),
-		AuthenticationToken:         ptrToString(args.AuthenticationToken),
-		ConnectionHeaders:           args.ConnectionHeaders,
-		Base64EncodedCertificate:    ptrToString(args.Base64EncodedCertificate),
-		NssType:                     ptrToString(args.NssType),
-		ClientID:                    ptrToString(args.ClientID),
-		ClientSecret:                ptrToString(args.ClientSecret),
-		AuthenticationUrl:           ptrToString(args.AuthenticationUrl),
-		GrantType:                   ptrToString(args.GrantType),
-		Scope:                       ptrToString(args.Scope),
-		OauthAuthentication:         ptrToBool(args.OauthAuthentication),
-		ServerIps:                   args.ServerIps,
-		ClientIps:                   args.ClientIps,
-		Domains:                     args.Domains,
-		Locations:                   idsToCommonNSS(args.Locations),
-		LocationGroups:              idsToCommonNSS(args.LocationGroups),
-		Departments:                 idsToCommonNSS(args.Departments),
-		Users:                       idsToCommonNSS(args.Users),
-		CasbTenant:                  idsToCommonNSS(args.CasbTenant),
-		Buckets:                     idsToCommonNSS(args.Buckets),
-		VPNCredentials:              idsToCommonNSS(args.VpnCredentials),
-		DLPEngines:                  idsToIDNameExtensions(args.DlpEngines),
-		DLPDictionaries:             idsToIDNameExtensions(args.DlpDictionaries),
-		ExternalOwners:              idsToIDNameExtensions(args.ExternalOwners),
-		ExternalCollaborators:       idsToIDNameExtensions(args.ExternalCollaborators),
-		InternalCollaborators:       idsToIDNameExtensions(args.InternalCollaborators),
-		ItsmObjectType:              idsToIDNameExtensions(args.ItsmObjectType),
-		URLCategories:               idsToIDNameExtensions(args.UrlCategories),
-		Rules:                       idsToIDNameExtensions(args.Rules),
-		NwServices:                  idsToIDNameExtensions(args.NwServices),
-		SenderName:                  idsToCommonNSS(args.SenderName),
+		ID:                       id,
+		Name:                     ptrToString(args.Name),
+		FeedStatus:               ptrToString(args.FeedStatus),
+		NssLogType:               ptrToString(args.NssLogType),
+		NssFeedType:              ptrToString(args.NssFeedType),
+		FeedOutputFormat:         ptrToString(args.FeedOutputFormat),
+		TimeZone:                 ptrToString(args.TimeZone),
+		CustomEscapedCharacter:   args.CustomEscapedCharacter,
+		EpsRateLimit:             ptrToIntDefault(args.EpsRateLimit, 0),
+		JsonArrayToggle:          ptrToBool(args.JsonArrayToggle),
+		SiemType:                 ptrToString(args.SiemType),
+		MaxBatchSize:             ptrToIntDefault(args.MaxBatchSize, 0),
+		ConnectionURL:            ptrToString(args.ConnectionURL),
+		AuthenticationToken:      ptrToString(args.AuthenticationToken),
+		ConnectionHeaders:        args.ConnectionHeaders,
+		Base64EncodedCertificate: ptrToString(args.Base64EncodedCertificate),
+		NssType:                  ptrToString(args.NssType),
+		ClientID:                 ptrToString(args.ClientID),
+		ClientSecret:             ptrToString(args.ClientSecret),
+		AuthenticationUrl:        ptrToString(args.AuthenticationUrl),
+		GrantType:                ptrToString(args.GrantType),
+		Scope:                    ptrToString(args.Scope),
+		OauthAuthentication:      ptrToBool(args.OauthAuthentication),
+		ServerIps:                args.ServerIps,
+		ClientIps:                args.ClientIps,
+		Domains:                  args.Domains,
+		Locations:                idsToCommonNSS(args.Locations),
+		LocationGroups:           idsToCommonNSS(args.LocationGroups),
+		Departments:              idsToCommonNSS(args.Departments),
+		Users:                    idsToCommonNSS(args.Users),
+		CasbTenant:               idsToCommonNSS(args.CasbTenant),
+		Buckets:                  idsToCommonNSS(args.Buckets),
+		VPNCredentials:           idsToCommonNSS(args.VpnCredentials),
+		DLPEngines:               idsToIDNameExtensions(args.DlpEngines),
+		DLPDictionaries:          idsToIDNameExtensions(args.DlpDictionaries),
+		ExternalOwners:           idsToIDNameExtensions(args.ExternalOwners),
+		ExternalCollaborators:    idsToIDNameExtensions(args.ExternalCollaborators),
+		InternalCollaborators:    idsToIDNameExtensions(args.InternalCollaborators),
+		ItsmObjectType:           idsToIDNameExtensions(args.ItsmObjectType),
+		URLCategories:            idsToIDNameExtensions(args.UrlCategories),
+		Rules:                    idsToIDNameExtensions(args.Rules),
+		NwServices:               idsToIDNameExtensions(args.NwServices),
+		SenderName:               idsToCommonNSS(args.SenderName),
 	}
 }
 
@@ -206,7 +206,7 @@ func (CloudNssFeed) Read(ctx context.Context, req infer.ReadRequest[CloudNssFeed
 		JsonArrayToggle:          boolPtr(resp.JsonArrayToggle),
 		SiemType:                 stringPtr(resp.SiemType),
 		MaxBatchSize:             intPtr(resp.MaxBatchSize),
-		ConnectionURL:             stringPtr(resp.ConnectionURL),
+		ConnectionURL:            stringPtr(resp.ConnectionURL),
 		AuthenticationToken:      stringPtr(resp.AuthenticationToken),
 		ConnectionHeaders:        resp.ConnectionHeaders,
 		Base64EncodedCertificate: stringPtr(resp.Base64EncodedCertificate),

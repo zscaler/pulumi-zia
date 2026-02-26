@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -52,14 +52,14 @@ type UserManagementUser struct{}
 
 // UserManagementUserArgs are the inputs for UserManagementUser.
 type UserManagementUserArgs struct {
-	Name          string                `pulumi:"name"`
-	Email         string                `pulumi:"email"`
-	Comments      *string               `pulumi:"comments,optional"`
-	TempAuthEmail *string               `pulumi:"tempAuthEmail,optional"`
-	AuthMethods   []string              `pulumi:"authMethods,optional"`
-	Password      string                `pulumi:"password" provider:"secret"`
-	Groups        []int                 `pulumi:"groups,optional"`
-	Department    *UserDepartmentInput   `pulumi:"department,optional"`
+	Name          string               `pulumi:"name"`
+	Email         string               `pulumi:"email"`
+	Comments      *string              `pulumi:"comments,optional"`
+	TempAuthEmail *string              `pulumi:"tempAuthEmail,optional"`
+	AuthMethods   []string             `pulumi:"authMethods,optional"`
+	Password      string               `pulumi:"password" provider:"secret"`
+	Groups        []int                `pulumi:"groups,optional"`
+	Department    *UserDepartmentInput `pulumi:"department,optional"`
 }
 
 // UserManagementUserState is the persisted state.
@@ -117,7 +117,7 @@ func (UserManagementUser) Create(ctx context.Context, req infer.CreateRequest[Us
 			ID: "preview",
 			Output: UserManagementUserState{
 				UserManagementUserArgs: req.Inputs,
-				UserId:                  intPtr(0),
+				UserId:                 intPtr(0),
 			},
 		}, nil
 	}
@@ -154,7 +154,7 @@ func (UserManagementUser) Create(ctx context.Context, req infer.CreateRequest[Us
 
 	state := UserManagementUserState{
 		UserManagementUserArgs: req.Inputs,
-		UserId:                  &resp.ID,
+		UserId:                 &resp.ID,
 	}
 
 	time.Sleep(5 * time.Second)
@@ -313,7 +313,7 @@ import * as zia from "@bdzscaler/pulumi-zia";
 const example = new zia.UserManagementUser("example", {
     name: "John Doe",
     email: "john.doe@example.com",
-    password: "SecureP@ssw0rd!",
+    password: "",
     authMethods: ["BASIC"],
     groups: [12345],
     department: {
@@ -328,7 +328,7 @@ import zscaler_pulumi_zia as zia
 example = zia.UserManagementUser("example",
     name="John Doe",
     email="john.doe@example.com",
-    password="SecureP@ssw0rd!",
+    password="",
     auth_methods=["BASIC"],
     groups=[12345],
     department={
@@ -344,7 +344,7 @@ resources:
     properties:
       name: John Doe
       email: john.doe@example.com
-      password: SecureP@ssw0rd!
+      password: ""
       authMethods:
         - BASIC
       groups:
@@ -461,7 +461,7 @@ func userManagementUserStateToArgs(rule *users.Users) UserManagementUserArgs {
 
 // UserGroupOutput is a group in the invoke result.
 type UserGroupOutput struct {
-	Id       int    `pulumi:"groupId"`   // Pulumi reserves "id" in function outputs
+	Id       int    `pulumi:"groupId"` // Pulumi reserves "id" in function outputs
 	Name     string `pulumi:"name"`
 	IdpId    int    `pulumi:"idpId"`
 	Comments string `pulumi:"comments"`
@@ -469,7 +469,7 @@ type UserGroupOutput struct {
 
 // UserDepartmentOutput is the department in the invoke result.
 type UserDepartmentOutput struct {
-	Id       int    `pulumi:"departmentId"`  // Pulumi reserves "id" in function outputs
+	Id       int    `pulumi:"departmentId"` // Pulumi reserves "id" in function outputs
 	Name     string `pulumi:"name"`
 	IdpId    int    `pulumi:"idpId"`
 	Comments string `pulumi:"comments"`
@@ -478,22 +478,22 @@ type UserDepartmentOutput struct {
 
 // GetUserManagementUserArgs are the inputs for the GetUserManagementUser invoke.
 type GetUserManagementUserArgs struct {
-	Id   *int    `pulumi:"userId,optional"`  // Pulumi reserves "id" in function I/O
+	Id   *int    `pulumi:"userId,optional"` // Pulumi reserves "id" in function I/O
 	Name *string `pulumi:"name,optional"`
 }
 
 // GetUserManagementUserResult is the output of the GetUserManagementUser invoke.
 type GetUserManagementUserResult struct {
-	Id             int                   `pulumi:"userId"` // Pulumi reserves "id" in function outputs
-	Name           string                `pulumi:"name"`
-	Email          string                `pulumi:"email"`
-	Comments       string                `pulumi:"comments"`
-	TempAuthEmail  string                `pulumi:"tempAuthEmail"`
-	AuthMethods    []string              `pulumi:"authMethods"`
-	AdminUser      bool                  `pulumi:"adminUser"`
-	Type           string                `pulumi:"type"`
-	Department     *UserDepartmentOutput `pulumi:"department,optional"`
-	Groups         []UserGroupOutput     `pulumi:"groups"`
+	Id            int                   `pulumi:"userId"` // Pulumi reserves "id" in function outputs
+	Name          string                `pulumi:"name"`
+	Email         string                `pulumi:"email"`
+	Comments      string                `pulumi:"comments"`
+	TempAuthEmail string                `pulumi:"tempAuthEmail"`
+	AuthMethods   []string              `pulumi:"authMethods"`
+	AdminUser     bool                  `pulumi:"adminUser"`
+	Type          string                `pulumi:"type"`
+	Department    *UserDepartmentOutput `pulumi:"department,optional"`
+	Groups        []UserGroupOutput     `pulumi:"groups"`
 }
 
 // GetUserManagementUser implements the zia:index:GetUserManagementUser invoke.

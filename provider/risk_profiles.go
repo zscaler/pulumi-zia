@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -72,7 +72,7 @@ type RiskProfileArgs struct {
 	RiskIndex                 []int    `pulumi:"riskIndex,optional"`
 	Certifications            []string `pulumi:"certifications,optional"`
 	DataEncryptionInTransit   []string `pulumi:"dataEncryptionInTransit,optional"`
-	CustomTags                []int   `pulumi:"customTags,optional"`
+	CustomTags                []int    `pulumi:"customTags,optional"`
 }
 
 // RiskProfileState is the persisted state.

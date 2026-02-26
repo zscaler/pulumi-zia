@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -89,7 +89,7 @@ func (DlpNotificationTemplate) Create(ctx context.Context, req infer.CreateReque
 
 	state := DlpNotificationTemplateState{
 		DlpNotificationTemplateArgs: req.Inputs,
-		TemplateId:                   &resp.ID,
+		TemplateId:                  &resp.ID,
 	}
 	return infer.CreateResponse[DlpNotificationTemplateState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -130,7 +130,7 @@ func (DlpNotificationTemplate) Read(ctx context.Context, req infer.ReadRequest[D
 	}
 	state := DlpNotificationTemplateState{
 		DlpNotificationTemplateArgs: args,
-		TemplateId:                   &resp.ID,
+		TemplateId:                  &resp.ID,
 	}
 	return infer.ReadResponse[DlpNotificationTemplateArgs, DlpNotificationTemplateState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -175,7 +175,7 @@ func (DlpNotificationTemplate) Update(ctx context.Context, req infer.UpdateReque
 
 	state := DlpNotificationTemplateState{
 		DlpNotificationTemplateArgs: req.Inputs,
-		TemplateId:                   &id,
+		TemplateId:                  &id,
 	}
 	return infer.UpdateResponse[DlpNotificationTemplateState]{Output: state}, nil
 }

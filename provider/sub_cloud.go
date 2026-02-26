@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -47,10 +47,10 @@ type SubCloudExclusionDatacenterInput struct {
 
 // SubCloudExclusionInput is a single exclusion.
 type SubCloudExclusionInput struct {
-	Datacenter  SubCloudExclusionDatacenterInput `pulumi:"datacenter"`
-	Country     string                           `pulumi:"country"`
-	EndTime     *int                             `pulumi:"endTime,optional"`
-	EndTimeUtc  *string                          `pulumi:"endTimeUtc,optional"`
+	Datacenter SubCloudExclusionDatacenterInput `pulumi:"datacenter"`
+	Country    string                           `pulumi:"country"`
+	EndTime    *int                             `pulumi:"endTime,optional"`
+	EndTimeUtc *string                          `pulumi:"endTimeUtc,optional"`
 }
 
 // SubCloudDcOutput is a datacenter in the dcs computed list.
@@ -62,7 +62,7 @@ type SubCloudDcOutput struct {
 
 // SubCloudArgs are the inputs.
 type SubCloudArgs struct {
-	CloudId    int                   `pulumi:"cloudId"`
+	CloudId    int                      `pulumi:"cloudId"`
 	Exclusions []SubCloudExclusionInput `pulumi:"exclusions,optional"`
 }
 
@@ -135,7 +135,7 @@ func flattenSubCloudExclusionsForResource(exclusions []sub_clouds.Exclusions) []
 		}
 		exc := SubCloudExclusionInput{
 			Datacenter: dc,
-			Country:   e.Country,
+			Country:    e.Country,
 			EndTime:    intPtr(e.EndTime),
 			EndTimeUtc: stringPtr(FormatExclusionTimeUTC(e.EndTime)),
 		}

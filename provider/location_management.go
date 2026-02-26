@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -39,43 +39,43 @@ import (
 
 // VpnCredentialInput is a nested input for VPN credentials.
 type VpnCredentialInput struct {
-	Id          *int    `pulumi:"id,optional"`
-	Type        *string `pulumi:"type,optional"`
-	Fqdn        *string `pulumi:"fqdn,optional"`
-	IpAddress   *string `pulumi:"ipAddress,optional"`
+	Id           *int    `pulumi:"id,optional"`
+	Type         *string `pulumi:"type,optional"`
+	Fqdn         *string `pulumi:"fqdn,optional"`
+	IpAddress    *string `pulumi:"ipAddress,optional"`
 	PreSharedKey *string `pulumi:"preSharedKey,optional"`
 }
 
 // LocationManagementArgs are the inputs.
 type LocationManagementArgs struct {
-	Name                    *string              `pulumi:"name,optional"`
-	Description             *string              `pulumi:"description,optional"`
-	ParentId                *int                 `pulumi:"parentId,optional"`
-	UpBandwidth             *int                 `pulumi:"upBandwidth,optional"`
-	DnBandwidth             *int                 `pulumi:"dnBandwidth,optional"`
-	Country                 *string              `pulumi:"country,optional"`
-	Tz                      *string              `pulumi:"tz,optional"`
-	State                   *string              `pulumi:"state,optional"`
-	IpAddresses             []string             `pulumi:"ipAddresses,optional"`
-	Ports                   []int                `pulumi:"ports,optional"`
-	VpnCredentials          []VpnCredentialInput `pulumi:"vpnCredentials,optional"`
-	SslScanEnabled          *bool                `pulumi:"sslScanEnabled,optional"`
-	ZappSslScanEnabled      *bool                `pulumi:"zappSslScanEnabled,optional"`
-	XffForwardEnabled       *bool                `pulumi:"xffForwardEnabled,optional"`
-	AuthRequired            *bool                `pulumi:"authRequired,optional"`
-	BasicAuthEnabled        *bool                `pulumi:"basicAuthEnabled,optional"`
-	DigestAuthEnabled       *bool                `pulumi:"digestAuthEnabled,optional"`
-	KerberosAuth            *bool                `pulumi:"kerberosAuth,optional"`
-	SurrogateIp             *bool                `pulumi:"surrogateIp,optional"`
-	IdleTimeInMinutes       *int                 `pulumi:"idleTimeInMinutes,optional"`
-	DisplayTimeUnit         *string              `pulumi:"displayTimeUnit,optional"`
-	SurrogateRefreshTimeInMinutes *int            `pulumi:"surrogateRefreshTimeInMinutes,optional"`
-	SurrogateRefreshTimeUnit *string              `pulumi:"surrogateRefreshTimeUnit,optional"`
-	SurrogateIpEnforcedForKnownBrowsers *bool     `pulumi:"surrogateIpEnforcedForKnownBrowsers,optional"`
-	OfwEnabled              *bool                `pulumi:"ofwEnabled,optional"`
-	IpsControl              *bool                `pulumi:"ipsControl,optional"`
-	Profile                 *string              `pulumi:"profile,optional"`
-	StaticLocationGroups    []int                `pulumi:"staticLocationGroups,optional"`
+	Name                                *string              `pulumi:"name,optional"`
+	Description                         *string              `pulumi:"description,optional"`
+	ParentId                            *int                 `pulumi:"parentId,optional"`
+	UpBandwidth                         *int                 `pulumi:"upBandwidth,optional"`
+	DnBandwidth                         *int                 `pulumi:"dnBandwidth,optional"`
+	Country                             *string              `pulumi:"country,optional"`
+	Tz                                  *string              `pulumi:"tz,optional"`
+	State                               *string              `pulumi:"state,optional"`
+	IpAddresses                         []string             `pulumi:"ipAddresses,optional"`
+	Ports                               []int                `pulumi:"ports,optional"`
+	VpnCredentials                      []VpnCredentialInput `pulumi:"vpnCredentials,optional"`
+	SslScanEnabled                      *bool                `pulumi:"sslScanEnabled,optional"`
+	ZappSslScanEnabled                  *bool                `pulumi:"zappSslScanEnabled,optional"`
+	XffForwardEnabled                   *bool                `pulumi:"xffForwardEnabled,optional"`
+	AuthRequired                        *bool                `pulumi:"authRequired,optional"`
+	BasicAuthEnabled                    *bool                `pulumi:"basicAuthEnabled,optional"`
+	DigestAuthEnabled                   *bool                `pulumi:"digestAuthEnabled,optional"`
+	KerberosAuth                        *bool                `pulumi:"kerberosAuth,optional"`
+	SurrogateIp                         *bool                `pulumi:"surrogateIp,optional"`
+	IdleTimeInMinutes                   *int                 `pulumi:"idleTimeInMinutes,optional"`
+	DisplayTimeUnit                     *string              `pulumi:"displayTimeUnit,optional"`
+	SurrogateRefreshTimeInMinutes       *int                 `pulumi:"surrogateRefreshTimeInMinutes,optional"`
+	SurrogateRefreshTimeUnit            *string              `pulumi:"surrogateRefreshTimeUnit,optional"`
+	SurrogateIpEnforcedForKnownBrowsers *bool                `pulumi:"surrogateIpEnforcedForKnownBrowsers,optional"`
+	OfwEnabled                          *bool                `pulumi:"ofwEnabled,optional"`
+	IpsControl                          *bool                `pulumi:"ipsControl,optional"`
+	Profile                             *string              `pulumi:"profile,optional"`
+	StaticLocationGroups                []int                `pulumi:"staticLocationGroups,optional"`
 }
 
 // LocationManagementState is the persisted state.
@@ -118,10 +118,10 @@ func vpnCredentialsFromAPI(list []locationmanagement.VPNCredentials) []VpnCreden
 	result := make([]VpnCredentialInput, len(list))
 	for i, v := range list {
 		result[i] = VpnCredentialInput{
-			Id:          intPtr(v.ID),
-			Type:        stringPtr(v.Type),
-			Fqdn:        stringPtr(v.FQDN),
-			IpAddress:   stringPtr(v.IPAddress),
+			Id:           intPtr(v.ID),
+			Type:         stringPtr(v.Type),
+			Fqdn:         stringPtr(v.FQDN),
+			IpAddress:    stringPtr(v.IPAddress),
 			PreSharedKey: stringPtr(v.PreSharedKey),
 		}
 	}
@@ -233,7 +233,7 @@ func (LocationManagement) Create(ctx context.Context, req infer.CreateRequest[Lo
 
 	state := LocationManagementState{
 		LocationManagementArgs: req.Inputs,
-		LocationId:            &resp.ID,
+		LocationId:             &resp.ID,
 	}
 	return infer.CreateResponse[LocationManagementState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -265,38 +265,38 @@ func (LocationManagement) Read(ctx context.Context, req infer.ReadRequest[Locati
 	}
 
 	args := LocationManagementArgs{
-		Name:               stringPtr(resp.Name),
-		Description:        stringPtr(resp.Description),
-		ParentId:           intPtr(resp.ParentID),
-		UpBandwidth:        intPtr(resp.UpBandwidth),
-		DnBandwidth:        intPtr(resp.DnBandwidth),
-		Country:            stringPtr(resp.Country),
-		Tz:                 stringPtr(resp.TZ),
-		State:              stringPtr(resp.State),
-		IpAddresses:        resp.IPAddresses,
-		Ports:              resp.Ports,
-		VpnCredentials:     vpnCredentialsFromAPI(resp.VPNCredentials),
-		SslScanEnabled:     boolPtr(resp.SSLScanEnabled),
-		ZappSslScanEnabled: boolPtr(resp.ZappSSLScanEnabled),
-		XffForwardEnabled:  boolPtr(resp.XFFForwardEnabled),
-		AuthRequired:       boolPtr(resp.AuthRequired),
-		BasicAuthEnabled:   boolPtr(resp.BasicAuthEnabled),
-		DigestAuthEnabled:  boolPtr(resp.DigestAuthEnabled),
-		KerberosAuth:       boolPtr(resp.KerberosAuth),
-		SurrogateIp:        boolPtr(resp.SurrogateIP),
-		IdleTimeInMinutes:  intPtr(resp.IdleTimeInMinutes),
-		DisplayTimeUnit:    stringPtr(resp.DisplayTimeUnit),
-		SurrogateRefreshTimeInMinutes: intPtr(resp.SurrogateRefreshTimeInMinutes),
-		SurrogateRefreshTimeUnit: stringPtr(resp.SurrogateRefreshTimeUnit),
+		Name:                                stringPtr(resp.Name),
+		Description:                         stringPtr(resp.Description),
+		ParentId:                            intPtr(resp.ParentID),
+		UpBandwidth:                         intPtr(resp.UpBandwidth),
+		DnBandwidth:                         intPtr(resp.DnBandwidth),
+		Country:                             stringPtr(resp.Country),
+		Tz:                                  stringPtr(resp.TZ),
+		State:                               stringPtr(resp.State),
+		IpAddresses:                         resp.IPAddresses,
+		Ports:                               resp.Ports,
+		VpnCredentials:                      vpnCredentialsFromAPI(resp.VPNCredentials),
+		SslScanEnabled:                      boolPtr(resp.SSLScanEnabled),
+		ZappSslScanEnabled:                  boolPtr(resp.ZappSSLScanEnabled),
+		XffForwardEnabled:                   boolPtr(resp.XFFForwardEnabled),
+		AuthRequired:                        boolPtr(resp.AuthRequired),
+		BasicAuthEnabled:                    boolPtr(resp.BasicAuthEnabled),
+		DigestAuthEnabled:                   boolPtr(resp.DigestAuthEnabled),
+		KerberosAuth:                        boolPtr(resp.KerberosAuth),
+		SurrogateIp:                         boolPtr(resp.SurrogateIP),
+		IdleTimeInMinutes:                   intPtr(resp.IdleTimeInMinutes),
+		DisplayTimeUnit:                     stringPtr(resp.DisplayTimeUnit),
+		SurrogateRefreshTimeInMinutes:       intPtr(resp.SurrogateRefreshTimeInMinutes),
+		SurrogateRefreshTimeUnit:            stringPtr(resp.SurrogateRefreshTimeUnit),
 		SurrogateIpEnforcedForKnownBrowsers: boolPtr(resp.SurrogateIPEnforcedForKnownBrowsers),
-		OfwEnabled:         boolPtr(resp.OFWEnabled),
-		IpsControl:         boolPtr(resp.IPSControl),
-		Profile:            stringPtr(resp.Profile),
-		StaticLocationGroups: idNameExtensionsToIDs(resp.StaticLocationGroups),
+		OfwEnabled:                          boolPtr(resp.OFWEnabled),
+		IpsControl:                          boolPtr(resp.IPSControl),
+		Profile:                             stringPtr(resp.Profile),
+		StaticLocationGroups:                idNameExtensionsToIDs(resp.StaticLocationGroups),
 	}
 	state := LocationManagementState{
 		LocationManagementArgs: args,
-		LocationId:            &resp.ID,
+		LocationId:             &resp.ID,
 	}
 	return infer.ReadResponse[LocationManagementArgs, LocationManagementState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -341,7 +341,7 @@ func (LocationManagement) Update(ctx context.Context, req infer.UpdateRequest[Lo
 
 	state := LocationManagementState{
 		LocationManagementArgs: req.Inputs,
-		LocationId:            &id,
+		LocationId:             &id,
 	}
 	return infer.UpdateResponse[LocationManagementState]{Output: state}, nil
 }

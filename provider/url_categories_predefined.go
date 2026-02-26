@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -42,29 +42,29 @@ type UrlCategoryPredefined struct{}
 
 // UrlCategoryPredefinedArgs are the inputs.
 type UrlCategoryPredefinedArgs struct {
-	Name                           string   `pulumi:"name"`
-	Urls                           []string `pulumi:"urls,optional"`
-	Keywords                       []string `pulumi:"keywords,optional"`
+	Name                            string   `pulumi:"name"`
+	Urls                            []string `pulumi:"urls,optional"`
+	Keywords                        []string `pulumi:"keywords,optional"`
 	KeywordsRetainingParentCategory []string `pulumi:"keywordsRetainingParentCategory,optional"`
-	IpRanges                       []string `pulumi:"ipRanges,optional"`
+	IpRanges                        []string `pulumi:"ipRanges,optional"`
 	IpRangesRetainingParentCategory []string `pulumi:"ipRangesRetainingParentCategory,optional"`
 }
 
 // UrlCategoryPredefinedState is the persisted state.
 type UrlCategoryPredefinedState struct {
 	UrlCategoryPredefinedArgs
-	CategoryId                         *string `pulumi:"categoryId"`
-	ConfiguredName                     *string `pulumi:"configuredName,optional"`
-	SuperCategory                      *string `pulumi:"superCategory,optional"`
-	UrlType                            *string `pulumi:"urlType,optional"`
-	Type                               *string `pulumi:"type,optional"`
-	Val                                *int    `pulumi:"val,optional"`
-	Editable                           *bool   `pulumi:"editable,optional"`
-	DbCategorizedUrls                   []string `pulumi:"dbCategorizedUrls,optional"`
-	CustomUrlsCount                    *int    `pulumi:"customUrlsCount,optional"`
-	UrlsRetainingParentCategoryCount   *int    `pulumi:"urlsRetainingParentCategoryCount,optional"`
-	CustomIpRangesCount                *int    `pulumi:"customIpRangesCount,optional"`
-	IpRangesRetainingParentCategoryCount *int   `pulumi:"ipRangesRetainingParentCategoryCount,optional"`
+	CategoryId                           *string  `pulumi:"categoryId"`
+	ConfiguredName                       *string  `pulumi:"configuredName,optional"`
+	SuperCategory                        *string  `pulumi:"superCategory,optional"`
+	UrlType                              *string  `pulumi:"urlType,optional"`
+	Type                                 *string  `pulumi:"type,optional"`
+	Val                                  *int     `pulumi:"val,optional"`
+	Editable                             *bool    `pulumi:"editable,optional"`
+	DbCategorizedUrls                    []string `pulumi:"dbCategorizedUrls,optional"`
+	CustomUrlsCount                      *int     `pulumi:"customUrlsCount,optional"`
+	UrlsRetainingParentCategoryCount     *int     `pulumi:"urlsRetainingParentCategoryCount,optional"`
+	CustomIpRangesCount                  *int     `pulumi:"customIpRangesCount,optional"`
+	IpRangesRetainingParentCategoryCount *int     `pulumi:"ipRangesRetainingParentCategoryCount,optional"`
 }
 
 func resolvePredefinedCategory(allCategories []urlcategories.URLCategory, identifier string) *urlcategories.URLCategory {
@@ -457,24 +457,24 @@ func urlCategoryPredefinedToState(r *urlcategories.URLCategory) UrlCategoryPrede
 	}
 	return UrlCategoryPredefinedState{
 		UrlCategoryPredefinedArgs: UrlCategoryPredefinedArgs{
-			Name:                           r.ID,
-			Urls:                           r.Urls,
-			Keywords:                       r.Keywords,
+			Name:                            r.ID,
+			Urls:                            r.Urls,
+			Keywords:                        r.Keywords,
 			KeywordsRetainingParentCategory: r.KeywordsRetainingParentCategory,
-			IpRanges:                       r.IPRanges,
+			IpRanges:                        r.IPRanges,
 			IpRangesRetainingParentCategory: r.IPRangesRetainingParentCategory,
 		},
-		CategoryId:                         stringPtr(r.ID),
-		ConfiguredName:                     stringPtr(configuredName),
-		SuperCategory:                      stringPtr(r.SuperCategory),
-		UrlType:                            stringPtr(r.UrlType),
-		Type:                               stringPtr(r.Type),
-		Val:                                intPtr(r.Val),
-		Editable:                           boolPtr(r.Editable),
-		DbCategorizedUrls:                  r.DBCategorizedUrls,
-		CustomUrlsCount:                    intPtr(r.CustomUrlsCount),
-		UrlsRetainingParentCategoryCount:   intPtr(r.UrlsRetainingParentCategoryCount),
-		CustomIpRangesCount:                intPtr(r.CustomIpRangesCount),
+		CategoryId:                           stringPtr(r.ID),
+		ConfiguredName:                       stringPtr(configuredName),
+		SuperCategory:                        stringPtr(r.SuperCategory),
+		UrlType:                              stringPtr(r.UrlType),
+		Type:                                 stringPtr(r.Type),
+		Val:                                  intPtr(r.Val),
+		Editable:                             boolPtr(r.Editable),
+		DbCategorizedUrls:                    r.DBCategorizedUrls,
+		CustomUrlsCount:                      intPtr(r.CustomUrlsCount),
+		UrlsRetainingParentCategoryCount:     intPtr(r.UrlsRetainingParentCategoryCount),
+		CustomIpRangesCount:                  intPtr(r.CustomIpRangesCount),
 		IpRangesRetainingParentCategoryCount: intPtr(r.IPRangesRetainingParentCategoryCount),
 	}
 }

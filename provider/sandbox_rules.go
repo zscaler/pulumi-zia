@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,27 +45,27 @@ type SandboxRule struct{}
 
 // SandboxRuleArgs are the inputs.
 type SandboxRuleArgs struct {
-	Name                string               `pulumi:"name"`
-	Order               int                  `pulumi:"order"`
-	Description         *string              `pulumi:"description,optional"`
-	Rank                *int                 `pulumi:"rank,optional"`
-	State               *string              `pulumi:"state,optional"`
-	BaRuleAction        *string              `pulumi:"baRuleAction,optional"`
-	FirstTimeEnable     *bool                 `pulumi:"firstTimeEnable,optional"`
-	FirstTimeOperation  *string              `pulumi:"firstTimeOperation,optional"`
-	MLActionEnabled     *bool                 `pulumi:"mlActionEnabled,optional"`
-	ByThreatScore       *int                  `pulumi:"byThreatScore,optional"`
-	Locations           []int                 `pulumi:"locations,optional"`
-	LocationGroups      []int                 `pulumi:"locationGroups,optional"`
-	Departments         []int                 `pulumi:"departments,optional"`
-	Groups              []int                 `pulumi:"groups,optional"`
-	Users               []int                 `pulumi:"users,optional"`
-	Labels              []int                 `pulumi:"labels,optional"`
-	URLCategories       []string              `pulumi:"urlCategories,optional"`
-	BaPolicyCategories  []string              `pulumi:"baPolicyCategories,optional"`
-	FileTypes           []string              `pulumi:"fileTypes,optional"`
-	Protocols           []string              `pulumi:"protocols,optional"`
-	ZPAAppSegments      []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
+	Name               string               `pulumi:"name"`
+	Order              int                  `pulumi:"order"`
+	Description        *string              `pulumi:"description,optional"`
+	Rank               *int                 `pulumi:"rank,optional"`
+	State              *string              `pulumi:"state,optional"`
+	BaRuleAction       *string              `pulumi:"baRuleAction,optional"`
+	FirstTimeEnable    *bool                `pulumi:"firstTimeEnable,optional"`
+	FirstTimeOperation *string              `pulumi:"firstTimeOperation,optional"`
+	MLActionEnabled    *bool                `pulumi:"mlActionEnabled,optional"`
+	ByThreatScore      *int                 `pulumi:"byThreatScore,optional"`
+	Locations          []int                `pulumi:"locations,optional"`
+	LocationGroups     []int                `pulumi:"locationGroups,optional"`
+	Departments        []int                `pulumi:"departments,optional"`
+	Groups             []int                `pulumi:"groups,optional"`
+	Users              []int                `pulumi:"users,optional"`
+	Labels             []int                `pulumi:"labels,optional"`
+	URLCategories      []string             `pulumi:"urlCategories,optional"`
+	BaPolicyCategories []string             `pulumi:"baPolicyCategories,optional"`
+	FileTypes          []string             `pulumi:"fileTypes,optional"`
+	Protocols          []string             `pulumi:"protocols,optional"`
+	ZPAAppSegments     []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 // SandboxRuleState is the persisted state.
@@ -134,27 +134,27 @@ func sandboxRuleArgsToAPI(args *SandboxRuleArgs, id int) sandbox_rules.SandboxRu
 func sandboxRuleAPIToState(api *sandbox_rules.SandboxRules) SandboxRuleState {
 	state := SandboxRuleState{
 		SandboxRuleArgs: SandboxRuleArgs{
-			Name:                api.Name,
-			Order:               api.Order,
-			Description:         stringPtr(api.Description),
-			Rank:                intPtr(api.Rank),
-			State:               stringPtr(api.State),
-			BaRuleAction:        stringPtr(api.BaRuleAction),
-			FirstTimeEnable:     boolPtr(api.FirstTimeEnable),
-			FirstTimeOperation:  stringPtr(api.FirstTimeOperation),
-			MLActionEnabled:     boolPtr(api.MLActionEnabled),
-			ByThreatScore:       intPtr(api.ByThreatScore),
-			URLCategories:       api.URLCategories,
-			BaPolicyCategories:  api.BaPolicyCategories,
-			FileTypes:           api.FileTypes,
-			Protocols:           api.Protocols,
-			Locations:           idNameExtensionsToIDs(api.Locations),
-			LocationGroups:      idNameExtensionsToIDs(api.LocationGroups),
-			Groups:              idNameExtensionsToIDs(api.Groups),
-			Departments:         idNameExtensionsToIDs(api.Departments),
-			Users:               idNameExtensionsToIDs(api.Users),
-			Labels:              idNameExtensionsToIDs(api.Labels),
-			ZPAAppSegments:      flattenZPAAppSegments(api.ZPAAppSegments),
+			Name:               api.Name,
+			Order:              api.Order,
+			Description:        stringPtr(api.Description),
+			Rank:               intPtr(api.Rank),
+			State:              stringPtr(api.State),
+			BaRuleAction:       stringPtr(api.BaRuleAction),
+			FirstTimeEnable:    boolPtr(api.FirstTimeEnable),
+			FirstTimeOperation: stringPtr(api.FirstTimeOperation),
+			MLActionEnabled:    boolPtr(api.MLActionEnabled),
+			ByThreatScore:      intPtr(api.ByThreatScore),
+			URLCategories:      api.URLCategories,
+			BaPolicyCategories: api.BaPolicyCategories,
+			FileTypes:          api.FileTypes,
+			Protocols:          api.Protocols,
+			Locations:          idNameExtensionsToIDs(api.Locations),
+			LocationGroups:     idNameExtensionsToIDs(api.LocationGroups),
+			Groups:             idNameExtensionsToIDs(api.Groups),
+			Departments:        idNameExtensionsToIDs(api.Departments),
+			Users:              idNameExtensionsToIDs(api.Users),
+			Labels:             idNameExtensionsToIDs(api.Labels),
+			ZPAAppSegments:     flattenZPAAppSegments(api.ZPAAppSegments),
 		},
 		RuleID: intPtr(api.ID),
 	}

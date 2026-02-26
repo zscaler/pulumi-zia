@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -57,7 +57,7 @@ type CasbDlpRuleArgs struct {
 	ExternalAuditorEmail         *string  `pulumi:"externalAuditorEmail,optional"`
 	BucketOwner                  *string  `pulumi:"bucketOwner,optional"`
 	Domains                      []string `pulumi:"domains,optional"`
-	Components                    []string `pulumi:"components,optional"`
+	Components                   []string `pulumi:"components,optional"`
 	CollaborationScope           []string `pulumi:"collaborationScope,optional"`
 	FileTypes                    []string `pulumi:"fileTypes,optional"`
 	Groups                       []int    `pulumi:"groups,optional"`

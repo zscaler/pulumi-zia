@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -53,15 +53,15 @@ type ClassificationOutput struct {
 }
 
 type FilePropertiesOutput struct {
-	FileType          string `pulumi:"fileType"`
-	FileSize          int    `pulumi:"fileSize"`
-	Md5               string `pulumi:"md5"`
-	Sha1              string `pulumi:"sha1"`
-	Sha256            string `pulumi:"sha256"`
-	Issuer            string `pulumi:"issuer"`
+	FileType           string `pulumi:"fileType"`
+	FileSize           int    `pulumi:"fileSize"`
+	Md5                string `pulumi:"md5"`
+	Sha1               string `pulumi:"sha1"`
+	Sha256             string `pulumi:"sha256"`
+	Issuer             string `pulumi:"issuer"`
 	DigitalCertificate string `pulumi:"digitalCertificate"`
-	Ssdeep            string `pulumi:"ssdeep"`
-	RootCa            string `pulumi:"rootCa"`
+	Ssdeep             string `pulumi:"ssdeep"`
+	RootCa             string `pulumi:"rootCa"`
 }
 
 type OriginOutput struct {

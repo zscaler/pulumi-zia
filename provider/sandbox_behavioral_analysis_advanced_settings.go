@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -107,7 +107,7 @@ func (SandboxBehavioralAnalysisAdvancedSettings) Create(ctx context.Context, req
 	}
 
 	state := SandboxBehavioralAnalysisAdvancedSettingsState{
-		Id:   sandboxSettingsID,
+		Id: sandboxSettingsID,
 		SandboxBehavioralAnalysisAdvancedSettingsArgs: req.Inputs,
 	}
 	return infer.CreateResponse[SandboxBehavioralAnalysisAdvancedSettingsState]{
@@ -180,7 +180,7 @@ func (SandboxBehavioralAnalysisAdvancedSettings) Update(ctx context.Context, req
 	}
 
 	state := SandboxBehavioralAnalysisAdvancedSettingsState{
-		Id:   sandboxSettingsID,
+		Id: sandboxSettingsID,
 		SandboxBehavioralAnalysisAdvancedSettingsArgs: req.Inputs,
 	}
 	return infer.UpdateResponse[SandboxBehavioralAnalysisAdvancedSettingsState]{Output: state}, nil

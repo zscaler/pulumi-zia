@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -41,11 +41,11 @@ type UrlFilteringCloudAppSettings struct{}
 
 // UrlFilteringCloudAppSettingsArgs are the inputs.
 type UrlFilteringCloudAppSettingsArgs struct {
-	EnableDynamicContentCat          *bool    `pulumi:"enableDynamicContentCat,optional"`
+	EnableDynamicContentCat           *bool    `pulumi:"enableDynamicContentCat,optional"`
 	ConsiderEmbeddedSites             *bool    `pulumi:"considerEmbeddedSites,optional"`
-	EnforceSafeSearch                *bool    `pulumi:"enforceSafeSearch,optional"`
-	SafeSearchApps                   []string `pulumi:"safeSearchApps,optional"`
-	EnableOffice365                  *bool    `pulumi:"enableOffice365,optional"`
+	EnforceSafeSearch                 *bool    `pulumi:"enforceSafeSearch,optional"`
+	SafeSearchApps                    []string `pulumi:"safeSearchApps,optional"`
+	EnableOffice365                   *bool    `pulumi:"enableOffice365,optional"`
 	EnableMsftO365                    *bool    `pulumi:"enableMsftO365,optional"`
 	EnableUcaasZoom                   *bool    `pulumi:"enableUcaasZoom,optional"`
 	EnableUcaasLogmein                *bool    `pulumi:"enableUcaasLogmein,optional"`
@@ -58,8 +58,8 @@ type UrlFilteringCloudAppSettingsArgs struct {
 	EnablePoepPrompt                  *bool    `pulumi:"enablePoepPrompt,optional"`
 	EnableMetaPrompt                  *bool    `pulumi:"enableMetaPrompt,optional"`
 	EnablePerPlexityPrompt            *bool    `pulumi:"enablePerPlexityPrompt,optional"`
-	BlockSkype                       *bool    `pulumi:"blockSkype,optional"`
-	EnableNewlyRegisteredDomains     *bool    `pulumi:"enableNewlyRegisteredDomains,optional"`
+	BlockSkype                        *bool    `pulumi:"blockSkype,optional"`
+	EnableNewlyRegisteredDomains      *bool    `pulumi:"enableNewlyRegisteredDomains,optional"`
 	EnableBlockOverrideForNonAuthUser *bool    `pulumi:"enableBlockOverrideForNonAuthUser,optional"`
 	EnableCipaCompliance              *bool    `pulumi:"enableCipaCompliance,optional"`
 }
@@ -162,27 +162,27 @@ func (UrlFilteringCloudAppSettings) Diff(ctx context.Context, req infer.DiffRequ
 
 func argsToUrlAdvancedPolicySettings(args UrlFilteringCloudAppSettingsArgs) urlfilteringpolicies.URLAdvancedPolicySettings {
 	return urlfilteringpolicies.URLAdvancedPolicySettings{
-		EnableDynamicContentCat:          ptrToBool(args.EnableDynamicContentCat),
-		ConsiderEmbeddedSites:            ptrToBool(args.ConsiderEmbeddedSites),
-		EnforceSafeSearch:                ptrToBool(args.EnforceSafeSearch),
-		SafeSearchApps:                   args.SafeSearchApps,
-		EnableOffice365:                  ptrToBool(args.EnableOffice365),
-		EnableMsftO365:                   ptrToBool(args.EnableMsftO365),
-		EnableUcaasZoom:                  ptrToBool(args.EnableUcaasZoom),
-		EnableUcaasLogMeIn:               ptrToBool(args.EnableUcaasLogmein),
-		EnableUcaasRingCentral:           ptrToBool(args.EnableUcaasRingCentral),
-		EnableUcaasWebex:                 ptrToBool(args.EnableUcaasWebex),
-		EnableUcaasTalkdesk:              ptrToBool(args.EnableUcaasTalkdesk),
-		EnableChatGptPrompt:              ptrToBool(args.EnableChatgptPrompt),
-		EnableMicrosoftCoPilotPrompt:     ptrToBool(args.EnableMicrosoftCopilotPrompt),
-		EnableGeminiPrompt:               ptrToBool(args.EnableGeminiPrompt),
-		EnablePOEPrompt:                  ptrToBool(args.EnablePoepPrompt),
-		EnableMetaPrompt:                 ptrToBool(args.EnableMetaPrompt),
-		EnablePerPlexityPrompt:           ptrToBool(args.EnablePerPlexityPrompt),
-		BlockSkype:                       ptrToBool(args.BlockSkype),
-		EnableNewlyRegisteredDomains:     ptrToBool(args.EnableNewlyRegisteredDomains),
+		EnableDynamicContentCat:           ptrToBool(args.EnableDynamicContentCat),
+		ConsiderEmbeddedSites:             ptrToBool(args.ConsiderEmbeddedSites),
+		EnforceSafeSearch:                 ptrToBool(args.EnforceSafeSearch),
+		SafeSearchApps:                    args.SafeSearchApps,
+		EnableOffice365:                   ptrToBool(args.EnableOffice365),
+		EnableMsftO365:                    ptrToBool(args.EnableMsftO365),
+		EnableUcaasZoom:                   ptrToBool(args.EnableUcaasZoom),
+		EnableUcaasLogMeIn:                ptrToBool(args.EnableUcaasLogmein),
+		EnableUcaasRingCentral:            ptrToBool(args.EnableUcaasRingCentral),
+		EnableUcaasWebex:                  ptrToBool(args.EnableUcaasWebex),
+		EnableUcaasTalkdesk:               ptrToBool(args.EnableUcaasTalkdesk),
+		EnableChatGptPrompt:               ptrToBool(args.EnableChatgptPrompt),
+		EnableMicrosoftCoPilotPrompt:      ptrToBool(args.EnableMicrosoftCopilotPrompt),
+		EnableGeminiPrompt:                ptrToBool(args.EnableGeminiPrompt),
+		EnablePOEPrompt:                   ptrToBool(args.EnablePoepPrompt),
+		EnableMetaPrompt:                  ptrToBool(args.EnableMetaPrompt),
+		EnablePerPlexityPrompt:            ptrToBool(args.EnablePerPlexityPrompt),
+		BlockSkype:                        ptrToBool(args.BlockSkype),
+		EnableNewlyRegisteredDomains:      ptrToBool(args.EnableNewlyRegisteredDomains),
 		EnableBlockOverrideForNonAuthUser: ptrToBool(args.EnableBlockOverrideForNonAuthUser),
-		EnableCIPACompliance:             ptrToBool(args.EnableCipaCompliance),
+		EnableCIPACompliance:              ptrToBool(args.EnableCipaCompliance),
 	}
 }
 
@@ -190,27 +190,27 @@ func urlAdvancedPolicySettingsToState(r *urlfilteringpolicies.URLAdvancedPolicyS
 	return UrlFilteringCloudAppSettingsState{
 		Id: urlFilteringCloudAppSettingsID,
 		UrlFilteringCloudAppSettingsArgs: UrlFilteringCloudAppSettingsArgs{
-			EnableDynamicContentCat:          boolPtr(r.EnableDynamicContentCat),
-			ConsiderEmbeddedSites:            boolPtr(r.ConsiderEmbeddedSites),
-			EnforceSafeSearch:                boolPtr(r.EnforceSafeSearch),
-			SafeSearchApps:                   r.SafeSearchApps,
-			EnableOffice365:                  boolPtr(r.EnableOffice365),
-			EnableMsftO365:                   boolPtr(r.EnableMsftO365),
-			EnableUcaasZoom:                  boolPtr(r.EnableUcaasZoom),
-			EnableUcaasLogmein:               boolPtr(r.EnableUcaasLogMeIn),
-			EnableUcaasRingCentral:           boolPtr(r.EnableUcaasRingCentral),
-			EnableUcaasWebex:                 boolPtr(r.EnableUcaasWebex),
-			EnableUcaasTalkdesk:              boolPtr(r.EnableUcaasTalkdesk),
-			EnableChatgptPrompt:              boolPtr(r.EnableChatGptPrompt),
-			EnableMicrosoftCopilotPrompt:     boolPtr(r.EnableMicrosoftCoPilotPrompt),
-			EnableGeminiPrompt:               boolPtr(r.EnableGeminiPrompt),
-			EnablePoepPrompt:                 boolPtr(r.EnablePOEPrompt),
-			EnableMetaPrompt:                 boolPtr(r.EnableMetaPrompt),
-			EnablePerPlexityPrompt:           boolPtr(r.EnablePerPlexityPrompt),
-			BlockSkype:                       boolPtr(r.BlockSkype),
-			EnableNewlyRegisteredDomains:     boolPtr(r.EnableNewlyRegisteredDomains),
+			EnableDynamicContentCat:           boolPtr(r.EnableDynamicContentCat),
+			ConsiderEmbeddedSites:             boolPtr(r.ConsiderEmbeddedSites),
+			EnforceSafeSearch:                 boolPtr(r.EnforceSafeSearch),
+			SafeSearchApps:                    r.SafeSearchApps,
+			EnableOffice365:                   boolPtr(r.EnableOffice365),
+			EnableMsftO365:                    boolPtr(r.EnableMsftO365),
+			EnableUcaasZoom:                   boolPtr(r.EnableUcaasZoom),
+			EnableUcaasLogmein:                boolPtr(r.EnableUcaasLogMeIn),
+			EnableUcaasRingCentral:            boolPtr(r.EnableUcaasRingCentral),
+			EnableUcaasWebex:                  boolPtr(r.EnableUcaasWebex),
+			EnableUcaasTalkdesk:               boolPtr(r.EnableUcaasTalkdesk),
+			EnableChatgptPrompt:               boolPtr(r.EnableChatGptPrompt),
+			EnableMicrosoftCopilotPrompt:      boolPtr(r.EnableMicrosoftCoPilotPrompt),
+			EnableGeminiPrompt:                boolPtr(r.EnableGeminiPrompt),
+			EnablePoepPrompt:                  boolPtr(r.EnablePOEPrompt),
+			EnableMetaPrompt:                  boolPtr(r.EnableMetaPrompt),
+			EnablePerPlexityPrompt:            boolPtr(r.EnablePerPlexityPrompt),
+			BlockSkype:                        boolPtr(r.BlockSkype),
+			EnableNewlyRegisteredDomains:      boolPtr(r.EnableNewlyRegisteredDomains),
 			EnableBlockOverrideForNonAuthUser: boolPtr(r.EnableBlockOverrideForNonAuthUser),
-			EnableCipaCompliance:             boolPtr(r.EnableCIPACompliance),
+			EnableCipaCompliance:              boolPtr(r.EnableCIPACompliance),
 		},
 	}
 }

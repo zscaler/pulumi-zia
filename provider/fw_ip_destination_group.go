@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -108,7 +108,7 @@ func (FwIpDestinationGroup) Create(ctx context.Context, req infer.CreateRequest[
 
 	state := FwIpDestinationGroupState{
 		FwIpDestinationGroupArgs: req.Inputs,
-		GroupId:                 &resp.ID,
+		GroupId:                  &resp.ID,
 	}
 	return infer.CreateResponse[FwIpDestinationGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -149,7 +149,7 @@ func (FwIpDestinationGroup) Read(ctx context.Context, req infer.ReadRequest[FwIp
 	}
 	state := FwIpDestinationGroupState{
 		FwIpDestinationGroupArgs: args,
-		GroupId:                 &resp.ID,
+		GroupId:                  &resp.ID,
 	}
 	return infer.ReadResponse[FwIpDestinationGroupArgs, FwIpDestinationGroupState]{
 		ID:     strconv.Itoa(resp.ID),
@@ -194,7 +194,7 @@ func (FwIpDestinationGroup) Update(ctx context.Context, req infer.UpdateRequest[
 
 	state := FwIpDestinationGroupState{
 		FwIpDestinationGroupArgs: req.Inputs,
-		GroupId:                 &id,
+		GroupId:                  &id,
 	}
 	return infer.UpdateResponse[FwIpDestinationGroupState]{Output: state}, nil
 }

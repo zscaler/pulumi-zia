@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -51,8 +51,8 @@ type NatControlRuleArgs struct {
 	Rank              *int     `pulumi:"rank,optional"`
 	State             *string  `pulumi:"state,optional"`
 	EnableFullLogging *bool    `pulumi:"enableFullLogging,optional"`
-	RedirectFqdn     *string  `pulumi:"redirectFqdn,optional"`
-	RedirectIp       *string  `pulumi:"redirectIp,optional"`
+	RedirectFqdn      *string  `pulumi:"redirectFqdn,optional"`
+	RedirectIp        *string  `pulumi:"redirectIp,optional"`
 	RedirectPort      *int     `pulumi:"redirectPort,optional"`
 	SrcIps            []string `pulumi:"srcIps,optional"`
 	DestAddresses     []string `pulumi:"destAddresses,optional"`

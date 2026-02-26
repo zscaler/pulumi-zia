@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -42,8 +42,8 @@ type WorkloadGroup struct{}
 
 // WorkloadGroupArgs are the inputs for WorkloadGroup.
 type WorkloadGroupArgs struct {
-	Name           *string                   `pulumi:"name,optional"`
-	Description    *string                   `pulumi:"description,optional"`
+	Name           *string                           `pulumi:"name,optional"`
+	Description    *string                           `pulumi:"description,optional"`
 	ExpressionJson *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson,optional"`
 }
 
@@ -54,9 +54,9 @@ type WorkloadGroupExpressionJsonInput struct {
 
 // WorkloadGroupExpressionContainerInput is an expression container block.
 type WorkloadGroupExpressionContainerInput struct {
-	TagType      *string                           `pulumi:"tagType,optional"`
-	Operator     *string                           `pulumi:"operator,optional"`
-	TagContainer *WorkloadGroupTagContainerInput   `pulumi:"tagContainer,optional"`
+	TagType      *string                         `pulumi:"tagType,optional"`
+	Operator     *string                         `pulumi:"operator,optional"`
+	TagContainer *WorkloadGroupTagContainerInput `pulumi:"tagContainer,optional"`
 }
 
 // WorkloadGroupTagContainerInput is the tag_container block.
@@ -442,18 +442,18 @@ func workloadGroupStateToArgs(rule *workloadgroups.WorkloadGroup) WorkloadGroupA
 
 // GetWorkloadGroupArgs are the inputs for the GetWorkloadGroup invoke.
 type GetWorkloadGroupArgs struct {
-	Id   *int    `pulumi:"groupId,optional"`  // Pulumi reserves "id" in function I/O
+	Id   *int    `pulumi:"groupId,optional"` // Pulumi reserves "id" in function I/O
 	Name *string `pulumi:"name,optional"`
 }
 
 // GetWorkloadGroupResult is the output of the GetWorkloadGroup invoke.
 type GetWorkloadGroupResult struct {
-	Id                int                               `pulumi:"groupId"` // Pulumi reserves "id" in function outputs
-	Name              string                            `pulumi:"name"`
-	Description       string                            `pulumi:"description"`
-	Expression        string                            `pulumi:"expression"`
-	ExpressionJson    *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson,optional"`
-	LastModifiedTime  int                               `pulumi:"lastModifiedTime"`
+	Id               int                               `pulumi:"groupId"` // Pulumi reserves "id" in function outputs
+	Name             string                            `pulumi:"name"`
+	Description      string                            `pulumi:"description"`
+	Expression       string                            `pulumi:"expression"`
+	ExpressionJson   *WorkloadGroupExpressionJsonInput `pulumi:"expressionJson,optional"`
+	LastModifiedTime int                               `pulumi:"lastModifiedTime"`
 }
 
 // GetWorkloadGroup implements the zia:index:GetWorkloadGroup invoke.

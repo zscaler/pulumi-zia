@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,10 +40,10 @@ type DlpEngine struct{}
 
 // DlpEngineArgs are the inputs.
 type DlpEngineArgs struct {
-	Name            *string `pulumi:"name,optional"`
-	Description     *string `pulumi:"description,optional"`
+	Name             *string `pulumi:"name,optional"`
+	Description      *string `pulumi:"description,optional"`
 	EngineExpression *string `pulumi:"engineExpression,optional"`
-	CustomDlpEngine *bool   `pulumi:"customDlpEngine,optional"`
+	CustomDlpEngine  *bool   `pulumi:"customDlpEngine,optional"`
 }
 
 // DlpEngineState is the persisted state.

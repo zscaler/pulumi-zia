@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,9 +48,9 @@ type InstanceIdentifierInput struct {
 
 // CloudApplicationInstanceArgs are the inputs.
 type CloudApplicationInstanceArgs struct {
-	Name                  *string                  `pulumi:"name,optional"`
-	InstanceType           *string                  `pulumi:"instanceType,optional"`
-	InstanceIdentifiers    []InstanceIdentifierInput `pulumi:"instanceIdentifiers,optional"`
+	Name                *string                   `pulumi:"name,optional"`
+	InstanceType        *string                   `pulumi:"instanceType,optional"`
+	InstanceIdentifiers []InstanceIdentifierInput `pulumi:"instanceIdentifiers,optional"`
 }
 
 // CloudApplicationInstanceState is the persisted state.

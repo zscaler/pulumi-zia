@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,36 +36,36 @@ import (
 // --- Reorder logic (from terraform-provider-zia common.go) ---
 
 var (
-	urlFilteringLock          sync.Mutex
-	urlFilteringStartingOrder int
-	trafficCaptureLock          sync.Mutex
-	trafficCaptureStartingOrder int
-	sslInspectionLock           sync.Mutex
-	sslInspectionStartingOrder  int
-	sandboxLock                    sync.Mutex
-	sandboxStartingOrder           int
-	natControlRuleLock             sync.Mutex
-	natControlRuleStartingOrder    int
-	forwardingControlLock          sync.Mutex
-	forwardingControlStartingOrder int
-	firewallIPSLock                sync.Mutex
-	firewallIPSStartingOrder       int
-	firewallFilteringLock          sync.Mutex
-	firewallFilteringStartingOrder int
-	firewallDNSLock                sync.Mutex
-	firewallDNSStartingOrder       int
-	fileTypeLock                   sync.Mutex
-	fileTypeStartingOrder          int
-	dlpWebRulesLock                sync.Mutex
-	dlpWebStartingOrder            int
-	cloudAppRuleLock               sync.Mutex
-	cloudAppRuleStartingOrder      int
-	cloudCasbDlpRuleLock           sync.Mutex
-	cloudCasbDlpRuleStartingOrder  int
-	cloudCasbMalwareRuleLock       sync.Mutex
+	urlFilteringLock                  sync.Mutex
+	urlFilteringStartingOrder         int
+	trafficCaptureLock                sync.Mutex
+	trafficCaptureStartingOrder       int
+	sslInspectionLock                 sync.Mutex
+	sslInspectionStartingOrder        int
+	sandboxLock                       sync.Mutex
+	sandboxStartingOrder              int
+	natControlRuleLock                sync.Mutex
+	natControlRuleStartingOrder       int
+	forwardingControlLock             sync.Mutex
+	forwardingControlStartingOrder    int
+	firewallIPSLock                   sync.Mutex
+	firewallIPSStartingOrder          int
+	firewallFilteringLock             sync.Mutex
+	firewallFilteringStartingOrder    int
+	firewallDNSLock                   sync.Mutex
+	firewallDNSStartingOrder          int
+	fileTypeLock                      sync.Mutex
+	fileTypeStartingOrder             int
+	dlpWebRulesLock                   sync.Mutex
+	dlpWebStartingOrder               int
+	cloudAppRuleLock                  sync.Mutex
+	cloudAppRuleStartingOrder         int
+	cloudCasbDlpRuleLock              sync.Mutex
+	cloudCasbDlpRuleStartingOrder     int
+	cloudCasbMalwareRuleLock          sync.Mutex
 	cloudCasbMalwareRuleStartingOrder int
-	bandwidthControlLock           sync.Mutex
-	bandwidthControlStartingOrder  int
+	bandwidthControlLock              sync.Mutex
+	bandwidthControlStartingOrder     int
 )
 
 // OrderRule holds the intended order and rank for a rule.

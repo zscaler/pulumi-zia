@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,37 +45,37 @@ type FileTypeControlRule struct{}
 
 // FileTypeControlRuleArgs are the inputs.
 type FileTypeControlRuleArgs struct {
-	Name                string                `pulumi:"name"`
-	Order               int                   `pulumi:"order"`
-	Description         *string               `pulumi:"description,optional"`
-	State               *string               `pulumi:"state,optional"`
-	Rank                *int                  `pulumi:"rank,optional"`
-	FilteringAction     *string               `pulumi:"filteringAction,optional"`
-	Operation           *string               `pulumi:"operation,optional"`
-	TimeQuota           *int                  `pulumi:"timeQuota,optional"`
-	SizeQuota           *int                  `pulumi:"sizeQuota,optional"`
-	CapturePcap         *bool                 `pulumi:"capturePcap,optional"`
-	PasswordProtected   *bool                 `pulumi:"passwordProtected,optional"`
-	ActiveContent       *bool                 `pulumi:"activeContent,optional"`
-	Unscannable         *bool                 `pulumi:"unscannable,optional"`
-	FileTypes           []string              `pulumi:"fileTypes,optional"`
-	URLCategories       []string              `pulumi:"urlCategories,optional"`
-	Protocols           []string              `pulumi:"protocols,optional"`
-	CloudApplications   []string              `pulumi:"cloudApplications,optional"`
-	MinSize             *int                  `pulumi:"minSize,optional"`
-	MaxSize             *int                  `pulumi:"maxSize,optional"`
-	BrowserEunTemplateID *int                  `pulumi:"browserEunTemplateId,optional"`
-	Locations           []int                 `pulumi:"locations,optional"`
-	LocationGroups      []int                 `pulumi:"locationGroups,optional"`
-	Departments         []int                 `pulumi:"departments,optional"`
-	Groups              []int                 `pulumi:"groups,optional"`
-	Users               []int                 `pulumi:"users,optional"`
-	TimeWindows         []int                 `pulumi:"timeWindows,optional"`
-	Labels              []int                 `pulumi:"labels,optional"`
-	DeviceGroups        []int                 `pulumi:"deviceGroups,optional"`
-	Devices             []int                 `pulumi:"devices,optional"`
-	DeviceTrustLevels   []string              `pulumi:"deviceTrustLevels,optional"`
-	ZpaAppSegments      []ZPAAppSegmentInput  `pulumi:"zpaAppSegments,optional"`
+	Name                 string               `pulumi:"name"`
+	Order                int                  `pulumi:"order"`
+	Description          *string              `pulumi:"description,optional"`
+	State                *string              `pulumi:"state,optional"`
+	Rank                 *int                 `pulumi:"rank,optional"`
+	FilteringAction      *string              `pulumi:"filteringAction,optional"`
+	Operation            *string              `pulumi:"operation,optional"`
+	TimeQuota            *int                 `pulumi:"timeQuota,optional"`
+	SizeQuota            *int                 `pulumi:"sizeQuota,optional"`
+	CapturePcap          *bool                `pulumi:"capturePcap,optional"`
+	PasswordProtected    *bool                `pulumi:"passwordProtected,optional"`
+	ActiveContent        *bool                `pulumi:"activeContent,optional"`
+	Unscannable          *bool                `pulumi:"unscannable,optional"`
+	FileTypes            []string             `pulumi:"fileTypes,optional"`
+	URLCategories        []string             `pulumi:"urlCategories,optional"`
+	Protocols            []string             `pulumi:"protocols,optional"`
+	CloudApplications    []string             `pulumi:"cloudApplications,optional"`
+	MinSize              *int                 `pulumi:"minSize,optional"`
+	MaxSize              *int                 `pulumi:"maxSize,optional"`
+	BrowserEunTemplateID *int                 `pulumi:"browserEunTemplateId,optional"`
+	Locations            []int                `pulumi:"locations,optional"`
+	LocationGroups       []int                `pulumi:"locationGroups,optional"`
+	Departments          []int                `pulumi:"departments,optional"`
+	Groups               []int                `pulumi:"groups,optional"`
+	Users                []int                `pulumi:"users,optional"`
+	TimeWindows          []int                `pulumi:"timeWindows,optional"`
+	Labels               []int                `pulumi:"labels,optional"`
+	DeviceGroups         []int                `pulumi:"deviceGroups,optional"`
+	Devices              []int                `pulumi:"devices,optional"`
+	DeviceTrustLevels    []string             `pulumi:"deviceTrustLevels,optional"`
+	ZpaAppSegments       []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 // FileTypeControlRuleState is the persisted state.
@@ -90,13 +90,13 @@ func fileTypeControlRuleArgsToAPI(args *FileTypeControlRuleArgs, id int) filetyp
 		order = 1
 	}
 	return filetypecontrol.FileTypeRules{
-		ID:                  id,
-		Name:                args.Name,
-		Order:               order,
-		Description:         ptrToString(args.Description),
+		ID:                   id,
+		Name:                 args.Name,
+		Order:                order,
+		Description:          ptrToString(args.Description),
 		State:                ptrToString(args.State),
 		Rank:                 ptrToIntDefault(args.Rank, 7),
-		FilteringAction:     ptrToString(args.FilteringAction),
+		FilteringAction:      ptrToString(args.FilteringAction),
 		Operation:            ptrToString(args.Operation),
 		TimeQuota:            ptrToIntDefault(args.TimeQuota, 0),
 		SizeQuota:            ptrToIntDefault(args.SizeQuota, 0),
@@ -107,7 +107,7 @@ func fileTypeControlRuleArgsToAPI(args *FileTypeControlRuleArgs, id int) filetyp
 		FileTypes:            args.FileTypes,
 		URLCategories:        args.URLCategories,
 		Protocols:            args.Protocols,
-		CloudApplications:   args.CloudApplications,
+		CloudApplications:    args.CloudApplications,
 		MinSize:              ptrToIntDefault(args.MinSize, 0),
 		MaxSize:              ptrToIntDefault(args.MaxSize, 0),
 		BrowserEunTemplateID: ptrToIntDefault(args.BrowserEunTemplateID, 0),
@@ -128,37 +128,37 @@ func fileTypeControlRuleArgsToAPI(args *FileTypeControlRuleArgs, id int) filetyp
 func fileTypeControlRuleAPIToState(api *filetypecontrol.FileTypeRules) FileTypeControlRuleState {
 	return FileTypeControlRuleState{
 		FileTypeControlRuleArgs: FileTypeControlRuleArgs{
-			Name:                api.Name,
-			Order:               api.Order,
-			Description:         stringPtr(api.Description),
-			State:               stringPtr(api.State),
-			Rank:                intPtr(api.Rank),
-			FilteringAction:     stringPtr(api.FilteringAction),
-			Operation:           stringPtr(api.Operation),
-			TimeQuota:           intPtr(api.TimeQuota),
-			SizeQuota:           intPtr(api.SizeQuota),
-			CapturePcap:         boolPtr(api.CapturePCAP),
-			PasswordProtected:   boolPtr(api.PasswordProtected),
-			ActiveContent:       boolPtr(api.ActiveContent),
-			Unscannable:         boolPtr(api.Unscannable),
-			FileTypes:           api.FileTypes,
-			URLCategories:       api.URLCategories,
-			Protocols:           api.Protocols,
-			CloudApplications:   api.CloudApplications,
-			MinSize:             intPtr(api.MinSize),
-			MaxSize:             intPtr(api.MaxSize),
+			Name:                 api.Name,
+			Order:                api.Order,
+			Description:          stringPtr(api.Description),
+			State:                stringPtr(api.State),
+			Rank:                 intPtr(api.Rank),
+			FilteringAction:      stringPtr(api.FilteringAction),
+			Operation:            stringPtr(api.Operation),
+			TimeQuota:            intPtr(api.TimeQuota),
+			SizeQuota:            intPtr(api.SizeQuota),
+			CapturePcap:          boolPtr(api.CapturePCAP),
+			PasswordProtected:    boolPtr(api.PasswordProtected),
+			ActiveContent:        boolPtr(api.ActiveContent),
+			Unscannable:          boolPtr(api.Unscannable),
+			FileTypes:            api.FileTypes,
+			URLCategories:        api.URLCategories,
+			Protocols:            api.Protocols,
+			CloudApplications:    api.CloudApplications,
+			MinSize:              intPtr(api.MinSize),
+			MaxSize:              intPtr(api.MaxSize),
 			BrowserEunTemplateID: intPtr(api.BrowserEunTemplateID),
-			Locations:           idNameExtensionsToIDs(api.Locations),
-			LocationGroups:      idNameExtensionsToIDs(api.LocationGroups),
-			Departments:         idNameExtensionsToIDs(api.Departments),
-			Groups:              idNameExtensionsToIDs(api.Groups),
-			Users:               idNameExtensionsToIDs(api.Users),
-			TimeWindows:         idNameExtensionsToIDs(api.TimeWindows),
-			Labels:              idNameExtensionsToIDs(api.Labels),
-			DeviceGroups:        idNameExtensionsToIDs(api.DeviceGroups),
-			Devices:             idNameExtensionsToIDs(api.Devices),
-			DeviceTrustLevels:   api.DeviceTrustLevels,
-			ZpaAppSegments:      flattenZPAAppSegments(api.ZPAAppSegments),
+			Locations:            idNameExtensionsToIDs(api.Locations),
+			LocationGroups:       idNameExtensionsToIDs(api.LocationGroups),
+			Departments:          idNameExtensionsToIDs(api.Departments),
+			Groups:               idNameExtensionsToIDs(api.Groups),
+			Users:                idNameExtensionsToIDs(api.Users),
+			TimeWindows:          idNameExtensionsToIDs(api.TimeWindows),
+			Labels:               idNameExtensionsToIDs(api.Labels),
+			DeviceGroups:         idNameExtensionsToIDs(api.DeviceGroups),
+			Devices:              idNameExtensionsToIDs(api.Devices),
+			DeviceTrustLevels:    api.DeviceTrustLevels,
+			ZpaAppSegments:       flattenZPAAppSegments(api.ZPAAppSegments),
 		},
 		RuleID: intPtr(api.ID),
 	}

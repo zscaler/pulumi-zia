@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,41 +40,41 @@ const firewallIPSResourceType = "firewall_ips_rule"
 type FirewallIPSRule struct{}
 
 type FirewallIPSRuleArgs struct {
-	Name              string             `pulumi:"name"`
-	Order             int                `pulumi:"order"`
-	Description       *string            `pulumi:"description,optional"`
-	Rank              *int               `pulumi:"rank,optional"`
-	State             *string            `pulumi:"state,optional"`
-	Action            *string            `pulumi:"action,optional"`
-	EnableFullLogging *bool              `pulumi:"enableFullLogging,optional"`
-	CapturePcap       *bool              `pulumi:"capturePcap,optional"`
-	DefaultRule       *bool              `pulumi:"defaultRule,optional"`
-	Predefined        *bool              `pulumi:"predefined,optional"`
-	IsEunEnabled      *bool              `pulumi:"isEunEnabled,optional"`
-	EunTemplateId     *int               `pulumi:"eunTemplateId,optional"`
-	SrcIps            []string           `pulumi:"srcIps,optional"`
-	DestAddresses     []string           `pulumi:"destAddresses,optional"`
-	DestIpCategories  []string           `pulumi:"destIpCategories,optional"`
-	ResCategories     []string           `pulumi:"resCategories,optional"`
-	DestCountries     []string           `pulumi:"destCountries,optional"`
-	SourceCountries   []string           `pulumi:"sourceCountries,optional"`
-	Locations         []int              `pulumi:"locations,optional"`
-	LocationGroups    []int              `pulumi:"locationGroups,optional"`
-	Departments       []int              `pulumi:"departments,optional"`
-	Groups            []int              `pulumi:"groups,optional"`
-	Users             []int              `pulumi:"users,optional"`
-	TimeWindows       []int              `pulumi:"timeWindows,optional"`
-	SrcIpGroups       []int              `pulumi:"srcIpGroups,optional"`
-	SrcIpv6Groups     []int              `pulumi:"srcIpv6Groups,optional"`
-	DestIpGroups      []int              `pulumi:"destIpGroups,optional"`
-	DestIpv6Groups    []int              `pulumi:"destIpv6Groups,optional"`
-	NwServices        []int              `pulumi:"nwServices,optional"`
-	NwServiceGroups   []int              `pulumi:"nwServiceGroups,optional"`
-	Labels            []int              `pulumi:"labels,optional"`
-	DeviceGroups      []int              `pulumi:"deviceGroups,optional"`
-	Devices           []int              `pulumi:"devices,optional"`
-	ThreatCategories  []int              `pulumi:"threatCategories,optional"`
-	ZpaAppSegments   []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
+	Name              string               `pulumi:"name"`
+	Order             int                  `pulumi:"order"`
+	Description       *string              `pulumi:"description,optional"`
+	Rank              *int                 `pulumi:"rank,optional"`
+	State             *string              `pulumi:"state,optional"`
+	Action            *string              `pulumi:"action,optional"`
+	EnableFullLogging *bool                `pulumi:"enableFullLogging,optional"`
+	CapturePcap       *bool                `pulumi:"capturePcap,optional"`
+	DefaultRule       *bool                `pulumi:"defaultRule,optional"`
+	Predefined        *bool                `pulumi:"predefined,optional"`
+	IsEunEnabled      *bool                `pulumi:"isEunEnabled,optional"`
+	EunTemplateId     *int                 `pulumi:"eunTemplateId,optional"`
+	SrcIps            []string             `pulumi:"srcIps,optional"`
+	DestAddresses     []string             `pulumi:"destAddresses,optional"`
+	DestIpCategories  []string             `pulumi:"destIpCategories,optional"`
+	ResCategories     []string             `pulumi:"resCategories,optional"`
+	DestCountries     []string             `pulumi:"destCountries,optional"`
+	SourceCountries   []string             `pulumi:"sourceCountries,optional"`
+	Locations         []int                `pulumi:"locations,optional"`
+	LocationGroups    []int                `pulumi:"locationGroups,optional"`
+	Departments       []int                `pulumi:"departments,optional"`
+	Groups            []int                `pulumi:"groups,optional"`
+	Users             []int                `pulumi:"users,optional"`
+	TimeWindows       []int                `pulumi:"timeWindows,optional"`
+	SrcIpGroups       []int                `pulumi:"srcIpGroups,optional"`
+	SrcIpv6Groups     []int                `pulumi:"srcIpv6Groups,optional"`
+	DestIpGroups      []int                `pulumi:"destIpGroups,optional"`
+	DestIpv6Groups    []int                `pulumi:"destIpv6Groups,optional"`
+	NwServices        []int                `pulumi:"nwServices,optional"`
+	NwServiceGroups   []int                `pulumi:"nwServiceGroups,optional"`
+	Labels            []int                `pulumi:"labels,optional"`
+	DeviceGroups      []int                `pulumi:"deviceGroups,optional"`
+	Devices           []int                `pulumi:"devices,optional"`
+	ThreatCategories  []int                `pulumi:"threatCategories,optional"`
+	ZpaAppSegments    []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
 
 type FirewallIPSRuleState struct {

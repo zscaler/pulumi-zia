@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Zscaler Technology Alliances, <zscaler-partner-labs@z-bd.com>
+// Copyright (c) 2023 Zscaler Technology Alliances, <devrel@zscaler.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -57,14 +57,14 @@ type OnboardableEntityOutput struct {
 }
 
 type GetDlpCloudToCloudIrResult struct {
-	Id                       int                        `pulumi:"resourceId"`
-	Name                     string                     `pulumi:"name"`
-	Status                   []string                   `pulumi:"status"`
-	ModifiedTime             int                        `pulumi:"modifiedTime"`
-	LastTenantValidationTime int                        `pulumi:"lastTenantValidationTime"`
-	LastModifiedBy           *LastModifiedByOutput      `pulumi:"lastModifiedBy,optional"`
-	LastValidationMsg        *LastValidationMsgOutput   `pulumi:"lastValidationMsg,optional"`
-	OnboardableEntity        *OnboardableEntityOutput   `pulumi:"onboardableEntity,optional"`
+	Id                       int                      `pulumi:"resourceId"`
+	Name                     string                   `pulumi:"name"`
+	Status                   []string                 `pulumi:"status"`
+	ModifiedTime             int                      `pulumi:"modifiedTime"`
+	LastTenantValidationTime int                      `pulumi:"lastTenantValidationTime"`
+	LastModifiedBy           *LastModifiedByOutput    `pulumi:"lastModifiedBy,optional"`
+	LastValidationMsg        *LastValidationMsgOutput `pulumi:"lastValidationMsg,optional"`
+	OnboardableEntity        *OnboardableEntityOutput `pulumi:"onboardableEntity,optional"`
 }
 
 type GetDlpCloudToCloudIr struct{}
@@ -144,7 +144,7 @@ func (*GetDlpCloudToCloudIr) Invoke(ctx context.Context, req infer.FunctionReque
 		}
 		if resp.OnboardableEntity.LastValidationMsg.ErrorMsg != "" || resp.OnboardableEntity.LastValidationMsg.ErrorCode != "" {
 			oe.LastValidationMsg = &LastValidationMsgOutput{
-				ErrorMsg: resp.OnboardableEntity.LastValidationMsg.ErrorMsg,
+				ErrorMsg:  resp.OnboardableEntity.LastValidationMsg.ErrorMsg,
 				ErrorCode: resp.OnboardableEntity.LastValidationMsg.ErrorCode,
 			}
 		}
