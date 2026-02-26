@@ -310,10 +310,15 @@ BASIC or DIGEST.
 `+tripleBacktick("typescript")+`
 import * as zia from "@bdzscaler/pulumi-zia";
 
+import * as pulumi from "@pulumi/pulumi";
+
+const cfg = new pulumi.Config();
+const userPassword = cfg.requireSecret("userPassword");
+
 const example = new zia.UserManagementUser("example", {
     name: "John Doe",
     email: "john.doe@example.com",
-    password: "",
+    password: userPassword,
     authMethods: ["BASIC"],
     groups: [12345],
     department: {
@@ -325,10 +330,13 @@ const example = new zia.UserManagementUser("example", {
 `+tripleBacktick("python")+`
 import zscaler_pulumi_zia as zia
 
+cfg = pulumi.Config()
+user_password = cfg.require_secret("userPassword")
+
 example = zia.UserManagementUser("example",
     name="John Doe",
     email="john.doe@example.com",
-    password="",
+    password=user_password,
     auth_methods=["BASIC"],
     groups=[12345],
     department={
@@ -344,7 +352,8 @@ resources:
     properties:
       name: John Doe
       email: john.doe@example.com
-      password: ""
+      password:
+        fn::secret: ${userPassword}
       authMethods:
         - BASIC
       groups:

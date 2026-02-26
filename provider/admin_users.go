@@ -238,11 +238,16 @@ For more information, see the [ZIA Admin User Management documentation](https://
 `+tripleBacktick("typescript")+`
 import * as zia from "@bdzscaler/pulumi-zia";
 
+import * as pulumi from "@pulumi/pulumi";
+
+const cfg = new pulumi.Config();
+const adminPassword = cfg.requireSecret("adminPassword");
+
 const example = new zia.AdminUsers("example", {
     loginName: "admin@example.com",
     username: "Example Admin",
     email: "admin@example.com",
-    password: "P@",
+    password: adminPassword,
     isPasswordLoginAllowed: true,
     role: { id: 12345 },
     adminScopeType: "ORGANIZATION",
@@ -252,11 +257,14 @@ const example = new zia.AdminUsers("example", {
 `+tripleBacktick("python")+`
 import zscaler_pulumi_zia as zia
 
+cfg = pulumi.Config()
+admin_password = cfg.require_secret("adminPassword")
+
 example = zia.AdminUsers("example",
     login_name="admin@example.com",
     username="Example Admin",
     email="admin@example.com",
-    password="",
+    password=admin_password,
     is_password_login_allowed=True,
     role={"id": 12345},
     admin_scope_type="ORGANIZATION",
@@ -271,7 +279,8 @@ resources:
       loginName: admin@example.com
       username: Example Admin
       email: admin@example.com
-      password: ""
+      password:
+        fn::secret: ${adminPassword}
       isPasswordLoginAllowed: true
       role:
         id: 12345
