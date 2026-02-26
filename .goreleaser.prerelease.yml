@@ -43,6 +43,6 @@ archives:
 snapshot:
   name_template: "{{ .Tag }}-SNAPSHOT"
 changelog:
-  skip: true
+  disable: true
 release:
   disable: true
