@@ -45,6 +45,7 @@ func Provider() p.Provider {
 		WithDisplayName("pulumi-resource-zia").
 		WithDescription("A native Pulumi provider for Zscaler Internet Access (ZIA).").
 		WithHomepage("https://github.com/zscaler/pulumi-zia").
+		WithRepository("https://github.com/zscaler/pulumi-zia").
 		WithNamespace("zia").
 		WithLanguageMap(map[string]any{
 			"go": map[string]any{
