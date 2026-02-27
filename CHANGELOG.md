@@ -1,5 +1,40 @@
 # Changelog
 
+## 1.3.2 (February, 26 2026)
+
+### Notes
+
+- Release date: **(February, 26 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #58](https://github.com/zscaler/pulumi-zia/pull/58) - Fixed Go SDK module structure: moved `go.mod` from `sdk/go/pulumi-zia/` to `sdk/` and corrected module path to `github.com/zscaler/pulumi-zia/sdk`, restoring standard Go module resolution and `sdk/vX.Y.Z` tag compatibility.
+
+## 1.3.1 (February, 25 2026)
+
+### Notes
+
+- Release date: **(February, 25 2026)**
+- Supported Terraform version: **v1.x**
+
+### Internal
+
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Migrated provider from the Pulumi Terraform bridged framework to a **native Go provider** built with `pulumi-go-provider`. The provider now communicates directly with the Zscaler API via `zscaler-sdk-go/v3` without a Terraform runtime dependency. All resources, data sources, attributes, and authentication methods remain unchanged.
+
+### Enhancements
+
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added new data source `zia_datacenters` (`getDatacenters`) - Retrieves the list of Zscaler data centers with optional filtering by ID, name, or city.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Replaced Apache 2.0 license headers with MIT license across all provider and test Go files (143 files).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed `.goreleaser.yml` - replaced boilerplate references (`pulumi-provider-boilerplate`) with correct provider names (`pulumi-resource-zia`), fixed ldflags version path, removed inapplicable S3 blob upload.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed `release.yaml` - added `PROVIDER_VERSION` derivation from git tags (SDKs were being published as `1.0.0-alpha.0+dev`), fixed NuGet package path, updated Go version to 1.24, upgraded GitHub Actions to latest versions.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Improved `ci.yaml` - added provider build, schema generation, unit tests, and SDK build steps (was previously a no-op).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Disabled `upgrade.yml` workflow (`pulumi-upgrade-provider-action` is not applicable to native providers).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Fixed Makefile `generate_schema` target referencing undefined `SCHEMA_PATH` variable (corrected to `SCHEMA_FILE`).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `CLAUDE.md` for AI-assisted development guidance (architecture, conventions, build commands, SDK source of truth).
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `.cursor/rules/` with Cursor IDE rules for provider conventions, add-resource, add-datasource, and testing workflows.
+- [PR #57](https://github.com/zscaler/pulumi-zia/pull/57) - Added `.claude/commands/` with Claude Code slash commands for add-resource, add-datasource, and release workflows.
+
 ## 1.3.0 (February, 25 2026)
 
 ### Notes
