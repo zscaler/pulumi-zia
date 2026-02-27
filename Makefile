@@ -88,9 +88,9 @@ sdk/go: ${SCHEMA_FILE}
 	rm -rf $@
 	$(PULUMI) package gen-sdk --language go ${SCHEMA_FILE} --version "${VERSION_GENERIC}"
 	@if [ -d ${PACKDIR}/go/pulumi-resource-${PACK} ]; then mv ${PACKDIR}/go/pulumi-resource-${PACK} ${PACKDIR}/go/pulumi-${PACK}; fi
-	cp provider/go.mod ${PACKDIR}/go/pulumi-${PACK}/go.mod
-	cd ${PACKDIR}/go/pulumi-${PACK} && \
-		go mod edit -module=$(PROJECT)/${PACKDIR}/go/pulumi-${PACK} && \
+	cp provider/go.mod ${PACKDIR}/go.mod
+	cd ${PACKDIR} && \
+		go mod edit -module=$(PROJECT)/${PACKDIR} && \
 		go mod tidy
 
 .PHONY: provider

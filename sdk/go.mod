@@ -1,4 +1,4 @@
-module github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia
+module github.com/zscaler/pulumi-zia/sdk
 
 go 1.24.7
 
