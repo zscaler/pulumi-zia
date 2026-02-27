@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.3 (February, 27 2026)
+
+### Notes
+
+- Release date: **(February, 27 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #59](https://github.com/zscaler/pulumi-zia/pull/59) - Added `pluginDownloadURL` (`github://api.github.com/zscaler`) to provider schema and Go SDK, enabling automatic plugin download from GitHub Releases and fixing `1.0.0-alpha.0+dev` version resolution errors.
+
 ## 1.3.2 (February, 26 2026)
 
 ### Notes

@@ -4,6 +4,8 @@
   "description": "A native Pulumi provider for Zscaler Internet Access (ZIA).",
   "homepage": "https://github.com/zscaler/pulumi-zia",
   "repository": "https://github.com/zscaler/pulumi-zia",
+  "pluginDownloadURL": "github://api.github.com/zscaler",
+  "publisher": "Zscaler",
   "namespace": "zia",
   "language": {
     "csharp": {
