@@ -68,8 +68,6 @@ jobs:
               ref: 'refs/tags/sdk/${{ github.ref_name }}',
               sha: context.sha
             })
-    strategy:
-      fail-fast: true
 
   publish_sdk:
     name: Publish SDKs
