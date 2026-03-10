@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.3.3 (March, 10 2026)
+## 1.3.4 (March, 10 2026)
 
 ### Notes
 
@@ -9,7 +9,6 @@
 
 ### Bug Fix
 
-- [PR #59](https://github.com/zscaler/pulumi-zia/pull/59) - Added `pluginDownloadURL` (`github://api.github.com/zscaler`) and `publisher` (`Zscaler`) to provider schema and Go SDK, enabling automatic plugin download from GitHub Releases, fixing `1.0.0-alpha.0+dev` version resolution errors, and resolving Pulumi Registry metadata generation failures.
 - [PR #60](https://github.com/zscaler/pulumi-zia/pull/60) - Fixed rule reordering across all 15 rule-base resources by stripping read-only fields (`Predefined`, `DefaultRule`, `AccessControl`) during `updateOrder`, preventing `"Request body is invalid"` API errors on predefined and default rules.
 - [PR #60](https://github.com/zscaler/pulumi-zia/pull/60) - Added order validation (`order >= 1`) to Create and Update callbacks across all rule-base resources: `ssl_inspection`, `firewall_filtering`, `firewall_dns`, `firewall_ips`, `nat_control`, `traffic_capture`, `cloud_app_control`, `sandbox`, `bandwidth_control`, `dlp_web`, `file_type_control`, `casb_dlp`, `casb_malware`, `url_filtering`, and `forwarding_control`.
 
@@ -25,6 +24,17 @@
   - `enableGrammarlyPrompt`
   - `zveloDbLookupDisabled`
   - `enableCreativeCommonsSearchResults`
+
+## 1.3.3 (February, 27 2026)
+
+### Notes
+
+- Release date: **(February, 26 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #59](https://github.com/zscaler/pulumi-zia/pull/59) - Added `pluginDownloadURL` (`github://api.github.com/zscaler`) and `publisher` (`Zscaler`) to provider schema and Go SDK, enabling automatic plugin download from GitHub Releases, fixing `1.0.0-alpha.0+dev` version resolution errors, and resolving Pulumi Registry metadata generation failures.
 
 ## 1.3.2 (February, 26 2026)
 
