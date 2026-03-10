@@ -197,6 +197,9 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 		s := FirewallDNSRuleState{FirewallDNSRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[FirewallDNSRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[FirewallDNSRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[FirewallDNSRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -270,6 +273,10 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = firewalldnscontrolpolicies.Update(ctx, svc, id, rule)
@@ -338,6 +345,9 @@ func (FirewallDNSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallD
 }
 
 func (FirewallDNSRule) Update(ctx context.Context, req infer.UpdateRequest[FirewallDNSRuleArgs, FirewallDNSRuleState]) (infer.UpdateResponse[FirewallDNSRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[FirewallDNSRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FirewallDNSRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -400,6 +410,10 @@ func (FirewallDNSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = firewalldnscontrolpolicies.Update(ctx, svc, ruleID, rule)

@@ -265,6 +265,9 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 		s := SslInspectionRuleState{SslInspectionRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[SslInspectionRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[SslInspectionRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SslInspectionRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -327,6 +330,10 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 			// to avoid the STALE_CONFIGURATION_ERROR
 			rule.LastModifiedTime = 0
 			rule.LastModifiedBy = nil
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.Predefined = false
+			rule.DefaultRule = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = sslinspection.Update(ctx, svc, id, rule)
@@ -393,6 +400,9 @@ func (SslInspectionRule) Read(ctx context.Context, req infer.ReadRequest[SslInsp
 }
 
 func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[SslInspectionRuleArgs, SslInspectionRuleState]) (infer.UpdateResponse[SslInspectionRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[SslInspectionRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SslInspectionRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -445,6 +455,10 @@ func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[Ssl
 			// to avoid the STALE_CONFIGURATION_ERROR
 			rule.LastModifiedTime = 0
 			rule.LastModifiedBy = nil
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.Predefined = false
+			rule.DefaultRule = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = sslinspection.Update(ctx, svc, ruleID, rule)

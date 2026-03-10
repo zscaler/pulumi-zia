@@ -58,10 +58,18 @@ type UrlFilteringCloudAppSettingsArgs struct {
 	EnablePoepPrompt                  *bool    `pulumi:"enablePoepPrompt,optional"`
 	EnableMetaPrompt                  *bool    `pulumi:"enableMetaPrompt,optional"`
 	EnablePerPlexityPrompt            *bool    `pulumi:"enablePerPlexityPrompt,optional"`
-	BlockSkype                        *bool    `pulumi:"blockSkype,optional"`
-	EnableNewlyRegisteredDomains      *bool    `pulumi:"enableNewlyRegisteredDomains,optional"`
-	EnableBlockOverrideForNonAuthUser *bool    `pulumi:"enableBlockOverrideForNonAuthUser,optional"`
-	EnableCipaCompliance              *bool    `pulumi:"enableCipaCompliance,optional"`
+	EnableDeepSeekPrompt              *bool    `pulumi:"enableDeepSeekPrompt,optional"`
+	EnableWriterPrompt                *bool    `pulumi:"enableWriterPrompt,optional"`
+	EnableGrokPrompt                  *bool    `pulumi:"enableGrokPrompt,optional"`
+	EnableMistralAiPrompt             *bool    `pulumi:"enableMistralAiPrompt,optional"`
+	EnableClaudePrompt                 *bool    `pulumi:"enableClaudePrompt,optional"`
+	EnableGrammarlyPrompt              *bool    `pulumi:"enableGrammarlyPrompt,optional"`
+	BlockSkype                         *bool    `pulumi:"blockSkype,optional"`
+	EnableNewlyRegisteredDomains       *bool    `pulumi:"enableNewlyRegisteredDomains,optional"`
+	EnableBlockOverrideForNonAuthUser  *bool    `pulumi:"enableBlockOverrideForNonAuthUser,optional"`
+	EnableCipaCompliance               *bool    `pulumi:"enableCipaCompliance,optional"`
+	ZveloDbLookupDisabled              *bool    `pulumi:"zveloDbLookupDisabled,optional"`
+	EnableCreativeCommonsSearchResults *bool    `pulumi:"enableCreativeCommonsSearchResults,optional"`
 }
 
 // UrlFilteringCloudAppSettingsState is the persisted state.
@@ -179,10 +187,18 @@ func argsToUrlAdvancedPolicySettings(args UrlFilteringCloudAppSettingsArgs) urlf
 		EnablePOEPrompt:                   ptrToBool(args.EnablePoepPrompt),
 		EnableMetaPrompt:                  ptrToBool(args.EnableMetaPrompt),
 		EnablePerPlexityPrompt:            ptrToBool(args.EnablePerPlexityPrompt),
-		BlockSkype:                        ptrToBool(args.BlockSkype),
-		EnableNewlyRegisteredDomains:      ptrToBool(args.EnableNewlyRegisteredDomains),
-		EnableBlockOverrideForNonAuthUser: ptrToBool(args.EnableBlockOverrideForNonAuthUser),
-		EnableCIPACompliance:              ptrToBool(args.EnableCipaCompliance),
+		EnableDeepSeekPrompt:              ptrToBool(args.EnableDeepSeekPrompt),
+		EnableWriterPrompt:                ptrToBool(args.EnableWriterPrompt),
+		EnableGrokPrompt:                  ptrToBool(args.EnableGrokPrompt),
+		EnableMistralAIPrompt:             ptrToBool(args.EnableMistralAiPrompt),
+		EnableClaudePrompt:                 ptrToBool(args.EnableClaudePrompt),
+		EnableGrammarlyPrompt:              ptrToBool(args.EnableGrammarlyPrompt),
+		BlockSkype:                         ptrToBool(args.BlockSkype),
+		EnableNewlyRegisteredDomains:       ptrToBool(args.EnableNewlyRegisteredDomains),
+		EnableBlockOverrideForNonAuthUser:  ptrToBool(args.EnableBlockOverrideForNonAuthUser),
+		EnableCIPACompliance:               ptrToBool(args.EnableCipaCompliance),
+		ZveloDbLookupDisabled:              ptrToBool(args.ZveloDbLookupDisabled),
+		EnableCreativeCommonsSearchResults: ptrToBool(args.EnableCreativeCommonsSearchResults),
 	}
 }
 
@@ -207,10 +223,18 @@ func urlAdvancedPolicySettingsToState(r *urlfilteringpolicies.URLAdvancedPolicyS
 			EnablePoepPrompt:                  boolPtr(r.EnablePOEPrompt),
 			EnableMetaPrompt:                  boolPtr(r.EnableMetaPrompt),
 			EnablePerPlexityPrompt:            boolPtr(r.EnablePerPlexityPrompt),
-			BlockSkype:                        boolPtr(r.BlockSkype),
-			EnableNewlyRegisteredDomains:      boolPtr(r.EnableNewlyRegisteredDomains),
-			EnableBlockOverrideForNonAuthUser: boolPtr(r.EnableBlockOverrideForNonAuthUser),
-			EnableCipaCompliance:              boolPtr(r.EnableCIPACompliance),
+			EnableDeepSeekPrompt:              boolPtr(r.EnableDeepSeekPrompt),
+			EnableWriterPrompt:                boolPtr(r.EnableWriterPrompt),
+			EnableGrokPrompt:                  boolPtr(r.EnableGrokPrompt),
+			EnableMistralAiPrompt:             boolPtr(r.EnableMistralAIPrompt),
+			EnableClaudePrompt:                 boolPtr(r.EnableClaudePrompt),
+			EnableGrammarlyPrompt:              boolPtr(r.EnableGrammarlyPrompt),
+			BlockSkype:                         boolPtr(r.BlockSkype),
+			EnableNewlyRegisteredDomains:       boolPtr(r.EnableNewlyRegisteredDomains),
+			EnableBlockOverrideForNonAuthUser:  boolPtr(r.EnableBlockOverrideForNonAuthUser),
+			EnableCipaCompliance:               boolPtr(r.EnableCIPACompliance),
+			ZveloDbLookupDisabled:              boolPtr(r.ZveloDbLookupDisabled),
+			EnableCreativeCommonsSearchResults: boolPtr(r.EnableCreativeCommonsSearchResults),
 		},
 	}
 }
@@ -313,10 +337,18 @@ func (a *UrlFilteringCloudAppSettingsArgs) Annotate(ann infer.Annotator) {
 	ann.Describe(&a.EnablePoepPrompt, "If true, POE prompt visibility and logging is enabled.")
 	ann.Describe(&a.EnableMetaPrompt, "If true, Meta AI prompt visibility and logging is enabled.")
 	ann.Describe(&a.EnablePerPlexityPrompt, "If true, Perplexity AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableDeepSeekPrompt, "If true, DeepSeek AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableWriterPrompt, "If true, Writer AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableGrokPrompt, "If true, Grok AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableMistralAiPrompt, "If true, Mistral AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableClaudePrompt, "If true, Claude AI prompt visibility and logging is enabled.")
+	ann.Describe(&a.EnableGrammarlyPrompt, "If true, Grammarly AI prompt visibility and logging is enabled.")
 	ann.Describe(&a.BlockSkype, "If true, Skype is blocked.")
 	ann.Describe(&a.EnableNewlyRegisteredDomains, "If true, newly registered domains detection is enabled.")
 	ann.Describe(&a.EnableBlockOverrideForNonAuthUser, "If true, block override is enabled for non-authenticated users.")
 	ann.Describe(&a.EnableCipaCompliance, "If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.")
+	ann.Describe(&a.ZveloDbLookupDisabled, "If true, Zvelo database lookup is disabled.")
+	ann.Describe(&a.EnableCreativeCommonsSearchResults, "If true, Creative Commons search results are enabled.")
 }
 
 func (s *UrlFilteringCloudAppSettingsState) Annotate(a infer.Annotator) {

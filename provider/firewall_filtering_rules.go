@@ -210,6 +210,9 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 		s := FirewallFilteringRuleState{FirewallFilteringRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[FirewallFilteringRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -284,6 +287,10 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = filteringrules.Update(ctx, svc, id, rule)
@@ -352,6 +359,9 @@ func (FirewallFilteringRule) Read(ctx context.Context, req infer.ReadRequest[Fir
 }
 
 func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[FirewallFilteringRuleArgs, FirewallFilteringRuleState]) (infer.UpdateResponse[FirewallFilteringRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -414,6 +424,10 @@ func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = filteringrules.Update(ctx, svc, ruleID, rule)

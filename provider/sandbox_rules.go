@@ -166,6 +166,9 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 		s := SandboxRuleState{SandboxRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[SandboxRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[SandboxRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SandboxRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -241,6 +244,9 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = sandbox_rules.Update(ctx, svc, id, rule)
@@ -312,6 +318,9 @@ func (SandboxRule) Read(ctx context.Context, req infer.ReadRequest[SandboxRuleAr
 }
 
 func (SandboxRule) Update(ctx context.Context, req infer.UpdateRequest[SandboxRuleArgs, SandboxRuleState]) (infer.UpdateResponse[SandboxRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[SandboxRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SandboxRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -365,6 +374,9 @@ func (SandboxRule) Update(ctx context.Context, req infer.UpdateRequest[SandboxRu
 			// to avoid the STALE_CONFIGURATION_ERROR
 			rule.LastModifiedTime = 0
 			rule.LastModifiedBy = nil
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.DefaultRule = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = sandbox_rules.Update(ctx, svc, ruleID, rule)

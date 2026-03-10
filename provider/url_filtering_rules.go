@@ -281,6 +281,13 @@ func (URLFilteringRule) Check(ctx context.Context, req infer.CheckRequest) (infe
 			}}}, nil
 		}
 	}
+	// Order must be >= 1
+	if inputs.Order < 1 {
+		return infer.CheckResponse[URLFilteringRuleArgs]{Failures: []p.CheckFailure{{
+			Property: "order",
+			Reason:   "order must be a positive whole number (>= 1)",
+		}}}, nil
+	}
 	// Custom validation (CustomizeDiff equivalent)
 	err = validateURLFilteringCheck(
 		inputs.Action, inputs.BlockOverride, inputs.OverrideUsers, inputs.OverrideGroups,

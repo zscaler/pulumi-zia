@@ -20,7 +20,7 @@
 
 // Package provider implements the NAT Control Rules resource.
 // Adopted from terraform-provider-zia resource_zia_nat_control_rules.go.
-// Uses shared reorderWithBeforeReorder; updateOrder skips predefined rules.
+// Uses shared reorderWithBeforeReorder; updateOrder strips read-only fields for predefined rules.
 
 package provider
 
@@ -182,6 +182,9 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 		s := NatControlRuleState{NatControlRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[NatControlRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[NatControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[NatControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -251,13 +254,13 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 				if err != nil {
 					return err
 				}
-				if rule.Predefined {
-					log.Printf("[INFO] Skipping reorder update for predefined rule ID %d (order: %d)", id, rule.Order)
-					return nil
-				}
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = nat_control_policies.Update(ctx, svc, id, rule)
@@ -326,6 +329,9 @@ func (NatControlRule) Read(ctx context.Context, req infer.ReadRequest[NatControl
 }
 
 func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatControlRuleArgs, NatControlRuleState]) (infer.UpdateResponse[NatControlRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[NatControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[NatControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -372,10 +378,6 @@ func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatCon
 				if err != nil {
 					return err
 				}
-				if rule.Predefined {
-					log.Printf("[INFO] Skipping reorder update for predefined rule ID %d (order: %d)", ruleID, rule.Order)
-					return nil
-				}
 				// Optional: avoid unnecessary updates if the current order is already correct
 				if rule.Order == order.Order && rule.Rank == order.Rank {
 					return nil
@@ -383,6 +385,10 @@ func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatCon
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = nat_control_policies.Update(ctx, svc, ruleID, rule)

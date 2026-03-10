@@ -194,6 +194,9 @@ func (CloudAppControlRule) Create(ctx context.Context, req infer.CreateRequest[C
 	if req.DryRun {
 		return infer.CreateResponse[CloudAppControlRuleState]{ID: "preview", Output: CloudAppControlRuleState{CloudAppControlRuleArgs: req.Inputs, RuleID: intPtr(0)}}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[CloudAppControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[CloudAppControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -261,6 +264,9 @@ func (CloudAppControlRule) Create(ctx context.Context, req infer.CreateRequest[C
 				}
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = cloudappcontrol.Update(ctx, svc, ruleType, id, rule)
@@ -321,6 +327,9 @@ func (CloudAppControlRule) Read(ctx context.Context, req infer.ReadRequest[Cloud
 }
 
 func (CloudAppControlRule) Update(ctx context.Context, req infer.UpdateRequest[CloudAppControlRuleArgs, CloudAppControlRuleState]) (infer.UpdateResponse[CloudAppControlRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[CloudAppControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[CloudAppControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -373,6 +382,9 @@ func (CloudAppControlRule) Update(ctx context.Context, req infer.UpdateRequest[C
 			}
 			// to avoid the STALE_CONFIGURATION_ERROR
 			rule.LastModifiedTime = 0
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.Predefined = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = cloudappcontrol.Update(ctx, svc, ruleType, ruleID, rule)

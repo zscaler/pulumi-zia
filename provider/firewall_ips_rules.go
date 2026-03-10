@@ -184,6 +184,9 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 	if req.DryRun {
 		return infer.CreateResponse[FirewallIPSRuleState]{ID: "preview", Output: FirewallIPSRuleState{FirewallIPSRuleArgs: req.Inputs, RuleID: intPtr(0)}}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[FirewallIPSRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[FirewallIPSRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -255,6 +258,10 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = firewallipscontrolpolicies.Update(ctx, svc, id, rule)
@@ -314,6 +321,9 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 }
 
 func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[FirewallIPSRuleArgs, FirewallIPSRuleState]) (infer.UpdateResponse[FirewallIPSRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[FirewallIPSRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FirewallIPSRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -366,6 +376,10 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 			// to avoid the STALE_CONFIGURATION_ERROR
 			rule.LastModifiedTime = 0
 			rule.LastModifiedBy = nil
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.Predefined = false
+			rule.DefaultRule = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = firewallipscontrolpolicies.Update(ctx, svc, ruleID, rule)
