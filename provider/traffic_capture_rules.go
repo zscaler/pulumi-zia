@@ -202,6 +202,9 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 		s := TrafficCaptureRuleState{TrafficCaptureRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[TrafficCaptureRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -273,6 +276,12 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 				if err != nil {
 					return err
 				}
+				rule.LastModifiedTime = 0
+				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.Predefined = false
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = traffic_capture.Update(ctx, svc, id, rule)
@@ -343,6 +352,9 @@ func (TrafficCaptureRule) Read(ctx context.Context, req infer.ReadRequest[Traffi
 }
 
 func (TrafficCaptureRule) Update(ctx context.Context, req infer.UpdateRequest[TrafficCaptureRuleArgs, TrafficCaptureRuleState]) (infer.UpdateResponse[TrafficCaptureRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -395,6 +407,12 @@ func (TrafficCaptureRule) Update(ctx context.Context, req infer.UpdateRequest[Tr
 			if rule.Order == order.Order && rule.Rank == order.Rank {
 				return nil
 			}
+			rule.LastModifiedTime = 0
+			rule.LastModifiedBy = nil
+			// Strip read-only fields that cause "Request body is invalid" for predefined rules
+			rule.Predefined = false
+			rule.DefaultRule = false
+			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
 			_, err = traffic_capture.Update(ctx, svc, ruleID, rule)

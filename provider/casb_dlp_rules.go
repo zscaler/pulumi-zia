@@ -172,6 +172,9 @@ func (CasbDlpRule) Create(ctx context.Context, req infer.CreateRequest[CasbDlpRu
 	if req.DryRun {
 		return infer.CreateResponse[CasbDlpRuleState]{ID: "preview", Output: CasbDlpRuleState{CasbDlpRuleArgs: req.Inputs, RuleID: intPtr(0)}}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[CasbDlpRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[CasbDlpRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -236,6 +239,8 @@ func (CasbDlpRule) Create(ctx context.Context, req infer.CreateRequest[CasbDlpRu
 				if rule.Order == order.Order {
 					return nil
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				_, err = casb_dlp_rules.Update(ctx, svc, id, rule)
 				return err
@@ -294,6 +299,9 @@ func (CasbDlpRule) Read(ctx context.Context, req infer.ReadRequest[CasbDlpRuleAr
 }
 
 func (CasbDlpRule) Update(ctx context.Context, req infer.UpdateRequest[CasbDlpRuleArgs, CasbDlpRuleState]) (infer.UpdateResponse[CasbDlpRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[CasbDlpRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[CasbDlpRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -345,6 +353,8 @@ func (CasbDlpRule) Update(ctx context.Context, req infer.UpdateRequest[CasbDlpRu
 				if rule.Order == order.Order {
 					return nil
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				_, err = casb_dlp_rules.Update(ctx, svc, ruleID, rule)
 				return err

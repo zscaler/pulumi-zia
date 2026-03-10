@@ -258,21 +258,30 @@ For more information, see the [ZIA Traffic Forwarding documentation](https://hel
 `+tripleBacktick("typescript")+`
 import * as zia from "@bdzscaler/pulumi-zia";
 
+import * as pulumi from "@pulumi/pulumi";
+
+const cfg = new pulumi.Config();
+const vpnPreSharedKey = cfg.requireSecret("vpnPreSharedKey");
+
 const example = new zia.TrafficForwardingVpnCredentials("example", {
     type: "UFQDN",
     fqdn: "user@example.com",
-    preSharedKey: "super-secret-key",
+    preSharedKey: vpnPreSharedKey,
     comments: "Branch office VPN credentials",
 });
 `+tripleBacktick("")+`
 
 `+tripleBacktick("python")+`
+import pulumi
 import zscaler_pulumi_zia as zia
+
+cfg = pulumi.Config()
+vpn_pre_shared_key = cfg.require_secret("vpnPreSharedKey")
 
 example = zia.TrafficForwardingVpnCredentials("example",
     type="UFQDN",
     fqdn="user@example.com",
-    pre_shared_key="super-secret-key",
+    pre_shared_key=vpn_pre_shared_key,
     comments="Branch office VPN credentials",
 )
 `+tripleBacktick("")+`
@@ -284,7 +293,8 @@ resources:
     properties:
       type: UFQDN
       fqdn: user@example.com
-      preSharedKey: super-secret-key
+      preSharedKey:
+        fn::secret: ${vpnPreSharedKey}
       comments: Branch office VPN credentials
 `+tripleBacktick("")+`
 

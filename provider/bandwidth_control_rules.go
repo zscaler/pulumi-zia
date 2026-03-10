@@ -124,6 +124,9 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 	if req.DryRun {
 		return infer.CreateResponse[BandwidthControlRuleState]{ID: "preview", Output: BandwidthControlRuleState{BandwidthControlRuleArgs: req.Inputs, RuleID: intPtr(0)}}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[BandwidthControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[BandwidthControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -194,6 +197,9 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 				if rule.Order == order.Order {
 					return nil
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				_, err = bandwidth_control_rules.Update(ctx, svc, id, rule)
 				return err
@@ -252,6 +258,9 @@ func (BandwidthControlRule) Read(ctx context.Context, req infer.ReadRequest[Band
 }
 
 func (BandwidthControlRule) Update(ctx context.Context, req infer.UpdateRequest[BandwidthControlRuleArgs, BandwidthControlRuleState]) (infer.UpdateResponse[BandwidthControlRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[BandwidthControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[BandwidthControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -302,6 +311,9 @@ func (BandwidthControlRule) Update(ctx context.Context, req infer.UpdateRequest[
 				if rule.Order == order.Order {
 					return nil
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.DefaultRule = false
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				_, err = bandwidth_control_rules.Update(ctx, svc, ruleID, rule)
 				return err

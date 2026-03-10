@@ -80,17 +80,15 @@ func (*GetFileTypeCategories) Invoke(ctx context.Context, req infer.FunctionRequ
 	svc := cfg.Client().Service
 
 	var opts *filetypecontrol.GetFileTypeCategoriesFilterOptions
-	if req.Input.Enums != nil && *req.Input.Enums != "" {
-		if opts == nil {
-			opts = &filetypecontrol.GetFileTypeCategoriesFilterOptions{}
+	needOpts := (req.Input.Enums != nil && *req.Input.Enums != "") || req.Input.ExcludeCustomFileTypes != nil
+	if needOpts {
+		opts = &filetypecontrol.GetFileTypeCategoriesFilterOptions{}
+		if req.Input.Enums != nil && *req.Input.Enums != "" {
+			opts.Enums = []string{*req.Input.Enums}
 		}
-		opts.Enums = []string{*req.Input.Enums}
-	}
-	if req.Input.ExcludeCustomFileTypes != nil {
-		if opts == nil {
-			opts = &filetypecontrol.GetFileTypeCategoriesFilterOptions{}
+		if req.Input.ExcludeCustomFileTypes != nil {
+			opts.ExcludeCustomFileTypes = req.Input.ExcludeCustomFileTypes
 		}
-		opts.ExcludeCustomFileTypes = req.Input.ExcludeCustomFileTypes
 	}
 
 	cats, err := filetypecontrol.GetFileTypeCategories(ctx, svc, opts)

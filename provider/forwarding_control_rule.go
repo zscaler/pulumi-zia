@@ -69,6 +69,7 @@ type ForwardingControlRuleArgs struct {
 	Labels              []int                `pulumi:"labels,optional"`
 	DeviceGroups        []int                `pulumi:"deviceGroups,optional"`
 	ProxyGatewayID      *int                 `pulumi:"proxyGatewayId,optional"`
+	DedicatedIpGatewayID *int                `pulumi:"dedicatedIpGatewayId,optional"`
 	ZPAGatewayID        *int                 `pulumi:"zpaGatewayId,optional"`
 	ZpaAppSegments      []ZPAAppSegmentInput `pulumi:"zpaAppSegments,optional"`
 }
@@ -100,6 +101,10 @@ func forwardingControlRuleArgsToAPI(args *ForwardingControlRuleArgs, id int) for
 	proxyID := 0
 	if args.ProxyGatewayID != nil {
 		proxyID = *args.ProxyGatewayID
+	}
+	dedicatedIPID := 0
+	if args.DedicatedIpGatewayID != nil {
+		dedicatedIPID = *args.DedicatedIpGatewayID
 	}
 	zpaID := 0
 	if args.ZPAGatewayID != nil {
@@ -136,6 +141,7 @@ func forwardingControlRuleArgsToAPI(args *ForwardingControlRuleArgs, id int) for
 		Labels:              idsToIDNameExtensions(args.Labels),
 		DeviceGroups:        idsToIDNameExtensions(args.DeviceGroups),
 		ProxyGateway:        idToOptionalIDName(proxyID),
+		DedicatedIPGateway:  idToOptionalIDName(dedicatedIPID),
 		ZPAGateway:          idToOptionalIDName(zpaID),
 		ZPAAppSegments:      expandZPAAppSegments(args.ZpaAppSegments),
 	}
@@ -177,6 +183,7 @@ func forwardingControlRuleAPIToState(api *forwarding_rules.ForwardingRules) Forw
 			Labels:              idNameExtensionsToIDs(api.Labels),
 			DeviceGroups:        idNameExtensionsToIDs(api.DeviceGroups),
 			ProxyGatewayID:      idNameToOptionalID(api.ProxyGateway),
+			DedicatedIpGatewayID: idNameToOptionalID(api.DedicatedIPGateway),
 			ZPAGatewayID:        idNameToOptionalID(api.ZPAGateway),
 			ZpaAppSegments:      flattenZPAAppSegments(api.ZPAAppSegments),
 		},
@@ -187,6 +194,9 @@ func forwardingControlRuleAPIToState(api *forwarding_rules.ForwardingRules) Forw
 func (ForwardingControlRule) Create(ctx context.Context, req infer.CreateRequest[ForwardingControlRuleArgs]) (infer.CreateResponse[ForwardingControlRuleState], error) {
 	if req.DryRun {
 		return infer.CreateResponse[ForwardingControlRuleState]{ID: "preview", Output: ForwardingControlRuleState{ForwardingControlRuleArgs: req.Inputs, RuleID: intPtr(0)}}, nil
+	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[ForwardingControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
@@ -326,6 +336,9 @@ func (ForwardingControlRule) Read(ctx context.Context, req infer.ReadRequest[For
 }
 
 func (ForwardingControlRule) Update(ctx context.Context, req infer.UpdateRequest[ForwardingControlRuleArgs, ForwardingControlRuleState]) (infer.UpdateResponse[ForwardingControlRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[ForwardingControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[ForwardingControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -540,7 +553,7 @@ func (a *ForwardingControlRuleArgs) Annotate(ann infer.Annotator) {
 	ann.Describe(&a.Order, "The order of execution of the rule with respect to other forwarding control rules.")
 	ann.Describe(&a.Description, "Additional information about the forwarding control rule.")
 	ann.Describe(&a.Type, "The rule type. Valid values: `FORWARDING`.")
-	ann.Describe(&a.ForwardMethod, "The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.")
+	ann.Describe(&a.ForwardMethod, "The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.")
 	ann.Describe(&a.Rank, "Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.")
 	ann.Describe(&a.State, "Rule state. Valid values: `ENABLED`, `DISABLED`.")
 	ann.Describe(&a.SrcIps, "Source IP addresses or CIDR ranges for the rule.")
@@ -565,6 +578,7 @@ func (a *ForwardingControlRuleArgs) Annotate(ann infer.Annotator) {
 	ann.Describe(&a.Labels, "IDs of labels associated with the rule.")
 	ann.Describe(&a.DeviceGroups, "IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.")
 	ann.Describe(&a.ProxyGatewayID, "The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.")
+	ann.Describe(&a.DedicatedIpGatewayID, "The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.")
 	ann.Describe(&a.ZPAGatewayID, "The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.")
 	ann.Describe(&a.ZpaAppSegments, "List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.")
 }

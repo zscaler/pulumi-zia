@@ -169,6 +169,9 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 		s := FileTypeControlRuleState{FileTypeControlRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[FileTypeControlRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[FileTypeControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[FileTypeControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -242,6 +245,8 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = filetypecontrol.Update(ctx, svc, id, rule)
@@ -310,6 +315,9 @@ func (FileTypeControlRule) Read(ctx context.Context, req infer.ReadRequest[FileT
 }
 
 func (FileTypeControlRule) Update(ctx context.Context, req infer.UpdateRequest[FileTypeControlRuleArgs, FileTypeControlRuleState]) (infer.UpdateResponse[FileTypeControlRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[FileTypeControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FileTypeControlRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -370,6 +378,8 @@ func (FileTypeControlRule) Update(ctx context.Context, req infer.UpdateRequest[F
 				// to avoid the STALE_CONFIGURATION_ERROR
 				rule.LastModifiedTime = 0
 				rule.LastModifiedBy = nil
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = filetypecontrol.Update(ctx, svc, ruleID, rule)

@@ -151,6 +151,9 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 		s := DlpWebRuleState{DlpWebRuleArgs: req.Inputs, RuleID: intPtr(0)}
 		return infer.CreateResponse[DlpWebRuleState]{ID: "preview", Output: s}, nil
 	}
+	if req.Inputs.Order < 1 {
+		return infer.CreateResponse[DlpWebRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[DlpWebRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -221,6 +224,8 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 				if err != nil {
 					return err
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = dlp_web_rules.Update(ctx, svc, id, rule)
@@ -289,6 +294,9 @@ func (DlpWebRule) Read(ctx context.Context, req infer.ReadRequest[DlpWebRuleArgs
 }
 
 func (DlpWebRule) Update(ctx context.Context, req infer.UpdateRequest[DlpWebRuleArgs, DlpWebRuleState]) (infer.UpdateResponse[DlpWebRuleState], error) {
+	if req.Inputs.Order < 1 {
+		return infer.UpdateResponse[DlpWebRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
+	}
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[DlpWebRuleState]{}, fmt.Errorf("ZIA provider not configured")
@@ -342,6 +350,8 @@ func (DlpWebRule) Update(ctx context.Context, req infer.UpdateRequest[DlpWebRule
 				if rule.Order == order.Order && rule.Rank == order.Rank {
 					return nil
 				}
+				// Strip read-only fields that cause "Request body is invalid" for predefined rules
+				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
 				_, err = dlp_web_rules.Update(ctx, svc, ruleID, rule)
