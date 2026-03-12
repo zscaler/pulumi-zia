@@ -1,6 +1,24 @@
 # Changelog
 
-## 1.3.5 (March, 111 2026)
+## 1.3.6 (March, 12 2026)
+
+### Notes
+
+- Release date: **(March, 12 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #66](https://github.com/zscaler/pulumi-zia/pull/66) - Fixed tautological nil check in `getFileTypeCategories` data source.
+- Removed hardcoded credential placeholder from `zia_traffic_forwarding_vpn_credentials` example documentation; examples now use `pulumi.Config.requireSecret` for pre-shared keys.
+
+### Enhancements
+
+- [PR #66](https://github.com/zscaler/pulumi-zia/pull/66) - Added `dedicatedIpGatewayId` attribute to resource `zia_forwarding_control_rule` for Dedicated IP Gateway support.
+- [PR #66](https://github.com/zscaler/pulumi-zia/pull/66) - Added new attributes to resource `zia_url_filtering_and_cloud_app_settings`: `enableDeepSeekPrompt`, `enableWriterPrompt`, `enableGrokPrompt`, `enableMistralAiPrompt`, `enableClaudePrompt`, `enableGrammarlyPrompt`, `zveloDbLookupDisabled`, `enableCreativeCommonsSearchResults`.
+- [PR #66](https://github.com/zscaler/pulumi-zia/pull/66) - Fixed Go SDK version stamping: release workflow now commits regenerated Go SDK with the correct version and updates the `sdk/` tag, resolving `1.0.0-alpha.0+dev` resolution errors for Go users.
+
+## 1.3.5 (March, 11 2026)
 
 ### Notes
 
